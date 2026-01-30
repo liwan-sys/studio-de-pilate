@@ -37,10 +37,10 @@
         .d-2 { animation-delay: 0.3s; }
         .d-3 { animation-delay: 0.5s; }
 
-        /* CARTE SOIN (Design apaisant) */
+        /* CARTE SOIN */
         .care-card {
             background: rgba(255, 255, 255, 0.6);
-            border-radius: 20px; /* Plus rond pour la douceur */
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: all 0.4s ease;
@@ -51,45 +51,30 @@
         .care-card:hover {
             transform: translateY(-5px);
             background: white;
-            box-shadow: 0 15px 30px rgba(74, 141, 132, 0.15); /* Ombre verte douce */
+            box-shadow: 0 15px 30px rgba(74, 141, 132, 0.15);
         }
 
-        .care-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            display: block;
-        }
+        .care-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .care-title { color: var(--svb-green-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+        .care-desc { font-size: 0.85rem; color: #666; line-height: 1.6; padding: 0 20px 20px 20px; }
 
-        .care-title {
-            color: var(--svb-green-dark);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 8px;
-        }
-
-        .care-desc {
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.6;
-            padding: 0 20px 20px 20px;
-        }
-
-        /* SECTION PRATICIENS */
+        /* SECTION PRATICIENS (Mise à jour pour 10 personnes) */
         .expert-card {
             display: flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50px 10px 10px 50px; /* Forme originale */
+            background: rgba(255, 255, 255, 0.85); /* Un peu plus blanc pour ressortir */
+            border-radius: 50px 10px 10px 50px;
             padding: 10px;
-            margin-bottom: 20px;
             transition: transform 0.3s;
+            border: 1px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .expert-card:hover { transform: scale(1.02); }
+        .expert-card:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
         .expert-img {
             width: 80px;
             height: 80px;
+            min-width: 80px; /* Force la taille */
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--svb-peach);
@@ -101,12 +86,12 @@
             color: white;
             padding: 4px 15px;
             border-radius: 20px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
+            font-weight: 700;
             display: inline-block;
             margin-bottom: 5px;
         }
-
     </style>
 </head>
 <body>
@@ -119,8 +104,10 @@
             <a href="index.html" class="hover:text-black transition">L'UNIVERS</a>
             <a href="sessions.html" class="hover:text-black transition">SESSIONS</a>
             <a href="equipe.html" class="hover:text-black transition">LA TEAM</a>
-            <a href="bien-etre.html" class="border-b-2 border-[#4A8D84] pb-1">BIEN-ÊTRE</a> <a href="studio.html" class="hover:text-black transition">PLANNING</a>
+            <a href="bien-etre.html" class="border-b-2 border-[#4A8D84] pb-1">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:text-black transition">PLANNING</a>
             <a href="tarifs.html" class="hover:text-black transition">TARIFS</a>
+            <a href="faq.html" class="hover:text-black transition">FAQ</a>
             <a href="contact.html" class="hover:text-black transition">CONTACT</a>
         </div>
     </nav>
@@ -128,7 +115,7 @@
     <div class="text-center py-12 px-4 reveal-load d-1">
         <h1 class="text-6xl text-[#4A8D84] drop-shadow-sm mb-4">L'Équilibre Corps & Esprit</h1>
         <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-light max-w-2xl mx-auto leading-relaxed">
-            Parce que la récupération fait partie de l'entraînement. Découvrez notre pôle paramédical et bien-être au cœur du studio.
+            Parce que la récupération fait partie de l'entraînement. Découvrez notre pôle paramédical et bien-être.
         </p>
     </div>
 
@@ -139,80 +126,80 @@
             <div class="care-card pt-8">
                 <span class="care-icon">🦴</span>
                 <h3 class="care-title">Ostéopathie</h3>
-                <p class="care-desc">Pour rétablir l'équilibre du corps, soulager les tensions et prévenir les blessures. Indispensable pour accompagner votre pratique sportive.</p>
+                <p class="care-desc">Pour rétablir l'équilibre du corps, soulager les tensions et prévenir les blessures.</p>
             </div>
 
             <div class="care-card pt-8">
                 <span class="care-icon">✨</span>
                 <h3 class="care-title">Kobido</h3>
-                <p class="care-desc">Le lifting naturel japonais. Un massage profond du visage qui stimule la circulation, lisse les traits et apporte un éclat immédiat.</p>
+                <p class="care-desc">Le lifting naturel japonais. Un massage profond du visage pour un éclat immédiat.</p>
             </div>
 
             <div class="care-card pt-8">
                 <span class="care-icon">💆‍♀️</span>
-                <h3 class="care-title">Massages Sportifs & Relaxants</h3>
-                <p class="care-desc">Récupération musculaire profonde après une session intense ou détente absolue pour lâcher prise. Adapté à vos besoins.</p>
+                <h3 class="care-title">Massages</h3>
+                <p class="care-desc">Sportifs pour la récupération ou Relaxants pour le lâcher-prise absolu.</p>
             </div>
 
             <div class="care-card pt-8">
                 <span class="care-icon">💧</span>
-                <h3 class="care-title">Drainage Lymphatique</h3>
-                <p class="care-desc">Technique manuelle douce pour relancer la circulation, éliminer les toxines, réduire la rétention d'eau et alléger les jambes.</p>
+                <h3 class="care-title">Drainage</h3>
+                <p class="care-desc">Technique manuelle pour relancer la circulation et réduire la rétention d'eau.</p>
             </div>
 
             <div class="care-card pt-8">
                 <span class="care-icon">🪵</span>
                 <h3 class="care-title">Madérothérapie</h3>
-                <p class="care-desc">Massage remodelant utilisant des outils en bois pour sculpter la silhouette, tonifier la peau et casser les amas graisseux.</p>
+                <p class="care-desc">Massage remodelant utilisant des outils en bois pour sculpter la silhouette.</p>
             </div>
 
             <div class="care-card pt-8">
                 <span class="care-icon">🥗</span>
                 <h3 class="care-title">Diététique</h3>
-                <p class="care-desc">Apprenez à nourrir votre corps pour la performance et la santé, sans frustration. Suivi personnalisé et plans nutritionnels.</p>
+                <p class="care-desc">Apprenez à nourrir votre corps pour la performance et la santé, sans frustration.</p>
             </div>
 
             <div class="care-card pt-8">
                 <span class="care-icon">🦶</span>
                 <h3 class="care-title">Réflexologie</h3>
-                <p class="care-desc">Stimulation des points réflexes des pieds pour agir sur l'ensemble du corps et apaiser le système nerveux.</p>
+                <p class="care-desc">Stimulation des points réflexes des pieds pour apaiser le système nerveux.</p>
             </div>
 
             <div class="care-card pt-8">
                 <span class="care-icon">🌿</span>
                 <h3 class="care-title">Sophrologie</h3>
-                <p class="care-desc">Techniques de respiration et de visualisation pour gérer le stress, améliorer le sommeil et préparer le mental.</p>
+                <p class="care-desc">Techniques de respiration et visualisation pour gérer le stress.</p>
             </div>
 
             <div class="care-card pt-8">
                 <span class="care-icon">☯️</span>
-                <h3 class="care-title">Acupuncture & Soin Amma</h3>
-                <p class="care-desc">Médecine traditionnelle pour rééquilibrer les énergies vitales, soulager les douleurs et revitaliser l'organisme.</p>
+                <h3 class="care-title">Acupuncture</h3>
+                <p class="care-desc">Médecine traditionnelle pour rééquilibrer les énergies vitales.</p>
             </div>
 
         </section>
 
 
-        <section class="max-w-4xl mx-auto reveal-load d-3">
-            <h2 class="text-4xl text-center text-[#4A8D84] font-hand mb-10">Nos Praticiens</h2>
+        <section class="max-w-5xl mx-auto reveal-load d-3">
+            <h2 class="text-4xl text-center text-[#4A8D84] font-hand mb-10">Nos Experts Bien-être</h2>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-6">
                 
                 <div class="expert-card">
                     <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80" class="expert-img">
                     <div>
                         <span class="bg-title-soin">Ostéopathe</span>
-                        <h4 class="font-bold text-lg">Prénom</h4>
-                        <p class="text-xs text-gray-600">Spécialisé sportifs & périnatalité.</p>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Spécialisé sportifs & dos.</p>
                     </div>
                 </div>
 
                 <div class="expert-card">
                     <img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80" class="expert-img">
                     <div>
-                        <span class="bg-title-soin">Facialiste</span>
-                        <h4 class="font-bold text-lg">Prénom</h4>
-                        <p class="text-xs text-gray-600">Expertise Kobido & Soins visage.</p>
+                        <span class="bg-title-soin">Facialiste (Kobido)</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Expertise beauté & jeunesse.</p>
                     </div>
                 </div>
 
@@ -220,8 +207,8 @@
                     <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80" class="expert-img">
                     <div>
                         <span class="bg-title-soin">Masseuse</span>
-                        <h4 class="font-bold text-lg">Prénom</h4>
-                        <p class="text-xs text-gray-600">Madérothérapie & Drainage.</p>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Massage sportif & Deep Tissue.</p>
                     </div>
                 </div>
 
@@ -229,8 +216,62 @@
                     <img src="https://images.unsplash.com/photo-1628890918667-e984f48b998a?auto=format&fit=crop&q=80" class="expert-img">
                     <div>
                         <span class="bg-title-soin">Diététicienne</span>
-                        <h4 class="font-bold text-lg">Prénom</h4>
-                        <p class="text-xs text-gray-600">Nutrition sportive & santé.</p>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Nutrition & Rééquilibrage.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Praticienne Madéro</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Remodelage & Minceur.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Réflexologue</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Gestion du stress & énergie.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Sophrologue</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Préparation mentale & sommeil.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Acupuncteur</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Médecine traditionnelle chinoise.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1525130413897-71995d680968?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Masseuse Drainage</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Méthode Renata & Lymphatique.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Praticien Amma</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Détente express & assis.</p>
                     </div>
                 </div>
 
