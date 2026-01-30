@@ -39,18 +39,20 @@
 
         /* Cartes de Sessions */
         .session-card {
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
             border-radius: 8px;
             padding: 25px;
             transition: all 0.3s ease;
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         .session-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
         .category-badge {
@@ -62,7 +64,13 @@
             text-transform: uppercase;
             color: white;
             margin-bottom: 15px;
+            width: fit-content;
         }
+
+        /* Couleurs badges */
+        .badge-green { background-color: #4A8D84; }
+        .badge-peach { background-color: #E8B496; }
+        .badge-sand { background-color: #D6C496; }
     </style>
 </head>
 <body>
@@ -82,48 +90,48 @@
 
     <div class="text-center py-10 px-4 reveal-load d-1">
         <h1 class="text-6xl text-white drop-shadow-md mb-2">Nos Sessions</h1>
-        <p class="text-white uppercase tracking-widest text-sm font-light">Découvrez l'intensité qui vous correspond</p>
+        <p class="text-white uppercase tracking-widest text-sm font-light">Trouvez l'intensité qui vous correspond</p>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 pb-20">
 
         <section class="mb-20 reveal-load d-2">
             <div class="flex items-center mb-8">
-                <h2 class="text-4xl text-white font-hand mr-4">Univers Reformer</h2>
+                <h2 class="text-4xl text-white font-hand mr-4">Pilates & Reformer</h2>
                 <div class="h-px bg-white flex-grow opacity-50"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
                 
                 <div class="session-card">
-                    <span class="category-badge bg-[#88C0A6]">Pilates Machines</span>
+                    <span class="category-badge badge-green">Machine</span>
                     <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Pilates Reformer</h3>
                     <p class="text-sm text-gray-700 leading-relaxed">
-                        Le cours signature. Grâce aux ressorts et aux sangles du Reformer, vous travaillez le renforcement musculaire profond, l'alignement et la souplesse. Idéal pour sculpter la silhouette sans impact.
+                        Une méthode complète et douce qui engage tout le corps. Grâce à un appareil équipé de ressorts, vous améliorez votre posture, renforcez votre sangle abdominale en profondeur et développez votre souplesse. Chaque mouvement est contrôlé, précis et pensé pour sculpter le corps tout en préservant les articulations.
                     </p>
                 </div>
 
                 <div class="session-card">
-                    <span class="category-badge bg-[#E8B496]">Intensité +</span>
-                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Pilates Crossformer</h3>
+                    <span class="category-badge badge-peach">Intense</span>
+                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Crossformer</h3>
                     <p class="text-sm text-gray-700 leading-relaxed">
-                        Une fusion explosive entre le Pilates et le cardio. Plus dynamique, ce cours enchaîne les mouvements pour faire monter le rythme cardiaque tout en gardant la précision du Pilates.
+                        Le Crossformer combine le meilleur du Pilates Reformer et du renforcement musculaire en proposant une session intense et dynamique qui sculpte votre silhouette tout en protégeant vos articulations. Cardio et renfo !
                     </p>
                 </div>
 
                 <div class="session-card">
-                    <span class="category-badge bg-[#88C0A6]">Renforcement</span>
+                    <span class="category-badge badge-sand">Douceur & Précision</span>
+                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Classic Pilates</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        Une pratique douce et précise, axée sur les muscles profonds, la posture, la respiration et le contrôle du mouvement. Idéal pour poser les bases.
+                    </p>
+                </div>
+
+                <div class="session-card">
+                    <span class="category-badge badge-green">Dynamique</span>
                     <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Power Pilates</h3>
                     <p class="text-sm text-gray-700 leading-relaxed">
-                        Un niveau au-dessus. Des séquences plus rapides et plus intenses pour ceux qui maîtrisent déjà les bases et cherchent à se challenger davantage sur la machine.
-                    </p>
-                </div>
-
-                <div class="session-card">
-                    <span class="category-badge bg-[#D6C496]">Douceur</span>
-                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Core & Stretch</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        L'équilibre parfait. 25 minutes de travail abdominal intense (Core) suivies de 25 minutes d'étirements profonds (Stretch) pour relâcher les tensions.
+                        Plus dynamique et plus intense : on garde les bases du Pilates avec un rythme plus soutenu pour renforcer et tonifier davantage.
                     </p>
                 </div>
 
@@ -133,69 +141,113 @@
 
         <section class="mb-20 reveal-load d-3">
             <div class="flex items-center mb-8">
-                <h2 class="text-4xl text-white font-hand mr-4">Univers Coaching & Flow</h2>
+                <h2 class="text-4xl text-white font-hand mr-4">Les Sessions Cross</h2>
                 <div class="h-px bg-white flex-grow opacity-50"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-3 gap-6">
                 
                 <div class="session-card">
-                    <span class="category-badge bg-[#88C0A6]">Cardio & Force</span>
-                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Cross Training</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Entraînement fonctionnel en petit groupe. On utilise des Kettlebells, TRX et le poids du corps pour développer la force, l'endurance et l'explosivité.
+                    <span class="category-badge badge-peach">Cardio + Renfo</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#2F4F4F]">Cross Training</h3>
+                    <p class="text-sm text-gray-700">Full body cardio + renforcement, intense et complet.</p>
+                </div>
+
+                <div class="session-card">
+                    <span class="category-badge badge-peach">Hyrox Style</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#2F4F4F]">Cross Rox</h3>
+                    <p class="text-sm text-gray-700">Format type HYROX (cardio + ateliers fonctionnels). Pour tester son endurance.</p>
+                </div>
+
+                <div class="session-card">
+                    <span class="category-badge badge-green">Low Impact</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#2F4F4F]">Cross Body</h3>
+                    <p class="text-sm text-gray-700">Renforcement sans impact (low-impact), tonus et posture.</p>
+                </div>
+
+                <div class="session-card">
+                    <span class="category-badge badge-green">Abs & Gainage</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#2F4F4F]">Cross Core</h3>
+                    <p class="text-sm text-gray-700">Gainage, abdos profonds, stabilité. Un centre du corps en béton.</p>
+                </div>
+
+                <div class="session-card">
+                    <span class="category-badge badge-sand">Mobilité</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#2F4F4F]">Cross Yoga</h3>
+                    <p class="text-sm text-gray-700">Yoga sans l'aspect spirituel, mobilité, renforcement doux et étirements.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mb-20 reveal-load d-3">
+            <div class="flex items-center mb-8">
+                <h2 class="text-4xl text-white font-hand mr-4">Flow, Boxe & Dance</h2>
+                <div class="h-px bg-white flex-grow opacity-50"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <div class="session-card">
+                    <span class="category-badge badge-sand">Dynamique</span>
+                    <h3 class="text-2xl font-bold mb-2 text-[#2F4F4F]">Yoga Vinyasa</h3>
+                    <p class="text-sm text-gray-700">
+                        Un yoga dynamique : on enchaîne les postures en rythme avec la respiration pour se renforcer, se tonifier et se libérer le mental.
                     </p>
                 </div>
 
                 <div class="session-card">
-                    <span class="category-badge bg-[#D6C496]">Flow</span>
-                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Yoga Vinyasa</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Un yoga dynamique où le mouvement est synchronisé avec le souffle. On enchaîne les postures (asanas) de manière fluide pour créer une méditation en mouvement.
+                    <span class="category-badge badge-sand">Doux</span>
+                    <h3 class="text-2xl font-bold mb-2 text-[#2F4F4F]">Hatha Flow</h3>
+                    <p class="text-sm text-gray-700">
+                        Plus doux et accessible : on prend le temps de bien placer les postures, d'améliorer la souplesse et de relâcher les tensions.
                     </p>
                 </div>
 
                 <div class="session-card">
-                    <span class="category-badge bg-[#D6C496]">Équilibre</span>
-                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Hatha Flow</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Plus lent que le Vinyasa, le Hatha permet de tenir les postures plus longtemps pour travailler l'alignement et la respiration en profondeur.
+                    <span class="category-badge badge-peach">Défouloir</span>
+                    <h3 class="text-2xl font-bold mb-2 text-[#2F4F4F]">Boxe Anglaise</h3>
+                    <p class="text-sm text-gray-700">
+                        Une session cardio et technique : on apprend les bases (garde, déplacements, directs, crochets), on travaille le sac/pattes d'ours et le renforcement musculaire. Accessible à tous niveaux.
                     </p>
                 </div>
 
                 <div class="session-card">
-                    <span class="category-badge bg-[#E8B496]">Défouloir</span>
-                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Boxe & Fit</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Initiez-vous aux mouvements de la boxe anglaise ou thaï dans un cadre fitness. Idéal pour évacuer le stress et tonifier le haut du corps.
-                    </p>
-                </div>
-
-                <div class="session-card">
-                    <span class="category-badge bg-[#E8B496]">Danse</span>
-                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Afro Danc'All</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Lâcher-prise total ! Des chorégraphies inspirées des danses africaines et urbaines pour bouger, transpirer et surtout s'amuser.
-                    </p>
-                </div>
-
-                <div class="session-card">
-                    <span class="category-badge bg-[#E8B496]">Enfants</span>
-                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Yoga & Training Kids</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Des séances ludiques adaptées aux enfants pour développer leur motricité, leur concentration et leur confiance en eux, tout en s'amusant.
+                    <span class="category-badge badge-peach">Fun</span>
+                    <h3 class="text-2xl font-bold mb-2 text-[#2F4F4F]">Afrodance'All</h3>
+                    <p class="text-sm text-gray-700">
+                        Une session fun et énergique sur des sons afro : on apprend une choré simple, on se lâche, on transpire et on repart reboosté. Accessible à tous niveaux !
                     </p>
                 </div>
 
             </div>
         </section>
 
-        <div class="text-center mt-12 reveal-load d-3">
-            <h3 class="text-2xl font-hand text-white mb-6">Prêt à transpirer ?</h3>
-            <a href="studio.html" class="inline-block bg-white text-[#4A8D84] px-8 py-3 uppercase font-bold text-sm tracking-widest hover:scale-105 transition shadow-lg">
-                Voir le planning
-            </a>
-        </div>
+        <section class="reveal-load d-3">
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <div class="bg-white/40 p-8 rounded-lg border border-white">
+                    <h3 class="text-3xl font-hand mb-4 text-[#E8B496]">Session Kids</h3>
+                    <div class="mb-4">
+                        <strong class="block text-sm uppercase mb-1">Yoga Kids</strong>
+                        <p class="text-xs text-gray-700">On bouge, on respire, on s'étire avec des jeux et des histoires : ça aide à se calmer et à se concentrer.</p>
+                    </div>
+                    <div>
+                        <strong class="block text-sm uppercase mb-1">Training Kids</strong>
+                        <p class="text-xs text-gray-700">Des petits parcours et exercices fun pour se dépenser, devenir plus fort, plus rapide et plus à l'aise dans son corps.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/40 p-8 rounded-lg border border-white">
+                    <h3 class="text-3xl font-hand mb-4 text-[#4A8D84]">Coaching Individuel ou Duo</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                        En solo ou en duo, profitez d'un accompagnement sur-mesure selon vos objectifs : remise en forme, perte de poids, renforcement, mobilité ou performance.
+                    </p>
+                    <p class="text-xs italic text-gray-600">Le coach adapte chaque séance à votre niveau, corrige votre technique et vous fait progresser plus vite, en toute sécurité.</p>
+                </div>
+
+            </div>
+        </section>
 
     </div>
 
