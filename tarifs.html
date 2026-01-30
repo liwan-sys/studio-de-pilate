@@ -3,393 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVB | SantezVousBien - Saint-Ouen</title>
+    <title>Tarifs | SVB SantezVousBien</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         :root {
             --svb-green-light: #98D0B3; 
-            --svb-green-dark: #4A5D54;
-            --svb-sand: #F2E6CF;
-            --svb-white: #FFFFFF;
+            --svb-green-dark: #4A8D84;  
+            --svb-sand: #F2E6CF;        
+            --svb-peach: #E8B496;
+            --svb-text: #2F4F4F;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
-            color: var(--svb-green-dark);
             font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-            cursor: none; /* Curseur personnalisé */
+            background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
+            color: var(--svb-text);
+            min-height: 100vh;
         }
 
-        /* Canvas 3D en arrière-plan */
-        #canvas-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.5;
-            pointer-events: none;
-        }
+        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* --- CURSEUR --- */
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border: 1px solid var(--svb-green-dark);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, background 0.3s;
-        }
-        .cursor.active {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.3);
-            border-color: transparent;
-            backdrop-filter: blur(2px);
-        }
-
-        /* --- TYPOGRAPHIE --- */
-        h1, h2, h3 { margin: 0; }
-        
-        .script-font {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 8rem);
-            line-height: 0.9;
-            text-transform: uppercase;
-            color: var(--svb-white);
-            letter-spacing: -2px;
-            mix-blend-mode: overlay;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 4rem);
-            text-transform: uppercase;
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-
-        /* --- LAYOUT --- */
-        section {
-            padding: 80px 5vw;
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* --- BANDEAU DÉFILANT (MARQUEE) --- */
-        .marquee-container {
-            background: var(--svb-green-dark);
-            color: var(--svb-sand);
-            padding: 15px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            transform: rotate(-1deg);
-            margin: 40px -10px;
-            border-top: 2px solid white;
-            border-bottom: 2px solid white;
-        }
-        .marquee-content {
-            display: inline-block;
-            animation: scroll 20s linear infinite;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* --- CARTES STUDIOS --- */
-        .studios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-        .studio-card {
-            background: rgba(255, 255, 255, 0.3);
+        /* Carte de prix style "Verre" (SANS ANIMATION DE FLOTTEMENT) */
+        .price-card {
+            background: rgba(255, 255, 255, 0.7); /* Un peu plus opaque pour la lisibilité */
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.6);
-            padding: 40px;
-            border-radius: 20px;
-            transition: transform 0.4s;
-        }
-        .studio-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.5);
-        }
-        .studio-badge {
-            display: inline-block;
-            background: var(--svb-green-dark);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 20px;
         }
 
-        /* --- BOUTONS --- */
-        .btn-svb {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--svb-green-dark);
-            color: white;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            margin-top: 20px;
-        }
-        .btn-svb:hover {
-            background: white;
-            color: var(--svb-green-dark);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
+        .card-header { padding: 15px; color: white; text-align: center; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+        .bg-green-dark { background-color: var(--svb-green-dark); }
+        .bg-peach { background-color: var(--svb-peach); }
+        .bg-sand { background-color: #D6C496; }
 
-        /* --- PRIX --- */
-        .price-highlight {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--svb-green-dark);
-            margin: 10px 0;
-        }
-        .price-sub {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.8;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: var(--svb-green-dark);
-            color: var(--svb-sand);
-            padding: 60px 5vw;
-            text-align: center;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        
-        /* Utilitaires Animation */
-        .reveal { opacity: 0; transform: translateY(30px); }
-
+        .price-row { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 8px 0; font-size: 0.9rem; }
+        .price-row:last-child { border-bottom: none; }
     </style>
 </head>
 <body>
 
-    <div class="cursor" id="cursor"></div>
-
-    <div id="canvas-container"></div>
-
-    <nav style="position: fixed; top: 0; width: 100%; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 100; mix-blend-mode: difference; color: white; box-sizing: border-box;">
-        <div style="font-weight: 700; font-size: 1.5rem;">SVB</div>
-        <a href="https://studiosvb.com" class="hover-trigger" style="color: white; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; border: 1px solid white; padding: 10px 20px; border-radius: 30px;">Réserver</a>
+    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+            <h1 class="text-2xl font-bold tracking-widest drop-shadow-md">SVB</h1>
+        </div>
+        <div class="flex space-x-6 text-sm font-semibold tracking-wide">
+            <a href="index.html" class="hover:text-gray-100">L'UNIVERS</a>
+            <a href="studio.html" class="hover:text-gray-100">PLANNING</a>
+            <a href="tarifs.html" class="border-b-2 border-white pb-1">TARIFS</a>
+            <a href="contact.html" class="hover:text-gray-100">CONTACT</a>
+        </div>
     </nav>
 
-    <main id="smooth-wrapper">
-        <div id="smooth-content">
+    <div class="text-center py-10 px-4">
+        <h1 class="text-6xl text-white drop-shadow-md mb-2">Nos Tarifs</h1>
+        <p class="text-white uppercase tracking-widest text-sm font-light">Investissez en vous-même</p>
+    </div>
 
-            <section style="height: 100vh; text-align: center;">
-                <p class="script-font reveal" style="font-size: 2rem; color: var(--svb-green-dark); margin-bottom: 20px;">L'endroit pour prendre soin de soi</p>
-                <h1 class="hero-title reveal">SANTEZ<br>VOUS BIEN</h1>
-                <p class="reveal" style="margin-top: 30px; font-size: 1.2rem; letter-spacing: 3px; text-transform: uppercase;">Saint-Ouen • Pilates • Coaching</p>
-            </section>
+    <div class="max-w-6xl mx-auto px-4 pb-20">
 
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    PILATES AU SOL &nbsp;•&nbsp; YOGA &nbsp;•&nbsp; REFORMER &nbsp;•&nbsp; COACHING INDIVIDUEL &nbsp;•&nbsp; CROSSFORMER &nbsp;•&nbsp; CROSS TRAINING &nbsp;•&nbsp; AFRODANCE'ALL &nbsp;•&nbsp; BOXE &nbsp;•&nbsp; PILATES AU SOL &nbsp;•&nbsp; YOGA &nbsp;•&nbsp; REFORMER &nbsp;•&nbsp; 
+        <section class="mb-16">
+            <div class="max-w-2xl mx-auto price-card border-4 border-white">
+                <div class="bg-[#4A8D84] text-white py-6 text-center">
+                    <h2 class="text-3xl font-bold uppercase">New Pass Starter</h2>
+                    <p class="text-xs uppercase tracking-widest mt-1">Offre Découverte</p>
+                </div>
+                <div class="p-8 text-center">
+                    <p class="text-6xl font-bold text-[#4A8D84] mb-6">99,90€</p>
+                    <ul class="space-y-3 text-sm font-semibold text-gray-700 uppercase mb-8">
+                        <li>✨ 5 Sessions différentes au choix</li>
+                        <li>✨ Pas d'engagement</li>
+                        <li>✨ Pas de tacite reconduction</li>
+                        <li>✨ Valable 1 mois</li>
+                    </ul>
+                    <a href="#" class="inline-block bg-[#4A8D84] text-white px-8 py-3 uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition">Choisir ce pass</a>
+                </div>
+            </div>
+        </section>
+
+        <h2 class="text-4xl text-center text-white font-hand mb-10">Nos Abonnements Mensuels</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="price-card">
+                <div class="card-header bg-green-dark">Coaching Pass Good Vibes <br><span class="text-xs font-normal">(55 min - Individuel)</span></div>
+                <div class="p-6">
+                    <div class="price-row"><span>4 Séances / mois</span> <span class="font-bold">300,30€</span></div>
+                    <div class="price-row"><span>8 Séances / mois</span> <span class="font-bold">560,30€</span></div>
+                    <p class="text-xs text-center mt-4 italic text-gray-500">Engagement 3 mois</p>
+                </div>
+                <div class="card-header bg-green-dark mt-4 border-t border-white">Pass Duo <br><span class="text-xs font-normal">(55 min - Prix total)</span></div>
+                <div class="p-6">
+                    <div class="price-row"><span>4 Séances / mois</span> <span class="font-bold">400,60€</span></div>
+                    <div class="text-xs text-right text-gray-500 mb-2">Soit 200,30€/pers</div>
+                    <div class="price-row"><span>8 Séances / mois</span> <span class="font-bold">720,60€</span></div>
+                    <div class="text-xs text-right text-gray-500">Soit 360,30€/pers</div>
+                    <p class="text-xs text-center mt-4 italic text-gray-500">Engagement 3 mois</p>
                 </div>
             </div>
 
-            <section>
-                <div class="container">
-                    <h2 class="section-title text-center reveal">Nos deux univers</h2>
-                    <p class="text-center reveal" style="max-width: 600px; margin: 0 auto 40px auto;">Deux studios complémentaires au cœur de Saint-Ouen pour un corps plus fort et un esprit apaisé.</p>
-                    
-                    <div class="studios-grid">
-                        <div class="studio-card hover-trigger reveal">
-                            <span class="studio-badge">Performance & Énergie</span>
-                            <h3 style="font-size: 1.8rem; margin-bottom: 10px;">PARC DES DOCKS</h3>
-                            <p style="font-size: 0.9rem; margin-bottom: 20px;">6 Mail André Breton</p>
-                            <p style="line-height: 1.6;">
-                                Axé sur la performance et le renforcement. 
-                                <br><strong>Activités :</strong> Cross Training, Cross Body, Boxe, Afrodanc'all, Kids Training.
-                            </p>
-                        </div>
-                        
-                        <div class="studio-card hover-trigger reveal">
-                            <span class="studio-badge" style="background: var(--svb-sand); color: var(--svb-green-dark);">Flow & Contrôle</span>
-                            <h3 style="font-size: 1.8rem; margin-bottom: 10px;">LAVANDIÈRES</h3>
-                            <p style="font-size: 0.9rem; margin-bottom: 20px;">40 Cours Lavandières</p>
-                            <p style="line-height: 1.6;">
-                                Axé sur les muscles profonds et la respiration.
-                                <br><strong>Activités :</strong> Reformer, Crossformer, Pilates, Yoga, Core & Stretch.
-                            </p>
-                        </div>
-                    </div>
+            <div class="price-card">
+                <div class="card-header bg-peach">Pass Crossformer <br><span class="text-xs font-normal">(50 min - Small Group)</span></div>
+                <div class="p-6 text-sm">
+                    <div class="price-row"><span>2 Sessions</span> <span>78,30€</span></div>
+                    <div class="price-row"><span>4 Sessions</span> <span>152,30€</span></div>
+                    <div class="price-row"><span>6 Sessions</span> <span>222,30€</span></div>
+                    <div class="price-row"><span>8 Sessions</span> <span>288,30€</span></div>
+                    <div class="price-row"><span>10 Sessions</span> <span>350,30€</span></div>
+                    <div class="price-row"><span>12 Sessions</span> <span>408,30€</span></div>
+                    <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
                 </div>
-            </section>
+            </div>
 
-            <section style="text-align: center;">
-                <h2 class="script-font reveal" style="font-size: 3rem; margin-bottom: 20px;">Commencez maintenant</h2>
-                
-                <div class="container reveal">
-                    <div style="background: white; padding: 60px; border-radius: 30px; display: inline-block; max-width: 500px; width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
-                        <div style="position: absolute; top:0; left:0; width: 100%; height: 10px; background: var(--svb-green-light);"></div>
-                        
-                        <p class="price-sub">Offre Découverte</p>
-                        <h3 style="font-size: 2rem; margin: 20px 0;">PASS STARTER</h3>
-                        <div class="price-highlight">99,90€</div>
-                        <p style="color: #666; margin-bottom: 30px;">5 sessions au choix • Valable 1 mois</p>
-                        
-                        <ul style="text-align: left; list-style: none; padding: 0; line-height: 2.5; margin-bottom: 30px; font-size: 0.9rem;">
-                            <li>✓ Frais d'inscription offerts</li>
-                            <li>✓ Accès aux 2 studios</li>
-                            <li>✓ Reformer & Cross Training inclus</li>
-                        </ul>
+            <div class="price-card">
+                <div class="card-header bg-sand text-[#555]">Pass Reformer <br><span class="text-xs font-normal">(50 min)</span></div>
+                <div class="p-6 text-sm">
+                    <div class="price-row"><span>2 Sessions</span> <span>70,30€</span></div>
+                    <div class="price-row"><span>4 Sessions</span> <span>136,30€</span></div>
+                    <div class="price-row"><span>6 Sessions</span> <span>198,30€</span></div>
+                    <div class="price-row"><span>8 Sessions</span> <span>256,30€</span></div>
+                    <div class="price-row"><span>10 Sessions</span> <span>310,30€</span></div>
+                    <div class="price-row"><span>12 Sessions</span> <span>360,30€</span></div>
+                    <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
+                </div>
+            </div>
 
-                        <a href="https://studiosvb.com" class="btn-svb hover-trigger" style="width: 100%; box-sizing: border-box;">Je m'inscris</a>
-                        <p style="font-size: 0.7rem; margin-top: 15px; opacity: 0.6;">Séance à l'unité : 30€ (15€ remboursés si inscription)</p>
-                    </div>
+             <div class="price-card">
+                <div class="card-header bg-[#88C0A6]">Pass Cross <br><span class="text-xs font-normal">(55 min - Training)</span></div>
+                <div class="p-6 text-sm">
+                    <div class="price-row"><span>2 Sessions</span> <span>30,30€</span></div>
+                    <div class="price-row"><span>4 Sessions</span> <span>60,30€</span></div>
+                    <div class="price-row"><span>6 Sessions</span> <span>90,30€</span></div>
+                    <div class="price-row"><span>8 Sessions</span> <span>116,30€</span></div>
+                    <div class="price-row"><span>10 Sessions</span> <span>145,30€</span></div>
+                    <div class="price-row"><span>12 Sessions</span> <span>168,30€</span></div>
+                    <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
                 </div>
-            </section>
+            </div>
 
-            <footer>
-                <div class="footer-grid">
-                    <div>
-                        <h4 class="script-font" style="font-size: 2rem; margin-bottom: 20px;">SantezVousBien</h4>
-                        <p>L'espace bien-être de référence à Saint-Ouen.</p>
-                    </div>
-                    <div>
-                        <h4 style="text-transform: uppercase; margin-bottom: 20px;">Contact</h4>
-                        <p style="margin-bottom: 10px;">📞 07 44 91 91 55</p>
-                        <p>✉️ hello@studiosvb.fr</p>
-                    </div>
-                    <div>
-                        <h4 style="text-transform: uppercase; margin-bottom: 20px;">Liens</h4>
-                        <a href="https://www.instagram.com/svb.officiel/" style="color: var(--svb-sand); text-decoration: none;">Instagram @svb.officiel</a><br><br>
-                        <a href="https://studiosvb.com" style="color: var(--svb-sand); text-decoration: none;">Site Officiel</a>
-                    </div>
+             <div class="price-card">
+                <div class="card-header bg-[#F2E6CF] text-[#555]">Pass Focus <br><span class="text-xs font-normal">(55 min)</span></div>
+                <div class="p-6 text-sm">
+                    <div class="price-row"><span>2 Sessions</span> <span>36,30€</span></div>
+                    <div class="price-row"><span>4 Sessions</span> <span>72,30€</span></div>
+                    <div class="price-row"><span>6 Sessions</span> <span>105,30€</span></div>
+                    <div class="price-row"><span>8 Sessions</span> <span>136,30€</span></div>
+                    <div class="price-row"><span>10 Sessions</span> <span>165,30€</span></div>
+                    <div class="price-row"><span>12 Sessions</span> <span>192,30€</span></div>
+                    <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
                 </div>
-                <div style="margin-top: 60px; font-size: 0.8rem; opacity: 0.5;">
-                    © 2026 SVB - Réalisé avec ❤️
+            </div>
+
+             <div class="price-card">
+                <div class="card-header bg-[#E8B496]">Pass Kids <br><span class="text-xs font-normal">(Hors Juillet/Août)</span></div>
+                <div class="p-6 text-sm text-center">
+                    <p class="mb-2 font-bold text-lg">2 Sessions - 35,30€</p>
+                    <p class="mb-4 font-bold text-lg">4 Sessions - 65,30€</p>
+                    <hr class="border-gray-300 my-3">
+                    <p class="text-xs">Session suppl: 18,30€</p>
+                    <p class="text-xs">Frais de dossier: 29€</p>
+                    <p class="text-xs font-bold mt-2 text-[#E8B496]">Engagement 4 mois</p>
                 </div>
-            </footer>
+            </div>
+
+            <div class="price-card flex flex-col justify-center bg-white/60 col-span-1 md:col-span-2 lg:col-span-3">
+                <div class="p-8 text-center">
+                    <h3 class="font-hand text-3xl mb-4 text-[#4A8D84]">Option SVB Boost</h3>
+                    <p class="text-4xl font-bold mb-4">9,90€<span class="text-sm font-normal">/mois</span></p>
+                    <p class="text-xs uppercase font-bold mb-6 text-gray-600">En + d'un pass</p>
+                    <ul class="text-xs inline-block text-left space-y-2 mb-6">
+                        <li>✅ Frais d'inscription offerts</li>
+                        <li>✅ 1 Essai gratuit/mois pour un proche</li>
+                        <li>✅ Suspension abonnement sans préavis</li>
+                    </ul>
+                    <p class="text-[10px] leading-tight text-gray-500">Engagement 2 mois (Coaching) & 3 mois (Small Groups)</p>
+                </div>
+            </div>
 
         </div>
-    </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <script>
-        // 1. CURSEUR MAGIQUE
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-        document.querySelectorAll('.hover-trigger, a').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-        });
+        <section class="mt-20 grid md:grid-cols-2 gap-8">
+            
+            <div class="price-card p-8 text-center rounded-lg bg-[#4A8D84]/20 border-2 border-white">
+                <h3 class="font-hand text-4xl mb-4 text-white">Offre de Parrainage</h3>
+                <p class="uppercase font-bold text-sm mb-2 text-[#4A8D84]">Parrainez un ami & recevez un cadeau !</p>
+                <p class="text-xs leading-relaxed text-gray-700">Invitez vos proches à devenir membre du studio & profitez d'un cadeau exclusif pour chaque nouveau membre, grâce à vous. ❤️</p>
+            </div>
 
-        // 2. ANIMATIONS GSAP (Apparition au scroll)
-        gsap.registerPlugin(ScrollTrigger);
-        
-        gsap.utils.toArray('.reveal').forEach(elem => {
-            gsap.fromTo(elem, 
-                { y: 50, opacity: 0 },
-                {
-                    y: 0, opacity: 1, duration: 1, ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: elem,
-                        start: "top 85%"
-                    }
-                }
-            );
-        });
+            <div class="price-card p-8 rounded-lg bg-white/60 text-xs text-gray-700 space-y-3">
+                <h3 class="font-hand text-3xl mb-4 text-center text-[#4A8D84]">À savoir</h3>
+                <p><strong>☀️ Absences :</strong> + de 10 jours = préavis 1 mois pour suspendre.</p>
+                <p><strong>📅 Booker :</strong> Réservation possible 1 mois à l'avance.</p>
+                <p><strong>⏳ Annulation :</strong> <br>- Small Group: jusqu'à 1h avant.<br>- Coaching: jusqu'à 24h avant.</p>
+                <p><strong>❌ Résiliation :</strong> Préavis 1 mois par mail.</p>
+                <p><strong>🪙 Crédits :</strong> Non reportables sur le mois suivant.</p>
+            </div>
 
-        // 3. PARTICULES 3D "ZEN"
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('canvas-container').appendChild(renderer.domElement);
+        </section>
 
-        // Création des particules (bulles de bien-être)
-        const geometry = new THREE.BufferGeometry();
-        const count = 800;
-        const posArray = new Float32Array(count * 3);
-        for(let i = 0; i < count * 3; i++) {
-            posArray[i] = (Math.random() - 0.5) * 15;
-        }
-        geometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        const material = new THREE.PointsMaterial({
-            size: 0.04, color: 0xFFFFFF, transparent: true, opacity: 0.7
-        });
-        const particles = new THREE.Points(geometry, material);
-        scene.add(particles);
-        camera.position.z = 4;
+    </div>
 
-        // Animation constante
-        let mouseX = 0;
-        let mouseY = 0;
-        document.addEventListener('mousemove', (event) => {
-            mouseX = event.clientX / window.innerWidth - 0.5;
-            mouseY = event.clientY / window.innerHeight - 0.5;
-        });
+    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs">
+        <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
+    </footer>
 
-        const clock = new THREE.Clock();
-        function animate() {
-            const t = clock.getElapsedTime();
-            particles.rotation.y = t * 0.05; // Rotation lente
-            particles.rotation.x = mouseY * 0.1; 
-            particles.position.y = Math.sin(t * 0.5) * 0.2; // Flottement
-            renderer.render(scene, camera);
-            requestAnimationFrame(animate);
-        }
-        animate();
-
-        // Responsive
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-    </script>
 </body>
 </html>
