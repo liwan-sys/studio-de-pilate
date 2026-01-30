@@ -3,79 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio SVB | Pilates Reformer</title>
+    <title>SVB | SantezVousBien - Saint-Ouen</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --color-primary: #2C2C2C; /* Anthracite */
-            --color-secondary: #F9F7F2; /* Crème clair */
-            --color-accent: #A79B8C; /* Beige taupe */
+            --svb-green-light: #98D0B3; /* Vert d'eau des flyers */
+            --svb-green-dark: #4A8D84;  /* Vert plus foncé pour les textes */
+            --svb-sand: #F2E6CF;        /* Beige sable du bas des flyers */
+            --svb-white: #FFFFFF;
         }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-secondary);
-            color: var(--color-primary);
-            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+            /* Le fameux dégradé vert vers beige de tes affiches */
+            background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
+            color: white;
+            min-height: 100vh;
         }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        
-        .hero-section {
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1629837596001-9c1c5e1c4e7f?auto=format&fit=crop&q=80');
-            background-size: cover; background-position: center; height: 100vh;
-            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+
+        h1, h2, .script-font {
+            font-family: 'Dancing Script', cursive;
         }
-        
-        .nav-link { position: relative; padding-bottom: 5px; transition: color 0.3s ease; }
-        .nav-link::after { content: ''; position: absolute; width: 0%; height: 1px; bottom: 0; left: 0; background-color: white; transition: width 0.3s ease; }
-        .nav-link:hover::after { width: 100%; }
-        
-        /* C'est ici que se joue l'animation "TikTok" */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .btn-svb {
+            background-color: var(--svb-green-dark);
+            color: white;
+            border-radius: 0px; /* Boutons carrés comme sur les flyers */
+            transition: transform 0.2s;
+        }
+        .btn-svb:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 flex justify-between items-center px-8 md:px-12 py-6 text-white mix-blend-difference">
-        <div class="text-2xl font-bold tracking-widest"><a href="index.html">STUDIO SVB</a></div>
-        <div class="hidden md:flex space-x-10 text-sm uppercase font-medium">
-            <a href="index.html" class="nav-link">Accueil</a>
-            <a href="studio.html" class="nav-link">Le Studio</a>
-            <a href="tarifs.html" class="nav-link">Tarifs</a>
-            <a href="contact.html" class="nav-link">Contact</a>
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
+        <div class="text-2xl font-bold tracking-widest text-white drop-shadow-md">
+            SVB<span class="text-xs block font-normal">SANTEZVOUSBIEN</span>
         </div>
-        <a href="#" class="border border-white px-5 py-2 text-sm uppercase nav-link hover:bg-white hover:text-black">Réserver</a>
+        <div class="hidden md:flex space-x-6 text-sm font-semibold tracking-wide">
+            <a href="index.html" class="border-b-2 border-white">ACCUEIL</a>
+            <a href="studio.html" class="hover:text-gray-100">PLANNING & STUDIO</a>
+            <a href="tarifs.html" class="hover:text-gray-100">TARIFS</a>
+            <a href="contact.html" class="hover:text-gray-100">CONTACT</a>
+        </div>
     </nav>
 
-    <section class="hero-section">
-        <div class="max-w-4xl px-4">
-            <h1 class="text-6xl md:text-8xl font-bold mb-6 italic reveal">Core & Flow</h1>
-            <p class="text-xl tracking-widest uppercase font-light mb-10 reveal" style="transition-delay: 0.2s;">
-                Redéfinissez votre force intérieure
-            </p>
-            <a href="studio.html" class="border border-white text-white px-8 py-3 uppercase tracking-widest hover:bg-white hover:text-black transition duration-300 reveal" style="transition-delay: 0.4s;">
-                Découvrir le studio
+    <header class="text-center mt-10 px-4">
+        <h1 class="text-5xl md:text-7xl mb-2 drop-shadow-sm">Le bien-être au quotidien</h1>
+        <p class="text-sm md:text-lg uppercase tracking-widest mb-10 font-light">Saint-Ouen • Coaching • Reformer • Yoga</p>
+        
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-center">
+            <div class="bg-[#88C0A6]/90 p-8 text-white shadow-lg">
+                <h3 class="font-bold text-lg mb-2 uppercase">SVB COACHING & SMALL GROUP</h3>
+                <p class="text-xs leading-relaxed">
+                    COACHING INDIVIDUEL & DUO - CROSS TRAINING - CROSS BODY - 
+                    BOXE - GROOVE & TONE - AFRODANC'ALL - YOGA KIDS
+                </p>
+            </div>
+            <div class="bg-[#E8B496]/90 p-8 text-white shadow-lg"> <h3 class="font-bold text-lg mb-2 uppercase">SVB REFORMER & CROSSFORMER</h3>
+                <p class="text-xs leading-relaxed">
+                    PILATES REFORMER - PILATES CROSSFORMER - HATHA FLOW -
+                    YOGA VINYASA - CLASSIC PILATES - CORE & STRETCH
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-12 mb-20">
+            <a href="tarifs.html" class="btn-svb px-8 py-3 text-sm font-bold uppercase tracking-widest shadow-md inline-block">
+                Voir nos offres
             </a>
         </div>
-    </section>
+    </header>
 
-    <section class="py-32 px-10 max-w-5xl mx-auto text-center">
-        <h2 class="text-5xl mb-8 reveal">L'art du mouvement.</h2>
-        <p class="text-xl leading-relaxed font-light reveal text-gray-700">
-            Une approche contemporaine du Pilates Reformer dans un cadre épuré.
-            Chaque séance est une invitation à reconnecter le corps et l'esprit.
-        </p>
-    </section>
-
-    <script>
-        // Le script magique pour les animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>
