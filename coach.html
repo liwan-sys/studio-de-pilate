@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Coachs | SVB SantezVousBien</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --svb-green-light: #98D0B3; 
+            --svb-green-dark: #4A8D84;  
+            --svb-sand: #F2E6CF;        
+            --svb-peach: #E8B496;
+            --svb-text: #2F4F4F;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
+            color: var(--svb-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
+
+        /* Animation */
+        @keyframes softSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .reveal-load { animation: softSlideUp 0.8s ease-out forwards; opacity: 0; }
+        .d-1 { animation-delay: 0.1s; }
+        .d-2 { animation-delay: 0.3s; }
+
+        /* Carte Coach */
+        .coach-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .coach-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .coach-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: grayscale(20%); /* Petite touche chic : légèrement désaturé */
+            transition: filter 0.3s;
+        }
+        .coach-card:hover .coach-img { filter: grayscale(0%); }
+
+        .coach-info { padding: 20px; }
+        
+        .specialty {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+            background-color: var(--svb-green-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+            <h1 class="text-2xl font-bold tracking-widest drop-shadow-md">SVB</h1>
+        </div>
+        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
+            <a href="index.html" class="hover:text-gray-100 transition">L'UNIVERS</a>
+            <a href="sessions.html" class="hover:text-gray-100 transition">SESSIONS</a>
+            <a href="equipe.html" class="border-b-2 border-white pb-1">NOS COACHS</a> <a href="studio.html" class="hover:text-gray-100 transition">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
+            <a href="contact.html" class="hover:text-gray-100 transition">CONTACT</a>
+        </div>
+    </nav>
+
+    <div class="text-center py-10 px-4 reveal-load d-1">
+        <h1 class="text-6xl text-white drop-shadow-md mb-2">La Team SVB</h1>
+        <p class="text-white uppercase tracking-widest text-sm font-light">Des experts passionnés pour vous accompagner</p>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 pb-20 grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-load d-2">
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&auto=format&fit=crop&q=60" alt="Coach 1" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty">Pilates • Reformer</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+                    Sa philosophie : la précision avant tout. Elle vous guidera avec douceur mais exigence pour transformer votre posture.
+                </p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?w=500&auto=format&fit=crop&q=60" alt="Coach 2" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty bg-[#E8B496]">Cross Training • Boxe</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+                    Une énergie débordante ! Avec lui, on se dépasse, on transpire et on repousse ses limites dans la bonne humeur.
+                </p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1518611012118-29606d2911c2?w=500&auto=format&fit=crop&q=60" alt="Coach 3" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty bg-[#D6C496]">Yoga • Flow</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+                    Spécialiste de la mobilité, elle vous aidera à vous reconnecter à votre corps et à gagner en souplesse.
+                </p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1434596922112-19c563067271?w=500&auto=format&fit=crop&q=60" alt="Coach 4" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty">Coaching Privé</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&auto=format&fit=crop&q=60" alt="Coach 5" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty">Reformer • Crossformer</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1609899536870-66487e47aeb6?w=500&auto=format&fit=crop&q=60" alt="Coach 6" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty bg-[#E8B496]">Afro Dance</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=500&auto=format&fit=crop&q=60" alt="Coach 7" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty">Pilates Mat</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&auto=format&fit=crop&q=60" alt="Coach 8" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty bg-[#E8B496]">Cross Training</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&auto=format&fit=crop&q=60" alt="Coach 9" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty bg-[#D6C496]">Yoga Kids</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=500&auto=format&fit=crop&q=60" alt="Coach 10" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty">Reformer</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=500&auto=format&fit=crop&q=60" alt="Coach 11" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty bg-[#E8B496]">Boxe</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=500&auto=format&fit=crop&q=60" alt="Coach 12" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty bg-[#D6C496]">Yoga</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1616279967983-ec413476e824?w=500&auto=format&fit=crop&q=60" alt="Coach 13" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty">Pilates</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1534258936925-c48947387e3b?w=500&auto=format&fit=crop&q=60" alt="Coach 14" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty bg-[#E8B496]">Cross</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&auto=format&fit=crop&q=60" alt="Coach 15" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty">Reformer</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?w=500&auto=format&fit=crop&q=60" alt="Coach 16" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty bg-[#D6C496]">Hatha</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1525130413897-71995d680968?w=500&auto=format&fit=crop&q=60" alt="Coach 17" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty">Pilates</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&auto=format&fit=crop&q=60" alt="Coach 18" class="coach-img">
+            <div class="coach-info">
+                <h3 class="text-3xl font-hand mb-1 text-[#2F4F4F]">Prénom</h3>
+                <span class="specialty bg-[#E8B496]">Training</span>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">Description du coach, son style, ses atouts...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs mt-12">
+        <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
+    </footer>
+
+</body>
+</html>
