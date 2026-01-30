@@ -3,45 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil | Studio SVB</title>
+    <title>Studio SVB | Pilates Reformer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F9F7F2; color: #2C2C2C; }
-        h1, h2 { font-family: 'Playfair Display', serif; }
-        .hero { 
-            height: 90vh; 
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1518611012118-29606d2911c2?auto=format&fit=crop&q=80');
-            background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white;
+        :root {
+            --color-primary: #2C2C2C; /* Anthracite */
+            --color-secondary: #F9F7F2; /* Crème clair */
+            --color-accent: #A79B8C; /* Beige taupe */
         }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1629837596001-9c1c5e1c4e7f?auto=format&fit=crop&q=80');
+            background-size: cover; background-position: center; height: 100vh;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+        }
+        
+        .nav-link { position: relative; padding-bottom: 5px; transition: color 0.3s ease; }
+        .nav-link::after { content: ''; position: absolute; width: 0%; height: 1px; bottom: 0; left: 0; background-color: white; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        
+        /* C'est ici que se joue l'animation "TikTok" */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
-    <nav class="fixed w-full z-50 flex justify-between items-center px-10 py-6 text-white mix-blend-difference">
-        <div class="text-xl font-bold tracking-widest"><a href="index.html">STUDIO SVB</a></div>
-        <div class="hidden md:flex space-x-8 text-sm uppercase">
-            <a href="index.html" class="font-bold border-b">Accueil</a>
-            <a href="studio.html" class="hover:text-gray-300">Le Studio</a>
-            <a href="tarifs.html" class="hover:text-gray-300">Tarifs</a>
-            <a href="contact.html" class="hover:text-gray-300">Contact</a>
+
+    <nav class="fixed w-full z-50 flex justify-between items-center px-8 md:px-12 py-6 text-white mix-blend-difference">
+        <div class="text-2xl font-bold tracking-widest"><a href="index.html">STUDIO SVB</a></div>
+        <div class="hidden md:flex space-x-10 text-sm uppercase font-medium">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="studio.html" class="nav-link">Le Studio</a>
+            <a href="tarifs.html" class="nav-link">Tarifs</a>
+            <a href="contact.html" class="nav-link">Contact</a>
         </div>
-        <a href="#" class="border border-white px-4 py-2 text-xs uppercase">Réserver</a>
+        <a href="#" class="border border-white px-5 py-2 text-sm uppercase nav-link hover:bg-white hover:text-black">Réserver</a>
     </nav>
 
-    <header class="hero text-center px-4">
-        <div>
-            <h1 class="text-6xl md:text-8xl mb-6 italic">Core & Flow</h1>
-            <p class="text-lg tracking-widest uppercase mb-8">Studio de Pilates Reformer</p>
-            <a href="studio.html" class="bg-white text-black px-8 py-3 text-sm uppercase tracking-widest hover:bg-gray-200 transition">Découvrir le studio</a>
+    <section class="hero-section">
+        <div class="max-w-4xl px-4">
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 italic reveal">Core & Flow</h1>
+            <p class="text-xl tracking-widest uppercase font-light mb-10 reveal" style="transition-delay: 0.2s;">
+                Redéfinissez votre force intérieure
+            </p>
+            <a href="studio.html" class="border border-white text-white px-8 py-3 uppercase tracking-widest hover:bg-white hover:text-black transition duration-300 reveal" style="transition-delay: 0.4s;">
+                Découvrir le studio
+            </a>
         </div>
-    </header>
+    </section>
 
-    <section class="py-24 px-10 max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl mb-6">L'équilibre par le mouvement.</h2>
-        <p class="text-xl font-light leading-relaxed">
-            Situé au cœur de la ville, Studio SVB est un espace dédié à la pratique du Pilates sur Reformer.
-            Une approche contemporaine pour sculpter le corps et apaiser l'esprit.
+    <section class="py-32 px-10 max-w-5xl mx-auto text-center">
+        <h2 class="text-5xl mb-8 reveal">L'art du mouvement.</h2>
+        <p class="text-xl leading-relaxed font-light reveal text-gray-700">
+            Une approche contemporaine du Pilates Reformer dans un cadre épuré.
+            Chaque séance est une invitation à reconnecter le corps et l'esprit.
         </p>
     </section>
+
+    <script>
+        // Le script magique pour les animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
