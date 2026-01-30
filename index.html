@@ -3,393 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVB | SantezVousBien - Saint-Ouen</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <title>Accueil | Studio SVB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --svb-green-light: #98D0B3; 
-            --svb-green-dark: #4A5D54;
-            --svb-sand: #F2E6CF;
-            --svb-white: #FFFFFF;
+        body { font-family: 'Inter', sans-serif; background-color: #F9F7F2; color: #2C2C2C; }
+        h1, h2 { font-family: 'Playfair Display', serif; }
+        .hero { 
+            height: 90vh; 
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1518611012118-29606d2911c2?auto=format&fit=crop&q=80');
+            background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white;
         }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
-            color: var(--svb-green-dark);
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-            cursor: none; /* Curseur personnalisé */
-        }
-
-        /* Canvas 3D en arrière-plan */
-        #canvas-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.5;
-            pointer-events: none;
-        }
-
-        /* --- CURSEUR --- */
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border: 1px solid var(--svb-green-dark);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, background 0.3s;
-        }
-        .cursor.active {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.3);
-            border-color: transparent;
-            backdrop-filter: blur(2px);
-        }
-
-        /* --- TYPOGRAPHIE --- */
-        h1, h2, h3 { margin: 0; }
-        
-        .script-font {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 8rem);
-            line-height: 0.9;
-            text-transform: uppercase;
-            color: var(--svb-white);
-            letter-spacing: -2px;
-            mix-blend-mode: overlay;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 4rem);
-            text-transform: uppercase;
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-
-        /* --- LAYOUT --- */
-        section {
-            padding: 80px 5vw;
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* --- BANDEAU DÉFILANT (MARQUEE) --- */
-        .marquee-container {
-            background: var(--svb-green-dark);
-            color: var(--svb-sand);
-            padding: 15px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            transform: rotate(-1deg);
-            margin: 40px -10px;
-            border-top: 2px solid white;
-            border-bottom: 2px solid white;
-        }
-        .marquee-content {
-            display: inline-block;
-            animation: scroll 20s linear infinite;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* --- CARTES STUDIOS --- */
-        .studios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-        .studio-card {
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.6);
-            padding: 40px;
-            border-radius: 20px;
-            transition: transform 0.4s;
-        }
-        .studio-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.5);
-        }
-        .studio-badge {
-            display: inline-block;
-            background: var(--svb-green-dark);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        /* --- BOUTONS --- */
-        .btn-svb {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--svb-green-dark);
-            color: white;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            margin-top: 20px;
-        }
-        .btn-svb:hover {
-            background: white;
-            color: var(--svb-green-dark);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        /* --- PRIX --- */
-        .price-highlight {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--svb-green-dark);
-            margin: 10px 0;
-        }
-        .price-sub {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.8;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: var(--svb-green-dark);
-            color: var(--svb-sand);
-            padding: 60px 5vw;
-            text-align: center;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        
-        /* Utilitaires Animation */
-        .reveal { opacity: 0; transform: translateY(30px); }
-
     </style>
 </head>
 <body>
-
-    <div class="cursor" id="cursor"></div>
-
-    <div id="canvas-container"></div>
-
-    <nav style="position: fixed; top: 0; width: 100%; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 100; mix-blend-mode: difference; color: white; box-sizing: border-box;">
-        <div style="font-weight: 700; font-size: 1.5rem;">SVB</div>
-        <a href="https://studiosvb.com" class="hover-trigger" style="color: white; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; border: 1px solid white; padding: 10px 20px; border-radius: 30px;">Réserver</a>
+    <nav class="fixed w-full z-50 flex justify-between items-center px-10 py-6 text-white mix-blend-difference">
+        <div class="text-xl font-bold tracking-widest"><a href="index.html">STUDIO SVB</a></div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase">
+            <a href="index.html" class="font-bold border-b">Accueil</a>
+            <a href="studio.html" class="hover:text-gray-300">Le Studio</a>
+            <a href="tarifs.html" class="hover:text-gray-300">Tarifs</a>
+            <a href="contact.html" class="hover:text-gray-300">Contact</a>
+        </div>
+        <a href="#" class="border border-white px-4 py-2 text-xs uppercase">Réserver</a>
     </nav>
 
-    <main id="smooth-wrapper">
-        <div id="smooth-content">
-
-            <section style="height: 100vh; text-align: center;">
-                <p class="script-font reveal" style="font-size: 2rem; color: var(--svb-green-dark); margin-bottom: 20px;">L'endroit pour prendre soin de soi</p>
-                <h1 class="hero-title reveal">SANTEZ<br>VOUS BIEN</h1>
-                <p class="reveal" style="margin-top: 30px; font-size: 1.2rem; letter-spacing: 3px; text-transform: uppercase;">Saint-Ouen • Pilates • Coaching</p>
-            </section>
-
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    PILATES AU SOL &nbsp;•&nbsp; YOGA &nbsp;•&nbsp; REFORMER &nbsp;•&nbsp; COACHING INDIVIDUEL &nbsp;•&nbsp; CROSSFORMER &nbsp;•&nbsp; CROSS TRAINING &nbsp;•&nbsp; AFRODANCE'ALL &nbsp;•&nbsp; BOXE &nbsp;•&nbsp; PILATES AU SOL &nbsp;•&nbsp; YOGA &nbsp;•&nbsp; REFORMER &nbsp;•&nbsp; 
-                </div>
-            </div>
-
-            <section>
-                <div class="container">
-                    <h2 class="section-title text-center reveal">Nos deux univers</h2>
-                    <p class="text-center reveal" style="max-width: 600px; margin: 0 auto 40px auto;">Deux studios complémentaires au cœur de Saint-Ouen pour un corps plus fort et un esprit apaisé.</p>
-                    
-                    <div class="studios-grid">
-                        <div class="studio-card hover-trigger reveal">
-                            <span class="studio-badge">Performance & Énergie</span>
-                            <h3 style="font-size: 1.8rem; margin-bottom: 10px;">PARC DES DOCKS</h3>
-                            <p style="font-size: 0.9rem; margin-bottom: 20px;">6 Mail André Breton</p>
-                            <p style="line-height: 1.6;">
-                                Axé sur la performance et le renforcement. 
-                                <br><strong>Activités :</strong> Cross Training, Cross Body, Boxe, Afrodanc'all, Kids Training.
-                            </p>
-                        </div>
-                        
-                        <div class="studio-card hover-trigger reveal">
-                            <span class="studio-badge" style="background: var(--svb-sand); color: var(--svb-green-dark);">Flow & Contrôle</span>
-                            <h3 style="font-size: 1.8rem; margin-bottom: 10px;">LAVANDIÈRES</h3>
-                            <p style="font-size: 0.9rem; margin-bottom: 20px;">40 Cours Lavandières</p>
-                            <p style="line-height: 1.6;">
-                                Axé sur les muscles profonds et la respiration.
-                                <br><strong>Activités :</strong> Reformer, Crossformer, Pilates, Yoga, Core & Stretch.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section style="text-align: center;">
-                <h2 class="script-font reveal" style="font-size: 3rem; margin-bottom: 20px;">Commencez maintenant</h2>
-                
-                <div class="container reveal">
-                    <div style="background: white; padding: 60px; border-radius: 30px; display: inline-block; max-width: 500px; width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
-                        <div style="position: absolute; top:0; left:0; width: 100%; height: 10px; background: var(--svb-green-light);"></div>
-                        
-                        <p class="price-sub">Offre Découverte</p>
-                        <h3 style="font-size: 2rem; margin: 20px 0;">PASS STARTER</h3>
-                        <div class="price-highlight">99,90€</div>
-                        <p style="color: #666; margin-bottom: 30px;">5 sessions au choix • Valable 1 mois</p>
-                        
-                        <ul style="text-align: left; list-style: none; padding: 0; line-height: 2.5; margin-bottom: 30px; font-size: 0.9rem;">
-                            <li>✓ Frais d'inscription offerts</li>
-                            <li>✓ Accès aux 2 studios</li>
-                            <li>✓ Reformer & Cross Training inclus</li>
-                        </ul>
-
-                        <a href="https://studiosvb.com" class="btn-svb hover-trigger" style="width: 100%; box-sizing: border-box;">Je m'inscris</a>
-                        <p style="font-size: 0.7rem; margin-top: 15px; opacity: 0.6;">Séance à l'unité : 30€ (15€ remboursés si inscription)</p>
-                    </div>
-                </div>
-            </section>
-
-            <footer>
-                <div class="footer-grid">
-                    <div>
-                        <h4 class="script-font" style="font-size: 2rem; margin-bottom: 20px;">SantezVousBien</h4>
-                        <p>L'espace bien-être de référence à Saint-Ouen.</p>
-                    </div>
-                    <div>
-                        <h4 style="text-transform: uppercase; margin-bottom: 20px;">Contact</h4>
-                        <p style="margin-bottom: 10px;">📞 07 44 91 91 55</p>
-                        <p>✉️ hello@studiosvb.fr</p>
-                    </div>
-                    <div>
-                        <h4 style="text-transform: uppercase; margin-bottom: 20px;">Liens</h4>
-                        <a href="https://www.instagram.com/svb.officiel/" style="color: var(--svb-sand); text-decoration: none;">Instagram @svb.officiel</a><br><br>
-                        <a href="https://studiosvb.com" style="color: var(--svb-sand); text-decoration: none;">Site Officiel</a>
-                    </div>
-                </div>
-                <div style="margin-top: 60px; font-size: 0.8rem; opacity: 0.5;">
-                    © 2026 SVB - Réalisé avec ❤️
-                </div>
-            </footer>
-
+    <header class="hero text-center px-4">
+        <div>
+            <h1 class="text-6xl md:text-8xl mb-6 italic">Core & Flow</h1>
+            <p class="text-lg tracking-widest uppercase mb-8">Studio de Pilates Reformer</p>
+            <a href="studio.html" class="bg-white text-black px-8 py-3 text-sm uppercase tracking-widest hover:bg-gray-200 transition">Découvrir le studio</a>
         </div>
-    </main>
+    </header>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <script>
-        // 1. CURSEUR MAGIQUE
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-        document.querySelectorAll('.hover-trigger, a').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-        });
-
-        // 2. ANIMATIONS GSAP (Apparition au scroll)
-        gsap.registerPlugin(ScrollTrigger);
-        
-        gsap.utils.toArray('.reveal').forEach(elem => {
-            gsap.fromTo(elem, 
-                { y: 50, opacity: 0 },
-                {
-                    y: 0, opacity: 1, duration: 1, ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: elem,
-                        start: "top 85%"
-                    }
-                }
-            );
-        });
-
-        // 3. PARTICULES 3D "ZEN"
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-        // Création des particules (bulles de bien-être)
-        const geometry = new THREE.BufferGeometry();
-        const count = 800;
-        const posArray = new Float32Array(count * 3);
-        for(let i = 0; i < count * 3; i++) {
-            posArray[i] = (Math.random() - 0.5) * 15;
-        }
-        geometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        const material = new THREE.PointsMaterial({
-            size: 0.04, color: 0xFFFFFF, transparent: true, opacity: 0.7
-        });
-        const particles = new THREE.Points(geometry, material);
-        scene.add(particles);
-        camera.position.z = 4;
-
-        // Animation constante
-        let mouseX = 0;
-        let mouseY = 0;
-        document.addEventListener('mousemove', (event) => {
-            mouseX = event.clientX / window.innerWidth - 0.5;
-            mouseY = event.clientY / window.innerHeight - 0.5;
-        });
-
-        const clock = new THREE.Clock();
-        function animate() {
-            const t = clock.getElapsedTime();
-            particles.rotation.y = t * 0.05; // Rotation lente
-            particles.rotation.x = mouseY * 0.1; 
-            particles.position.y = Math.sin(t * 0.5) * 0.2; // Flottement
-            renderer.render(scene, camera);
-            requestAnimationFrame(animate);
-        }
-        animate();
-
-        // Responsive
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-    </script>
+    <section class="py-24 px-10 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl mb-6">L'équilibre par le mouvement.</h2>
+        <p class="text-xl font-light leading-relaxed">
+            Situé au cœur de la ville, Studio SVB est un espace dédié à la pratique du Pilates sur Reformer.
+            Une approche contemporaine pour sculpter le corps et apaiser l'esprit.
+        </p>
+    </section>
 </body>
 </html>

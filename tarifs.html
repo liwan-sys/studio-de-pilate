@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifs | Studio SVB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #2C2C2C; color: #F9F7F2; } /* Version sombre pour changer */
+        h1, h2 { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body>
+    <nav class="fixed w-full z-50 flex justify-between items-center px-10 py-6 text-white mix-blend-difference">
+        <div class="text-xl font-bold tracking-widest"><a href="index.html">STUDIO SVB</a></div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase">
+            <a href="index.html" class="hover:text-gray-300">Accueil</a>
+            <a href="studio.html" class="hover:text-gray-300">Le Studio</a>
+            <a href="tarifs.html" class="font-bold border-b">Tarifs</a>
+            <a href="contact.html" class="hover:text-gray-300">Contact</a>
+        </div>
+        <a href="#" class="border border-white px-4 py-2 text-xs uppercase">Réserver</a>
+    </nav>
+
+    <section class="pt-40 px-6 max-w-6xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl mb-16">Nos Abonnements</h1>
+        
+        <div class="grid md:grid-cols-3 gap-8 text-black">
+            <div class="bg-[#F9F7F2] p-10 hover:transform hover:-translate-y-2 transition duration-300">
+                <h3 class="text-sm uppercase tracking-widest mb-4">À la carte</h3>
+                <p class="text-4xl font-serif mb-6">35€</p>
+                <p class="text-gray-600 text-sm mb-8">Validité 1 mois. Accès à tous les cours collectifs.</p>
+                <button class="w-full py-3 border border-black text-xs uppercase">Choisir</button>
+            </div>
+            <div class="bg-white p-10 transform scale-105 shadow-2xl relative">
+                <span class="absolute top-0 right-0 bg-black text-white text-xs px-2 py-1 uppercase">Best Seller</span>
+                <h3 class="text-sm uppercase tracking-widest mb-4">5 Séances</h3>
+                <p class="text-4xl font-serif mb-6">165€</p>
+                <p class="text-gray-600 text-sm mb-8">Soit 33€ la séance. Validité 2 mois.</p>
+                <button class="w-full py-3 bg-black text-white text-xs uppercase">Choisir</button>
+            </div>
+            <div class="bg-[#F9F7F2] p-10 hover:transform hover:-translate-y-2 transition duration-300">
+                <h3 class="text-sm uppercase tracking-widest mb-4">10 Séances</h3>
+                <p class="text-4xl font-serif mb-6">300€</p>
+                <p class="text-gray-600 text-sm mb-8">Soit 30€ la séance. Validité 4 mois.</p>
+                <button class="w-full py-3 border border-black text-xs uppercase">Choisir</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
