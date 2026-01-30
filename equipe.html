@@ -27,7 +27,7 @@
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* Animation douce (Même que les autres pages) */
+        /* Animation */
         @keyframes softSlideUp {
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -36,12 +36,12 @@
         .d-1 { animation-delay: 0.1s; }
         .d-2 { animation-delay: 0.3s; }
 
-        /* CARTE COACH (Style SVB Classique) */
+        /* CARTE COACH */
         .coach-card {
-            background: rgba(255, 255, 255, 0.4); /* Effet verre */
+            background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 15px; /* Coins bien arrondis */
+            border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
             display: flex;
@@ -49,14 +49,13 @@
         }
 
         .coach-card:hover {
-            transform: translateY(-8px); /* Ça monte un peu */
-            background: rgba(255, 255, 255, 0.7); /* Ça s'éclaircit */
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.7);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* Image */
         .img-container {
-            height: 300px;
+            height: 320px; /* Hauteur ajustée pour une grille harmonieuse */
             width: 100%;
             overflow: hidden;
         }
@@ -68,31 +67,23 @@
             transition: transform 0.5s ease;
         }
 
-        .coach-card:hover .coach-img {
-            transform: scale(1.05); /* Zoom léger sur la photo au survol */
-        }
+        .coach-card:hover .coach-img { transform: scale(1.05); }
 
-        .coach-info {
-            padding: 20px;
-            text-align: center;
-        }
+        .coach-info { padding: 15px; text-align: center; }
 
-        /* Badges de spécialité */
         .badge {
             display: inline-block;
             padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 700;
             text-transform: uppercase;
             color: white;
             margin-bottom: 8px;
             background-color: var(--svb-green-dark);
         }
-        
         .badge-peach { background-color: var(--svb-peach); }
         .badge-sand { background-color: #D6C496; }
-
     </style>
 </head>
 <body>
@@ -113,102 +104,174 @@
 
     <div class="text-center py-10 px-4 reveal-load d-1">
         <h1 class="text-6xl text-white drop-shadow-md mb-2">La Team SVB</h1>
-        <p class="text-white uppercase tracking-widest text-sm font-light">Nos experts passionnés</p>
+        <p class="text-white uppercase tracking-widest text-sm font-light">18 personnalités, une même passion</p>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 pb-20 grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-load d-2">
+    <div class="max-w-7xl mx-auto px-4 pb-20 grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-load d-2">
 
         <div class="coach-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80" class="coach-img">
-            </div>
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80" class="coach-img"></div>
             <div class="coach-info">
-                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-1">Sarah</h3>
-                <span class="badge">Pilates & Reformer</span>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                    Douce mais exigeante, elle vous guidera vers une posture parfaite avec bienveillance.
-                </p>
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 1</h3>
+                <span class="badge">Pilates</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
             </div>
         </div>
 
         <div class="coach-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&q=80" class="coach-img">
-            </div>
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&q=80" class="coach-img"></div>
             <div class="coach-info">
-                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-1">Thomas</h3>
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 2</h3>
                 <span class="badge badge-peach">Cross Training</span>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                    Une énergie débordante ! Il vous poussera à vous dépasser, toujours avec le sourire.
-                </p>
+                <p class="text-xs text-gray-700">Description du coach...</p>
             </div>
         </div>
 
         <div class="coach-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?auto=format&fit=crop&q=80" class="coach-img">
-            </div>
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?auto=format&fit=crop&q=80" class="coach-img"></div>
             <div class="coach-info">
-                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-1">Emma</h3>
-                <span class="badge badge-sand">Yoga Flow</span>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                    Spécialiste de la mobilité, elle vous aide à vous reconnecter à votre corps en douceur.
-                </p>
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 3</h3>
+                <span class="badge badge-sand">Yoga</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
             </div>
         </div>
 
         <div class="coach-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80" class="coach-img">
-            </div>
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80" class="coach-img"></div>
             <div class="coach-info">
-                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-1">Lucas</h3>
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 4</h3>
                 <span class="badge badge-peach">Boxe</span>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                    Technique et cardio : avec Lucas, on enfile les gants pour se défouler intelligemment.
-                </p>
+                <p class="text-xs text-gray-700">Description du coach...</p>
             </div>
         </div>
 
         <div class="coach-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80" class="coach-img">
-            </div>
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80" class="coach-img"></div>
             <div class="coach-info">
-                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-1">Julie</h3>
-                <span class="badge badge-sand">Kids & Zen</span>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                    Une pédagogie unique pour éveiller les plus jeunes au mouvement et à la concentration.
-                </p>
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 5</h3>
+                <span class="badge badge-sand">Kids</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
             </div>
         </div>
 
         <div class="coach-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1609899536870-66487e47aeb6?auto=format&fit=crop&q=80" class="coach-img">
-            </div>
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1609899536870-66487e47aeb6?auto=format&fit=crop&q=80" class="coach-img"></div>
             <div class="coach-info">
-                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-1">Karim</h3>
-                <span class="badge badge-peach">Afro Dance</span>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                    Le rythme dans la peau, il transforme chaque séance en une fête communicative.
-                </p>
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 6</h3>
+                <span class="badge badge-peach">Afro</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
             </div>
         </div>
 
         <div class="coach-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&q=80" class="coach-img">
-            </div>
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&q=80" class="coach-img"></div>
             <div class="coach-info">
-                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-1">Prénom</h3>
-                <span class="badge">Spécialité</span>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                    Description courte du coach...
-                </p>
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 7</h3>
+                <span class="badge">Reformer</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
             </div>
         </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 8</h3>
+                <span class="badge badge-peach">Cross</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
         </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 9</h3>
+                <span class="badge badge-sand">Flow</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 10</h3>
+                <span class="badge">Pilates</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1616279967983-ec413476e824?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 11</h3>
+                <span class="badge badge-peach">Cardio</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1525130413897-71995d680968?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 12</h3>
+                <span class="badge badge-sand">Hatha</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1534258936925-c48947387e3b?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 13</h3>
+                <span class="badge">Reformer</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 14</h3>
+                <span class="badge badge-peach">Training</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 15</h3>
+                <span class="badge badge-sand">Yoga</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 16</h3>
+                <span class="badge">Coach</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1552674605-5d226875037e?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 17</h3>
+                <span class="badge badge-peach">Coach</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
+        </div>
+
+        <div class="coach-card">
+            <div class="img-container"><img src="https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?auto=format&fit=crop&q=80" class="coach-img"></div>
+            <div class="coach-info">
+                <h3 class="text-2xl font-hand text-[#2F4F4F] mb-1">Coach 18</h3>
+                <span class="badge badge-sand">Coach</span>
+                <p class="text-xs text-gray-700">Description du coach...</p>
+            </div>
+        </div>
+
+    </div>
 
     <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs mt-12">
         <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
