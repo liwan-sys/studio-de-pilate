@@ -15,6 +15,10 @@
             --svb-sand: #F2E6CF;        
             --svb-peach: #E8B496;
             --svb-text: #2F4F4F;
+            /* Couleurs spécifiques Planning */
+            --case-green: #88C0A6;
+            --case-peach: #E8B496;
+            --case-sand: #E6DCC3;
         }
 
         body {
@@ -26,7 +30,7 @@
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* Animation d'apparition */
+        /* Animation */
         @keyframes softSlideUp {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -36,23 +40,19 @@
         .d-2 { animation-delay: 0.3s; }
 
         /* --- STYLE DU PLANNING --- */
-        
-        /* Conteneur scrollable sur mobile pour garder la grille */
         .planning-wrapper {
             overflow-x: auto;
             padding-bottom: 20px;
             -webkit-overflow-scrolling: touch;
         }
 
-        /* La Grille Semaine */
         .planning-grid {
             display: grid;
-            grid-template-columns: repeat(7, minmax(130px, 1fr)); /* 7 colonnes larges min */
+            grid-template-columns: repeat(7, minmax(130px, 1fr));
             gap: 10px;
-            min-width: 900px; /* Force la largeur sur mobile */
+            min-width: 900px; 
         }
 
-        /* En-tête des jours */
         .day-header {
             background-color: var(--svb-green-dark);
             color: white;
@@ -65,7 +65,6 @@
             margin-bottom: 10px;
         }
 
-        /* Les Cases Cours */
         .course-card {
             padding: 12px 5px;
             text-align: center;
@@ -78,20 +77,17 @@
         }
         .course-card:hover { transform: scale(1.05); z-index: 10; }
 
-        /* Couleurs des cases (selon tes photos) */
-        .bg-green-soft { background-color: #88C0A6; } /* Vert Sauge */
-        .bg-peach { background-color: #E8B496; }     /* Pêche */
-        .bg-sand { background-color: #D6C496; color: #444; } /* Sable foncé */
-        .bg-sage-dark { background-color: #71A890; }
+        /* Classes couleurs */
+        .bg-green-soft { background-color: var(--case-green); }
+        .bg-peach { background-color: var(--case-peach); }
+        .bg-sand { background-color: var(--case-sand); color: #555; } /* Texte gris pour lisibilité sur beige */
 
-        /* Typo dans les cases */
         .time { font-size: 1.1rem; font-weight: 800; display: block; margin-bottom: 2px; }
-        .name { font-size: 0.8rem; font-weight: 500; line-height: 1.2; text-transform: uppercase; }
+        .name { font-size: 0.8rem; font-weight: 600; line-height: 1.2; text-transform: uppercase; }
 
         /* Légende */
         .legend-box { display: flex; align-items: center; margin-right: 15px; font-size: 0.75rem; font-weight: 700; color: white; text-transform: uppercase; }
         .legend-color { width: 20px; height: 20px; margin-right: 8px; border: 2px solid white; }
-
     </style>
 </head>
 <body>
@@ -131,7 +127,7 @@
                     <div class="course-card bg-sand"><span class="time">12H30</span><span class="name">Yoga Vinyasa</span></div>
                     <div class="course-card bg-peach"><span class="time">18H45</span><span class="name">Cross-Former</span></div>
                     <div class="course-card bg-sand"><span class="time">19H</span><span class="name">Yoga Vinyasa</span></div>
-                    <div class="course-card bg-sand"><span class="time">19H15</span><span class="name">Reformer</span></div>
+                    <div class="course-card bg-green-soft"><span class="time">19H15</span><span class="name">Reformer</span></div>
                 </div>
 
                 <div>
@@ -167,6 +163,7 @@
                 <div>
                     <div class="day-header">Vendredi</div>
                     <div class="course-card bg-peach"><span class="time">9H45</span><span class="name">Cross-Former</span></div>
+                    <div class="course-card bg-peach"><span class="time">10H45</span><span class="name">Cross-Former</span></div>
                     <div class="course-card bg-green-soft"><span class="time">12H</span><span class="name">Reformer</span></div>
                     <div class="course-card bg-green-soft"><span class="time">13H</span><span class="name">Reformer</span></div>
                     <div class="course-card bg-sand"><span class="time">18H</span><span class="name">Classic Pilates</span></div>
@@ -196,7 +193,7 @@
             </div>
         </div>
 
-        <div class="flex flex-wrap justify-center mt-6 gap-4">
+        <div class="flex flex-wrap justify-center mt-6 gap-4 border-b border-white/30 pb-8">
             <div class="legend-box"><div class="legend-color bg-green-soft"></div> PASS REFORMER</div>
             <div class="legend-box"><div class="legend-color bg-peach"></div> PASS CROSSFORMER</div>
             <div class="legend-box"><div class="legend-color bg-sand"></div> PASS FOCUS</div>
@@ -204,8 +201,6 @@
         </div>
 
     </section>
-
-    <div class="border-t border-white/30 my-8 mx-auto max-w-4xl"></div>
 
     <section class="max-w-7xl mx-auto px-4 pb-20 reveal-load d-2">
         
@@ -271,6 +266,12 @@
 
             </div>
         </div>
+
+        <div class="flex flex-wrap justify-center mt-6 gap-4">
+            <div class="legend-box"><div class="legend-color bg-sand"></div> PASS FOCUS</div>
+            <div class="legend-box"><div class="legend-color bg-green-soft"></div> PASS CROSS</div>
+            <div class="legend-box"><div class="legend-color bg-peach"></div> PASS KIDS</div>
+        </div>
         
     </section>
 
@@ -281,4 +282,3 @@
 
 </body>
 </html>
-
