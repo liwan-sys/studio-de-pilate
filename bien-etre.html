@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Bien-être | SVB</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --svb-green-light: #98D0B3; 
+            --svb-green-dark: #4A8D84;  
+            --svb-sand: #F2E6CF;        
+            --svb-peach: #E8B496;
+            --svb-text: #2F4F4F;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(180deg, var(--svb-sand) 0%, #fff 50%, var(--svb-green-light) 100%);
+            color: var(--svb-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
+
+        /* Animation */
+        @keyframes softSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .reveal-load { animation: softSlideUp 0.8s ease-out forwards; opacity: 0; }
+        .d-1 { animation-delay: 0.1s; }
+        .d-2 { animation-delay: 0.3s; }
+        .d-3 { animation-delay: 0.5s; }
+
+        /* CARTE SOIN (Design apaisant) */
+        .care-card {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px; /* Plus rond pour la douceur */
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .care-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 15px 30px rgba(74, 141, 132, 0.15); /* Ombre verte douce */
+        }
+
+        .care-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .care-title {
+            color: var(--svb-green-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .care-desc {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.6;
+            padding: 0 20px 20px 20px;
+        }
+
+        /* SECTION PRATICIENS */
+        .expert-card {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px 10px 10px 50px; /* Forme originale */
+            padding: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .expert-card:hover { transform: scale(1.02); }
+
+        .expert-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--svb-peach);
+            margin-right: 20px;
+        }
+
+        .bg-title-soin {
+            background-color: var(--svb-green-dark);
+            color: white;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-[#4A8D84] reveal-load">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+            <h1 class="text-2xl font-bold tracking-widest drop-shadow-sm">SVB</h1>
+        </div>
+        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
+            <a href="index.html" class="hover:text-black transition">L'UNIVERS</a>
+            <a href="sessions.html" class="hover:text-black transition">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-black transition">LA TEAM</a>
+            <a href="bien-etre.html" class="border-b-2 border-[#4A8D84] pb-1">BIEN-ÊTRE</a> <a href="studio.html" class="hover:text-black transition">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-black transition">TARIFS</a>
+            <a href="contact.html" class="hover:text-black transition">CONTACT</a>
+        </div>
+    </nav>
+
+    <div class="text-center py-12 px-4 reveal-load d-1">
+        <h1 class="text-6xl text-[#4A8D84] drop-shadow-sm mb-4">L'Équilibre Corps & Esprit</h1>
+        <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-light max-w-2xl mx-auto leading-relaxed">
+            Parce que la récupération fait partie de l'entraînement. Découvrez notre pôle paramédical et bien-être au cœur du studio.
+        </p>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 pb-20">
+
+        <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-load d-2 mb-20">
+            
+            <div class="care-card pt-8">
+                <span class="care-icon">🦴</span>
+                <h3 class="care-title">Ostéopathie</h3>
+                <p class="care-desc">Pour rétablir l'équilibre du corps, soulager les tensions et prévenir les blessures. Indispensable pour accompagner votre pratique sportive.</p>
+            </div>
+
+            <div class="care-card pt-8">
+                <span class="care-icon">✨</span>
+                <h3 class="care-title">Kobido</h3>
+                <p class="care-desc">Le lifting naturel japonais. Un massage profond du visage qui stimule la circulation, lisse les traits et apporte un éclat immédiat.</p>
+            </div>
+
+            <div class="care-card pt-8">
+                <span class="care-icon">💆‍♀️</span>
+                <h3 class="care-title">Massages Sportifs & Relaxants</h3>
+                <p class="care-desc">Récupération musculaire profonde après une session intense ou détente absolue pour lâcher prise. Adapté à vos besoins.</p>
+            </div>
+
+            <div class="care-card pt-8">
+                <span class="care-icon">💧</span>
+                <h3 class="care-title">Drainage Lymphatique</h3>
+                <p class="care-desc">Technique manuelle douce pour relancer la circulation, éliminer les toxines, réduire la rétention d'eau et alléger les jambes.</p>
+            </div>
+
+            <div class="care-card pt-8">
+                <span class="care-icon">🪵</span>
+                <h3 class="care-title">Madérothérapie</h3>
+                <p class="care-desc">Massage remodelant utilisant des outils en bois pour sculpter la silhouette, tonifier la peau et casser les amas graisseux.</p>
+            </div>
+
+            <div class="care-card pt-8">
+                <span class="care-icon">🥗</span>
+                <h3 class="care-title">Diététique</h3>
+                <p class="care-desc">Apprenez à nourrir votre corps pour la performance et la santé, sans frustration. Suivi personnalisé et plans nutritionnels.</p>
+            </div>
+
+            <div class="care-card pt-8">
+                <span class="care-icon">🦶</span>
+                <h3 class="care-title">Réflexologie</h3>
+                <p class="care-desc">Stimulation des points réflexes des pieds pour agir sur l'ensemble du corps et apaiser le système nerveux.</p>
+            </div>
+
+            <div class="care-card pt-8">
+                <span class="care-icon">🌿</span>
+                <h3 class="care-title">Sophrologie</h3>
+                <p class="care-desc">Techniques de respiration et de visualisation pour gérer le stress, améliorer le sommeil et préparer le mental.</p>
+            </div>
+
+            <div class="care-card pt-8">
+                <span class="care-icon">☯️</span>
+                <h3 class="care-title">Acupuncture & Soin Amma</h3>
+                <p class="care-desc">Médecine traditionnelle pour rééquilibrer les énergies vitales, soulager les douleurs et revitaliser l'organisme.</p>
+            </div>
+
+        </section>
+
+
+        <section class="max-w-4xl mx-auto reveal-load d-3">
+            <h2 class="text-4xl text-center text-[#4A8D84] font-hand mb-10">Nos Praticiens</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Ostéopathe</span>
+                        <h4 class="font-bold text-lg">Prénom</h4>
+                        <p class="text-xs text-gray-600">Spécialisé sportifs & périnatalité.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Facialiste</span>
+                        <h4 class="font-bold text-lg">Prénom</h4>
+                        <p class="text-xs text-gray-600">Expertise Kobido & Soins visage.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Masseuse</span>
+                        <h4 class="font-bold text-lg">Prénom</h4>
+                        <p class="text-xs text-gray-600">Madérothérapie & Drainage.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1628890918667-e984f48b998a?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Diététicienne</span>
+                        <h4 class="font-bold text-lg">Prénom</h4>
+                        <p class="text-xs text-gray-600">Nutrition sportive & santé.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-sm mb-4 italic">Les soins sont sur rendez-vous uniquement.</p>
+                <a href="contact.html" class="inline-block bg-[#4A8D84] text-white px-8 py-3 rounded-full uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition shadow-lg">
+                    Prendre rendez-vous
+                </a>
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs mt-12">
+        <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
+    </footer>
+
+</body>
+</html>
