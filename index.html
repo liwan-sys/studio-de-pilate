@@ -5,78 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVB | SantezVousBien - Saint-Ouen</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         :root {
-            --svb-green-light: #98D0B3; /* Vert d'eau des flyers */
-            --svb-green-dark: #4A8D84;  /* Vert plus foncé pour les textes */
-            --svb-sand: #F2E6CF;        /* Beige sable du bas des flyers */
-            --svb-white: #FFFFFF;
+            /* Couleurs exactes de tes flyers */
+            --svb-green-light: #98D0B3; 
+            --svb-green-dark: #4A8D84;  
+            --svb-sand: #F2E6CF;        
+            --svb-text: #2F4F4F;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            /* Le fameux dégradé vert vers beige de tes affiches */
+            /* Le dégradé Vert -> Beige */
             background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
             color: white;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        h1, h2, .script-font {
+        h1, h2, .font-hand {
             font-family: 'Dancing Script', cursive;
         }
 
-        .btn-svb {
-            background-color: var(--svb-green-dark);
-            color: white;
-            border-radius: 0px; /* Boutons carrés comme sur les flyers */
-            transition: transform 0.2s;
+        /* Effet de verre pour les blocs */
+        .glass-box {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        .btn-svb:hover { transform: scale(1.05); }
+
+        .btn-white {
+            background-color: white;
+            color: var(--svb-green-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 12px 24px;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+        .btn-white:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
 
-    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
-        <div class="text-2xl font-bold tracking-widest text-white drop-shadow-md">
-            SVB<span class="text-xs block font-normal">SANTEZVOUSBIEN</span>
+    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+            <h1 class="text-3xl font-bold tracking-widest drop-shadow-md">SVB</h1>
+            <span class="text-xs font-sans tracking-[0.2em] block">SANTEZVOUSBIEN</span>
         </div>
-        <div class="hidden md:flex space-x-6 text-sm font-semibold tracking-wide">
-            <a href="index.html" class="border-b-2 border-white">ACCUEIL</a>
-            <a href="studio.html" class="hover:text-gray-100">PLANNING & STUDIO</a>
-            <a href="tarifs.html" class="hover:text-gray-100">TARIFS</a>
-            <a href="contact.html" class="hover:text-gray-100">CONTACT</a>
+        <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide">
+            <a href="index.html" class="border-b-2 border-white pb-1">L'UNIVERS</a>
+            <a href="studio.html" class="hover:text-gray-100 transition">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
+            <a href="contact.html" class="hover:text-gray-100 transition">CONTACT</a>
         </div>
     </nav>
 
-    <header class="text-center mt-10 px-4">
-        <h1 class="text-5xl md:text-7xl mb-2 drop-shadow-sm">Le bien-être au quotidien</h1>
-        <p class="text-sm md:text-lg uppercase tracking-widest mb-10 font-light">Saint-Ouen • Coaching • Reformer • Yoga</p>
+    <header class="text-center pt-10 pb-16 px-4">
+        <h1 class="text-6xl md:text-8xl mb-4 drop-shadow-sm">Le bien-être au quotidien</h1>
+        <p class="text-lg md:text-xl font-light tracking-widest mb-12">STUDIO PILATES REFORMER & COACHING À SAINT-OUEN</p>
         
-        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-center">
-            <div class="bg-[#88C0A6]/90 p-8 text-white shadow-lg">
-                <h3 class="font-bold text-lg mb-2 uppercase">SVB COACHING & SMALL GROUP</h3>
-                <p class="text-xs leading-relaxed">
-                    COACHING INDIVIDUEL & DUO - CROSS TRAINING - CROSS BODY - 
-                    BOXE - GROOVE & TONE - AFRODANC'ALL - YOGA KIDS
-                </p>
+        <div class="max-w-2xl mx-auto bg-white text-[#4A8D84] p-1 shadow-xl transform rotate-1 hover:rotate-0 transition duration-500">
+            <div class="border-2 border-[#4A8D84] p-8">
+                <h2 class="text-4xl font-bold mb-2">New Pass Starter</h2>
+                <p class="text-5xl font-bold mb-4">99,90€</p>
+                <div class="space-y-1 text-sm font-semibold uppercase tracking-wide">
+                    <p>✨ 5 SESSIONS DIFFÉRENTES AU CHOIX</p>
+                    <p>✨ Pas d'engagement</p>
+                    <p>✨ Valable 1 mois</p>
+                </div>
+                <a href="tarifs.html" class="mt-8 block w-full bg-[#4A8D84] text-white py-3 uppercase font-bold text-sm tracking-widest hover:bg-[#3b756d] transition">
+                    Je commence maintenant
+                </a>
             </div>
-            <div class="bg-[#E8B496]/90 p-8 text-white shadow-lg"> <h3 class="font-bold text-lg mb-2 uppercase">SVB REFORMER & CROSSFORMER</h3>
-                <p class="text-xs leading-relaxed">
-                    PILATES REFORMER - PILATES CROSSFORMER - HATHA FLOW -
-                    YOGA VINYASA - CLASSIC PILATES - CORE & STRETCH
-                </p>
-            </div>
-        </div>
-
-        <div class="mt-12 mb-20">
-            <a href="tarifs.html" class="btn-svb px-8 py-3 text-sm font-bold uppercase tracking-widest shadow-md inline-block">
-                Voir nos offres
-            </a>
         </div>
     </header>
+
+    <section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8">
+        
+        <div class="glass-box p-8 text-left">
+            <h3 class="font-hand text-4xl mb-4">Reformer & Crossformer</h3>
+            <p class="text-sm font-medium leading-relaxed mb-4 uppercase tracking-wide">
+                Pilates Reformer • Pilates Crossformer • Hatha Flow • Yoga Vinyasa • Classic Pilates • Power Pilates • Core & Stretch
+            </p>
+            <p class="text-sm">
+                Des cours collectifs en petit comité pour sculpter votre corps en profondeur grâce à la résistance des machines.
+            </p>
+        </div>
+
+        <div class="glass-box p-8 text-left">
+            <h3 class="font-hand text-4xl mb-4">Coaching & Small Group</h3>
+            <p class="text-sm font-medium leading-relaxed mb-4 uppercase tracking-wide">
+                Coaching Individuel & Duo • Cross Training • Cross Body • Cross Core • Boxe • Groove & Tone • Afrodanc'All • Yoga Kids
+            </p>
+            <p class="text-sm">
+                Un accompagnement sur-mesure ou l'énergie du groupe pour dépasser vos limites.
+            </p>
+        </div>
+
+        <div class="md:col-span-2 glass-box p-8 text-center bg-[#F2E6CF]/30">
+            <h3 class="font-hand text-4xl mb-4 text-[#4A8D84]">Espace Soins & Bien-être</h3>
+            <p class="text-xs md:text-sm font-bold uppercase tracking-widest leading-loose text-[#2F4F4F]">
+                Ostéopathie • Kobido • Diététique • Massages Sportifs & Relaxants • Madérothérapie • Drainage Lymphatique • Réflexologie • Sophrologie • Soin Amma • Acupuncture
+            </p>
+        </div>
+    </section>
+
+    <section class="text-center py-8 px-4">
+        <div class="inline-block border border-white/50 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider">
+            🧦 Chaussettes antidérapantes obligatoires (Vente 10€ / Prêt 3€)
+        </div>
+    </section>
+
+    <footer class="bg-[#4A8D84] text-white py-12 px-4 mt-12">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+            
+            <div>
+                <h4 class="font-hand text-3xl mb-2">Studio Lavandières</h4>
+                <p class="text-sm font-light">40 Cours Lavandières</p>
+                <p class="text-sm font-light">93400 Saint-Ouen</p>
+            </div>
+
+            <div class="py-4 md:py-0 border-y md:border-y-0 md:border-x border-white/30">
+                <h4 class="font-hand text-3xl mb-2">Contact</h4>
+                <p class="text-lg font-bold">07 44 91 91 55</p>
+                <a href="mailto:hello@studiosvb.fr" class="text-sm underline block my-1">hello@studiosvb.fr</a>
+                <a href="https://instagram.com/svb.officiel" target="_blank" class="text-sm font-bold block">@svb.officiel</a>
+            </div>
+
+            <div>
+                <h4 class="font-hand text-3xl mb-2">Studio Docks</h4>
+                <p class="text-sm font-light">6 Mail André Breton</p>
+                <p class="text-sm font-light">93400 Saint-Ouen</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-10 text-xs opacity-70">
+            <p>&copy; 2024 SVB SantezVousBien. Tous droits réservés.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
