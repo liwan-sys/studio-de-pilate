@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | SVB SantezVousBien</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --svb-green-light: #98D0B3; 
+            --svb-green-dark: #4A8D84;  
+            --svb-sand: #F2E6CF;        
+            --svb-peach: #E8B496;
+            --svb-text: #2F4F4F;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
+            color: var(--svb-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
+
+        /* Animation */
+        @keyframes softSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .reveal-load { animation: softSlideUp 0.8s ease-out forwards; opacity: 0; }
+        .d-1 { animation-delay: 0.1s; }
+        .d-2 { animation-delay: 0.3s; }
+        .d-3 { animation-delay: 0.5s; }
+
+        /* Boîtes Style Verre */
+        .glass-box {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+        .glass-box:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Champs du formulaire */
+        .form-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            color: var(--svb-text);
+            outline: none;
+            transition: all 0.3s;
+        }
+        .form-input:focus {
+            background: white;
+            border-color: var(--svb-green-dark);
+            box-shadow: 0 0 0 3px rgba(74, 141, 132, 0.2);
+        }
+
+        /* Bouton */
+        .btn-submit {
+            width: 100%;
+            background-color: var(--svb-green-dark);
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 15px;
+            border-radius: 8px;
+            letter-spacing: 0.1em;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover { background-color: #386e66; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+            <h1 class="text-2xl font-bold tracking-widest drop-shadow-md">SVB</h1>
+        </div>
+        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
+            <a href="index.html" class="hover:text-gray-100 transition">L'UNIVERS</a>
+            <a href="sessions.html" class="hover:text-gray-100 transition">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-gray-100 transition">LA TEAM</a>
+            <a href="studio.html" class="hover:text-gray-100 transition">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
+            <a href="contact.html" class="border-b-2 border-white pb-1">CONTACT</a>
+        </div>
+    </nav>
+
+    <div class="text-center py-10 px-4 reveal-load d-1">
+        <h1 class="text-6xl text-white drop-shadow-md mb-2">Contactez-nous</h1>
+        <p class="text-white uppercase tracking-widest text-sm font-light">Une question ? Envie de réserver ?</p>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 pb-20 grid lg:grid-cols-2 gap-12">
+
+        <div class="space-y-8 reveal-load d-2">
+            
+            <div class="glass-box text-center">
+                <h3 class="font-hand text-3xl mb-6 text-[#4A8D84]">Nous joindre</h3>
+                <div class="space-y-4">
+                    <a href="tel:0744919155" class="block text-lg font-bold hover:text-[#4A8D84] transition">📞 07 44 91 91 55</a>
+                    <a href="mailto:hello@studiosvb.fr" class="block text-lg underline hover:text-[#4A8D84] transition">📧 hello@studiosvb.fr</a>
+                    <a href="https://instagram.com/svb.officiel" target="_blank" class="block text-lg font-bold hover:text-[#E8B496] transition">📸 @svb.officiel</a>
+                </div>
+            </div>
+
+            <div class="glass-box relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-[#E6DCC3] text-[#555] text-[10px] font-bold px-3 py-1 uppercase rounded-bl-lg">
+                    Reformer & Yoga
+                </div>
+                <h3 class="font-hand text-3xl mb-2 text-[#4A8D84]">Studio Lavandières</h3>
+                <p class="font-bold text-gray-700">📍 40 Cours des Lavandières</p>
+                <p class="text-sm text-gray-600 mb-4">93400 Saint-Ouen-sur-Seine</p>
+                <p class="text-xs italic text-gray-500">Code porte communiqué à la réservation.</p>
+            </div>
+
+            <div class="glass-box relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-[#88C0A6] text-white text-[10px] font-bold px-3 py-1 uppercase rounded-bl-lg">
+                    Coaching & Cross
+                </div>
+                <h3 class="font-hand text-3xl mb-2 text-[#4A8D84]">Studio Docks</h3>
+                <p class="font-bold text-gray-700">📍 6 Mail André Breton</p>
+                <p class="text-sm text-gray-600 mb-4">93400 Saint-Ouen-sur-Seine</p>
+                <p class="text-xs italic text-gray-500">Code porte communiqué à la réservation.</p>
+            </div>
+
+        </div>
+
+        <div class="reveal-load d-3">
+            <div class="glass-box h-full flex flex-col justify-center">
+                <h3 class="font-hand text-4xl mb-6 text-center text-[#4A8D84]">Écrivez-nous</h3>
+                
+                <form>
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-2 text-gray-600">Votre Nom</label>
+                        <input type="text" class="form-input" placeholder="Prénom Nom">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-2 text-gray-600">Votre Email</label>
+                        <input type="email" class="form-input" placeholder="exemple@mail.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-2 text-gray-600">Sujet</label>
+                        <select class="form-input">
+                            <option>Demande d'informations</option>
+                            <option>Réserver une séance d'essai</option>
+                            <option>Coaching Privé</option>
+                            <option>Autre</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-2 text-gray-600">Message</label>
+                        <textarea class="form-input h-32" placeholder="Votre message..."></textarea>
+                    </div>
+
+                    <button type="button" class="btn-submit">Envoyer le message</button>
+                    <p class="text-[10px] text-center mt-3 opacity-60">En cliquant, vous acceptez d'être recontacté par l'équipe SVB.</p>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="w-full h-64 bg-gray-200 mt-10 relative">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.857629253488!2d2.3195!3d48.9115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f2726555555%3A0x0!2sSaint-Ouen-sur-Seine!5e0!3m2!1sfr!2sfr!4v1600000000000!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0; filter: grayscale(50%);" allowfullscreen="" loading="lazy"></iframe>
+        <div class="absolute inset-0 bg-[#4A8D84] opacity-20 pointer-events-none"></div> </div>
+
+    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs">
+        <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
+    </footer>
+
+</body>
+</html>
