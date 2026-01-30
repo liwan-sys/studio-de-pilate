@@ -22,17 +22,46 @@
             background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
             color: var(--svb-text);
             min-height: 100vh;
+            overflow-x: hidden; /* Évite le scroll horizontal */
         }
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* Carte de prix style "Verre" (SANS ANIMATION DE FLOTTEMENT) */
+        /* --- ANIMATIONS SÉCURISÉES --- */
+        
+        /* Définition du mouvement */
+        @keyframes softSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Classe à appliquer pour animer */
+        .reveal-load {
+            animation: softSlideUp 0.8s ease-out forwards;
+            opacity: 0; /* Caché seulement le temps que l'anim se lance */
+        }
+
+        /* Délais pour l'effet "cascade" */
+        .d-1 { animation-delay: 0.1s; }
+        .d-2 { animation-delay: 0.3s; }
+        .d-3 { animation-delay: 0.5s; }
+
+        /* --- STYLE DES CARTES --- */
         .price-card {
-            background: rgba(255, 255, 255, 0.7); /* Un peu plus opaque pour la lisibilité */
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 20px;
+            transition: all 0.3s ease; /* Fluidité du survol */
+        }
+
+        /* L'INTERACTION : Effet quand on passe la souris */
+        .price-card:hover {
+            transform: scale(1.02) translateY(-5px); /* Grossit et monte */
+            background: rgba(255, 255, 255, 0.95); /* Devient plus blanc */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Ombre plus forte */
+            z-index: 10;
         }
 
         .card-header { padding: 15px; color: white; text-align: center; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
@@ -46,27 +75,27 @@
 </head>
 <body>
 
-    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
+    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
         <div class="text-center md:text-left mb-4 md:mb-0">
             <h1 class="text-2xl font-bold tracking-widest drop-shadow-md">SVB</h1>
         </div>
         <div class="flex space-x-6 text-sm font-semibold tracking-wide">
-            <a href="index.html" class="hover:text-gray-100">L'UNIVERS</a>
-            <a href="studio.html" class="hover:text-gray-100">PLANNING</a>
+            <a href="index.html" class="hover:text-gray-100 transition hover:scale-110 duration-200">L'UNIVERS</a>
+            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-110 duration-200">PLANNING</a>
             <a href="tarifs.html" class="border-b-2 border-white pb-1">TARIFS</a>
-            <a href="contact.html" class="hover:text-gray-100">CONTACT</a>
+            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-110 duration-200">CONTACT</a>
         </div>
     </nav>
 
-    <div class="text-center py-10 px-4">
+    <div class="text-center py-10 px-4 reveal-load d-1">
         <h1 class="text-6xl text-white drop-shadow-md mb-2">Nos Tarifs</h1>
         <p class="text-white uppercase tracking-widest text-sm font-light">Investissez en vous-même</p>
     </div>
 
     <div class="max-w-6xl mx-auto px-4 pb-20">
 
-        <section class="mb-16">
-            <div class="max-w-2xl mx-auto price-card border-4 border-white">
+        <section class="mb-16 reveal-load d-2">
+            <div class="max-w-2xl mx-auto price-card border-4 border-white transform hover:scale-105 transition duration-300">
                 <div class="bg-[#4A8D84] text-white py-6 text-center">
                     <h2 class="text-3xl font-bold uppercase">New Pass Starter</h2>
                     <p class="text-xs uppercase tracking-widest mt-1">Offre Découverte</p>
@@ -79,14 +108,14 @@
                         <li>✨ Pas de tacite reconduction</li>
                         <li>✨ Valable 1 mois</li>
                     </ul>
-                    <a href="#" class="inline-block bg-[#4A8D84] text-white px-8 py-3 uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition">Choisir ce pass</a>
+                    <a href="#" class="inline-block bg-[#4A8D84] text-white px-8 py-3 uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition shadow-md">Choisir ce pass</a>
                 </div>
             </div>
         </section>
 
-        <h2 class="text-4xl text-center text-white font-hand mb-10">Nos Abonnements Mensuels</h2>
+        <h2 class="text-4xl text-center text-white font-hand mb-10 reveal-load d-2">Nos Abonnements Mensuels</h2>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-load d-3">
             
             <div class="price-card">
                 <div class="card-header bg-green-dark">Coaching Pass Good Vibes <br><span class="text-xs font-normal">(55 min - Individuel)</span></div>
@@ -185,7 +214,7 @@
 
         </div>
 
-        <section class="mt-20 grid md:grid-cols-2 gap-8">
+        <section class="mt-20 grid md:grid-cols-2 gap-8 reveal-load d-3">
             
             <div class="price-card p-8 text-center rounded-lg bg-[#4A8D84]/20 border-2 border-white">
                 <h3 class="font-hand text-4xl mb-4 text-white">Offre de Parrainage</h3>
