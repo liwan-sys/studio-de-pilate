@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,26 +23,22 @@
             background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
             color: var(--svb-text);
             min-height: 100vh;
-            overflow-x: hidden; /* Évite le scroll horizontal */
+            overflow-x: hidden;
         }
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
         /* --- ANIMATIONS SÉCURISÉES --- */
-        
-        /* Définition du mouvement */
         @keyframes softSlideUp {
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Classe à appliquer pour animer */
         .reveal-load {
             animation: softSlideUp 0.8s ease-out forwards;
-            opacity: 0; /* Caché seulement le temps que l'anim se lance */
+            opacity: 0; 
         }
 
-        /* Délais pour l'effet "cascade" */
         .d-1 { animation-delay: 0.1s; }
         .d-2 { animation-delay: 0.3s; }
         .d-3 { animation-delay: 0.5s; }
@@ -53,14 +50,17 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 20px;
-            transition: all 0.3s ease; /* Fluidité du survol */
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pousse le bouton vers le bas */
+            height: 100%;
         }
 
-        /* L'INTERACTION : Effet quand on passe la souris */
         .price-card:hover {
-            transform: scale(1.02) translateY(-5px); /* Grossit et monte */
-            background: rgba(255, 255, 255, 0.95); /* Devient plus blanc */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Ombre plus forte */
+            transform: scale(1.02) translateY(-5px);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             z-index: 10;
         }
 
@@ -71,6 +71,25 @@
 
         .price-row { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 8px 0; font-size: 0.9rem; }
         .price-row:last-child { border-bottom: none; }
+
+        /* BOUTON D'ACTION */
+        .btn-action {
+            display: block;
+            width: 100%;
+            background-color: var(--svb-green-dark);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            transition: background-color 0.3s;
+        }
+        .btn-action:hover {
+            background-color: #386e66;
+        }
     </style>
 </head>
 <body>
@@ -108,7 +127,7 @@
                         <li>✨ Pas de tacite reconduction</li>
                         <li>✨ Valable 1 mois</li>
                     </ul>
-                    <a href="#" class="inline-block bg-[#4A8D84] text-white px-8 py-3 uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition shadow-md">Choisir ce pass</a>
+                    <a href="#" class="inline-block bg-[#4A8D84] text-white px-8 py-3 uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition shadow-md w-full">Je commence maintenant</a>
                 </div>
             </div>
         </section>
@@ -118,84 +137,101 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-load d-3">
             
             <div class="price-card">
-                <div class="card-header bg-green-dark">Coaching Pass Good Vibes <br><span class="text-xs font-normal">(55 min - Individuel)</span></div>
-                <div class="p-6">
-                    <div class="price-row"><span>4 Séances / mois</span> <span class="font-bold">300,30€</span></div>
-                    <div class="price-row"><span>8 Séances / mois</span> <span class="font-bold">560,30€</span></div>
-                    <p class="text-xs text-center mt-4 italic text-gray-500">Engagement 3 mois</p>
+                <div>
+                    <div class="card-header bg-green-dark">Coaching Pass Good Vibes <br><span class="text-xs font-normal">(55 min - Individuel)</span></div>
+                    <div class="p-6">
+                        <div class="price-row"><span>4 Séances / mois</span> <span class="font-bold">300,30€</span></div>
+                        <div class="price-row"><span>8 Séances / mois</span> <span class="font-bold">560,30€</span></div>
+                        <p class="text-xs text-center mt-4 italic text-gray-500">Engagement 3 mois</p>
+                    </div>
+                    <div class="card-header bg-green-dark mt-4 border-t border-white">Pass Duo <br><span class="text-xs font-normal">(55 min - Prix total)</span></div>
+                    <div class="p-6">
+                        <div class="price-row"><span>4 Séances / mois</span> <span class="font-bold">400,60€</span></div>
+                        <div class="text-xs text-right text-gray-500 mb-2">Soit 200,30€/pers</div>
+                        <div class="price-row"><span>8 Séances / mois</span> <span class="font-bold">720,60€</span></div>
+                        <div class="text-xs text-right text-gray-500">Soit 360,30€/pers</div>
+                    </div>
                 </div>
-                <div class="card-header bg-green-dark mt-4 border-t border-white">Pass Duo <br><span class="text-xs font-normal">(55 min - Prix total)</span></div>
-                <div class="p-6">
-                    <div class="price-row"><span>4 Séances / mois</span> <span class="font-bold">400,60€</span></div>
-                    <div class="text-xs text-right text-gray-500 mb-2">Soit 200,30€/pers</div>
-                    <div class="price-row"><span>8 Séances / mois</span> <span class="font-bold">720,60€</span></div>
-                    <div class="text-xs text-right text-gray-500">Soit 360,30€/pers</div>
-                    <p class="text-xs text-center mt-4 italic text-gray-500">Engagement 3 mois</p>
-                </div>
+                <a href="#" class="btn-action">Choisir un coaching</a>
             </div>
 
             <div class="price-card">
-                <div class="card-header bg-peach">Pass Crossformer <br><span class="text-xs font-normal">(50 min - Small Group)</span></div>
-                <div class="p-6 text-sm">
-                    <div class="price-row"><span>2 Sessions</span> <span>78,30€</span></div>
-                    <div class="price-row"><span>4 Sessions</span> <span>152,30€</span></div>
-                    <div class="price-row"><span>6 Sessions</span> <span>222,30€</span></div>
-                    <div class="price-row"><span>8 Sessions</span> <span>288,30€</span></div>
-                    <div class="price-row"><span>10 Sessions</span> <span>350,30€</span></div>
-                    <div class="price-row"><span>12 Sessions</span> <span>408,30€</span></div>
-                    <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
+                <div>
+                    <div class="card-header bg-peach">Pass Crossformer <br><span class="text-xs font-normal">(50 min - Small Group)</span></div>
+                    <div class="p-6 text-sm">
+                        <div class="price-row"><span>2 Sessions</span> <span>78,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>152,30€</span></div>
+                        <div class="price-row"><span>6 Sessions</span> <span>222,30€</span></div>
+                        <div class="price-row"><span>8 Sessions</span> <span>288,30€</span></div>
+                        <div class="price-row"><span>10 Sessions</span> <span>350,30€</span></div>
+                        <div class="price-row"><span>12 Sessions</span> <span>408,30€</span></div>
+                        <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
+                    </div>
                 </div>
+                <a href="#" class="btn-action">Choisir ce pass</a>
             </div>
 
             <div class="price-card">
-                <div class="card-header bg-sand text-[#555]">Pass Reformer <br><span class="text-xs font-normal">(50 min)</span></div>
-                <div class="p-6 text-sm">
-                    <div class="price-row"><span>2 Sessions</span> <span>70,30€</span></div>
-                    <div class="price-row"><span>4 Sessions</span> <span>136,30€</span></div>
-                    <div class="price-row"><span>6 Sessions</span> <span>198,30€</span></div>
-                    <div class="price-row"><span>8 Sessions</span> <span>256,30€</span></div>
-                    <div class="price-row"><span>10 Sessions</span> <span>310,30€</span></div>
-                    <div class="price-row"><span>12 Sessions</span> <span>360,30€</span></div>
-                    <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
+                <div>
+                    <div class="card-header bg-sand text-[#555]">Pass Reformer <br><span class="text-xs font-normal">(50 min)</span></div>
+                    <div class="p-6 text-sm">
+                        <div class="price-row"><span>2 Sessions</span> <span>70,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>136,30€</span></div>
+                        <div class="price-row"><span>6 Sessions</span> <span>198,30€</span></div>
+                        <div class="price-row"><span>8 Sessions</span> <span>256,30€</span></div>
+                        <div class="price-row"><span>10 Sessions</span> <span>310,30€</span></div>
+                        <div class="price-row"><span>12 Sessions</span> <span>360,30€</span></div>
+                        <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
+                    </div>
                 </div>
+                <a href="#" class="btn-action">Choisir ce pass</a>
             </div>
 
              <div class="price-card">
-                <div class="card-header bg-[#88C0A6]">Pass Cross <br><span class="text-xs font-normal">(55 min - Training)</span></div>
-                <div class="p-6 text-sm">
-                    <div class="price-row"><span>2 Sessions</span> <span>30,30€</span></div>
-                    <div class="price-row"><span>4 Sessions</span> <span>60,30€</span></div>
-                    <div class="price-row"><span>6 Sessions</span> <span>90,30€</span></div>
-                    <div class="price-row"><span>8 Sessions</span> <span>116,30€</span></div>
-                    <div class="price-row"><span>10 Sessions</span> <span>145,30€</span></div>
-                    <div class="price-row"><span>12 Sessions</span> <span>168,30€</span></div>
-                    <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
+                <div>
+                    <div class="card-header bg-[#88C0A6]">Pass Cross <br><span class="text-xs font-normal">(55 min - Training)</span></div>
+                    <div class="p-6 text-sm">
+                        <div class="price-row"><span>2 Sessions</span> <span>30,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>60,30€</span></div>
+                        <div class="price-row"><span>6 Sessions</span> <span>90,30€</span></div>
+                        <div class="price-row"><span>8 Sessions</span> <span>116,30€</span></div>
+                        <div class="price-row"><span>10 Sessions</span> <span>145,30€</span></div>
+                        <div class="price-row"><span>12 Sessions</span> <span>168,30€</span></div>
+                        <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
+                    </div>
                 </div>
+                <a href="#" class="btn-action">Choisir ce pass</a>
             </div>
 
              <div class="price-card">
-                <div class="card-header bg-[#F2E6CF] text-[#555]">Pass Focus <br><span class="text-xs font-normal">(55 min)</span></div>
-                <div class="p-6 text-sm">
-                    <div class="price-row"><span>2 Sessions</span> <span>36,30€</span></div>
-                    <div class="price-row"><span>4 Sessions</span> <span>72,30€</span></div>
-                    <div class="price-row"><span>6 Sessions</span> <span>105,30€</span></div>
-                    <div class="price-row"><span>8 Sessions</span> <span>136,30€</span></div>
-                    <div class="price-row"><span>10 Sessions</span> <span>165,30€</span></div>
-                    <div class="price-row"><span>12 Sessions</span> <span>192,30€</span></div>
-                    <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
+                <div>
+                    <div class="card-header bg-[#F2E6CF] text-[#555]">Pass Focus <br><span class="text-xs font-normal">(55 min)</span></div>
+                    <div class="p-6 text-sm">
+                        <div class="price-row"><span>2 Sessions</span> <span>36,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>72,30€</span></div>
+                        <div class="price-row"><span>6 Sessions</span> <span>105,30€</span></div>
+                        <div class="price-row"><span>8 Sessions</span> <span>136,30€</span></div>
+                        <div class="price-row"><span>10 Sessions</span> <span>165,30€</span></div>
+                        <div class="price-row"><span>12 Sessions</span> <span>192,30€</span></div>
+                        <p class="text-xs text-center mt-4 italic text-gray-500">Non cumulables</p>
+                    </div>
                 </div>
+                <a href="#" class="btn-action">Choisir ce pass</a>
             </div>
 
              <div class="price-card">
-                <div class="card-header bg-[#E8B496]">Pass Kids <br><span class="text-xs font-normal">(Hors Juillet/Août)</span></div>
-                <div class="p-6 text-sm text-center">
-                    <p class="mb-2 font-bold text-lg">2 Sessions - 35,30€</p>
-                    <p class="mb-4 font-bold text-lg">4 Sessions - 65,30€</p>
-                    <hr class="border-gray-300 my-3">
-                    <p class="text-xs">Session suppl: 18,30€</p>
-                    <p class="text-xs">Frais de dossier: 29€</p>
-                    <p class="text-xs font-bold mt-2 text-[#E8B496]">Engagement 4 mois</p>
+                <div>
+                    <div class="card-header bg-[#E8B496]">Pass Kids <br><span class="text-xs font-normal">(Hors Juillet/Août)</span></div>
+                    <div class="p-6 text-sm text-center">
+                        <p class="mb-2 font-bold text-lg">2 Sessions - 35,30€</p>
+                        <p class="mb-4 font-bold text-lg">4 Sessions - 65,30€</p>
+                        <hr class="border-gray-300 my-3">
+                        <p class="text-xs">Session suppl: 18,30€</p>
+                        <p class="text-xs">Frais de dossier: 29€</p>
+                        <p class="text-xs font-bold mt-2 text-[#E8B496]">Engagement 4 mois</p>
+                    </div>
                 </div>
+                <a href="#" class="btn-action">Inscrire mon enfant</a>
             </div>
 
             <div class="price-card flex flex-col justify-center bg-white/60 col-span-1 md:col-span-2 lg:col-span-3">
@@ -209,6 +245,7 @@
                         <li>✅ Suspension abonnement sans préavis</li>
                     </ul>
                     <p class="text-[10px] leading-tight text-gray-500">Engagement 2 mois (Coaching) & 3 mois (Small Groups)</p>
+                    <a href="#" class="btn-action w-1/2 mx-auto">Ajouter l'option</a>
                 </div>
             </div>
 
