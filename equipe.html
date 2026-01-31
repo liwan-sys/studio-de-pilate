@@ -46,7 +46,7 @@
         /* Animation d'apparition */
         .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
         @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); filter: blur(5px); } 100% { opacity: 1; transform: translateY(0); filter: blur(0); } }
-        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; }
+        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
 
         /* === CARTE COACH PREMIUM === */
         .coach-card {
@@ -122,9 +122,8 @@
             margin-bottom: 12px;
         }
 
-        /* Couleurs Titres */
         .ceo-role { color: #E8B496; text-shadow: 0 1px 5px rgba(0,0,0,0.3); }
-        .resp-role { color: #98D0B3; text-shadow: 0 1px 5px rgba(0,0,0,0.3); }
+        .resp-role { color: #98D0B3; text-shadow: 0 1px 5px rgba(0,0,0,0.3); font-weight: 800; }
 
         .badge-container {
             display: flex;
@@ -156,17 +155,12 @@
 </head>
 <body>
 
-    <div class="ambient-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
+    <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
     <div class="noise-overlay"></div>
 
     <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
         <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md">
-            </a>
+            <a href="index.html"><img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md"></a>
         </div>
         <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide drop-shadow-sm">
             <a href="index.html" class="hover:text-gray-100 transition hover:scale-105">L'UNIVERS</a>
@@ -181,16 +175,14 @@
     </nav>
 
     <div class="relative text-center py-16 px-4 reveal-load d-1 z-10">
-        <h1 class="text-7xl md:text-9xl text-white drop-shadow-lg mb-4 font-hand">L'Âme du Studio</h1>
-        <p class="text-white uppercase tracking-widest text-sm font-light opacity-90 bg-white/20 inline-block px-6 py-2 rounded-full backdrop-blur-sm">
-            Expertise • Passion • Bienveillance
-        </p>
+        <h1 class="text-7xl md:text-9xl text-white drop-shadow-lg mb-4 font-hand">La Team</h1>
+        <p class="text-white uppercase tracking-widest text-sm font-light opacity-90 bg-white/20 inline-block px-6 py-2 rounded-full backdrop-blur-sm">Expertise • Passion • Bienveillance</p>
     </div>
 
-    <div class="relative max-w-4xl mx-auto px-4 mb-20 z-10 reveal-load d-2">
+    <div class="relative max-w-7xl mx-auto px-4 mb-20 z-10 reveal-load d-2">
         <h2 class="text-4xl text-center text-white font-hand mb-10 drop-shadow-md">La Direction</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-8">
             <div class="coach-card group">
                 <img src="images/Shanael.jpg" class="coach-img" alt="Shanael">
                 <div class="coach-info">
@@ -199,7 +191,6 @@
                     <div class="badge-container"><span class="badge">Vision</span><span class="badge">Direction</span></div>
                 </div>
             </div>
-
             <div class="coach-card group">
                 <img src="images/Liwan.jpg" class="coach-img" alt="Liwan">
                 <div class="coach-info">
@@ -208,15 +199,9 @@
                     <div class="badge-container"><span class="badge">Stratégie</span><span class="badge">Développement</span></div>
                 </div>
             </div>
-
         </div>
-    </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 pb-24 z-10 reveal-load d-2">
-        <h2 class="text-4xl text-center text-white font-hand mb-10 drop-shadow-md">L'Équipe</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-
+        <div class="max-w-sm mx-auto">
             <div class="coach-card group">
                 <img src="images/Laura.jpg" class="coach-img" alt="Laura">
                 <div class="coach-info">
@@ -225,6 +210,13 @@
                     <div class="badge-container"><span class="badge">Management</span><span class="badge">Reformer</span><span class="badge">Pilates</span></div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 pb-24 z-10 reveal-load d-3">
+        <h2 class="text-4xl text-center text-white font-hand mb-10 drop-shadow-md">Nos Coachs Experts</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
             <div class="coach-card group">
                 <img src="https://i.pravatar.cc/600?img=1" class="coach-img" alt="Fatoumata">
