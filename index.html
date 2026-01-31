@@ -27,6 +27,7 @@
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
+        /* Animations */
         @keyframes softSlideUp {
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -36,6 +37,7 @@
         .d-2 { animation-delay: 0.3s; }
         .d-3 { animation-delay: 0.5s; }
 
+        /* Boutons */
         .btn-action {
             background-color: var(--svb-green-dark);
             color: white;
@@ -45,17 +47,13 @@
             font-weight: 700;
             font-size: 0.85rem;
             letter-spacing: 0.1em;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             display: inline-block;
-            border: 2px solid transparent;
         }
-        .btn-action:hover {
-            background-color: #386e66;
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
+        .btn-action:hover { background-color: #386e66; transform: scale(1.05); }
 
+        /* Cartes */
         .starter-card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 25px;
@@ -67,15 +65,27 @@
             border: 3px solid rgba(255,255,255,0.8);
         }
 
-        /* WHATSAPP STYLES */
+        .text-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* WHATSAPP CHATBOX */
         .wa-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
         .wa-bubble { background: white; color: #2F4F4F; padding: 12px 18px; border-radius: 15px 15px 0 15px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 220px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease; pointer-events: none; border: 1px solid rgba(0,0,0,0.05); }
         .wa-bubble.show { opacity: 1; transform: translateY(0); }
-        .whatsapp-btn { background-color: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); animation: pulse-wa 2s infinite; }
+        .whatsapp-btn { background-color: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); }
         @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-
-        .text-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(5px); border-radius: 20px; padding: 30px 20px; text-align: center; border: 2px solid rgba(255, 255, 255, 0.6); transition: all 0.3s; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-        .text-card:hover { background: white; transform: translateY(-10px); }
+        .whatsapp-btn { animation: pulse-wa 2s infinite; }
     </style>
 </head>
 <body>
@@ -118,34 +128,26 @@
         </div>
     </div>
 
-    <div class="max-w-5xl mx-auto px-4 pb-24 text-center reveal-load d-3">
-        <h2 class="text-3xl text-white font-hand mb-10">Juste une séance ?</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="text-card">
-                <div><h3 class="card-title">Essai Reformer</h3><p class="card-desc text-xs font-bold text-gray-500 uppercase">Machine</p></div>
-                <div><p class="card-price">30€</p><span class="btn-small">Réserver</span></div>
-            </a>
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="text-card">
-                <div><h3 class="card-title">Essai Crossformer</h3><p class="card-desc text-xs font-bold text-gray-500 uppercase">Cardio</p></div>
-                <div><p class="card-price">30€</p><span class="btn-small">Réserver</span></div>
-            </a>
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="text-card">
-                <div><h3 class="card-title">Essai Training</h3><p class="card-desc text-xs font-bold text-gray-500 uppercase">Yoga • Boxe</p></div>
-                <div><p class="card-price">15€</p><span class="btn-small">Réserver</span></div>
-            </a>
-        </div>
-    </div>
-
-    <footer class="bg-[#4A8D84] text-white pt-16 pb-8 border-t border-white/20">
+    <footer class="bg-[#4A8D84] text-white pt-16 pb-8 mt-10 border-t border-white/20">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
-            <div class="flex flex-col items-center md:items-start">
+            <div>
                 <h2 class="text-4xl font-hand mb-4">SVB</h2>
-                <p class="text-xs opacity-70">Votre espace bien-être à Saint-Ouen. Pilates, Yoga, Training et Soins.</p>
+                <p class="text-xs opacity-80 leading-relaxed max-w-xs">Votre espace de remise en forme et de bien-être à Saint-Ouen. Pilates, Yoga, Training et Soins.</p>
             </div>
-            <div class="flex flex-col items-center"><h3 class="font-bold uppercase mb-4 text-sm">Contact</h3><ul class="text-sm opacity-90"><li>📞 07 44 91 91 55</li><li>✉️ hello@studiosvb.fr</li></ul></div>
-            <div class="flex flex-col items-center md:items-end"><h3 class="font-bold uppercase mb-4 text-sm">Suivez-nous</h3><a href="https://www.instagram.com/svb.officiel" target="_blank" class="bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-6 py-2 rounded-full text-xs font-bold uppercase">Instagram</a></div>
+            <div class="flex flex-col items-center">
+                <h3 class="font-bold uppercase tracking-widest mb-4 text-sm">Contact</h3>
+                <ul class="space-y-3 text-sm opacity-90 text-center">
+                    <li>📞 07 44 91 91 55</li>
+                    <li>✉️ hello@studiosvb.fr</li>
+                    <li>📍 Saint-Ouen, France</li>
+                </ul>
+            </div>
+            <div class="flex flex-col items-center md:items-end">
+                <h3 class="font-bold uppercase tracking-widest mb-4 text-sm">Suivez-nous</h3>
+                <a href="https://www.instagram.com/svb.officiel" target="_blank" class="bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-6 py-2 rounded-full text-xs font-bold uppercase">Instagram</a>
+            </div>
         </div>
-        <div class="text-center mt-12 text-[10px] opacity-40">© 2026 SVB SantezVousBien.</div>
+        <div class="text-center mt-12 text-[10px] opacity-40">© 2026 SVB SantezVousBien. Tous droits réservés.</div>
     </footer>
 
     <div id="wa-container" class="wa-container">
