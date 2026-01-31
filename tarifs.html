@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarifs | SVB SantezVousBien</title>
+    <title>SVB SantezVousBien | Studio Pilates & Wellness</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,82 +37,128 @@
         .d-2 { animation-delay: 0.3s; }
         .d-3 { animation-delay: 0.5s; }
 
-        /* STYLE DES CARTES */
-        .price-card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
+        /* Animations Carte Starter */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes pulse-btn {
+            0% { box-shadow: 0 0 0 0 rgba(74, 141, 132, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(74, 141, 132, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 141, 132, 0); }
+        }
+
+        /* BOUTON ACTION (Vert foncé) */
+        .btn-action {
+            background-color: var(--svb-green-dark);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+        .btn-action:hover {
+            background-color: #386e66;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* === CARD STARTER === */
+        .starter-card-wrapper { animation: float 4s ease-in-out infinite; }
+        .starter-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            max-width: 550px;
+            margin: 0 auto;
+            position: relative;
+            border: 3px solid rgba(255,255,255,0.8);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .starter-card-wrapper:hover .starter-card {
+            transform: scale(1.03) translateY(-5px);
+            border-color: var(--svb-green-dark);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+        }
+        .starter-card .btn-action { animation: pulse-btn 2s infinite; }
+
+        /* === CARTES ESSAI === */
+        .text-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
-            border-radius: 12px;
-            overflow: hidden;
         }
 
-        .price-card:hover {
-            transform: scale(1.02) translateY(-5px);
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            z-index: 10;
+        .text-card:hover {
+            background: white;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--svb-green-dark);
         }
 
-        .card-header { padding: 15px; color: white; text-align: center; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
-        .bg-green-dark { background-color: var(--svb-green-dark); }
-        .bg-peach { background-color: var(--svb-peach); }
-        .bg-sand { background-color: #D6C496; }
+        .card-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--svb-green-dark);
+            margin-bottom: 5px;
+        }
 
-        .price-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 8px 0; font-size: 0.9rem; }
-        .price-row:last-child { border-bottom: none; }
-
-        /* BOUTON PRINCIPAL */
-        .btn-action {
-            display: block;
-            width: 100%;
-            background-color: var(--svb-green-dark);
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            text-transform: uppercase;
+        .card-desc {
             font-size: 0.8rem;
+            text-transform: uppercase;
             font-weight: 700;
-            letter-spacing: 0.1em;
-            transition: background-color 0.3s;
-            margin-top: auto;
+            color: #666;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
         }
-        .btn-action:hover { background-color: #386e66; }
 
-        /* BOUTON UNITAIRE */
-        .btn-unit {
-            background-color: white;
+        .card-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--svb-text);
+            margin-bottom: 20px;
+        }
+
+        .btn-small {
             border: 1px solid var(--svb-green-dark);
             color: var(--svb-green-dark);
-            font-size: 0.65rem;
-            font-weight: 700;
+            padding: 8px 20px;
+            border-radius: 20px;
             text-transform: uppercase;
-            padding: 4px 10px;
-            border-radius: 4px;
-            transition: all 0.2s;
-            display: inline-block;
-            margin-left: 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            transition: all 0.3s;
         }
-        .btn-unit:hover {
+        
+        .text-card:hover .btn-small {
             background-color: var(--svb-green-dark);
             color: white;
         }
 
-        /* LIGNE SPÉCIALE UNITÉ */
-        .unit-row {
-            background-color: rgba(74, 141, 132, 0.1);
-            padding: 10px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* MAP */
+        iframe {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 4px solid rgba(255,255,255,0.5);
         }
 
     </style>
@@ -120,222 +166,150 @@
 <body>
 
     <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
-        <div class="text-center md:text-left mb-4 md:mb-0">
+        <div class="mb-4 md:mb-0">
             <a href="index.html">
                 <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert">
             </a>
         </div>
         <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
-            <a href="index.html" class="hover:text-gray-100 transition">L'UNIVERS</a>
+            <a href="index.html" class="border-b-2 border-white pb-1">L'UNIVERS</a>
             <a href="sessions.html" class="hover:text-gray-100 transition">SESSIONS</a>
             <a href="equipe.html" class="hover:text-gray-100 transition">LA TEAM</a>
             <a href="bien-etre.html" class="hover:text-gray-100 transition">BIEN-ÊTRE</a>
             <a href="studio.html" class="hover:text-gray-100 transition">PLANNING</a>
-            <a href="tarifs.html" class="border-b-2 border-white pb-1">TARIFS</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
             <a href="faq.html" class="hover:text-gray-100 transition">FAQ</a>
             <a href="contact.html" class="hover:text-gray-100 transition">CONTACT</a>
         </div>
     </nav>
 
-    <div class="text-center py-10 px-4 reveal-load d-1">
-        <h1 class="text-6xl text-white drop-shadow-md mb-2">Nos Tarifs</h1>
-        <p class="text-white uppercase tracking-widest text-sm font-light">Investissez en vous-même</p>
+    <header class="text-center py-16 px-4 reveal-load d-1">
+        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-6 leading-tight font-hand">SantezVousBien</h1>
+        <p class="text-white text-lg font-light max-w-2xl mx-auto mb-8 leading-relaxed opacity-90">
+            Plus qu'une salle de sport, un lieu de vie.<br>
+            Deux studios, une seule énergie.
+        </p>
+    </header>
+
+    <div class="px-4 pb-20 reveal-load d-2">
+        <div class="starter-card-wrapper">
+            <div class="starter-card">
+                <span class="bg-[#E8B496] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4 inline-block">Offre Découverte</span>
+                <h2 class="text-4xl font-hand text-[#4A8D84] mb-2">New Pass Starter</h2>
+                <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-500 uppercase mb-6 tracking-wide">
+                    <span class="bg-gray-100 px-2 py-1 rounded">5 Sessions</span>
+                    <span>•</span>
+                    <span class="bg-gray-100 px-2 py-1 rounded">Sans Engagement</span>
+                </div>
+                <p class="text-7xl font-bold text-[#2F4F4F] mb-8 tracking-tight">99,90<span class="text-3xl">€</span></p>
+                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full text-lg shadow-xl">
+                    Je commence maintenant
+                </a>
+                <p class="text-[10px] text-gray-400 mt-4 italic">Valable 1 mois • Offre limitée</p>
+            </div>
+        </div>
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 pb-20">
-
-        <section class="mb-16 reveal-load d-2">
-            <div class="max-w-2xl mx-auto price-card border-4 border-white transform hover:scale-105 transition duration-300">
-                <div class="bg-[#4A8D84] text-white py-6 text-center">
-                    <h2 class="text-3xl font-bold uppercase">New Pass Starter</h2>
-                    <p class="text-xs uppercase tracking-widest mt-1">Offre Découverte - Valable 1 fois</p>
-                </div>
-                <div class="p-8 text-center">
-                    <p class="text-6xl font-bold text-[#4A8D84] mb-6">99,90€</p>
-                    <ul class="space-y-3 text-sm font-semibold text-gray-700 uppercase mb-8">
-                        <li>✨ 5 Sessions différentes au choix</li>
-                        <li>✨ Pas d'engagement</li>
-                        <li>✨ Valable 1 mois</li>
-                    </ul>
-                    <a href="https://svb.sportigo.fr/buy" target="_blank" class="inline-block bg-[#4A8D84] text-white px-8 py-3 uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition shadow-md w-full">Je commence maintenant</a>
-                </div>
-            </div>
-        </section>
-
-        <h2 class="text-4xl text-center text-white font-hand mb-10 reveal-load d-2">Nos Abonnements & Sessions</h2>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-load d-3">
+    <div class="max-w-5xl mx-auto px-4 pb-24 text-center reveal-load d-3">
+        <h2 class="text-3xl text-white font-hand mb-10">Juste une séance ?</h2>
+        <div class="grid md:grid-cols-3 gap-6">
             
-            <div class="price-card">
+            <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="text-card group">
                 <div>
-                    <div class="card-header bg-green-dark">Coaching Pass Good Vibes <br><span class="text-xs font-normal">(55 min - Individuel)</span></div>
-                    <div class="p-6">
-                        <div class="price-row"><span>4 Séances / mois</span> <span class="font-bold">300,30€</span></div>
-                        <div class="price-row"><span>8 Séances / mois</span> <span class="font-bold">560,30€</span></div>
-                        <p class="text-xs text-red-500 font-bold mt-4 text-center">Frais de dossier: 49€</p>
-                        <p class="text-xs text-center mt-1 font-bold text-[#4A8D84]">Engagement 3 mois</p>
-                    </div>
-                    <div class="card-header bg-green-dark mt-4 border-t border-white">Pass Duo <br><span class="text-xs font-normal">(55 min - Prix total)</span></div>
-                    <div class="p-6">
-                        <div class="price-row"><span>4 Séances / mois</span> <span class="font-bold">400,60€</span></div>
-                        <div class="text-xs text-right text-gray-500 mb-2">Soit 200,30€/pers</div>
-                        <div class="price-row"><span>8 Séances / mois</span> <span class="font-bold">720,60€</span></div>
-                        <div class="text-xs text-right text-gray-500">Soit 360,30€/pers</div>
-                        <p class="text-xs text-red-500 font-bold mt-4 text-center">Frais de dossier: 49€</p>
-                    </div>
+                    <h3 class="card-title">Essai Reformer</h3>
+                    <p class="card-desc">Pilates sur machine</p>
                 </div>
-                <a href="contact.html" class="btn-action">Choisir un coaching</a>
-            </div>
-
-            <div class="price-card">
                 <div>
-                    <div class="card-header bg-peach">Pass Crossformer <br><span class="text-xs font-normal">(50 min - Small Group)</span></div>
-                    <div class="p-6 text-sm">
-                        <div class="unit-row">
-                            <span class="font-bold text-[#2F4F4F]">1 Session</span>
-                            <div>
-                                <span class="font-bold mr-2">50€</span>
-                                <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="btn-unit">Acheter</a>
-                            </div>
-                        </div>
-                        <div class="price-row"><span>2 Sessions / mois</span> <span>78,30€</span></div>
-                        <div class="price-row"><span>4 Sessions / mois</span> <span>152,30€</span></div>
-                        <div class="price-row"><span>6 Sessions / mois</span> <span>222,30€</span></div>
-                        <div class="price-row"><span>8 Sessions / mois</span> <span>288,30€</span></div>
-                        <div class="price-row"><span>10 Sessions / mois</span> <span>350,30€</span></div>
-                        <div class="price-row"><span>12 Sessions / mois</span> <span>408,30€</span></div>
-                        <p class="text-xs text-red-500 font-bold mt-4 text-center">Frais de dossier: 49€</p>
-                        <p class="text-xs text-center mt-1 font-bold text-[#E8B496]">Engagement 6 mois</p>
-                    </div>
+                    <p class="card-price">50€</p>
+                    <span class="btn-small">Réserver</span>
                 </div>
-                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">S'abonner au studio</a>
-            </div>
+            </a>
 
-            <div class="price-card">
+            <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="text-card group">
                 <div>
-                    <div class="card-header bg-sand text-[#555]">Pass Reformer <br><span class="text-xs font-normal">(50 min)</span></div>
-                    <div class="p-6 text-sm">
-                        <div class="unit-row">
-                            <span class="font-bold text-[#2F4F4F]">1 Session</span>
-                            <div>
-                                <span class="font-bold mr-2">50€</span>
-                                <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="btn-unit">Acheter</a>
-                            </div>
-                        </div>
-                        <div class="price-row"><span>2 Sessions / mois</span> <span>70,30€</span></div>
-                        <div class="price-row"><span>4 Sessions / mois</span> <span>136,30€</span></div>
-                        <div class="price-row"><span>6 Sessions / mois</span> <span>198,30€</span></div>
-                        <div class="price-row"><span>8 Sessions / mois</span> <span>256,30€</span></div>
-                        <div class="price-row"><span>10 Sessions / mois</span> <span>310,30€</span></div>
-                        <div class="price-row"><span>12 Sessions / mois</span> <span>360,30€</span></div>
-                        <p class="text-xs text-red-500 font-bold mt-4 text-center">Frais de dossier: 49€</p>
-                        <p class="text-xs text-center mt-1 font-bold text-[#D6C496]">Engagement 6 mois</p>
-                    </div>
+                    <h3 class="card-title">Essai Crossformer</h3>
+                    <p class="card-desc">Intensité & Cardio</p>
                 </div>
-                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">S'abonner au studio</a>
-            </div>
-
-            <div class="price-card">
                 <div>
-                    <div class="card-header bg-[#88C0A6]">Pass Cross <br><span class="text-xs font-normal">(55 min - Training)</span></div>
-                    <div class="p-6 text-sm">
-                        <div class="unit-row">
-                            <span class="font-bold text-[#2F4F4F]">1 Session</span>
-                            <div>
-                                <span class="font-bold mr-2">30€</span>
-                                <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="btn-unit">Acheter</a>
-                            </div>
-                        </div>
-                        <div class="price-row"><span>2 Sessions / mois</span> <span>30,30€</span></div>
-                        <div class="price-row"><span>4 Sessions / mois</span> <span>60,30€</span></div>
-                        <div class="price-row"><span>6 Sessions / mois</span> <span>90,30€</span></div>
-                        <div class="price-row"><span>8 Sessions / mois</span> <span>116,30€</span></div>
-                        <div class="price-row"><span>10 Sessions / mois</span> <span>145,30€</span></div>
-                        <div class="price-row"><span>12 Sessions / mois</span> <span>168,30€</span></div>
-                        <p class="text-xs text-red-500 font-bold mt-4 text-center">Frais de dossier: 49€</p>
-                        <p class="text-xs text-center mt-1 font-bold text-[#88C0A6]">Engagement 6 mois</p>
-                    </div>
+                    <p class="card-price">50€</p>
+                    <span class="btn-small">Réserver</span>
                 </div>
-                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">S'abonner au studio</a>
-            </div>
+            </a>
 
-            <div class="price-card">
+            <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="text-card group">
                 <div>
-                    <div class="card-header bg-[#F2E6CF] text-[#555]">Pass Focus <br><span class="text-xs font-normal">(55 min)</span></div>
-                    <div class="p-6 text-sm">
-                        <div class="unit-row">
-                            <span class="font-bold text-[#2F4F4F]">1 Session</span>
-                            <div>
-                                <span class="font-bold mr-2">30€</span>
-                                <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="btn-unit">Acheter</a>
-                            </div>
-                        </div>
-                        <div class="price-row"><span>2 Sessions / mois</span> <span>36,30€</span></div>
-                        <div class="price-row"><span>4 Sessions / mois</span> <span>72,30€</span></div>
-                        <div class="price-row"><span>6 Sessions / mois</span> <span>105,30€</span></div>
-                        <div class="price-row"><span>8 Sessions / mois</span> <span>136,30€</span></div>
-                        <div class="price-row"><span>10 Sessions / mois</span> <span>165,30€</span></div>
-                        <div class="price-row"><span>12 Sessions / mois</span> <span>192,30€</span></div>
-                        <p class="text-xs text-red-500 font-bold mt-4 text-center">Frais de dossier: 49€</p>
-                        <p class="text-xs text-center mt-1 font-bold text-[#D6C496]">Engagement 6 mois</p>
-                    </div>
+                    <h3 class="card-title">Essai Cross / Focus</h3>
+                    <p class="card-desc">Training • Yoga • Boxe</p>
                 </div>
-                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">S'abonner au studio</a>
-            </div>
-
-            <div class="price-card">
                 <div>
-                    <div class="card-header bg-[#E8B496]">Pass Kids <br><span class="text-xs font-normal">(Hors Juillet/Août)</span></div>
-                    <div class="p-6 text-sm text-center">
-                        <p class="mb-2 font-bold text-lg">2 Sessions - 35,30€</p>
-                        <p class="mb-4 font-bold text-lg">4 Sessions - 65,30€</p>
-                        <hr class="border-gray-300 my-3">
-                        <p class="text-xs">Session suppl: 18,30€</p>
-                        <p class="text-xs text-red-500 font-bold mt-2">Frais de dossier: 49€</p>
-                        <p class="text-xs font-bold mt-1 text-[#E8B496]">Engagement 4 mois</p>
-                    </div>
+                    <p class="card-price">30€</p>
+                    <span class="btn-small">Réserver</span>
                 </div>
-                <a href="contact.html" class="btn-action">Inscrire mon enfant</a>
-            </div>
-
-            <div class="price-card flex flex-col justify-center bg-white/60 col-span-1 md:col-span-2 lg:col-span-3">
-                <div class="p-8 text-center">
-                    <h3 class="font-hand text-3xl mb-4 text-[#4A8D84]">Option SVB Boost</h3>
-                    <p class="text-4xl font-bold mb-4">9,90€<span class="text-sm font-normal">/mois</span></p>
-                    <p class="text-xs uppercase font-bold mb-6 text-gray-600">En + d'un pass</p>
-                    <ul class="text-xs inline-block text-left space-y-2 mb-6">
-                        <li>✅ Frais d'inscription offerts (49€ d'économie)</li>
-                        <li>✅ 1 Essai gratuit/mois pour un proche</li>
-                        <li>✅ Suspension abonnement sans préavis</li>
-                    </ul>
-                    <p class="text-[10px] leading-tight text-gray-500">Engagement 2 mois</p>
-                    <a href="contact.html" class="inline-block border border-[#4A8D84] text-[#4A8D84] px-6 py-2 rounded-full uppercase font-bold text-xs mt-4 hover:bg-[#4A8D84] hover:text-white transition">Ajouter l'option</a>
-                </div>
-            </div>
+            </a>
 
         </div>
-
-        <section class="mt-20 grid md:grid-cols-2 gap-8 reveal-load d-3">
-            <div class="price-card p-8 text-center rounded-lg bg-[#4A8D84]/20 border-2 border-white">
-                <h3 class="font-hand text-4xl mb-4 text-white">Offre de Parrainage</h3>
-                <p class="uppercase font-bold text-sm mb-2 text-[#4A8D84]">Parrainez un ami & recevez un cadeau !</p>
-                <p class="text-xs leading-relaxed text-gray-700">Invitez vos proches à devenir membre du studio & profitez d'un cadeau exclusif pour chaque nouveau membre inscrit grâce à vous. ❤️</p>
-            </div>
-
-            <div class="price-card p-8 rounded-lg bg-white/60 text-xs text-gray-700 space-y-3">
-                <h3 class="font-hand text-3xl mb-4 text-center text-[#4A8D84]">À savoir</h3>
-                <p><strong>📁 Frais de dossier :</strong> 49€ (Offerts avec l'option Boost).</p>
-                <p><strong>☀️ Absences :</strong> + de 10 jours = préavis 1 mois pour suspendre.</p>
-                <p><strong>⏳ Annulation :</strong> <br>- Small Group: jusqu'à 1h avant.<br>- Coaching: jusqu'à 24h avant.</p>
-                <p><strong>❌ Résiliation :</strong> Préavis 1 mois par mail.</p>
-                <p><strong>🪙 Crédits :</strong> Non reportables sur le mois suivant.</p>
-            </div>
-        </section>
-
     </div>
 
-    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs">
-        <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
+    <section class="max-w-5xl mx-auto px-4 pb-20 reveal-load d-2">
+        <div class="text-center mb-10">
+            <h2 class="text-5xl text-white font-hand mb-4">Nos 2 Studios</h2>
+            <p class="text-[#2F4F4F] font-semibold uppercase tracking-widest text-sm">
+                Situés à 5 minutes à pied l'un de l'autre
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div class="text-right space-y-8 text-white">
+                <div>
+                    <h3 class="text-2xl font-bold uppercase mb-1">📍 Parc des Docks</h3>
+                    <p class="text-sm opacity-90 font-light">Le cœur battant du Reformer et des sessions intenses.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold uppercase mb-1">📍 Lavandières</h3>
+                    <p class="text-sm opacity-90 font-light">Le cocon du Yoga, du Bien-être et des petits groupes.</p>
+                </div>
+                <div class="pt-4">
+                    <a href="contact.html" class="text-[#2F4F4F] border-b border-[#2F4F4F] pb-1 font-bold uppercase text-xs hover:text-white hover:border-white transition">
+                        Voir les accès détaillés
+                    </a>
+                </div>
+            </div>
+            <div class="h-[350px] w-full">
+                <iframe src="https://www.google.com/maps/embed?..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#4A8D84] text-white pt-16 pb-8 mt-10 border-t border-white/20">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div class="flex flex-col items-center md:items-start">
+                <h2 class="text-4xl font-hand mb-4">SVB</h2>
+                <p class="text-xs opacity-80 leading-relaxed max-w-xs">
+                    SantezVousBien est votre espace de remise en forme et de bien-être à Saint-Ouen. Pilates, Yoga, Training et Soins.
+                </p>
+            </div>
+            <div class="flex flex-col items-center md:items-center">
+                <h3 class="font-bold uppercase tracking-widest mb-4 text-sm">Contact</h3>
+                <ul class="space-y-3 text-sm opacity-90">
+                    <li>📞 07 44 91 91 55</li>
+                    <li>✉️ hello@studiosvb.fr</li>
+                    <li>📍 Saint-Ouen, France</li>
+                </ul>
+            </div>
+            <div class="flex flex-col items-center md:items-end">
+                <h3 class="font-bold uppercase tracking-widest mb-4 text-sm">Suivez-nous</h3>
+                <a href="https://www.instagram.com/svb.officiel" target="_blank" class="inline-block bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-6 py-2 rounded-full text-xs font-bold uppercase mb-4">
+                    Instagram
+                </a>
+                <div class="space-x-4 text-xs opacity-60">
+                    <a href="faq.html" class="hover:underline">FAQ</a>
+                    <a href="#" class="hover:underline">Mentions Légales</a>
+                    <a href="#" class="hover:underline">CGV</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-[10px] opacity-40">
+            © 2026 SVB SantezVousBien. Tous droits réservés.
+        </div>
     </footer>
 
 </body>
