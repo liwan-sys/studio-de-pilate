@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,226 +22,99 @@
             background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
             color: var(--svb-text);
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* Animation d'apparition */
-        @keyframes softSlideUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+        /* Animation douce */
+        .reveal-load {
+            animation: fadeIn 1s ease-in-out forwards;
         }
-        .reveal-load { animation: softSlideUp 0.8s ease-out forwards; opacity: 0; }
-        .d-1 { animation-delay: 0.1s; }
-        .d-2 { animation-delay: 0.3s; }
-        .d-3 { animation-delay: 0.5s; }
-
-        /* STYLE CARTE SOIN (Effet Verre) */
-        .care-card {
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .care-card:hover {
-            background: rgba(255, 255, 255, 0.85);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: white;
+        /* Cartes Style Verre que tu aimais */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            transition: all 0.3s ease;
         }
 
-        .img-container {
-            height: 240px;
-            overflow: hidden;
-            position: relative;
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.6);
         }
 
         .care-img {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .care-card:hover .care-img { transform: scale(1.1); }
-
-        .card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        /* BADGES (Étiquettes) */
-        .badge {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 700;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            align-self: flex-start;
-            margin-bottom: 10px;
-        }
-        .badge-health { background-color: var(--svb-green-dark); }
-        .badge-relax { background-color: #D6C496; }
-        .badge-beauty { background-color: var(--svb-peach); }
-
-        /* BOUTON PRISE DE RDV */
-        .btn-book {
-            border: 1px solid var(--svb-text);
-            color: var(--svb-text);
-            text-align: center;
-            padding: 10px;
-            border-radius: 30px;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-top: 15px;
-            transition: all 0.3s;
-        }
-        .btn-book:hover {
-            background-color: var(--svb-green-dark);
-            color: white;
-            border-color: var(--svb-green-dark);
+            border-radius: 20px 20px 0 0;
         }
 
     </style>
 </head>
 <body>
 
-    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
-        <div class="mb-4 md:mb-0 text-center md:text-left">
+    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
+        <div class="mb-4 md:mb-0">
             <a href="index.html">
-                <img src="images/logo.JPG" alt="Logo SVB" class="h-20 w-auto object-contain mx-auto md:mx-0">
+                <img src="images/logo.png" alt="Logo SVB" class="h-20 w-auto object-contain">
             </a>
         </div>
-        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
-            <a href="index.html" class="hover:text-gray-100 transition">L'UNIVERS</a>
-            <a href="sessions.html" class="hover:text-gray-100 transition">SESSIONS</a>
-            <a href="equipe.html" class="hover:text-gray-100 transition">LA TEAM</a>
-            <a href="bien-etre.html" class="border-b-2 border-white pb-1">BIEN-ÊTRE</a> <a href="studio.html" class="hover:text-gray-100 transition">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
-            <a href="faq.html" class="hover:text-gray-100 transition">FAQ</a>
-            <a href="contact.html" class="hover:text-gray-100 transition">CONTACT</a>
+        <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide">
+            <a href="index.html" class="hover:opacity-80 transition">L'UNIVERS</a>
+            <a href="sessions.html" class="hover:opacity-80 transition">SESSIONS</a>
+            <a href="equipe.html" class="hover:opacity-80 transition">LA TEAM</a>
+            <a href="bien-etre.html" class="border-b-2 border-white pb-1">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:opacity-80 transition">PLANNING</a>
+            <a href="tarifs.html" class="hover:opacity-80 transition">TARIFS</a>
+            <a href="contact.html" class="hover:opacity-80 transition">CONTACT</a>
         </div>
     </nav>
 
-    <div class="text-center py-10 px-4 reveal-load d-1">
-        <h1 class="text-6xl text-white drop-shadow-md mb-2">Espace Bien-être</h1>
-        <p class="text-white uppercase tracking-widest text-sm font-light">Récupération • Thérapie • Beauté</p>
+    <div class="text-center py-12 reveal-load">
+        <h1 class="text-6xl text-white drop-shadow-lg">Espace Bien-être</h1>
+        <p class="text-white uppercase tracking-[0.3em] text-xs mt-4">Prenez soin de vous au studio</p>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 pb-20 grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-load d-2">
+    <div class="max-w-6xl mx-auto px-6 pb-24 grid md:grid-cols-2 lg:grid-cols-3 gap-10 reveal-load" style="animation-delay: 0.2s;">
 
-        <div class="care-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" class="care-img" alt="Ostéopathie">
-            </div>
-            <div class="card-content">
-                <div>
-                    <span class="badge badge-health">Thérapie</span>
-                    <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Ostéopathie</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Rééquilibrez votre corps. Idéal pour soulager les tensions liées au sport ou au quotidien. Nos ostéopathes sont spécialisés dans le suivi du sportif.
-                    </p>
-                </div>
-                <a href="contact.html" class="btn-book">Prendre RDV</a>
+        <div class="glass-card overflow-hidden flex flex-col">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" class="care-img">
+            <div class="p-8 flex-grow">
+                <h3 class="text-3xl font-hand mb-3">Ostéopathie</h3>
+                <p class="text-sm leading-relaxed opacity-90">Un accompagnement complet pour libérer vos tensions et retrouver un équilibre corporel optimal.</p>
+                <a href="contact.html" class="inline-block mt-6 text-xs font-bold uppercase tracking-widest border-b border-current pb-1">Prendre RDV</a>
             </div>
         </div>
 
-        <div class="care-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80" class="care-img" alt="Massage">
-            </div>
-            <div class="card-content">
-                <div>
-                    <span class="badge badge-relax">Récupération</span>
-                    <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Massage Deep Tissue</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Un massage profond pour dénouer les contractures musculaires, favoriser la récupération après l'effort et améliorer la mobilité.
-                    </p>
-                </div>
-                <a href="contact.html" class="btn-book">Prendre RDV</a>
+        <div class="glass-card overflow-hidden flex flex-col">
+            <img src="https://images.unsplash.com/photo-1519823551278-64ac927ac280?auto=format&fit=crop&q=80" class="care-img">
+            <div class="p-8 flex-grow">
+                <h3 class="text-3xl font-hand mb-3">Drainage Renata</h3>
+                <p class="text-sm leading-relaxed opacity-90">Relancez votre circulation et affinez votre silhouette grâce à la célèbre méthode de drainage lymphatique.</p>
+                <a href="contact.html" class="inline-block mt-6 text-xs font-bold uppercase tracking-widest border-b border-current pb-1">Prendre RDV</a>
             </div>
         </div>
 
-        <div class="care-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80" class="care-img" alt="Kobido">
-            </div>
-            <div class="card-content">
-                <div>
-                    <span class="badge badge-beauty">Beauté</span>
-                    <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Soin Kobido</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Le lifting naturel japonais. Ce massage du visage stimule la circulation, repulpe la peau et offre un effet bonne mine immédiat.
-                    </p>
-                </div>
-                <a href="contact.html" class="btn-book">Prendre RDV</a>
-            </div>
-        </div>
-
-        <div class="care-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1519823551278-64ac927ac280?auto=format&fit=crop&q=80" class="care-img" alt="Drainage">
-            </div>
-            <div class="card-content">
-                <div>
-                    <span class="badge badge-beauty">Detox</span>
-                    <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Drainage Renata</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Méthode Renata França. Un massage dynamique pour relancer la circulation lymphatique, réduire la rétention d'eau et affiner la silhouette.
-                    </p>
-                </div>
-                <a href="contact.html" class="btn-book">Prendre RDV</a>
-            </div>
-        </div>
-
-        <div class="care-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80" class="care-img" alt="Relaxation">
-            </div>
-            <div class="card-content">
-                <div>
-                    <span class="badge badge-relax">Détente</span>
-                    <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Massage Signature</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Lâchez prise. Un soin sur-mesure aux huiles essentielles pour apaiser le système nerveux et évacuer le stress.
-                    </p>
-                </div>
-                <a href="contact.html" class="btn-book">Prendre RDV</a>
-            </div>
-        </div>
-
-        <div class="care-card">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80" class="care-img" alt="Réflexologie">
-            </div>
-            <div class="card-content">
-                <div>
-                    <span class="badge badge-health">Équilibre</span>
-                    <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Réflexologie</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Stimulation des zones réflexes (pieds ou mains) pour rétablir l'équilibre global du corps et soulager divers maux.
-                    </p>
-                </div>
-                <a href="contact.html" class="btn-book">Prendre RDV</a>
+        <div class="glass-card overflow-hidden flex flex-col">
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80" class="care-img">
+            <div class="p-8 flex-grow">
+                <h3 class="text-3xl font-hand mb-3">Deep Tissue</h3>
+                <p class="text-sm leading-relaxed opacity-90">Un massage intense pour dénouer les fibres musculaires en profondeur. Idéal pour la récupération.</p>
+                <a href="contact.html" class="inline-block mt-6 text-xs font-bold uppercase tracking-widest border-b border-current pb-1">Prendre RDV</a>
             </div>
         </div>
 
     </div>
 
-    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs mt-12">
-        <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
+    <footer class="bg-[#4A8D84] text-white py-10 text-center text-xs">
+        <p class="opacity-70 tracking-widest uppercase">SVB SantezVousBien • Saint-Ouen</p>
     </footer>
 
 </body>
