@@ -85,6 +85,7 @@
         }
         .btn-action:hover { background-color: #386e66; }
 
+        /* BOUTON UNITAIRE */
         .btn-unit {
             background-color: white;
             border: 1px solid var(--svb-green-dark);
@@ -98,8 +99,12 @@
             display: inline-block;
             margin-left: 10px;
         }
-        .btn-unit:hover { background-color: var(--svb-green-dark); color: white; }
+        .btn-unit:hover {
+            background-color: var(--svb-green-dark);
+            color: white;
+        }
 
+        /* LIGNE SPÉCIALE UNITÉ */
         .unit-row {
             background-color: rgba(74, 141, 132, 0.1);
             padding: 10px;
@@ -109,13 +114,16 @@
             justify-content: space-between;
             align-items: center;
         }
+
     </style>
 </head>
 <body>
 
     <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
         <div class="text-center md:text-left mb-4 md:mb-0">
-            <a href="index.html"><img src="images/logo.png" alt="Logo" class="h-20 w-auto object-contain brightness-0 invert"></a>
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert">
+            </a>
         </div>
         <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
             <a href="index.html" class="hover:text-gray-100 transition">L'UNIVERS</a>
@@ -140,15 +148,15 @@
             <div class="max-w-2xl mx-auto price-card border-4 border-white transform hover:scale-105 transition duration-300">
                 <div class="bg-[#4A8D84] text-white py-6 text-center">
                     <h2 class="text-3xl font-bold uppercase">New Pass Starter - 99,90€</h2>
-                    <p class="text-xs uppercase tracking-widest mt-1">Offre Découverte - 5 sessions</p>
+                    <p class="text-xs uppercase tracking-widest mt-1">Offre Découverte - Valable 1 mois</p>
                 </div>
                 <div class="p-8 text-center">
                     <ul class="space-y-3 text-sm font-semibold text-gray-700 uppercase mb-8">
                         <li>✨ 5 Sessions différentes au choix</li>
-                        <li>✨ Pas de reconduction tacite</li>
+                        <li>✨ Pas d'engagement</li>
                         <li>✨ Valable 1 mois</li>
                     </ul>
-                    <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full">Je commence maintenant</a>
+                    <a href="https://svb.sportigo.fr/buy" target="_blank" class="inline-block bg-[#4A8D84] text-white px-8 py-3 uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition shadow-md w-full">Je commence maintenant</a>
                 </div>
             </div>
         </section>
@@ -161,7 +169,7 @@
                     <div class="card-header bg-peach">Pass Crossformer</div>
                     <div class="p-6 text-sm">
                         <div class="unit-row">
-                            <span class="font-bold">Essai Crossformer</span>
+                            <span class="font-bold">Essai</span>
                             <div><span class="font-bold mr-2">30€</span><a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="btn-unit">Acheter</a></div>
                         </div>
                         <div class="price-row"><span>2 Sessions</span> <span>78,30€</span></div>
@@ -178,7 +186,7 @@
                     <div class="card-header bg-sand text-[#555]">Pass Reformer</div>
                     <div class="p-6 text-sm">
                         <div class="unit-row">
-                            <span class="font-bold">Essai Reformer</span>
+                            <span class="font-bold">Essai</span>
                             <div><span class="font-bold mr-2">30€</span><a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="btn-unit">Acheter</a></div>
                         </div>
                         <div class="price-row"><span>2 Sessions</span> <span>70,30€</span></div>
@@ -198,6 +206,7 @@
                         <div class="price-row"><span>4 Sessions</span> <span>144,30€</span></div>
                         <div class="price-row"><span>8 Sessions</span> <span>272,30€</span></div>
                         <div class="price-row"><span>12 Sessions</span> <span>384,30€</span></div>
+                        <p class="text-xs text-center mt-4">Engagement 6 mois</p>
                     </div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">S'abonner</a>
@@ -211,7 +220,7 @@
                 <div>
                     <div class="card-header bg-[#88C0A6]">Pass Cross</div>
                     <div class="p-6 text-sm">
-                        <div class="unit-row"><span class="font-bold">Essai Cross</span> <span class="font-bold text-green-600">OFFERT</span></div>
+                        <div class="unit-row"><span class="font-bold">Essai</span> <span class="font-bold text-green-600">OFFERT</span></div>
                         <div class="price-row"><span>2 Sessions</span> <span>30,30€</span></div>
                         <div class="price-row"><span>4 Sessions</span> <span>60,30€</span></div>
                         <div class="price-row"><span>8 Sessions</span> <span>116,30€</span></div>
@@ -225,24 +234,25 @@
                 <div>
                     <div class="card-header bg-[#F2E6CF] text-[#555]">Pass Focus</div>
                     <div class="p-6 text-sm">
-                        <div class="unit-row"><span class="font-bold">Essai Focus</span> <span class="font-bold mr-2">30€</span></div>
+                        <div class="unit-row"><span>Essai Focus</span> <span class="font-bold">30€</span></div>
                         <div class="price-row"><span>2 Sessions</span> <span>36,30€</span></div>
                         <div class="price-row"><span>4 Sessions</span> <span>72,30€</span></div>
                         <div class="price-row"><span>8 Sessions</span> <span>136,30€</span></div>
                         <div class="price-row"><span>12 Sessions</span> <span>192,30€</span></div>
                     </div>
                 </div>
-                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">S'abonner</a>
+                <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="btn-action">S'abonner</a>
             </div>
 
             <div class="price-card">
                 <div>
-                    <div class="card-header bg-[#E8B496]">Pass Full (Cross + Focus)</div>
+                    <div class="card-header bg-[#E8B496]">Pass Full Training</div>
                     <div class="p-6 text-sm">
                         <div class="price-row"><span>2 Sessions</span> <span>40,30€</span></div>
                         <div class="price-row"><span>4 Sessions</span> <span>80,30€</span></div>
                         <div class="price-row"><span>8 Sessions</span> <span>150,30€</span></div>
                         <div class="price-row"><span>12 Sessions</span> <span>210,30€</span></div>
+                        <p class="text-xs text-center mt-4">Cross + Focus</p>
                     </div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">S'abonner</a>
@@ -261,7 +271,7 @@
                         <p class="text-xs text-center mt-4">Engagement 3 mois</p>
                     </div>
                 </div>
-                <a href="contact.html" class="btn-action">Choisir un coaching</a>
+                <a href="contact.html" class="btn-action">Choisir mon coaching</a>
             </div>
 
             <div class="price-card">
