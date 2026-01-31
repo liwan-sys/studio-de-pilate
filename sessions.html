@@ -22,12 +22,19 @@
             background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
             color: var(--svb-text);
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
+        @keyframes softSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
         .reveal-load { animation: softSlideUp 0.8s ease-out forwards; opacity: 0; }
-        @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+        .d-1 { animation-delay: 0.1s; }
+        .d-2 { animation-delay: 0.3s; }
+        .d-3 { animation-delay: 0.5s; }
 
         .session-card {
             background: rgba(255, 255, 255, 0.6);
@@ -37,8 +44,14 @@
             padding: 25px;
             transition: all 0.3s ease;
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
-        .session-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.9); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .session-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
 
         .category-badge {
             display: inline-block;
@@ -49,22 +62,29 @@
             text-transform: uppercase;
             color: white;
             margin-bottom: 15px;
+            width: fit-content;
         }
+
         .badge-green { background-color: #4A8D84; }
         .badge-peach { background-color: #E8B496; }
         .badge-sand { background-color: #D6C496; }
 
-        .wa-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; }
-        .whatsapp-btn { background-color: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); }
+        .wa-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        .wa-bubble { background: white; color: #2F4F4F; padding: 12px 18px; border-radius: 15px 15px 0 15px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 220px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease; pointer-events: none; border: 1px solid rgba(0,0,0,0.05); }
+        .wa-bubble.show { opacity: 1; transform: translateY(0); }
+        .whatsapp-btn { background-color: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); animation: pulse-wa 2s infinite; }
+        @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
     </style>
 </head>
 <body>
 
     <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
         <div class="mb-4 md:mb-0">
-            <a href="index.html"><img src="images/logo.png" alt="Logo SVB" class="h-20 w-auto object-contain"></a>
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo SVB" class="h-20 w-auto object-contain">
+            </a>
         </div>
-        <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide">
+        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
             <a href="index.html" class="hover:text-gray-100 transition">L'UNIVERS</a>
             <a href="sessions.html" class="border-b-2 border-white pb-1">SESSIONS</a>
             <a href="equipe.html" class="hover:text-gray-100 transition">LA TEAM</a>
@@ -76,74 +96,75 @@
         </div>
     </nav>
 
-    <div class="max-w-7xl mx-auto px-4 py-12">
-        
-        <h2 class="text-5xl text-white font-hand mb-10 border-b border-white/30 pb-4">Pilates & Reformer</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="session-card">
-                <span class="category-badge badge-green">Machine</span>
-                <h3 class="text-2xl font-bold mb-3">Pilates Reformer</h3>
-                <p class="text-sm leading-relaxed">Méthode complète engageant tout le corps. Améliorez posture, sangle abdominale et souplesse avec précision.</p>
-            </div>
-            <div class="session-card">
-                <span class="category-badge badge-peach">Intense</span>
-                <h3 class="text-2xl font-bold mb-3">Crossformer</h3>
-                <p class="text-sm leading-relaxed">Mélange dynamique de Reformer et renforcement intense pour sculpter sans impact articulaire.</p>
-            </div>
-            <div class="session-card">
-                <span class="category-badge badge-sand">Douceur</span>
-                <h3 class="text-2xl font-bold mb-3">Classic Pilates</h3>
-                <p class="text-sm leading-relaxed">Travail profond sur les muscles posturaux et la respiration. Idéal pour poser les bases.</p>
-            </div>
-            <div class="session-card">
-                <span class="category-badge badge-green">Tonique</span>
-                <h3 class="text-2xl font-bold mb-3">Power Pilates</h3>
-                <p class="text-sm leading-relaxed">Rythme soutenu pour tonifier davantage tout en gardant les principes du Pilates.</p>
-            </div>
-        </div>
+    <div class="text-center py-10 px-4 reveal-load d-1">
+        <h1 class="text-6xl text-white drop-shadow-md mb-2">Nos Sessions</h1>
+        <p class="text-white uppercase tracking-widest text-sm font-light">Trouvez l'intensité qui vous correspond</p>
+    </div>
 
-        <h2 class="text-5xl text-white font-hand mb-10 border-b border-white/30 pb-4">Les Sessions Cross</h2>
-        <div class="grid md:grid-cols-3 gap-8 mb-16">
-            <div class="session-card">
-                <span class="category-badge badge-peach">Full Body</span>
-                <h3 class="text-xl font-bold mb-2">Cross Training</h3>
-                <p class="text-sm">Cardio et renforcement fonctionnel pour un dépassement total.</p>
-            </div>
-            <div class="session-card">
-                <span class="category-badge badge-peach">Endurance</span>
-                <h3 class="text-xl font-bold mb-2">Cross Rox</h3>
-                <p class="text-sm">Inspiré de l'Hyrox, mêlant course et ateliers pour tester votre mental.</p>
-            </div>
-            <div class="session-card">
-                <span class="category-badge badge-green">Gainage</span>
-                <h3 class="text-xl font-bold mb-2">Cross Core</h3>
-                <p class="text-sm">Focus abdos et stabilité profonde pour un centre du corps puissant.</p>
-            </div>
-        </div>
+    <div class="max-w-7xl mx-auto px-4 pb-20">
 
-        <h2 class="text-5xl text-white font-hand mb-10 border-b border-white/30 pb-4">Flow, Boxe & Dance</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="session-card">
-                <span class="category-badge badge-sand">Yoga</span>
-                <h3 class="text-2xl font-bold mb-3">Yoga Vinyasa</h3>
-                <p class="text-sm leading-relaxed">Enchaînement fluide de postures pour harmoniser corps, souffle et esprit.</p>
+        <section class="mb-20 reveal-load d-2">
+            <div class="flex items-center mb-8">
+                <h2 class="text-4xl text-white font-hand mr-4">Pilates & Reformer</h2>
+                <div class="h-px bg-white flex-grow opacity-50"></div>
             </div>
-            <div class="session-card">
-                <span class="category-badge badge-peach">Technique</span>
-                <h3 class="text-2xl font-bold mb-3">Boxe Anglaise</h3>
-                <p class="text-sm leading-relaxed">Cardio, coordination et technique. Un défouloir parfait pour tous niveaux.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="session-card">
+                    <span class="category-badge badge-green">Machine</span>
+                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Pilates Reformer</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed">Améliorez votre posture, renforcez votre sangle abdominale en profondeur et développez votre souplesse sur machine. Chaque mouvement est contrôlé et précis.</p>
+                </div>
+                <div class="session-card">
+                    <span class="category-badge badge-peach">Intense</span>
+                    <h3 class="text-2xl font-bold mb-3 text-[#2F4F4F]">Crossformer</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed">Combine le Reformer et le renforcement musculaire pour une session intense et dynamique qui sculpte la silhouette sans impact articulaire.</p>
+                </div>
             </div>
-            <div class="session-card">
-                <span class="category-badge badge-peach">Rythme</span>
-                <h3 class="text-2xl font-bold mb-3">Afrodance'All</h3>
-                <p class="text-sm leading-relaxed">Lâchez-prise et transpirez sur des rythmes afro avec des chorégraphies solaires.</p>
+        </section>
+
+        <section class="mb-20 reveal-load d-3">
+            <div class="flex items-center mb-8">
+                <h2 class="text-4xl text-white font-hand mr-4">Les Sessions Cross</h2>
+                <div class="h-px bg-white flex-grow opacity-50"></div>
             </div>
-            <div class="session-card">
-                <span class="category-badge badge-sand">Kids</span>
-                <h3 class="text-2xl font-bold mb-3">Yoga & Training Kids</h3>
-                <p class="text-sm leading-relaxed">Développement de la motricité et de la concentration de façon ludique.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="session-card">
+                    <span class="category-badge badge-peach">Cardio + Renfo</span>
+                    <h3 class="text-xl font-bold mb-2">Cross Training</h3>
+                    <p class="text-sm">Entraînement fonctionnel complet pour brûler et se tonifier.</p>
+                </div>
+                <div class="session-card">
+                    <span class="category-badge badge-peach">Hyrox Style</span>
+                    <h3 class="text-xl font-bold mb-2">Cross Rox</h3>
+                    <p class="text-sm">Mélange de cardio et d'ateliers force pour tester votre endurance.</p>
+                </div>
+                <div class="session-card">
+                    <span class="category-badge badge-green">Gainage</span>
+                    <h3 class="text-xl font-bold mb-2">Cross Core</h3>
+                    <p class="text-sm">Focus sur les abdos profonds et la stabilité du tronc.</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section class="mb-20 reveal-load d-3">
+            <div class="flex items-center mb-8">
+                <h2 class="text-4xl text-white font-hand mr-4">Flow, Boxe & Dance</h2>
+                <div class="h-px bg-white flex-grow opacity-50"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="session-card">
+                    <span class="category-badge badge-sand">Yoga</span>
+                    <h3 class="text-2xl font-bold mb-2">Yoga Vinyasa</h3>
+                    <p class="text-sm">Flow dynamique pour harmoniser le souffle et le mouvement.</p>
+                </div>
+                <div class="session-card">
+                    <span class="category-badge badge-peach">Défouloir</span>
+                    <h3 class="text-2xl font-bold mb-2">Boxe Anglaise</h3>
+                    <p class="text-sm">Travail technique aux gants et cardio intense pour se défouler.</p>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <footer class="bg-[#4A8D84] text-white py-12 border-t border-white/20 text-center">
@@ -151,11 +172,15 @@
         <p class="text-xs opacity-80">© 2026 SVB SantezVousBien - Saint-Ouen</p>
     </footer>
 
-    <div class="wa-container">
+    <div id="wa-container" class="wa-container">
+        <div id="wa-bubble" class="wa-bubble">👋 Besoin d'un conseil ? Je suis là !</div>
         <a href="https://wa.me/33744919155" class="whatsapp-btn" target="_blank">
             <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.096 0-4.141-.547-5.946-1.588L0 .057zm6.549-2.938c1.614.96 3.434 1.468 5.282 1.468 5.497 0 9.97-4.473 9.97-9.97s-4.473-9.97-9.97-9.97c-5.497 0-9.97 4.473-9.97 9.97 0 1.848.508 3.668 1.468 5.282L2.324 21.676l4.282-1.564zm11.334-7.129c-.314-.157-1.859-.917-2.148-1.021-.288-.105-.499-.157-.709.157-.21.314-.813 1.021-.996 1.231-.183.21-.367.236-.681.079-.314-.157-1.325-.489-2.524-1.559-.933-.833-1.563-1.861-1.747-2.175-.183-.314-.02-.484.137-.64.141-.141.314-.367.472-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.709-1.703-.971-2.332-.255-.612-.513-.529-.709-.539-.183-.01-.393-.012-.603-.012s-.551.079-.84.393c-.288.314-1.102 1.074-1.102 2.62s1.128 3.039 1.285 3.25c.157.21 2.221 3.391 5.38 4.755.751.325 1.337.519 1.794.664.754.24 1.441.206 1.983.125.603-.09 1.859-.759 2.121-1.467.262-.708.262-1.312.183-1.467-.079-.157-.288-.263-.603-.42z"/></svg>
         </a>
     </div>
 
+    <script>
+        setTimeout(() => { document.getElementById('wa-bubble').classList.add('show'); }, 2500);
+    </script>
 </body>
 </html>
