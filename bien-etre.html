@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pôle Bien-Être | SVB SantezVousBien</title>
+    <title>Espace Bien-être | SVB</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,7 +19,7 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: radial-gradient(circle at top left, var(--svb-sand), var(--svb-green-light));
+            background: linear-gradient(180deg, var(--svb-sand) 0%, #fff 50%, var(--svb-green-light) 100%);
             color: var(--svb-text);
             min-height: 100vh;
             overflow-x: hidden;
@@ -27,189 +27,273 @@
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        .reveal-load { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
-        .d-1 { animation-delay: 0.1s; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Animation */
+        @keyframes softSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
+        .reveal-load { animation: softSlideUp 0.8s ease-out forwards; opacity: 0; }
+        .d-1 { animation-delay: 0.1s; }
+        .d-2 { animation-delay: 0.3s; }
+        .d-3 { animation-delay: 0.5s; }
 
-        /* CARTE DESIGN GLASS */
-        .prac-card {
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 24px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
+        /* CARTE SOIN */
+        .care-card {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
-        .prac-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 20px 40px rgba(74, 141, 132, 0.2);
+        .care-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 15px 30px rgba(74, 141, 132, 0.15);
         }
 
-        .prac-img-wrapper {
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 20px auto;
+        .care-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .care-title { color: var(--svb-green-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+        .care-desc { font-size: 0.85rem; color: #666; line-height: 1.6; padding: 0 20px 20px 20px; }
+
+        /* SECTION PRATICIENS (Mise à jour pour 10 personnes) */
+        .expert-card {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.85); /* Un peu plus blanc pour ressortir */
+            border-radius: 50px 10px 10px 50px;
+            padding: 10px;
+            transition: transform 0.3s;
+            border: 1px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .expert-card:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        .expert-img {
+            width: 80px;
+            height: 80px;
+            min-width: 80px; /* Force la taille */
             border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(135deg, #fff, var(--svb-green-light));
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .prac-img {
-            width: 100%;
-            height: 100%;
             object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid white;
-            transition: transform 0.5s ease;
+            border: 3px solid var(--svb-peach);
+            margin-right: 20px;
         }
 
-        .prac-card:hover .prac-img { transform: scale(1.08); }
-
-        .prac-name { font-size: 2.2rem; color: var(--svb-green-dark); margin-bottom: 5px; text-shadow: 0 2px 4px rgba(255,255,255,0.8); }
-        .prac-role { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #555; margin-bottom: 15px; display: block; }
-        
-        .badge {
-            display: inline-block;
-            padding: 5px 15px;
+        .bg-title-soin {
+            background-color: var(--svb-green-dark);
+            color: white;
+            padding: 4px 15px;
             border-radius: 20px;
             font-size: 0.65rem;
-            font-weight: 600;
-            color: white;
-            background-color: var(--svb-green-dark);
-            margin: 3px;
-            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 5px;
         }
-        .badge-peach { background-color: var(--svb-peach); }
-        .badge-sand { background-color: #D6C496; }
-
-        .wa-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; }
-        .whatsapp-btn { background-color: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); }
     </style>
 </head>
 <body>
 
-    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
+    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-[#4A8D84] reveal-load">
         <div class="mb-4 md:mb-0">
-            <a href="index.html"><img src="logo.png" alt="Logo SVB" class="h-20 w-auto object-contain"></a>
-        </div>
-        <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide">
-            <a href="index.html" class="hover:text-gray-100 transition">L'UNIVERS</a>
-            <a href="sessions.html" class="hover:text-gray-100 transition">SESSIONS</a>
-            <a href="equipe.html" class="hover:text-gray-100 transition">LA TEAM</a>
-            <a href="bien-etre.html" class="border-b-2 border-white pb-1">BIEN-ÊTRE</a>
-            <a href="studio.html" class="hover:text-gray-100 transition">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
-            <a href="faq.html" class="hover:text-gray-100 transition">FAQ</a>
-            <a href="contact.html" class="hover:text-gray-100 transition">CONTACT</a>
+    <a href="index.html">
+        <img src="images/logo.png" alt="Logo SVB" class="h-16 w-auto object-contain">
+    </a>
+</div>
+        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
+            <a href="index.html" class="hover:text-black transition">L'UNIVERS</a>
+            <a href="sessions.html" class="hover:text-black transition">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-black transition">LA TEAM</a>
+            <a href="bien-etre.html" class="border-b-2 border-[#4A8D84] pb-1">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:text-black transition">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-black transition">TARIFS</a>
+            <a href="faq.html" class="hover:text-black transition">FAQ</a>
+            <a href="contact.html" class="hover:text-black transition">CONTACT</a>
         </div>
     </nav>
 
-    <div class="text-center py-16 px-4 reveal-load d-1">
-        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-6 leading-tight font-hand">Le Pôle Bien-Être</h1>
-        <p class="text-white text-lg font-light max-w-2xl mx-auto leading-relaxed opacity-90">
-            Prenez soin de vous entre des mains expertes.<br>Ostéopathie, massages, thérapies et douceur.
+    <div class="text-center py-12 px-4 reveal-load d-1">
+        <h1 class="text-6xl text-[#4A8D84] drop-shadow-sm mb-4">L'Équilibre Corps & Esprit</h1>
+        <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-light max-w-2xl mx-auto leading-relaxed">
+            Parce que la récupération fait partie de l'entraînement. Découvrez notre pôle paramédical et bien-être.
         </p>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 pb-24">
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 reveal-load d-1">
+    <div class="max-w-7xl mx-auto px-4 pb-20">
 
-            <div class="prac-card">
-                <div class="prac-img-wrapper"><img src="Alan.jpg" class="prac-img" alt="Alan"></div>
-                <h3 class="prac-name font-hand">Alan</h3>
-                <span class="prac-role">Ostéopathe D.O</span>
-                <div><span class="badge">Thérapie Manuelle</span><span class="badge badge-sand">Sport</span></div>
+        <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-load d-2 mb-20">
+            
+            <div class="care-card pt-8">
+                <span class="care-icon">🦴</span>
+                <h3 class="care-title">Ostéopathie</h3>
+                <p class="care-desc">Pour rétablir l'équilibre du corps, soulager les tensions et prévenir les blessures.</p>
             </div>
 
-            <div class="prac-card">
-                <div class="prac-img-wrapper"><img src="Emilie.jpg" class="prac-img" alt="Émilie"></div>
-                <h3 class="prac-name font-hand">Émilie</h3>
-                <span class="prac-role">Massages & Soins</span>
-                <div><span class="badge badge-peach">Drainage</span><span class="badge badge-sand">Relaxation</span></div>
+            <div class="care-card pt-8">
+                <span class="care-icon">✨</span>
+                <h3 class="care-title">Kobido</h3>
+                <p class="care-desc">Le lifting naturel japonais. Un massage profond du visage pour un éclat immédiat.</p>
             </div>
 
-            <div class="prac-card">
-                <div class="prac-img-wrapper"><img src="Helene.jpg" class="prac-img" alt="Hélène"></div>
-                <h3 class="prac-name font-hand">Hélène</h3>
-                <span class="prac-role">Réflexologue</span>
-                <div><span class="badge badge-sand">Énergie</span><span class="badge">Plantaire</span></div>
+            <div class="care-card pt-8">
+                <span class="care-icon">💆‍♀️</span>
+                <h3 class="care-title">Massages</h3>
+                <p class="care-desc">Sportifs pour la récupération ou Relaxants pour le lâcher-prise absolu.</p>
             </div>
 
-            <div class="prac-card">
-                <div class="prac-img-wrapper"><img src="Marine.jpg" class="prac-img" alt="Marine"></div>
-                <h3 class="prac-name font-hand">Marine</h3>
-                <span class="prac-role">Esthétique & Soins</span>
-                <div><span class="badge badge-peach">Kobido</span><span class="badge badge-sand">Visage</span></div>
+            <div class="care-card pt-8">
+                <span class="care-icon">💧</span>
+                <h3 class="care-title">Drainage</h3>
+                <p class="care-desc">Technique manuelle pour relancer la circulation et réduire la rétention d'eau.</p>
             </div>
 
-            <div class="prac-card">
-                <div class="prac-img-wrapper"><img src="Maryline.jpg" class="prac-img" alt="Maryline"></div>
-                <h3 class="prac-name font-hand">Maryline</h3>
-                <span class="prac-role">Naturopathe</span>
-                <div><span class="badge">Nutrition</span><span class="badge badge-sand">Santé</span></div>
+            <div class="care-card pt-8">
+                <span class="care-icon">🪵</span>
+                <h3 class="care-title">Madérothérapie</h3>
+                <p class="care-desc">Massage remodelant utilisant des outils en bois pour sculpter la silhouette.</p>
             </div>
 
-            <div class="prac-card">
-                <div class="prac-img-wrapper"><img src="Mauricia.jpg" class="prac-img" alt="Mauricia"></div>
-                <h3 class="prac-name font-hand">Mauricia</h3>
-                <span class="prac-role">Massage Sportif</span>
-                <div><span class="badge badge-peach">Récupération</span><span class="badge">Deep Tissue</span></div>
+            <div class="care-card pt-8">
+                <span class="care-icon">🥗</span>
+                <h3 class="care-title">Diététique</h3>
+                <p class="care-desc">Apprenez à nourrir votre corps pour la performance et la santé, sans frustration.</p>
             </div>
 
-            <div class="prac-card">
-                <div class="prac-img-wrapper"><img src="Sabrina.jpg" class="prac-img" alt="Sabrina"></div>
-                <h3 class="prac-name font-hand">Sabrina</h3>
-                <span class="prac-role">Sophrologue</span>
-                <div><span class="badge badge-sand">Gestion Stress</span><span class="badge">Respiration</span></div>
+            <div class="care-card pt-8">
+                <span class="care-icon">🦶</span>
+                <h3 class="care-title">Réflexologie</h3>
+                <p class="care-desc">Stimulation des points réflexes des pieds pour apaiser le système nerveux.</p>
             </div>
 
-            <div class="prac-card">
-                <div class="prac-img-wrapper"><img src="Sandrine.jpg" class="prac-img" alt="Sandrine"></div>
-                <h3 class="prac-name font-hand">Sandrine</h3>
-                <span class="prac-role">Hypnothérapeute</span>
-                <div><span class="badge badge-sand">Bien-être Mental</span><span class="badge">Coaching</span></div>
+            <div class="care-card pt-8">
+                <span class="care-icon">🌿</span>
+                <h3 class="care-title">Sophrologie</h3>
+                <p class="care-desc">Techniques de respiration et visualisation pour gérer le stress.</p>
             </div>
 
-            <div class="prac-card">
-                <div class="prac-img-wrapper"><img src="Virginie.jpg" class="prac-img" alt="Virginie"></div>
-                <h3 class="prac-name font-hand">Virginie</h3>
-                <span class="prac-role">Acupuncture</span>
-                <div><span class="badge badge-peach">Énergétique</span><span class="badge badge-sand">MTC</span></div>
+            <div class="care-card pt-8">
+                <span class="care-icon">☯️</span>
+                <h3 class="care-title">Acupuncture</h3>
+                <p class="care-desc">Médecine traditionnelle pour rééquilibrer les énergies vitales.</p>
             </div>
 
-        </div>
+        </section>
+
+
+        <section class="max-w-5xl mx-auto reveal-load d-3">
+            <h2 class="text-4xl text-center text-[#4A8D84] font-hand mb-10">Nos Experts Bien-être</h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Ostéopathe</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Spécialisé sportifs & dos.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Facialiste (Kobido)</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Expertise beauté & jeunesse.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Masseuse</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Massage sportif & Deep Tissue.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1628890918667-e984f48b998a?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Diététicienne</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Nutrition & Rééquilibrage.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Praticienne Madéro</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Remodelage & Minceur.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Réflexologue</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Gestion du stress & énergie.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Sophrologue</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Préparation mentale & sommeil.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Acupuncteur</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Médecine traditionnelle chinoise.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1525130413897-71995d680968?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Masseuse Drainage</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Méthode Renata & Lymphatique.</p>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80" class="expert-img">
+                    <div>
+                        <span class="bg-title-soin">Praticien Amma</span>
+                        <h4 class="font-bold text-lg">Prénom Nom</h4>
+                        <p class="text-xs text-gray-600">Détente express & assis.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-sm mb-4 italic">Les soins sont sur rendez-vous uniquement.</p>
+                <a href="contact.html" class="inline-block bg-[#4A8D84] text-white px-8 py-3 rounded-full uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition shadow-lg">
+                    Prendre rendez-vous
+                </a>
+            </div>
+
+        </section>
+
     </div>
 
-    <footer class="bg-[#4A8D84] text-white py-12 border-t border-white/20 text-center">
-        <img src="logo.png" alt="Logo SVB" class="h-16 mx-auto mb-4 brightness-0 invert">
-        <p class="text-xs opacity-80">© 2026 SVB SantezVousBien - Saint-Ouen</p>
+    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs mt-12">
+        <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
     </footer>
-
-    <div class="wa-container">
-        <a href="https://wa.me/33744919155" class="whatsapp-btn" target="_blank">
-            <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.096 0-4.141-.547-5.946-1.588L0 .057zm6.549-2.938c1.614.96 3.434 1.468 5.282 1.468 5.497 0 9.97-4.473 9.97-9.97s-4.473-9.97-9.97-9.97c-5.497 0-9.97 4.473-9.97 9.97 0 1.848.508 3.668 1.468 5.282L2.324 21.676l4.282-1.564zm11.334-7.129c-.314-.157-1.859-.917-2.148-1.021-.288-.105-.499-.157-.709.157-.21.314-.813 1.021-.996 1.231-.183.21-.367.236-.681.079-.314-.157-1.325-.489-2.524-1.559-.933-.833-1.563-1.861-1.747-2.175-.183-.314-.02-.484.137-.64.141-.141.314-.367.472-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.709-1.703-.971-2.332-.255-.612-.513-.529-.709-.539-.183-.01-.393-.012-.603-.012s-.551.079-.84.393c-.288.314-1.102 1.074-1.102 2.62s1.128 3.039 1.285 3.25c.157.21 2.221 3.391 5.38 4.755.751.325 1.337.519 1.794.664.754.24 1.441.206 1.983.125.603-.09 1.859-.759 2.121-1.467.262-.708.262-1.312.183-1.467-.079-.157-.288-.263-.603-.42z"/></svg>
-        </a>
-    </div>
-
-    <script>
-        // Bulle WhatsApp
-        setTimeout(() => {
-            const bubble = document.getElementById('wa-bubble');
-            if(bubble) bubble.classList.add('show');
-        }, 2500);
-    </script>
 
 </body>
 </html>
+
