@@ -37,69 +37,103 @@
         .d-2 { animation-delay: 0.3s; }
         .d-3 { animation-delay: 0.5s; }
 
-        /* BLOCS PLANNING */
-        .planning-container {
+        /* CONTENEUR PLANNING */
+        .planning-box {
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
 
-        .studio-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        .studio-header {
             text-align: center;
+            margin-bottom: 30px;
         }
 
-        /* GRILLE TYPE EMPLOI DU TEMPS (Visuel simplifié) */
-        .schedule-grid {
+        .studio-header h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 5px;
+        }
+
+        /* GRILLE SEMAINE (Style Agenda) */
+        .week-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-columns: repeat(7, 1fr); /* 7 colonnes pour les 7 jours */
             gap: 10px;
-            margin-bottom: 20px;
         }
 
-        .day-col {
-            background: rgba(255,255,255,0.3);
+        /* RESPONSIVE : Sur mobile, on passe en colonnes empilées ou scroll horizontal */
+        @media (max-width: 768px) {
+            .week-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+            }
+        }
+        @media (max-width: 480px) {
+            .week-grid {
+                grid-template-columns: 1fr; /* 1 colonne sur mobile */
+            }
+        }
+
+        .day-column {
+            background: rgba(255,255,255,0.2);
             border-radius: 10px;
             padding: 10px;
-            text-align: center;
+            min-height: 200px;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
-        .day-name {
+        .day-header {
+            text-align: center;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
             color: var(--svb-text);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 2px solid white;
             padding-bottom: 5px;
         }
 
-        .slot {
-            font-size: 0.65rem;
-            margin-bottom: 6px;
-            padding: 4px;
-            border-radius: 4px;
+        /* LES BOITES DE COURS (Slots) */
+        .class-slot {
+            padding: 8px 5px;
+            border-radius: 6px;
+            margin-bottom: 8px;
             color: white;
+            text-align: center;
+            font-size: 0.7rem;
             font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        /* COULEURS DES COURS (Identique Flyers) */
-        .bg-cross { background-color: #88C0A6; }
-        .bg-crossformer { background-color: var(--svb-peach); }
-        .bg-kids { background-color: #E8B496; }
-        .bg-yoga { background-color: #D6C496; }
-        .bg-reformer { background-color: #C9B388; } /* Marron/Beige foncé */
+        .class-slot:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .class-time { font-size: 0.9rem; font-weight: 800; display: block; margin-bottom: 2px; }
+
+        /* COULEURS EXACTES (Flyers) */
+        .bg-cross { background-color: #88C0A6; }           /* Vert Docks */
+        .bg-crossformer { background-color: #E8B496; }     /* Pêche */
+        .bg-reformer { background-color: #C9B388; }        /* Marron/Sable */
+        .bg-yoga { background-color: #D6C496; }            /* Beige Doré */
+        .bg-kids { background-color: #E8B496; border: 2px solid white; } /* Orange Kids */
 
         /* BOUTON RÉSA */
         .btn-resa {
             display: block;
             width: 100%;
+            max-width: 300px;
+            margin: 30px auto 0 auto;
             text-align: center;
             background: var(--svb-green-dark);
             color: white;
@@ -110,9 +144,9 @@
             font-size: 0.8rem;
             letter-spacing: 0.1em;
             transition: all 0.3s;
-            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .btn-resa:hover { background: #386e66; transform: translateY(-2px); }
+        .btn-resa:hover { background: #386e66; transform: translateY(-3px); }
 
     </style>
 </head>
@@ -127,7 +161,8 @@
             <a href="sessions.html" class="hover:text-gray-100 transition">SESSIONS</a>
             <a href="equipe.html" class="hover:text-gray-100 transition">LA TEAM</a>
             <a href="bien-etre.html" class="hover:text-gray-100 transition">BIEN-ÊTRE</a>
-            <a href="studio.html" class="border-b-2 border-white pb-1">PLANNING</a> <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
+            <a href="studio.html" class="border-b-2 border-white pb-1">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
             <a href="faq.html" class="hover:text-gray-100 transition">FAQ</a>
             <a href="contact.html" class="hover:text-gray-100 transition">CONTACT</a>
         </div>
@@ -135,112 +170,157 @@
 
     <div class="text-center py-10 px-4 reveal-load d-1">
         <h1 class="text-6xl text-white drop-shadow-md mb-2">Planning Hebdo</h1>
-        <p class="text-white uppercase tracking-widest text-sm font-light">Deux studios, une multitude de créneaux</p>
+        <p class="text-white uppercase tracking-widest text-sm font-light">Deux studios • Une application unique</p>
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 pb-20">
+    <div class="max-w-7xl mx-auto px-4 pb-20">
 
-        <div class="planning-container reveal-load d-2">
-            <h2 class="studio-title text-[#4A8D84]">Parc des Docks</h2>
-            <p class="text-center text-sm text-gray-600 mb-6 italic">L'espace Cross Training & Intensité</p>
+        <div class="planning-box reveal-load d-2">
+            <div class="studio-header">
+                <h2 class="text-[#4A8D84]">Parc des Docks</h2>
+                <p class="text-xs uppercase tracking-widest text-gray-600">Cross Training & Intensité</p>
+            </div>
 
-            <div class="schedule-grid">
-                <div class="day-col">
-                    <div class="day-name">Lundi</div>
-                    <div class="slot bg-cross">12h Cross Training</div>
-                    <div class="slot bg-cross">13h Cross Core</div>
-                    <div class="slot bg-cross">19h Cross Training</div>
+            <div class="week-grid">
+                <div class="day-column">
+                    <div class="day-header">Lundi</div>
+                    <div class="class-slot bg-cross"><span class="class-time">12h</span> Cross Training</div>
+                    <div class="class-slot bg-cross"><span class="class-time">13h</span> Cross Core</div>
+                    <div class="class-slot bg-cross"><span class="class-time">19h</span> Cross Training</div>
+                    <div class="class-slot bg-cross"><span class="class-time">20h</span> Cross Body</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Mardi</div>
-                    <div class="slot bg-cross">12h Cross Rox</div>
-                    <div class="slot bg-cross">19h Cross Body</div>
+
+                <div class="day-column">
+                    <div class="day-header">Mardi</div>
+                    <div class="class-slot bg-cross"><span class="class-time">12h</span> Cross Rox</div>
+                    <div class="class-slot bg-cross"><span class="class-time">19h</span> Cross Body</div>
+                    <div class="class-slot bg-cross"><span class="class-time">20h</span> Cross Training</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Mercredi</div>
-                    <div class="slot bg-cross">12h Cross Training</div>
-                    <div class="slot bg-kids">16h Yoga Kids</div>
-                    <div class="slot bg-cross">19h Cross Training</div>
+
+                <div class="day-column">
+                    <div class="day-header">Mercredi</div>
+                    <div class="class-slot bg-cross"><span class="class-time">12h</span> Cross Training</div>
+                    <div class="class-slot bg-kids"><span class="class-time">16h</span> Yoga Kids</div>
+                    <div class="class-slot bg-cross"><span class="class-time">19h</span> Cross Training</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">20h</span> Boxe</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Jeudi</div>
-                    <div class="slot bg-cross">08h Cross Core</div>
-                    <div class="slot bg-yoga">13h Boxe</div>
-                    <div class="slot bg-yoga">19h Afrodance</div>
+
+                <div class="day-column">
+                    <div class="day-header">Jeudi</div>
+                    <div class="class-slot bg-cross"><span class="class-time">08h</span> Cross Core</div>
+                    <div class="class-slot bg-cross"><span class="class-time">12h</span> Cross Body</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">13h</span> Boxe</div>
+                    <div class="class-slot bg-cross"><span class="class-time">18h</span> Cross Training</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">19h</span> Afrodance</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Vendredi</div>
-                    <div class="slot bg-cross">18h Cross Rox</div>
-                    <div class="slot bg-cross">19h Cross Training</div>
+
+                <div class="day-column">
+                    <div class="day-header">Vendredi</div>
+                    <div class="class-slot bg-cross"><span class="class-time">18h</span> Cross Rox</div>
+                    <div class="class-slot bg-cross"><span class="class-time">19h</span> Cross Training</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Samedi</div>
-                    <div class="slot bg-kids">09h30 Training Kids</div>
-                    <div class="slot bg-cross">10h30 Cross Body</div>
+
+                <div class="day-column">
+                    <div class="day-header">Samedi</div>
+                    <div class="class-slot bg-kids"><span class="class-time">09h30</span> Training Kids</div>
+                    <div class="class-slot bg-cross"><span class="class-time">10h30</span> Cross Body</div>
+                    <div class="class-slot bg-cross"><span class="class-time">11h30</span> Cross Training</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Dimanche</div>
-                    <div class="slot bg-cross">10h30 Cross Training</div>
-                    <div class="slot bg-yoga">11h30 Cross Yoga</div>
+
+                <div class="day-column">
+                    <div class="day-header">Dimanche</div>
+                    <div class="class-slot bg-cross"><span class="class-time">10h30</span> Cross Training</div>
+                    <div class="class-slot bg-cross"><span class="class-time">11h30</span> Cross Yoga</div>
                 </div>
             </div>
 
-            <a href="https://svb.sportigo.fr/schedule" target="_blank" class="btn-resa">
-                Réserver un cours aux Docks
-            </a>
+            <a href="https://svb.sportigo.fr/schedule" target="_blank" class="btn-resa">Réserver aux Docks</a>
         </div>
 
 
-        <div class="planning-container reveal-load d-3" style="border-color: #F2E6CF;">
-            <h2 class="studio-title text-[#E8B496]">Lavandières</h2>
-            <p class="text-center text-sm text-gray-600 mb-6 italic">L'espace Reformer, Yoga & Bien-être</p>
+        <div class="planning-box reveal-load d-3">
+            <div class="studio-header">
+                <h2 class="text-[#E8B496]">Lavandières</h2>
+                <p class="text-xs uppercase tracking-widest text-gray-600">Reformer, Yoga & Bien-être</p>
+            </div>
 
-            <div class="schedule-grid">
-                <div class="day-col">
-                    <div class="day-name">Lundi</div>
-                    <div class="slot bg-crossformer">12h Crossformer</div>
-                    <div class="slot bg-reformer">12h15 Reformer</div>
-                    <div class="slot bg-yoga">19h Yoga Vinyasa</div>
+            <div class="week-grid">
+                <div class="day-column">
+                    <div class="day-header">Lundi</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">12h</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">12h15</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">12h30</span> Yoga Vinyasa</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">18h45</span> Crossformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">19h</span> Yoga Vinyasa</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">19h15</span> Reformer</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Mardi</div>
-                    <div class="slot bg-yoga">07h30 Hatha Flow</div>
-                    <div class="slot bg-reformer">13h15 Reformer</div>
-                    <div class="slot bg-crossformer">18h45 Crossformer</div>
+
+                <div class="day-column">
+                    <div class="day-header">Mardi</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">07h30</span> Hatha Flow</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">11h45</span> Crossformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">12h</span> Power Pilates</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">13h15</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">18h45</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">19h15</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">20h</span> Power Pilates</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Mercredi</div>
-                    <div class="slot bg-crossformer">10h15 Crossformer</div>
-                    <div class="slot bg-reformer">12h Reformer</div>
-                    <div class="slot bg-reformer">20h Reformer</div>
+
+                <div class="day-column">
+                    <div class="day-header">Mercredi</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">10h15</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">12h</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">12h15</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">19h</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">19h15</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">20h</span> Reformer</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Jeudi</div>
-                    <div class="slot bg-reformer">07h Classic Pilates</div>
-                    <div class="slot bg-reformer">12h30 Reformer</div>
-                    <div class="slot bg-yoga">20h15 Cross Yoga</div>
+
+                <div class="day-column">
+                    <div class="day-header">Jeudi</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">07h</span> Classic Pilates</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">12h</span> Yoga Vinyasa</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">12h15</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">12h30</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">18h</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">18h45</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">19h15</span> Power Pilates</div>
+                    <div class="class-slot bg-cross"><span class="class-time">20h15</span> Cross Yoga</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">20h30</span> Cross Forme</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Vendredi</div>
-                    <div class="slot bg-crossformer">09h45 Crossformer</div>
-                    <div class="slot bg-reformer">13h Reformer</div>
+
+                <div class="day-column">
+                    <div class="day-header">Vendredi</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">09h45</span> Crossformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">10h45</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">12h</span> Reformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">13h</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">18h</span> Classic Pilates</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">18h30</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">19h15</span> Crossformer</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Samedi</div>
-                    <div class="slot bg-reformer">08h45 Reformer</div>
-                    <div class="slot bg-reformer">10h15 Classic Pilates</div>
+
+                <div class="day-column">
+                    <div class="day-header">Samedi</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">08h45</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">09h</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">09h45</span> Reformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">10h15</span> Classic Pilates</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">11h15</span> Core & Stretch</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">11h30</span> Crossformer</div>
                 </div>
-                <div class="day-col">
-                    <div class="day-name">Dimanche</div>
-                    <div class="slot bg-crossformer">10h Crossformer</div>
-                    <div class="slot bg-reformer">11h15 Reformer</div>
-                    <div class="slot bg-yoga">11h30 Yoga</div>
+
+                <div class="day-column">
+                    <div class="day-header">Dimanche</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">10h</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">10h15</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">11h</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">11h15</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">11h30</span> Yoga Vinyasa</div>
                 </div>
             </div>
 
-            <a href="https://svb.sportigo.fr/schedule" target="_blank" class="btn-resa" style="background-color: #E8B496;">
-                Réserver un cours aux Lavandières
-            </a>
+            <a href="https://svb.sportigo.fr/schedule" target="_blank" class="btn-resa" style="background-color: #E8B496;">Réserver aux Lavandières</a>
         </div>
 
     </div>
