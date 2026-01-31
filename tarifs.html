@@ -10,17 +10,19 @@
 
     <style>
         :root {
-            --svb-green-light: #98D0B3; 
-            --svb-green-dark: #4A8D84;  
-            --svb-sand: #F2E6CF;        
-            --svb-peach: #E8B496;
-            --svb-text: #2F4F4F;
+            /* Couleurs extraites des flyers */
+            --col-peach: #EBC6A6;   /* Crossformer & Kids */
+            --col-sand: #D4C3A3;    /* Reformer & Full Former */
+            --col-green: #B8D8C0;   /* Cross, Full, Starter */
+            --col-cream: #F3EBD4;   /* Focus */
+            --col-dark: #3A6B63;    /* Coaching */
+            --text-main: #2F4F4F;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--svb-green-light);
-            color: var(--svb-text);
+            background-color: #B8D8C0; /* Fond vert doux global */
+            color: var(--text-main);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
@@ -29,325 +31,272 @@
         /* === FOND IMMERSIF === */
         .ambient-bg {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
-            background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
+            background: linear-gradient(180deg, #CDE4D3 0%, #F5F0E1 100%);
             overflow: hidden;
         }
         .blob {
-            position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.6;
-            animation: moveBlob 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6;
+            animation: moveBlob 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .blob-1 { top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--svb-green-dark); }
-        .blob-2 { bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--svb-peach); animation-delay: -5s; }
+        .blob-1 { top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--col-peach); }
+        .blob-2 { bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--col-green); animation-delay: -5s; }
         @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(40px, -40px) scale(1.1); } }
-        
-        /* GRAIN DE TEXTURE (ASPECT PREMIUM) */
-        .noise-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            pointer-events: none;
-        }
+        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); pointer-events: none; }
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* === ANIMATION D'ENTRÉE (CASCADE) === */
-        .reveal-load { opacity: 0; animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
-        @keyframes softSlideUp { 
-            0% { opacity: 0; transform: translateY(60px) scale(0.95); } 
-            100% { opacity: 1; transform: translateY(0) scale(1); } 
-        }
-        
-        /* Délais pour l'effet domino */
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.4s; }
-        .delay-4 { animation-delay: 0.6s; }
+        .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
+        @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
 
-        /* === CARTES GLASSMORPHISM === */
+        /* === STYLE DES CARTES === */
         .price-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex; flex-direction: column; justify-content: space-between; height: 100%;
-            position: relative;
+            border: 1px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(10px);
         }
 
         .price-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            background: rgba(255, 255, 255, 0.85);
-            /* Ombre colorée au survol */
-            box-shadow: 0 30px 60px rgba(74, 141, 132, 0.25);
-            border-color: rgba(255,255,255,0.9);
-            z-index: 20;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            z-index: 10;
         }
 
-        /* EFFET SHINE SUR LE STARTER */
-        .shine-effect {
-            position: relative; overflow: hidden;
-        }
-        .shine-effect::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-            transform: skewX(-25deg);
-            animation: shine 6s infinite;
-        }
-        @keyframes shine {
-            0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; }
-        }
+        /* COULEURS DES HEADERS (Respect strict des images) */
+        .header-peach { background: var(--col-peach); color: white; }
+        .header-sand { background: var(--col-sand); color: white; }
+        .header-green { background: var(--col-green); color: white; }
+        .header-cream { background: var(--col-cream); color: #2F4F4F; } /* Texte foncé pour le crème */
+        .header-dark { background: var(--col-dark); color: white; }
+
+        /* CORPS DES CARTES (Légèrement teinté) */
+        .body-peach { background: linear-gradient(180deg, rgba(235, 198, 166, 0.2) 0%, rgba(255,255,255,0.6) 100%); }
+        .body-sand { background: linear-gradient(180deg, rgba(212, 195, 163, 0.2) 0%, rgba(255,255,255,0.6) 100%); }
+        .body-green { background: linear-gradient(180deg, rgba(184, 216, 192, 0.2) 0%, rgba(255,255,255,0.6) 100%); }
+        .body-cream { background: linear-gradient(180deg, rgba(243, 235, 212, 0.4) 0%, rgba(255,255,255,0.8) 100%); }
+        .body-dark { background: linear-gradient(180deg, rgba(58, 107, 99, 0.1) 0%, rgba(255,255,255,0.6) 100%); }
 
         .card-header { 
-            padding: 20px; color: white; text-align: center; 
-            text-transform: uppercase; font-weight: 800; letter-spacing: 0.1em; font-size: 0.9rem;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            padding: 20px; text-align: center; 
+            text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; font-size: 1rem;
         }
-        
-        /* Gradients Headers */
-        .bg-green-dark { background: linear-gradient(135deg, #4A8D84, #2F4F4F); }
-        .bg-peach { background: linear-gradient(135deg, #E8B496, #D69E7D); }
-        .bg-sand { background: linear-gradient(135deg, #D6C496, #B5A06D); }
-        .bg-full-former { background: linear-gradient(135deg, #4A8D84, #356b63); }
-        .bg-cross { background: linear-gradient(135deg, #88C0A6, #62967e); }
-        .bg-focus { background: linear-gradient(135deg, #98D0B3, #7cb396); } 
-        .bg-full-training { background: linear-gradient(135deg, #E8B496, #C9B388); }
 
         .price-row { 
             display: flex; justify-content: space-between; align-items: center; 
-            border-bottom: 1px solid rgba(0,0,0,0.05); padding: 12px 20px; font-size: 0.85rem; 
-            font-weight: 500; color: #555; transition: background 0.3s;
+            border-bottom: 1px solid rgba(0,0,0,0.05); padding: 10px 20px; font-size: 0.85rem; 
+            font-weight: 600; color: #555;
         }
-        .price-card:hover .price-row:hover { background: rgba(74, 141, 132, 0.05); }
         .price-row:last-child { border-bottom: none; }
-        .price-row span:last-child { font-weight: 800; color: var(--svb-text); font-size: 0.95rem; }
+        .price-row span:last-child { font-weight: 800; color: var(--text-main); }
 
-        /* BOUTON ACTION PRINCIPAL */
+        /* BOUTON ACTION */
         .btn-action {
             display: block; width: 100%;
-            background-color: var(--svb-green-dark);
-            color: white; text-align: center; padding: 18px 0;
-            text-transform: uppercase; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.15em;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); margin-top: auto;
+            background-color: var(--col-dark);
+            color: white; text-align: center; padding: 15px 0;
+            text-transform: uppercase; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em;
+            transition: all 0.3s; margin-top: auto;
         }
-        .btn-action:hover { 
-            background-color: #386e66; 
-            letter-spacing: 0.25em; 
-            padding-bottom: 22px; /* Petit effet de "lift" */
+        .btn-action:hover { background-color: #2F4F4F; letter-spacing: 0.15em; }
+
+        /* BANDEAUX OFFRE */
+        .offer-banner {
+            text-align: center; padding: 15px; border-radius: 12px; margin-bottom: 25px;
+            font-weight: 700; text-transform: uppercase; font-size: 0.9rem; color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
+        .banner-machines { background-color: var(--col-peach); }
+        .banner-training { background-color: var(--col-green); }
 
         /* BOUTON UNITAIRE */
         .btn-unit {
-            background-color: white; border: 1px solid var(--svb-green-dark);
-            color: var(--svb-green-dark); font-size: 0.7rem; font-weight: 800;
-            text-transform: uppercase; padding: 8px 18px; border-radius: 50px;
-            transition: all 0.3s; display: inline-block; margin-left: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background: white; color: var(--col-dark); border: 1px solid var(--col-dark);
+            padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; transition: all 0.3s; margin-left: auto;
         }
-        .btn-unit:hover { 
-            background-color: var(--svb-green-dark); color: white; 
-            transform: translateY(-2px) scale(1.05); 
-            box-shadow: 0 8px 15px rgba(74, 141, 132, 0.3); 
-        }
+        .btn-unit:hover { background: var(--col-dark); color: white; }
 
-        .unit-row {
-            background-color: rgba(255,255,255,0.4); padding: 15px 20px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            display: flex; justify-content: space-between; align-items: center;
-        }
     </style>
 </head>
 <body>
 
-    <div class="ambient-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
+    <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
     <div class="noise-overlay"></div>
 
     <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
         <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md">
-            </a>
+            <a href="index.html"><img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md"></a>
         </div>
-        <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide drop-shadow-sm">
-            <a href="index.html" class="hover:text-gray-100 transition hover:scale-105">L'UNIVERS</a>
-            <a href="sessions.html" class="hover:text-gray-100 transition hover:scale-105">SESSIONS</a>
-            <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105">LA TEAM</a>
-            <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105">BIEN-ÊTRE</a>
-            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105">PLANNING</a>
-            <a href="tarifs.html" class="border-b-2 border-white pb-1 hover:scale-105">TARIFS</a>
-            <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105">FAQ</a>
-            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105">CONTACT</a>
+        <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide drop-shadow-sm text-[#2F4F4F]">
+            <a href="index.html" class="hover:text-white transition">L'UNIVERS</a>
+            <a href="sessions.html" class="hover:text-white transition">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-white transition">LA TEAM</a>
+            <a href="studio.html" class="hover:text-white transition">PLANNING</a>
+            <a href="tarifs.html" class="border-b-2 border-[#2F4F4F] pb-1">TARIFS</a>
+            <a href="contact.html" class="hover:text-white transition">CONTACT</a>
         </div>
     </nav>
 
-    <div class="relative text-center py-20 px-4 reveal-load d-1 z-10">
-        <h1 class="text-7xl md:text-9xl text-white drop-shadow-xl mb-6 font-hand">Nos Tarifs</h1>
-        <p class="text-white uppercase tracking-widest text-sm font-light opacity-90 bg-white/20 inline-block px-8 py-3 rounded-full backdrop-blur-md border border-white/20 shadow-lg">
-            Investissez en vous-même
-        </p>
+    <div class="relative text-center py-16 px-4 reveal-load d-1 z-10">
+        <h1 class="text-7xl md:text-8xl text-[#2F4F4F] drop-shadow-sm mb-4 font-hand">Nos Tarifs</h1>
+        <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-bold bg-white/40 inline-block px-6 py-2 rounded-full backdrop-blur-md">Investissez en vous-même</p>
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 pb-24 z-10">
+    <div class="relative max-w-7xl mx-auto px-4 pb-20 z-10">
 
-        <section class="mb-24 reveal-load delay-1">
-            <div class="max-w-2xl mx-auto price-card shine-effect border-2 border-white/60 transform hover:scale-105 transition duration-500 shadow-2xl">
-                <div class="bg-[#4A8D84] text-white py-8 text-center relative">
-                    <h2 class="text-5xl font-bold uppercase tracking-tight relative z-10 font-hand">New Pass Starter</h2>
-                    <p class="text-xs uppercase tracking-widest mt-2 opacity-90 relative z-10 font-bold">Offre Découverte - Valable 1 mois</p>
+        <section class="mb-20 reveal-load d-2">
+            <div class="max-w-2xl mx-auto price-card transform hover:scale-105 transition duration-500 shadow-xl border-4 border-white">
+                <div class="header-green py-8 text-center">
+                    <h2 class="text-4xl font-bold uppercase tracking-tight">New Pass Starter</h2>
+                    <p class="text-xs uppercase tracking-widest mt-2 opacity-90 font-bold">Offre Découverte - Valable 1 mois</p>
                 </div>
-                <div class="p-10 text-center">
-                    <p class="text-8xl font-bold text-[#4A8D84] mb-8 drop-shadow-md">99,90€</p>
-                    <ul class="space-y-4 text-sm font-bold text-gray-600 uppercase mb-10 tracking-wide">
-                        <li class="flex items-center justify-center gap-2">✨ 5 Sessions différentes au choix</li>
-                        <li class="flex items-center justify-center gap-2">✨ Pas de reconduction tacite</li>
-                        <li class="flex items-center justify-center gap-2">✨ Sans Engagement</li>
+                <div class="p-10 text-center body-green">
+                    <p class="text-7xl font-bold text-[#2F4F4F] mb-8">99,90€</p>
+                    <ul class="space-y-3 text-sm font-bold text-gray-600 uppercase mb-8">
+                        <li>✨ 5 Sessions différentes au choix</li>
+                        <li>✨ Pas de reconduction tacite</li>
+                        <li>✨ Sans Engagement</li>
                     </ul>
-                    <a href="https://svb.sportigo.fr/buy" target="_blank" class="inline-block bg-[#4A8D84] text-white px-12 py-4 rounded-full uppercase font-bold text-sm tracking-widest hover:bg-[#386e66] transition shadow-lg hover:shadow-2xl hover:-translate-y-1 transform">
-                        Acheter / Souscrire
-                    </a>
+                    <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action rounded-full">Acheter / Souscrire</a>
                 </div>
             </div>
         </section>
 
-        <div class="flex items-center justify-center mb-10 reveal-load delay-2">
-            <div class="h-px w-12 bg-white/50 mr-4"></div>
-            <h2 class="text-5xl text-center text-white font-hand drop-shadow-md">Pass Machines</h2>
-            <div class="h-px w-12 bg-white/50 ml-4"></div>
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2">Small Group Machines</h2>
+        <div class="reveal-load d-2 banner-machines max-w-lg mx-auto">
+            Séance d'essai à 30€<br><span class="text-xs opacity-90 font-normal">15€ remboursés si inscription</span>
         </div>
-        
-        <div class="grid md:grid-cols-3 gap-8 reveal-load delay-2 mb-24">
-            
+
+        <div class="grid md:grid-cols-3 gap-6 reveal-load d-3 mb-20">
             <div class="price-card group">
-                <div>
-                    <div class="card-header bg-peach">Pass Crossformer</div>
-                    <div class="unit-row">
-                        <span class="font-bold text-[#2F4F4F]">Essai</span>
-                        <div><span class="font-bold mr-2 text-lg">30€</span><a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="btn-unit">Acheter</a></div>
-                    </div>
+                <div class="card-header header-peach">Pass Crossformer <br><span class="text-xs font-normal opacity-80">(50 Minutes)</span></div>
+                <div class="p-4 body-peach h-full">
+                    <div class="flex justify-between items-center mb-4 px-4"><span class="font-bold text-sm">Essai</span><a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="btn-unit">30€</a></div>
                     <div class="price-row"><span>2 Sessions</span> <span>78,30€</span></div>
                     <div class="price-row"><span>4 Sessions</span> <span>152,30€</span></div>
+                    <div class="price-row"><span>6 Sessions</span> <span>222,30€</span></div>
                     <div class="price-row"><span>8 Sessions</span> <span>288,30€</span></div>
+                    <div class="price-row"><span>10 Sessions</span> <span>350,30€</span></div>
                     <div class="price-row"><span>12 Sessions</span> <span>408,30€</span></div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
 
-            <div class="price-card group transform md:-translate-y-4 shadow-xl z-10"> <div>
-                    <div class="card-header bg-sand text-[#555]">Pass Reformer</div>
-                    <div class="unit-row">
-                        <span class="font-bold text-[#2F4F4F]">Essai</span>
-                        <div><span class="font-bold mr-2 text-lg">30€</span><a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="btn-unit">Acheter</a></div>
-                    </div>
+            <div class="price-card group">
+                <div class="card-header header-sand">Pass Reformer <br><span class="text-xs font-normal opacity-80">(50 Minutes)</span></div>
+                <div class="p-4 body-sand h-full">
+                    <div class="flex justify-between items-center mb-4 px-4"><span class="font-bold text-sm">Essai</span><a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="btn-unit">30€</a></div>
                     <div class="price-row"><span>2 Sessions</span> <span>70,30€</span></div>
                     <div class="price-row"><span>4 Sessions</span> <span>136,30€</span></div>
+                    <div class="price-row"><span>6 Sessions</span> <span>198,30€</span></div>
                     <div class="price-row"><span>8 Sessions</span> <span>256,30€</span></div>
+                    <div class="price-row"><span>10 Sessions</span> <span>310,30€</span></div>
                     <div class="price-row"><span>12 Sessions</span> <span>360,30€</span></div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
 
             <div class="price-card group">
-                <div>
-                    <div class="card-header bg-full-former">Pass Full Former</div>
-                    <div class="p-4 text-center text-xs font-bold uppercase tracking-wide text-white bg-gray-400/50">Mix Reformer & Crossformer</div>
+                <div class="card-header header-sand">Pass Full Former <br><span class="text-xs font-normal opacity-80">(50 Minutes)</span></div>
+                <div class="p-4 body-sand h-full flex flex-col justify-center">
                     <div class="price-row"><span>2 Sessions</span> <span>74,30€</span></div>
                     <div class="price-row"><span>4 Sessions</span> <span>144,30€</span></div>
+                    <div class="price-row"><span>6 Sessions</span> <span>210,30€</span></div>
                     <div class="price-row"><span>8 Sessions</span> <span>272,30€</span></div>
+                    <div class="price-row"><span>10 Sessions</span> <span>330,30€</span></div>
                     <div class="price-row"><span>12 Sessions</span> <span>384,30€</span></div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
         </div>
 
-        <div class="flex items-center justify-center mb-10 reveal-load delay-3">
-            <div class="h-px w-12 bg-white/50 mr-4"></div>
-            <h2 class="text-5xl text-center text-white font-hand drop-shadow-md">Pass Training</h2>
-            <div class="h-px w-12 bg-white/50 ml-4"></div>
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2">Small Group Training</h2>
+        <div class="reveal-load d-2 banner-training max-w-lg mx-auto">
+            Séance d'essai offerte
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 reveal-load delay-3 mb-24">
-            
+        <div class="grid md:grid-cols-3 gap-6 reveal-load d-3 mb-20">
             <div class="price-card group">
-                <div>
-                    <div class="card-header bg-cross">Pass Cross</div>
-                    <div class="unit-row">
-                        <span class="font-bold text-[#2F4F4F]">Essai</span>
-                        <div><span class="font-bold text-green-600 mr-2 text-lg">OFFERT</span><a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="btn-unit">Réserver</a></div>
-                    </div>
+                <div class="card-header header-green">Pass Cross <br><span class="text-xs font-normal opacity-80">(55 Minutes)</span></div>
+                <div class="p-4 body-green h-full">
+                    <div class="flex justify-between items-center mb-4 px-4"><span class="font-bold text-sm">Essai</span><a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="btn-unit bg-white text-green-700 border-none">Offert</a></div>
                     <div class="price-row"><span>2 Sessions</span> <span>30,30€</span></div>
                     <div class="price-row"><span>4 Sessions</span> <span>60,30€</span></div>
+                    <div class="price-row"><span>6 Sessions</span> <span>90,30€</span></div>
                     <div class="price-row"><span>8 Sessions</span> <span>116,30€</span></div>
+                    <div class="price-row"><span>10 Sessions</span> <span>145,30€</span></div>
                     <div class="price-row"><span>12 Sessions</span> <span>168,30€</span></div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
 
-            <div class="price-card group transform md:-translate-y-4 shadow-xl z-10">
-                <div>
-                    <div class="card-header bg-focus text-[#2F4F4F]">Pass Focus</div>
-                    <div class="unit-row">
-                        <span class="font-bold text-[#2F4F4F]">Essai</span>
-                        <div><span class="font-bold mr-2 text-lg">30€</span><a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="btn-unit">Acheter</a></div>
-                    </div>
+            <div class="price-card group">
+                <div class="card-header header-cream">Pass Focus <br><span class="text-xs font-normal opacity-80">(55 Minutes)</span></div>
+                <div class="p-4 body-cream h-full">
+                    <div class="flex justify-between items-center mb-4 px-4"><span class="font-bold text-sm">Essai</span><a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="btn-unit">30€</a></div>
                     <div class="price-row"><span>2 Sessions</span> <span>36,30€</span></div>
                     <div class="price-row"><span>4 Sessions</span> <span>72,30€</span></div>
+                    <div class="price-row"><span>6 Sessions</span> <span>105,30€</span></div>
                     <div class="price-row"><span>8 Sessions</span> <span>136,30€</span></div>
+                    <div class="price-row"><span>10 Sessions</span> <span>165,30€</span></div>
                     <div class="price-row"><span>12 Sessions</span> <span>192,30€</span></div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
 
             <div class="price-card group">
-                <div>
-                    <div class="card-header bg-full-training">Pass Full Training</div>
-                    <div class="p-4 text-center text-xs font-bold uppercase tracking-wide text-white bg-gray-400/50">Mix Cross & Focus</div>
+                <div class="card-header header-green">Pass Full <br><span class="text-xs font-normal opacity-80">(Cross + Focus)</span></div>
+                <div class="p-4 body-green h-full flex flex-col justify-center">
                     <div class="price-row"><span>2 Sessions</span> <span>40,30€</span></div>
                     <div class="price-row"><span>4 Sessions</span> <span>80,30€</span></div>
+                    <div class="price-row"><span>6 Sessions</span> <span>115,30€</span></div>
                     <div class="price-row"><span>8 Sessions</span> <span>150,30€</span></div>
+                    <div class="price-row"><span>10 Sessions</span> <span>180,30€</span></div>
                     <div class="price-row"><span>12 Sessions</span> <span>210,30€</span></div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
         </div>
 
-        <h2 class="text-5xl text-center text-white font-hand mb-12 reveal-load delay-4 drop-shadow-md">Coaching & Kids</h2>
-        <div class="grid md:grid-cols-3 gap-8 reveal-load delay-4">
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2">Coaching & Kids</h2>
+        <div class="grid md:grid-cols-3 gap-8 reveal-load d-3">
             
             <div class="price-card group">
-                <div>
-                    <div class="card-header bg-green-dark">Pass Good Vibes</div>
-                    <div class="p-6 text-sm">
-                        <div class="price-row"><span>4 Séances / mois</span> <span>300,30€</span></div>
-                        <div class="price-row"><span>8 Séances / mois</span> <span>560,30€</span></div>
-                        <p class="text-xs text-center mt-6 font-bold text-[#4A8D84] uppercase tracking-wide">Engagement 3 mois</p>
-                    </div>
+                <div class="card-header header-dark">Coaching Good Vibes</div>
+                <div class="p-6 body-dark h-full flex flex-col justify-center">
+                    <div class="price-row"><span>4 Séances / mois</span> <span>300,30€</span></div>
+                    <div class="price-row"><span>8 Séances / mois</span> <span>560,30€</span></div>
+                    <hr class="border-gray-300 my-4 opacity-50">
+                    <div class="text-center font-bold text-sm mb-2">PASS DUO</div>
+                    <div class="price-row"><span>4 Séances / mois</span> <span>400,60€</span></div>
+                    <div class="price-row"><span>8 Séances / mois</span> <span>720,60€</span></div>
+                    <p class="text-xs text-center mt-4 font-bold text-[#4A8D84] uppercase">Engagement 3 mois</p>
                 </div>
                 <a href="contact.html" class="btn-action">Infos Coaching</a>
             </div>
 
-            <div class="price-card group transform md:-translate-y-4 shadow-xl z-10">
-                <div>
-                    <div class="card-header bg-peach">Pass Kids</div>
-                    <div class="p-6 text-sm text-center">
-                        <p class="mb-3 font-bold text-xl text-[#2F4F4F]">2 Sessions - 35,30€</p>
-                        <p class="mb-5 font-bold text-xl text-[#2F4F4F]">4 Sessions - 65,30€</p>
-                        <div class="w-16 h-1 bg-gray-200 mx-auto rounded my-4"></div>
-                        <p class="text-xs text-red-500 font-bold uppercase">Frais de dossier: 29€</p>
-                    </div>
+            <div class="price-card group">
+                <div class="card-header header-peach">Pass Kids <br><span class="text-xs font-normal opacity-80">(Hors Juillet/Août)</span></div>
+                <div class="p-6 body-peach h-full text-center flex flex-col justify-center">
+                    <p class="mb-3 font-bold text-xl text-[#2F4F4F]">2 Sessions - 35,30€</p>
+                    <p class="mb-5 font-bold text-xl text-[#2F4F4F]">4 Sessions - 65,30€</p>
+                    <div class="w-16 h-1 bg-white mx-auto rounded my-4"></div>
+                    <p class="text-sm">Session suppl: 18,30€</p>
+                    <p class="text-xs text-red-500 font-bold mt-2 uppercase">Frais de dossier: 29€</p>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
 
-            <div class="price-card bg-white/80 group">
+            <div class="price-card bg-white/70 group border-4 border-[#B8D8C0]">
                 <div class="p-8 text-center h-full flex flex-col justify-center">
-                    <h3 class="font-hand text-5xl mb-4 text-[#4A8D84]">Option Boost</h3>
-                    <p class="text-5xl font-bold mb-6 text-[#2F4F4F]">9,90€<span class="text-base font-normal">/mois</span></p>
-                    <ul class="text-xs text-left space-y-3 mb-8 bg-white/50 p-6 rounded-xl shadow-inner">
+                    <h3 class="font-hand text-4xl mb-4 text-[#4A8D84]">Option Boost</h3>
+                    <p class="text-5xl font-bold mb-4 text-[#2F4F4F]">9,90€<span class="text-sm">/mois</span></p>
+                    <p class="text-xs uppercase font-bold text-gray-500 mb-6">En + d'un pass</p>
+                    <ul class="text-xs text-left space-y-3 mb-8 bg-white p-4 rounded-lg shadow-sm">
                         <li>✅ Frais d'inscription offerts</li>
                         <li>✅ 1 Essai gratuit/mois (proche)</li>
                         <li>✅ Suspension sans préavis</li>
