@@ -10,7 +10,6 @@
 
     <style>
         :root {
-            /* Couleurs Exactes */
             --col-peach: #EBC6A6;   /* Crossformer & Kids */
             --col-sand: #D4C3A3;    /* Reformer */
             --col-green: #88C0A6;   /* Cross */
@@ -69,15 +68,9 @@
         .header-cream { background: var(--col-cream); color: var(--svb-text); }
         .header-dark { background: var(--col-dark); color: white; }
 
-        /* HEADER BICOLORES (GRADIENTS) */
-        .header-bicolor-former { 
-            background: linear-gradient(135deg, var(--col-sand) 0%, var(--col-peach) 100%); 
-            color: white; 
-        }
-        .header-bicolor-full { 
-            background: linear-gradient(135deg, var(--col-green) 0%, var(--col-cream) 100%); 
-            color: var(--svb-text); 
-        }
+        /* HEADER BICOLORES */
+        .header-bicolor-former { background: linear-gradient(135deg, var(--col-sand) 0%, var(--col-peach) 100%); color: white; }
+        .header-bicolor-full { background: linear-gradient(135deg, var(--col-green) 0%, var(--col-cream) 100%); color: var(--svb-text); }
 
         /* BODY COLORS */
         .body-peach { background: linear-gradient(180deg, rgba(235, 198, 166, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
@@ -86,13 +79,13 @@
         .body-cream { background: linear-gradient(180deg, rgba(243, 235, 212, 0.5) 0%, rgba(255,255,255,0.8) 100%); }
         .body-dark { background: linear-gradient(180deg, rgba(58, 107, 99, 0.15) 0%, rgba(255,255,255,0.7) 100%); }
 
-        /* BODY BICOLORES (RESPECT VISUEL) */
+        /* BODY BICOLORES */
         .body-bicolor-former { background: linear-gradient(180deg, rgba(212, 195, 163, 0.25) 0%, rgba(235, 198, 166, 0.25) 100%); }
         .body-bicolor-full { background: linear-gradient(180deg, rgba(136, 192, 166, 0.25) 0%, rgba(243, 235, 212, 0.4) 100%); }
 
         .card-header { padding: 20px; text-align: center; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; font-size: 1rem; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 
-        .price-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 12px 20px; font-size: 0.85rem; font-weight: 500; color: #555; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 8px 20px; font-size: 0.85rem; font-weight: 500; color: #555; }
         .price-row:last-child { border-bottom: none; }
         .price-row span:last-child { font-weight: 800; color: var(--svb-text); font-size: 0.95rem; }
 
@@ -102,11 +95,15 @@
         .offer-banner { text-align: center; padding: 15px; border-radius: 12px; margin-bottom: 25px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .banner-machines { background: var(--col-peach); }
 
-        /* BOUTON ESSAI (LIEN SPÉCIFIQUE) */
         .btn-unit { background: white; color: var(--col-dark); border: 1px solid var(--col-dark); padding: 6px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; transition: all 0.3s; margin-left: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .btn-unit:hover { background: var(--col-dark); color: white; transform: translateY(-2px); }
         
-        .unit-row { background-color: rgba(255,255,255,0.4); padding: 15px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .unit-row { background-color: rgba(255,255,255,0.4); padding: 10px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+
+        /* INFO ENGAGEMENT */
+        .terms-row { padding: 10px 20px; text-align: center; font-size: 0.7rem; border-top: 1px solid rgba(0,0,0,0.05); background: rgba(255,255,255,0.3); }
+        .terms-fee { color: #e53e3e; font-weight: 800; text-transform: uppercase; }
+        .terms-time { color: var(--svb-text); font-weight: 800; text-transform: uppercase; }
     </style>
 </head>
 <body>
@@ -122,10 +119,8 @@
             <a href="index.html" class="hover:text-white transition">L'UNIVERS</a>
             <a href="sessions.html" class="hover:text-white transition">SESSIONS</a>
             <a href="equipe.html" class="hover:text-white transition">LA TEAM</a>
-            <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105">BIEN-ÊTRE</a>
             <a href="studio.html" class="hover:text-white transition">PLANNING</a>
             <a href="tarifs.html" class="border-b-2 border-[#2F4F4F] pb-1">TARIFS</a>
-            <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105">FAQ</a>
             <a href="contact.html" class="hover:text-white transition">CONTACT</a>
         </div>
     </nav>
@@ -171,13 +166,19 @@
                     <span class="font-bold text-[#2F4F4F]">Essai</span>
                     <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="btn-unit">30€</a>
                 </div>
-                <div class="body-peach h-full">
-                    <div class="price-row"><span>2 Sessions</span> <span>78,30€</span></div>
-                    <div class="price-row"><span>4 Sessions</span> <span>152,30€</span></div>
-                    <div class="price-row"><span>6 Sessions</span> <span>222,30€</span></div>
-                    <div class="price-row"><span>8 Sessions</span> <span>288,30€</span></div>
-                    <div class="price-row"><span>10 Sessions</span> <span>350,30€</span></div>
-                    <div class="price-row"><span>12 Sessions</span> <span>408,30€</span></div>
+                <div class="body-peach h-full flex flex-col justify-between">
+                    <div>
+                        <div class="price-row"><span>2 Sessions</span> <span>78,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>152,30€</span></div>
+                        <div class="price-row"><span>6 Sessions</span> <span>222,30€</span></div>
+                        <div class="price-row"><span>8 Sessions</span> <span>288,30€</span></div>
+                        <div class="price-row"><span>10 Sessions</span> <span>350,30€</span></div>
+                        <div class="price-row"><span>12 Sessions</span> <span>408,30€</span></div>
+                    </div>
+                    <div class="terms-row">
+                        <span class="terms-fee">Frais de dossier: 49€</span><br>
+                        <span class="terms-time">Engagement 3 mois</span>
+                    </div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
@@ -188,13 +189,19 @@
                     <span class="font-bold text-[#2F4F4F]">Essai</span>
                     <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="btn-unit">30€</a>
                 </div>
-                <div class="body-sand h-full">
-                    <div class="price-row"><span>2 Sessions</span> <span>70,30€</span></div>
-                    <div class="price-row"><span>4 Sessions</span> <span>136,30€</span></div>
-                    <div class="price-row"><span>6 Sessions</span> <span>198,30€</span></div>
-                    <div class="price-row"><span>8 Sessions</span> <span>256,30€</span></div>
-                    <div class="price-row"><span>10 Sessions</span> <span>310,30€</span></div>
-                    <div class="price-row"><span>12 Sessions</span> <span>360,30€</span></div>
+                <div class="body-sand h-full flex flex-col justify-between">
+                    <div>
+                        <div class="price-row"><span>2 Sessions</span> <span>70,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>136,30€</span></div>
+                        <div class="price-row"><span>6 Sessions</span> <span>198,30€</span></div>
+                        <div class="price-row"><span>8 Sessions</span> <span>256,30€</span></div>
+                        <div class="price-row"><span>10 Sessions</span> <span>310,30€</span></div>
+                        <div class="price-row"><span>12 Sessions</span> <span>360,30€</span></div>
+                    </div>
+                    <div class="terms-row">
+                        <span class="terms-fee">Frais de dossier: 49€</span><br>
+                        <span class="terms-time">Engagement 3 mois</span>
+                    </div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
@@ -202,13 +209,19 @@
             <div class="price-card group">
                 <div class="card-header header-bicolor-former">Pass Full Former <br><span class="text-xs font-normal opacity-80">(50 Minutes)</span></div>
                 <div class="p-4 text-center text-xs font-bold uppercase tracking-wide text-white bg-[#D4C3A3]">Mix Reformer & Crossformer</div>
-                <div class="body-bicolor-former h-full">
-                    <div class="price-row"><span>2 Sessions</span> <span>74,30€</span></div>
-                    <div class="price-row"><span>4 Sessions</span> <span>144,30€</span></div>
-                    <div class="price-row"><span>6 Sessions</span> <span>210,30€</span></div>
-                    <div class="price-row"><span>8 Sessions</span> <span>272,30€</span></div>
-                    <div class="price-row"><span>10 Sessions</span> <span>330,30€</span></div>
-                    <div class="price-row"><span>12 Sessions</span> <span>384,30€</span></div>
+                <div class="body-bicolor-former h-full flex flex-col justify-between">
+                    <div>
+                        <div class="price-row"><span>2 Sessions</span> <span>74,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>144,30€</span></div>
+                        <div class="price-row"><span>6 Sessions</span> <span>210,30€</span></div>
+                        <div class="price-row"><span>8 Sessions</span> <span>272,30€</span></div>
+                        <div class="price-row"><span>10 Sessions</span> <span>330,30€</span></div>
+                        <div class="price-row"><span>12 Sessions</span> <span>384,30€</span></div>
+                    </div>
+                    <div class="terms-row">
+                        <span class="terms-fee">Frais de dossier: 49€</span><br>
+                        <span class="terms-time">Engagement 3 mois</span>
+                    </div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
@@ -221,15 +234,21 @@
                 <div class="card-header header-green">Pass Cross <br><span class="text-xs font-normal opacity-80">(55 Minutes)</span></div>
                 <div class="unit-row">
                     <span class="font-bold text-[#2F4F4F]">Essai</span>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/b7e429b7-1683-47ea-9ca4-7850339219ae" target="_blank" class="btn-unit">30€</a>
+                    <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="btn-unit">30€</a>
                 </div>
-                <div class="body-green h-full">
-                    <div class="price-row"><span>2 Sessions</span> <span>30,30€</span></div>
-                    <div class="price-row"><span>4 Sessions</span> <span>60,30€</span></div>
-                    <div class="price-row"><span>6 Sessions</span> <span>90,30€</span></div>
-                    <div class="price-row"><span>8 Sessions</span> <span>116,30€</span></div>
-                    <div class="price-row"><span>10 Sessions</span> <span>145,30€</span></div>
-                    <div class="price-row"><span>12 Sessions</span> <span>168,30€</span></div>
+                <div class="body-green h-full flex flex-col justify-between">
+                    <div>
+                        <div class="price-row"><span>2 Sessions</span> <span>30,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>60,30€</span></div>
+                        <div class="price-row"><span>6 Sessions</span> <span>90,30€</span></div>
+                        <div class="price-row"><span>8 Sessions</span> <span>116,30€</span></div>
+                        <div class="price-row"><span>10 Sessions</span> <span>145,30€</span></div>
+                        <div class="price-row"><span>12 Sessions</span> <span>168,30€</span></div>
+                    </div>
+                    <div class="terms-row">
+                        <span class="terms-fee">Frais de dossier: 49€</span><br>
+                        <span class="terms-time">Engagement 3 mois</span>
+                    </div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
@@ -240,13 +259,19 @@
                     <span class="font-bold text-[#2F4F4F]">Essai</span>
                     <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="btn-unit">30€</a>
                 </div>
-                <div class="body-cream h-full">
-                    <div class="price-row"><span>2 Sessions</span> <span>36,30€</span></div>
-                    <div class="price-row"><span>4 Sessions</span> <span>72,30€</span></div>
-                    <div class="price-row"><span>6 Sessions</span> <span>105,30€</span></div>
-                    <div class="price-row"><span>8 Sessions</span> <span>136,30€</span></div>
-                    <div class="price-row"><span>10 Sessions</span> <span>165,30€</span></div>
-                    <div class="price-row"><span>12 Sessions</span> <span>192,30€</span></div>
+                <div class="body-cream h-full flex flex-col justify-between">
+                    <div>
+                        <div class="price-row"><span>2 Sessions</span> <span>36,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>72,30€</span></div>
+                        <div class="price-row"><span>6 Sessions</span> <span>105,30€</span></div>
+                        <div class="price-row"><span>8 Sessions</span> <span>136,30€</span></div>
+                        <div class="price-row"><span>10 Sessions</span> <span>165,30€</span></div>
+                        <div class="price-row"><span>12 Sessions</span> <span>192,30€</span></div>
+                    </div>
+                    <div class="terms-row">
+                        <span class="terms-fee">Frais de dossier: 49€</span><br>
+                        <span class="terms-time">Engagement 3 mois</span>
+                    </div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
@@ -254,13 +279,19 @@
             <div class="price-card group">
                 <div class="card-header header-bicolor-full">Pass Full <br><span class="text-xs font-normal opacity-80">(Cross + Focus)</span></div>
                 <div class="p-4 text-center text-xs font-bold uppercase tracking-wide text-gray-500 bg-[#88C0A6]">Mix Cross & Focus</div>
-                <div class="body-bicolor-full h-full">
-                    <div class="price-row"><span>2 Sessions</span> <span>40,30€</span></div>
-                    <div class="price-row"><span>4 Sessions</span> <span>80,30€</span></div>
-                    <div class="price-row"><span>6 Sessions</span> <span>115,30€</span></div>
-                    <div class="price-row"><span>8 Sessions</span> <span>150,30€</span></div>
-                    <div class="price-row"><span>10 Sessions</span> <span>180,30€</span></div>
-                    <div class="price-row"><span>12 Sessions</span> <span>210,30€</span></div>
+                <div class="body-bicolor-full h-full flex flex-col justify-between">
+                    <div>
+                        <div class="price-row"><span>2 Sessions</span> <span>40,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>80,30€</span></div>
+                        <div class="price-row"><span>6 Sessions</span> <span>115,30€</span></div>
+                        <div class="price-row"><span>8 Sessions</span> <span>150,30€</span></div>
+                        <div class="price-row"><span>10 Sessions</span> <span>180,30€</span></div>
+                        <div class="price-row"><span>12 Sessions</span> <span>210,30€</span></div>
+                    </div>
+                    <div class="terms-row">
+                        <span class="terms-fee">Frais de dossier: 49€</span><br>
+                        <span class="terms-time">Engagement 3 mois</span>
+                    </div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
@@ -278,7 +309,10 @@
                     <div class="text-center font-bold text-sm mb-2 text-[#2F4F4F]">PASS DUO</div>
                     <div class="price-row"><span>4 Séances / mois</span> <span>400,60€</span></div>
                     <div class="price-row"><span>8 Séances / mois</span> <span>720,60€</span></div>
-                    <p class="text-xs text-center mt-4 font-bold text-[#4A8D84] uppercase">Engagement 3 mois</p>
+                    <div class="mt-6 text-center">
+                        <span class="terms-fee block text-xs">Frais de dossier: 49€</span>
+                        <span class="terms-time block text-xs mt-1">Engagement 3 mois</span>
+                    </div>
                 </div>
                 <a href="contact.html" class="btn-action">Infos Coaching</a>
             </div>
@@ -288,9 +322,12 @@
                 <div class="p-6 body-peach h-full text-center flex flex-col justify-center">
                     <p class="mb-3 font-bold text-xl text-[#2F4F4F]">2 Sessions - 35,30€</p>
                     <p class="mb-5 font-bold text-xl text-[#2F4F4F]">4 Sessions - 65,30€</p>
-                    <div class="w-16 h-1 bg-gray-200 mx-auto rounded my-4"></div>
+                    <div class="w-16 h-1 bg-white mx-auto rounded my-4"></div>
                     <p class="text-sm text-[#555]">Session suppl: 18,30€</p>
-                    <p class="text-xs text-red-500 font-bold mt-2 uppercase">Frais de dossier: 29€</p>
+                    <div class="mt-4">
+                        <span class="terms-fee block text-xs">Frais de dossier: 29€</span>
+                        <span class="terms-time block text-xs mt-1 text-[#E8B496] font-extrabold">Engagement 4 mois</span>
+                    </div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
@@ -303,6 +340,7 @@
                         <li>✅ Frais d'inscription offerts</li>
                         <li>✅ 1 Essai gratuit/mois (proche)</li>
                         <li>✅ Suspension sans préavis</li>
+                        <li class="font-bold text-[#4A8D84]">✅ Engagement 3 mois</li>
                     </ul>
                     <a href="contact.html" class="btn-action rounded-full">Ajouter l'option</a>
                 </div>
