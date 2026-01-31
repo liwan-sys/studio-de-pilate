@@ -45,6 +45,9 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .coach-card:hover {
@@ -56,7 +59,7 @@
         .coach-img-wrapper {
             width: 120px;
             height: 120px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 15px auto;
             border-radius: 50%;
             padding: 5px;
             background: linear-gradient(45deg, var(--svb-green-dark), var(--svb-peach));
@@ -74,18 +77,19 @@
 
         .coach-card:hover .coach-img { transform: scale(1.1); }
 
-        .coach-name { font-size: 2rem; color: var(--svb-green-dark); margin-bottom: 5px; }
-        .coach-role { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 15px; display: block; }
+        .coach-name { font-size: 1.8rem; color: var(--svb-green-dark); margin-bottom: 2px; }
+        .coach-role { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #555; margin-bottom: 12px; display: block; min-height: 20px; }
+        
+        .badge-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
         
         .badge {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 700;
             color: white;
             background-color: var(--svb-green-dark);
-            margin: 2px;
         }
         .badge-peach { background-color: var(--svb-peach); }
         .badge-sand { background-color: #D6C496; }
@@ -113,98 +117,140 @@
     </nav>
 
     <div class="text-center py-16 px-4 reveal-load d-1">
-        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-6 leading-tight font-hand">L'Âme du Studio</h1>
+        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-6 leading-tight font-hand">La Team SVB</h1>
         <p class="text-white text-lg font-light max-w-2xl mx-auto leading-relaxed opacity-90">
-            Une équipe passionnée, une seule énergie.
+            Une équipe d'experts passionnés pour vous accompagner.
         </p>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 pb-24">
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 reveal-load d-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 reveal-load d-2">
 
             <div class="coach-card">
-                <div class="coach-img-wrapper"><img src="images/Agathe.jpg" class="coach-img" alt="Agathe"></div>
-                <h3 class="coach-name font-hand">Agathe</h3>
+                <div class="coach-img-wrapper"><img src="https://i.pravatar.cc/300?img=32" class="coach-img" alt="Marion"></div>
+                <h3 class="coach-name font-hand">Marion</h3>
                 <span class="coach-role">Coach Pilates</span>
-                <div><span class="badge">Reformer</span><span class="badge badge-sand">Douceur</span></div>
+                <div class="badge-container"><span class="badge">Reformer</span></div>
             </div>
 
             <div class="coach-card">
-                <div class="coach-img-wrapper"><img src="images/Alope.jpg" class="coach-img" alt="Alopé"></div>
-                <h3 class="coach-name font-hand">Alopé</h3>
-                <span class="coach-role">Coach Intense</span>
-                <div><span class="badge badge-peach">Boxe</span><span class="badge badge-green">Technique</span></div>
+                <div class="coach-img-wrapper"><img src="images/Marine.jpg" class="coach-img" alt="Marine"></div>
+                <h3 class="coach-name font-hand">Marine</h3>
+                <span class="coach-role">Coach Polyvalente</span>
+                <div class="badge-container"><span class="badge badge-peach">Crossformer</span><span class="badge">Pilates</span></div>
             </div>
 
             <div class="coach-card">
-                <div class="coach-img-wrapper"><img src="images/Anais.jpg" class="coach-img" alt="Anaïs"></div>
-                <h3 class="coach-name font-hand">Anaïs</h3>
-                <span class="coach-role">Coach Crossformer</span>
-                <div><span class="badge badge-green">Intense</span><span class="badge badge-peach">Cardio</span></div>
-            </div>
-
-            <div class="coach-card">
-                <div class="coach-img-wrapper"><img src="images/Chloe.jpg" class="coach-img" alt="Chloé"></div>
-                <h3 class="coach-name font-hand">Chloé</h3>
-                <span class="coach-role">Coach Kids & Flow</span>
-                <div><span class="badge badge-sand">Kids</span><span class="badge">Yoga</span></div>
-            </div>
-
-            <div class="coach-card">
-                <div class="coach-img-wrapper"><img src="images/Greg.jpg" class="coach-img" alt="Greg"></div>
-                <h3 class="coach-name font-hand">Greg</h3>
-                <span class="coach-role">Head Coach Cross</span>
-                <div><span class="badge badge-peach">Hyrox</span><span class="badge badge-green">Perf</span></div>
-            </div>
-
-            <div class="coach-card">
-                <div class="coach-img-wrapper"><img src="images/Hajar.jpg" class="coach-img" alt="Hajar"></div>
-                <h3 class="coach-name font-hand">Hajar</h3>
-                <span class="coach-role">Coach Training</span>
-                <div><span class="badge badge-peach">Cross</span><span class="badge badge-green">Force</span></div>
+                <div class="coach-img-wrapper"><img src="https://i.pravatar.cc/300?img=5" class="coach-img" alt="Emma"></div>
+                <h3 class="coach-name font-hand">Emma</h3>
+                <span class="coach-role">Coach Pilates</span>
+                <div class="badge-container"><span class="badge">Pilates</span></div>
             </div>
 
             <div class="coach-card">
                 <div class="coach-img-wrapper"><img src="images/Henriette.jpg" class="coach-img" alt="Henriette"></div>
                 <h3 class="coach-name font-hand">Henriette</h3>
                 <span class="coach-role">Professeur Yoga</span>
-                <div><span class="badge badge-sand">Vinyasa</span><span class="badge badge-sand">Flow</span></div>
+                <div class="badge-container"><span class="badge badge-sand">Yoga</span></div>
             </div>
 
             <div class="coach-card">
-                <div class="coach-img-wrapper"><img src="images/Marine.jpg" class="coach-img" alt="Marine"></div>
-                <h3 class="coach-name font-hand">Marine</h3>
+                <div class="coach-img-wrapper"><img src="images/Agathe.jpg" class="coach-img" alt="Agathe"></div>
+                <h3 class="coach-name font-hand">Agathe</h3>
                 <span class="coach-role">Coach Pilates</span>
-                <div><span class="badge">Reformer</span><span class="badge badge-sand">Posture</span></div>
+                <div class="badge-container"><span class="badge">Reformer</span><span class="badge badge-sand">Pilates</span></div>
             </div>
 
             <div class="coach-card">
                 <div class="coach-img-wrapper"><img src="images/Rebecca.jpg" class="coach-img" alt="Rebecca"></div>
                 <h3 class="coach-name font-hand">Rebecca</h3>
                 <span class="coach-role">Coach Wellness</span>
-                <div><span class="badge badge-sand">Relax</span><span class="badge">Soin</span></div>
+                <div class="badge-container"><span class="badge badge-sand">Soin</span></div>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-img-wrapper"><img src="https://i.pravatar.cc/300?img=9" class="coach-img" alt="Prisca"></div>
+                <h3 class="coach-name font-hand">Prisca</h3>
+                <span class="coach-role">Coach Pilates</span>
+                <div class="badge-container"><span class="badge">Reformer</span><span class="badge">Pilates</span></div>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-img-wrapper"><img src="https://i.pravatar.cc/300?img=20" class="coach-img" alt="Laura"></div>
+                <h3 class="coach-name font-hand">Laura</h3>
+                <span class="coach-role">Coach Pilates</span>
+                <div class="badge-container"><span class="badge">Reformer</span></div>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-img-wrapper"><img src="https://i.pravatar.cc/300?img=1" class="coach-img" alt="Fatoumata"></div>
+                <h3 class="coach-name font-hand">Fatoumata</h3>
+                <span class="coach-role">Coach Expert</span>
+                <div class="badge-container"><span class="badge">Pilates</span><span class="badge">Reformer</span><span class="badge badge-peach">Cross</span><span class="badge badge-green">Coaching</span></div>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-img-wrapper"><img src="https://i.pravatar.cc/300?img=12" class="coach-img" alt="Daryl"></div>
+                <h3 class="coach-name font-hand">Daryl</h3>
+                <span class="coach-role">Coach Intense</span>
+                <div class="badge-container"><span class="badge badge-peach">Crossformer</span></div>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-img-wrapper"><img src="images/Alope.jpg" class="coach-img" alt="Alopé"></div>
+                <h3 class="coach-name font-hand">Alopé</h3>
+                <span class="coach-role">Coach Polyvalente</span>
+                <div class="badge-container"><span class="badge badge-peach">Crossformer</span><span class="badge badge-peach">Cross</span><span class="badge">Pilates</span><span class="badge badge-green">Coaching</span><span class="badge badge-sand">Core & Stretch</span></div>
             </div>
 
             <div class="coach-card">
                 <div class="coach-img-wrapper"><img src="images/Romane.jpg" class="coach-img" alt="Romane"></div>
                 <h3 class="coach-name font-hand">Romane</h3>
                 <span class="coach-role">Coach Dynamique</span>
-                <div><span class="badge badge-green">Power</span><span class="badge">Pilates</span></div>
+                <div class="badge-container"><span class="badge badge-peach">Crossformer</span><span class="badge badge-peach">Cross</span></div>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-img-wrapper"><img src="images/Anais.jpg" class="coach-img" alt="Anaïs"></div>
+                <h3 class="coach-name font-hand">Anaïs</h3>
+                <span class="coach-role">Coach Intense</span>
+                <div class="badge-container"><span class="badge badge-peach">Crossformer</span></div>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-img-wrapper"><img src="images/Virginie.jpg" class="coach-img" alt="Virginie"></div>
+                <h3 class="coach-name font-hand">Virginie</h3>
+                <span class="coach-role">Coach Pilates</span>
+                <div class="badge-container"><span class="badge">Reformer</span></div>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-img-wrapper"><img src="images/Hajar.jpg" class="coach-img" alt="Hajar"></div>
+                <h3 class="coach-name font-hand">Hajar</h3>
+                <span class="coach-role">Coach Pilates</span>
+                <div class="badge-container"><span class="badge">Pilates</span><span class="badge">Reformer</span></div>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-img-wrapper"><img src="images/Chloe.jpg" class="coach-img" alt="Chloé"></div>
+                <h3 class="coach-name font-hand">Chloé</h3>
+                <span class="coach-role">Coach Pilates</span>
+                <div class="badge-container"><span class="badge">Reformer</span></div>
+            </div>
+            
+            <div class="coach-card">
+                <div class="coach-img-wrapper"><img src="images/Greg.jpg" class="coach-img" alt="Greg"></div>
+                <h3 class="coach-name font-hand">Greg</h3>
+                <span class="coach-role">Head Coach Cross</span>
+                <div class="badge-container"><span class="badge badge-peach">Cross</span><span class="badge badge-green">Hyrox</span></div>
             </div>
 
             <div class="coach-card">
                 <div class="coach-img-wrapper"><img src="images/Shanael.jpg" class="coach-img" alt="Shanael"></div>
                 <h3 class="coach-name font-hand">Shanael</h3>
                 <span class="coach-role">Coach Dance</span>
-                <div><span class="badge badge-peach">Afro</span><span class="badge badge-sand">Fun</span></div>
-            </div>
-
-            <div class="coach-card">
-                <div class="coach-img-wrapper"><img src="images/Virginie.jpg" class="coach-img" alt="Virginie"></div>
-                <h3 class="coach-name font-hand">Virginie</h3>
-                <span class="coach-role">Coach Expert</span>
-                <div><span class="badge badge-green">Technique</span><span class="badge">Coaching</span></div>
+                <div class="badge-container"><span class="badge badge-peach">Afro</span><span class="badge badge-sand">Dance</span></div>
             </div>
 
         </div>
