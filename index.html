@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVB | SantezVousBien - Saint-Ouen</title>
+    <title>L'Univers | SVB SantezVousBien</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,175 +13,160 @@
             --svb-green-light: #98D0B3; 
             --svb-green-dark: #4A8D84;  
             --svb-sand: #F2E6CF;        
+            --svb-peach: #E8B496;
             --svb-text: #2F4F4F;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
-            color: white;
+            color: var(--svb-text);
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        h1, h2, .font-hand { font-family: 'Dancing Script', cursive; }
+        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* --- NOUVELLES ANIMATIONS --- */
-        
-        /* 1. Apparition fluide au chargement */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-in {
-            animation: fadeInUp 1s ease-out forwards;
-            opacity: 0; /* Caché au départ */
-        }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-
-        /* 2. Effet "Verre" amélioré */
-        .glass-box {
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s ease; /* Pour l'effet de survol */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
         }
 
-        /* 3. Interaction au survol (La touche magnifique) */
-        .glass-box:hover {
-            transform: translateY(-10px); /* La carte remonte */
-            background: rgba(255, 255, 255, 0.55); /* Devient plus blanche */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* L'ombre grandit */
-        }
-
-        /* Badge adresse stylisé */
-        .address-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
+        .btn-action {
+            display: block;
+            width: 100%;
+            background-color: var(--svb-green-dark);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
             text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            transition: background-color 0.3s;
+            margin-top: auto;
+            border-radius: 4px;
+        }
+        .btn-action:hover { background-color: #386e66; }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .card-header {
+            padding: 15px;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
             letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-            background-color: white;
-            color: var(--svb-green-dark);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .bg-green-dark { background-color: var(--svb-green-dark); }
+        .bg-peach { background-color: var(--svb-peach); }
+        .bg-sand { background-color: #D6C496; }
+
+        .price-display {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--svb-text);
+            text-align: center;
+            margin: 10px 0;
+            font-family: 'Dancing Script', cursive;
         }
     </style>
 </head>
 <body>
 
-    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto animate-in">
-        <div class="text-center md:text-left mb-4 md:mb-0">
-            <h1 class="text-3xl font-bold tracking-widest drop-shadow-md">SVB</h1>
-            <span class="text-xs font-sans tracking-[0.2em] block">SANTEZVOUSBIEN</span>
+    <nav class="absolute top-0 w-full p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white z-50 left-0 right-0">
+        <div class="mb-4 md:mb-0">
+            <a href="index.html"><img src="logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert"></a>
         </div>
         <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide">
             <a href="index.html" class="border-b-2 border-white pb-1">L'UNIVERS</a>
-            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 duration-200">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 duration-200">TARIFS</a>
-            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 duration-200">CONTACT</a>
-            <a href="sessions.html" class="hover:text-gray-100 transition">SESSIONS</a>
+            <a href="sessions.html" class="hover:text-gray-200">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-gray-200">LA TEAM</a>
+            <a href="bien-etre.html" class="hover:text-gray-200">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:text-gray-200">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-gray-200">TARIFS</a>
+            <a href="faq.html" class="hover:text-gray-200">FAQ</a>
+            <a href="contact.html" class="hover:text-gray-200">CONTACT</a>
         </div>
-    
     </nav>
 
-    <header class="text-center pt-8 pb-16 px-4 animate-in delay-1">
-        <h1 class="text-6xl md:text-8xl mb-4 drop-shadow-sm">Le bien-être au quotidien</h1>
-        <p class="text-lg md:text-xl font-light tracking-widest mb-12">SAINT-OUEN-SUR-SEINE</p>
-        
-        <div class="max-w-2xl mx-auto cursor-pointer hover:scale-105 transition duration-500 ease-out">
-            <div class="bg-white text-[#4A8D84] p-1 shadow-2xl transform rotate-1 hover:rotate-0 transition duration-500">
-                <div class="border-2 border-[#4A8D84] p-8">
-                    <h2 class="text-4xl font-bold mb-2">New Pass Starter</h2>
-                    <p class="text-5xl font-bold mb-4">99,90€</p>
-                    <div class="space-y-1 text-sm font-semibold uppercase tracking-wide">
-                        <p>✨ 5 SESSIONS DIFFÉRENTES AU CHOIX</p>
-                        <p>✨ Pas d'engagement</p>
-                        <p>✨ Valable 1 mois</p>
-                    </div>
-                    <a href="tarifs.html" class="mt-8 block w-full bg-[#4A8D84] text-white py-3 uppercase font-bold text-sm tracking-widest hover:bg-[#3b756d] transition shadow-lg">
-                        Je commence maintenant
-                    </a>
-                </div>
-            </div>
+    <header class="hero">
+        <div class="px-4">
+            <h1 class="text-6xl md:text-8xl mb-4 drop-shadow-lg font-hand">SantezVousBien</h1>
+            <p class="text-xl md:text-2xl font-light tracking-wide uppercase mb-8">Studio Pilates • Cross Training • Yoga</p>
+            <a href="#offres" class="inline-block border-2 border-white text-white px-8 py-3 rounded-full uppercase font-bold text-sm hover:bg-white hover:text-[#4A8D84] transition">Découvrir le studio</a>
         </div>
     </header>
 
-    <section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 animate-in delay-2">
-        
-        <div class="glass-box p-8 text-left relative group">
-            <div class="address-badge">
-                📍 40 Cours des Lavandières
-            </div>
-            
-            <h3 class="font-hand text-4xl mb-4 group-hover:text-[#4A8D84] transition-colors">Reformer & Crossformer</h3>
-            <p class="text-sm font-medium leading-relaxed mb-4 uppercase tracking-wide text-gray-700">
-                Pilates Reformer • Pilates Crossformer • Hatha Flow • Yoga Vinyasa • Classic Pilates • Power Pilates • Core & Stretch
-            </p>
-            <p class="text-sm text-gray-800">
-                Sculptez votre corps en profondeur grâce à la résistance des machines dans notre studio dédié aux Lavandières.
-            </p>
+    <section id="offres" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-hand text-white drop-shadow-md mb-4">Commencez l'Expérience</h2>
+            <p class="text-white uppercase tracking-widest text-sm font-light">Vos offres de bienvenue exclusives</p>
         </div>
 
-        <div class="glass-box p-8 text-left relative group">
-            <div class="address-badge text-[#E8B496]">
-                📍 6 Mail André Breton
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="price-card border-2 border-white">
+                <div class="card-header bg-green-dark">Pass Starter</div>
+                <div class="p-6 text-center">
+                    <div class="price-display">99,90€</div>
+                    <p class="text-xs text-gray-700 mb-6 font-semibold">5 Sessions au choix valables 1 mois.</p>
+                    <a href="tarifs.html" class="btn-action">Je commence</a>
+                </div>
             </div>
 
-            <h3 class="font-hand text-4xl mb-4 group-hover:text-[#E8B496] transition-colors">Coaching & Small Group</h3>
-            <p class="text-sm font-medium leading-relaxed mb-4 uppercase tracking-wide text-gray-700">
-                Coaching Individuel & Duo • Cross Training • Cross Body • Cross Core • Boxe • Groove & Tone • Afrodanc'All • Yoga Kids
-            </p>
-            <p class="text-sm text-gray-800">
-                Un espace dynamique aux Docks pour le dépassement de soi, en petit groupe ou en privé.
-            </p>
-        </div>
+            <div class="price-card">
+                <div class="card-header bg-peach">Essai Reformer</div>
+                <div class="p-6 text-center">
+                    <div class="price-display">50€</div>
+                    <p class="text-xs text-gray-700 mb-6 font-semibold">Découvrez le Pilates sur machine.</p>
+                    <a href="tarifs.html" class="btn-action">Réserver</a>
+                </div>
+            </div>
 
-        <div class="md:col-span-2 glass-box p-8 text-center bg-white/40 animate-in delay-3">
-            <h3 class="font-hand text-4xl mb-4 text-[#4A8D84]">Espace Soins & Bien-être</h3>
-            <p class="text-xs md:text-sm font-bold uppercase tracking-widest leading-loose text-[#2F4F4F]">
-                Ostéopathie • Kobido • Diététique • Massages Sportifs & Relaxants • Madérothérapie • Drainage Lymphatique • Réflexologie • Sophrologie • Soin Amma • Acupuncture
-            </p>
+            <div class="price-card">
+                <div class="card-header bg-peach">Essai Crossformer</div>
+                <div class="p-6 text-center">
+                    <div class="price-display">50€</div>
+                    <p class="text-xs text-gray-700 mb-6 font-semibold">L'intensité du cardio sur machine.</p>
+                    <a href="tarifs.html" class="btn-action">Réserver</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="card-header bg-sand text-[#555]">Essai Cross / Focus</div>
+                <div class="p-6 text-center">
+                    <div class="price-display">30€</div>
+                    <p class="text-xs text-gray-700 mb-6 font-semibold">Testez nos sessions Cross ou Yoga.</p>
+                    <a href="tarifs.html" class="btn-action">Réserver</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="text-center py-8 px-4 animate-in delay-3">
-        <div class="inline-block border border-white/60 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white">
-            🧦 Chaussettes antidérapantes obligatoires (Vente 10€ / Prêt 3€)
-        </div>
-    </section>
-
-    <footer class="bg-[#4A8D84] text-white py-12 px-4 mt-12">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 text-center">
-            
-            <div>
-                <h4 class="font-hand text-3xl mb-2">Studio Lavandières</h4>
-                <p class="text-sm font-light">40 Cours Lavandières</p>
-                <p class="text-sm font-light">93400 Saint-Ouen-sur-Seine</p>
-            </div>
-
-            <div class="py-4 md:py-0 border-y md:border-y-0 md:border-x border-white/30">
-                <h4 class="font-hand text-3xl mb-2">Contact</h4>
-                <p class="text-lg font-bold">07 44 91 91 55</p>
-                <a href="mailto:hello@studiosvb.fr" class="text-sm underline block my-1">hello@studiosvb.fr</a>
-                <a href="https://instagram.com/svb.officiel" target="_blank" class="text-sm font-bold block hover:scale-110 transition">@svb.officiel</a>
-            </div>
-
-            <div>
-                <h4 class="font-hand text-3xl mb-2">Studio Docks</h4>
-                <p class="text-sm font-light">6 Mail André Breton</p>
-                <p class="text-sm font-light">93400 Saint-Ouen-sur-Seine</p>
-            </div>
-        </div>
-        
-        <div class="text-center mt-10 text-xs opacity-70">
-            <p>&copy; 2024 SVB SantezVousBien.</p>
-        </div>
+    <footer class="bg-[#4A8D84] text-white py-12 text-center">
+        <img src="logo.png" alt="Logo SVB" class="h-16 mx-auto mb-4 brightness-0 invert">
+        <p class="text-xs opacity-80">© 2026 SVB SantezVousBien - Saint-Ouen</p>
     </footer>
 
 </body>
