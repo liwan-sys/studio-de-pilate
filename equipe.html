@@ -46,16 +46,16 @@
         /* Animation d'apparition */
         .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
         @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); filter: blur(5px); } 100% { opacity: 1; transform: translateY(0); filter: blur(0); } }
-        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; }
+        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
 
-        /* === CARTE COACH EXTRAORDINAIRE === */
+        /* === CARTE COACH PREMIUM === */
         .coach-card {
             position: relative;
             background: rgba(255, 255, 255, 0.3);
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            height: 400px;
+            height: 450px; /* Hauteur augmentée pour présence */
             display: flex;
             align-items: flex-end;
             cursor: pointer;
@@ -67,7 +67,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(47, 79, 79, 0.9) 0%, rgba(47, 79, 79, 0) 60%);
+            background: linear-gradient(to top, rgba(47, 79, 79, 0.9) 0%, rgba(47, 79, 79, 0.2) 50%, rgba(47, 79, 79, 0) 100%);
             opacity: 0.8;
             transition: opacity 0.5s ease;
             z-index: 1;
@@ -79,36 +79,38 @@
             border-color: var(--svb-green-dark);
         }
 
-        .coach-card:hover::before { opacity: 1; background: linear-gradient(to top, var(--svb-green-dark) 0%, rgba(74, 141, 132, 0.2) 80%); }
+        .coach-card:hover::before { opacity: 1; background: linear-gradient(to top, var(--svb-green-dark) 0%, rgba(74, 141, 132, 0.1) 90%); }
 
         .coach-img {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover;
+            /* CORRECTION CADRAGE : Focus sur le haut de l'image */
+            object-position: top center; 
             transition: transform 0.8s ease;
             z-index: 0;
-            filter: saturate(0.9);
+            filter: saturate(0.95);
         }
 
-        .coach-card:hover .coach-img { transform: scale(1.1); filter: saturate(1.1); }
+        .coach-card:hover .coach-img { transform: scale(1.05); filter: saturate(1.1); }
 
         .coach-info {
             position: relative;
             z-index: 2;
-            padding: 25px;
+            padding: 30px;
             width: 100%;
-            transform: translateY(10px);
+            transform: translateY(15px);
             transition: transform 0.5s ease;
         }
 
         .coach-card:hover .coach-info { transform: translateY(0); }
 
         .coach-name {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: white;
-            line-height: 1;
-            margin-bottom: 5px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            line-height: 0.9;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .coach-role {
@@ -116,30 +118,35 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,1);
             display: block;
             margin-bottom: 15px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.2);
         }
+
+        /* Style spécifique pour les CEO */
+        .ceo-role { color: #E8B496; }
 
         .badge-container {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            opacity: 0.8;
+            opacity: 0.9;
             transition: opacity 0.3s;
         }
         
         .coach-card:hover .badge-container { opacity: 1; }
 
         .badge {
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--svb-text);
-            background-color: rgba(255,255,255,0.9);
+            background-color: rgba(255,255,255,0.95);
             backdrop-filter: blur(4px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         /* WHATSAPP */
@@ -182,19 +189,38 @@
         </p>
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 pb-24 z-10">
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 reveal-load d-2">
+    <div class="relative max-w-4xl mx-auto px-4 mb-20 z-10 reveal-load d-2">
+        <h2 class="text-4xl text-center text-white font-hand mb-10 drop-shadow-md">La Direction</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <div class="coach-card group md:col-span-2"> <img src="images/Shanael.jpg" class="coach-img" alt="Shanael">
+            <div class="coach-card group">
+                <img src="images/Shanael.jpg" class="coach-img" alt="Shanael">
                 <div class="coach-info">
                     <h3 class="coach-name font-hand">Shanael</h3>
-                    <span class="coach-role text-[#E8B496] font-bold">CEO & Fondatrice</span>
-                    <div class="badge-container"><span class="badge">Afro Dance</span><span class="badge">Management</span><span class="badge">Vision</span></div>
+                    <span class="coach-role ceo-role">CEO & Fondatrice</span>
+                    <div class="badge-container"><span class="badge">Vision</span><span class="badge">Direction</span><span class="badge">Afro Dance</span></div>
                 </div>
             </div>
 
-            <div class="coach-card group"> 
+            <div class="coach-card group">
+                <img src="https://i.pravatar.cc/500?img=60" class="coach-img" alt="Liwan"> 
+                <div class="coach-info">
+                    <h3 class="coach-name font-hand">Liwan</h3>
+                    <span class="coach-role ceo-role">CEO & Fondateur</span>
+                    <div class="badge-container"><span class="badge">Stratégie</span><span class="badge">Développement</span><span class="badge">Opérations</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="relative max-w-7xl mx-auto px-4 pb-24 z-10 reveal-load d-3">
+        <h2 class="text-4xl text-center text-white font-hand mb-10 drop-shadow-md">Nos Coachs Experts</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+            <div class="coach-card group">
                 <img src="https://i.pravatar.cc/600?img=1" class="coach-img" alt="Fatoumata">
                 <div class="coach-info">
                     <h3 class="coach-name font-hand">Fatoumata</h3>
@@ -344,6 +370,15 @@
                     <h3 class="coach-name font-hand">Greg</h3>
                     <span class="coach-role">Head Coach Cross</span>
                     <div class="badge-container"><span class="badge">Cross</span><span class="badge">Hyrox</span></div>
+                </div>
+            </div>
+
+            <div class="coach-card group">
+                <img src="images/Shanael.jpg" class="coach-img" alt="Shanael">
+                <div class="coach-info">
+                    <h3 class="coach-name font-hand">Shanael</h3>
+                    <span class="coach-role">Coach Dance</span>
+                    <div class="badge-container"><span class="badge">Afro</span><span class="badge">Dance</span></div>
                 </div>
             </div>
 
