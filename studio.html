@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planning | SVB SantezVousBien</title>
+    <title>Nos Sessions | SVB SantezVousBien</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,11 +15,8 @@
             --svb-green-dark: #4A8D84;  
             --svb-sand: #F2E6CF;        
             --svb-peach: #E8B496;
+            --svb-brown: #C9B388;
             --svb-text: #2F4F4F;
-            /* Couleurs spécifiques Planning */
-            --case-green: #88C0A6;
-            --case-peach: #E8B496;
-            --case-sand: #E6DCC3;
         }
 
         body {
@@ -26,259 +24,228 @@
             background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
             color: var(--svb-text);
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
         /* Animation */
         @keyframes softSlideUp {
-            0% { opacity: 0; transform: translateY(20px); }
+            0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
         .reveal-load { animation: softSlideUp 0.8s ease-out forwards; opacity: 0; }
         .d-1 { animation-delay: 0.1s; }
         .d-2 { animation-delay: 0.3s; }
+        .d-3 { animation-delay: 0.5s; }
 
-        /* --- STYLE DU PLANNING --- */
-        .planning-wrapper {
-            overflow-x: auto;
-            padding-bottom: 20px;
-            -webkit-overflow-scrolling: touch;
+        /* CARTE SESSION STYLE VERRE */
+        .session-card {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .planning-grid {
-            display: grid;
-            grid-template-columns: repeat(7, minmax(130px, 1fr));
-            gap: 10px;
-            min-width: 900px; 
+        .session-card:hover {
+            background: rgba(255, 255, 255, 0.85);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: white;
         }
 
-        .day-header {
-            background-color: var(--svb-green-dark);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            border-radius: 4px;
-            font-weight: 700;
+        .img-container {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .session-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .session-card:hover .session-img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* BADGES COULEURS (Selon Flyers) */
+        .badge {
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 10px;
-        }
-
-        .course-card {
-            padding: 12px 5px;
-            text-align: center;
-            border-radius: 4px;
-            margin-bottom: 8px;
+            letter-spacing: 0.1em;
+            font-weight: 800;
             color: white;
-            transition: transform 0.2s;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            align-self: flex-start;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .course-card:hover { transform: scale(1.05); z-index: 10; }
+        
+        /* Couleurs spécifiques Planning */
+        .badge-reformer { background-color: var(--svb-brown); }   /* Marron/Sable foncé */
+        .badge-crossformer { background-color: var(--svb-peach); } /* Pêche/Orange */
+        .badge-cross { background-color: #88C0A6; }              /* Vert spécifique */
+        .badge-focus { background-color: #D6C496; color: white; } /* Beige/Doré foncé pour lisibilité */
+        .badge-kids { background-color: #E8B496; }                /* Orange doux */
 
-        /* Classes couleurs */
-        .bg-green-soft { background-color: var(--case-green); }
-        .bg-peach { background-color: var(--case-peach); }
-        .bg-sand { background-color: var(--case-sand); color: #555; } /* Texte gris pour lisibilité sur beige */
+        .sub-classes {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 10px;
+        }
 
-        .time { font-size: 1.1rem; font-weight: 800; display: block; margin-bottom: 2px; }
-        .name { font-size: 0.8rem; font-weight: 600; line-height: 1.2; text-transform: uppercase; }
-
-        /* Légende */
-        .legend-box { display: flex; align-items: center; margin-right: 15px; font-size: 0.75rem; font-weight: 700; color: white; text-transform: uppercase; }
-        .legend-color { width: 20px; height: 20px; margin-right: 8px; border: 2px solid white; }
     </style>
 </head>
 <body>
 
     <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
         <div class="text-center md:text-left mb-4 md:mb-0">
-            <h1 class="text-2xl font-bold tracking-widest drop-shadow-md">SVB</h1>
+            <h1 class="text-3xl font-bold tracking-widest drop-shadow-md">SVB</h1>
         </div>
-        <div class="flex space-x-6 text-sm font-semibold tracking-wide">
-            <a href="index.html" class="hover:text-gray-100 transition hover:scale-110 duration-200">L'UNIVERS</a>
-            <a href="studio.html" class="border-b-2 border-white pb-1">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-110 duration-200">TARIFS</a>
-            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-110 duration-200">CONTACT</a>
-            <a href="sessions.html" class="hover:text-gray-100 transition">SESSIONS</a>
+        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
+            <a href="index.html" class="hover:text-gray-100 transition">L'UNIVERS</a>
+            <a href="sessions.html" class="border-b-2 border-white pb-1">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-gray-100 transition">LA TEAM</a>
+            <a href="bien-etre.html" class="hover:text-gray-100 transition">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:text-gray-100 transition">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
+            <a href="faq.html" class="hover:text-gray-100 transition">FAQ</a>
+            <a href="contact.html" class="hover:text-gray-100 transition">CONTACT</a>
         </div>
     </nav>
 
-    <div class="text-center py-8 px-4 reveal-load d-1">
-        <h1 class="text-6xl text-white drop-shadow-md mb-2">Planner</h1>
-        <p class="text-white uppercase tracking-widest text-sm font-light">Réservez votre moment bien-être</p>
+    <div class="text-center py-10 px-4 reveal-load d-1">
+        <h1 class="text-6xl text-white drop-shadow-md mb-2">Nos Sessions</h1>
+        <p class="text-white uppercase tracking-widest text-sm font-light">Cross • Reformer • Focus</p>
     </div>
 
-    <section class="max-w-7xl mx-auto px-4 pb-12 reveal-load d-2">
-        
-        <div class="flex items-center justify-center mb-6">
-            <div class="bg-[#E6DCC3] text-[#555] px-8 py-2 rounded-full font-bold uppercase tracking-widest shadow-md">
-                📍 Cours Lavandières
+    <div class="max-w-7xl mx-auto px-4 pb-20 grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-load d-2">
+
+        <div class="session-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80" class="session-img">
+            </div>
+            <div class="card-content">
+                <span class="badge badge-reformer">Pass Reformer</span>
+                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Pilates Reformer</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Renforcement profond sur machine. Précision, contrôle et fluidité pour sculpter la silhouette sans impact.
+                </p>
+                <div class="sub-classes">
+                    Reformer • Reformer Flow
+                </div>
             </div>
         </div>
 
-        <div class="planning-wrapper">
-            <div class="planning-grid">
-                
-                <div>
-                    <div class="day-header">Lundi</div>
-                    <div class="course-card bg-peach"><span class="time">12H</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">12H15</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-sand"><span class="time">12H30</span><span class="name">Yoga Vinyasa</span></div>
-                    <div class="course-card bg-peach"><span class="time">18H45</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-sand"><span class="time">19H</span><span class="name">Yoga Vinyasa</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">19H15</span><span class="name">Reformer</span></div>
+        <div class="session-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80" class="session-img">
+            </div>
+            <div class="card-content">
+                <span class="badge badge-crossformer">Pass Crossformer</span>
+                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Crossformer</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    L'exclusivité SVB ! L'intensité du cardio rencontre la résistance du Reformer. Explosif et complet.
+                </p>
+                <div class="sub-classes">
+                    Cross-Former
                 </div>
-
-                <div>
-                    <div class="day-header">Mardi</div>
-                    <div class="course-card bg-sand"><span class="time">7H30</span><span class="name">Hatha Flow</span></div>
-                    <div class="course-card bg-peach"><span class="time">11H45</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-sand"><span class="time">12H</span><span class="name">Power Pilates</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">13H15</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-peach"><span class="time">18H45</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">19H15</span><span class="name">Reformer</span></div>
-                </div>
-
-                <div>
-                    <div class="day-header">Mercredi</div>
-                    <div class="course-card bg-peach"><span class="time">10H15</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">12H</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-peach"><span class="time">12H15</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">19H</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-peach"><span class="time">19H15</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">20H</span><span class="name">Reformer</span></div>
-                </div>
-
-                <div>
-                    <div class="day-header">Jeudi</div>
-                    <div class="course-card bg-sand"><span class="time">7H</span><span class="name">Classic Pilates</span></div>
-                    <div class="course-card bg-sand"><span class="time">12H</span><span class="name">Yoga Vinyasa</span></div>
-                    <div class="course-card bg-peach"><span class="time">12H15</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">12H30</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-peach"><span class="time">18H</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">18H45</span><span class="name">Reformer</span></div>
-                </div>
-
-                <div>
-                    <div class="day-header">Vendredi</div>
-                    <div class="course-card bg-peach"><span class="time">9H45</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-peach"><span class="time">10H45</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">12H</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">13H</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-sand"><span class="time">18H</span><span class="name">Classic Pilates</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">18H30</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-peach"><span class="time">19H15</span><span class="name">Cross-Former</span></div>
-                </div>
-
-                <div>
-                    <div class="day-header">Samedi</div>
-                    <div class="course-card bg-green-soft"><span class="time">8H45</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-peach"><span class="time">9H</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">9H45</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-sand"><span class="time">10H15</span><span class="name">Classic Pilates</span></div>
-                    <div class="course-card bg-sand"><span class="time">11H15</span><span class="name">Core & Stretch</span></div>
-                    <div class="course-card bg-peach"><span class="time">11H30</span><span class="name">Cross-Former</span></div>
-                </div>
-
-                <div>
-                    <div class="day-header">Dimanche</div>
-                    <div class="course-card bg-peach"><span class="time">10H</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">10H15</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-peach"><span class="time">11H</span><span class="name">Cross-Former</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">11H15</span><span class="name">Reformer</span></div>
-                    <div class="course-card bg-sand"><span class="time">11H30</span><span class="name">Yoga Vinyasa</span></div>
-                </div>
-
             </div>
         </div>
 
-        <div class="flex flex-wrap justify-center mt-6 gap-4 border-b border-white/30 pb-8">
-            <div class="legend-box"><div class="legend-color bg-green-soft"></div> PASS REFORMER</div>
-            <div class="legend-box"><div class="legend-color bg-peach"></div> PASS CROSSFORMER</div>
-            <div class="legend-box"><div class="legend-color bg-sand"></div> PASS FOCUS</div>
-            <div class="legend-box"><div class="legend-color bg-[#88C0A6]"></div> PASS CROSS</div>
-        </div>
-
-    </section>
-
-    <section class="max-w-7xl mx-auto px-4 pb-20 reveal-load d-2">
-        
-        <div class="flex items-center justify-center mb-6">
-            <div class="bg-[#88C0A6] text-white px-8 py-2 rounded-full font-bold uppercase tracking-widest shadow-md">
-                📍 Parc des Docks
+        <div class="session-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80" class="session-img">
+            </div>
+            <div class="card-content">
+                <span class="badge badge-cross">Pass Cross</span>
+                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Cross Training</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Entraînement fonctionnel varié pour le cardio et la force. On se dépasse en petit groupe.
+                </p>
+                <div class="sub-classes">
+                    Cross Body • Cross Core • Cross Rox • Cross Training
+                </div>
             </div>
         </div>
 
-        <div class="planning-wrapper">
-            <div class="planning-grid">
-                
-                <div>
-                    <div class="day-header">Lundi</div>
-                    <div class="course-card bg-green-soft"><span class="time">12H</span><span class="name">Cross Training</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">13H</span><span class="name">Cross Core</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">19H</span><span class="name">Cross Training</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">20H</span><span class="name">Cross Body</span></div>
+        <div class="session-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?auto=format&fit=crop&q=80" class="session-img">
+            </div>
+            <div class="card-content">
+                <span class="badge badge-focus">Pass Focus</span>
+                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Yoga & Pilates Mat</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Sur tapis. Du renforcement ciblé à la détente profonde. Travaillez votre centre et votre souplesse.
+                </p>
+                <div class="sub-classes">
+                    Hatha Flow • Vinyasa • Power Pilates • Classic Pilates • Core & Stretch
                 </div>
-
-                <div>
-                    <div class="day-header">Mardi</div>
-                    <div class="course-card bg-green-soft"><span class="time">12H</span><span class="name">Cross Rox</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">19H</span><span class="name">Cross Body</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">20H</span><span class="name">Cross Training</span></div>
-                </div>
-
-                <div>
-                    <div class="day-header">Mercredi</div>
-                    <div class="course-card bg-green-soft"><span class="time">12H</span><span class="name">Cross Training</span></div>
-                    <div class="course-card bg-peach"><span class="time">16H</span><span class="name">Yoga Kids</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">19H</span><span class="name">Cross Training</span></div>
-                    <div class="course-card bg-sand"><span class="time">20H</span><span class="name">Boxe</span></div>
-                </div>
-
-                <div>
-                    <div class="day-header">Jeudi</div>
-                    <div class="course-card bg-green-soft"><span class="time">8H</span><span class="name">Cross Core</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">12H</span><span class="name">Cross Body</span></div>
-                    <div class="course-card bg-sand"><span class="time">13H</span><span class="name">Boxe</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">18H</span><span class="name">Cross Training</span></div>
-                    <div class="course-card bg-sand"><span class="time">19H</span><span class="name">Afrodanc'All</span></div>
-                </div>
-
-                <div>
-                    <div class="day-header">Vendredi</div>
-                    <div class="course-card bg-green-soft"><span class="time">18H</span><span class="name">Cross Rox</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">19H</span><span class="name">Cross Training</span></div>
-                </div>
-
-                <div>
-                    <div class="day-header">Samedi</div>
-                    <div class="course-card bg-peach"><span class="time">9H30</span><span class="name">Training Kids</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">10H30</span><span class="name">Cross Body</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">11H30</span><span class="name">Cross Training</span></div>
-                </div>
-
-                <div>
-                    <div class="day-header">Dimanche</div>
-                    <div class="course-card bg-green-soft"><span class="time">10H30</span><span class="name">Cross Training</span></div>
-                    <div class="course-card bg-green-soft"><span class="time">11H30</span><span class="name">Cross Yoga</span></div>
-                </div>
-
             </div>
         </div>
 
-        <div class="flex flex-wrap justify-center mt-6 gap-4">
-            <div class="legend-box"><div class="legend-color bg-sand"></div> PASS FOCUS</div>
-            <div class="legend-box"><div class="legend-color bg-green-soft"></div> PASS CROSS</div>
-            <div class="legend-box"><div class="legend-color bg-peach"></div> PASS KIDS</div>
+        <div class="session-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&q=80" class="session-img">
+            </div>
+            <div class="card-content">
+                <span class="badge badge-focus">Pass Focus</span>
+                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">Boxe & Danse</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Défoulez-vous ! Rythme et coordination pour lâcher prise et brûler des calories.
+                </p>
+                <div class="sub-classes">
+                    Boxe • Afrodance'All
+                </div>
+            </div>
         </div>
-        
-    </section>
 
-    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs">
+        <div class="session-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1602192509153-03854437f071?auto=format&fit=crop&q=80" class="session-img">
+            </div>
+            <div class="card-content">
+                <span class="badge badge-kids">Pass Kids</span>
+                <h3 class="text-3xl font-hand text-[#2F4F4F] mb-2">SVB Kids</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Pour les plus jeunes. Eveil moteur ou retour au calme selon l'envie.
+                </p>
+                <div class="sub-classes">
+                    Yoga Kids • Training Kids
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center pb-20 reveal-load d-3">
+        <a href="studio.html" class="inline-block border-2 border-white text-white px-10 py-3 rounded-full uppercase font-bold text-sm tracking-widest hover:bg-white hover:text-[#4A8D84] transition shadow-lg">
+            Voir le planning complet
+        </a>
+    </div>
+
+    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs mt-12">
         <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
-        <p class="mt-2 text-[10px] opacity-60">Réservations sur l'appli pour les membres SVB.</p>
     </footer>
 
 </body>
