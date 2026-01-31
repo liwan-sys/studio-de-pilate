@@ -84,23 +84,32 @@
         }
         .btn-submit:hover { background-color: #386e66; }
 
+        /* WHATSAPP CHATBOX */
+        .wa-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        .wa-bubble { background: white; color: #2F4F4F; padding: 12px 18px; border-radius: 15px 15px 0 15px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 220px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease; pointer-events: none; border: 1px solid rgba(0,0,0,0.05); }
+        .wa-bubble.show { opacity: 1; transform: translateY(0); }
+        .whatsapp-btn { background-color: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); animation: pulse-wa 2s infinite; }
+        @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
     </style>
 </head>
 <body>
 
     <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
-        <div class="text-center md:text-left mb-4 md:mb-0">
-            <h1 class="text-2xl font-bold tracking-widest drop-shadow-md">SVB</h1>
+        <div class="mb-4 md:mb-0">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo SVB" class="h-20 w-auto object-contain">
+            </a>
         </div>
-     <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
+        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
             <a href="index.html" class="hover:text-gray-100 transition">L'UNIVERS</a>
             <a href="sessions.html" class="hover:text-gray-100 transition">SESSIONS</a>
             <a href="equipe.html" class="hover:text-gray-100 transition">LA TEAM</a>
             <a href="bien-etre.html" class="hover:text-gray-100 transition">BIEN-ÊTRE</a>
-            <a href="studio.html" class="border-b-2 border-white pb-1">PLANNING</a>
+            <a href="studio.html" class="hover:text-gray-100 transition">PLANNING</a>
             <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
             <a href="faq.html" class="hover:text-gray-100 transition">FAQ</a>
-            <a href="contact.html" class="hover:text-gray-100 transition">CONTACT</a>
+            <a href="contact.html" class="border-b-2 border-white pb-1">CONTACT</a>
         </div>
     </nav>
 
@@ -129,7 +138,6 @@
                 <h3 class="font-hand text-3xl mb-2 text-[#4A8D84]">Studio Lavandières</h3>
                 <p class="font-bold text-gray-700">📍 40 Cours des Lavandières</p>
                 <p class="text-sm text-gray-600 mb-4">93400 Saint-Ouen-sur-Seine</p>
-                <p class="text-xs italic text-gray-500">Code porte communiqué à la réservation.</p>
             </div>
 
             <div class="glass-box relative overflow-hidden">
@@ -139,7 +147,6 @@
                 <h3 class="font-hand text-3xl mb-2 text-[#4A8D84]">Studio Docks</h3>
                 <p class="font-bold text-gray-700">📍 6 Mail André Breton</p>
                 <p class="text-sm text-gray-600 mb-4">93400 Saint-Ouen-sur-Seine</p>
-                <p class="text-xs italic text-gray-500">Code porte communiqué à la réservation.</p>
             </div>
 
         </div>
@@ -160,22 +167,11 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold uppercase mb-2 text-gray-600">Sujet</label>
-                        <select class="form-input">
-                            <option>Demande d'informations</option>
-                            <option>Réserver une séance d'essai</option>
-                            <option>Coaching Privé</option>
-                            <option>Autre</option>
-                        </select>
-                    </div>
-
-                    <div>
                         <label class="block text-xs font-bold uppercase mb-2 text-gray-600">Message</label>
                         <textarea class="form-input h-32" placeholder="Votre message..."></textarea>
                     </div>
 
                     <button type="button" class="btn-submit">Envoyer le message</button>
-                    <p class="text-[10px] text-center mt-3 opacity-60">En cliquant, vous acceptez d'être recontacté par l'équipe SVB.</p>
                 </form>
             </div>
         </div>
@@ -184,11 +180,29 @@
 
     <div class="w-full h-64 bg-gray-200 mt-10 relative">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.857629253488!2d2.3195!3d48.9115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f2726555555%3A0x0!2sSaint-Ouen-sur-Seine!5e0!3m2!1sfr!2sfr!4v1600000000000!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0; filter: grayscale(50%);" allowfullscreen="" loading="lazy"></iframe>
-        <div class="absolute inset-0 bg-[#4A8D84] opacity-20 pointer-events-none"></div> </div>
+        <div class="absolute inset-0 bg-[#4A8D84] opacity-20 pointer-events-none"></div> 
+    </div>
 
-    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs">
-        <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
+    <footer class="bg-[#4A8D84] text-white py-12 border-t border-white/20">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center text-center">
+            <img src="images/logo.png" alt="Logo SVB" class="h-16 w-auto mb-4 opacity-90 brightness-0 invert">
+            <p class="text-xs opacity-80 mb-2">SVB SantezVousBien - Saint-Ouen</p>
+            <p class="text-[10px] opacity-60">© 2026 Tous droits réservés.</p>
+        </div>
     </footer>
 
+    <div id="wa-container" class="wa-container">
+        <div id="wa-bubble" class="wa-bubble">👋 Une question ? Je suis là pour vous aider en direct.</div>
+        <a href="https://wa.me/33744919155" class="whatsapp-btn" target="_blank">
+            <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.096 0-4.141-.547-5.946-1.588L0 .057zm6.549-2.938c1.614.96 3.434 1.468 5.282 1.468 5.497 0 9.97-4.473 9.97-9.97s-4.473-9.97-9.97-9.97c-5.497 0-9.97 4.473-9.97 9.97 0 1.848.508 3.668 1.468 5.282L2.324 21.676l4.282-1.564zm11.334-7.129c-.314-.157-1.859-.917-2.148-1.021-.288-.105-.499-.157-.709.157-.21.314-.813 1.021-.996 1.231-.183.21-.367.236-.681.079-.314-.157-1.325-.489-2.524-1.559-.933-.833-1.563-1.861-1.747-2.175-.183-.314-.02-.484.137-.64.141-.141.314-.367.472-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.709-1.703-.971-2.332-.255-.612-.513-.529-.709-.539-.183-.01-.393-.012-.603-.012s-.551.079-.84.393c-.288.314-1.102 1.074-1.102 2.62s1.128 3.039 1.285 3.25c.157.21 2.221 3.391 5.38 4.755.751.325 1.337.519 1.794.664.754.24 1.441.206 1.983.125.603-.09 1.859-.759 2.121-1.467.262-.708.262-1.312.183-1.467-.079-.157-.288-.263-.603-.42z"/></svg>
+        </a>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const bubble = document.getElementById('wa-bubble');
+            if(bubble) bubble.classList.add('show');
+        }, 2500);
+    </script>
 </body>
 </html>
