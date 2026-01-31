@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVB | SantezVousBien - Saint-Ouen</title>
+    <title>SVB SantezVousBien | Studio Pilates & Wellness</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,174 +13,323 @@
             --svb-green-light: #98D0B3; 
             --svb-green-dark: #4A8D84;  
             --svb-sand: #F2E6CF;        
+            --svb-peach: #E8B496;
             --svb-text: #2F4F4F;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
-            color: white;
+            color: var(--svb-text);
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        h1, h2, .font-hand { font-family: 'Dancing Script', cursive; }
+        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* --- NOUVELLES ANIMATIONS --- */
-        
-        /* 1. Apparition fluide au chargement */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Animation */
+        @keyframes softSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-        .animate-in {
-            animation: fadeInUp 1s ease-out forwards;
-            opacity: 0; /* Caché au départ */
-        }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
+        .reveal-load { animation: softSlideUp 0.8s ease-out forwards; opacity: 0; }
+        .d-1 { animation-delay: 0.1s; }
+        .d-2 { animation-delay: 0.3s; }
+        .d-3 { animation-delay: 0.5s; }
 
-        /* 2. Effet "Verre" amélioré */
-        .glass-box {
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s ease; /* Pour l'effet de survol */
+        /* Animations Carte Starter */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes pulse-btn {
+            0% { box-shadow: 0 0 0 0 rgba(74, 141, 132, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(74, 141, 132, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 141, 132, 0); }
         }
 
-        /* 3. Interaction au survol (La touche magnifique) */
-        .glass-box:hover {
-            transform: translateY(-10px); /* La carte remonte */
-            background: rgba(255, 255, 255, 0.55); /* Devient plus blanche */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* L'ombre grandit */
-        }
-
-        /* Badge adresse stylisé */
-        .address-badge {
+        /* BOUTON ACTION (Vert foncé) */
+        .btn-action {
+            background-color: var(--svb-green-dark);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             display: inline-block;
-            padding: 4px 12px;
+            border: 2px solid transparent;
+        }
+        .btn-action:hover {
+            background-color: #386e66;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* === CARD STARTER (Le modèle) === */
+        .starter-card-wrapper { animation: float 4s ease-in-out infinite; }
+        .starter-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            max-width: 550px;
+            margin: 0 auto;
+            position: relative;
+            border: 3px solid rgba(255,255,255,0.8);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .starter-card-wrapper:hover .starter-card {
+            transform: scale(1.03) translateY(-5px);
+            border-color: var(--svb-green-dark);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+        }
+        .starter-card .btn-action { animation: pulse-btn 2s infinite; }
+        .starter-card-wrapper:hover .btn-action { animation: none; transform: scale(1.05); }
+
+
+        /* === NOUVELLES CARTES ESSAI (STYLE STARTER MAIS PLUS PETIT) === */
+        .text-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
             border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .text-card:hover {
+            background: white;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--svb-green-dark);
+        }
+
+        .card-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--svb-green-dark);
+            margin-bottom: 5px;
+        }
+
+        .card-desc {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #666;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .card-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--svb-text);
+            margin-bottom: 20px;
+        }
+
+        .btn-small {
+            border: 1px solid var(--svb-green-dark);
+            color: var(--svb-green-dark);
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-transform: uppercase;
             font-size: 0.7rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-            background-color: white;
-            color: var(--svb-green-dark);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s;
         }
+        
+        .text-card:hover .btn-small {
+            background-color: var(--svb-green-dark);
+            color: white;
+        }
+
+        /* MAP */
+        iframe {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 4px solid rgba(255,255,255,0.5);
+        }
+
     </style>
 </head>
 <body>
 
-    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto animate-in">
+    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
         <div class="text-center md:text-left mb-4 md:mb-0">
             <h1 class="text-3xl font-bold tracking-widest drop-shadow-md">SVB</h1>
-            <span class="text-xs font-sans tracking-[0.2em] block">SANTEZVOUSBIEN</span>
         </div>
-        <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide">
+        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
             <a href="index.html" class="border-b-2 border-white pb-1">L'UNIVERS</a>
-            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 duration-200">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 duration-200">TARIFS</a>
-            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 duration-200">CONTACT</a>
             <a href="sessions.html" class="hover:text-gray-100 transition">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-gray-100 transition">LA TEAM</a>
+            <a href="bien-etre.html" class="hover:text-gray-100 transition">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:text-gray-100 transition">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition">TARIFS</a>
+            <a href="faq.html" class="hover:text-gray-100 transition">FAQ</a>
+            <a href="contact.html" class="hover:text-gray-100 transition">CONTACT</a>
         </div>
-    
     </nav>
 
-    <header class="text-center pt-8 pb-16 px-4 animate-in delay-1">
-        <h1 class="text-6xl md:text-8xl mb-4 drop-shadow-sm">Le bien-être au quotidien</h1>
-        <p class="text-lg md:text-xl font-light tracking-widest mb-12">SAINT-OUEN-SUR-SEINE</p>
+    <header class="text-center py-16 px-4 reveal-load d-1">
+        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-6 leading-tight font-hand">SantezVousBien</h1>
+        <p class="text-white text-lg font-light max-w-2xl mx-auto mb-8 leading-relaxed opacity-90">
+            Plus qu'une salle de sport, un lieu de vie.<br>
+            Deux studios, une seule énergie.
+        </p>
+    </header>
+
+    <div class="px-4 pb-20 reveal-load d-2">
+        <div class="starter-card-wrapper">
+            <div class="starter-card">
+                <span class="bg-[#E8B496] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4 inline-block">Offre Découverte</span>
+                
+                <h2 class="text-4xl font-hand text-[#4A8D84] mb-2">New Pass Starter</h2>
+                
+                <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-500 uppercase mb-6 tracking-wide">
+                    <span class="bg-gray-100 px-2 py-1 rounded">5 Sessions</span>
+                    <span>•</span>
+                    <span class="bg-gray-100 px-2 py-1 rounded">Sans Engagement</span>
+                </div>
+                
+                <p class="text-7xl font-bold text-[#2F4F4F] mb-8 tracking-tight">99,90<span class="text-3xl">€</span></p>
+                
+                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full text-lg shadow-xl">
+                    Je commence maintenant
+                </a>
+                <p class="text-[10px] text-gray-400 mt-4 italic">Valable 1 mois • Offre limitée</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 pb-24 text-center reveal-load d-3">
+        <h2 class="text-3xl text-white font-hand mb-10">Juste une séance ?</h2>
         
-        <div class="max-w-2xl mx-auto cursor-pointer hover:scale-105 transition duration-500 ease-out">
-            <div class="bg-white text-[#4A8D84] p-1 shadow-2xl transform rotate-1 hover:rotate-0 transition duration-500">
-                <div class="border-2 border-[#4A8D84] p-8">
-                    <h2 class="text-4xl font-bold mb-2">New Pass Starter</h2>
-                    <p class="text-5xl font-bold mb-4">99,90€</p>
-                    <div class="space-y-1 text-sm font-semibold uppercase tracking-wide">
-                        <p>✨ 5 SESSIONS DIFFÉRENTES AU CHOIX</p>
-                        <p>✨ Pas d'engagement</p>
-                        <p>✨ Valable 1 mois</p>
-                    </div>
-                    <a href="tarifs.html" class="mt-8 block w-full bg-[#4A8D84] text-white py-3 uppercase font-bold text-sm tracking-widest hover:bg-[#3b756d] transition shadow-lg">
-                        Je commence maintenant
+        <div class="grid md:grid-cols-3 gap-6">
+            
+            <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="text-card group">
+                <div>
+                    <h3 class="card-title">Essai Reformer</h3>
+                    <p class="card-desc">Pilates sur machine</p>
+                </div>
+                <div>
+                    <p class="card-price">30€</p>
+                    <span class="btn-small">Réserver</span>
+                </div>
+            </a>
+
+            <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="text-card group">
+                <div>
+                    <h3 class="card-title">Essai Crossformer</h3>
+                    <p class="card-desc">Intensité & Cardio</p>
+                </div>
+                <div>
+                    <p class="card-price">30€</p>
+                    <span class="btn-small">Réserver</span>
+                </div>
+            </a>
+
+            <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="text-card group">
+                <div>
+                    <h3 class="card-title">Essai Training</h3>
+                    <p class="card-desc">Cross • Yoga • Boxe</p>
+                </div>
+                <div>
+                    <p class="card-price">15€</p>
+                    <span class="btn-small">Réserver</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <section class="max-w-5xl mx-auto px-4 pb-20 reveal-load d-2">
+        <div class="text-center mb-10">
+            <h2 class="text-5xl text-white font-hand mb-4">Nos 2 Studios</h2>
+            <p class="text-[#2F4F4F] font-semibold uppercase tracking-widest text-sm">
+                Situés à 5 minutes à pied l'un de l'autre
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            
+            <div class="text-right space-y-8 text-white">
+                <div>
+                    <h3 class="text-2xl font-bold uppercase mb-1">📍 Parc des Docks</h3>
+                    <p class="text-sm opacity-90 font-light">Le cœur battant du Reformer et des sessions intenses.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold uppercase mb-1">📍 Lavandières</h3>
+                    <p class="text-sm opacity-90 font-light">Le cocon du Yoga, du Bien-être et des petits groupes.</p>
+                </div>
+                <div class="pt-4">
+                    <a href="contact.html" class="text-[#2F4F4F] border-b border-[#2F4F4F] pb-1 font-bold uppercase text-xs hover:text-white hover:border-white transition">
+                        Voir les accès détaillés
                     </a>
                 </div>
             </div>
-        </div>
-    </header>
 
-    <section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 animate-in delay-2">
-        
-        <div class="glass-box p-8 text-left relative group">
-            <div class="address-badge">
-                📍 40 Cours des Lavandières
-            </div>
-            
-            <h3 class="font-hand text-4xl mb-4 group-hover:text-[#4A8D84] transition-colors">Reformer & Crossformer</h3>
-            <p class="text-sm font-medium leading-relaxed mb-4 uppercase tracking-wide text-gray-700">
-                Pilates Reformer • Pilates Crossformer • Hatha Flow • Yoga Vinyasa • Classic Pilates • Power Pilates • Core & Stretch
-            </p>
-            <p class="text-sm text-gray-800">
-                Sculptez votre corps en profondeur grâce à la résistance des machines dans notre studio dédié aux Lavandières.
-            </p>
-        </div>
-
-        <div class="glass-box p-8 text-left relative group">
-            <div class="address-badge text-[#E8B496]">
-                📍 6 Mail André Breton
+            <div class="h-[350px] w-full">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.756265775394!2d2.321852476845353!3d48.90092297133829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f0724807665%3A0x600b343836750f0!2sCours%20des%20Lavandi%C3%A8res%2C%2093400%20Saint-Ouen-sur-Seine!5e0!3m2!1sfr!2sfr!4v1709228347521!5m2!1sfr!2sfr" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
             </div>
 
-            <h3 class="font-hand text-4xl mb-4 group-hover:text-[#E8B496] transition-colors">Coaching & Small Group</h3>
-            <p class="text-sm font-medium leading-relaxed mb-4 uppercase tracking-wide text-gray-700">
-                Coaching Individuel & Duo • Cross Training • Cross Body • Cross Core • Boxe • Groove & Tone • Afrodanc'All • Yoga Kids
-            </p>
-            <p class="text-sm text-gray-800">
-                Un espace dynamique aux Docks pour le dépassement de soi, en petit groupe ou en privé.
-            </p>
-        </div>
-
-        <div class="md:col-span-2 glass-box p-8 text-center bg-white/40 animate-in delay-3">
-            <h3 class="font-hand text-4xl mb-4 text-[#4A8D84]">Espace Soins & Bien-être</h3>
-            <p class="text-xs md:text-sm font-bold uppercase tracking-widest leading-loose text-[#2F4F4F]">
-                Ostéopathie • Kobido • Diététique • Massages Sportifs & Relaxants • Madérothérapie • Drainage Lymphatique • Réflexologie • Sophrologie • Soin Amma • Acupuncture
-            </p>
         </div>
     </section>
 
-    <section class="text-center py-8 px-4 animate-in delay-3">
-        <div class="inline-block border border-white/60 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white">
-            🧦 Chaussettes antidérapantes obligatoires (Vente 10€ / Prêt 3€)
-        </div>
-    </section>
-
-    <footer class="bg-[#4A8D84] text-white py-12 px-4 mt-12">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+    <footer class="bg-[#4A8D84] text-white pt-16 pb-8 mt-10 border-t border-white/20">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
             
-            <div>
-                <h4 class="font-hand text-3xl mb-2">Studio Lavandières</h4>
-                <p class="text-sm font-light">40 Cours Lavandières</p>
-                <p class="text-sm font-light">93400 Saint-Ouen-sur-Seine</p>
+            <div class="flex flex-col items-center md:items-start">
+                <h2 class="text-4xl font-hand mb-4">SVB</h2>
+                <p class="text-xs opacity-80 leading-relaxed max-w-xs">
+                    SantezVousBien est votre espace de remise en forme et de bien-être à Saint-Ouen. Pilates, Yoga, Training et Soins.
+                </p>
             </div>
 
-            <div class="py-4 md:py-0 border-y md:border-y-0 md:border-x border-white/30">
-                <h4 class="font-hand text-3xl mb-2">Contact</h4>
-                <p class="text-lg font-bold">07 44 91 91 55</p>
-                <a href="mailto:hello@studiosvb.fr" class="text-sm underline block my-1">hello@studiosvb.fr</a>
-                <a href="https://instagram.com/svb.officiel" target="_blank" class="text-sm font-bold block hover:scale-110 transition">@svb.officiel</a>
+            <div class="flex flex-col items-center md:items-center">
+                <h3 class="font-bold uppercase tracking-widest mb-4 text-sm">Contact</h3>
+                <ul class="space-y-3 text-sm opacity-90">
+                    <li>📞 07 44 91 91 55</li>
+                    <li>✉️ hello@studiosvb.fr</li>
+                    <li>📍 Saint-Ouen, France</li>
+                </ul>
             </div>
 
-            <div>
-                <h4 class="font-hand text-3xl mb-2">Studio Docks</h4>
-                <p class="text-sm font-light">6 Mail André Breton</p>
-                <p class="text-sm font-light">93400 Saint-Ouen-sur-Seine</p>
+            <div class="flex flex-col items-center md:items-end">
+                <h3 class="font-bold uppercase tracking-widest mb-4 text-sm">Suivez-nous</h3>
+                <a href="https://www.instagram.com/svb.officiel" target="_blank" class="inline-block bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-6 py-2 rounded-full text-xs font-bold uppercase mb-4">
+                    Instagram
+                </a>
+                <div class="space-x-4 text-xs opacity-60">
+                    <a href="faq.html" class="hover:underline">FAQ</a>
+                    <a href="#" class="hover:underline">Mentions Légales</a>
+                    <a href="#" class="hover:underline">CGV</a>
+                </div>
             </div>
+
         </div>
         
-        <div class="text-center mt-10 text-xs opacity-70">
-            <p>&copy; 2024 SVB SantezVousBien.</p>
+        <div class="text-center mt-12 text-[10px] opacity-40">
+            © 2024 SVB SantezVousBien. Tous droits réservés.
         </div>
     </footer>
 
