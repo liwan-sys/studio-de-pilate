@@ -19,7 +19,6 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            /* Le dégradé couvre tout le site maintenant, pas de blanc */
             background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
             color: var(--svb-text);
             min-height: 100vh;
@@ -38,7 +37,20 @@
         .d-2 { animation-delay: 0.3s; }
         .d-3 { animation-delay: 0.5s; }
 
-        /* BOUTON ACTON (Vert foncé) */
+        /* Animations "Vivantes" pour la carte Starter */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse-btn {
+            0% { box-shadow: 0 0 0 0 rgba(74, 141, 132, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(74, 141, 132, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 141, 132, 0); }
+        }
+
+        /* BOUTON ACTION (Vert foncé) */
         .btn-action {
             background-color: var(--svb-green-dark);
             color: white;
@@ -48,15 +60,15 @@
             font-weight: 700;
             font-size: 0.85rem;
             letter-spacing: 0.1em;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             display: inline-block;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 2px solid transparent;
         }
         .btn-action:hover {
             background-color: #386e66;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         /* BOUTON SECONDAIRE (Transparent) */
@@ -76,7 +88,46 @@
             color: var(--svb-green-dark);
         }
 
-        /* IMAGE RONDE POUR LES ESSAIS */
+        /* === CARD STARTER INTERACTIVE === */
+        .starter-card-wrapper {
+             animation: float 4s ease-in-out infinite; /* Flottement continu */
+        }
+        
+        .starter-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px; /* Plus arrondi */
+            padding: 40px;
+            text-align: center;
+            /* Ombre portée + Lueur interne subtile pêche */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15), inset 0 0 30px rgba(232, 180, 150, 0.15);
+            max-width: 550px;
+            margin: 0 auto;
+            position: relative;
+            border: 3px solid rgba(255,255,255,0.8);
+            /* Transition élastique pour un effet "pop" */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        /* Au survol de la carte */
+        .starter-card-wrapper:hover .starter-card {
+            transform: scale(1.03) translateY(-5px); /* Grossit et monte */
+            border-color: var(--svb-green-dark); /* Bordure verte */
+            /* Ombre plus forte + Lueur interne verte */
+            box-shadow: 0 30px 70px rgba(0,0,0,0.25), inset 0 0 40px rgba(74, 141, 132, 0.1);
+        }
+        
+        /* Le bouton dans la carte pulse */
+        .starter-card .btn-action {
+            animation: pulse-btn 2s infinite;
+        }
+        .starter-card-wrapper:hover .btn-action {
+             animation: none; /* Arrête de pulser au survol pour être net */
+             transform: scale(1.05);
+        }
+        /* ================================ */
+
+        /* ESSAIS IMAGES */
         .essai-img {
             width: 120px;
             height: 120px;
@@ -116,7 +167,6 @@
     </nav>
 
     <header class="text-center py-16 px-4 reveal-load d-1">
-        <p class="text-white uppercase tracking-[0.3em] text-xs font-bold mb-4">Saint-Ouen • Pilates • Wellness</p>
         <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-6 leading-tight font-hand">SantezVousBien</h1>
         <p class="text-white text-lg font-light max-w-2xl mx-auto mb-8 leading-relaxed opacity-90">
             Plus qu'une salle de sport, un lieu de vie.<br>
@@ -124,19 +174,26 @@
         </p>
     </header>
 
-    <div class="text-center pb-20 reveal-load d-2">
-        <h2 class="text-4xl text-white font-hand mb-2">Offre Découverte</h2>
-        <div class="w-20 h-1 bg-white mx-auto mb-8 opacity-50 rounded"></div>
-        
-        <div class="max-w-xl mx-auto">
-            <h3 class="text-3xl font-bold text-[#2F4F4F] mb-2 uppercase tracking-wide">New Pass Starter</h3>
-            <p class="text-white font-medium mb-6">5 SESSIONS AU CHOIX • SANS ENGAGEMENT</p>
-            
-            <p class="text-6xl font-bold text-white drop-shadow-md mb-8">99,90€</p>
-            
-            <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action scale-110">
-                Je commence maintenant
-            </a>
+    <div class="px-4 pb-20 reveal-load d-2">
+        <div class="starter-card-wrapper">
+            <div class="starter-card">
+                <span class="bg-[#E8B496] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4 inline-block">Offre Découverte</span>
+                
+                <h2 class="text-4xl font-hand text-[#4A8D84] mb-2">New Pass Starter</h2>
+                
+                <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-500 uppercase mb-6 tracking-wide">
+                    <span class="bg-gray-100 px-2 py-1 rounded">5 Sessions</span>
+                    <span>•</span>
+                    <span class="bg-gray-100 px-2 py-1 rounded">Sans Engagement</span>
+                </div>
+                
+                <p class="text-7xl font-bold text-[#2F4F4F] mb-8 tracking-tight">99,90<span class="text-3xl">€</span></p>
+                
+                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full text-lg shadow-xl">
+                    Je commence maintenant
+                </a>
+                <p class="text-[10px] text-gray-400 mt-4 italic">Valable 1 mois • Offre limitée</p>
+            </div>
         </div>
     </div>
 
