@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'Univers | SVB SantezVousBien</title>
+    <title>SVB SantezVousBien | Studio Pilates & Wellness</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,7 +19,6 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            /* RETOUR AU DÉGRADÉ D'ORIGINE */
             background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
             color: var(--svb-text);
             min-height: 100vh;
@@ -28,177 +27,115 @@
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
+        @keyframes softSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
+        .reveal-load { animation: softSlideUp 0.8s ease-out forwards; opacity: 0; }
+        .d-1 { animation-delay: 0.1s; }
+        .d-2 { animation-delay: 0.3s; }
+        .d-3 { animation-delay: 0.5s; }
 
-        /* BOUTON STYLE D'ORIGINE */
         .btn-action {
-            display: block;
-            width: 100%;
             background-color: var(--svb-green-dark);
             color: white;
-            text-align: center;
-            padding: 12px 0;
+            padding: 12px 35px;
+            border-radius: 30px;
             text-transform: uppercase;
-            font-size: 0.8rem;
             font-weight: 700;
+            font-size: 0.85rem;
             letter-spacing: 0.1em;
-            transition: background-color 0.3s;
-            margin-top: auto;
-            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: inline-block;
         }
-        .btn-action:hover { background-color: #386e66; }
+        .btn-action:hover { background-color: #386e66; transform: scale(1.05); }
 
-        /* CARTES AVEC LE STYLE "TARIFS" (Verre poli) */
-        .price-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
-            padding: 0; /* Padding géré à l'intérieur */
-            overflow: hidden;
-            transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-        .price-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .card-header {
-            padding: 15px;
-            color: white;
+        .starter-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
             text-align: center;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.05em;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            max-width: 550px;
+            margin: 0 auto;
+            border: 3px solid rgba(255,255,255,0.8);
         }
 
-        .bg-green-dark { background-color: var(--svb-green-dark); }
-        .bg-peach { background-color: var(--svb-peach); }
-        .bg-sand { background-color: #D6C496; }
-
-        .price-display {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--svb-text);
-            text-align: center;
-            margin: 10px 0;
-            font-family: 'Dancing Script', cursive;
-        }
-
-        .wa-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; }
-        .whatsapp-btn { background-color: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); }
+        /* WHATSAPP */
+        .wa-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        .wa-bubble { background: white; color: #2F4F4F; padding: 12px 18px; border-radius: 15px 15px 0 15px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 220px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease; border: 1px solid rgba(0,0,0,0.05); }
+        .wa-bubble.show { opacity: 1; transform: translateY(0); }
+        .whatsapp-btn { background-color: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); animation: pulse-wa 2s infinite; }
+        @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
     </style>
 </head>
 <body>
 
-    <nav class="absolute top-0 w-full p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white z-50 left-0 right-0">
+    <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
         <div class="mb-4 md:mb-0">
-            <a href="index.html"><img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert hover:scale-105 transition"></a>
+            <a href="index.html">
+                <img src="images/logo.png" alt="SVB Logo" class="h-20 w-auto object-contain">
+            </a>
         </div>
-        <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide">
+        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide">
             <a href="index.html" class="border-b-2 border-white pb-1">L'UNIVERS</a>
-            <a href="sessions.html" class="hover:text-gray-200 transition">SESSIONS</a>
-            <a href="equipe.html" class="hover:text-gray-200 transition">LA TEAM</a>
-            <a href="bien-etre.html" class="hover:text-gray-200 transition">BIEN-ÊTRE</a>
-            <a href="studio.html" class="hover:text-gray-200 transition">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-gray-200 transition">TARIFS</a>
-            <a href="faq.html" class="hover:text-gray-200 transition">FAQ</a>
-            <a href="contact.html" class="hover:text-gray-200 transition">CONTACT</a>
+            <a href="sessions.html" class="hover:opacity-80 transition">SESSIONS</a>
+            <a href="equipe.html" class="hover:opacity-80 transition">LA TEAM</a>
+            <a href="bien-etre.html" class="hover:opacity-80 transition">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:opacity-80 transition">PLANNING</a>
+            <a href="tarifs.html" class="hover:opacity-80 transition">TARIFS</a>
+            <a href="faq.html" class="hover:opacity-80 transition">FAQ</a>
+            <a href="contact.html" class="hover:opacity-80 transition">CONTACT</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="px-4">
-            <h1 class="text-6xl md:text-8xl mb-4 drop-shadow-lg font-hand">SantezVousBien</h1>
-            <p class="text-xl md:text-2xl font-light tracking-wide uppercase mb-8">Studio Pilates • Cross Training • Yoga</p>
-            <a href="#offres" class="inline-block border-2 border-white text-white px-8 py-3 rounded-full uppercase font-bold text-sm hover:bg-white hover:text-[#4A8D84] transition">Découvrir le studio</a>
-        </div>
+    <header class="text-center py-16 px-4 reveal-load d-1">
+        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-6 leading-tight font-hand">SantezVousBien</h1>
+        <p class="text-white text-lg font-light max-w-2xl mx-auto mb-8 leading-relaxed opacity-90">
+            Plus qu'une salle de sport, un lieu de vie.<br>
+            Deux studios, une seule énergie.
+        </p>
     </header>
 
-    <section id="offres" class="py-20 max-w-7xl mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-5xl font-hand text-white drop-shadow-md mb-4">Commencez l'Expérience</h2>
-            <p class="text-white uppercase tracking-widest text-sm font-light">Vos offres de bienvenue exclusives</p>
+    <div class="px-4 pb-20 reveal-load d-2">
+        <div class="starter-card">
+            <span class="bg-[#E8B496] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4 inline-block">Offre Découverte</span>
+            <h2 class="text-4xl font-hand text-[#4A8D84] mb-2">New Pass Starter</h2>
+            <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-500 uppercase mb-6 tracking-wide">
+                <span class="bg-gray-100 px-2 py-1 rounded">5 Sessions</span>
+                <span>•</span>
+                <span class="bg-gray-100 px-2 py-1 rounded">Sans Engagement</span>
+            </div>
+            <p class="text-7xl font-bold text-[#2F4F4F] mb-8 tracking-tight">99,90<span class="text-3xl">€</span></p>
+            <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full text-lg shadow-xl">Je commence maintenant</a>
         </div>
+    </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <div class="price-card border-2 border-white">
-                <div class="card-header bg-green-dark">Pass Starter <br><span class="text-[10px] font-normal opacity-80">Offre Découverte</span></div>
-                <div class="p-6 text-center">
-                    <div class="price-display">99,90€</div>
-                    <ul class="text-xs text-gray-700 space-y-2 mb-6 font-semibold">
-                        <li>✨ 5 Sessions au choix</li>
-                        <li>✨ Valable 1 mois</li>
-                        <li>✨ Idéal pour tout tester</li>
-                    </ul>
-                    <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Je commence</a>
-                </div>
+    <footer class="bg-[#4A8D84] text-white pt-16 pb-8 border-t border-white/20">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div class="flex flex-col items-center md:items-start">
+                <img src="images/logo.png" alt="SVB Logo" class="h-16 w-auto mb-4 opacity-90">
+                <p class="text-xs opacity-70">Votre espace bien-être à Saint-Ouen.</p>
             </div>
-
-            <div class="price-card">
-                <div class="card-header bg-peach">Essai Reformer</div>
-                <div class="p-6 text-center">
-                    <div class="price-display">50€</div>
-                    <p class="text-xs text-gray-700 mb-6 font-semibold">
-                        Découvrez la méthode Pilates sur machine. Renforcement profond.
-                    </p>
-                    <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Réserver</a>
-                </div>
-            </div>
-
-            <div class="price-card">
-                <div class="card-header bg-peach">Essai Crossformer</div>
-                <div class="p-6 text-center">
-                    <div class="price-display">50€</div>
-                    <p class="text-xs text-gray-700 mb-6 font-semibold">
-                        L'intensité du cardio alliée à la machine Reformer.
-                    </p>
-                    <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Réserver</a>
-                </div>
-            </div>
-
-            <div class="price-card">
-                <div class="card-header bg-sand text-[#555]">Essai Cross / Focus</div>
-                <div class="p-6 text-center">
-                    <div class="price-display">30€</div>
-                    <p class="text-xs text-gray-700 mb-6 font-semibold">
-                        Testez nos sessions Cross Training, Yoga, Boxe ou Core Focus.
-                    </p>
-                    <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Réserver</a>
-                </div>
-            </div>
-
+            <div class="flex flex-col items-center"><h3 class="font-bold uppercase mb-4 text-sm">Contact</h3><ul class="text-sm opacity-90"><li>📞 07 44 91 91 55</li><li>✉️ hello@studiosvb.fr</li></ul></div>
+            <div class="flex flex-col items-center md:items-end"><h3 class="font-bold uppercase mb-4 text-sm">Suivez-nous</h3><a href="https://www.instagram.com/svb.officiel" target="_blank" class="bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-6 py-2 rounded-full text-xs font-bold uppercase">Instagram</a></div>
         </div>
-    </section>
-
-    <footer class="bg-[#4A8D84] text-white py-12 text-center">
-        <img src="images/logo.png" alt="Logo SVB" class="h-16 mx-auto mb-4 brightness-0 invert opacity-80">
-        <p class="text-xs opacity-80">© 2026 SVB SantezVousBien - Saint-Ouen</p>
+        <div class="text-center mt-12 text-[10px] opacity-40">© 2026 SVB SantezVousBien.</div>
     </footer>
 
-    <div class="wa-container">
+    <div id="wa-container" class="wa-container">
+        <div id="wa-bubble" class="wa-bubble">👋 Hello ! Une question ? Je suis là pour vous aider.</div>
         <a href="https://wa.me/33744919155" class="whatsapp-btn" target="_blank">
             <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.096 0-4.141-.547-5.946-1.588L0 .057zm6.549-2.938c1.614.96 3.434 1.468 5.282 1.468 5.497 0 9.97-4.473 9.97-9.97s-4.473-9.97-9.97-9.97c-5.497 0-9.97 4.473-9.97 9.97 0 1.848.508 3.668 1.468 5.282L2.324 21.676l4.282-1.564zm11.334-7.129c-.314-.157-1.859-.917-2.148-1.021-.288-.105-.499-.157-.709.157-.21.314-.813 1.021-.996 1.231-.183.21-.367.236-.681.079-.314-.157-1.325-.489-2.524-1.559-.933-.833-1.563-1.861-1.747-2.175-.183-.314-.02-.484.137-.64.141-.141.314-.367.472-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.709-1.703-.971-2.332-.255-.612-.513-.529-.709-.539-.183-.01-.393-.012-.603-.012s-.551.079-.84.393c-.288.314-1.102 1.074-1.102 2.62s1.128 3.039 1.285 3.25c.157.21 2.221 3.391 5.38 4.755.751.325 1.337.519 1.794.664.754.24 1.441.206 1.983.125.603-.09 1.859-.759 2.121-1.467.262-.708.262-1.312.183-1.467-.079-.157-.288-.263-.603-.42z"/></svg>
         </a>
     </div>
 
+    <script>
+        setTimeout(() => {
+            const bubble = document.getElementById('wa-bubble');
+            if(bubble) bubble.classList.add('show');
+        }, 2500);
+    </script>
 </body>
 </html>
