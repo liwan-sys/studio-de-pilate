@@ -10,280 +10,264 @@
 
     <style>
         :root {
-            --svb-green-light: #98D0B3; 
-            --svb-green-dark: #4A8D84;  
-            --svb-sand: #F2E6CF;        
-            --svb-peach: #E8B496;
+            --col-peach: #EBC6A6;
+            --col-sand: #D4C3A3;
+            --col-green: #88C0A6;
+            --col-cream: #F3EBD4;
+            --col-dark: #3A6B63;
             --svb-text: #2F4F4F;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--svb-green-light);
+            background-color: #B8D8C0;
             color: var(--svb-text);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* === IMMERSION BACKGROUND (COPIÉ DE L'ACCUEIL) === */
+        /* FOND IMMERSIF */
         .ambient-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -2;
-            background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
+            background: linear-gradient(180deg, #CDE4D3 0%, #F5F0E1 100%);
             overflow: hidden;
         }
-
         .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.6;
-            animation: moveBlob 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.6;
+            animation: moveBlob 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-green-dark); animation-delay: 0s; }
-        .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--svb-peach); animation-delay: -5s; }
-        .blob-3 { top: 40%; left: 40%; width: 40vw; height: 40vw; background: white; opacity: 0.4; animation-delay: -10s; }
-
-        @keyframes moveBlob {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, -50px) scale(1.1); }
-        }
-
-        .noise-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.05;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            pointer-events: none;
-        }
+        .blob-1 { top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--col-green); }
+        .blob-2 { bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--col-peach); animation-delay: -5s; }
+        @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(40px, -40px) scale(1.1); } }
+        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); pointer-events: none; }
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
         /* Animation */
-        @keyframes softSlideUp {
-            0% { opacity: 0; transform: translateY(40px); filter: blur(5px); }
-            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
-        }
         .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
-        .d-1 { animation-delay: 0.1s; }
-        .d-2 { animation-delay: 0.2s; }
-        .d-3 { animation-delay: 0.3s; }
+        @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
 
-        /* === CARTE SESSION (STYLE IMMERSIF) === */
-        .session-card {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-        }
-        
-        .session-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: var(--svb-green-dark);
-        }
-
-        .category-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: white;
-            margin-bottom: 15px;
-            width: fit-content;
-            letter-spacing: 0.05em;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .badge-green { background-color: #4A8D84; }
-        .badge-peach { background-color: #E8B496; }
-        .badge-sand { background-color: #D6C496; }
-
-        /* WhatsApp Button */
-        .wa-container { position: fixed; bottom: 30px; right: 30px; z-index: 50; }
-        .whatsapp-btn {
-            background-color: #25d366;
-            width: 60px; height: 60px;
-            border-radius: 50%;
+        /* === TITRES DE SECTION === */
+        .section-header {
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            transition: transform 0.3s;
+            margin-bottom: 40px; text-align: center;
         }
+        .section-title {
+            font-family: 'Dancing Script', cursive; font-size: 3.5rem; 
+            color: var(--svb-text); margin: 0 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section-line { height: 1px; width: 60px; background-color: var(--svb-text); opacity: 0.3; }
+
+        /* === CARTE SESSION PREMIUM === */
+        .session-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.6);
+            transition: all 0.4s ease;
+            height: 100%; display: flex; flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .session-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); background: rgba(255, 255, 255, 0.85); }
+
+        .card-top { height: 6px; width: 100%; }
+        
+        .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        
+        .activity-name { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; color: var(--svb-text); letter-spacing: -0.02em; }
+        .activity-desc { font-size: 0.85rem; line-height: 1.6; color: #555; font-weight: 500; }
+
+        /* COULEURS SPECIFIQUES PAR PASS */
+        .theme-crossformer .card-top { background: var(--col-peach); }
+        .theme-crossformer .activity-name { color: #D69E7D; }
+
+        .theme-reformer .card-top { background: var(--col-sand); }
+        .theme-reformer .activity-name { color: #B5A06D; }
+
+        .theme-cross .card-top { background: var(--col-green); }
+        .theme-cross .activity-name { color: #62967e; }
+
+        .theme-focus .card-top { background: #DBCBA8; } /* Un peu plus foncé que le crème pour lisibilité */
+        .theme-focus .activity-name { color: #8C8060; }
+
+        .theme-kids .card-top { background: linear-gradient(to right, var(--col-peach), var(--col-green)); }
+        .theme-kids .activity-name { background: -webkit-linear-gradient(0deg, #D69E7D, #62967e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* BOUTON FLOTTANT */
+        .wa-container { position: fixed; bottom: 30px; right: 30px; z-index: 50; }
+        .whatsapp-btn { background-color: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); transition: transform 0.3s; }
         .whatsapp-btn:hover { transform: scale(1.1); }
 
     </style>
 </head>
 <body>
 
-    <div class="ambient-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
+    <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
     <div class="noise-overlay"></div>
 
     <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
         <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md">
-            </a>
+            <a href="index.html"><img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md"></a>
         </div>
-        <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide drop-shadow-sm">
-            <a href="index.html" class="hover:text-gray-100 transition hover:scale-105">L'UNIVERS</a>
-            <a href="sessions.html" class="border-b-2 border-white pb-1 hover:scale-105">SESSIONS</a>
-            <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105">LA TEAM</a>
-            <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105">BIEN-ÊTRE</a>
-            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105">TARIFS</a>
-            <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105">FAQ</a>
-            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105">CONTACT</a>
+        <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold tracking-wide drop-shadow-sm text-[#2F4F4F]">
+            <a href="index.html" class="hover:text-white transition">L'UNIVERS</a>
+            <a href="sessions.html" class="border-b-2 border-[#2F4F4F] pb-1">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-white transition">LA TEAM</a>
+            <a href="bien-etre.html" class="hover:text-white transition">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:text-white transition">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-white transition">TARIFS</a>
+            <a href="faq.html" class="hover:text-white transition">FAQ</a>
+            <a href="contact.html" class="hover:text-white transition">CONTACT</a>
         </div>
     </nav>
 
     <div class="relative text-center py-16 px-4 reveal-load d-1 z-10">
-        <h1 class="text-7xl md:text-8xl text-white drop-shadow-lg mb-4 font-hand">Nos Sessions</h1>
-        <p class="text-white uppercase tracking-widest text-sm font-light opacity-90">Découvrez l'ensemble de nos cours</p>
+        <h1 class="text-7xl md:text-9xl text-[#2F4F4F] drop-shadow-sm mb-4 font-hand">Nos Sessions</h1>
+        <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-bold bg-white/40 inline-block px-6 py-2 rounded-full backdrop-blur-md">Découvrez l'univers de chaque Pass</p>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 pb-20 z-10">
 
-        <section class="mb-20 reveal-load d-2">
-            <h2 class="text-5xl text-white font-hand mb-10 border-b border-white/30 pb-4 inline-block pr-10">Studio Pilates & Reformer</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <div class="session-card group">
-                    <span class="category-badge badge-green group-hover:scale-110 transition">Machine</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Pilates Reformer</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed font-medium">Renforcement musculaire profond sur machine avec ressorts. Améliore la posture, la souplesse et tonifie sans gonfler.</p>
-                </div>
+        <div class="section-header reveal-load d-2">
+            <div class="section-line"></div>
+            <h2 class="section-title">Univers Machines</h2>
+            <div class="section-line"></div>
+        </div>
 
-                <div class="session-card group">
-                    <span class="category-badge badge-peach group-hover:scale-110 transition">Intense</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Crossformer</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed font-medium">Exclusivité SVB. Le Reformer en version cardio et dynamique. Ça brûle, ça sculpte, mais sans impact pour les articulations.</p>
+        <div class="grid md:grid-cols-2 gap-10 mb-24 reveal-load d-2">
+            <div class="space-y-6">
+                <div class="text-center mb-6">
+                    <span class="bg-[#D4C3A3] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Inclus dans le Pass Reformer</span>
                 </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-sand group-hover:scale-110 transition">Tapis</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Classic Pilates</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed font-medium">Le Pilates au sol traditionnel. On prend le temps de contrôler chaque mouvement, de respirer et de renforcer le centre du corps.</p>
+                <div class="session-card theme-reformer">
+                    <div class="card-top"></div>
+                    <div class="card-content">
+                        <h3 class="activity-name">Classic Reformer</h3>
+                        <p class="activity-desc">Le Pilates traditionnel sur machine. On utilise la résistance des ressorts pour un travail profond, précis et contrôlé. Idéal pour sculpter, allonger et renforcer la posture.</p>
+                    </div>
                 </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-green group-hover:scale-110 transition">Tapis Tonique</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Power Pilates</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed font-medium">Une version plus rythmée du Pilates au sol. On enchaîne les exercices pour faire monter la température et le renforcement.</p>
+                <div class="session-card theme-reformer">
+                    <div class="card-top"></div>
+                    <div class="card-content">
+                        <h3 class="activity-name">Power Reformer</h3>
+                        <p class="activity-desc">Une version un peu plus rythmée du Reformer classique. Les enchaînements sont fluides pour monter légèrement l'intensité tout en gardant le contrôle.</p>
+                    </div>
                 </div>
-
             </div>
-        </section>
 
-        <section class="mb-20 reveal-load d-3">
-            <h2 class="text-5xl text-white font-hand mb-10 border-b border-white/30 pb-4 inline-block pr-10">Studio Docks (Intensité)</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <div class="session-card group">
-                    <span class="category-badge badge-peach group-hover:scale-110 transition">Cardio + Force</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Cross Training</h3>
-                    <p class="text-xs text-gray-700 font-medium">Circuit training complet mêlant poids de corps, charges légères et cardio. Idéal pour se dépenser totalement.</p>
+            <div class="space-y-6">
+                <div class="text-center mb-6">
+                    <span class="bg-[#EBC6A6] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Inclus dans le Pass Crossformer</span>
                 </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-peach group-hover:scale-110 transition">Challenge</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Cross Rox</h3>
-                    <p class="text-xs text-gray-700 font-medium">Inspiré de la compétition HYROX. Un mélange de course et d'ateliers fonctionnels (skierg, fentes, etc.) pour l'endurance.</p>
+                <div class="session-card theme-crossformer border-2 border-[#EBC6A6]/30"> <div class="card-top"></div>
+                    <div class="card-content text-center">
+                        <h3 class="activity-name text-2xl">🔥 Crossformer</h3>
+                        <p class="activity-desc text-base">L'Exclusivité SVB. C'est le Reformer en version cardio et athlétique. On saute, on transpire, on brûle des calories, mais sans aucun impact traumatisant pour les articulations grâce à la machine.</p>
+                    </div>
                 </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-green group-hover:scale-110 transition">Abdos</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Cross Core</h3>
-                    <p class="text-xs text-gray-700 font-medium">30 à 45 min focus sur la sangle abdominale, le gainage et les muscles posturaux. Pour un ventre plat et solide.</p>
-                </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-green group-hover:scale-110 transition">Renfo Doux</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Cross Body</h3>
-                    <p class="text-xs text-gray-700 font-medium">Renforcement musculaire global à faible impact (Low Impact). On travaille les fessiers, les cuisses et les bras sans sauts.</p>
-                </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-sand group-hover:scale-110 transition">Mobilité</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Cross Yoga</h3>
-                    <p class="text-xs text-gray-700 font-medium">Un yoga axé sur la mobilité articulaire et les étirements actifs, sans l'aspect spirituel. Parfait en récupération.</p>
-                </div>
-
             </div>
-        </section>
+        </div>
 
-        <section class="mb-20 reveal-load d-3">
-            <h2 class="text-5xl text-white font-hand mb-10 border-b border-white/30 pb-4 inline-block pr-10">Yoga & Flow</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <div class="session-card group">
-                    <span class="category-badge badge-sand group-hover:scale-110 transition">Dynamique</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Yoga Vinyasa</h3>
-                    <p class="text-xs text-gray-700 font-medium">Flow dynamique où le mouvement suit la respiration. On transpire, on se gaine et on s'assouplit en mouvement.</p>
+
+        <div class="section-header reveal-load d-3">
+            <div class="section-line"></div>
+            <h2 class="section-title">Univers Training</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 mb-24 reveal-load d-3">
+            
+            <div class="space-y-6">
+                <div class="text-center mb-6">
+                    <span class="bg-[#88C0A6] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Inclus dans le Pass Cross</span>
                 </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-sand group-hover:scale-110 transition">Doux</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Hatha Flow</h3>
-                    <p class="text-xs text-gray-700 font-medium">Pratique plus lente que le Vinyasa. On tient les postures plus longtemps pour travailler l'alignement et le calme mental.</p>
+                <div class="grid gap-6">
+                    <div class="session-card theme-cross">
+                        <div class="card-top"></div>
+                        <div class="card-content">
+                            <h3 class="activity-name">Cross Training</h3>
+                            <p class="activity-desc">Circuit training complet. Mélange de poids de corps, charges légères et cardio. On se dépasse ensemble.</p>
+                        </div>
+                    </div>
+                    <div class="session-card theme-cross">
+                        <div class="card-top"></div>
+                        <div class="card-content">
+                            <h3 class="activity-name">Cross Rox</h3>
+                            <p class="activity-desc">Inspiré de l'Hyrox. Un mix d'endurance (course) et d'ateliers fonctionnels. Pour le cœur et le mental.</p>
+                        </div>
+                    </div>
+                    <div class="session-card theme-cross">
+                        <div class="card-top"></div>
+                        <div class="card-content">
+                            <h3 class="activity-name">Boxe Anglaise</h3>
+                            <p class="activity-desc">Technique et cardio. On enfile les gants pour se défouler au sac ou aux pattes d'ours. Intense et ludique.</p>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-sand group-hover:scale-110 transition">Souplesse</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Core & Stretch</h3>
-                    <p class="text-xs text-gray-700 font-medium">La séance parfaite pour récupérer : un peu de renforcement du centre du corps suivi de longs étirements relaxants.</p>
-                </div>
-
             </div>
-        </section>
 
-        <section class="mb-24 reveal-load d-3">
-            <h2 class="text-5xl text-white font-hand mb-10 border-b border-white/30 pb-4 inline-block pr-10">Fun, Boxe & Kids</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <div class="session-card group">
-                    <span class="category-badge badge-peach group-hover:scale-110 transition">Cardio</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Boxe Anglaise</h3>
-                    <p class="text-xs text-gray-700 font-medium">Technique (directs, crochets, esquives) et cardio au sac ou aux pattes d'ours. Un excellent défouloir accessible à tous.</p>
+            <div class="space-y-6">
+                <div class="text-center mb-6">
+                    <span class="bg-[#DBCBA8] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Inclus dans le Pass Focus</span>
                 </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-peach group-hover:scale-110 transition">Danse</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Afrodance'All</h3>
-                    <p class="text-xs text-gray-700 font-medium">Ambiance solaire garantie ! On apprend des chorégraphies sur des sons afro, on se lâche et on transpire avec le sourire.</p>
+                <div class="grid gap-6">
+                    <div class="session-card theme-focus">
+                        <div class="card-top"></div>
+                        <div class="card-content">
+                            <h3 class="activity-name">Yoga Vinyasa</h3>
+                            <p class="activity-desc">Un Yoga dynamique où le mouvement suit le souffle. On gaine, on s'étire et on transpire en flow.</p>
+                        </div>
+                    </div>
+                    <div class="session-card theme-focus">
+                        <div class="card-top"></div>
+                        <div class="card-content">
+                            <h3 class="activity-name">Pilates Mat (Tapis)</h3>
+                            <p class="activity-desc">Le retour aux sources. Renforcement profond du centre du corps (Powerhouse) sur tapis.</p>
+                        </div>
+                    </div>
+                    <div class="session-card theme-focus">
+                        <div class="card-top"></div>
+                        <div class="card-content">
+                            <h3 class="activity-name">Afrodance'All</h3>
+                            <p class="activity-desc">Lâcher-prise total ! Chorégraphies entraînantes sur des rythmes afro. Cardio et Good Vibes garantis.</p>
+                        </div>
+                    </div>
+                    <div class="session-card theme-focus">
+                        <div class="card-top"></div>
+                        <div class="card-content">
+                            <h3 class="activity-name">Cross Body / Core</h3>
+                            <p class="activity-desc">Renforcement ciblé (Fessiers ou Abdos) à faible impact. Idéal pour sculpter sans sauts.</p>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-sand group-hover:scale-110 transition">Enfants</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Yoga Kids</h3>
-                    <p class="text-xs text-gray-700 font-medium">Pour les enfants : apprendre à se calmer, à respirer et à connaître son corps à travers des jeux et des histoires.</p>
-                </div>
-
-                <div class="session-card group">
-                    <span class="category-badge badge-green group-hover:scale-110 transition">Enfants</span>
-                    <h3 class="text-2xl font-hand mb-3 text-[#2F4F4F]">Training Kids</h3>
-                    <p class="text-xs text-gray-700 font-medium">Parcours de motricité, jeux d'équilibre et petits défis sportifs pour développer la confiance et la coordination.</p>
-                </div>
-
             </div>
-        </section>
+        </div>
+
+
+        <div class="section-header reveal-load d-3">
+            <div class="section-line"></div>
+            <h2 class="section-title">Univers Kids</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-10 reveal-load d-3 max-w-4xl mx-auto">
+            <div class="session-card theme-kids">
+                <div class="card-top"></div>
+                <div class="card-content text-center">
+                    <h3 class="activity-name">Training Kids</h3>
+                    <p class="activity-desc">Parcours de motricité, jeux d'équipe et défis sportifs pour développer la confiance et la coordination.</p>
+                </div>
+            </div>
+            <div class="session-card theme-kids">
+                <div class="card-top"></div>
+                <div class="card-content text-center">
+                    <h3 class="activity-name">Yoga Kids</h3>
+                    <p class="activity-desc">Apprendre à se calmer, à respirer et à connaître son corps à travers des histoires et des postures ludiques.</p>
+                </div>
+            </div>
+        </div>
 
     </div>
 
