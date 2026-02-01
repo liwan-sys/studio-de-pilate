@@ -10,11 +10,10 @@
 
     <style>
         :root {
-            --col-peach: #EBC6A6;   /* Crossformer */
-            --col-sand: #D4C3A3;    /* Reformer */
-            --col-green: #88C0A6;   /* Cross */
-            --col-cream: #F3EBD4;   /* Focus */
-            --col-dark: #3A6B63;
+            --col-peach: #EBC6A6;   /* Pass Crossformer & Kids */
+            --col-sand: #D4C3A3;    /* Pass Reformer */
+            --col-green: #88C0A6;   /* Pass Cross */
+            --col-cream: #F3EBD4;   /* Pass Focus */
             --svb-text: #2F4F4F;
         }
 
@@ -47,7 +46,7 @@
         /* Animation */
         .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
         @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
-        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
+        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; } .d-4 { animation-delay: 0.4s; }
 
         /* === DESIGN SECTIONS === */
         .pass-section {
@@ -64,7 +63,7 @@
         .section-icon { 
             width: 50px; height: 50px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; color: white;
+            font-size: 1.5rem; margin-right: 15px; color: white;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .section-title { font-family: 'Dancing Script', cursive; font-size: 3rem; color: var(--svb-text); line-height: 1; margin-right: 15px; }
@@ -135,7 +134,7 @@
         <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-bold bg-white/40 inline-block px-6 py-2 rounded-full backdrop-blur-md">Découvrez chaque univers</p>
     </div>
 
-    <div class="relative max-w-6xl mx-auto px-4 pb-20 z-10">
+    <div class="relative max-w-7xl mx-auto px-4 pb-20 z-10">
 
         <div class="pass-section theme-crossformer reveal-load d-1">
             <div class="section-header">
@@ -168,14 +167,14 @@
                 <div class="section-icon">⚡</div>
                 <h2 class="section-title">Pass Cross</h2>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                 <div class="session-card">
                     <h3 class="activity-name">Cross Training</h3>
-                    <p class="activity-desc">Circuit training complet. Mélange de poids de corps, charges légères et cardio. On se dépasse ensemble.</p>
+                    <p class="activity-desc">Circuit training complet et varié. Mélange de poids de corps, de charges légères et de cardio. On se dépasse ensemble.</p>
                 </div>
                 <div class="session-card">
                     <h3 class="activity-name">Cross Rox</h3>
-                    <p class="activity-desc">Inspiré de l'Hyrox. Un mix d'endurance (course) et d'ateliers fonctionnels. Pour le cœur et le mental.</p>
+                    <p class="activity-desc">Inspiré de l'Hyrox. Un mix d'endurance (course) et d'ateliers fonctionnels. Pour travailler le cœur et le mental.</p>
                 </div>
                 <div class="session-card">
                     <h3 class="activity-name">Cross Core</h3>
@@ -197,7 +196,7 @@
                 <div class="section-icon">🧘‍♀️</div>
                 <h2 class="section-title">Pass Focus</h2>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <div class="session-card">
                     <h3 class="activity-name">Yoga Vinyasa</h3>
                     <p class="activity-desc">Flow dynamique où le mouvement suit le souffle. On gaine, on s'étire et on transpire en mouvement.</p>
@@ -228,12 +227,12 @@
                 </div>
                 <div class="session-card">
                     <h3 class="activity-name">Cross Forme</h3>
-                    <p class="activity-desc">Cours de renforcement global et postural sans machine, pour sculpter la silhouette.</p>
+                    <p class="activity-desc">Cours de renforcement global et postural (studio Lavandières), sans machine, pour sculpter la silhouette.</p>
                 </div>
             </div>
         </div>
 
-        <div class="pass-section theme-kids reveal-load d-3">
+        <div class="pass-section theme-kids reveal-load d-4">
             <div class="section-header">
                 <div class="section-icon">🎈</div>
                 <h2 class="section-title">Pass Kids</h2>
