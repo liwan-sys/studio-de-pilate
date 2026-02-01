@@ -61,24 +61,37 @@
         /* SECTION PRATICIENS */
         .expert-card {
             display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 50px 10px 10px 50px;
-            padding: 15px;
+            flex-direction: column; /* Mobile first */
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 20px;
             transition: transform 0.3s;
             border: 1px solid white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            height: 100%;
         }
-        .expert-card:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
+        @media (min-width: 768px) {
+            .expert-card {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .expert-card:hover { transform: scale(1.01); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
         .expert-img {
-            width: 80px;
-            height: 80px;
-            min-width: 80px;
+            width: 90px;
+            height: 90px;
+            min-width: 90px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--svb-peach);
-            margin-right: 20px;
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .expert-img { margin-bottom: 0; margin-right: 20px; }
         }
 
         .bg-title-soin {
@@ -92,6 +105,33 @@
             display: inline-block;
             margin-bottom: 5px;
         }
+
+        .info-row {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .booking-btn {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-doctolib { background-color: #0596DE; color: white; }
+        .btn-doctolib:hover { background-color: #047bb5; box-shadow: 0 4px 10px rgba(5, 150, 222, 0.3); }
+
+        .btn-tel { background-color: var(--svb-green-dark); color: white; }
+        .btn-tel:hover { background-color: #386e66; box-shadow: 0 4px 10px rgba(74, 141, 132, 0.3); }
 
         /* WHATSAPP CHATBOX */
         .wa-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
@@ -142,89 +182,152 @@
             <div class="care-card pt-8"><span class="care-icon">🌀</span><h3 class="care-title">Shiatsu & Reiki</h3><p class="care-desc">Soins énergétiques et thérapies manuelles.</p></div>
         </section>
 
-        <section class="max-w-5xl mx-auto reveal-load d-3">
+        <section class="max-w-6xl mx-auto reveal-load d-3">
             <h2 class="text-4xl text-center text-[#4A8D84] font-hand mb-10">Nos Experts Bien-être</h2>
 
             <div class="grid md:grid-cols-2 gap-6">
                 
                 <div class="expert-card">
                     <img src="images/Alan.jpg" class="expert-img" alt="Alan">
-                    <div>
+                    <div class="w-full">
                         <span class="bg-title-soin">Ostéopathe D.O</span>
                         <h4 class="font-bold text-lg">Alan OLLIE</h4>
-                        <p class="text-xs text-gray-600">Thérapie Manuelle</p>
+                        <p class="text-xs text-gray-600 mb-2">Thérapie Manuelle</p>
+                        
+                        <div class="info-row">
+                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Lundi (Matin)</p>
+                            <a href="https://www.doctolib.fr" target="_blank" class="booking-btn btn-doctolib">
+                                Prendre RDV sur Doctolib
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="expert-card">
                     <img src="images/Sabrina.jpg" class="expert-img" alt="Sabrina">
-                    <div>
+                    <div class="w-full">
                         <span class="bg-title-soin">Acupuncture & MTC</span>
                         <h4 class="font-bold text-lg">Sabrina BOUDINA</h4>
-                        <p class="text-xs text-gray-600">Médecine Chinoise</p>
+                        <p class="text-xs text-gray-600 mb-2">Médecine Chinoise</p>
+                        
+                        <div class="info-row">
+                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Lundi (Après-Midi)</p>
+                            <a href="tel:0752314289" class="booking-btn btn-tel">
+                                📞 07 52 31 42 89
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="expert-card">
                     <img src="images/Sandrine.jpg" class="expert-img" alt="Sandrine">
-                    <div>
+                    <div class="w-full">
                         <span class="bg-title-soin">Massages Spécifiques</span>
                         <h4 class="font-bold text-lg">Sandrine LOUIS JEAN</h4>
-                        <p class="text-xs text-gray-600">Ayurvédique & Gynécologie émotionnelle</p>
+                        <p class="text-xs text-gray-600 mb-2">Ayurvédique & Gynécologie</p>
+                        
+                        <div class="info-row">
+                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Mardi & Vendredi</p>
+                            <a href="tel:0661735224" class="booking-btn btn-tel">
+                                📞 06 61 73 52 24
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="expert-card">
                     <img src="images/Maryline.jpg" class="expert-img" alt="Maryline">
-                    <div>
+                    <div class="w-full">
                         <span class="bg-title-soin">Diététicienne</span>
                         <h4 class="font-bold text-lg">Maryline TOSI</h4>
-                        <p class="text-xs text-gray-600">Nutrition & Santé</p>
+                        <p class="text-xs text-gray-600 mb-2">Nutrition & Santé</p>
+                        
+                        <div class="info-row">
+                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Mercredi (Matin)</p>
+                            <a href="https://www.doctolib.fr" target="_blank" class="booking-btn btn-doctolib">
+                                Prendre RDV sur Doctolib
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="expert-card">
                     <img src="images/Emilie.jpg" class="expert-img" alt="Émilie">
-                    <div>
+                    <div class="w-full">
                         <span class="bg-title-soin">Praticienne Kobido</span>
                         <h4 class="font-bold text-lg">Émilie ROZIER</h4>
-                        <p class="text-xs text-gray-600">Massage Visage Japonais</p>
+                        <p class="text-xs text-gray-600 mb-2">Massage Visage Japonais</p>
+                        
+                        <div class="info-row">
+                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Mercredi (A.M) & Jeudi</p>
+                            <a href="tel:0688466352" class="booking-btn btn-tel">
+                                📞 06 88 46 63 52
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="expert-card">
                     <img src="images/Helene.jpg" class="expert-img" alt="Hélène">
-                    <div>
+                    <div class="w-full">
                         <span class="bg-title-soin">Réflexologie Plantaire</span>
                         <h4 class="font-bold text-lg">Hélène BESSET</h4>
-                        <p class="text-xs text-gray-600">Bien-être par les pieds</p>
+                        <p class="text-xs text-gray-600 mb-2">Bien-être par les pieds</p>
+                        
+                        <div class="info-row">
+                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Samedi</p>
+                            <a href="tel:0619222030" class="booking-btn btn-tel">
+                                📞 06 19 22 20 30
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="expert-card">
                     <img src="images/Virginiee.jpg" class="expert-img" alt="Virginie">
-                    <div>
+                    <div class="w-full">
                         <span class="bg-title-soin">Réflexologie Plantaire</span>
                         <h4 class="font-bold text-lg">Virginie GAMEL</h4>
-                        <p class="text-xs text-gray-600">Détente & Équilibre</p>
+                        <p class="text-xs text-gray-600 mb-2">Détente & Équilibre</p>
+                        
+                        <div class="info-row">
+                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Samedi</p>
+                            <a href="tel:0666050923" class="booking-btn btn-tel">
+                                📞 06 66 05 09 23
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="expert-card">
                     <img src="images/Marine.jpg" class="expert-img" alt="Marine">
-                    <div>
+                    <div class="w-full">
                         <span class="bg-title-soin">Massages & Madéro</span>
                         <h4 class="font-bold text-lg">Marine PELLISSIER</h4>
-                        <p class="text-xs text-gray-600">Sportif, Relaxant, Drainage</p>
+                        <p class="text-xs text-gray-600 mb-2">Sportif, Relaxant, Drainage</p>
+                        
+                        <div class="info-row">
+                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Samedi (Après-Midi)</p>
+                            <a href="tel:0788790764" class="booking-btn btn-tel">
+                                📞 07 88 79 07 64
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="expert-card">
                     <img src="images/Mauricia.jpg" class="expert-img" alt="Mauricia">
-                    <div>
+                    <div class="w-full">
                         <span class="bg-title-soin">Thérapies Douces</span>
                         <h4 class="font-bold text-lg">Mauricia BRETCHA</h4>
-                        <p class="text-xs text-gray-600">Sophrologue, Shiatsu, Reiki, Herboriste</p>
+                        <p class="text-xs text-gray-600 mb-2">Sophrologue, Shiatsu, Reiki</p>
+                        
+                        <div class="info-row">
+                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Dimanche</p>
+                            <a href="tel:0610364479" class="booking-btn btn-tel">
+                                📞 06 10 36 44 79
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -232,9 +335,6 @@
 
             <div class="text-center mt-12">
                 <p class="text-sm mb-4 italic text-gray-600">Les soins sont ouverts à tous, même sans abonnement.</p>
-                <a href="contact.html" class="inline-block bg-[#4A8D84] text-white px-8 py-3 rounded-full uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition shadow-lg">
-                    Prendre rendez-vous
-                </a>
             </div>
 
         </section>
