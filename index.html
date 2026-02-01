@@ -26,11 +26,12 @@
             position: relative;
         }
 
-        /* === AJOUT : SPLASH SCREEN (INTRO) === */
+        /* === SPLASH SCREEN (INTRO) === */
         #splash-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: var(--svb-green-dark);
+            /* MODIFICATION ICI : DÉGRADÉ IDENTIQUE À LA PAGE UNIVERS */
+            background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
             z-index: 9999;
             display: flex;
             justify-content: center;
@@ -43,7 +44,7 @@
             opacity: 0;
             transform: scale(0.8);
             animation: logoIntro 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-            filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1); /* Logo en blanc */
         }
 
         @keyframes logoIntro {
@@ -52,12 +53,12 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
+        /* Classe pour cacher le splash */
         .splash-hidden {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
         }
-        /* === FIN AJOUT === */
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
@@ -296,21 +297,21 @@
 
         <div class="grid md:grid-cols-2 gap-12 items-center">
             
-            <div class="text-right space-y-10 text-white">
-                <div class="group cursor-default">
-                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#2F4F4F] transition">📍 Parc des Docks</h3>
-                    <p class="text-base opacity-90 font-light leading-relaxed">
+            <div class="flex flex-col gap-6">
+                <div class="studio-info-card group cursor-default">
+                    <h3 class="studio-title">📍 Parc des Docks</h3>
+                    <p class="text-sm font-medium leading-relaxed">
                         Le cœur battant du Reformer et des sessions intenses. Un espace moderne baigné de lumière.
                     </p>
                 </div>
-                <div class="group cursor-default">
-                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#2F4F4F] transition">📍 Cours des Lavandières</h3>
-                    <p class="text-base opacity-90 font-light leading-relaxed">
+                <div class="studio-info-card group cursor-default">
+                    <h3 class="studio-title">📍 Lavandières</h3>
+                    <p class="text-sm font-medium leading-relaxed">
                         Le cocon du Yoga, du Bien-être et des petits groupes. Une atmosphère feutrée et apaisante.
                     </p>
                 </div>
-                <div class="pt-6">
-                    <a href="contact.html" class="inline-block border-b-2 border-white pb-1 font-bold uppercase text-sm hover:text-[#2F4F4F] hover:border-[#2F4F4F] transition transform hover:translate-x-2">
+                <div class="text-right pt-2">
+                    <a href="contact.html" class="inline-block text-white border-b-2 border-white pb-1 font-bold uppercase text-sm hover:text-[#2F4F4F] hover:border-[#2F4F4F] transition transform hover:translate-x-2">
                         Voir les accès détaillés →
                     </a>
                 </div>
