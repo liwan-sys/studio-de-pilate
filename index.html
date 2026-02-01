@@ -26,7 +26,7 @@
             position: relative;
         }
 
-        /* === SPLASH SCREEN (INTRO) === */
+        /* === NOUVEAU SPLASH SCREEN (PLUIE) === */
         #splash-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -35,24 +35,52 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden; /* Important pour la pluie */
             transition: opacity 0.8s ease-in-out, visibility 0.8s;
         }
 
+        /* Le conteneur de la pluie */
+        #rain-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Les gouttes (petits logos) */
+        .rain-drop {
+            position: absolute;
+            top: -100px; /* Départ hors écran */
+            filter: brightness(0) invert(1);
+            opacity: 0.6;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            100% { transform: translateY(110vh) rotate(20deg); opacity: 0; }
+        }
+
+        /* Le logo central */
         #splash-logo {
             width: 150px;
             opacity: 0;
             transform: scale(0.8);
-            filter: brightness(0) invert(1); /* Logo en blanc */
+            filter: brightness(0) invert(1);
+            z-index: 10;
+            position: relative;
         }
 
-        /* Classe d'animation ajoutée via JS */
-        .animate-logo {
-            animation: logoIntro 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        /* Animation du logo central */
+        .animate-center-logo {
+            animation: centerLogoAnim 2.5s ease-out forwards;
+            animation-delay: 1s; /* Il apparait après le début de la pluie */
         }
 
-        @keyframes logoIntro {
-            0% { opacity: 0; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.1); }
+        @keyframes centerLogoAnim {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2); }
             100% { opacity: 1; transform: scale(1); }
         }
 
@@ -218,6 +246,7 @@
 <body class="overflow-hidden"> 
     
     <div id="splash-screen">
+        <div id="rain-container"></div>
         <img id="splash-logo" src="images/logo.png" alt="SVB Logo">
     </div>
 
@@ -409,26 +438,45 @@
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash-screen');
             const logo = document.getElementById('splash-logo');
+            const rainContainer = document.getElementById('rain-container');
             const body = document.body;
+
+            // Fonction pour créer la pluie
+            function createRain() {
+                const dropCount = 30; // Nombre de logos qui tombent
+                for (let i = 0; i < dropCount; i++) {
+                    const drop = document.createElement('img');
+                    drop.src = 'images/logo.png';
+                    drop.classList.add('rain-drop');
+                    
+                    // Position et taille aléatoires
+                    drop.style.left = Math.random() * 100 + 'vw';
+                    drop.style.width = (Math.random() * 30 + 20) + 'px'; // Entre 20px et 50px
+                    drop.style.animationDuration = (Math.random() * 2 + 1.5) + 's'; // Vitesse variable
+                    drop.style.animationDelay = (Math.random() * 1) + 's';
+                    
+                    rainContainer.appendChild(drop);
+                }
+            }
 
             // Vérifie si l'animation a déjà été vue dans cette session
             if (sessionStorage.getItem('svb-splash-seen')) {
-                // SI DÉJÀ VU : On cache immédiatement sans animation
+                // SI DÉJÀ VU : On cache immédiatement
                 splash.style.display = 'none';
                 body.classList.remove('overflow-hidden');
                 body.classList.add('content-visible');
             } else {
-                // SI PREMIÈRE FOIS : On lance l'animation
-                logo.classList.add('animate-logo'); // Lance l'anim du logo
+                // SI PREMIÈRE FOIS : On lance la pluie et le logo central
+                createRain();
+                logo.classList.add('animate-center-logo');
                 
+                // Durée totale : 3.5 secondes
                 setTimeout(() => {
                     splash.classList.add('splash-hidden');
                     body.classList.remove('overflow-hidden');
                     body.classList.add('content-visible');
-                    
-                    // On note que l'animation a été vue
                     sessionStorage.setItem('svb-splash-seen', 'true');
-                }, 2500);
+                }, 3500);
             }
         });
     </script>
