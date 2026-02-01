@@ -10,10 +10,10 @@
 
     <style>
         :root {
-            --col-peach: #EBC6A6;
-            --col-sand: #D4C3A3;
-            --col-green: #88C0A6;
-            --col-cream: #F3EBD4;
+            --col-peach: #EBC6A6;   /* Crossformer */
+            --col-sand: #D4C3A3;    /* Reformer */
+            --col-green: #88C0A6;   /* Cross */
+            --col-cream: #F3EBD4;   /* Focus */
             --col-dark: #3A6B63;
             --svb-text: #2F4F4F;
         }
@@ -47,11 +47,11 @@
         /* Animation */
         .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
         @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
-        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; } .d-4 { animation-delay: 0.4s; } .d-5 { animation-delay: 0.5s; }
+        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
 
         /* === DESIGN SECTIONS === */
         .pass-section {
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             padding: 40px;
             border-radius: 30px;
             background: rgba(255,255,255,0.4);
@@ -60,15 +60,15 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
         }
 
-        .section-header { display: flex; align-items: center; margin-bottom: 30px; }
+        .section-header { display: flex; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
         .section-icon { 
             width: 50px; height: 50px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; margin-right: 15px; color: white;
+            font-size: 1.5rem; color: white;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .section-title { font-family: 'Dancing Script', cursive; font-size: 3rem; color: var(--svb-text); line-height: 1; }
-        .section-subtitle { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #666; letter-spacing: 0.1em; }
+        .section-title { font-family: 'Dancing Script', cursive; font-size: 3rem; color: var(--svb-text); line-height: 1; margin-right: 15px; }
+        .section-subtitle { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #666; letter-spacing: 0.1em; background: rgba(255,255,255,0.5); padding: 5px 12px; border-radius: 20px; }
 
         /* === CARTE SESSION === */
         .session-card {
@@ -77,13 +77,14 @@
             padding: 25px;
             height: 100%;
             transition: all 0.3s ease;
-            border-left: 5px solid transparent;
+            border-left: 6px solid transparent;
             box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            display: flex; flex-direction: column;
         }
         .session-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
 
-        .activity-name { font-size: 1.3rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: var(--svb-text); }
-        .activity-desc { font-size: 0.85rem; line-height: 1.5; color: #555; }
+        .activity-name { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: var(--svb-text); }
+        .activity-desc { font-size: 0.85rem; line-height: 1.5; color: #555; flex-grow: 1; }
 
         /* THÈMES COULEURS */
         .theme-crossformer .section-icon { background: var(--col-peach); }
@@ -131,7 +132,7 @@
 
     <div class="relative text-center py-16 px-4 reveal-load d-1 z-10">
         <h1 class="text-7xl md:text-9xl text-[#2F4F4F] drop-shadow-sm mb-4 font-hand">Nos Sessions</h1>
-        <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-bold bg-white/40 inline-block px-6 py-2 rounded-full backdrop-blur-md">Chaque Pass, un univers unique</p>
+        <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-bold bg-white/40 inline-block px-6 py-2 rounded-full backdrop-blur-md">Découvrez chaque univers</p>
     </div>
 
     <div class="relative max-w-6xl mx-auto px-4 pb-20 z-10">
@@ -139,48 +140,35 @@
         <div class="pass-section theme-crossformer reveal-load d-1">
             <div class="section-header">
                 <div class="section-icon">🔥</div>
-                <div>
-                    <h2 class="section-title">Pass Crossformer</h2>
-                    <p class="section-subtitle">L'intensité du Reformer</p>
-                </div>
+                <h2 class="section-title">Pass Crossformer</h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid md:grid-cols-1 gap-6">
                 <div class="session-card">
                     <h3 class="activity-name">Crossformer</h3>
-                    <p class="activity-desc">L'Exclusivité SVB. Le Reformer en version cardio et athlétique. On saute, on transpire, on brûle des calories, mais sans aucun impact traumatisant pour les articulations.</p>
+                    <p class="activity-desc">L'Exclusivité SVB. Le Reformer en version cardio et athlétique. On saute, on transpire, on brûle des calories, mais sans aucun impact traumatisant pour les articulations grâce à la machine.</p>
                 </div>
-                </div>
+            </div>
         </div>
 
-        <div class="pass-section theme-reformer reveal-load d-2">
+        <div class="pass-section theme-reformer reveal-load d-1">
             <div class="section-header">
                 <div class="section-icon">🌱</div>
-                <div>
-                    <h2 class="section-title">Pass Reformer</h2>
-                    <p class="section-subtitle">Contrôle & Profondeur</p>
-                </div>
+                <h2 class="section-title">Pass Reformer</h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid md:grid-cols-1 gap-6">
                 <div class="session-card">
-                    <h3 class="activity-name">Classic Reformer</h3>
-                    <p class="activity-desc">Le Pilates traditionnel sur machine. On utilise la résistance des ressorts pour un travail profond, précis et contrôlé. Idéal pour sculpter et allonger.</p>
-                </div>
-                <div class="session-card">
-                    <h3 class="activity-name">Power Reformer</h3>
-                    <p class="activity-desc">Une version un peu plus rythmée du Reformer classique. Les enchaînements sont fluides pour monter légèrement l'intensité tout en gardant le contrôle.</p>
+                    <h3 class="activity-name">Pilates Reformer</h3>
+                    <p class="activity-desc">Le Pilates traditionnel sur machine. On utilise la résistance des ressorts pour un travail profond, précis et contrôlé. Idéal pour sculpter, allonger la silhouette et renforcer la posture.</p>
                 </div>
             </div>
         </div>
 
-        <div class="pass-section theme-cross reveal-load d-3">
+        <div class="pass-section theme-cross reveal-load d-2">
             <div class="section-header">
                 <div class="section-icon">⚡</div>
-                <div>
-                    <h2 class="section-title">Pass Cross</h2>
-                    <p class="section-subtitle">Cardio & Renforcement</p>
-                </div>
+                <h2 class="section-title">Pass Cross</h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="session-card">
                     <h3 class="activity-name">Cross Training</h3>
                     <p class="activity-desc">Circuit training complet. Mélange de poids de corps, charges légères et cardio. On se dépasse ensemble.</p>
@@ -190,47 +178,65 @@
                     <p class="activity-desc">Inspiré de l'Hyrox. Un mix d'endurance (course) et d'ateliers fonctionnels. Pour le cœur et le mental.</p>
                 </div>
                 <div class="session-card">
-                    <h3 class="activity-name">Boxe Anglaise</h3>
-                    <p class="activity-desc">Technique et cardio. On enfile les gants pour se défouler au sac ou aux pattes d'ours. Intense et ludique.</p>
+                    <h3 class="activity-name">Cross Core</h3>
+                    <p class="activity-desc">Focus absolu sur la sangle abdominale. Gainage, obliques et grand droit pour un centre du corps solide.</p>
+                </div>
+                <div class="session-card">
+                    <h3 class="activity-name">Cross Body</h3>
+                    <p class="activity-desc">Renforcement musculaire global à faible impact (Low Impact). On sculpte tout le corps sans sauts.</p>
+                </div>
+                <div class="session-card">
+                    <h3 class="activity-name">Cross Yoga</h3>
+                    <p class="activity-desc">Un yoga axé sur la mobilité articulaire et les étirements actifs, adapté aux sportifs pour la récupération.</p>
                 </div>
             </div>
         </div>
 
-        <div class="pass-section theme-focus reveal-load d-4">
+        <div class="pass-section theme-focus reveal-load d-3">
             <div class="section-header">
                 <div class="section-icon">🧘‍♀️</div>
-                <div>
-                    <h2 class="section-title">Pass Focus</h2>
-                    <p class="section-subtitle">Bien-être, Flow & Danse</p>
-                </div>
+                <h2 class="section-title">Pass Focus</h2>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="session-card">
                     <h3 class="activity-name">Yoga Vinyasa</h3>
-                    <p class="activity-desc">Flow dynamique où le mouvement suit le souffle. On gaine, on s'étire et on transpire en flow.</p>
+                    <p class="activity-desc">Flow dynamique où le mouvement suit le souffle. On gaine, on s'étire et on transpire en mouvement.</p>
                 </div>
                 <div class="session-card">
-                    <h3 class="activity-name">Pilates Mat</h3>
-                    <p class="activity-desc">Le retour aux sources. Renforcement profond du centre du corps (Powerhouse) sur tapis.</p>
+                    <h3 class="activity-name">Hatha Flow</h3>
+                    <p class="activity-desc">Pratique plus lente que le Vinyasa. On tient les postures plus longtemps pour travailler l'alignement et le calme.</p>
+                </div>
+                <div class="session-card">
+                    <h3 class="activity-name">Classic Pilates</h3>
+                    <p class="activity-desc">Le Pilates au sol traditionnel. On prend le temps de contrôler chaque mouvement et de renforcer le Powerhouse.</p>
+                </div>
+                <div class="session-card">
+                    <h3 class="activity-name">Power Pilates</h3>
+                    <p class="activity-desc">Une version plus rythmée du Pilates au sol. On enchaîne les exercices pour faire monter la température.</p>
+                </div>
+                <div class="session-card">
+                    <h3 class="activity-name">Boxe Anglaise</h3>
+                    <p class="activity-desc">Technique et cardio. On enfile les gants pour se défouler au sac ou aux pattes d'ours. Intense et ludique.</p>
                 </div>
                 <div class="session-card">
                     <h3 class="activity-name">Afrodance'All</h3>
-                    <p class="activity-desc">Lâcher-prise total ! Chorégraphies entraînantes sur des rythmes afro. Cardio et Good Vibes.</p>
+                    <p class="activity-desc">Lâcher-prise total ! Chorégraphies entraînantes sur des rythmes afro. Cardio, sourire et Good Vibes.</p>
                 </div>
                 <div class="session-card">
-                    <h3 class="activity-name">Cross Body/Core</h3>
-                    <p class="activity-desc">Renforcement ciblé (Fessiers ou Abdos) à faible impact. Idéal pour sculpter sans sauts.</p>
+                    <h3 class="activity-name">Core & Stretch</h3>
+                    <p class="activity-desc">Mix parfait : un peu de renforcement du centre du corps suivi de longs étirements relaxants.</p>
+                </div>
+                <div class="session-card">
+                    <h3 class="activity-name">Cross Forme</h3>
+                    <p class="activity-desc">Cours de renforcement global et postural sans machine, pour sculpter la silhouette.</p>
                 </div>
             </div>
         </div>
 
-        <div class="pass-section theme-kids reveal-load d-5">
+        <div class="pass-section theme-kids reveal-load d-3">
             <div class="section-header">
                 <div class="section-icon">🎈</div>
-                <div>
-                    <h2 class="section-title">Pass Kids</h2>
-                    <p class="section-subtitle">Pour les petits champions</p>
-                </div>
+                <h2 class="section-title">Pass Kids</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="session-card">
