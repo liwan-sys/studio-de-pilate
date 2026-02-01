@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Cadeau | SVB SantezVousBien</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --svb-green-light: #98D0B3; 
+            --svb-green-dark: #4A8D84;  
+            --svb-sand: #F2E6CF;        
+            --svb-peach: #E8B496;
+            --svb-text: #2F4F4F;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--svb-green-light);
+            color: var(--svb-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* === SPLASH SCREEN === */
+        #splash-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
+            z-index: 9999; display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s;
+        }
+        #splash-logo {
+            width: 150px; opacity: 0; transform: scale(0.8);
+            filter: brightness(0) invert(1);
+        }
+        .animate-logo { animation: logoIntro 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        @keyframes logoIntro {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .splash-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
+
+        /* FOND IMMERSIF */
+        .ambient-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
+            background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
+            overflow: hidden;
+        }
+        .blob {
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6;
+            animation: moveBlob 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-green-dark); }
+        .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--svb-peach); animation-delay: -5s; }
+        @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -50px) scale(1.1); } }
+        
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        /* ANIMATIONS CONTENU */
+        .reveal-load { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .content-visible .reveal-load { opacity: 1; transform: translateY(0); }
+        .d-1 { transition-delay: 0.2s; }
+        .d-2 { transition-delay: 0.4s; }
+
+        /* CONTAINER WIDGET SPORTIGO (Design Carte) */
+        .gift-container {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Personnalisation légère du widget Sportigo si possible via CSS externe */
+        #sportigo-container-giftcard {
+            width: 100%;
+            min-height: 400px;
+        }
+    </style>
+</head>
+<body class="overflow-hidden"> 
+    
+    <div id="splash-screen">
+        <img id="splash-logo" src="images/logo.png" alt="SVB Logo">
+    </div>
+
+    <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+    <div class="noise-overlay"></div>
+
+    <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
+        <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
+            <a href="index.html"><img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md"></a>
+        </div>
+        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
+            <a href="index.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">L'UNIVERS</a>
+            <a href="sessions.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">LA TEAM</a>
+            <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">TARIFS</a>
+            <a href="carte-cadeau.html" class="border-b-2 border-white pb-1">CADEAU</a> <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
+            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CONTACT</a>
+        </div>
+    </nav>
+
+    <header class="relative text-center py-16 px-4 reveal-load d-1 z-10">
+        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-6 font-hand">Carte Cadeau</h1>
+        <p class="text-white text-lg font-light max-w-2xl mx-auto opacity-90 drop-shadow-md">
+            Offrez du mouvement, du bien-être et de l'énergie positive.<br>
+            Le cadeau idéal pour prendre soin de ceux que vous aimez.
+        </p>
+    </header>
+
+    <div class="relative px-4 pb-24 reveal-load d-2 z-10">
+        <div class="gift-container">
+            <div id="sportigo-container-giftcard"></div>
+        </div>
+    </div>
+
+    <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white py-12 border-t border-white/20 z-10 text-center">
+        <img src="images/logo.png" alt="Logo SVB" class="h-16 mx-auto mb-4 brightness-0 invert opacity-90">
+        <p class="text-xs opacity-80 mb-2">SVB SantezVousBien - Saint-Ouen</p>
+        <p class="text-[10px] opacity-60 uppercase tracking-widest">© 2026 Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://standalone.api.sportigo.fr/component-standalone.js"></script>
+    <script>
+        // Init Widget Sportigo
+        initComponent("GiftCard", "sportigo-container-giftcard", "0d08fb87-0984-4f6d-950d-19e96f51a71a");
+
+        // Logic Splash Screen
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash-screen');
+            const logo = document.getElementById('splash-logo');
+            const body = document.body;
+
+            if (sessionStorage.getItem('svb-splash-seen')) {
+                splash.style.display = 'none';
+                body.classList.remove('overflow-hidden');
+                body.classList.add('content-visible');
+            } else {
+                logo.classList.add('animate-logo');
+                setTimeout(() => {
+                    splash.classList.add('splash-hidden');
+                    body.classList.remove('overflow-hidden');
+                    body.classList.add('content-visible');
+                    sessionStorage.setItem('svb-splash-seen', 'true');
+                }, 2500);
+            }
+        });
+    </script>
+
+</body>
+</html>
