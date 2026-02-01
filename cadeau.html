@@ -73,24 +73,86 @@
         .d-1 { transition-delay: 0.2s; }
         .d-2 { transition-delay: 0.4s; }
 
-        /* CONTAINER WIDGET SPORTIGO (Design Carte) */
+        /* === DESIGN CARTE CADEAU "LUXE" === */
         .gift-container {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-            max-width: 800px;
+            background: rgba(255, 255, 255, 0.85); /* Plus opaque pour la lisibilité */
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid white;
+            border-radius: 40px;
+            padding: 0; /* Padding géré à l'intérieur */
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Personnalisation légère du widget Sportigo si possible via CSS externe */
+        /* Bandeau décoratif en haut */
+        .gift-header {
+            background: linear-gradient(135deg, var(--svb-peach) 0%, #f6d0b9 100%);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        /* Effet de texture sur le bandeau */
+        .gift-header::after {
+            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+            background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        /* Le corps de la carte */
+        .gift-body {
+            padding: 40px;
+        }
+
+        /* Étapes */
+        .steps-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .step-item {
+            text-align: center;
+            width: 120px;
+        }
+        .step-icon {
+            width: 50px; height: 50px;
+            background: var(--svb-green-light);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 10px;
+            color: white; font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .step-text { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--svb-green-dark); }
+
+        /* Widget Sportigo Container */
         #sportigo-container-giftcard {
             width: 100%;
             min-height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
         }
+
+        /* Petit ruban décoratif en CSS */
+        .ribbon {
+            position: absolute; top: -10px; right: 30px; width: 60px; height: 80px;
+            background: var(--svb-green-dark);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .ribbon::after {
+            content: ''; position: absolute; bottom: -20px; left: 0;
+            border-left: 30px solid var(--svb-green-dark);
+            border-right: 30px solid var(--svb-green-dark);
+            border-bottom: 20px solid transparent;
+        }
+
     </style>
 </head>
 <body class="overflow-hidden"> 
@@ -107,29 +169,59 @@
             <a href="index.html"><img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md"></a>
         </div>
         <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
-            <a href="index.html" class="border-b-2 border-white pb-1">L'UNIVERS</a>
+            <a href="index.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">L'UNIVERS</a>
             <a href="sessions.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">SESSIONS</a>
             <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">LA TEAM</a>
             <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
             <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
             <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">TARIFS</a>
-            <a href="cadeau.html" class="border-b-2 border-white pb-1 text-black">CADEAU</a>
+            <a href="carte-cadeau.html" class="border-b-2 border-white pb-1">CADEAU</a>
             <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
             <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CONTACT</a>
         </div>
     </nav>
 
-    <header class="relative text-center py-16 px-4 reveal-load d-1 z-10">
-        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-6 font-hand">Carte Cadeau</h1>
+    <header class="relative text-center pt-16 pb-10 px-4 reveal-load d-1 z-10">
+        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-4 font-hand">Offrez du Bien-être</h1>
         <p class="text-white text-lg font-light max-w-2xl mx-auto opacity-90 drop-shadow-md">
-            Offrez du mouvement, du bien-être et de l'énergie positive.<br>
             Le cadeau idéal pour prendre soin de ceux que vous aimez.
         </p>
     </header>
 
     <div class="relative px-4 pb-24 reveal-load d-2 z-10">
         <div class="gift-container">
-            <div id="sportigo-container-giftcard"></div>
+            <div class="ribbon hidden md:block"></div>
+
+            <div class="gift-header">
+                <h2 class="text-3xl font-hand mb-1 text-white drop-shadow-md">Carte Cadeau SVB</h2>
+                <p class="text-xs uppercase tracking-widest opacity-90">Valable sur toutes nos prestations</p>
+            </div>
+
+            <div class="gift-body">
+                
+                <div class="steps-row">
+                    <div class="step-item">
+                        <div class="step-icon">1</div>
+                        <p class="step-text">Choisissez le montant</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon">2</div>
+                        <p class="step-text">Écrivez un mot doux</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon">3</div>
+                        <p class="step-text">Envoyez par email</p>
+                    </div>
+                </div>
+
+                <hr class="border-t border-gray-200 mb-8 mx-auto w-1/2">
+
+                <div id="sportigo-container-giftcard"></div>
+                
+                <p class="text-center text-[10px] text-gray-400 mt-6 italic">
+                    Paiement sécurisé via notre partenaire Sportigo. La carte est envoyée immédiatement par email.
+                </p>
+            </div>
         </div>
     </div>
 
