@@ -94,7 +94,7 @@
 
         .offer-banner { text-align: center; padding: 15px; border-radius: 12px; margin-bottom: 25px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .banner-machines { background: var(--col-peach); }
-        .banner-training { background: var(--col-green); } /* Nouvelle couleur pour training */
+        .banner-training { background: var(--col-green); }
 
         .btn-unit { background: white; color: var(--col-dark); border: 1px solid var(--col-dark); padding: 6px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; transition: all 0.3s; margin-left: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .btn-unit:hover { background: var(--col-dark); color: white; transform: translateY(-2px); }
@@ -303,10 +303,9 @@
             </div>
         </div>
 
-        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2 drop-shadow-md">Coaching & Kids</h2>
-        <div class="grid md:grid-cols-3 gap-8 reveal-load d-3">
-            
-            <div class="price-card group">
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2 drop-shadow-md">Coaching Privé</h2>
+        <div class="flex justify-center mb-24 reveal-load d-3">
+            <div class="price-card group max-w-md w-full">
                 <div class="card-header header-dark">Coaching Good Vibes</div>
                 <div class="p-6 body-dark h-full flex flex-col justify-center">
                     <div class="price-row"><span>4 Séances / mois</span> <span>300,30€</span></div>
@@ -322,8 +321,11 @@
                 </div>
                 <a href="contact.html" class="btn-action">Infos Coaching</a>
             </div>
+        </div>
 
-            <div class="price-card group">
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2 drop-shadow-md">Pour les Enfants</h2>
+        <div class="flex justify-center mb-24 reveal-load d-3">
+            <div class="price-card group max-w-md w-full">
                 <div class="card-header header-peach">Pass Kids <br><span class="text-xs font-normal opacity-80">(Hors Juillet/Août)</span></div>
                 <div class="p-6 body-peach h-full text-center flex flex-col justify-center">
                     <p class="mb-3 font-bold text-xl text-[#2F4F4F]">2 Sessions - 35,30€</p>
@@ -337,21 +339,26 @@
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Acheter / Souscrire</a>
             </div>
+        </div>
 
-            <div class="price-card bg-white/70 group border-4 border-[#B8D8C0]">
-                <div class="p-8 text-center h-full flex flex-col justify-center">
-                    <h3 class="font-hand text-5xl mb-4 text-[#4A8D84]">Option Boost</h3>
-                    <p class="text-5xl font-bold mb-6 text-[#2F4F4F]">9,90€<span class="text-base font-normal">/mois</span></p>
-                    <ul class="text-xs text-left space-y-3 mb-8 bg-white p-6 rounded-xl shadow-sm">
-                        <li>✅ Frais d'inscription offerts</li>
-                        <li>✅ 1 Essai gratuit/mois (proche)</li>
-                        <li>✅ Suspension sans préavis</li>
-
+        <section class="mb-24 reveal-load d-3">
+            <div class="max-w-4xl mx-auto price-card bg-white/70 group border-4 border-[#B8D8C0] flex md:flex-row flex-col items-center overflow-hidden">
+                <div class="p-8 md:w-1/2 text-center border-b md:border-b-0 md:border-r border-[#B8D8C0]">
+                    <h3 class="font-hand text-5xl mb-2 text-[#4A8D84]">Option Boost</h3>
+                    <p class="text-xs uppercase tracking-widest text-gray-500 mb-6">Le complément idéal</p>
+                    <p class="text-6xl font-bold text-[#2F4F4F]">9,90€<span class="text-xl font-normal text-gray-500">/mois</span></p>
+                </div>
+                <div class="p-8 md:w-1/2 w-full bg-white/40 h-full flex flex-col justify-center">
+                    <ul class="text-sm text-left space-y-4 mb-8">
+                        <li class="flex items-center"><span class="mr-2">✅</span> <strong>Frais d'inscription offerts</strong></li>
+                        <li class="flex items-center"><span class="mr-2">✅</span> 1 Essai gratuit/mois pour un proche</li>
+                        <li class="flex items-center"><span class="mr-2">✅</span> Suspension sans préavis</li>
+                        <li class="flex items-center text-[#4A8D84] font-bold"><span class="mr-2">⏱️</span> Engagement 3 mois</li>
                     </ul>
-                    <a href="contact.html" class="btn-action rounded-full">Ajouter l'option</a>
+                    <a href="contact.html" class="block w-full bg-[#4A8D84] text-white text-center padding py-3 rounded-full uppercase font-bold text-xs tracking-widest hover:bg-[#386e66] transition shadow-lg">Ajouter l'option</a>
                 </div>
             </div>
-        </div>
+        </section>
 
     </div>
 
