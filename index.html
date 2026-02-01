@@ -30,7 +30,6 @@
         #splash-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Dégradé identique à l'accueil */
             background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
             z-index: 9999;
             display: flex;
@@ -43,11 +42,10 @@
             width: 150px;
             opacity: 0;
             transform: scale(0.8);
-            /* L'animation est définie ici mais on la lancera via JS si besoin */
-            filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1); /* Logo en blanc */
         }
 
-        /* Animation définie */
+        /* Classe d'animation ajoutée via JS */
         .animate-logo {
             animation: logoIntro 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
@@ -165,13 +163,11 @@
             color: var(--svb-text);
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        
         .studio-info-card:hover {
             background: rgba(255, 255, 255, 0.9);
             transform: translateX(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-
         .studio-title {
             font-size: 1.8rem;
             font-weight: 700;
@@ -181,6 +177,41 @@
         }
 
         iframe { border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 4px solid rgba(255,255,255,0.7); }
+
+        /* BOUTON FLOTTANT WHATSAPP */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366; /* Vert WhatsApp */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 9990;
+            cursor: pointer;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-pulse {
+            position: absolute;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 2px solid #25D366;
+            animation: pulse-wa 2s infinite;
+            opacity: 0;
+        }
+        @keyframes pulse-wa {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
 
     </style>
 </head>
@@ -209,7 +240,7 @@
             <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
             <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
             <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">TARIFS</a>
-           <a href="   cadeau.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CADEAU</a>
+            <a href="carte-cadeau.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CADEAU</a>
             <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
             <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CONTACT</a>
         </div>
@@ -263,7 +294,7 @@
                     <p class="card-desc">Pilates sur machine</p>
                 </div>
                 <div>
-                    <p class="card-price">50€</p> <span class="btn-small">Réserver</span>
+                    <p class="card-price">30€</p> <span class="btn-small">Réserver</span>
                 </div>
             </a>
 
@@ -273,7 +304,7 @@
                     <p class="card-desc">Intensité & Cardio</p>
                 </div>
                 <div>
-                    <p class="card-price">50€</p> <span class="btn-small">Réserver</span>
+                    <p class="card-price">30€</p> <span class="btn-small">Réserver</span>
                 </div>
             </a>
 
@@ -334,16 +365,21 @@
         </div>
     </section>
 
+    <a href="https://wa.me/33744919155" target="_blank" class="whatsapp-btn">
+        <div class="whatsapp-pulse"></div>
+        <svg width="35" height="35" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382C17.119 14.205 15.396 13.359 15.068 13.243C14.739 13.128 14.503 13.072 14.265 13.424C14.032 13.782 13.364 14.569 13.159 14.804C12.956 15.039 12.753 15.067 12.399 14.889C12.043 14.71 10.908 14.336 9.559 13.132C8.502 12.188 7.785 11.022 7.581 10.668C7.375 10.315 7.558 10.126 7.734 9.949C7.893 9.792 8.085 9.539 8.261 9.336C8.441 9.13 8.498 8.983 8.614 8.749C8.733 8.514 8.674 8.309 8.583 8.132C8.496 7.954 7.788 6.22 7.492 5.517C7.206 4.832 6.918 4.922 6.703 4.913C6.495 4.904 6.257 4.904 6.019 4.904C5.782 4.904 5.394 4.994 5.068 5.348C4.742 5.702 3.824 6.564 3.824 8.309C3.824 10.054 5.093 11.739 5.271 11.975C5.452 12.213 7.799 15.839 11.488 17.429C14.018 18.522 14.629 18.286 15.158 18.236C15.938 18.163 17.519 17.319 17.846 16.398C18.174 15.48 18.174 14.685 18.087 14.538C17.994 14.391 17.761 14.323 17.472 14.382ZM11.011 21.996C11.009 21.996 11.006 21.996 11.003 21.996C9.406 21.995 7.842 21.564 6.467 20.748L6.091 20.525L2.613 21.439L3.541 18.046L3.298 17.659C2.421 16.262 1.956 14.646 1.958 12.992C1.961 8.01 6.013 3.961 10.998 3.961C13.411 3.962 15.681 4.9 17.387 6.607C19.094 8.314 20.033 10.584 20.03 12.998C20.026 17.981 15.975 21.996 11.011 21.996Z"/>
+        </svg>
+    </a>
+
     <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white pt-16 pb-8 mt-10 border-t border-white/20 z-10">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
-            
             <div class="flex flex-col items-center md:items-start">
                 <img src="images/logo.png" alt="Logo SVB" class="h-24 mb-4 brightness-0 invert">
                 <p class="text-xs opacity-80 leading-relaxed max-w-xs">
                     SantezVousBien est votre espace de remise en forme et de bien-être à Saint-Ouen. Pilates, Yoga, Training et Soins.
                 </p>
             </div>
-
             <div class="flex flex-col items-center md:items-center">
                 <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Contact</h3>
                 <ul class="space-y-4 text-sm opacity-90">
@@ -352,7 +388,6 @@
                     <li>📍 Saint-Ouen, France</li>
                 </ul>
             </div>
-
             <div class="flex flex-col items-center md:items-end">
                 <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Suivez-nous</h3>
                 <a href="https://www.instagram.com/svb.officiel" target="_blank" class="inline-block bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-8 py-3 rounded-full text-xs font-bold uppercase mb-6 shadow-md hover:shadow-lg transform hover:-translate-y-1">
