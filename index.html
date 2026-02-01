@@ -26,67 +26,76 @@
             position: relative;
         }
 
-        /* === IMMERSION BACKGROUND === */
-        .ambient-bg {
+        /* === SPLASH SCREEN (ANIMATION D'OUVERTURE) === */
+        #splash-screen {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -2;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--svb-green-dark); /* Fond vert SVB */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s;
+        }
+
+        #splash-logo {
+            width: 180px;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: logoIntro 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            filter: brightness(0) invert(1); /* Logo en blanc */
+        }
+
+        @keyframes logoIntro {
+            0% { opacity: 0; transform: scale(0.8); }
+            40% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .splash-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Empêcher le scroll pendant l'intro */
+        body.overflow-hidden { overflow: hidden; }
+
+        /* Contenu qui apparaît après */
+        .reveal-site {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .content-visible .reveal-site {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === DESIGN GENERAL === */
+        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
+
+        /* FOND IMMERSIF */
+        .ambient-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
             background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
             overflow: hidden;
         }
-
         .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.6;
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6;
             animation: moveBlob 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-green-dark); animation-delay: 0s; }
+        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-green-dark); }
         .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--svb-peach); animation-delay: -5s; }
-        .blob-3 { top: 40%; left: 40%; width: 40vw; height: 40vw; background: white; opacity: 0.4; animation-delay: -10s; }
-
-        @keyframes moveBlob {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, -50px) scale(1.1); }
-        }
-
-        /* TEXTURE GRAIN */
+        @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -50px) scale(1.1); } }
+        
         .noise-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.05;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.05;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             pointer-events: none;
         }
 
-        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
-
-        /* Animation */
-        @keyframes softSlideUp {
-            0% { opacity: 0; transform: translateY(40px); filter: blur(10px); }
-            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
-        }
-        .reveal-load { animation: softSlideUp 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
-        .d-1 { animation-delay: 0.1s; }
-        .d-2 { animation-delay: 0.3s; }
-        .d-3 { animation-delay: 0.5s; }
-
-        /* Animations Carte Starter */
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(0.5deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-        @keyframes pulse-btn {
-            0% { box-shadow: 0 0 0 0 rgba(74, 141, 132, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(74, 141, 132, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(74, 141, 132, 0); }
-        }
-
-        /* BOUTON ACTION (Vert foncé) */
+        /* ELEMENTS */
         .btn-action {
             background-color: var(--svb-green-dark);
             color: white;
@@ -100,8 +109,6 @@
             box-shadow: 0 10px 30px rgba(74, 141, 132, 0.3);
             display: inline-block;
             border: 1px solid rgba(255,255,255,0.2);
-            position: relative;
-            overflow: hidden;
         }
         .btn-action:hover {
             background-color: #386e66;
@@ -109,292 +116,182 @@
             box-shadow: 0 15px 40px rgba(74, 141, 132, 0.5);
         }
 
-        /* === CARD STARTER (IMMERSIVE) === */
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
         .starter-card-wrapper { animation: float 6s ease-in-out infinite; }
+        
         .starter-card {
-            background: rgba(255, 255, 255, 0.75); /* Plus transparent */
-            backdrop-filter: blur(20px); /* Flou puissant */
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 50px 40px;
-            text-align: center;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px; padding: 50px 40px; text-align: center;
             box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-            max-width: 550px;
-            margin: 0 auto;
-            position: relative;
-            border: 1px solid rgba(255,255,255,0.8);
-            transition: all 0.4s ease;
+            max-width: 550px; margin: 0 auto; position: relative;
+            border: 1px solid rgba(255,255,255,0.8); transition: all 0.4s ease;
         }
-        .starter-card:hover {
-            background: rgba(255, 255, 255, 0.85);
-            transform: scale(1.02);
-            border-color: var(--svb-green-dark);
-        }
-        .starter-card .btn-action { animation: pulse-btn 2.5s infinite; }
+        .starter-card:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.9); border-color: var(--svb-green-dark); }
 
-        /* === CARTES ESSAI (IMMERSIVE) === */
         .text-card {
             background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 35px 25px;
-            text-align: center;
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-radius: 25px; padding: 35px 25px; text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            cursor: pointer;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: all 0.4s; cursor: pointer; height: 100%; display: flex; flex-direction: column; justify-content: space-between;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
+        .text-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.95); box-shadow: 0 20px 50px rgba(0,0,0,0.15); border-color: var(--svb-green-dark); }
 
-        .text-card:hover {
-            background: rgba(255, 255, 255, 0.95);
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            border-color: var(--svb-green-dark);
-        }
-
-        .card-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            color: var(--svb-green-dark);
-            margin-bottom: 5px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .card-desc {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: #555;
-            letter-spacing: 0.05em;
-            margin-bottom: 20px;
-        }
-
-        .card-price {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--svb-text);
-            margin-bottom: 25px;
-        }
-
-        .btn-small {
-            border: 1px solid var(--svb-green-dark);
-            color: var(--svb-green-dark);
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            font-weight: 700;
-            transition: all 0.3s;
-            background: transparent;
-        }
+        .card-title { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--svb-green-dark); margin-bottom: 5px; }
+        .card-desc { font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: #555; margin-bottom: 15px; }
+        .card-price { font-size: 2.8rem; font-weight: 700; color: var(--svb-text); margin-bottom: 25px; }
         
-        .text-card:hover .btn-small {
-            background-color: var(--svb-green-dark);
-            color: white;
-            box-shadow: 0 5px 15px rgba(74, 141, 132, 0.4);
-        }
+        .btn-small { border: 1px solid var(--svb-green-dark); color: var(--svb-green-dark); padding: 10px 25px; border-radius: 25px; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; transition: all 0.3s; background: transparent; }
+        .text-card:hover .btn-small { background-color: var(--svb-green-dark); color: white; box-shadow: 0 5px 15px rgba(74, 141, 132, 0.4); }
 
-        /* MAP */
-        iframe {
-            border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            border: 4px solid rgba(255,255,255,0.7);
-            transition: transform 0.3s ease;
+        .studio-info-card {
+            background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(12px); border-radius: 20px; padding: 25px; text-align: right;
+            border: 1px solid rgba(255,255,255,0.6); transition: all 0.3s ease; color: var(--svb-text); box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        iframe:hover { transform: scale(1.01); }
+        .studio-info-card:hover { background: rgba(255, 255, 255, 0.9); transform: translateX(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .studio-title { font-size: 1.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; color: var(--svb-green-dark); }
+
+        iframe { border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 4px solid rgba(255,255,255,0.7); }
 
     </style>
 </head>
-<body>
-
-    <div class="ambient-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+<body class="overflow-hidden"> <div id="splash-screen">
+        <img id="splash-logo" src="images/logo.png" alt="SVB Logo">
     </div>
+
+    <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
     <div class="noise-overlay"></div>
 
-    <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
-        <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md">
-            </a>
-        </div>
-        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
-            <a href="index.html" class="border-b-2 border-white pb-1">L'UNIVERS</a>
-            <a href="sessions.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">SESSIONS</a>
-            <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">LA TEAM</a>
-            <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
-            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">TARIFS</a>
-            <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
-            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CONTACT</a>
-        </div>
-    </nav>
+    <div id="site-content" class="reveal-site">
 
-    <header class="relative text-center py-20 px-4 reveal-load d-1 z-10">
-        <h1 class="text-7xl md:text-9xl text-white drop-shadow-lg mb-6 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default">
-            SantezVousBien
-        </h1>
-        <p class="text-white text-xl font-light max-w-3xl mx-auto mb-8 leading-relaxed opacity-90 drop-shadow-md">
-            Plus qu'une salle de sport, un lieu de vie.<br>
-            <span class="font-medium italic">Deux studios, une seule énergie.</span>
-        </p>
-    </header>
-
-    <div class="relative px-4 pb-24 reveal-load d-2 z-10">
-        <div class="starter-card-wrapper">
-            <div class="starter-card">
-                <span class="bg-[#E8B496] text-white px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6 inline-block shadow-lg">
-                    Offre Découverte
-                </span>
-                
-                <h2 class="text-5xl font-hand text-[#4A8D84] mb-3">New Pass Starter</h2>
-                
-                <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-500 uppercase mb-8 tracking-wide">
-                    <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">5 Sessions</span>
-                    <span>•</span>
-                    <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">Sans Engagement</span>
-                </div>
-                
-                <p class="text-7xl font-bold text-[#2F4F4F] mb-10 tracking-tight drop-shadow-sm">
-                    99,90<span class="text-3xl align-top">€</span>
-                </p>
-                
-                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full text-lg">
-                    Je commence maintenant
-                </a>
-                <p class="text-[10px] text-gray-500 mt-5 italic">Valable 1 mois • Offre limitée</p>
+        <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white z-10">
+            <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
+                <a href="index.html"><img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md"></a>
             </div>
-        </div>
-    </div>
+            <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
+                <a href="index.html" class="border-b-2 border-white pb-1">L'UNIVERS</a>
+                <a href="sessions.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">SESSIONS</a>
+                <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">LA TEAM</a>
+                <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
+                <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
+                <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">TARIFS</a>
+                <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
+                <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CONTACT</a>
+            </div>
+        </nav>
 
-    <div class="relative max-w-6xl mx-auto px-4 pb-32 text-center reveal-load d-3 z-10">
-        <h2 class="text-4xl text-white font-hand mb-12 drop-shadow-md">Juste une séance ?</h2>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="text-card group">
-                <div>
-                    <h3 class="card-title">Reformer</h3>
-                    <p class="card-desc">Pilates sur machine</p>
-                </div>
-                <div>
-                    <p class="card-price">50€</p>
-                    <span class="btn-small">Réserver</span>
-                </div>
-            </a>
-
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="text-card group">
-                <div>
-                    <h3 class="card-title">Crossformer</h3>
-                    <p class="card-desc">Intensité & Cardio</p>
-                </div>
-                <div>
-                    <p class="card-price">50€</p>
-                    <span class="btn-small">Réserver</span>
-                </div>
-            </a>
-
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="text-card group">
-                <div>
-                    <h3 class="card-title">Cross / Focus</h3>
-                    <p class="card-desc">Training • Yoga • Boxe</p>
-                </div>
-                <div>
-                    <p class="card-price">30€</p>
-                    <span class="btn-small">Réserver</span>
-                </div>
-            </a>
-
-        </div>
-    </div>
-
-    <section class="relative max-w-6xl mx-auto px-4 pb-24 reveal-load d-2 z-10">
-        <div class="text-center mb-12">
-            <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">Nos 2 Studios</h2>
-            <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
-                Situés à 5 minutes à pied l'un de l'autre
+        <header class="relative text-center py-20 px-4 z-10">
+            <h1 class="text-7xl md:text-9xl text-white drop-shadow-lg mb-6 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default">SantezVousBien</h1>
+            <p class="text-white text-xl font-light max-w-3xl mx-auto mb-8 leading-relaxed opacity-90 drop-shadow-md">
+                Plus qu'une salle de sport, un lieu de vie.<br>
+                <span class="font-medium italic">Deux studios, une seule énergie.</span>
             </p>
+        </header>
+
+        <div class="relative px-4 pb-24 z-10">
+            <div class="starter-card-wrapper">
+                <div class="starter-card">
+                    <span class="bg-[#E8B496] text-white px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6 inline-block shadow-lg">Offre Découverte</span>
+                    <h2 class="text-5xl font-hand text-[#4A8D84] mb-3">New Pass Starter</h2>
+                    <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-500 uppercase mb-8 tracking-wide">
+                        <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">5 Sessions</span>
+                        <span>•</span>
+                        <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">Sans Engagement</span>
+                    </div>
+                    <p class="text-7xl font-bold text-[#2F4F4F] mb-10 tracking-tight drop-shadow-sm">99,90<span class="text-3xl align-top">€</span></p>
+                    <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full text-lg">Je commence maintenant</a>
+                    <p class="text-[10px] text-gray-500 mt-5 italic">Valable 1 mois • Offre limitée</p>
+                </div>
+            </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            
-            <div class="text-right space-y-10 text-white">
-                <div class="group cursor-default">
-                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#2F4F4F] transition">📍 Parc des Docks</h3>
-                    <p class="text-base opacity-90 font-light leading-relaxed">
-                        Le cœur battant du Reformer et des sessions intenses. Un espace moderne baigné de lumière.
-                    </p>
-                </div>
-                <div class="group cursor-default">
-                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#2F4F4F] transition">📍 Cours des Lavandières</h3>
-                    <p class="text-base opacity-90 font-light leading-relaxed">
-                        Le cocon du Yoga, du Bien-être et des petits groupes. Une atmosphère feutrée et apaisante.
-                    </p>
-                </div>
-                <div class="pt-6">
-                    <a href="contact.html" class="inline-block border-b-2 border-white pb-1 font-bold uppercase text-sm hover:text-[#2F4F4F] hover:border-[#2F4F4F] transition transform hover:translate-x-2">
-                        Voir les accès détaillés →
-                    </a>
-                </div>
-            </div>
-
-            <div class="h-[400px] w-full relative">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.668545834575!2d2.3168850764344585!3d48.90264009761595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdf3991263d%3A0xe6798835824c1143!2sSantezVousBien!5e0!3m2!1sfr!2sfr!4v1706692800000!5m2!1sfr!2sfr" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            </div>
-
-        </div>
-    </section>
-
-    <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white pt-16 pb-8 mt-10 border-t border-white/20 z-10">
-        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
-            
-            <div class="flex flex-col items-center md:items-start">
-                <h2 class="text-5xl font-hand mb-4">SVB</h2>
-                <p class="text-xs opacity-80 leading-relaxed max-w-xs">
-                    SantezVousBien est votre espace de remise en forme et de bien-être à Saint-Ouen. Pilates, Yoga, Training et Soins.
-                </p>
-            </div>
-
-            <div class="flex flex-col items-center md:items-center">
-                <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Contact</h3>
-                <ul class="space-y-4 text-sm opacity-90">
-                    <li class="hover:scale-105 transition cursor-pointer">📞 07 44 91 91 55</li>
-                    <li class="hover:scale-105 transition cursor-pointer">✉️ hello@studiosvb.fr</li>
-                    <li>📍 Saint-Ouen, France</li>
-                </ul>
-            </div>
-
-            <div class="flex flex-col items-center md:items-end">
-                <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Suivez-nous</h3>
-                <a href="https://www.instagram.com/svb.officiel" target="_blank" class="inline-block bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-8 py-3 rounded-full text-xs font-bold uppercase mb-6 shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                    Instagram
+        <div class="relative max-w-6xl mx-auto px-4 pb-32 text-center z-10">
+            <h2 class="text-4xl text-white font-hand mb-12 drop-shadow-md">Juste une séance ?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="text-card group">
+                    <div><h3 class="card-title">Reformer</h3><p class="card-desc">Pilates sur machine</p></div>
+                    <div><p class="card-price">50€</p><span class="btn-small">Réserver</span></div>
                 </a>
-                <div class="space-x-4 text-xs opacity-60">
-                    <a href="faq.html" class="hover:text-white transition">FAQ</a>
-                    <a href="#" class="hover:text-white transition">Mentions Légales</a>
-                    <a href="#" class="hover:text-white transition">CGV</a>
+                <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="text-card group">
+                    <div><h3 class="card-title">Crossformer</h3><p class="card-desc">Intensité & Cardio</p></div>
+                    <div><p class="card-price">50€</p><span class="btn-small">Réserver</span></div>
+                </a>
+                <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="text-card group">
+                    <div><h3 class="card-title">Cross / Focus</h3><p class="card-desc">Training • Yoga • Boxe</p></div>
+                    <div><p class="card-price">30€</p><span class="btn-small">Réserver</span></div>
+                </a>
+            </div>
+        </div>
+
+        <section class="relative max-w-6xl mx-auto px-4 pb-24 z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">Nos 2 Studios</h2>
+                <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">Situés à 5 minutes à pied l'un de l'autre</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex flex-col gap-6">
+                    <div class="studio-info-card group cursor-default">
+                        <h3 class="studio-title">📍 Parc des Docks</h3>
+                        <p class="text-sm font-medium leading-relaxed">Le cœur battant du Reformer et des sessions intenses. Un espace moderne baigné de lumière.</p>
+                    </div>
+                    <div class="studio-info-card group cursor-default">
+                        <h3 class="studio-title">📍 Lavandières</h3>
+                        <p class="text-sm font-medium leading-relaxed">Le cocon du Yoga, du Bien-être et des petits groupes. Une atmosphère feutrée et apaisante.</p>
+                    </div>
+                    <div class="text-right pt-2">
+                        <a href="contact.html" class="inline-block text-white border-b-2 border-white pb-1 font-bold uppercase text-sm hover:text-[#2F4F4F] hover:border-[#2F4F4F] transition transform hover:translate-x-2">Voir les accès détaillés →</a>
+                    </div>
+                </div>
+                <div class="h-[400px] w-full relative">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.668545834575!2d2.3168850764344585!3d48.90264009761595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdf3991263d%3A0xe6798835824c1143!2sSantezVousBien!5e0!3m2!1sfr!2sfr!4v1706692800000!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
+        </section>
 
-        </div>
-        
-        <div class="text-center mt-12 text-[10px] opacity-40 uppercase tracking-widest">
-            © 2026 SVB SantezVousBien. Tous droits réservés.
-        </div>
-    </footer>
+        <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white pt-16 pb-8 mt-10 border-t border-white/20 z-10">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start">
+                    <h2 class="text-5xl font-hand mb-4">SVB</h2>
+                    <p class="text-xs opacity-80 leading-relaxed max-w-xs">SantezVousBien est votre espace de remise en forme et de bien-être à Saint-Ouen. Pilates, Yoga, Training et Soins.</p>
+                </div>
+                <div class="flex flex-col items-center md:items-center">
+                    <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Contact</h3>
+                    <ul class="space-y-4 text-sm opacity-90">
+                        <li class="hover:scale-105 transition cursor-pointer">📞 07 44 91 91 55</li>
+                        <li class="hover:scale-105 transition cursor-pointer">✉️ hello@studiosvb.fr</li>
+                        <li>📍 Saint-Ouen, France</li>
+                    </ul>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Suivez-nous</h3>
+                    <a href="https://www.instagram.com/svb.officiel" target="_blank" class="inline-block bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-8 py-3 rounded-full text-xs font-bold uppercase mb-6 shadow-md hover:shadow-lg transform hover:-translate-y-1">Instagram</a>
+                    <div class="space-x-4 text-xs opacity-60">
+                        <a href="faq.html" class="hover:text-white transition">FAQ</a>
+                        <a href="#" class="hover:text-white transition">Mentions Légales</a>
+                        <a href="#" class="hover:text-white transition">CGV</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 text-[10px] opacity-40 uppercase tracking-widest">© 2026 SVB SantezVousBien. Tous droits réservés.</div>
+        </footer>
+
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            // Après 2.5 secondes (fin de l'anim logo), on cache le splash et on révèle le site
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.classList.add('splash-hidden');
+                
+                // On active le scroll et on révèle le contenu avec un fondu
+                document.body.classList.remove('overflow-hidden');
+                document.body.classList.add('content-visible');
+            }, 2500);
+        });
+    </script>
 
 </body>
 </html>
