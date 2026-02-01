@@ -30,7 +30,6 @@
         #splash-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Dégradé identique à l'accueil */
             background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
             z-index: 9999;
             display: flex;
@@ -43,11 +42,10 @@
             width: 150px;
             opacity: 0;
             transform: scale(0.8);
-            /* L'animation est définie ici mais on la lancera via JS si besoin */
-            filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1); /* Logo en blanc */
         }
 
-        /* Animation définie */
+        /* Classe d'animation ajoutée via JS */
         .animate-logo {
             animation: logoIntro 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
@@ -165,13 +163,11 @@
             color: var(--svb-text);
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        
         .studio-info-card:hover {
             background: rgba(255, 255, 255, 0.9);
             transform: translateX(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-
         .studio-title {
             font-size: 1.8rem;
             font-weight: 700;
@@ -181,6 +177,41 @@
         }
 
         iframe { border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 4px solid rgba(255,255,255,0.7); }
+
+        /* BOUTON FLOTTANT MESSENGER */
+        .messenger-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #0084FF; /* Bleu Messenger */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0, 132, 255, 0.4);
+            transition: all 0.3s ease;
+            z-index: 9990;
+            cursor: pointer;
+        }
+        .messenger-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(0, 132, 255, 0.6);
+        }
+        .messenger-pulse {
+            position: absolute;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 2px solid #0084FF;
+            animation: pulse-mess 2s infinite;
+            opacity: 0;
+        }
+        @keyframes pulse-mess {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
 
     </style>
 </head>
@@ -209,7 +240,7 @@
             <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
             <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
             <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">TARIFS</a>
-            <a href="cadeau.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CADEAU</a>
+            <a href="carte-cadeau.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CADEAU</a>
             <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
             <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CONTACT</a>
         </div>
@@ -263,7 +294,7 @@
                     <p class="card-desc">Pilates sur machine</p>
                 </div>
                 <div>
-                    <p class="card-price">50€</p> <span class="btn-small">Réserver</span>
+                    <p class="card-price">30€</p> <span class="btn-small">Réserver</span>
                 </div>
             </a>
 
@@ -273,7 +304,7 @@
                     <p class="card-desc">Intensité & Cardio</p>
                 </div>
                 <div>
-                    <p class="card-price">50€</p> <span class="btn-small">Réserver</span>
+                    <p class="card-price">30€</p> <span class="btn-small">Réserver</span>
                 </div>
             </a>
 
@@ -334,16 +365,22 @@
         </div>
     </section>
 
+    <a href="https://m.me/532577323262557?ref=w49966584" target="_blank" class="messenger-btn">
+        <div class="messenger-pulse"></div>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.03 2 11C2 13.66 3.39 16.05 5.66 17.58C5.66 17.58 5.66 17.58 5.66 17.58V21.14C5.66 21.6 6.16 21.88 6.55 21.62L9.46 19.74C9.46 19.74 9.46 19.74 9.46 19.74C10.28 19.91 11.13 20 12 20C17.52 20 22 15.97 22 11C22 6.03 17.52 2 12 2Z"/>
+            <path d="M13.29 14.89L10.93 12.36L6.34 14.89L11.38 9.5L13.79 12.03L18.3 9.5L13.29 14.89Z" fill="#0084FF"/>
+        </svg>
+    </a>
+
     <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white pt-16 pb-8 mt-10 border-t border-white/20 z-10">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
-            
             <div class="flex flex-col items-center md:items-start">
                 <img src="images/logo.png" alt="Logo SVB" class="h-24 mb-4 brightness-0 invert">
                 <p class="text-xs opacity-80 leading-relaxed max-w-xs">
                     SantezVousBien est votre espace de remise en forme et de bien-être à Saint-Ouen. Pilates, Yoga, Training et Soins.
                 </p>
             </div>
-
             <div class="flex flex-col items-center md:items-center">
                 <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Contact</h3>
                 <ul class="space-y-4 text-sm opacity-90">
@@ -352,7 +389,6 @@
                     <li>📍 Saint-Ouen, France</li>
                 </ul>
             </div>
-
             <div class="flex flex-col items-center md:items-end">
                 <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Suivez-nous</h3>
                 <a href="https://www.instagram.com/svb.officiel" target="_blank" class="inline-block bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-8 py-3 rounded-full text-xs font-bold uppercase mb-6 shadow-md hover:shadow-lg transform hover:-translate-y-1">
