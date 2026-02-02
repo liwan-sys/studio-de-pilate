@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joyeux Noël | SVB SantezVousBien</title>
+    <title>SVB SantezVousBien | Studio Pilates & Wellness</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         :root {
-            --svb-red: #C41E3A;    /* Rouge Cardinal */
-            --svb-green: #1A472A;  /* Vert Sapin Profond */
-            --svb-gold: #D4AF37;   /* Or Métallique */
-            --svb-snow: #F8F9FA;   /* Blanc Neige */
+            --svb-green-light: #98D0B3; 
+            --svb-green-dark: #4A8D84;  
+            --svb-sand: #F2E6CF;        
+            --svb-peach: #E8B496;
             --svb-text: #2F4F4F;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--svb-green);
-            color: var(--svb-snow);
+            background-color: var(--svb-green-light);
+            color: var(--svb-text);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* === SPLASH SCREEN NOËL === */
+        /* === SPLASH SCREEN (SIMPLE & ÉLÉGANT) === */
         #splash-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, #1A472A 0%, #0d2b1f 100%);
+            background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
             z-index: 9999;
             display: flex;
             justify-content: center;
@@ -42,9 +42,10 @@
             width: 150px;
             opacity: 0;
             transform: scale(0.8);
-            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); /* Lueur dorée */
+            filter: brightness(0) invert(1); /* Logo en blanc */
         }
 
+        /* Classe d'animation ajoutée via JS */
         .animate-logo {
             animation: logoIntro 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
@@ -63,34 +64,19 @@
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* === FOND NEIGE (FALLING SNOW) === */
+        /* FOND IMMERSIF (BLOBS) */
         .ambient-bg {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
-            background: radial-gradient(circle at top, #2C5F42 0%, #0F2A1D 100%);
+            background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
             overflow: hidden;
         }
-
-        /* Animation de la neige */
-        .snowflake {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.5rem;
-            top: -5vh;
-            animation: fall linear infinite;
-            text-shadow: 0 0 5px white;
+        .blob {
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6;
+            animation: moveBlob 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        @keyframes fall {
-            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.8; }
-            100% { transform: translateY(110vh) translateX(20px) rotate(360deg); opacity: 0.2; }
-        }
-
-        /* Lueur chaleureuse en bas (comme une cheminée) */
-        .warm-glow {
-            position: fixed; bottom: 0; left: 0; width: 100%; height: 40%;
-            background: linear-gradient(to top, rgba(196, 30, 58, 0.15), transparent);
-            pointer-events: none; z-index: -1;
-        }
+        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-green-dark); }
+        .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--svb-peach); animation-delay: -5s; }
+        @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -50px) scale(1.1); } }
         
         .noise-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.05;
@@ -98,7 +84,7 @@
             pointer-events: none;
         }
 
-        /* Animation d'apparition */
+        /* Animation d'apparition du contenu */
         .reveal-load { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
         .content-visible .reveal-load { opacity: 1; transform: translateY(0); }
         
@@ -106,95 +92,126 @@
         .d-2 { transition-delay: 0.4s; }
         .d-3 { transition-delay: 0.6s; }
 
-        /* BOUTON ACTION NOËL */
+        /* BOUTON ACTION */
         .btn-action {
-            background-color: var(--svb-red);
+            background-color: var(--svb-green-dark);
             color: white;
             padding: 14px 40px;
             border-radius: 50px;
             text-transform: uppercase;
-            font-weight: 800;
+            font-weight: 700;
             font-size: 0.85rem;
             letter-spacing: 0.1em;
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 5px 20px rgba(196, 30, 58, 0.4);
+            box-shadow: 0 10px 30px rgba(74, 141, 132, 0.3);
             display: inline-block;
             border: 1px solid rgba(255,255,255,0.2);
         }
         .btn-action:hover {
-            background-color: #a01830;
+            background-color: #386e66;
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.6);
+            box-shadow: 0 15px 40px rgba(74, 141, 132, 0.5);
         }
 
-        /* === CARD STARTER FLOTTANTE (CADEAU) === */
+        /* === CARD STARTER FLOTTANTE === */
         @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
         .starter-card-wrapper { animation: float 6s ease-in-out infinite; }
         
         .starter-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border-radius: 30px; padding: 50px 40px; text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
             max-width: 550px; margin: 0 auto; position: relative;
-            border: 4px solid var(--svb-gold); /* Bordure Dorée */
-            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.8); transition: all 0.4s ease;
         }
-        
-        /* Nœud cadeau décoratif (CSS pur) */
-        .starter-card::before {
-            content: '🎀'; position: absolute; top: -30px; right: -20px; font-size: 4rem; transform: rotate(15deg);
-        }
-
-        .starter-card:hover { transform: scale(1.02); }
+        .starter-card:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.9); }
 
         /* === CARTES ESSAI === */
         .text-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border-radius: 25px; padding: 35px 25px; text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer; height: 100%; display: flex; flex-direction: column; justify-content: space-between;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .text-card:hover { 
-            transform: translateY(-10px); 
-            background: rgba(255, 255, 255, 0.9); /* Devient blanc au survol */
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3); 
-        }
-        
-        /* Texte devient foncé au survol car fond blanc */
-        .text-card:hover .card-title { color: var(--svb-green); }
-        .text-card:hover .card-desc { color: #555; }
-        .text-card:hover .card-price { color: var(--svb-red); }
+        .text-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.9); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
 
-        .card-title { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--svb-gold); margin-bottom: 5px; }
-        .card-desc { font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: #ddd; margin-bottom: 15px; }
-        .card-price { font-size: 2.8rem; font-weight: 700; color: white; margin-bottom: 25px; text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+        .card-title { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--svb-green-dark); margin-bottom: 5px; }
+        .card-desc { font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: #555; margin-bottom: 15px; }
+        .card-price { font-size: 2.8rem; font-weight: 700; color: var(--svb-text); margin-bottom: 25px; }
         
         .btn-small {
-            border: 1px solid var(--svb-gold); color: var(--svb-gold);
+            border: 1px solid var(--svb-green-dark); color: var(--svb-green-dark);
             padding: 10px 25px; border-radius: 25px; text-transform: uppercase;
             font-size: 0.75rem; font-weight: 700; transition: all 0.3s; background: transparent;
         }
-        .text-card:hover .btn-small { background-color: var(--svb-red); color: white; border-color: var(--svb-red); }
+        .text-card:hover .btn-small { background-color: var(--svb-green-dark); color: white; }
+
+        /* === STUDIO INFO CARDS === */
+        .studio-info-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: right;
+            border: 1px solid rgba(255,255,255,0.6);
+            transition: all 0.3s ease;
+            color: var(--svb-text);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .studio-info-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateX(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .studio-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--svb-green-dark);
+        }
+
+        iframe { border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 4px solid rgba(255,255,255,0.7); }
 
         /* BOUTON FLOTTANT WHATSAPP */
         .whatsapp-btn {
-            position: fixed; bottom: 25px; right: 25px;
-            background-color: #25D366; color: white;
-            width: 60px; height: 60px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366; /* Vert WhatsApp */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease; z-index: 9990; cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 9990;
+            cursor: pointer;
         }
-        .whatsapp-btn:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6); }
-        .whatsapp-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #25D366; animation: pulse-wa 2s infinite; opacity: 0; }
-        @keyframes pulse-wa { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.5); opacity: 0; } }
-
-        /* MAP */
-        iframe { border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 4px solid rgba(255,255,255,0.2); }
+        .whatsapp-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-pulse {
+            position: absolute;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 2px solid #25D366;
+            animation: pulse-wa 2s infinite;
+            opacity: 0;
+        }
+        @keyframes pulse-wa {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
 
     </style>
 </head>
@@ -204,9 +221,11 @@
         <img id="splash-logo" src="images/logo.png" alt="SVB Logo">
     </div>
 
-    <div class="ambient-bg" id="snow-container">
-        </div>
-    <div class="warm-glow"></div> <div class="noise-overlay"></div>
+    <div class="ambient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    <div class="noise-overlay"></div>
 
     <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
         <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
@@ -215,64 +234,64 @@
             </a>
         </div>
         <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
-            <a href="index.html" class="border-b-2 border-yellow-400 pb-1 text-yellow-300">L'UNIVERS</a>
-            <a href="sessions.html" class="hover:text-yellow-200 transition hover:scale-105 inline-block">SESSIONS</a>
-            <a href="equipe.html" class="hover:text-yellow-200 transition hover:scale-105 inline-block">LA TEAM</a>
-            <a href="bien-etre.html" class="hover:text-yellow-200 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
-            <a href="studio.html" class="hover:text-yellow-200 transition hover:scale-105 inline-block">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-yellow-200 transition hover:scale-105 inline-block">TARIFS</a>
-            <a href="cadeau.html" class="hover:text-yellow-200 transition hover:scale-105 inline-block">CADEAU</a>
-            <a href="faq.html" class="hover:text-yellow-200 transition hover:scale-105 inline-block">FAQ</a>
-            <a href="contact.html" class="hover:text-yellow-200 transition hover:scale-105 inline-block">CONTACT</a>
+            <a href="index.html" class="border-b-2 border-white pb-1">L'UNIVERS</a>
+            <a href="sessions.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">LA TEAM</a>
+            <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">TARIFS</a>
+            <a href="cadeau.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CADEAU</a>
+            <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
+            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CONTACT</a>
         </div>
     </nav>
 
     <header class="relative text-center py-20 px-4 reveal-load d-1 z-10">
         <h1 class="text-5xl sm:text-7xl md:text-9xl text-white drop-shadow-lg mb-6 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default">
-            Joyeuses <span class="text-[#D4AF37]">Fêtes</span> 🎄
+            SantezVousBien
         </h1>
-        <p class="text-gray-200 text-xl font-light max-w-3xl mx-auto mb-8 leading-relaxed opacity-90 drop-shadow-md">
-            Le plus beau cadeau que vous puissiez vous faire,<br>
-            <span class="font-medium italic text-yellow-100">c'est de prendre soin de vous.</span>
+        <p class="text-white text-xl font-light max-w-3xl mx-auto mb-8 leading-relaxed opacity-90 drop-shadow-md">
+            Plus qu'une salle de sport, un lieu de vie.<br>
+            <span class="font-medium italic">Deux studios, une seule énergie.</span>
         </p>
     </header>
 
     <div class="relative px-4 pb-24 reveal-load d-2 z-10">
         <div class="starter-card-wrapper">
             <div class="starter-card">
-                <span class="bg-[#C41E3A] text-white px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6 inline-block shadow-md">
-                    🎁 Idée Cadeau
+                <span class="bg-[#E8B496] text-white px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6 inline-block shadow-lg">
+                    Offre Découverte
                 </span>
                 
-                <h2 class="text-5xl font-hand text-[#1A472A] mb-3">La Hotte SVB</h2>
+                <h2 class="text-5xl font-hand text-[#4A8D84] mb-3">New Pass Starter</h2>
                 
                 <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-500 uppercase mb-8 tracking-wide">
-                    <span class="bg-[#1A472A]/10 px-3 py-1 rounded-lg">5 Sessions</span>
+                    <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">5 Sessions</span>
                     <span>•</span>
-                    <span class="bg-[#1A472A]/10 px-3 py-1 rounded-lg">Valable 1 An</span>
+                    <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">Sans Engagement</span>
                 </div>
                 
-                <p class="text-7xl font-bold text-[#C41E3A] mb-10 tracking-tight drop-shadow-sm">
+                <p class="text-7xl font-bold text-[#2F4F4F] mb-10 tracking-tight drop-shadow-sm">
                     99,90<span class="text-3xl align-top">€</span>
                 </p>
                 
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full text-lg">
-                    Mettre sous le sapin
+                    Je commence maintenant
                 </a>
-                <p class="text-[10px] text-gray-500 mt-5 italic">Carte cadeau disponible en ligne</p>
+                <p class="text-[10px] text-gray-500 mt-5 italic">Valable 1 mois • Offre limitée</p>
             </div>
         </div>
     </div>
 
     <div class="relative max-w-6xl mx-auto px-4 pb-32 text-center reveal-load d-3 z-10">
-        <h2 class="text-4xl text-white font-hand mb-12 drop-shadow-md text-[#D4AF37]">Préparez le Réveillon</h2>
+        <h2 class="text-4xl text-white font-hand mb-12 drop-shadow-md">Juste une séance ?</h2>
         
         <div class="grid md:grid-cols-3 gap-8">
             
             <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="text-card group">
                 <div>
                     <h3 class="card-title">Reformer</h3>
-                    <p class="card-desc">Sculptez votre silhouette</p>
+                    <p class="card-desc">Pilates sur machine</p>
                 </div>
                 <div>
                     <p class="card-price">50€</p> <span class="btn-small">Réserver</span>
@@ -282,7 +301,7 @@
             <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="text-card group">
                 <div>
                     <h3 class="card-title">Crossformer</h3>
-                    <p class="card-desc">Brûlez la bûche</p>
+                    <p class="card-desc">Intensité & Cardio</p>
                 </div>
                 <div>
                     <p class="card-price">50€</p> <span class="btn-small">Réserver</span>
@@ -291,8 +310,8 @@
 
             <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="text-card group">
                 <div>
-                    <h3 class="card-title">Yoga Detox</h3>
-                    <p class="card-desc">Détente Hivernale</p>
+                    <h3 class="card-title">Cross / Focus</h3>
+                    <p class="card-desc">Training • Yoga • Boxe</p>
                 </div>
                 <div>
                     <p class="card-price">30€</p>
@@ -305,9 +324,9 @@
 
     <section class="relative max-w-6xl mx-auto px-4 pb-24 reveal-load d-2 z-10">
         <div class="text-center mb-12">
-            <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">Nos 2 Chalets</h2>
-            <p class="text-[#D4AF37] font-bold uppercase tracking-widest text-sm bg-white/10 inline-block px-4 py-1 rounded-full backdrop-blur-sm border border-[#D4AF37]/30">
-                Bien au chaud à Saint-Ouen
+            <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">Nos 2 Studios</h2>
+            <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
+                Situés à 5 minutes à pied l'un de l'autre
             </p>
         </div>
 
@@ -315,20 +334,20 @@
             
             <div class="text-right space-y-10 text-white">
                 <div class="group cursor-default">
-                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#D4AF37] transition">📍 Parc des Docks</h3>
-                    <p class="text-base opacity-80 font-light leading-relaxed">
-                        L'atelier des lutins sportifs. Un espace dynamique pour se dépenser avant les fêtes.
+                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#2F4F4F] transition">📍 Parc des Docks</h3>
+                    <p class="text-base opacity-90 font-light leading-relaxed">
+                        Le cœur battant du Reformer et des sessions intenses. Un espace moderne baigné de lumière.
                     </p>
                 </div>
                 <div class="group cursor-default">
-                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#D4AF37] transition">📍 Cours des Lavandières</h3>
-                    <p class="text-base opacity-80 font-light leading-relaxed">
-                        Le cocon enneigé. Un lieu calme pour hiberner en douceur avec le Yoga.
+                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#2F4F4F] transition">📍 Cours des Lavandières</h3>
+                    <p class="text-base opacity-90 font-light leading-relaxed">
+                        Le cocon du Yoga, du Bien-être et des petits groupes. Une atmosphère feutrée et apaisante.
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="contact.html" class="inline-block border-b-2 border-[#D4AF37] pb-1 font-bold uppercase text-sm hover:text-[#D4AF37] transition transform hover:translate-x-2">
-                        Trouver le chemin →
+                    <a href="contact.html" class="inline-block border-b-2 border-white pb-1 font-bold uppercase text-sm hover:text-[#2F4F4F] hover:border-[#2F4F4F] transition transform hover:translate-x-2">
+                        Voir les accès détaillés →
                     </a>
                 </div>
             </div>
@@ -353,35 +372,36 @@
         </svg>
     </a>
 
-    <footer class="relative bg-[#0d2b1f]/90 backdrop-filter backdrop-blur-lg text-white pt-16 pb-8 mt-10 border-t border-white/10 z-10">
+    <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white pt-16 pb-8 mt-10 border-t border-white/20 z-10">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
             <div class="flex flex-col items-center md:items-start">
-                <img src="images/logo.png" alt="Logo SVB" class="h-24 mb-4 brightness-0 invert opacity-90">
-                <p class="text-xs opacity-70 leading-relaxed max-w-xs">
-                    SantezVousBien est votre espace de remise en forme à Saint-Ouen. Pilates, Yoga, Training et Magie de Noël.
+                <img src="images/logo.png" alt="Logo SVB" class="h-24 mb-4 brightness-0 invert">
+                <p class="text-xs opacity-80 leading-relaxed max-w-xs">
+                    SantezVousBien est votre espace de remise en forme et de bien-être à Saint-Ouen. Pilates, Yoga, Training et Soins.
                 </p>
             </div>
             <div class="flex flex-col items-center md:items-center">
-                <h3 class="font-bold uppercase tracking-widest mb-6 text-sm text-[#D4AF37]">Contact</h3>
-                <ul class="space-y-4 text-sm opacity-80">
-                    <li class="hover:text-[#D4AF37] transition cursor-pointer">📞 07 44 91 91 55</li>
-                    <li class="hover:text-[#D4AF37] transition cursor-pointer">✉️ hello@studiosvb.fr</li>
+                <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Contact</h3>
+                <ul class="space-y-4 text-sm opacity-90">
+                    <li class="hover:scale-105 transition cursor-pointer">📞 07 44 91 91 55</li>
+                    <li class="hover:scale-105 transition cursor-pointer">✉️ hello@studiosvb.fr</li>
                     <li>📍 Saint-Ouen, France</li>
                 </ul>
             </div>
             <div class="flex flex-col items-center md:items-end">
-                <h3 class="font-bold uppercase tracking-widest mb-6 text-sm text-[#D4AF37]">Suivez-nous</h3>
-                <a href="https://www.instagram.com/svb.officiel" target="_blank" class="inline-block bg-white/10 hover:bg-[#C41E3A] hover:text-white transition px-8 py-3 rounded-full text-xs font-bold uppercase mb-6 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Suivez-nous</h3>
+                <a href="https://www.instagram.com/svb.officiel" target="_blank" class="inline-block bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-8 py-3 rounded-full text-xs font-bold uppercase mb-6 shadow-md hover:shadow-lg transform hover:-translate-y-1">
                     Instagram
                 </a>
-                <div class="space-x-4 text-xs opacity-50">
+                <div class="space-x-4 text-xs opacity-60">
                     <a href="faq.html" class="hover:text-white transition">FAQ</a>
                     <a href="#" class="hover:text-white transition">Mentions Légales</a>
+                    <a href="#" class="hover:text-white transition">CGV</a>
                 </div>
             </div>
         </div>
-        <div class="text-center mt-12 text-[10px] opacity-30 uppercase tracking-widest">
-            © 2026 SVB Christmas Edition.
+        <div class="text-center mt-12 text-[10px] opacity-40 uppercase tracking-widest">
+            © 2026 SVB SantezVousBien. Tous droits réservés.
         </div>
     </footer>
 
@@ -390,38 +410,22 @@
             const splash = document.getElementById('splash-screen');
             const logo = document.getElementById('splash-logo');
             const body = document.body;
-            const bgContainer = document.getElementById('snow-container');
 
-            // Générer de la neige
-            const snowflakes = ['❄️', '❅', '❆', '✨'];
-            const count = 30; // Nombre de flocons
-
-            for(let i=0; i<count; i++) {
-                const flake = document.createElement('div');
-                flake.classList.add('snowflake');
-                flake.innerText = snowflakes[Math.floor(Math.random() * snowflakes.length)];
-                
-                // Position, taille et vitesse aléatoires
-                flake.style.left = Math.random() * 100 + 'vw';
-                flake.style.animationDuration = (Math.random() * 10 + 5) + 's'; // Entre 5 et 15s
-                flake.style.animationDelay = (Math.random() * 5) + 's';
-                flake.style.fontSize = (Math.random() * 1 + 0.5) + 'rem';
-                flake.style.opacity = Math.random() * 0.5 + 0.3;
-                
-                bgContainer.appendChild(flake);
-            }
-
-            // Gestion Splash Screen
+            // Vérifie si l'animation a déjà été vue dans cette session
             if (sessionStorage.getItem('svb-splash-seen')) {
+                // SI DÉJÀ VU : On cache immédiatement
                 splash.style.display = 'none';
                 body.classList.remove('overflow-hidden');
                 body.classList.add('content-visible');
             } else {
+                // SI PREMIÈRE FOIS : On lance juste l'animation du logo
                 logo.classList.add('animate-logo');
+                
                 setTimeout(() => {
                     splash.classList.add('splash-hidden');
                     body.classList.remove('overflow-hidden');
                     body.classList.add('content-visible');
+                    // On note que l'animation a été vue
                     sessionStorage.setItem('svb-splash-seen', 'true');
                 }, 2500);
             }
