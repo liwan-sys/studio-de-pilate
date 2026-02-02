@@ -48,7 +48,7 @@
         @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
         .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
 
-        /* CARTES */
+        /* CARTES STANDARD */
         .price-card {
             background: rgba(255, 255, 255, 0.65);
             backdrop-filter: blur(15px);
@@ -60,7 +60,7 @@
         }
         .price-card:hover { transform: translateY(-8px) scale(1.02); background: rgba(255, 255, 255, 0.85); box-shadow: 0 30px 60px rgba(74, 141, 132, 0.25); z-index: 10; }
 
-        /* COLORS */
+        /* HEADER COLORS */
         .header-peach { background: var(--col-peach); color: white; }
         .header-sand { background: var(--col-sand); color: white; }
         .header-green { background: var(--col-green); color: white; }
@@ -68,7 +68,9 @@
         .header-dark { background: var(--col-dark); color: white; }
         .header-bicolor-former { background: linear-gradient(135deg, var(--col-sand) 0%, var(--col-peach) 100%); color: white; }
         .header-bicolor-full { background: linear-gradient(135deg, var(--col-green) 0%, var(--col-cream) 100%); color: var(--svb-text); }
+        .header-kids { background: linear-gradient(135deg, var(--col-peach), var(--col-sand)); color: white; }
 
+        /* BODY COLORS */
         .body-peach { background: linear-gradient(180deg, rgba(235, 198, 166, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
         .body-sand { background: linear-gradient(180deg, rgba(212, 195, 163, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
         .body-green { background: linear-gradient(180deg, rgba(136, 192, 166, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
@@ -76,6 +78,7 @@
         .body-dark { background: linear-gradient(180deg, rgba(58, 107, 99, 0.15) 0%, rgba(255,255,255,0.7) 100%); }
         .body-bicolor-former { background: linear-gradient(180deg, rgba(212, 195, 163, 0.25) 0%, rgba(235, 198, 166, 0.25) 100%); }
         .body-bicolor-full { background: linear-gradient(180deg, rgba(136, 192, 166, 0.25) 0%, rgba(243, 235, 212, 0.4) 100%); }
+        .body-kids { background: linear-gradient(180deg, rgba(235, 198, 166, 0.2) 0%, rgba(255,255,255,0.8) 100%); }
 
         .card-header { padding: 20px; text-align: center; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; font-size: 1rem; }
         .price-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 8px 20px; font-size: 0.85rem; font-weight: 500; color: #555; }
@@ -96,16 +99,26 @@
         .terms-fee { color: #e53e3e; font-weight: 800; text-transform: uppercase; }
         .terms-time { color: var(--svb-text); font-weight: 800; text-transform: uppercase; }
 
-        /* === OPTION BOOST (CARDS) === */
-        .boost-section { display: grid; md:grid-cols-2; gap: 20px; margin-top: 20px; }
+        /* === OPTION BOOST (CORRIGÉE) === */
         .boost-card {
-            background: rgba(255,255,255,0.9); border-radius: 20px; padding: 25px;
-            text-align: center; border: 2px dashed #ccc; transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #88C0A6;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
         }
-        .boost-card:hover { border-color: var(--col-dark); transform: scale(1.03); }
-        .boost-title { font-weight: 800; text-transform: uppercase; font-size: 1.2rem; color: var(--svb-text); margin-bottom: 5px; }
-        .boost-price { font-size: 2rem; font-weight: 800; color: var(--col-dark); }
-        .boost-desc { font-size: 0.8rem; color: #666; margin-bottom: 15px; }
+        .boost-card:hover { transform: translateY(-5px); }
+        .boost-badge {
+            position: absolute; top: 0; right: 0;
+            background: var(--col-peach); color: white;
+            font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+            padding: 8px 20px; border-bottom-left-radius: 15px;
+        }
+        .boost-list li { margin-bottom: 12px; display: flex; align-items: flex-start; color: #555; font-size: 0.9rem; }
+        .boost-icon { margin-right: 10px; color: var(--col-dark); font-size: 1.1rem; }
 
         /* === MODAL & QUIZ === */
         #quiz-modal {
@@ -348,7 +361,7 @@
         </div>
 
         <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2 drop-shadow-md">Coaching Privé</h2>
-        <div class="flex justify-center mb-12 reveal-load d-3">
+        <div class="flex justify-center mb-24 reveal-load d-3">
             <div class="price-card group max-w-md w-full border-2 border-[#3A6B63]">
                 <div class="card-header header-dark">Coaching Good Vibes</div>
                 <div class="p-6 body-dark h-full flex flex-col justify-center">
@@ -368,23 +381,48 @@
             </div>
         </div>
 
-        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Option Boost</h2>
-        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-24 reveal-load d-3">
-            
-            <a href="https://svb.sportigo.fr/buy" target="_blank" class="boost-card">
-                <h3 class="boost-title">À la Carte</h3>
-                <p class="boost-desc">Liberté totale, sans engagement</p>
-                <div class="boost-price">30€</div>
-                <div class="text-xs uppercase mt-2 font-bold text-gray-500">La séance</div>
-            </a>
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Pass Kids</h2>
+        <div class="flex justify-center mb-24 reveal-load d-3">
+            <div class="price-card group max-w-md w-full">
+                <div class="card-header header-kids">Pass Kids <br><span class="text-xs font-normal opacity-80">(Hors Juillet/Août)</span></div>
+                <div class="body-kids h-full flex flex-col justify-between">
+                    <div>
+                        <div class="price-row"><span>2 Sessions</span> <span>35,30€</span></div>
+                        <div class="price-row"><span>4 Sessions</span> <span>65,30€</span></div>
+                        <div class="price-row"><span>Session Supp.</span> <span>18,30€</span></div>
+                        <p class="text-center text-xs mt-4 text-[#2F4F4F] font-bold">1 Activité au choix</p>
+                    </div>
+                    <div class="terms-row">
+                        <span class="terms-fee">Frais de dossier: 29€</span><br>
+                        <span class="terms-time">Engagement 4 mois</span>
+                    </div>
+                </div>
+                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Souscrire</a>
+            </div>
+        </div>
 
-            <a href="https://svb.sportigo.fr/buy" target="_blank" class="boost-card">
-                <h3 class="boost-title">Carnet 10</h3>
-                <p class="boost-desc">Valable 6 mois sur tous les cours</p>
-                <div class="boost-price">280€</div>
-                <div class="text-xs uppercase mt-2 font-bold text-gray-500">Soit 28€ / séance</div>
-            </a>
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Option SVB Boost</h2>
+        <div class="max-w-3xl mx-auto mb-24 reveal-load d-3">
+            <div class="boost-card">
+                <div class="boost-badge">Premium</div>
+                <div class="text-center mb-6">
+                    <h3 class="text-3xl font-extrabold text-[#2F4F4F] uppercase mb-2">Option SVB Boost</h3>
+                    <p class="text-xl text-[#4A8D84] font-bold">9,90€ / mois <span class="text-sm font-normal text-gray-500">(en + d'un pass)</span></p>
+                </div>
+                
+                <ul class="boost-list max-w-lg mx-auto">
+                    <li><span class="boost-icon">🎁</span> <strong>Frais d'inscription offerts</strong></li>
+                    <li><span class="boost-icon">🤝</span> <strong>1 Essai gratuit / mois</strong> pour un proche (sous réserve de dispo)</li>
+                    <li><span class="boost-icon">⏳</span> Engagement réduit : 2 mois (Coaching) ou 3 mois (Small Groups)</li>
+                    <li><span class="boost-icon">⏸️</span> <strong>Suspension d'abonnement</strong> sans préavis</li>
+                </ul>
 
+                <div class="text-center mt-8 text-xs text-gray-400 font-bold uppercase mb-4">
+                    Aucun pass 2 sessions vendu seul • Frais de dossier 49€ (hors boost)
+                </div>
+
+                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full md:w-2/3 mx-auto rounded-full">Ajouter l'option</a>
+            </div>
         </div>
 
     </div>
@@ -393,7 +431,9 @@
         <div class="quiz-card">
             <span class="close-modal" onclick="closeQuiz()">×</span>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
-            <div class="quiz-content" id="quizContent"></div>
+            
+            <div class="quiz-content" id="quizContent">
+                </div>
         </div>
     </div>
 
@@ -405,57 +445,130 @@
 
     <script>
         const questions = [
-            { q: "Quel est votre objectif principal ?", a: [{icon:"🔥",txt:"Perte de poids"},{icon:"💪",txt:"Renforcement"},{icon:"🧘",txt:"Bien-être"},{icon:"🚑",txt:"Santé/Dos"}] },
-            { q: "Quel est votre niveau ?", a: [{icon:"🌱",txt:"Débutant"},{icon:"🏃",txt:"Intermédiaire"},{icon:"🏅",txt:"Confirmé"}] },
-            { q: "Quelle fréquence ?", a: [{icon:"1️⃣",txt:"1x/semaine"},{icon:"2️⃣",txt:"2-3x/semaine"},{icon:"🚀",txt:"Intensif"}] },
-            { q: "Format préféré ?", a: [{icon:"👤",txt:"Solo"},{icon:"👥",txt:"Duo"}] }
+            {
+                q: "Quel est votre objectif principal ?",
+                a: [
+                    { icon: "🔥", txt: "Perte de poids / Cardio" },
+                    { icon: "💪", txt: "Renforcement / Sculpture" },
+                    { icon: "🧘", txt: "Bien-être / Anti-stress" },
+                    { icon: "🚑", txt: "Santé du dos / Posture" }
+                ]
+            },
+            {
+                q: "Quel est votre niveau actuel ?",
+                a: [
+                    { icon: "🌱", txt: "Je débute / Je reprends" },
+                    { icon: "🏃", txt: "Intermédiaire (1x/sem)" },
+                    { icon: "🏅", txt: "Confirmé / Athlète" }
+                ]
+            },
+            {
+                q: "Quelle fréquence visez-vous ?",
+                a: [
+                    { icon: "1️⃣", txt: "1 fois par semaine" },
+                    { icon: "2️⃣", txt: "2 à 3 fois par semaine" },
+                    { icon: "🚀", txt: "Intensif (+3 fois)" }
+                ]
+            },
+            {
+                q: "Quelle formule préférez-vous ?",
+                a: [
+                    { icon: "👤", txt: "Solo (Focus 100% sur moi)" },
+                    { icon: "👥", txt: "Duo (Motivation à deux)" }
+                ]
+            }
         ];
 
-        let currentStep = 0, userAnswers = [];
+        let currentStep = 0;
+        let userAnswers = []; // Stocker les réponses
         const modal = document.getElementById('quiz-modal');
         const content = document.getElementById('quizContent');
         const bar = document.getElementById('progressBar');
 
-        function openQuiz() { modal.classList.add('open'); currentStep = 0; userAnswers = []; showQuestion(); }
-        function closeQuiz() { modal.classList.remove('open'); }
-        modal.addEventListener('click', (e) => { if(e.target === modal) closeQuiz(); });
-
-        function showQuestion() {
-            bar.style.width = (currentStep / questions.length * 100) + '%';
-            if(currentStep < questions.length) {
-                const q = questions[currentStep];
-                let html = `<div class="quiz-step active"><h3 class="text-2xl font-hand text-[#2F4F4F] mb-4">${q.q}</h3><div class="quiz-options">`;
-                q.a.forEach(opt => html += `<div class="option-btn" onclick="recordAnswer('${opt.txt}')"><span class="opt-icon">${opt.icon}</span> ${opt.txt}</div>`);
-                content.innerHTML = html + `</div></div>`;
-            } else { showLoading(); }
+        function openQuiz() {
+            modal.classList.add('open');
+            currentStep = 0;
+            userAnswers = [];
+            showQuestion();
         }
 
-        function recordAnswer(ans) { userAnswers.push(ans); currentStep++; showQuestion(); }
+        function closeQuiz() {
+            modal.classList.remove('open');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeQuiz();
+        });
+
+        function showQuestion() {
+            bar.style.width = ((currentStep) / questions.length * 100) + '%';
+
+            if (currentStep < questions.length) {
+                const q = questions[currentStep];
+                let html = `<div class="quiz-step active">
+                    <h3 class="text-2xl font-hand text-[#2F4F4F] mb-4">${q.q}</h3>
+                    <div class="quiz-options">`;
+                
+                q.a.forEach(opt => {
+                    html += `<div class="option-btn" onclick="recordAnswer('${opt.txt}')">
+                        <span class="opt-icon">${opt.icon}</span> ${opt.txt}
+                    </div>`;
+                });
+
+                html += `</div></div>`;
+                content.innerHTML = html;
+            } else {
+                showLoading();
+            }
+        }
+
+        function recordAnswer(answer) {
+            userAnswers.push(answer);
+            currentStep++;
+            showQuestion();
+        }
 
         function showLoading() {
             bar.style.width = '100%';
-            content.innerHTML = `<div class="loading-spinner"></div><h3 class="text-xl font-bold text-[#4A8D84]">Analyse...</h3>`;
-            setTimeout(showResult, 1500);
+            content.innerHTML = `
+                <div class="loading-spinner"></div>
+                <h3 class="text-xl font-bold text-[#4A8D84]">Analyse en cours...</h3>
+                <p class="text-sm text-gray-500 mt-2">Nous préparons votre bilan.</p>
+            `;
+            setTimeout(showResult, 2000);
         }
 
         function showResult() {
             content.innerHTML = `
                 <div class="text-center animate-fadeIn">
-                    <span class="bg-[#E8B496] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Terminé</span>
-                    <h2 class="text-2xl font-hand text-[#2F4F4F] mt-3 mb-2">Profil Validé !</h2>
-                    <p class="text-sm text-gray-600 mb-4">Recevez votre bilan sur WhatsApp.</p>
+                    <span class="bg-[#E8B496] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Diagnostic Terminé</span>
+                    <h2 class="text-3xl font-hand text-[#2F4F4F] mt-3 mb-2">Profil Validé !</h2>
+                    <p class="text-sm text-gray-600 mb-6">Recevez votre bilan complet directement sur WhatsApp.</p>
+                    
                     <form onsubmit="sendToWhatsApp(event)">
                         <input type="text" id="clientName" class="form-input" placeholder="Prénom & Nom" required>
-                        <button type="submit" class="btn-submit-quiz">Envoyer sur WhatsApp 📲</button>
+                        <button type="submit" class="btn-submit-quiz">Recevoir mon bilan WhatsApp 📲</button>
                     </form>
-                </div>`;
+                </div>
+            `;
         }
 
         function sendToWhatsApp(e) {
             e.preventDefault();
             const name = document.getElementById('clientName').value;
-            let msg = `*Bilan Coaching SVB* 📋\n👤 *Client:* ${name}\n1️⃣ ${userAnswers[0]}\n2️⃣ ${userAnswers[1]}\n3️⃣ ${userAnswers[2]}\n4️⃣ ${userAnswers[3]}\n👉 Je souhaite être recontacté.`;
-            window.open(`https://wa.me/33744919155?text=${encodeURIComponent(msg)}`, '_blank');
+            
+            // Construction du message
+            let msg = `*Nouveau Bilan Coaching SVB* 📋\n\n`;
+            msg += `👤 *Client:* ${name}\n\n`;
+            msg += `1️⃣ *Objectif:* ${userAnswers[0]}\n`;
+            msg += `2️⃣ *Niveau:* ${userAnswers[1]}\n`;
+            msg += `3️⃣ *Fréquence:* ${userAnswers[2]}\n`;
+            msg += `4️⃣ *Format:* ${userAnswers[3]}\n\n`;
+            msg += `👉 *Demande:* Je souhaite être recontacté pour un programme personnalisé.`;
+
+            // Encodage et ouverture
+            const finalMsg = encodeURIComponent(msg);
+            window.open(`https://wa.me/33744919155?text=${finalMsg}`, '_blank');
             closeQuiz();
         }
     </script>
