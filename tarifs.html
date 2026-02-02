@@ -10,11 +10,11 @@
 
     <style>
         :root {
-            --col-peach: #EBC6A6;
-            --col-sand: #D4C3A3;
-            --col-green: #88C0A6;
-            --col-cream: #F3EBD4;
-            --col-dark: #3A6B63;
+            --col-peach: #EBC6A6;   
+            --col-sand: #D4C3A3;    
+            --col-green: #88C0A6;   
+            --col-cream: #F3EBD4;   
+            --col-dark: #3A6B63;    
             --svb-text: #2F4F4F;
         }
 
@@ -96,6 +96,17 @@
         .terms-fee { color: #e53e3e; font-weight: 800; text-transform: uppercase; }
         .terms-time { color: var(--svb-text); font-weight: 800; text-transform: uppercase; }
 
+        /* === OPTION BOOST (CARDS) === */
+        .boost-section { display: grid; md:grid-cols-2; gap: 20px; margin-top: 20px; }
+        .boost-card {
+            background: rgba(255,255,255,0.9); border-radius: 20px; padding: 25px;
+            text-align: center; border: 2px dashed #ccc; transition: all 0.3s;
+        }
+        .boost-card:hover { border-color: var(--col-dark); transform: scale(1.03); }
+        .boost-title { font-weight: 800; text-transform: uppercase; font-size: 1.2rem; color: var(--svb-text); margin-bottom: 5px; }
+        .boost-price { font-size: 2rem; font-weight: 800; color: var(--col-dark); }
+        .boost-desc { font-size: 0.8rem; color: #666; margin-bottom: 15px; }
+
         /* === MODAL & QUIZ === */
         #quiz-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -113,34 +124,24 @@
         }
         @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-        .close-modal {
-            position: absolute; top: 20px; right: 20px; font-size: 2rem;
-            color: #aaa; cursor: pointer; z-index: 10; line-height: 0.5;
-        }
+        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: #aaa; cursor: pointer; z-index: 10; line-height: 0.5; }
         .close-modal:hover { color: var(--svb-text); }
 
         .progress-bar { height: 6px; background: #eee; width: 100%; }
         .progress-fill { height: 100%; background: var(--col-dark); width: 0%; transition: width 0.3s; }
 
         .quiz-content { padding: 30px; text-align: center; }
-        
         .quiz-step { display: none; }
         .quiz-step.active { display: block; animation: fadeIn 0.3s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .quiz-options { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 20px; }
-        .option-btn {
-            border: 2px solid #eee; padding: 15px; border-radius: 12px; cursor: pointer;
-            transition: all 0.2s; font-weight: 600; color: #555; text-align: left; display: flex; align-items: center;
-        }
+        .option-btn { border: 2px solid #eee; padding: 15px; border-radius: 12px; cursor: pointer; transition: all 0.2s; font-weight: 600; color: #555; text-align: left; display: flex; align-items: center; }
         .option-btn:hover { border-color: var(--col-dark); background: #f9f9f9; }
         .option-btn.selected { border-color: var(--col-dark); background: #eaf5f3; color: var(--col-dark); }
         .opt-icon { margin-right: 15px; font-size: 1.4rem; }
 
-        .loading-spinner {
-            border: 4px solid #f3f3f3; border-top: 4px solid var(--col-dark);
-            border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto;
-        }
+        .loading-spinner { border: 4px solid #f3f3f3; border-top: 4px solid var(--col-dark); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         .form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; }
@@ -347,7 +348,7 @@
         </div>
 
         <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2 drop-shadow-md">Coaching Privé</h2>
-        <div class="flex justify-center mb-24 reveal-load d-3">
+        <div class="flex justify-center mb-12 reveal-load d-3">
             <div class="price-card group max-w-md w-full border-2 border-[#3A6B63]">
                 <div class="card-header header-dark">Coaching Good Vibes</div>
                 <div class="p-6 body-dark h-full flex flex-col justify-center">
@@ -367,15 +368,32 @@
             </div>
         </div>
 
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Option Boost</h2>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-24 reveal-load d-3">
+            
+            <a href="https://svb.sportigo.fr/buy" target="_blank" class="boost-card">
+                <h3 class="boost-title">À la Carte</h3>
+                <p class="boost-desc">Liberté totale, sans engagement</p>
+                <div class="boost-price">30€</div>
+                <div class="text-xs uppercase mt-2 font-bold text-gray-500">La séance</div>
+            </a>
+
+            <a href="https://svb.sportigo.fr/buy" target="_blank" class="boost-card">
+                <h3 class="boost-title">Carnet 10</h3>
+                <p class="boost-desc">Valable 6 mois sur tous les cours</p>
+                <div class="boost-price">280€</div>
+                <div class="text-xs uppercase mt-2 font-bold text-gray-500">Soit 28€ / séance</div>
+            </a>
+
+        </div>
+
     </div>
 
     <div id="quiz-modal">
         <div class="quiz-card">
             <span class="close-modal" onclick="closeQuiz()">×</span>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
-            
-            <div class="quiz-content" id="quizContent">
-                </div>
+            <div class="quiz-content" id="quizContent"></div>
         </div>
     </div>
 
@@ -387,130 +405,57 @@
 
     <script>
         const questions = [
-            {
-                q: "Quel est votre objectif principal ?",
-                a: [
-                    { icon: "🔥", txt: "Perte de poids / Cardio" },
-                    { icon: "💪", txt: "Renforcement / Sculpture" },
-                    { icon: "🧘", txt: "Bien-être / Anti-stress" },
-                    { icon: "🚑", txt: "Santé du dos / Posture" }
-                ]
-            },
-            {
-                q: "Quel est votre niveau actuel ?",
-                a: [
-                    { icon: "🌱", txt: "Je débute / Je reprends" },
-                    { icon: "🏃", txt: "Intermédiaire (1x/sem)" },
-                    { icon: "🏅", txt: "Confirmé / Athlète" }
-                ]
-            },
-            {
-                q: "Quelle fréquence visez-vous ?",
-                a: [
-                    { icon: "1️⃣", txt: "1 fois par semaine" },
-                    { icon: "2️⃣", txt: "2 à 3 fois par semaine" },
-                    { icon: "🚀", txt: "Intensif (+3 fois)" }
-                ]
-            },
-            {
-                q: "Quelle formule préférez-vous ?",
-                a: [
-                    { icon: "👤", txt: "Solo (Focus 100% sur moi)" },
-                    { icon: "👥", txt: "Duo (Motivation à deux)" }
-                ]
-            }
+            { q: "Quel est votre objectif principal ?", a: [{icon:"🔥",txt:"Perte de poids"},{icon:"💪",txt:"Renforcement"},{icon:"🧘",txt:"Bien-être"},{icon:"🚑",txt:"Santé/Dos"}] },
+            { q: "Quel est votre niveau ?", a: [{icon:"🌱",txt:"Débutant"},{icon:"🏃",txt:"Intermédiaire"},{icon:"🏅",txt:"Confirmé"}] },
+            { q: "Quelle fréquence ?", a: [{icon:"1️⃣",txt:"1x/semaine"},{icon:"2️⃣",txt:"2-3x/semaine"},{icon:"🚀",txt:"Intensif"}] },
+            { q: "Format préféré ?", a: [{icon:"👤",txt:"Solo"},{icon:"👥",txt:"Duo"}] }
         ];
 
-        let currentStep = 0;
-        let userAnswers = []; // Stocker les réponses
+        let currentStep = 0, userAnswers = [];
         const modal = document.getElementById('quiz-modal');
         const content = document.getElementById('quizContent');
         const bar = document.getElementById('progressBar');
 
-        function openQuiz() {
-            modal.classList.add('open');
-            currentStep = 0;
-            userAnswers = [];
-            showQuestion();
-        }
-
-        function closeQuiz() {
-            modal.classList.remove('open');
-        }
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeQuiz();
-        });
+        function openQuiz() { modal.classList.add('open'); currentStep = 0; userAnswers = []; showQuestion(); }
+        function closeQuiz() { modal.classList.remove('open'); }
+        modal.addEventListener('click', (e) => { if(e.target === modal) closeQuiz(); });
 
         function showQuestion() {
-            bar.style.width = ((currentStep) / questions.length * 100) + '%';
-
-            if (currentStep < questions.length) {
+            bar.style.width = (currentStep / questions.length * 100) + '%';
+            if(currentStep < questions.length) {
                 const q = questions[currentStep];
-                let html = `<div class="quiz-step active">
-                    <h3 class="text-2xl font-hand text-[#2F4F4F] mb-4">${q.q}</h3>
-                    <div class="quiz-options">`;
-                
-                q.a.forEach(opt => {
-                    html += `<div class="option-btn" onclick="recordAnswer('${opt.txt}')">
-                        <span class="opt-icon">${opt.icon}</span> ${opt.txt}
-                    </div>`;
-                });
-
-                html += `</div></div>`;
-                content.innerHTML = html;
-            } else {
-                showLoading();
-            }
+                let html = `<div class="quiz-step active"><h3 class="text-2xl font-hand text-[#2F4F4F] mb-4">${q.q}</h3><div class="quiz-options">`;
+                q.a.forEach(opt => html += `<div class="option-btn" onclick="recordAnswer('${opt.txt}')"><span class="opt-icon">${opt.icon}</span> ${opt.txt}</div>`);
+                content.innerHTML = html + `</div></div>`;
+            } else { showLoading(); }
         }
 
-        function recordAnswer(answer) {
-            userAnswers.push(answer);
-            currentStep++;
-            showQuestion();
-        }
+        function recordAnswer(ans) { userAnswers.push(ans); currentStep++; showQuestion(); }
 
         function showLoading() {
             bar.style.width = '100%';
-            content.innerHTML = `
-                <div class="loading-spinner"></div>
-                <h3 class="text-xl font-bold text-[#4A8D84]">Analyse en cours...</h3>
-                <p class="text-sm text-gray-500 mt-2">Nous préparons votre bilan.</p>
-            `;
-            setTimeout(showResult, 2000);
+            content.innerHTML = `<div class="loading-spinner"></div><h3 class="text-xl font-bold text-[#4A8D84]">Analyse...</h3>`;
+            setTimeout(showResult, 1500);
         }
 
         function showResult() {
             content.innerHTML = `
                 <div class="text-center animate-fadeIn">
-                    <span class="bg-[#E8B496] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Diagnostic Terminé</span>
-                    <h2 class="text-3xl font-hand text-[#2F4F4F] mt-3 mb-2">Profil Validé !</h2>
-                    <p class="text-sm text-gray-600 mb-6">Recevez votre bilan complet directement sur WhatsApp.</p>
-                    
+                    <span class="bg-[#E8B496] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Terminé</span>
+                    <h2 class="text-2xl font-hand text-[#2F4F4F] mt-3 mb-2">Profil Validé !</h2>
+                    <p class="text-sm text-gray-600 mb-4">Recevez votre bilan sur WhatsApp.</p>
                     <form onsubmit="sendToWhatsApp(event)">
                         <input type="text" id="clientName" class="form-input" placeholder="Prénom & Nom" required>
-                        <button type="submit" class="btn-submit-quiz">Recevoir mon bilan WhatsApp 📲</button>
+                        <button type="submit" class="btn-submit-quiz">Envoyer sur WhatsApp 📲</button>
                     </form>
-                </div>
-            `;
+                </div>`;
         }
 
         function sendToWhatsApp(e) {
             e.preventDefault();
             const name = document.getElementById('clientName').value;
-            
-            // Construction du message
-            let msg = `*Nouveau Bilan Coaching SVB* 📋\n\n`;
-            msg += `👤 *Client:* ${name}\n\n`;
-            msg += `1️⃣ *Objectif:* ${userAnswers[0]}\n`;
-            msg += `2️⃣ *Niveau:* ${userAnswers[1]}\n`;
-            msg += `3️⃣ *Fréquence:* ${userAnswers[2]}\n`;
-            msg += `4️⃣ *Format:* ${userAnswers[3]}\n\n`;
-            msg += `👉 *Demande:* Je souhaite être recontacté pour un programme personnalisé.`;
-
-            // Encodage et ouverture
-            const finalMsg = encodeURIComponent(msg);
-            window.open(`https://wa.me/33744919155?text=${finalMsg}`, '_blank');
+            let msg = `*Bilan Coaching SVB* 📋\n👤 *Client:* ${name}\n1️⃣ ${userAnswers[0]}\n2️⃣ ${userAnswers[1]}\n3️⃣ ${userAnswers[2]}\n4️⃣ ${userAnswers[3]}\n👉 Je souhaite être recontacté.`;
+            window.open(`https://wa.me/33744919155?text=${encodeURIComponent(msg)}`, '_blank');
             closeQuiz();
         }
     </script>
