@@ -67,58 +67,40 @@
         }
         .nav-pill:hover { background: white; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-        /* === CARTE SESSION (IMAGE ONLY) === */
+        /* === CARTE SESSION (DESIGN ÉPURÉ) === */
         .session-card {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.5); /* Transparence légère */
+            backdrop-filter: blur(12px);
             border-radius: 24px;
-            height: 400px;
+            padding: 35px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex; flex-direction: column;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            cursor: default;
         }
 
         /* Indicateur couleur en haut */
         .session-card::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
-            background: currentColor; z-index: 20;
+            background: currentColor; /* Prend la couleur du texte/theme */
         }
 
-        /* Image de fond */
-        .card-img {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-            z-index: 1;
-        }
-
-        /* Overlay dégradé pour le texte */
-        .card-content {
-            position: absolute; bottom: 0; left: 0; width: 100%;
-            padding: 30px;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
-            z-index: 10;
-            color: white;
+        /* Effet au survol */
+        .session-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.9); /* Devient plus blanc */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
 
         .activity-name { 
             font-size: 1.6rem; font-weight: 800; text-transform: uppercase; 
-            margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 15px; color: var(--svb-text); letter-spacing: -0.02em; 
         }
         .activity-desc { 
-            font-size: 0.95rem; line-height: 1.5; font-weight: 500; opacity: 0.95;
-        }
-
-        /* === ACTIONS AU SURVOL (HOVER) === */
-        .session-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-        }
-        
-        /* Zoom léger sur l'image */
-        .session-card:hover .card-img {
-            transform: scale(1.05);
+            font-size: 0.95rem; line-height: 1.7; color: #555; font-weight: 500;
         }
 
         /* Section Headers */
@@ -198,11 +180,8 @@
             </div>
             <div class="grid md:grid-cols-1 gap-6">
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/3757954/pexels-photo-3757954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Crossformer">
-                    <div class="card-content">
-                        <h3 class="activity-name">Crossformer</h3>
-                        <p class="activity-desc">Le concept signature SVB. Il combine le meilleur du Pilates Reformer et du renforcement musculaire. Une session intense, dynamique et cardio qui sculpte votre silhouette tout en protégeant vos articulations.</p>
-                    </div>
+                    <h3 class="activity-name">Crossformer</h3>
+                    <p class="activity-desc">Le concept signature SVB. Il combine le meilleur du Pilates Reformer et du renforcement musculaire. Une session intense, dynamique et cardio qui sculpte votre silhouette tout en protégeant vos articulations grâce à la machine.</p>
                 </div>
             </div>
         </div>
@@ -214,11 +193,8 @@
             </div>
             <div class="grid md:grid-cols-1 gap-6">
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/3823039/pexels-photo-3823039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Reformer">
-                    <div class="card-content">
-                        <h3 class="activity-name">Pilates Reformer</h3>
-                        <p class="activity-desc">Le Pilates traditionnel sur machine. On utilise la résistance des ressorts pour un travail profond, précis et contrôlé. Idéal pour sculpter en longueur, améliorer la souplesse et renforcer la posture.</p>
-                    </div>
+                    <h3 class="activity-name">Pilates Reformer</h3>
+                    <p class="activity-desc">Le Pilates traditionnel sur machine. On utilise la résistance des ressorts pour un travail profond, précis et contrôlé. Idéal pour sculpter en longueur, améliorer la souplesse et renforcer la posture.</p>
                 </div>
             </div>
         </div>
@@ -231,43 +207,28 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Training">
-                    <div class="card-content">
-                        <h3 class="activity-name">Cross Training</h3>
-                        <p class="activity-desc">Circuit training complet. Mélange de poids de corps, charges légères et cardio pour se dépasser.</p>
-                    </div>
+                    <h3 class="activity-name">Cross Training</h3>
+                    <p class="activity-desc">Circuit training complet. Mélange de poids de corps, charges légères et cardio pour se dépasser.</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/3756042/pexels-photo-3756042.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Running">
-                    <div class="card-content">
-                        <h3 class="activity-name">Cross Rox</h3>
-                        <p class="activity-desc">Inspiré de l'Hyrox. Un mix d'endurance (course) et d'ateliers fonctionnels. Pour le cœur et le mental.</p>
-                    </div>
+                    <h3 class="activity-name">Cross Rox</h3>
+                    <p class="activity-desc">Inspiré de l'Hyrox. Un mix d'endurance (course) et d'ateliers fonctionnels. Pour le cœur et le mental.</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/3076509/pexels-photo-3076509.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Abs">
-                    <div class="card-content">
-                        <h3 class="activity-name">Cross Core</h3>
-                        <p class="activity-desc">Focus absolu sur la sangle abdominale. Gainage, obliques et grand droit pour un centre solide.</p>
-                    </div>
+                    <h3 class="activity-name">Cross Core</h3>
+                    <p class="activity-desc">Focus absolu sur la sangle abdominale. Gainage, obliques et grand droit pour un centre solide.</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/4164761/pexels-photo-4164761.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Body">
-                    <div class="card-content">
-                        <h3 class="activity-name">Cross Body</h3>
-                        <p class="activity-desc">Renforcement musculaire global à faible impact (Low Impact). On sculpte sans sauts.</p>
-                    </div>
+                    <h3 class="activity-name">Cross Body</h3>
+                    <p class="activity-desc">Renforcement musculaire global à faible impact (Low Impact). On sculpte sans sauts.</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/3822689/pexels-photo-3822689.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Yoga Sport">
-                    <div class="card-content">
-                        <h3 class="activity-name">Cross Yoga</h3>
-                        <p class="activity-desc">Yoga axé sur la mobilité et les étirements actifs, spécialement pour la récupération des sportifs.</p>
-                    </div>
+                    <h3 class="activity-name">Cross Yoga</h3>
+                    <p class="activity-desc">Yoga axé sur la mobilité et les étirements actifs, spécialement pour la récupération des sportifs.</p>
                 </div>
             </div>
         </div>
@@ -280,59 +241,38 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/3823076/pexels-photo-3823076.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Yoga">
-                    <div class="card-content">
-                        <h3 class="activity-name">Yoga Vinyasa</h3>
-                        <p class="activity-desc">Flow dynamique où le mouvement suit le souffle. On gaine, on s'étire et on transpire.</p>
-                    </div>
+                    <h3 class="activity-name">Yoga Vinyasa</h3>
+                    <p class="activity-desc">Flow dynamique où le mouvement suit le souffle. On gaine, on s'étire et on transpire.</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/3822906/pexels-photo-3822906.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hatha">
-                    <div class="card-content">
-                        <h3 class="activity-name">Hatha Flow</h3>
-                        <p class="activity-desc">Pratique plus lente. On tient les postures pour travailler l'alignement et le calme.</p>
-                    </div>
+                    <h3 class="activity-name">Hatha Flow</h3>
+                    <p class="activity-desc">Pratique plus lente. On tient les postures pour travailler l'alignement et le calme.</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/3823063/pexels-photo-3823063.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pilates">
-                    <div class="card-content">
-                        <h3 class="activity-name">Classic Pilates</h3>
-                        <p class="activity-desc">Le Pilates au sol traditionnel. Contrôle du mouvement et renforcement du "Powerhouse".</p>
-                    </div>
+                    <h3 class="activity-name">Classic Pilates</h3>
+                    <p class="activity-desc">Le Pilates au sol traditionnel. Contrôle du mouvement et renforcement du "Powerhouse".</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/3775566/pexels-photo-3775566.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Power">
-                    <div class="card-content">
-                        <h3 class="activity-name">Power Pilates</h3>
-                        <p class="activity-desc">Version rythmée du Pilates au sol. Enchaînements rapides pour faire monter la température.</p>
-                    </div>
+                    <h3 class="activity-name">Power Pilates</h3>
+                    <p class="activity-desc">Version rythmée du Pilates au sol. Enchaînements rapides pour faire monter la température.</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/6296054/pexels-photo-6296054.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Boxe">
-                    <div class="card-content">
-                        <h3 class="activity-name">Boxe Anglaise</h3>
-                        <p class="activity-desc">Technique et cardio. Gants, sacs et pattes d'ours pour se défouler. Intense et ludique.</p>
-                    </div>
+                    <h3 class="activity-name">Boxe Anglaise</h3>
+                    <p class="activity-desc">Technique et cardio. Gants, sacs et pattes d'ours pour se défouler. Intense et ludique.</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/5385664/pexels-photo-5385664.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Dance">
-                    <div class="card-content">
-                        <h3 class="activity-name">Afrodance'All</h3>
-                        <p class="activity-desc">Lâcher-prise total ! Chorégraphies entraînantes sur rythmes afro. Cardio et Good Vibes.</p>
-                    </div>
+                    <h3 class="activity-name">Afrodance'All</h3>
+                    <p class="activity-desc">Lâcher-prise total ! Chorégraphies entraînantes sur rythmes afro. Cardio et Good Vibes.</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/3759658/pexels-photo-3759658.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Stretch">
-                    <div class="card-content">
-                        <h3 class="activity-name">Core & Stretch</h3>
-                        <p class="activity-desc">Mix parfait : renforcement du centre du corps suivi de longs étirements relaxants.</p>
-                    </div>
+                    <h3 class="activity-name">Core & Stretch</h3>
+                    <p class="activity-desc">Mix parfait : renforcement du centre du corps suivi de longs étirements relaxants.</p>
                 </div>
             </div>
         </div>
@@ -343,21 +283,14 @@
                 <h2 class="section-title">Pass Kids</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-6">
-                
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/8612937/pexels-photo-8612937.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Kids">
-                    <div class="card-content">
-                        <h3 class="activity-name">Training Kids</h3>
-                        <p class="activity-desc">Parcours de motricité, jeux d'équipe et défis sportifs pour développer la confiance.</p>
-                    </div>
+                    <h3 class="activity-name">Training Kids</h3>
+                    <p class="activity-desc">Parcours de motricité, jeux d'équipe et défis sportifs pour développer la confiance.</p>
                 </div>
 
                 <div class="session-card">
-                    <img class="card-img" src="https://images.pexels.com/photos/8612975/pexels-photo-8612975.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Yoga Kids">
-                    <div class="card-content">
-                        <h3 class="activity-name">Yoga Kids</h3>
-                        <p class="activity-desc">Apprendre à se calmer et à connaître son corps à travers des histoires et postures ludiques.</p>
-                    </div>
+                    <h3 class="activity-name">Yoga Kids</h3>
+                    <p class="activity-desc">Apprendre à se calmer et à connaître son corps à travers des histoires et postures ludiques.</p>
                 </div>
             </div>
         </div>
