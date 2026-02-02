@@ -105,7 +105,7 @@
         /* IFRAME MAP */
         iframe { border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 4px solid rgba(255,255,255,0.7); }
 
-        /* === SLIDER AVIS (NOUVEAU) === */
+        /* === SLIDER AVIS === */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .snap-x { scroll-snap-type: x mandatory; }
@@ -219,60 +219,295 @@
             <div class="flex justify-center items-center space-x-1 text-[#D4AF37] mb-2 text-2xl">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
-            <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm">35+ témoignages 5/5 sur Google Maps</p>
+            <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm">Vos témoignages 5/5 sur Google Maps</p>
         </div>
 
         <div class="relative max-w-7xl mx-auto px-4 group">
             
-            <button onclick="document.getElementById('reviews-slider').scrollBy({left: -350, behavior: 'smooth'})" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-[#4A8D84] p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -ml-4 md:ml-0">
+            <button onclick="document.getElementById('reviews-slider').scrollBy({left: -350, behavior: 'smooth'})" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-[#4A8D84] p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -ml-4 md:ml-0 hidden md:block">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
             </button>
 
             <div id="reviews-slider" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth no-scrollbar px-4">
                 
                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Bien plus qu'un simple studio de Pilates, c'est un véritable refuge. Dès qu'on passe la porte de Santez-Vous Bien, on ressent une atmosphère apaisante qui nous transporte immédiatement ailleurs."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">V</div><p class="font-bold text-xs uppercase">Client SVB</p></div>
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Un studio de sport au top, une super ambiance aux cours collectifs et des coaches attentives. Et des inscriptions ultra flexibles !"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Marie de Sarnez</p></div>
                 </div>
 
                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Une fantastique découverte !! Je suis venue avec quelques appréhensions car je n'avais jamais fait de Reformer, mais l'accueil et la pédagogie sont au top."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">S</div><p class="font-bold text-xs uppercase">Stéphanie M.</p></div>
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je suis cliente SVB depuis l’ouverture et c’est simple, j’adore cet endroit. Beaucoup de cours proposés, une ambiance toujours au top et douches hyper clean."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Amandine DUPRE</p></div>
                 </div>
 
                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"J'ai pris un pass starter pour essayer différents cours. L'équipe est très professionnelle, les équipements sont de qualité et l'ambiance est motivante."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">D</div><p class="font-bold text-xs uppercase">DW</p></div>
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super salle de sport, Shanael et son équipe sont au top ! 👌 les coachs sont vraiment super, à l’écoute et savent vous booster sans vous brusquer."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">J</div><p class="font-bold text-xs uppercase">Justine Beck</p></div>
                 </div>
 
                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Le studio des Docks pour le coaching est génial. Shanael et son équipe sont très attentifs aux postures. Progression physique et mentale garantie."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">L</div><p class="font-bold text-xs uppercase">Léa G.</p></div>
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Après 2 grossesses et avant mon mariage, je devais me reprendre vite en main ! Shanaël m’a accompagnée 12 mois, les résultats ont été bluffants."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">G</div><p class="font-bold text-xs uppercase">Gaëlle HENRIOT</p></div>
                 </div>
 
                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Les deux studios sont magnifiques et d'une propreté irréprochable. C'est un plaisir de venir s'entraîner dans un cadre aussi soigné."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Marc A.</p></div>
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Ancien footeux, j’ai fait ma séance d’essai cross former et j’étais agréablement surpris de cette séance full body bien structurée."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Mickael Sautron</p></div>
                 </div>
 
                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Le Crossformer est une révélation ! Intense, précis et efficace. Les résultats sur ma silhouette sont visibles rapidement."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">K</div><p class="font-bold text-xs uppercase">Karine B.</p></div>
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super salle de sport/bien être. Les cours sont en petit groupe avec des profs au top et des séances toujours variées."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">B</div><p class="font-bold text-xs uppercase">Blandine Hirtz</p></div>
                 </div>
 
                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Le Yoga Vinyasa aux Lavandières est magique. Un équilibre parfait entre effort et relaxation. Le meilleur endroit pour déconnecter."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">N</div><p class="font-bold text-xs uppercase">Nicolas P.</p></div>
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super studio de sport à Saint-Ouen! Les cours sont supers, les coachs nous motivent et sont vraiment sympas, et l’ambiance est très chouette."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">C</div><p class="font-bold text-xs uppercase">Claire M. Zerhouni</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je suis inscrite depuis un an dans ce studio et je suis super contente. Les coachs sont vraiment très pro et on progresse rapidement."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Alizée Bouvier</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Coachs géniaux, cours variés, large disponibilité, toujours en petit comité, les installations sont de qualité. Je recommande vivement !"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">D</div><p class="font-bold text-xs uppercase">Déborah Dubois</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"J’ai enfin trouvé une salle de sport à taille humaine, et en plus, dans ma ville ! Je suis ravie de l’accueil et de la qualité des cours."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">H</div><p class="font-bold text-xs uppercase">Hauma Coaching</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"On a fait notre séance d'essai de cross former et rien à dire ! L'accueil au top, le cour de qualité tout comme les services."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">F</div><p class="font-bold text-xs uppercase">Florine Elphege</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Une salle de sport au top : de super coachs, de la flexibilité et un cadre hyper agréable. Je ne peux que recommander après 6 mois."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">J</div><p class="font-bold text-xs uppercase">Julie Flottes</p></div>
+                </div>
+
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je recommande vivement la salle de sport ! C’est un endroit unique où le sport et le bien-être se rencontrent."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">I</div><p class="font-bold text-xs uppercase">Isabelle Cordeiro</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Meilleur studio de coaching de St Ouen. Parfait pour se dépasser dans une ambiance bienveillante et conviviale."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Adele C</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Très bel endroit pour le cross training/pilate/yoga. De super profs, une administration au top, hygiène, confort et équipements nickels."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Alix Avril</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"J’avais commencé avec Shanael comme coach en individuel... Aujourd’hui je suis les cours collectifs proposés dans son studio qui sont très tops."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Audrey Boisroux</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Une salle de sport et de bien être au cœur des docks ! Shanael est une super coach, qui sait pousser ses élèves mais aussi s'adapter."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">R</div><p class="font-bold text-xs uppercase">Raphaëlle Bouix</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Un lieu parfait pour progresser et se dépasser ! Grâce à l’accompagnement de ma coach Shanaël, j’ai pu atteindre des objectifs impossibles."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">P</div><p class="font-bold text-xs uppercase">Philippe Aoustin</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Cela faisait longtemps qu’on attendait une ouverture comme celle là dans les Docks. Un vrai studio de coaching."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">E</div><p class="font-bold text-xs uppercase">Elodie Henry</p></div>
+                </div>
+
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je ne peux que conseiller ce nouveau studio de coaching à Saint Ouen !! Il est tellement différent de tout ce qu'on trouve ailleurs."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">S</div><p class="font-bold text-xs uppercase">Stéphanie Monjoin</p></div>
                 </div>
                 
                  <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"On sent que chaque détail est pensé pour le client. De l'accueil à la fin de la séance, tout est fluide et professionnel."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">J</div><p class="font-bold text-xs uppercase">Julien V.</p></div>
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super salle de sport avec une approche holistique (coach, ostéo, massage...). Les installations sont nickel, tout est bien pensé."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">T</div><p class="font-bold text-xs uppercase">Tamara Gervais</p></div>
+                </div>
+                
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Cette salle de sport est top !! Les locaux sont superbes et Shanael est une excellente coach. Les cours sont intenses."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">J</div><p class="font-bold text-xs uppercase">Justine Bernard</p></div>
+                </div>
+
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Au studio SVB, on trouve l'énergie de séances collectives en petit groupe, la bonne humeur et la variété."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">H</div><p class="font-bold text-xs uppercase">Helene Cassen</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Excellente salle de sport, super matériel et bonne ambiance. On peut même venir avec son bébé si on a personne pour le garder."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">J</div><p class="font-bold text-xs uppercase">Jeanne Bsq</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je connais Shanael depuis bientôt 1 an et quel plaisir de pouvoir enfin profiter de ses super cours dans un cocon chaleureux !"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">C</div><p class="font-bold text-xs uppercase">Constance Esnault</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Bien plus qu'une salle de sport. SVB combine la bienveillance, la bonne humeur et les précisions de sa super coach en chef Shanaël."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Mélanie Lallemand</p></div>
+                </div>
+
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Shanael, au-delà d'être ma super coach sportive depuis quelques années maintenant est aussi une coach super créative !"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Anne Kiritzé-Topor</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super salle de sport. Je me rends à la salle tous les mardis pour faire mes cours avec Marine et j’en suis plus que ravie."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">J</div><p class="font-bold text-xs uppercase">Jessica Geoffroy</p></div>
+                </div>
+
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Si vous cherchez une salle de coaching à Saint-Ouen, ne cherchez pas plus loin. SBV est là pour répondre à tous vos besoins!!"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">N</div><p class="font-bold text-xs uppercase">Najla Soussi</p></div>
+                </div>
+                
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Un moment 100% plaisir tout en faisant fu sport ! Les cours sont super bien construits et les coachs savent mettre une bonne dynamique."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Audrey Dufour</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je viens au studio pour du coaching en duo et des cours de boxe (activité découverte grâce aux essais offerts !) et c’est devenu un vrai rdv."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">V</div><p class="font-bold text-xs uppercase">Vanessa RECULARD</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Un studio flambant neuf animé par Shanael. On souffre, on progresse et en prime on prend du plaisir."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">V</div><p class="font-bold text-xs uppercase">Vincent Bretin</p></div>
+                </div>
+                
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Un lieu qui m'a réconciliée avec les salles de sports. Une salle où on se sent bien & où on a envie d'aller avec plaisir."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Aurélie V</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super studio de sport et bien être, des coachs au top. Les réservations se font facilement via l’application, il y a des cours variés."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">J</div><p class="font-bold text-xs uppercase">Jean His</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Souffrant de problème de dos et de genou, Shanael a su me redonner confiance et me libérer au fur et à mesure de toutes mes pathologies."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">D</div><p class="font-bold text-xs uppercase">Deborah K.</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Superbe club à Saint Ouen avec la coach Shanael. J’ai commencé le cross training avec elle après mon 1er enfant, ça m’a aidée à récupérer."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Marta B. Badrinas</p></div>
+                </div>
+                
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Une super salle de sport, flambant neuve avec des coach extra ! Shanael est très à l’écoute et les cours se font dans la joie."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">Y</div><p class="font-bold text-xs uppercase">Yaya Srf</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je suis suivie depuis 2ans par Shanael... mon physique s’est visuellement resserré et surtout je n’ai plus mal au dos."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">E</div><p class="font-bold text-xs uppercase">Emilie Rozier</p></div>
+                </div>
+
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Un lieu qu’on attendait depuis longtemps. Du vrai sur mesure pour atteindre ses objectifs, dans un studio complet."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">R</div><p class="font-bold text-xs uppercase">Raphaelle Flore Parker</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Nouveau dans le quartier des Docks, l'installation pensée par Shanael est super agréable : tout est prévu (tapis, briques, plaids...)."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">B</div><p class="font-bold text-xs uppercase">Bérengère JO</p></div>
+                </div>
+
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Une super salle de sport et de supers profs! Shanael adapte les cours pour les blessures et contraintes de tous les élèves."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">V</div><p class="font-bold text-xs uppercase">Vanessa Justal</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Si vous cherchez une super salle de coaching foncez chez Santez Vous Bien ! Plus qu’une salle de sport, un véritable lieu de bien être."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Morgane Rabineau</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Maintenant je vais au sport avec le sourire :) Shanaël est une coach passionnée, attentive et très pro. Vous êtes entre de bonnes mains !"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">Y</div><p class="font-bold text-xs uppercase">Yasmina Mikou</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"La salle de sport en excellence. Les cours en super qualité de coaching, ambiance amical, toujours propre, vraiment tout est parfait."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">S</div><p class="font-bold text-xs uppercase">Sepide Sagh</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Une salle que nous avons tous attendu avec impatience ! Équipe sympa, pro et dynamique ! Un lieu impeccable."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">S</div><p class="font-bold text-xs uppercase">Setare Badi</p></div>
+                </div>
+                
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Un cours au top, un personnel au top. Un moment qui te donne envie de retourner."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">K</div><p class="font-bold text-xs uppercase">Karlene O. Dodo</p></div>
+                </div>
+                
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Salle de sport parfaite! Les cours en « small group » sont intenses et c’est très bien!!!"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Alexia F</p></div>
+                </div>
+                
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je suis très satisfait du studio de coaching je me suis inscrit cette année et je ne regrette absolument pas mon inscription."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">E</div><p class="font-bold text-xs uppercase">Ernestine</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Studio magnifique et coach au top je recommande ++++ allez y et vous vous y sentirez bien les cours sont parfait."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">K</div><p class="font-bold text-xs uppercase">KiAïsse B</p></div>
+                </div>
+                
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super lieux, équipement de qualité, coaching au top… On se dépense avec plaisir ☺️"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">L</div><p class="font-bold text-xs uppercase">Leslie Floret</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Salle très sympa, profs au top. Ça donne envie de faire du sport."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">V</div><p class="font-bold text-xs uppercase">Vanessa NENNIG</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Une équipe au top et des conditions/installations sportives de qualité ! Je recommande fortement ✨"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Amandine MEYER</p></div>
+                </div>
+                
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Enfin un centre à l’écoute de ses clients. On y travaille durement mais résultats assurés !"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Moon Cni</p></div>
+                </div>
+                
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"J'ai pris un pass starter pour tester différents cours... L'équipe est super sympa et pro... Allez y les yeux fermés!"</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">D</div><p class="font-bold text-xs uppercase">DW</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Rigueur, bonne humeur, souffrance un peu quand même 😅🤣 mais surtout beaucoup de plaisir à venir aux cours."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">C</div><p class="font-bold text-xs uppercase">Claire F</p></div>
                 </div>
 
             </div>
 
-            <button onclick="document.getElementById('reviews-slider').scrollBy({left: 350, behavior: 'smooth'})" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-[#4A8D84] p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -mr-4 md:mr-0">
+            <button onclick="document.getElementById('reviews-slider').scrollBy({left: 350, behavior: 'smooth'})" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-[#4A8D84] p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -mr-4 md:mr-0 hidden md:block">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
             </button>
 
