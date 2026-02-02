@@ -144,7 +144,8 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         .form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; }
-        .btn-submit-quiz { width: 100%; padding: 12px; background: var(--col-dark); color: white; font-weight: bold; border-radius: 50px; text-transform: uppercase; margin-top: 10px; }
+        .btn-submit-quiz { width: 100%; padding: 15px; background-color: #25D366; color: white; font-weight: bold; border-radius: 50px; text-transform: uppercase; margin-top: 10px; transition: transform 0.2s; }
+        .btn-submit-quiz:hover { transform: scale(1.02); background-color: #1ebc57; }
 
     </style>
 </head>
@@ -385,7 +386,6 @@
     </footer>
 
     <script>
-        // DONNÉES DU QUIZ
         const questions = [
             {
                 q: "Quel est votre objectif principal ?",
@@ -422,6 +422,7 @@
         ];
 
         let currentStep = 0;
+        let userAnswers = []; // Stocker les réponses
         const modal = document.getElementById('quiz-modal');
         const content = document.getElementById('quizContent');
         const bar = document.getElementById('progressBar');
@@ -429,6 +430,7 @@
         function openQuiz() {
             modal.classList.add('open');
             currentStep = 0;
+            userAnswers = [];
             showQuestion();
         }
 
@@ -436,13 +438,11 @@
             modal.classList.remove('open');
         }
 
-        // Fermer si on clique en dehors
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeQuiz();
         });
 
         function showQuestion() {
-            // Mise à jour barre progression
             bar.style.width = ((currentStep) / questions.length * 100) + '%';
 
             if (currentStep < questions.length) {
@@ -452,7 +452,7 @@
                     <div class="quiz-options">`;
                 
                 q.a.forEach(opt => {
-                    html += `<div class="option-btn" onclick="nextStep()">
+                    html += `<div class="option-btn" onclick="recordAnswer('${opt.txt}')">
                         <span class="opt-icon">${opt.icon}</span> ${opt.txt}
                     </div>`;
                 });
@@ -464,7 +464,8 @@
             }
         }
 
-        function nextStep() {
+        function recordAnswer(answer) {
+            userAnswers.push(answer);
             currentStep++;
             showQuestion();
         }
@@ -473,10 +474,10 @@
             bar.style.width = '100%';
             content.innerHTML = `
                 <div class="loading-spinner"></div>
-                <h3 class="text-xl font-bold text-[#4A8D84]">Analyse de votre profil...</h3>
-                <p class="text-sm text-gray-500 mt-2">Nous préparons votre recommandation.</p>
+                <h3 class="text-xl font-bold text-[#4A8D84]">Analyse en cours...</h3>
+                <p class="text-sm text-gray-500 mt-2">Nous préparons votre bilan.</p>
             `;
-            setTimeout(showResult, 2000); // Faux chargement de 2s
+            setTimeout(showResult, 2000);
         }
 
         function showResult() {
@@ -484,16 +485,33 @@
                 <div class="text-center animate-fadeIn">
                     <span class="bg-[#E8B496] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Diagnostic Terminé</span>
                     <h2 class="text-3xl font-hand text-[#2F4F4F] mt-3 mb-2">Profil Validé !</h2>
-                    <p class="text-sm text-gray-600 mb-6">Un coach expert a déjà une stratégie en tête pour vous. Recevez votre bilan complet.</p>
+                    <p class="text-sm text-gray-600 mb-6">Recevez votre bilan complet directement sur WhatsApp.</p>
                     
-                    <form action="https://formspree.io/f/VOTRE_CODE_ICI" method="POST">
-                        <input type="text" name="nom" class="form-input" placeholder="Votre Nom" required>
-                        <input type="tel" name="tel" class="form-input" placeholder="Votre Téléphone" required>
-                        <input type="email" name="email" class="form-input" placeholder="Votre Email" required>
-                        <button type="submit" class="btn-submit-quiz">Recevoir mon bilan</button>
+                    <form onsubmit="sendToWhatsApp(event)">
+                        <input type="text" id="clientName" class="form-input" placeholder="Prénom & Nom" required>
+                        <button type="submit" class="btn-submit-quiz">Recevoir mon bilan WhatsApp 📲</button>
                     </form>
                 </div>
             `;
+        }
+
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value;
+            
+            // Construction du message
+            let msg = `*Nouveau Bilan Coaching SVB* 📋\n\n`;
+            msg += `👤 *Client:* ${name}\n\n`;
+            msg += `1️⃣ *Objectif:* ${userAnswers[0]}\n`;
+            msg += `2️⃣ *Niveau:* ${userAnswers[1]}\n`;
+            msg += `3️⃣ *Fréquence:* ${userAnswers[2]}\n`;
+            msg += `4️⃣ *Format:* ${userAnswers[3]}\n\n`;
+            msg += `👉 *Demande:* Je souhaite être recontacté pour un programme personnalisé.`;
+
+            // Encodage et ouverture
+            const finalMsg = encodeURIComponent(msg);
+            window.open(`https://wa.me/33744919155?text=${finalMsg}`, '_blank');
+            closeQuiz();
         }
     </script>
 
