@@ -3,35 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saint-Valentin | SVB SantezVousBien</title>
+    <title>Halloween | SVB SantezVousBien</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         :root {
-            --svb-green-light: #98D0B3; 
-            --svb-green-dark: #4A8D84;  
-            --svb-sand: #F2E6CF;        
-            --svb-peach: #E8B496;
-            --svb-love: #D67D7D; /* Nouvelle couleur Saint-Valentin (Vieux Rose) */
-            --svb-text: #2F4F4F;
+            --svb-orange: #FF7518; /* Orange Halloween */
+            --svb-purple: #4B0082; /* Violet Profond */
+            --svb-dark: #121212;   /* Noir Charbon */
+            --svb-ghost: #F0F0F0;  /* Blanc Fantôme */
+            --svb-slime: #80FF00;  /* Vert Acide (pour les accents) */
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--svb-green-light);
-            color: var(--svb-text);
+            background-color: var(--svb-dark);
+            color: var(--svb-ghost);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* === SPLASH SCREEN === */
+        /* === SPLASH SCREEN HALLOWEEN === */
         #splash-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
+            background: linear-gradient(180deg, #1a0b2e 0%, #000000 100%);
             z-index: 9999;
             display: flex;
             justify-content: center;
@@ -43,7 +42,7 @@
             width: 150px;
             opacity: 0;
             transform: scale(0.8);
-            filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--svb-orange)); /* Lueur orange */
         }
 
         .animate-logo {
@@ -62,47 +61,53 @@
             pointer-events: none;
         }
 
+        /* Typographie */
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
+        /* Optionnel : Police Halloween pour certains titres */
+        .font-spooky { font-family: 'Dancing Script', cursive; letter-spacing: 2px; } 
 
-        /* === FOND SAINT VALENTIN (CŒURS FLOTTANTS) === */
+        /* === FOND SPITIT (ELEMENTS FLOTTANTS) === */
         .ambient-bg {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
-            background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
+            background: radial-gradient(circle at top, #2e1a47 0%, #000000 100%);
             overflow: hidden;
         }
 
-        /* Animation des cœurs */
-        .floating-heart {
+        /* Animation des Fantômes/Citrouilles */
+        .floating-spook {
             position: absolute;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 2rem;
-            animation: floatHeart 15s linear infinite;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 2.5rem;
+            animation: floatSpook 20s linear infinite;
             bottom: -10vh;
+            filter: drop-shadow(0 0 5px rgba(255, 117, 24, 0.5));
         }
 
-        @keyframes floatHeart {
+        @keyframes floatSpook {
             0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(-110vh) rotate(360deg) scale(1.2); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-110vh) rotate(-20deg) scale(1.2); opacity: 0; }
         }
 
-        /* Blobs existants mais adoucis */
+        /* Blobs Sombres */
         .blob {
-            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
+            position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.3;
             animation: moveBlob 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-green-dark); }
-        .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--svb-love); animation-delay: -5s; } /* Changé en rose */
+        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-purple); }
+        .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--svb-orange); animation-delay: -5s; }
+        
         @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -50px) scale(1.1); } }
         
+        /* Effet Brouillard */
         .noise-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.05;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.08;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             pointer-events: none;
         }
 
-        /* Animation d'apparition du contenu */
+        /* Animation d'apparition */
         .reveal-load { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
         .content-visible .reveal-load { opacity: 1; transform: translateY(0); }
         
@@ -110,63 +115,68 @@
         .d-2 { transition-delay: 0.4s; }
         .d-3 { transition-delay: 0.6s; }
 
-        /* BOUTON ACTION LOVE */
+        /* BOUTON ACTION HALLOWEEN */
         .btn-action {
-            background-color: var(--svb-love); /* Rose Valentin */
+            background-color: var(--svb-orange);
             color: white;
             padding: 14px 40px;
             border-radius: 50px;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.85rem;
             letter-spacing: 0.1em;
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 10px 30px rgba(214, 125, 125, 0.4);
+            box-shadow: 0 0 20px rgba(255, 117, 24, 0.4);
             display: inline-block;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .btn-action:hover {
-            background-color: #c06565;
+            background-color: #e05e00;
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(214, 125, 125, 0.6);
+            box-shadow: 0 0 40px rgba(255, 117, 24, 0.7);
         }
 
-        /* === CARD STARTER FLOTTANTE === */
+        /* === CARD STARTER FLOTTANTE (MODE SOMBRE) === */
         @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
         .starter-card-wrapper { animation: float 6s ease-in-out infinite; }
         
         .starter-card {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(30, 30, 30, 0.6); /* Fond sombre */
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border-radius: 30px; padding: 50px 40px; text-align: center;
-            box-shadow: 0 30px 60px rgba(214, 125, 125, 0.15); /* Ombre rosée */
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             max-width: 550px; margin: 0 auto; position: relative;
-            border: 2px solid rgba(255,255,255,0.9); transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s ease;
         }
-        .starter-card:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.95); }
+        .starter-card:hover { transform: scale(1.02); background: rgba(30, 30, 30, 0.8); border-color: var(--svb-orange); }
 
-        /* === CARTES ESSAI === */
+        /* === CARTES ESSAI (MODE SOMBRE) === */
         .text-card {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.05); /* Très transparent */
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border-radius: 25px; padding: 35px 25px; text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer; height: 100%; display: flex; flex-direction: column; justify-content: space-between;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        .text-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.9); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .text-card:hover { 
+            transform: translateY(-10px); 
+            background: rgba(75, 0, 130, 0.3); /* Lueur violette au survol */
+            box-shadow: 0 0 30px rgba(75, 0, 130, 0.4); 
+            border-color: var(--svb-purple);
+        }
 
-        .card-title { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--svb-green-dark); margin-bottom: 5px; }
-        .card-desc { font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: #555; margin-bottom: 15px; }
-        .card-price { font-size: 2.8rem; font-weight: 700; color: var(--svb-text); margin-bottom: 25px; }
+        .card-title { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--svb-orange); margin-bottom: 5px; }
+        .card-desc { font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: #aaa; margin-bottom: 15px; }
+        .card-price { font-size: 2.8rem; font-weight: 700; color: white; margin-bottom: 25px; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
         
         .btn-small {
-            border: 1px solid var(--svb-green-dark); color: var(--svb-green-dark);
+            border: 1px solid var(--svb-orange); color: var(--svb-orange);
             padding: 10px 25px; border-radius: 25px; text-transform: uppercase;
             font-size: 0.75rem; font-weight: 700; transition: all 0.3s; background: transparent;
         }
-        .text-card:hover .btn-small { background-color: var(--svb-green-dark); color: white; }
+        .text-card:hover .btn-small { background-color: var(--svb-orange); color: white; box-shadow: 0 0 15px var(--svb-orange); }
 
         /* BOUTON FLOTTANT WHATSAPP */
         .whatsapp-btn {
@@ -174,12 +184,13 @@
             background-color: #25D366; color: white;
             width: 60px; height: 60px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
             transition: all 0.3s ease; z-index: 9990; cursor: pointer;
         }
-        .whatsapp-btn:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6); }
-        .whatsapp-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #25D366; animation: pulse-wa 2s infinite; opacity: 0; }
-        @keyframes pulse-wa { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.5); opacity: 0; } }
+        .whatsapp-btn:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 0 30px rgba(37, 211, 102, 0.8); }
+        
+        /* IFRAME MAP */
+        iframe { border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 2px solid #333; filter: grayscale(100%) invert(90%); } /* Carte en mode sombre */
 
     </style>
 </head>
@@ -202,88 +213,87 @@
             </a>
         </div>
         <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
-            <a href="index.html" class="border-b-2 border-white pb-1 text-[#E8B496] border-[#E8B496]">L'UNIVERS</a>
-            <a href="sessions.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">SESSIONS</a>
-            <a href="equipe.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">LA TEAM</a>
-            <a href="bien-etre.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
-            <a href="studio.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">TARIFS</a>
-            <a href="cadeau.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">CADEAU</a>
-            <a href="faq.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">FAQ</a>
-            <a href="contact.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">CONTACT</a>
+            <a href="index.html" class="border-b-2 border-orange-500 pb-1 text-orange-400">L'UNIVERS</a>
+            <a href="sessions.html" class="hover:text-purple-300 transition hover:scale-105 inline-block">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-purple-300 transition hover:scale-105 inline-block">LA TEAM</a>
+            <a href="bien-etre.html" class="hover:text-purple-300 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:text-purple-300 transition hover:scale-105 inline-block">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-purple-300 transition hover:scale-105 inline-block">TARIFS</a>
+            <a href="cadeau.html" class="hover:text-purple-300 transition hover:scale-105 inline-block">CADEAU</a>
+            <a href="faq.html" class="hover:text-purple-300 transition hover:scale-105 inline-block">FAQ</a>
+            <a href="contact.html" class="hover:text-purple-300 transition hover:scale-105 inline-block">CONTACT</a>
         </div>
     </nav>
 
     <header class="relative text-center py-20 px-4 reveal-load d-1 z-10">
-        <h1 class="text-5xl sm:text-7xl md:text-9xl text-white drop-shadow-lg mb-6 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default">
-            SantezVousBien... <span class="text-[#E8B496]">à deux</span> ❤️
+        <h1 class="text-5xl sm:text-7xl md:text-9xl text-white drop-shadow-lg mb-6 leading-tight font-spooky transform hover:scale-105 transition duration-700 cursor-default">
+            Trick or <span class="text-[#FF7518]">Sweat</span> ? 🎃
         </h1>
-        <p class="text-white text-xl font-light max-w-3xl mx-auto mb-8 leading-relaxed opacity-90 drop-shadow-md">
-            Célébrez l'amour de soi et le bien-être partagé.<br>
-            <span class="font-medium italic">Deux studios, une seule passion.</span>
+        <p class="text-gray-300 text-xl font-light max-w-3xl mx-auto mb-8 leading-relaxed opacity-90 drop-shadow-md">
+            Ne laissez pas vos excuses vous hanter.<br>
+            <span class="font-medium italic text-purple-300">Deux studios, une énergie surnaturelle.</span>
         </p>
     </header>
 
     <div class="relative px-4 pb-24 reveal-load d-2 z-10">
         <div class="starter-card-wrapper">
             <div class="starter-card">
-                <span class="bg-[#D67D7D] text-white px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6 inline-block shadow-lg animate-pulse">
-                    ❤️ Offre Spéciale Duo
+                <span class="bg-[#FF7518] text-white px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6 inline-block shadow-lg animate-bounce">
+                    👻 Offre Mortelle
                 </span>
                 
-                <h2 class="text-5xl font-hand text-[#2F4F4F] mb-3">Pass Saint-Valentin</h2>
+                <h2 class="text-5xl font-hand text-white mb-3">Pass Sorcier</h2>
                 
-                <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-500 uppercase mb-8 tracking-wide">
-                    <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">2 Personnes</span>
+                <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-400 uppercase mb-8 tracking-wide">
+                    <span class="bg-white/10 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/20">5 Potions</span>
                     <span>•</span>
-                    <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">1 Session Offerte</span>
+                    <span class="bg-white/10 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/20">Sans Engagement</span>
                 </div>
                 
-                <p class="text-6xl font-bold text-[#D67D7D] mb-4 tracking-tight drop-shadow-sm">
-                    60<span class="text-3xl align-top">€</span> <span class="text-2xl text-gray-400 line-through">100€</span>
+                <p class="text-7xl font-bold text-[#FF7518] mb-10 tracking-tight drop-shadow-[0_0_15px_rgba(255,117,24,0.5)]">
+                    99,90<span class="text-3xl align-top">€</span>
                 </p>
-                <p class="text-sm text-gray-500 mb-8 italic">Soit 30€ la séance par personne</p>
                 
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full text-lg">
-                    Réserver à deux
+                    Je chasse les calories
                 </a>
-                <p class="text-[10px] text-gray-500 mt-5 italic">Valable jusqu'au 20 Février • Places limitées</p>
+                <p class="text-[10px] text-gray-500 mt-5 italic">Valable 1 mois • Avant la pleine lune</p>
             </div>
         </div>
     </div>
 
     <div class="relative max-w-6xl mx-auto px-4 pb-32 text-center reveal-load d-3 z-10">
-        <h2 class="text-4xl text-white font-hand mb-12 drop-shadow-md">Nos Séances Coup de Cœur</h2>
+        <h2 class="text-4xl text-white font-hand mb-12 drop-shadow-md text-[#FF7518]">Oserez-vous essayer ?</h2>
         
         <div class="grid md:grid-cols-3 gap-8">
             
             <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="text-card group">
                 <div>
-                    <h3 class="card-title">Reformer Duo</h3>
-                    <p class="card-desc">Synchronisation & Harmonie</p>
+                    <h3 class="card-title">Reformer</h3>
+                    <p class="card-desc">Sculptez votre squelette</p>
                 </div>
                 <div>
-                    <p class="card-price text-[#D67D7D]">50€</p> <span class="btn-small">Réserver</span>
+                    <p class="card-price">50€</p> <span class="btn-small">Réserver</span>
                 </div>
             </a>
 
             <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="text-card group">
                 <div>
                     <h3 class="card-title">Crossformer</h3>
-                    <p class="card-desc">Transpirer Ensemble</p>
+                    <p class="card-desc">Intensité Diabolique</p>
                 </div>
                 <div>
-                    <p class="card-price text-[#D67D7D]">50€</p> <span class="btn-small">Réserver</span>
+                    <p class="card-price">50€</p> <span class="btn-small">Réserver</span>
                 </div>
             </a>
 
             <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="text-card group">
                 <div>
-                    <h3 class="card-title">Yoga Love</h3>
-                    <p class="card-desc">Détente & Connexion</p>
+                    <h3 class="card-title">Yoga Magic</h3>
+                    <p class="card-desc">Calme & Sortilèges</p>
                 </div>
                 <div>
-                    <p class="card-price text-[#D67D7D]">30€</p>
+                    <p class="card-price">30€</p>
                     <span class="btn-small">Réserver</span>
                 </div>
             </a>
@@ -293,9 +303,9 @@
 
     <section class="relative max-w-6xl mx-auto px-4 pb-24 reveal-load d-2 z-10">
         <div class="text-center mb-12">
-            <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">Nos 2 Studios</h2>
-            <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
-                L'amour est dans l'air à Saint-Ouen
+            <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">Nos 2 Repaires</h2>
+            <p class="text-[#FF7518] font-bold uppercase tracking-widest text-sm bg-white/10 inline-block px-4 py-1 rounded-full backdrop-blur-sm border border-[#FF7518]/30">
+                Situés à 5 minutes de vol de balai
             </p>
         </div>
 
@@ -303,20 +313,20 @@
             
             <div class="text-right space-y-10 text-white">
                 <div class="group cursor-default">
-                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#D67D7D] transition">📍 Parc des Docks</h3>
-                    <p class="text-base opacity-90 font-light leading-relaxed">
-                        Le cœur battant du Reformer. Un espace moderne pour se challenger à deux.
+                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#FF7518] transition text-purple-300">📍 Parc des Docks</h3>
+                    <p class="text-base opacity-70 font-light leading-relaxed">
+                        Le laboratoire du Crossformer. Un espace sombre et intense pour se dépasser.
                     </p>
                 </div>
                 <div class="group cursor-default">
-                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#D67D7D] transition">📍 Cours des Lavandières</h3>
-                    <p class="text-base opacity-90 font-light leading-relaxed">
-                        Le cocon du Bien-être. Une atmosphère feutrée pour se retrouver.
+                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#FF7518] transition text-purple-300">📍 Cours des Lavandières</h3>
+                    <p class="text-base opacity-70 font-light leading-relaxed">
+                        Le sanctuaire du Bien-être. Une atmosphère mystique pour se reconnecter.
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="contact.html" class="inline-block border-b-2 border-white pb-1 font-bold uppercase text-sm hover:text-[#D67D7D] hover:border-[#D67D7D] transition transform hover:translate-x-2">
-                        Voir les accès détaillés →
+                    <a href="contact.html" class="inline-block border-b-2 border-[#FF7518] pb-1 font-bold uppercase text-sm hover:text-[#FF7518] transition transform hover:translate-x-2 text-white">
+                        Voir les accès secrets →
                     </a>
                 </div>
             </div>
@@ -341,36 +351,35 @@
         </svg>
     </a>
 
-    <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white pt-16 pb-8 mt-10 border-t border-white/20 z-10">
+    <footer class="relative bg-[#1a0b2e]/90 backdrop-filter backdrop-blur-lg text-white pt-16 pb-8 mt-10 border-t border-white/10 z-10">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
             <div class="flex flex-col items-center md:items-start">
-                <img src="images/logo.png" alt="Logo SVB" class="h-24 mb-4 brightness-0 invert">
-                <p class="text-xs opacity-80 leading-relaxed max-w-xs">
-                    SantezVousBien est votre espace de remise en forme et de bien-être à Saint-Ouen. Pilates, Yoga, Training et Soins.
+                <img src="images/logo.png" alt="Logo SVB" class="h-24 mb-4 brightness-0 invert opacity-80">
+                <p class="text-xs opacity-60 leading-relaxed max-w-xs">
+                    SantezVousBien est votre espace de remise en forme... et de frissons à Saint-Ouen.
                 </p>
             </div>
             <div class="flex flex-col items-center md:items-center">
-                <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Contact</h3>
-                <ul class="space-y-4 text-sm opacity-90">
-                    <li class="hover:scale-105 transition cursor-pointer">📞 07 44 91 91 55</li>
-                    <li class="hover:scale-105 transition cursor-pointer">✉️ hello@studiosvb.fr</li>
+                <h3 class="font-bold uppercase tracking-widest mb-6 text-sm text-[#FF7518]">Contact</h3>
+                <ul class="space-y-4 text-sm opacity-70">
+                    <li class="hover:text-[#FF7518] transition cursor-pointer">📞 07 44 91 91 55</li>
+                    <li class="hover:text-[#FF7518] transition cursor-pointer">✉️ hello@studiosvb.fr</li>
                     <li>📍 Saint-Ouen, France</li>
                 </ul>
             </div>
             <div class="flex flex-col items-center md:items-end">
-                <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Suivez-nous</h3>
-                <a href="https://www.instagram.com/svb.officiel" target="_blank" class="inline-block bg-white/20 hover:bg-white hover:text-[#4A8D84] transition px-8 py-3 rounded-full text-xs font-bold uppercase mb-6 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                <h3 class="font-bold uppercase tracking-widest mb-6 text-sm text-[#FF7518]">Suivez-nous</h3>
+                <a href="https://www.instagram.com/svb.officiel" target="_blank" class="inline-block bg-white/10 hover:bg-[#FF7518] hover:text-white transition px-8 py-3 rounded-full text-xs font-bold uppercase mb-6 shadow-md hover:shadow-lg transform hover:-translate-y-1">
                     Instagram
                 </a>
-                <div class="space-x-4 text-xs opacity-60">
+                <div class="space-x-4 text-xs opacity-40">
                     <a href="faq.html" class="hover:text-white transition">FAQ</a>
                     <a href="#" class="hover:text-white transition">Mentions Légales</a>
-                    <a href="#" class="hover:text-white transition">CGV</a>
                 </div>
             </div>
         </div>
-        <div class="text-center mt-12 text-[10px] opacity-40 uppercase tracking-widest">
-            © 2026 SVB SantezVousBien. Tous droits réservés.
+        <div class="text-center mt-12 text-[10px] opacity-20 uppercase tracking-widest">
+            © 2026 SVB Halloween Edition.
         </div>
     </footer>
 
@@ -381,21 +390,22 @@
             const body = document.body;
             const bgContainer = document.getElementById('bg-container');
 
-            // Générer des cœurs flottants
-            const heartEmojis = ['❤️', '💖', '🤍', '🌸'];
-            const heartCount = 15;
+            // Générer des éléments flottants Spooky
+            const spookyEmojis = ['🎃', '👻', '🕸️', '🦇', '🔮'];
+            const count = 18;
 
-            for(let i=0; i<heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('floating-heart');
-                heart.innerText = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            for(let i=0; i<count; i++) {
+                const item = document.createElement('div');
+                item.classList.add('floating-spook');
+                item.innerText = spookyEmojis[Math.floor(Math.random() * spookyEmojis.length)];
                 
-                // Random positions
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 10 + 10) + 's'; // Entre 10s et 20s
-                heart.style.animationDelay = (Math.random() * 5) + 's';
+                // Random positions & speed
+                item.style.left = Math.random() * 100 + 'vw';
+                item.style.animationDuration = (Math.random() * 15 + 10) + 's'; 
+                item.style.animationDelay = (Math.random() * 10) + 's';
+                item.style.fontSize = (Math.random() * 1.5 + 1.5) + 'rem'; // Taille variable
                 
-                bgContainer.appendChild(heart);
+                bgContainer.appendChild(item);
             }
 
             // Gestion Splash Screen
