@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -67,20 +68,20 @@
         }
         .nav-pill:hover { background: white; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-        /* === CARTE SESSION AVEC VIDEO === */
+        /* === CARTE SESSION AVEC VIDEO (CORRIGÉE) === */
         .session-card {
-            background: rgba(255, 255, 255, 0.7); /* Fond blanc semi-transparent */
+            background: rgba(255, 255, 255, 0.85); /* Fond blanc par défaut */
             backdrop-filter: blur(10px);
             border-radius: 24px;
             padding: 30px;
             height: 100%;
-            transition: all 0.4s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease; /* Transition fluide */
             border: 1px solid rgba(255,255,255,0.6);
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             display: flex; flex-direction: column;
             position: relative;
-            overflow: hidden; /* Coupe la vidéo qui dépasse */
-            z-index: 1; /* Crée un contexte d'empilement */
+            overflow: hidden;
+            z-index: 1;
         }
 
         /* Indicateur couleur en haut */
@@ -89,37 +90,49 @@
             background: currentColor; z-index: 10;
         }
 
-        /* La vidéo (cachée par défaut) */
-        .card-video {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; /* Remplit toute la carte */
-            opacity: 0; /* Invisible au départ */
-            transition: opacity 0.5s ease;
-            z-index: -2; /* Derrière le texte */
+        /* CONTENEUR DE CONTENU (Pour s'assurer que le texte est au-dessus de la vidéo) */
+        .card-content {
+            position: relative;
+            z-index: 5; /* Texte au premier plan */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Le filtre noir (caché par défaut) */
+        /* VIDÉO EN ARRIÈRE-PLAN */
+        .card-video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0; /* Vidéo au fond */
+            opacity: 0; /* Invisible par défaut */
+            transition: opacity 0.5s ease;
+        }
+
+        /* FILTRE NOIR (pour lisibilité) */
         .card-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5); /* Noir à 50% */
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Assombrit la vidéo */
+            z-index: 1; /* Entre la vidéo et le texte */
             opacity: 0;
             transition: opacity 0.5s ease;
-            z-index: -1; /* Derrière le texte, devant la vidéo */
         }
 
         /* === ACTIONS AU SURVOL (HOVER) === */
         .session-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            background: transparent; /* CRUCIAL : Le fond blanc disparaît ! */
         }
 
-        /* Afficher vidéo et filtre */
+        /* Afficher la vidéo et le filtre au survol */
         .session-card:hover .card-video { opacity: 1; }
         .session-card:hover .card-overlay { opacity: 1; }
 
-        /* Changer la couleur du texte en blanc */
+        /* Texte passe en blanc au survol */
         .session-card:hover .activity-name { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-        .session-card:hover .activity-desc { color: white; font-weight: 500; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+        .session-card:hover .activity-desc { color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
 
         .activity-name { 
             font-size: 1.4rem; font-weight: 800; text-transform: uppercase; 
@@ -210,10 +223,11 @@
             <div class="grid md:grid-cols-1 gap-6">
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
-                    <video class="card-video" src="https://videos.pexels.com/video-files/3209228/3209228-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    
-                    <h3 class="activity-name">Crossformer</h3>
-                    <p class="activity-desc">Le concept signature SVB. Il combine le meilleur du Pilates Reformer et du renforcement musculaire. Une session intense, dynamique et cardio qui sculpte votre silhouette tout en protégeant vos articulations grâce à la machine.</p>
+                    <video class="card-video" src="https://videos.pexels.com/video-files/4754026/4754026-uhd_2560_1440_25fps.mp4" loop muted playsinline></video>
+                    <div class="card-content">
+                        <h3 class="activity-name">Crossformer</h3>
+                        <p class="activity-desc">Le concept signature SVB. Il combine le meilleur du Pilates Reformer et du renforcement musculaire. Une session intense, dynamique et cardio qui sculpte votre silhouette tout en protégeant vos articulations grâce à la machine.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -227,9 +241,10 @@
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/8550787/8550787-hd_1920_1080_30fps.mp4" loop muted playsinline></video>
-
-                    <h3 class="activity-name">Pilates Reformer</h3>
-                    <p class="activity-desc">Le Pilates traditionnel sur machine. On utilise la résistance des ressorts pour un travail profond, précis et contrôlé. Idéal pour sculpter en longueur, améliorer la souplesse et renforcer la posture.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Pilates Reformer</h3>
+                        <p class="activity-desc">Le Pilates traditionnel sur machine. On utilise la résistance des ressorts pour un travail profond, précis et contrôlé. Idéal pour sculpter en longueur, améliorer la souplesse et renforcer la posture.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -243,37 +258,47 @@
                 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
-                    <video class="card-video" src="https://videos.pexels.com/video-files/4114798/4114798-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Cross Training</h3>
-                    <p class="activity-desc">Circuit training complet. Mélange de poids de corps, charges légères et cardio pour se dépasser.</p>
+                    <video class="card-video" src="https://videos.pexels.com/video-files/4761426/4761426-hd_1280_720_25fps.mp4" loop muted playsinline></video>
+                    <div class="card-content">
+                        <h3 class="activity-name">Cross Training</h3>
+                        <p class="activity-desc">Circuit training complet. Mélange de poids de corps, charges légères et cardio pour se dépasser.</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
-                    <video class="card-video" src="https://videos.pexels.com/video-files/3760968/3760968-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Cross Rox</h3>
-                    <p class="activity-desc">Inspiré de l'Hyrox. Un mix d'endurance (course) et d'ateliers fonctionnels. Pour le cœur et le mental.</p>
+                    <video class="card-video" src="https://videos.pexels.com/video-files/4754028/4754028-hd_1280_720_25fps.mp4" loop muted playsinline></video>
+                    <div class="card-content">
+                        <h3 class="activity-name">Cross Rox</h3>
+                        <p class="activity-desc">Inspiré de l'Hyrox. Un mix d'endurance (course) et d'ateliers fonctionnels. Pour le cœur et le mental.</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/4259062/4259062-hd_1920_1080_30fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Cross Core</h3>
-                    <p class="activity-desc">Focus absolu sur la sangle abdominale. Gainage, obliques et grand droit pour un centre solide.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Cross Core</h3>
+                        <p class="activity-desc">Focus absolu sur la sangle abdominale. Gainage, obliques et grand droit pour un centre solide.</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/3862955/3862955-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Cross Body</h3>
-                    <p class="activity-desc">Renforcement musculaire global à faible impact (Low Impact). On sculpte sans sauts.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Cross Body</h3>
+                        <p class="activity-desc">Renforcement musculaire global à faible impact (Low Impact). On sculpte sans sauts.</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
-                    <video class="card-video" src="https://videos.pexels.com/video-files/855078/855078-hd_1920_1080_30fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Cross Yoga</h3>
-                    <p class="activity-desc">Yoga axé sur la mobilité et les étirements actifs, spécialement pour la récupération des sportifs.</p>
+                    <video class="card-video" src="https://videos.pexels.com/video-files/40398/40398-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
+                    <div class="card-content">
+                        <h3 class="activity-name">Cross Yoga</h3>
+                        <p class="activity-desc">Yoga axé sur la mobilité et les étirements actifs, spécialement pour la récupération des sportifs.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -288,50 +313,64 @@
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/3192306/3192306-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Yoga Vinyasa</h3>
-                    <p class="activity-desc">Flow dynamique où le mouvement suit le souffle. On gaine, on s'étire et on transpire.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Yoga Vinyasa</h3>
+                        <p class="activity-desc">Flow dynamique où le mouvement suit le souffle. On gaine, on s'étire et on transpire.</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/3757879/3757879-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Hatha Flow</h3>
-                    <p class="activity-desc">Pratique plus lente. On tient les postures pour travailler l'alignement et le calme.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Hatha Flow</h3>
+                        <p class="activity-desc">Pratique plus lente. On tient les postures pour travailler l'alignement et le calme.</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/4057864/4057864-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Classic Pilates</h3>
-                    <p class="activity-desc">Le Pilates au sol traditionnel. Contrôle du mouvement et renforcement du "Powerhouse".</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Classic Pilates</h3>
+                        <p class="activity-desc">Le Pilates au sol traditionnel. Contrôle du mouvement et renforcement du "Powerhouse".</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/4325519/4325519-hd_1920_1080_30fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Power Pilates</h3>
-                    <p class="activity-desc">Version rythmée du Pilates au sol. Enchaînements rapides pour faire monter la température.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Power Pilates</h3>
+                        <p class="activity-desc">Version rythmée du Pilates au sol. Enchaînements rapides pour faire monter la température.</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/6082987/6082987-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Boxe Anglaise</h3>
-                    <p class="activity-desc">Technique et cardio. Gants, sacs et pattes d'ours pour se défouler. Intense et ludique.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Boxe Anglaise</h3>
+                        <p class="activity-desc">Technique et cardio. Gants, sacs et pattes d'ours pour se défouler. Intense et ludique.</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/6453989/6453989-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Afrodance'All</h3>
-                    <p class="activity-desc">Lâcher-prise total ! Chorégraphies entraînantes sur rythmes afro. Cardio et Good Vibes.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Afrodance'All</h3>
+                        <p class="activity-desc">Lâcher-prise total ! Chorégraphies entraînantes sur rythmes afro. Cardio et Good Vibes.</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/3873427/3873427-hd_1920_1080_30fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Core & Stretch</h3>
-                    <p class="activity-desc">Mix parfait : renforcement du centre du corps suivi de longs étirements relaxants.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Core & Stretch</h3>
+                        <p class="activity-desc">Mix parfait : renforcement du centre du corps suivi de longs étirements relaxants.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -342,18 +381,23 @@
                 <h2 class="section-title">Pass Kids</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-6">
+                
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/8612740/8612740-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Training Kids</h3>
-                    <p class="activity-desc">Parcours de motricité, jeux d'équipe et défis sportifs pour développer la confiance.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Training Kids</h3>
+                        <p class="activity-desc">Parcours de motricité, jeux d'équipe et défis sportifs pour développer la confiance.</p>
+                    </div>
                 </div>
 
                 <div class="session-card" onmouseenter="playVideo(this)" onmouseleave="stopVideo(this)">
                     <div class="card-overlay"></div>
                     <video class="card-video" src="https://videos.pexels.com/video-files/8612395/8612395-hd_1920_1080_25fps.mp4" loop muted playsinline></video>
-                    <h3 class="activity-name">Yoga Kids</h3>
-                    <p class="activity-desc">Apprendre à se calmer et à connaître son corps à travers des histoires et postures ludiques.</p>
+                    <div class="card-content">
+                        <h3 class="activity-name">Yoga Kids</h3>
+                        <p class="activity-desc">Apprendre à se calmer et à connaître son corps à travers des histoires et postures ludiques.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -375,7 +419,9 @@
         function playVideo(card) {
             const vid = card.querySelector('video');
             if(vid) {
-                vid.play();
+                vid.play().catch(error => {
+                    console.log("Lecture automatique bloquée par le navigateur (normal sans interaction)");
+                });
             }
         }
 
