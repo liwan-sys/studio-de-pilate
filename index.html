@@ -105,8 +105,11 @@
         /* IFRAME MAP */
         iframe { border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 4px solid rgba(255,255,255,0.7); }
 
-        /* MASONRY REVIEW STYLE */
-        .break-inside-avoid { break-inside: avoid; display: inline-block; width: 100%; }
+        /* === SLIDER AVIS (NOUVEAU) === */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .snap-x { scroll-snap-type: x mandatory; }
+        .snap-center { scroll-snap-align: center; }
 
         /* WHATSAPP */
         .whatsapp-btn {
@@ -191,7 +194,7 @@
         </div>
     </div>
 
-    <div class="relative max-w-6xl mx-auto px-4 pb-32 text-center reveal-load d-3 z-10">
+    <div class="relative max-w-6xl mx-auto px-4 pb-16 text-center reveal-load d-3 z-10">
         <h2 class="text-4xl text-white font-hand mb-12 drop-shadow-md">Juste une séance ?</h2>
         
         <div class="grid md:grid-cols-3 gap-8">
@@ -210,8 +213,8 @@
         </div>
     </div>
 
-    <section class="relative py-24 reveal-load d-3 z-10 overflow-hidden">
-        <div class="text-center mb-16 px-4">
+    <section class="relative py-20 reveal-load d-3 z-10">
+        <div class="text-center mb-10 px-4">
             <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">La communauté SVB</h2>
             <div class="flex justify-center items-center space-x-1 text-[#D4AF37] mb-2 text-2xl">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -219,72 +222,64 @@
             <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm">35+ témoignages 5/5 sur Google Maps</p>
         </div>
 
-        <div class="max-w-[1400px] mx-auto px-4" style="columns: 1; gap: 1.5rem; @media (min-width: 768px) { columns: 2; } @media (min-width: 1024px) { columns: 3; } @media (min-width: 1280px) { columns: 4; }">
+        <div class="relative max-w-7xl mx-auto px-4 group">
             
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"Bien plus qu'un simple studio de Pilates, c'est un véritable refuge. Dès qu'on passe la porte de Santez-Vous Bien, on ressent une atmosphère apaisante qui nous transporte immédiatement ailleurs."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Client SVB <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
+            <button onclick="document.getElementById('reviews-slider').scrollBy({left: -350, behavior: 'smooth'})" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-[#4A8D84] p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -ml-4 md:ml-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+
+            <div id="reviews-slider" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth no-scrollbar px-4">
+                
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Bien plus qu'un simple studio de Pilates, c'est un véritable refuge. Dès qu'on passe la porte de Santez-Vous Bien, on ressent une atmosphère apaisante qui nous transporte immédiatement ailleurs."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">V</div><p class="font-bold text-xs uppercase">Client SVB</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Une fantastique découverte !! Je suis venue avec quelques appréhensions car je n'avais jamais fait de Reformer, mais l'accueil et la pédagogie sont au top."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">S</div><p class="font-bold text-xs uppercase">Stéphanie M.</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"J'ai pris un pass starter pour essayer différents cours. L'équipe est très professionnelle, les équipements sont de qualité et l'ambiance est motivante."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">D</div><p class="font-bold text-xs uppercase">DW</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Le studio des Docks pour le coaching est génial. Shanael et son équipe sont très attentifs aux postures. Progression physique et mentale garantie."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">L</div><p class="font-bold text-xs uppercase">Léa G.</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Les deux studios sont magnifiques et d'une propreté irréprochable. C'est un plaisir de venir s'entraîner dans un cadre aussi soigné."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Marc A.</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Le Crossformer est une révélation ! Intense, précis et efficace. Les résultats sur ma silhouette sont visibles rapidement."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">K</div><p class="font-bold text-xs uppercase">Karine B.</p></div>
+                </div>
+
+                <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Le Yoga Vinyasa aux Lavandières est magique. Un équilibre parfait entre effort et relaxation. Le meilleur endroit pour déconnecter."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">N</div><p class="font-bold text-xs uppercase">Nicolas P.</p></div>
+                </div>
+                
+                 <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"On sent que chaque détail est pensé pour le client. De l'accueil à la fin de la séance, tout est fluide et professionnel."</p>
+                    <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">J</div><p class="font-bold text-xs uppercase">Julien V.</p></div>
+                </div>
+
             </div>
 
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"Une fantastique découverte !! Je suis venue avec quelques appréhensions car je n'avais jamais fait de Reformer, mais l'accueil et la pédagogie sont au top."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Stéphanie M. <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
-
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"J'ai pris un pass starter pour essayer différents cours. L'équipe est très professionnelle, les équipements sont de qualité et l'ambiance est motivante."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">DW <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
-
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"Le studio des Docks pour le coaching est génial. Shanael et son équipe sont très attentifs aux postures. Progression physique et mentale garantie."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Léa G. <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
-
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"Le Crossformer est une révélation ! Intense, précis et efficace. Les résultats sur ma silhouette sont visibles rapidement."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Karine B. <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
-
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"Les deux studios sont magnifiques et d'une propreté irréprochable. C'est un plaisir de venir s'entraîner dans un cadre aussi soigné."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Marc A. <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
-
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"Le cours de Yoga Vinyasa aux Lavandières est magique. Un équilibre parfait entre effort et relaxation. Le meilleur endroit pour déconnecter."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Nicolas P. <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
-
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"L'ambiance est incroyable, on ne se sent jamais jugé. Les coachs sont solaires et nous poussent à donner le meilleur."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Chloé R. <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
-
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"On sent que chaque détail est pensé pour le client. De l'accueil à la fin de la séance, tout est fluide et professionnel."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Julien V. <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
-
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300 opacity-80">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"Studio topissime à Saint-Ouen ! Les profs sont géniaux et les cours très variés. Je ne peux plus m'en passer."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Client Google <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
-
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300 opacity-80">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"Un encadrement de qualité pour le Pilates sur machine. J'ai vu mes maux de dos disparaître en quelques séances."</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Client Google <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
-
-            <div class="break-inside-avoid mb-6 bg-white/50 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm hover:bg-white/80 transition duration-300 opacity-80">
-                <p class="text-sm italic text-gray-700 mb-4 leading-relaxed">"Merci pour l'accueil et la bienveillance. Je recommande vivement !"</p>
-                <p class="font-bold text-[10px] uppercase text-gray-600">Client Google <span class="text-[#4A8D84] ml-2">★★★★★</span></p>
-            </div>
+            <button onclick="document.getElementById('reviews-slider').scrollBy({left: 350, behavior: 'smooth'})" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-[#4A8D84] p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -mr-4 md:mr-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
 
         </div>
 
-        <div class="text-center mt-12 px-4">
-            <a href="https://www.google.fr/maps" target="_blank" class="inline-block bg-[#4A8D84] text-white px-10 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-[#2F4F4F] transition shadow-xl transform hover:scale-105">
+        <div class="text-center mt-8">
+            <a href="https://www.google.fr/maps" target="_blank" class="text-white text-xs font-bold uppercase tracking-widest border-b border-white pb-1 hover:text-[#2F4F4F] hover:border-[#2F4F4F] transition">
                 Lire tous nos avis sur Google
             </a>
         </div>
@@ -304,12 +299,14 @@
                 <div class="group cursor-default">
                     <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#2F4F4F] transition">📍 Parc des Docks</h3>
                     <p class="text-base opacity-90 font-light leading-relaxed">
-                    L'espace dédié au Coaching Individuel et au Small Group Training. Un lieu moderne et dynamique pour se dépasser, seul ou en petit comité.                    </p>
+                        L'espace dédié au <strong>Coaching Individuel</strong> et au <strong>Small Group Training</strong>. Un lieu moderne et dynamique pour se dépasser, seul ou en petit comité.
+                    </p>
                 </div>
                 <div class="group cursor-default">
                     <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#2F4F4F] transition">📍 Cours des Lavandières</h3>
                     <p class="text-base opacity-90 font-light leading-relaxed">
-                    Votre destination bien-être pour le Pilate, Pilates Reformer, le Crossformer et le Yoga. L'alliance parfaite entre renforcement musculaire et lâcher-prise.                    </p>
+                        Le cocon du <strong>Pilates Reformer</strong>, du <strong>Crossformer</strong> et du <strong>Yoga</strong>. Une atmosphère feutrée et apaisante pour sculpter votre silhouette en douceur.
+                    </p>
                 </div>
                 <div class="pt-6">
                     <a href="contact.html" class="inline-block border-b-2 border-white pb-1 font-bold uppercase text-sm hover:text-[#2F4F4F] hover:border-[#2F4F4F] transition transform hover:translate-x-2">
@@ -319,7 +316,7 @@
             </div>
 
             <div class="h-[400px] w-full relative">
-                <iframe src="https://www.google.com/maps?hl=fr&gl=fr&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x47e66f2fb17d9d77:0x45920189e41a13f6" 
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10492.34567890123!2d2.3333!3d48.9119!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ef2ae3fb71d%3A0x7068d80f07490!2sSaint-Ouen-sur-Seine!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" 
                     width="100%" 
                     height="100%" 
                     style="border:0;" 
