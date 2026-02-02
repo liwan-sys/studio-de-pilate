@@ -163,17 +163,18 @@
         .whatsapp-btn:hover { transform: scale(1.1); }
         @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        /* === LÉGENDE STICKY (COLLANTE) === */
+        /* === LÉGENDE STICKY (CORRIGÉE : HORS HEADER) === */
         .sticky-legend-wrapper {
             position: sticky;
-            top: 10px; /* Colle à 10px du haut de l'écran */
-            z-index: 100; /* Passe au-dessus du reste */
+            top: 10px; /* Reste collé à 10px du haut de l'écran */
+            z-index: 100; /* Reste au-dessus de tout */
             padding-bottom: 20px;
-            pointer-events: none; /* Laisse passer les clics autour */
+            pointer-events: none; /* Permet de cliquer à travers si besoin */
+            text-align: center;
         }
 
         .legend-bar {
-            background: rgba(255, 255, 255, 0.85); /* Fond un peu plus opaque pour la lisibilité */
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(15px);
             border-radius: 50px;
             padding: 12px 30px;
@@ -184,7 +185,7 @@
             gap: 20px;
             border: 1px solid rgba(255,255,255,0.6);
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            pointer-events: auto; /* Réactive les clics sur la barre si besoin */
+            pointer-events: auto;
         }
 
         .legend-item {
@@ -241,16 +242,15 @@
         <p class="text-white uppercase tracking-widest text-sm font-light opacity-90 bg-white/20 inline-block px-6 py-2 rounded-full backdrop-blur-sm mb-4">
             Deux studios • Une seule plateforme de réservation
         </p>
-        
-        <div class="sticky-legend-wrapper">
-            <div class="legend-bar">
-                <div class="legend-item"><span class="legend-dot bg-cross"></span> Pass Cross</div>
-                <div class="legend-item"><span class="legend-dot bg-yoga"></span> Pass Focus</div>
-                <div class="legend-item"><span class="legend-dot bg-reformer"></span> Pass Reformer</div>
-                <div class="legend-item"><span class="legend-dot bg-crossformer"></span> Pass Crossformer</div>
-            </div>
-        </div>
+    </div>
 
+    <div class="sticky-legend-wrapper reveal-load d-2">
+        <div class="legend-bar">
+            <div class="legend-item"><span class="legend-dot bg-cross"></span> Pass Cross</div>
+            <div class="legend-item"><span class="legend-dot bg-yoga"></span> Pass Focus</div>
+            <div class="legend-item"><span class="legend-dot bg-reformer"></span> Pass Reformer</div>
+            <div class="legend-item"><span class="legend-dot bg-crossformer"></span> Pass Crossformer</div>
+        </div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 pb-24 z-10">
