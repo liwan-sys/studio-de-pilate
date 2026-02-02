@@ -10,11 +10,11 @@
 
     <style>
         :root {
-            --col-peach: #EBC6A6;   /* Crossformer & Kids */
-            --col-sand: #D4C3A3;    /* Reformer */
-            --col-green: #88C0A6;   /* Cross */
-            --col-cream: #F3EBD4;   /* Focus */
-            --col-dark: #3A6B63;    /* Coaching */
+            --col-peach: #EBC6A6;
+            --col-sand: #D4C3A3;
+            --col-green: #88C0A6;
+            --col-cream: #F3EBD4;
+            --col-dark: #3A6B63;
             --svb-text: #2F4F4F;
         }
 
@@ -144,7 +144,7 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         .form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; }
-        .btn-submit-quiz { width: 100%; padding: 15px; background-color: #25D366; color: white; font-weight: bold; border-radius: 50px; text-transform: uppercase; margin-top: 10px; transition: transform 0.2s; }
+        .btn-submit-quiz { width: 100%; padding: 15px; background-color: #25D366; color: white; font-weight: bold; border-radius: 50px; text-transform: uppercase; margin-top: 10px; transition: transform 0.2s; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
         .btn-submit-quiz:hover { transform: scale(1.02); background-color: #1ebc57; }
 
     </style>
@@ -199,27 +199,6 @@
                 </div>
             </div>
         </section>
-
-        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2 drop-shadow-md">Coaching Privé</h2>
-        <div class="flex justify-center mb-24 reveal-load d-3">
-            <div class="price-card group max-w-md w-full border-2 border-[#3A6B63]">
-                <div class="card-header header-dark">Coaching Good Vibes</div>
-                <div class="p-6 body-dark h-full flex flex-col justify-center">
-                    <p class="text-center text-sm text-gray-600 mb-6 italic">Un programme 100% sur-mesure pour des résultats rapides.</p>
-                    <div class="price-row"><span>4 Séances / mois</span> <span>300,30€</span></div>
-                    <div class="price-row"><span>8 Séances / mois</span> <span>560,30€</span></div>
-                    <hr class="border-gray-300 my-4 opacity-50">
-                    <div class="text-center font-bold text-sm mb-2 text-[#2F4F4F]">PASS DUO</div>
-                    <div class="price-row"><span>4 Séances / mois</span> <span>400,60€</span></div>
-                    <div class="price-row"><span>8 Séances / mois</span> <span>720,60€</span></div>
-                    <div class="mt-6 text-center">
-                        <span class="terms-fee block text-xs">Frais de dossier: 49€</span>
-                        <span class="terms-time block text-xs mt-1">Engagement 3 mois</span>
-                    </div>
-                </div>
-                <button onclick="openQuiz()" class="btn-action">Faire mon Diagnostic</button>
-            </div>
-        </div>
 
         <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Small Group Machines</h2>
         <div class="reveal-load d-2 banner-machines max-w-lg mx-auto offer-banner">
@@ -364,6 +343,27 @@
                     </div>
                 </div>
                 <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action">Souscrire</a>
+            </div>
+        </div>
+
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2 drop-shadow-md">Coaching Privé</h2>
+        <div class="flex justify-center mb-24 reveal-load d-3">
+            <div class="price-card group max-w-md w-full border-2 border-[#3A6B63]">
+                <div class="card-header header-dark">Coaching Good Vibes</div>
+                <div class="p-6 body-dark h-full flex flex-col justify-center">
+                    <p class="text-center text-sm text-gray-600 mb-6 italic">Un programme 100% sur-mesure pour des résultats rapides.</p>
+                    <div class="price-row"><span>4 Séances / mois</span> <span>300,30€</span></div>
+                    <div class="price-row"><span>8 Séances / mois</span> <span>560,30€</span></div>
+                    <hr class="border-gray-300 my-4 opacity-50">
+                    <div class="text-center font-bold text-sm mb-2 text-[#2F4F4F]">PASS DUO</div>
+                    <div class="price-row"><span>4 Séances / mois</span> <span>400,60€</span></div>
+                    <div class="price-row"><span>8 Séances / mois</span> <span>720,60€</span></div>
+                    <div class="mt-6 text-center">
+                        <span class="terms-fee block text-xs">Frais de dossier: 49€</span>
+                        <span class="terms-time block text-xs mt-1">Engagement 3 mois</span>
+                    </div>
+                </div>
+                <button onclick="openQuiz()" class="btn-action">Faire mon Diagnostic</button>
             </div>
         </div>
 
