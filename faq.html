@@ -19,31 +19,10 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--svb-green-light);
+            background: linear-gradient(180deg, var(--svb-green-light) 0%, var(--svb-sand) 100%);
             color: var(--svb-text);
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* FOND IMMERSIF (BLOBS ANIMÉS) */
-        .ambient-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
-            background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
-            overflow: hidden;
-        }
-        .blob {
-            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6;
-            animation: moveBlob 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-green-dark); }
-        .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--svb-peach); animation-delay: -5s; }
-        @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -50px) scale(1.1); } }
-        
-        .noise-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.05;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            pointer-events: none;
         }
 
         h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
@@ -62,7 +41,7 @@
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 15px;
+            border-radius: 10px;
             margin-bottom: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -91,24 +70,30 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out, padding 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         .faq-answer p, .faq-answer ul {
             padding: 0 20px 20px 20px;
             font-size: 0.9rem;
             line-height: 1.6;
-            color: #2F4F4F;
+            color: #444;
         }
 
+        /* Icône + qui tourne */
         .icon-plus {
             transition: transform 0.3s ease;
             font-size: 1.2rem;
             color: var(--svb-green-dark);
         }
 
-        .faq-item.active .icon-plus { transform: rotate(45deg); }
-        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-item.active .icon-plus {
+            transform: rotate(45deg); /* Devient une croix */
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* Assez grand pour tout afficher */
+        }
         
         .section-title {
             color: white;
@@ -123,17 +108,9 @@
 </head>
 <body>
 
-    <div class="ambient-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
-    <div class="noise-overlay"></div>
-
     <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
-        <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md">
-            </a>
+        <div class="text-center md:text-left mb-4 md:mb-0">
+            <h1 class="text-2xl font-bold tracking-widest drop-shadow-md">SVB</h1>
         </div>
         <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
             <a href="index.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">L'UNIVERS</a>
@@ -149,8 +126,8 @@
     </nav>
 
     <div class="text-center py-10 px-4 reveal-load d-1">
-        <h1 class="text-7xl md:text-9xl text-white drop-shadow-lg mb-4 font-hand">Questions Fréquentes</h1>
-        <p class="text-white uppercase tracking-widest text-sm font-bold bg-white/20 inline-block px-6 py-2 rounded-full backdrop-blur-sm">Tout savoir avant votre première séance</p>
+        <h1 class="text-6xl text-white drop-shadow-md mb-2">Questions Fréquentes</h1>
+        <p class="text-white uppercase tracking-widest text-sm font-light">Tout savoir avant votre première séance</p>
     </div>
 
     <div class="max-w-4xl mx-auto px-4 pb-20 reveal-load d-2">
@@ -163,7 +140,7 @@
                 <span class="icon-plus">+</span>
             </button>
             <div class="faq-answer">
-                <p>Pas du tout ! SVB est justement là pour vous accompagner, que vous repreniez le sport ou que vous cherchiez la performance. Nos cours sont ouverts à tous les niveaux et nos coachs adaptent les exercices.</p>
+                <p>Pas du tout ! SVB est justement là pour vous accompagner, que vous repreniez le sport ou que vous cherchiez la performance. Nos cours sont ouverts à tous les niveaux (débutants, intermédiaires, confirmés) et nos coachs adaptent les exercices.</p>
             </div>
         </div>
 
@@ -178,8 +155,28 @@
                 <ul class="list-disc ml-5 mt-1">
                     <li>Les chaussettes antidérapantes sont OBLIGATOIRES pour l'hygiène et la sécurité.</li>
                     <li>En vente sur place : 10€</li>
-                    <li>Prêt possible : 3€</li>
+                    <li>Prêt possible : 3€ (10€ facturés si non rendues)</li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Y a-t-il des vestiaires ?
+                <span class="icon-plus">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Oui, nous disposons de vestiaires propres et équipés pour votre confort.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                J'ai une blessure ou des douleurs, puis-je venir ?
+                <span class="icon-plus">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Oui, mais il est impératif de le signaler au coach AVANT le début de la séance. Nous adapterons les mouvements pour garantir votre sécurité. En cas de doute, demandez l'avis de votre médecin.</p>
             </div>
         </div>
 
@@ -191,11 +188,48 @@
                 <span class="icon-plus">+</span>
             </button>
             <div class="faq-answer">
-                <p>Le <strong>Reformer</strong> est axé sur la posture, le renforcement profond et la souplesse. Le <strong>Crossformer</strong> est une exclusivité SVB plus intense avec un rythme plus soutenu et du cardio.</p>
+                <p>Le <strong>Reformer</strong> est issu du Pilates classique : c'est un travail contrôlé, précis, axé sur la posture, le renforcement profond et la souplesse. Idéal pour s'affiner sans impact.</p>
+                <p class="mt-2">Le <strong>Crossformer</strong> est une exclusivité SVB plus intense : on utilise la machine Reformer mais avec un rythme plus soutenu, du cardio et une énergie débordante !</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Proposez-vous des cours pour enfants ?
+                <span class="icon-plus">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Oui ! Nous proposons le <strong>Pass Kids</strong> (hors juillet/août) avec :</p>
+                <ul class="list-disc ml-5 mt-1">
+                    <li>Yoga Kids (pour le calme et la concentration)</li>
+                    <li>Training Kids (parcours de motricité ludiques)</li>
+                </ul>
+                <p class="mt-2 italic text-xs">Engagement 4 mois - Frais de dossier 29€.</p>
             </div>
         </div>
 
         <h2 class="section-title">Règlement & Réservations</h2>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Comment réserver une séance ?
+                <span class="icon-plus">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Tout se fait directement via notre plateforme de réservation en ligne ou l'application. C'est simple, rapide et flexible.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Que se passe-t-il en cas de retard ?
+                <span class="icon-plus">+</span>
+            </button>
+            <div class="faq-answer">
+                <p class="text-red-600 font-bold">⚠️ Règle stricte :</p>
+                <p>Au-delà de 5 minutes de retard, l'accès au cours sera refusé par respect pour le coach et les autres participants, et pour assurer votre échauffement. La séance sera décomptée.</p>
+            </div>
+        </div>
 
         <div class="faq-item">
             <button class="faq-question">
@@ -208,37 +242,73 @@
                     <li><strong>Small Group :</strong> jusqu'à 1h avant.</li>
                     <li><strong>Coaching Privé :</strong> jusqu'à 24h avant.</li>
                 </ul>
+                <p class="mt-2">Passé ce délai, la séance est automatiquement décomptée.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">
-                Que se passe-t-il en cas de retard ?
+                Y a-t-il un engagement ?
                 <span class="icon-plus">+</span>
             </button>
             <div class="faq-answer">
-                <p class="text-red-600 font-bold">⚠️ Règle stricte :</p>
-                <p>Au-delà de 5 minutes de retard, l'accès au cours sera refusé par respect pour le coach et les autres participants. La séance sera décomptée.</p>
+                <p>Cela dépend de la formule choisie :</p>
+                <ul class="list-disc ml-5 mt-1">
+                    <li><strong>Pass Starter (Découverte) :</strong> Sans engagement.</li>
+                    <li><strong>Abonnements Mensuels :</strong> Engagement 3 mois.</li>
+                    <li><strong>Pass Kids :</strong> Engagement 4 mois.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Les séances non utilisées sont-elles reportables ?
+                <span class="icon-plus">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Non. Les crédits de votre abonnement mensuel sont valables pour le mois en cours et ne sont pas reportables sur le mois suivant. C'est le meilleur moyen de garder une régularité !</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Comment résilier ou suspendre ?
+                <span class="icon-plus">+</span>
+            </button>
+            <div class="faq-answer">
+                <p><strong>Résiliation :</strong> Par mail, avec 1 mois de préavis.</p>
+                <p class="mt-2"><strong>Suspension (Vacances/Maladie) :</strong> En cas d'absence de plus de 10 jours, vous pouvez suspendre l'abonnement (préavis d'un mois requis).</p>
             </div>
         </div>
 
     </div>
 
-    <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white py-12 border-t border-white/20 text-center z-10">
-        <img src="images/logo.png" alt="Logo SVB" class="h-16 mx-auto mb-4 brightness-0 invert opacity-90">
-        <p class="text-xs opacity-80 mb-2">SVB SantezVousBien - Saint-Ouen</p>
-        <p class="text-[10px] opacity-60 uppercase tracking-widest">© 2026 Tous droits réservés.</p>
-    </footer>
-
     <script>
         const items = document.querySelectorAll('.faq-item');
+
         items.forEach(item => {
             const question = item.querySelector('.faq-question');
+            
             question.addEventListener('click', () => {
+                // Ferme les autres (optionnel, si tu veux qu'un seul reste ouvert)
+                /*
+                items.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                */
+
+                // Bascule l'état de l'élément cliqué
                 item.classList.toggle('active');
             });
         });
     </script>
+
+    <footer class="bg-[#4A8D84] text-white py-8 text-center text-xs">
+        <p class="opacity-80">SVB SantezVousBien - Saint-Ouen</p>
+    </footer>
 
 </body>
 </html>
