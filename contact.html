@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | SVB SantezVousBien</title>
     
+    <link rel="icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -80,7 +83,9 @@
             padding: 15px;
             border-radius: 8px;
             letter-spacing: 0.1em;
+            cursor: pointer;
             transition: background 0.3s;
+            border: none;
         }
         .btn-submit:hover { background-color: #386e66; }
 
@@ -156,23 +161,25 @@
             <div class="glass-box h-full flex flex-col justify-center">
                 <h3 class="font-hand text-4xl mb-6 text-center text-[#4A8D84]">Écrivez-nous</h3>
                 
-                <form>
+                <form name="contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact" />
+
                     <div>
                         <label class="block text-xs font-bold uppercase mb-2 text-gray-600">Votre Nom</label>
-                        <input type="text" class="form-input" placeholder="Prénom Nom">
+                        <input type="text" name="nom" class="form-input" placeholder="Prénom Nom" required>
                     </div>
                     
                     <div>
                         <label class="block text-xs font-bold uppercase mb-2 text-gray-600">Votre Email</label>
-                        <input type="email" class="form-input" placeholder="exemple@mail.com">
+                        <input type="email" name="email" class="form-input" placeholder="exemple@mail.com" required>
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold uppercase mb-2 text-gray-600">Message</label>
-                        <textarea class="form-input h-32" placeholder="Votre message..."></textarea>
+                        <textarea name="message" class="form-input h-32" placeholder="Votre message..." required></textarea>
                     </div>
 
-                    <button type="button" class="btn-submit">Envoyer le message</button>
+                    <button type="submit" class="btn-submit">Envoyer le message</button>
                 </form>
             </div>
         </div>
