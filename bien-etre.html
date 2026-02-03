@@ -99,6 +99,10 @@
             .expert-img { margin-bottom: 0; margin-right: 20px; }
         }
 
+        .expert-img-small {
+            width: 45px; height: 45px; min-width: 45px; border-radius: 50%; border: 2px solid var(--svb-peach); object-fit: cover;
+        }
+
         .bg-title-soin {
             background-color: var(--svb-green-dark);
             color: white;
@@ -151,19 +155,16 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-[#4A8D84] reveal-load">
-        <div class="mb-4 md:mb-0">
+        <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
             <a href="index.html">
                 <img src="images/logo.png" alt="Logo SVB" class="h-20 w-auto object-contain">
             </a>
         </div>
         <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
             <a href="index.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">ACCUEIL</a>
-            
             <a href="sessions.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">SESSIONS</a>
             <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">LA TEAM</a>
-            
             <a href="bien-etre.html" class="border-b-2 border-white pb-1 text-white">BIEN-ÊTRE</a>
-            
             <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
             <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">TARIFS</a>
             <a href="cadeau.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CADEAU</a>
@@ -279,33 +280,27 @@
                 </div>
 
                 <div class="expert-card">
-                    <img src="images/Helene.jpg" class="expert-img" alt="Hélène">
+                    <div class="flex flex-col mr-4 mb-4 md:mb-0">
+                        <div class="flex -space-x-4">
+                            <img src="images/Helene.jpg" class="expert-img-small w-16 h-16 rounded-full border-2 border-white shadow-md z-10" alt="Hélène">
+                            <img src="images/Virginiee.jpg" class="expert-img-small w-16 h-16 rounded-full border-2 border-white shadow-md z-0" alt="Virginie">
+                        </div>
+                    </div>
                     <div class="w-full">
                         <span class="bg-title-soin">Réflexologie Plantaire</span>
-                        <h4 class="font-bold text-lg">Hélène BESSET</h4>
+                        <h4 class="font-bold text-lg leading-tight mt-1">Hélène & Virginie</h4>
                         <p class="text-xs text-gray-600 mb-2">Bien-être par les pieds</p>
                         
                         <div class="info-row">
-                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Samedi</p>
-                            <a href="tel:0619222030" class="booking-btn btn-tel">
-                                📞 06 19 22 20 30
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="expert-card">
-                    <img src="images/Virginiee.jpg" class="expert-img" alt="Virginie">
-                    <div class="w-full">
-                        <span class="bg-title-soin">Réflexologie Plantaire</span>
-                        <h4 class="font-bold text-lg">Virginie GAMEL</h4>
-                        <p class="text-xs text-gray-600 mb-2">Détente & Équilibre</p>
-                        
-                        <div class="info-row">
-                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Samedi</p>
-                            <a href="tel:0666050923" class="booking-btn btn-tel">
-                                📞 06 66 05 09 23
-                            </a>
+                            <p class="text-xs font-bold text-[#4A8D84]">📅 Présence : Samedi (Matin)</p>
+                            <div class="flex flex-wrap gap-2 mt-1">
+                                <a href="tel:0619222030" class="booking-btn btn-tel text-[10px] px-2 py-1">
+                                    📞 Hélène : 06 19 22 20 30
+                                </a>
+                                <a href="tel:0666050923" class="booking-btn btn-tel text-[10px] px-2 py-1">
+                                    📞 Virginie : 06 66 05 09 23
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
