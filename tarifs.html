@@ -8,7 +8,7 @@
     })(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarifs & Abonnements | SVB SantezVousBien</title>
+    <title>Abonnements & Tarifs | SVB SantezVousBien</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -54,7 +54,7 @@
         @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
         .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
 
-        /* VOTRE DESIGN DE CARTES ORIGINAL */
+        /* DESIGN CARTES */
         .price-card {
             background: rgba(255, 255, 255, 0.65);
             backdrop-filter: blur(15px);
@@ -63,11 +63,11 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex; flex-direction: column; justify-content: space-between; height: 100%;
-            position: relative; /* Important pour le badge boost */
+            position: relative; /* Important pour les badges */
         }
         .price-card:hover { transform: translateY(-8px) scale(1.02); background: rgba(255, 255, 255, 0.85); box-shadow: 0 30px 60px rgba(74, 141, 132, 0.25); z-index: 10; }
 
-        /* COLORS HEADERS & BODIES ORIGINALES */
+        /* COULEURS */
         .header-peach { background: var(--col-peach); color: white; }
         .header-sand { background: var(--col-sand); color: white; }
         .header-green { background: var(--col-green); color: white; }
@@ -88,44 +88,16 @@
 
         .card-header { padding: 20px; text-align: center; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; font-size: 1rem; }
         
-        /* Ligne des disciplines */
+        /* Ligne Discipline */
         .discipline-row {
-            background: rgba(255,255,255,0.5); padding: 8px 10px; text-align: center;
-            font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--svb-text);
-            border-bottom: 1px solid rgba(0,0,0,0.05); letter-spacing: 0.05em;
+            background: rgba(255,255,255,0.6); padding: 8px 5px; text-align: center;
+            font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--svb-text);
+            border-bottom: 1px solid rgba(0,0,0,0.05); letter-spacing: 0.05em; line-height: 1.2;
         }
-        
-        .price-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 8px 20px; font-size: 0.85rem; font-weight: 500; color: #555; }
+
+        .price-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 6px 20px; font-size: 0.8rem; font-weight: 600; color: #555; }
         .price-row:last-child { border-bottom: none; }
-        .price-row span:last-child { font-weight: 800; color: var(--svb-text); font-size: 0.95rem; }
-
-        /* Highlight pour les best sellers */
-        .row-highlight { 
-            background: rgba(58, 107, 99, 0.08); 
-            border-color: var(--col-dark); 
-            font-weight: 700; color: var(--svb-text);
-            position: relative;
-        }
-        
-        .badge-best {
-            position: absolute; top: -10px; left: 10px;
-            background: var(--col-dark); color: white;
-            font-size: 0.55rem; padding: 2px 8px; border-radius: 10px;
-            text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em;
-        }
-
-        .price-freq { display: flex; flex-direction: column; text-align: left; }
-        .freq-main { font-weight: 800; font-size: 0.9rem; }
-        .freq-sub { font-size: 0.7rem; opacity: 0.7; font-weight: 500; }
-
-        .price-val { text-align: right; }
-        .val-total { font-weight: 800; font-size: 1rem; color: var(--svb-text); }
-        .val-unit { font-size: 0.7rem; color: #888; display: block; font-weight: 600; }
-
-        /* Note autres fréquences */
-        .other-frequencies-row {
-             text-align: center; font-size: 0.7rem; color: #666; margin-top: auto; padding-top: 15px; padding-bottom: 5px; font-style: italic;
-        }
+        .price-row span:last-child { font-weight: 800; color: var(--svb-text); font-size: 0.9rem; }
 
         .btn-action { display: block; width: 100%; background-color: var(--col-dark); color: white; text-align: center; padding: 18px 0; text-transform: uppercase; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.15em; transition: all 0.3s; margin-top: auto; cursor: pointer; border: none;}
         .btn-action:hover { background-color: #2F4F4F; letter-spacing: 0.2em; padding-bottom: 22px; }
@@ -142,35 +114,35 @@
         .terms-fee { color: var(--svb-text); font-weight: 700; text-transform: uppercase; }
         .terms-warning { color: #dc2626; font-weight: 900; text-transform: uppercase; display: block; margin-top: 5px; font-size: 0.65rem; letter-spacing: 0.05em; }
 
-        /* === OPTION BOOST === */
+        /* === OPTION BOOST CORRIGÉE (Overflow Visible) === */
         .boost-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.85);
             border-radius: 24px;
             padding: 40px;
             position: relative;
-            /* Permet au badge de dépasser */
-            overflow: visible; 
-            border: 3px solid var(--col-peach);
+            overflow: visible; /* Permet au badge de dépasser */
+            border: 2px solid #88C0A6;
             box-shadow: 0 15px 40px rgba(0,0,0,0.05);
             transition: transform 0.3s;
+            margin-top: 30px;
         }
         .boost-card:hover { transform: translateY(-5px); }
         .boost-badge {
-            position: absolute; top: 0; right: 0;
+            position: absolute; top: -15px; right: 20px;
             background: var(--col-peach); color: white;
-            font-size: 0.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em;
-            padding: 12px 30px; border-bottom-left-radius: 25px;
-            box-shadow: -5px 5px 15px rgba(0,0,0,0.05);
+            font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em;
+            padding: 10px 25px; border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .boost-list li { margin-bottom: 12px; display: flex; align-items: flex-start; color: #555; font-size: 0.9rem; }
         .boost-icon { margin-right: 10px; color: var(--col-dark); font-size: 1.1rem; }
 
         /* === MODAL & QUIZ === */
-        #quiz-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 9999; display: none; justify-content: center; align-items: center; padding: 20px; }
-        #quiz-modal.open { display: flex; }
+        #quiz-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 9999; display: none; opacity: 0; transition: opacity 0.3s; justify-content: center; align-items: center; padding: 20px; }
+        #quiz-modal.open { display: flex; opacity: 1; }
         .quiz-card { background: white; width: 100%; max-width: 600px; border-radius: 25px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.25); animation: slideUp 0.4s ease-out; position: relative; }
         @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; color: #aaa; cursor: pointer; z-index: 10; line-height: 0.5; }
+        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: #aaa; cursor: pointer; z-index: 10; line-height: 0.5; }
         .progress-bar { height: 6px; background: #eee; width: 100%; }
         .progress-fill { height: 100%; background: var(--col-dark); width: 0%; transition: width 0.3s; }
         .quiz-content { padding: 30px; text-align: center; }
@@ -260,16 +232,12 @@
                 </div>
                 <div class="body-peach h-full flex flex-col justify-between">
                     <div>
-                        <div class="price-row">
-                            <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">4 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">78,30€</span><span class="val-unit">19,5€/séance</span></div>
-                        </div>
-                        <div class="price-row row-highlight">
-                            <span class="badge-best">Best Seller</span>
-                            <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">152,30€</span><span class="val-unit">19€/séance</span></div>
-                        </div>
-                        <p class="other-frequencies-row">✨ Aussi disponible en 2, 6, 10 ou 12 sessions</p>
+                        <div class="price-row"><span>2 Sessions / mois</span> <span>78,30€</span></div>
+                        <div class="price-row"><span>4 Sessions / mois</span> <span>152,30€</span></div>
+                        <div class="price-row"><span>6 Sessions / mois</span> <span>222,30€</span></div>
+                        <div class="price-row"><span>8 Sessions / mois</span> <span>288,30€</span></div>
+                        <div class="price-row"><span>10 Sessions / mois</span> <span>350,30€</span></div>
+                        <div class="price-row"><span>12 Sessions / mois</span> <span>408,30€</span></div>
                     </div>
                     <div class="terms-row">
                         <span class="terms-fee">Frais de dossier: 49€</span><br>
@@ -289,16 +257,12 @@
                 </div>
                 <div class="body-sand h-full flex flex-col justify-between">
                     <div>
-                        <div class="price-row">
-                            <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">4 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">70,30€</span><span class="val-unit">17,5€/séance</span></div>
-                        </div>
-                        <div class="price-row row-highlight">
-                            <span class="badge-best">Populaire</span>
-                            <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">136,30€</span><span class="val-unit">17€/séance</span></div>
-                        </div>
-                        <p class="other-frequencies-row">✨ Aussi disponible en 2, 6, 10 ou 12 sessions</p>
+                        <div class="price-row"><span>2 Sessions / mois</span> <span>70,30€</span></div>
+                        <div class="price-row"><span>4 Sessions / mois</span> <span>136,30€</span></div>
+                        <div class="price-row"><span>6 Sessions / mois</span> <span>198,30€</span></div>
+                        <div class="price-row"><span>8 Sessions / mois</span> <span>256,30€</span></div>
+                        <div class="price-row"><span>10 Sessions / mois</span> <span>310,30€</span></div>
+                        <div class="price-row"><span>12 Sessions / mois</span> <span>360,30€</span></div>
                     </div>
                     <div class="terms-row">
                         <span class="terms-fee">Frais de dossier: 49€</span><br>
@@ -314,16 +278,12 @@
                 <div class="discipline-row">Inclus : Reformer & Crossformer</div>
                 <div class="body-bicolor-former h-full flex flex-col justify-between">
                     <div>
-                        <div class="price-row">
-                            <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">4 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">74,30€</span><span class="val-unit">18,5€/séance</span></div>
-                        </div>
-                        <div class="price-row row-highlight">
-                            <span class="badge-best">Recommandé</span>
-                            <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">144,30€</span><span class="val-unit">18€/séance</span></div>
-                        </div>
-                        <p class="other-frequencies-row">✨ Aussi disponible en 2, 6, 10 ou 12 sessions</p>
+                        <div class="price-row"><span>2 Sessions / mois</span> <span>74,30€</span></div>
+                        <div class="price-row"><span>4 Sessions / mois</span> <span>144,30€</span></div>
+                        <div class="price-row"><span>6 Sessions / mois</span> <span>210,30€</span></div>
+                        <div class="price-row"><span>8 Sessions / mois</span> <span>272,30€</span></div>
+                        <div class="price-row"><span>10 Sessions / mois</span> <span>330,30€</span></div>
+                        <div class="price-row"><span>12 Sessions / mois</span> <span>384,30€</span></div>
                     </div>
                     <div class="terms-row">
                         <span class="terms-fee">Frais de dossier: 49€</span><br>
@@ -341,7 +301,6 @@
         </div>
         
         <div class="grid md:grid-cols-3 gap-8 reveal-load d-3 mb-24">
-            
             <div class="price-card group">
                 <div class="card-header header-green">Pass Cross <br><span class="text-xs font-normal opacity-80">(55 Minutes)</span></div>
                 <div class="discipline-row">Inclus : Cross Training • Hyrox • Core • Body • Cross Yoga</div>
@@ -351,16 +310,12 @@
                 </div>
                 <div class="body-green h-full flex flex-col justify-between">
                     <div>
-                        <div class="price-row">
-                            <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">4 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">30,30€</span><span class="val-unit">7,5€/séance</span></div>
-                        </div>
-                        <div class="price-row row-highlight">
-                            <span class="badge-best">Top Value</span>
-                            <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">60,30€</span><span class="val-unit">7,5€/séance</span></div>
-                        </div>
-                        <p class="other-frequencies-row">✨ Aussi disponible en 2, 6, 10 ou 12 sessions</p>
+                        <div class="price-row"><span>2 Sessions / mois</span> <span>30,30€</span></div>
+                        <div class="price-row"><span>4 Sessions / mois</span> <span>60,30€</span></div>
+                        <div class="price-row"><span>6 Sessions / mois</span> <span>90,30€</span></div>
+                        <div class="price-row"><span>8 Sessions / mois</span> <span>116,30€</span></div>
+                        <div class="price-row"><span>10 Sessions / mois</span> <span>145,30€</span></div>
+                        <div class="price-row"><span>12 Sessions / mois</span> <span>168,30€</span></div>
                     </div>
                     <div class="terms-row">
                         <span class="terms-fee">Frais de dossier: 49€</span><br>
@@ -380,16 +335,12 @@
                 </div>
                 <div class="body-cream h-full flex flex-col justify-between">
                     <div>
-                        <div class="price-row">
-                            <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">4 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">36,30€</span><span class="val-unit">9€/séance</span></div>
-                        </div>
-                        <div class="price-row row-highlight">
-                            <span class="badge-best">Populaire</span>
-                            <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">72,30€</span><span class="val-unit">9€/séance</span></div>
-                        </div>
-                        <p class="other-frequencies-row">✨ Aussi disponible en 2, 6, 10 ou 12 sessions</p>
+                        <div class="price-row"><span>2 Sessions / mois</span> <span>36,30€</span></div>
+                        <div class="price-row"><span>4 Sessions / mois</span> <span>72,30€</span></div>
+                        <div class="price-row"><span>6 Sessions / mois</span> <span>105,30€</span></div>
+                        <div class="price-row"><span>8 Sessions / mois</span> <span>136,30€</span></div>
+                        <div class="price-row"><span>10 Sessions / mois</span> <span>165,30€</span></div>
+                        <div class="price-row"><span>12 Sessions / mois</span> <span>192,30€</span></div>
                     </div>
                     <div class="terms-row">
                         <span class="terms-fee">Frais de dossier: 49€</span><br>
@@ -405,16 +356,12 @@
                 <div class="discipline-row">Accès illimité à TOUS les cours Cross & Focus</div>
                 <div class="body-bicolor-full h-full flex flex-col justify-between">
                     <div>
-                        <div class="price-row">
-                            <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">4 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">40,30€</span><span class="val-unit">10€/séance</span></div>
-                        </div>
-                        <div class="price-row row-highlight">
-                            <span class="badge-best">Recommandé</span>
-                            <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
-                            <div class="price-val"><span class="val-total">80,30€</span><span class="val-unit">10€/séance</span></div>
-                        </div>
-                        <p class="other-frequencies-row">✨ Aussi disponible en 2, 6, 10 ou 12 sessions</p>
+                        <div class="price-row"><span>2 Sessions / mois</span> <span>40,30€</span></div>
+                        <div class="price-row"><span>4 Sessions / mois</span> <span>80,30€</span></div>
+                        <div class="price-row"><span>6 Sessions / mois</span> <span>115,30€</span></div>
+                        <div class="price-row"><span>8 Sessions / mois</span> <span>150,30€</span></div>
+                        <div class="price-row"><span>10 Sessions / mois</span> <span>180,30€</span></div>
+                        <div class="price-row"><span>12 Sessions / mois</span> <span>210,30€</span></div>
                     </div>
                     <div class="terms-row">
                         <span class="terms-fee">Frais de dossier: 49€</span><br>
@@ -430,30 +377,15 @@
         <div class="flex justify-center mb-24 reveal-load d-3">
             <div class="price-card group max-w-md w-full border-2 border-[#3A6B63]">
                 <div class="card-header header-dark">Coaching Good Vibes</div>
+                <div class="discipline-row" style="background: rgba(58, 107, 99, 0.1); color: var(--svb-text);">Programme 100% Sur Mesure</div>
                 <div class="p-6 body-dark h-full flex flex-col justify-center">
                     <p class="text-center text-sm text-gray-600 mb-6 italic">Un programme 100% sur-mesure pour des résultats rapides.</p>
-                    
-                    <div class="price-row">
-                        <div class="price-freq"><span class="freq-main">4 Séances / mois</span></div>
-                        <div class="price-val"><span class="val-total">300,30€</span><span class="val-unit">75€/séance</span></div>
-                    </div>
-                    <div class="price-row">
-                        <div class="price-freq"><span class="freq-main">8 Séances / mois</span></div>
-                        <div class="price-val"><span class="val-total">560,30€</span><span class="val-unit">70€/séance</span></div>
-                    </div>
-
+                    <div class="price-row"><span>4 Séances / mois</span> <span>300,30€ <small>(75€/u)</small></span></div>
+                    <div class="price-row"><span>8 Séances / mois</span> <span>560,30€ <small>(70€/u)</small></span></div>
                     <hr class="border-gray-300 my-4 opacity-50">
                     <div class="text-center font-bold text-sm mb-2 text-[#2F4F4F]">PASS DUO</div>
-                    
-                    <div class="price-row">
-                        <div class="price-freq"><span class="freq-main">4 Séances / mois</span></div>
-                        <div class="price-val"><span class="val-total">400,60€</span><span class="val-unit">50€/pers</span></div>
-                    </div>
-                    <div class="price-row">
-                        <div class="price-freq"><span class="freq-main">8 Séances / mois</span></div>
-                        <div class="price-val"><span class="val-total">720,60€</span><span class="val-unit">45€/pers</span></div>
-                    </div>
-
+                    <div class="price-row"><span>4 Séances / mois</span> <span>400,60€ <small>(50€/pers)</small></span></div>
+                    <div class="price-row"><span>8 Séances / mois</span> <span>720,60€ <small>(45€/pers)</small></span></div>
                     <div class="mt-6 text-center">
                         <span class="terms-fee block text-xs">Frais de dossier: 49€</span>
                         <span class="terms-fee block text-xs mt-1">Engagement 3 mois</span>
@@ -488,7 +420,7 @@
 
         <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Option SVB Boost</h2>
         <div class="max-w-3xl mx-auto mb-24 reveal-load d-3">
-            <div class="boost-card" style="border-width: 3px; overflow: visible;">
+            <div class="boost-card overflow-visible">
                 <div class="boost-badge">Option VIP</div>
                 <div class="text-center mb-6">
                     <h3 class="text-3xl font-extrabold text-[#2F4F4F] uppercase mb-2">Option SVB Boost</h3>
