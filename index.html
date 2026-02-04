@@ -8,7 +8,7 @@
     })(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVB SantezVousBien | Studio Pilates & Coaching</title>
+    <title>SVB SantezVousBien | Studio Pilates & Coaching Saint-Ouen</title>
     
     <link rel="icon" type="image/png" href="images/favicon.jpg">
     <link rel="apple-touch-icon" href="images/favicon.jpg">
@@ -72,25 +72,44 @@
         .content-visible .reveal-load { opacity: 1; transform: translateY(0); }
         .d-1 { transition-delay: 0.2s; } .d-2 { transition-delay: 0.4s; } .d-3 { transition-delay: 0.6s; }
 
-        /* BOUTON ACTION */
+        /* BOUTON ACTION PRINCIPAL */
         .btn-action {
-            background-color: var(--svb-green-dark); color: white; padding: 14px 40px; border-radius: 50px;
-            text-transform: uppercase; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em;
+            background-color: var(--svb-green-dark); color: white; padding: 16px 40px; border-radius: 50px;
+            text-transform: uppercase; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.1em;
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 10px 30px rgba(74, 141, 132, 0.3);
-            display: inline-block; border: 1px solid rgba(255,255,255,0.2);
+            display: inline-block; border: 2px solid rgba(255,255,255,0.3);
         }
-        .btn-action:hover { background-color: #386e66; transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(74, 141, 132, 0.5); }
+        .btn-action:hover { background-color: #386e66; transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 40px rgba(74, 141, 132, 0.5); }
+
+        /* BOUTON HERO (Transi) */
+        .btn-hero {
+            background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);
+            border: 2px solid white; color: white; padding: 12px 30px; border-radius: 50px;
+            font-weight: 700; text-transform: uppercase; font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .btn-hero:hover { background: white; color: var(--svb-green-dark); transform: translateY(-2px); }
 
         /* CARD STARTER */
         @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
         .starter-card-wrapper { animation: float 6s ease-in-out infinite; }
         .starter-card {
-            background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(20px); border-radius: 30px;
-            padding: 50px 40px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-            max-width: 550px; margin: 0 auto; position: relative; border: 1px solid rgba(255,255,255,0.8);
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border-radius: 30px;
+            padding: 50px 30px; text-align: center; box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+            max-width: 500px; margin: 0 auto; position: relative; border: 2px solid white;
             transition: all 0.4s ease;
         }
-        .starter-card:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.9); }
+        .starter-card:hover { transform: scale(1.02); }
+
+        /* BADGE BEST SELLER */
+        .best-seller-badge {
+            position: absolute; top: -15px; right: -15px;
+            background: #E8B496; color: white; font-weight: 900; text-transform: uppercase;
+            font-size: 0.7rem; padding: 10px 15px; border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: rotate(10deg);
+            animation: pulse-badge 2s infinite; border: 2px solid white;
+        }
+        @keyframes pulse-badge { 0% { transform: rotate(10deg) scale(1); } 50% { transform: rotate(10deg) scale(1.1); } 100% { transform: rotate(10deg) scale(1); } }
 
         /* TEXT CARDS */
         .text-card {
@@ -99,7 +118,7 @@
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); cursor: pointer; height: 100%;
             display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .text-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.9); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .text-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.95); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
         .card-title { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--svb-green-dark); margin-bottom: 5px; }
         .card-desc { font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: #555; margin-bottom: 15px; }
         .card-price { font-size: 2.8rem; font-weight: 700; color: var(--svb-text); margin-bottom: 25px; }
@@ -160,46 +179,55 @@
             <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">LA TEAM</a>
             <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
             <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">ABONNEMENTS</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">TARIFS</a>
             <a href="cadeau.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CADEAU</a>
             <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
             <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CONTACT</a>
         </div>
     </nav>
 
-    <header class="relative text-center py-20 px-4 reveal-load d-1 z-10">
-        <h1 class="text-5xl sm:text-7xl md:text-9xl text-white drop-shadow-lg mb-6 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default">
+    <header class="relative text-center py-16 px-4 reveal-load d-1 z-10">
+        <h1 class="text-5xl sm:text-7xl md:text-9xl text-white drop-shadow-lg mb-4 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default">
             SantezVousBien
         </h1>
-        <p class="text-white text-xl font-light max-w-3xl mx-auto mb-8 leading-relaxed opacity-90 drop-shadow-md">
+        <p class="text-white text-lg font-light max-w-2xl mx-auto mb-8 leading-relaxed opacity-95 drop-shadow-md">
             Plus qu'une salle de sport, un lieu de vie.<br>
             <span class="font-medium italic">Deux studios, une seule énergie.</span>
         </p>
+        <a href="#offres" class="btn-hero scroll-smooth">
+            Découvrir nos offres ↓
+        </a>
     </header>
 
-    <div class="relative px-4 pb-24 reveal-load d-2 z-10">
+    <div id="offres" class="relative px-4 pb-24 reveal-load d-2 z-10">
         <div class="starter-card-wrapper">
             <div class="starter-card">
-                <span class="bg-[#E8B496] text-white px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6 inline-block shadow-lg">
+                <div class="best-seller-badge">🔥 Le Préféré</div>
+
+                <span class="bg-[#E8B496] text-white px-5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 inline-block shadow-md">
                     Offre Découverte
                 </span>
                 
-                <h2 class="text-5xl font-hand text-[#4A8D84] mb-3">New Pass Starter</h2>
+                <h2 class="text-5xl font-hand text-[#4A8D84] mb-2">New Pass Starter</h2>
                 
-                <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-500 uppercase mb-8 tracking-wide">
-                    <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">5 Sessions</span>
+                <div class="flex justify-center items-center space-x-2 text-[10px] font-bold text-gray-500 uppercase mb-6 tracking-wide">
+                    <span class="bg-gray-100 px-3 py-1 rounded-lg">5 Sessions</span>
                     <span>•</span>
-                    <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">Sans Engagement</span>
+                    <span class="bg-gray-100 px-3 py-1 rounded-lg">Sans Engagement</span>
                 </div>
                 
-                <p class="text-7xl font-bold text-[#2F4F4F] mb-10 tracking-tight drop-shadow-sm">
+                <p class="text-7xl font-bold text-[#2F4F4F] mb-8 tracking-tight drop-shadow-sm">
                     99,90<span class="text-3xl align-top">€</span>
                 </p>
                 
-                <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab" target="_blank" class="btn-action w-full text-lg">
+                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full">
                     Je commence maintenant
                 </a>
-                <p class="text-[10px] text-gray-500 mt-5 italic">Valable 1 mois • Offre limitée</p>
+                
+                <div class="mt-6 flex justify-center space-x-4 text-[9px] text-gray-400 font-bold uppercase tracking-wider">
+                    <span class="flex items-center">🔒 Paiement Sécurisé</span>
+                    <span class="flex items-center">🏆 Coachs Certifiés</span>
+                </div>
             </div>
         </div>
     </div>
@@ -620,11 +648,6 @@
         </div>
     </div>
 </footer>
-
-
-
-
-
 
     <script>
         window.addEventListener('load', () => {
