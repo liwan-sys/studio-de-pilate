@@ -55,19 +55,21 @@
 
         /* CARTES ABONNEMENT */
         .price-card {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 30px; overflow: hidden;
+            border-radius: 30px; 
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex; flex-direction: column; height: 100%;
             position: relative;
+            /* Important pour que le badge VIP dépasse */
+            overflow: visible; 
         }
         .price-card:hover { transform: translateY(-10px); background: #fff; box-shadow: 0 30px 60px rgba(58, 107, 99, 0.2); z-index: 10; }
 
         /* HEADER DES CARTES */
-        .card-header { padding: 25px; text-align: center; color: white; position: relative; overflow: hidden; }
+        .card-header { padding: 25px; text-align: center; color: white; position: relative; border-top-left-radius: 30px; border-top-right-radius: 30px; overflow: hidden; }
         .header-title { font-size: 1.8rem; font-family: 'Dancing Script'; font-weight: 700; margin-bottom: 5px; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .header-sub { font-size: 0.75rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.1em; opacity: 0.9; }
 
@@ -80,7 +82,14 @@
         .bg-bicolor-full { background: linear-gradient(135deg, var(--col-green), var(--col-cream)); color: var(--svb-text) !important; }
         .bg-dark { background: var(--col-dark); }
 
-        /* LIGNES DE PRIX OPTIMISÉES */
+        /* LISTE DISCIPLINES */
+        .disciplines-row {
+            background-color: #f8f8f8; padding: 10px 15px; text-align: center;
+            font-size: 0.65rem; font-weight: 700; color: #666; 
+            border-bottom: 1px solid rgba(0,0,0,0.05); text-transform: uppercase; letter-spacing: 0.05em;
+        }
+
+        /* LIGNES DE PRIX */
         .price-list { padding: 20px; flex-grow: 1; }
         
         .price-row { 
@@ -90,7 +99,6 @@
             transition: all 0.2s;
         }
         
-        /* Highlight pour les best sellers (4 et 8 sessions) */
         .row-highlight { 
             background: rgba(58, 107, 99, 0.08); 
             border-color: var(--col-dark); 
@@ -122,9 +130,15 @@
         }
         .btn-action:hover { transform: scale(1.05); background-color: #2F4F4F; }
 
+        /* NOTE AUTRES FREQUENCES */
+        .other-freq {
+            text-align: center; font-size: 0.7rem; color: #888; margin-top: 15px;
+            padding: 8px; background: rgba(0,0,0,0.02); border-radius: 10px;
+        }
+
         /* ESSAI */
         .trial-banner {
-            background: rgba(255,255,255,0.9); padding: 8px 15px;
+            background: white; padding: 8px 15px;
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.8rem;
         }
@@ -136,13 +150,15 @@
         /* SECTION BOOST */
         .boost-section {
             background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
-            border: 2px solid #EBC6A6; position: relative;
+            border: 2px solid #EBC6A6; position: relative; margin-top: 40px;
         }
         .gold-badge {
             position: absolute; top: -15px; right: 20px;
             background: linear-gradient(45deg, #EBC6A6, #D4C3A3);
             color: white; font-weight: 800; text-transform: uppercase; font-size: 0.8rem;
-            padding: 8px 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(235, 198, 166, 0.4);
+            padding: 8px 25px; border-radius: 50px; 
+            box-shadow: 0 10px 20px rgba(235, 198, 166, 0.4);
+            z-index: 20; transform: translateY(-50%);
         }
 
         /* CARD STARTER SPECIAL */
@@ -192,131 +208,140 @@
         </div>
     </nav>
 
-    <div class="relative text-center py-16 px-4 reveal-load d-1 z-10">
-        <h1 class="text-6xl md:text-8xl text-[#2F4F4F] drop-shadow-xl mb-4 font-hand">Nos Abonnements</h1>
-        <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-xs md:text-sm bg-white/40 inline-block px-6 py-2 rounded-full border border-white/30">
-            Flexibilité • Engagement 3 ou 6 mois • Résultats
+    <div class="relative text-center py-20 px-4 reveal-load d-1 z-10">
+        <h1 class="text-7xl md:text-9xl text-[#2F4F4F] drop-shadow-xl mb-6 font-hand">Nos Abonnements</h1>
+        <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-bold bg-white/40 inline-block px-8 py-3 rounded-full backdrop-blur-md border border-white/20 shadow-lg">
+            Investissez en vous-même
         </p>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 pb-20 z-10">
 
-        <div class="starter-container reveal-load d-2">
-            <div class="max-w-xl mx-auto price-card starter-card text-center py-10 px-6">
-                <span class="fire-icon">🔥</span>
-                <h2 class="text-4xl font-bold text-[#4A8D84] font-hand mb-2">New Pass Starter</h2>
-                <p class="text-xs uppercase tracking-widest font-bold text-gray-500 mb-6">L'offre idéale pour commencer</p>
-                
-                <div class="text-7xl font-extrabold text-[#2F4F4F] mb-2">99,90<span class="text-3xl">€</span></div>
-                <p class="text-sm font-bold text-[#4A8D84] mb-8 uppercase">Soit 19,90€ la séance</p>
+        <section class="mb-24 reveal-load d-2">
+            <div class="max-w-2xl mx-auto price-card border-2 border-white/60 transform hover:scale-105 transition duration-500 shadow-2xl">
+                <div class="bg-[#4A8D84] text-white py-8 text-center relative">
+                    <h2 class="text-5xl font-bold uppercase tracking-tight font-hand">New Pass Starter</h2>
+                    <p class="text-xs uppercase tracking-widest mt-2 opacity-90 font-bold">Offre Découverte - Valable 1 mois</p>
+                </div>
+                <div class="p-10 text-center">
+                    <p class="text-8xl font-bold text-[#4A8D84] mb-8 drop-shadow-md">99,90€</p>
+                    <ul class="space-y-4 text-sm font-bold text-gray-600 uppercase mb-10 tracking-wide">
+                        <li>✨ 5 Sessions différentes au choix</li>
+                        <li>✨ Pas de reconduction tacite</li>
+                        <li>✨ Sans Engagement</li>
+                    </ul>
+                    <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab" class="btn-action rounded-full text-lg shadow-xl transform hover:scale-105 transition duration-300">
+                        Je commence maintenant
+                    </a>
+                </div>
+            </div>
+        </section>
 
-                <ul class="text-left max-w-xs mx-auto space-y-3 text-sm font-semibold text-gray-600 mb-8">
-                    <li class="flex items-center"><span class="mr-2 text-green-500">✔</span> 5 Sessions au choix</li>
-                    <li class="flex items-center"><span class="mr-2 text-green-500">✔</span> Valable 1 mois</li>
-                    <li class="flex items-center"><span class="mr-2 text-green-500">✔</span> Sans Engagement</li>
-                </ul>
-
-                <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab" class="btn-action w-full max-w-sm mx-auto shadow-xl">Je commence maintenant</a>
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Small Group Machines</h2>
+        <div class="reveal-load d-2 banner-machines max-w-lg mx-auto offer-banner">
+            <div class="mb-2">Séance d'essai à 30€<br><span class="text-xs opacity-90 font-normal">15€ remboursés si inscription</span></div>
+            <div class="pt-2 border-t border-white/30 text-xs leading-relaxed">
+                🧦 <strong>CHAUSSETTES ANTIDÉRAPANTES OBLIGATOIRES</strong><br>
+                <span class="opacity-90">En vente au studio</span>
             </div>
         </div>
 
-        <h2 class="text-4xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2">Small Group Machines</h2>
-        
-        <div class="grid md:grid-cols-3 gap-6 reveal-load d-3 mb-20">
+        <div class="grid md:grid-cols-3 gap-8 reveal-load d-3 mb-24">
             
-            <div class="price-card">
-                <div class="card-header bg-peach">
-                    <div class="header-title">Crossformer</div>
+            <div class="price-card group">
+                <div class="card-header header-peach">
+                    <div class="header-title">Pass Crossformer</div>
                     <div class="header-sub">Intensité & Cardio</div>
                 </div>
+                <div class="disciplines-row">Inclus : Crossformer</div>
                 <div class="trial-banner">
-                    <span class="font-bold text-[#2F4F4F]">Offre d'essai</span>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74" class="trial-btn">30€</a>
+                    <span class="font-bold text-[#2F4F4F]">Essai</span>
+                    <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74" target="_blank" class="trial-btn">30€</a>
                 </div>
                 <div class="price-list">
                     <div class="price-row">
                         <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">4 sessions/mois</span></div>
                         <div class="price-val"><span class="val-total">152,30€</span><span class="val-unit">38€/séance</span></div>
                     </div>
-                    
                     <div class="price-row row-highlight">
-                        <span class="badge-best">Le Best Seller</span>
+                        <span class="badge-best">Best Seller</span>
                         <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
                         <div class="price-val"><span class="val-total">288,30€</span><span class="val-unit">36€/séance</span></div>
                     </div>
-
-                    <div class="mt-4 pt-4 border-t border-gray-100 text-center">
-                        <p class="text-xs text-gray-400 font-medium">Aussi dispo: 2, 6, 10 ou 12 sessions</p>
+                    <div class="other-freq">
+                        ✨ Aussi disponible :<br><strong>2, 6, 10 ou 12</strong> sessions par mois
                     </div>
                 </div>
-                <a href="https://svb.sportigo.fr/buy/offer-proposition/bf0fa25f-e5bd-4ebe-bf33-e5cf1b6468da" target="_blank" class="btn-action">Je m'abonne</a>
+                <a href="https://svb.sportigo.fr/buy/offer-proposition/bf0fa25f-e5bd-4ebe-bf33-e5cf1b6468da" target="_blank" class="btn-action">Souscrire</a>
             </div>
 
-            <div class="price-card">
-                <div class="card-header bg-sand">
-                    <div class="header-title">Reformer</div>
+            <div class="price-card group">
+                <div class="card-header header-sand">
+                    <div class="header-title">Pass Reformer</div>
                     <div class="header-sub">Pilates & Contrôle</div>
                 </div>
+                <div class="disciplines-row">Inclus : Pilates Reformer</div>
                 <div class="trial-banner">
-                    <span class="font-bold text-[#2F4F4F]">Offre d'essai</span>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90" class="trial-btn">30€</a>
+                    <span class="font-bold text-[#2F4F4F]">Essai</span>
+                    <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90" target="_blank" class="trial-btn">30€</a>
                 </div>
                 <div class="price-list">
                     <div class="price-row">
                         <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">4 sessions/mois</span></div>
                         <div class="price-val"><span class="val-total">136,30€</span><span class="val-unit">34€/séance</span></div>
                     </div>
-                    
                     <div class="price-row row-highlight">
                         <span class="badge-best">Populaire</span>
                         <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
                         <div class="price-val"><span class="val-total">256,30€</span><span class="val-unit">32€/séance</span></div>
                     </div>
-
-                    <div class="mt-4 pt-4 border-t border-gray-100 text-center">
-                        <p class="text-xs text-gray-400 font-medium">Aussi dispo: 2, 6, 10 ou 12 sessions</p>
+                    <div class="other-freq">
+                        ✨ Aussi disponible :<br><strong>2, 6, 10 ou 12</strong> sessions par mois
                     </div>
                 </div>
-                <a href="https://svb.sportigo.fr/buy/offer-proposition/c014b8b7-1d0e-4497-97dc-4623223e0efc" target="_blank" class="btn-action">Je m'abonne</a>
+                <a href="https://svb.sportigo.fr/buy/offer-proposition/c014b8b7-1d0e-4497-97dc-4623223e0efc" target="_blank" class="btn-action">Souscrire</a>
             </div>
 
-            <div class="price-card">
-                <div class="card-header bg-bicolor-former">
-                    <div class="header-title">Full Former</div>
+            <div class="price-card group">
+                <div class="card-header header-bicolor-former">
+                    <div class="header-title">Pass Full Former</div>
                     <div class="header-sub">Mix des 2 mondes</div>
                 </div>
-                <div class="bg-gray-100 text-center text-[10px] font-bold uppercase py-2 text-gray-500 tracking-wide">Accès Reformer & Crossformer</div>
+                <div class="disciplines-row">Inclus : Reformer & Crossformer</div>
                 <div class="price-list">
                     <div class="price-row">
                         <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">4 sessions/mois</span></div>
                         <div class="price-val"><span class="val-total">144,30€</span><span class="val-unit">36€/séance</span></div>
                     </div>
-                    
                     <div class="price-row row-highlight">
                         <span class="badge-best">Recommandé</span>
                         <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
                         <div class="price-val"><span class="val-total">272,30€</span><span class="val-unit">34€/séance</span></div>
                     </div>
-
-                    <div class="mt-4 pt-4 border-t border-gray-100 text-center">
-                        <p class="text-xs text-gray-400 font-medium">Aussi dispo: 2, 6, 10 ou 12 sessions</p>
+                    <div class="other-freq">
+                        ✨ Aussi disponible :<br><strong>2, 6, 10 ou 12</strong> sessions par mois
                     </div>
                 </div>
-                <a href="https://svb.sportigo.fr/buy/offer-proposition/494af80b-8e2b-4231-bb73-3089f5e77bcb" target="_blank" class="btn-action">Je m'abonne</a>
+                <a href="https://svb.sportigo.fr/buy/offer-proposition/494af80b-8e2b-4231-bb73-3089f5e77bcb" target="_blank" class="btn-action">Souscrire</a>
             </div>
         </div>
 
-        <h2 class="text-4xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2">Small Group Training</h2>
-        <div class="grid md:grid-cols-3 gap-6 reveal-load d-3 mb-24">
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Small Group Training</h2>
+        <div class="reveal-load d-2 banner-training max-w-lg mx-auto offer-banner">
+            Séance d'essai à 30€<br><span class="text-xs opacity-90 font-normal">15€ remboursés si inscription</span>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 reveal-load d-3 mb-24">
             
-            <div class="price-card">
-                <div class="card-header bg-green">
+            <div class="price-card group">
+                <div class="card-header header-green">
                     <div class="header-title">Pass Cross</div>
                     <div class="header-sub">Training & Rox</div>
                 </div>
+                <div class="disciplines-row">Inclus : Cross Training • Hyrox • Core • Body • Cross Yoga</div>
                 <div class="trial-banner">
-                    <span class="font-bold text-[#2F4F4F]">Offre d'essai</span>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" class="trial-btn">30€</a>
+                    <span class="font-bold text-[#2F4F4F]">Essai</span>
+                    <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="trial-btn">30€</a>
                 </div>
                 <div class="price-list">
                     <div class="price-row">
@@ -328,18 +353,22 @@
                         <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
                         <div class="price-val"><span class="val-total">116,30€</span><span class="val-unit">14,5€/séance</span></div>
                     </div>
+                    <div class="other-freq">
+                        ✨ Aussi disponible :<br><strong>2, 6, 10 ou 12</strong> sessions par mois
+                    </div>
                 </div>
-                <a href="https://svb.sportigo.fr/buy/offer-proposition/1cbe82dc-837a-4cfb-a0c8-117ebb53665d" target="_blank" class="btn-action">Je m'abonne</a>
+                <a href="https://svb.sportigo.fr/buy/offer-proposition/1cbe82dc-837a-4cfb-a0c8-117ebb53665d" target="_blank" class="btn-action">Souscrire</a>
             </div>
 
-            <div class="price-card">
-                <div class="card-header bg-cream">
+            <div class="price-card group">
+                <div class="card-header header-cream">
                     <div class="header-title">Pass Focus</div>
                     <div class="header-sub">Yoga • Boxe • Mat</div>
                 </div>
+                <div class="disciplines-row">Inclus : Yoga • Pilates Sol • Boxe • Danse • Stretch</div>
                 <div class="trial-banner">
-                    <span class="font-bold text-[#2F4F4F]">Offre d'essai</span>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/9489a1a1-d37b-414b-bdb5-faad20312da3" class="trial-btn">30€</a>
+                    <span class="font-bold text-[#2F4F4F]">Essai</span>
+                    <a href="https://svb.sportigo.fr/buy/offer-proposition/9489a1a1-d37b-414b-bdb5-faad20312da3" target="_blank" class="trial-btn">30€</a>
                 </div>
                 <div class="price-list">
                     <div class="price-row">
@@ -351,16 +380,19 @@
                         <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
                         <div class="price-val"><span class="val-total">136,30€</span><span class="val-unit">17€/séance</span></div>
                     </div>
+                    <div class="other-freq">
+                        ✨ Aussi disponible :<br><strong>2, 6, 10 ou 12</strong> sessions par mois
+                    </div>
                 </div>
-                <a href="https://svb.sportigo.fr/buy/offer-proposition/9489a1a1-d37b-414b-bdb5-faad20312da3" target="_blank" class="btn-action">Je m'abonne</a>
+                <a href="https://svb.sportigo.fr/buy/offer-proposition/9489a1a1-d37b-414b-bdb5-faad20312da3" target="_blank" class="btn-action">Souscrire</a>
             </div>
 
-            <div class="price-card">
-                <div class="card-header bg-bicolor-full">
+            <div class="price-card group">
+                <div class="card-header header-bicolor-full">
                     <div class="header-title">Pass Full</div>
                     <div class="header-sub">Cross & Focus</div>
                 </div>
-                <div class="bg-gray-100 text-center text-[10px] font-bold uppercase py-2 text-gray-500 tracking-wide">Accès Training + Yoga/Boxe</div>
+                <div class="disciplines-row">Accès illimité à TOUS les cours Cross & Focus</div>
                 <div class="price-list">
                     <div class="price-row">
                         <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">4 sessions/mois</span></div>
@@ -371,67 +403,87 @@
                         <div class="price-freq"><span class="freq-main">2x / semaine</span><span class="freq-sub">8 sessions/mois</span></div>
                         <div class="price-val"><span class="val-total">150,30€</span><span class="val-unit">18,7€/séance</span></div>
                     </div>
+                    <div class="other-freq">
+                        ✨ Aussi disponible :<br><strong>2, 6, 10 ou 12</strong> sessions par mois
+                    </div>
                 </div>
-                <a href="https://svb.sportigo.fr/buy/offer-proposition/e38c28ba-fe1e-4e7b-bb75-d43c4c38a21b" target="_blank" class="btn-action">Je m'abonne</a>
+                <a href="https://svb.sportigo.fr/buy/offer-proposition/e38c28ba-fe1e-4e7b-bb75-d43c4c38a21b" target="_blank" class="btn-action">Souscrire</a>
             </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 mb-24 reveal-load d-3">
-            <div class="price-card border-2 border-[#3A6B63]">
-                <div class="card-header bg-dark">
-                    <div class="header-title">Coaching Privé</div>
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2 drop-shadow-md">Coaching Privé</h2>
+        <div class="flex justify-center mb-24 reveal-load d-3">
+            <div class="price-card group max-w-md w-full border-2 border-[#3A6B63]">
+                <div class="card-header header-dark">
+                    <div class="header-title">Coaching Good Vibes</div>
                     <div class="header-sub">Sur Mesure</div>
                 </div>
-                <div class="price-list text-center flex flex-col justify-center">
-                    <p class="text-sm italic text-gray-600 mb-6">Atteignez vos objectifs plus vite.</p>
-                    <div class="text-3xl font-bold text-[#2F4F4F] mb-1">300€ <span class="text-sm font-normal">/ mois</span></div>
-                    <p class="text-xs uppercase font-bold text-gray-400 mb-6">4 séances Solo (75€/u)</p>
-                    
-                    <div class="text-3xl font-bold text-[#2F4F4F] mb-1">400€ <span class="text-sm font-normal">/ mois</span></div>
-                    <p class="text-xs uppercase font-bold text-gray-400">4 séances Duo (50€/pers)</p>
+                <div class="disciplines-row">Programme 100% personnalisé</div>
+                <div class="p-6 body-dark h-full flex flex-col justify-center text-center">
+                    <p class="text-center text-sm text-gray-600 mb-6 italic">Atteignez vos objectifs plus vite.</p>
+                    <div class="price-row"><span>4 Séances / mois</span> <span>300,30€</span></div>
+                    <div class="price-row"><span>8 Séances / mois</span> <span>560,30€</span></div>
+                    <hr class="border-gray-300 my-4 opacity-50">
+                    <div class="text-center font-bold text-sm mb-2 text-[#2F4F4F]">PASS DUO</div>
+                    <div class="price-row"><span>4 Séances / mois</span> <span>400,60€</span></div>
+                    <div class="price-row"><span>8 Séances / mois</span> <span>720,60€</span></div>
+                    <div class="mt-6 text-center">
+                        <span class="terms-fee block text-xs">Frais de dossier: 49€</span>
+                        <span class="terms-fee block text-xs mt-1">Engagement 3 mois</span>
+                        <span class="terms-warning">⚠️ NON REPORTABLES LE MOIS SUIVANT</span>
+                    </div>
                 </div>
-                <button onclick="openQuiz()" class="btn-action">Diagnostic Gratuit</button>
+                <button onclick="openQuiz()" class="btn-action">Faire mon Diagnostic</button>
             </div>
+        </div>
 
-            <div class="price-card">
-                <div class="card-header bg-peach">
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Pass Kids</h2>
+        <div class="flex justify-center mb-24 reveal-load d-3">
+            <div class="price-card group max-w-md w-full">
+                <div class="card-header header-kids">
                     <div class="header-title">Pass Kids</div>
                     <div class="header-sub">Yoga & Training</div>
                 </div>
-                <div class="price-list">
-                    <div class="price-row">
-                        <div class="price-freq"><span class="freq-main">1x / semaine</span><span class="freq-sub">Mercredi</span></div>
-                        <div class="price-val"><span class="val-total">65,30€</span><span class="val-unit">16€/séance</span></div>
+                <div class="disciplines-row">Inclus : Yoga Kids • Training Kids (Mercredi)</div>
+                <div class="body-kids h-full flex flex-col justify-between">
+                    <div>
+                        <div class="price-row"><span>2 Sessions / mois</span> <span>35,30€</span></div>
+                        <div class="price-row"><span>4 Sessions / mois</span> <span>65,30€</span></div>
+                        <div class="price-row"><span>Session Supp.</span> <span>18,30€</span></div>
+                        <p class="text-center text-xs mt-4 text-[#2F4F4F] font-bold uppercase">1 Activité au choix</p>
                     </div>
-                    <div class="price-row">
-                        <div class="price-freq"><span class="freq-main">1x / 15 jours</span><span class="freq-sub">2 sessions/mois</span></div>
-                        <div class="price-val"><span class="val-total">35,30€</span><span class="val-unit">17,5€/séance</span></div>
+                    <div class="terms-row">
+                        <span class="terms-fee">Frais de dossier: 29€</span><br>
+                        <span class="terms-fee">Engagement 4 mois</span>
+                        <span class="terms-warning">⚠️ NON REPORTABLES LE MOIS SUIVANT</span>
                     </div>
-                    <p class="text-center text-xs mt-4 text-[#2F4F4F] font-bold uppercase">Engagement 4 mois</p>
                 </div>
-                <a href="https://wa.me/33744919155" target="_blank" class="btn-action">Info & Inscription</a>
+                <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20prendre%20RDV%20pour%20une%20inscription%20Pass%20Kids" target="_blank" class="btn-action">Prendre RDV (Sur Place)</a>
             </div>
         </div>
 
-        <div class="max-w-3xl mx-auto mb-20 reveal-load d-3 boost-section price-card">
-            <div class="gold-badge">Option VIP</div>
-            <div class="p-8 text-center">
-                <h3 class="text-3xl font-extrabold text-[#2F4F4F] uppercase mb-2">Option SVB Boost</h3>
-                <p class="text-2xl text-[#4A8D84] font-bold mb-6">9,90€ / mois <span class="text-sm font-normal text-gray-500">(en + d'un pass)</span></p>
+        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Option SVB Boost</h2>
+        <div class="max-w-3xl mx-auto mb-24 reveal-load d-3">
+            <div class="boost-card overflow-visible">
+                <div class="gold-badge">Option VIP</div>
+                <div class="text-center mb-6">
+                    <h3 class="text-3xl font-extrabold text-[#2F4F4F] uppercase mb-2">Option SVB Boost</h3>
+                    <p class="text-xl text-[#4A8D84] font-bold">9,90€ / mois <span class="text-sm font-normal text-gray-500">(en + d'un pass)</span></p>
+                </div>
                 
-                <ul class="text-left max-w-md mx-auto space-y-3 mb-8">
-                    <li class="flex items-center"><span class="boost-icon">🎁</span> <span class="font-bold text-gray-600">Frais d'inscription OFFERTS</span></li>
-                    <li class="flex items-center"><span class="boost-icon">🤝</span> <span class="font-bold text-gray-600">1 Invité gratuit / mois</span></li>
-                    <li class="flex items-center"><span class="boost-icon">⏸️</span> <span class="font-bold text-gray-600">Suspension vacances</span></li>
+                <ul class="boost-list max-w-lg mx-auto">
+                    <li><span class="boost-icon">🎁</span> <strong>Frais d'inscription offerts</strong></li>
+                    <li><span class="boost-icon">🤝</span> <strong>1 Essai gratuit / mois</strong> pour un proche (sous réserve de dispo)</li>
+                    <li><span class="boost-icon">⏳</span> Engagement réduit : 2 mois (Coaching) ou 3 mois (Small Groups)</li>
+                    <li><span class="boost-icon">⏸️</span> <strong>Suspension d'abonnement</strong> sans préavis</li>
                 </ul>
 
-                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full md:w-1/2 mx-auto">Ajouter le Boost</a>
-            </div>
-        </div>
+                <div class="text-center mt-8 text-xs text-gray-400 font-bold uppercase mb-4">
+                    Aucun pass 2 sessions vendu seul • Frais de dossier 49€ (hors boost)
+                </div>
 
-        <div class="text-center text-[10px] text-gray-400 uppercase tracking-widest max-w-2xl mx-auto opacity-70">
-            Frais de dossier 49€ (hors option Boost) • Préavis de résiliation 1 mois<br>
-            Crédits valables sur le mois en cours • Non reportables
+                <a href="https://svb.sportigo.fr/buy" target="_blank" class="btn-action w-full md:w-2/3 mx-auto rounded-full">Ajouter l'option</a>
+            </div>
         </div>
 
     </div>
@@ -440,59 +492,144 @@
         <div class="quiz-card">
             <span class="close-modal" onclick="closeQuiz()">×</span>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
-            <div class="quiz-content" id="quizContent"></div>
+            
+            <div class="quiz-content" id="quizContent">
+                </div>
         </div>
     </div>
 
-    <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white py-12 border-t border-white/20 text-center z-10 mt-12">
+    <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white py-12 border-t border-white/20 text-center z-10">
         <img src="images/logo.png" alt="Logo SVB" class="h-16 mx-auto mb-4 brightness-0 invert opacity-90">
+        <p class="text-xs opacity-80 mb-2">SVB SantezVousBien - Saint-Ouen</p>
         <p class="text-[10px] opacity-60 uppercase tracking-widest">© 2026 Tous droits réservés.</p>
     </footer>
 
     <script>
         const questions = [
-            { q: "Quel est votre objectif principal ?", a: [ { icon: "🔥", txt: "Perte de poids / Cardio" }, { icon: "💪", txt: "Renforcement / Sculpture" }, { icon: "🧘", txt: "Bien-être / Anti-stress" }, { icon: "🚑", txt: "Santé du dos / Posture" } ] },
-            { q: "Quel est votre niveau actuel ?", a: [ { icon: "🌱", txt: "Je débute / Je reprends" }, { icon: "🏃", txt: "Intermédiaire (1x/sem)" }, { icon: "🏅", txt: "Confirmé / Athlète" } ] },
-            { q: "Quelle fréquence visez-vous ?", a: [ { icon: "1️⃣", txt: "1 fois par semaine" }, { icon: "2️⃣", txt: "2 à 3 fois par semaine" }, { icon: "🚀", txt: "Intensif (+3 fois)" } ] },
-            { q: "Quelle formule préférez-vous ?", a: [ { icon: "👤", txt: "Solo (Focus 100% sur moi)" }, { icon: "👥", txt: "Duo (Motivation à deux)" } ] }
+            {
+                q: "Quel est votre objectif principal ?",
+                a: [
+                    { icon: "🔥", txt: "Perte de poids / Cardio" },
+                    { icon: "💪", txt: "Renforcement / Sculpture" },
+                    { icon: "🧘", txt: "Bien-être / Anti-stress" },
+                    { icon: "🚑", txt: "Santé du dos / Posture" }
+                ]
+            },
+            {
+                q: "Quel est votre niveau actuel ?",
+                a: [
+                    { icon: "🌱", txt: "Je débute / Je reprends" },
+                    { icon: "🏃", txt: "Intermédiaire (1x/sem)" },
+                    { icon: "🏅", txt: "Confirmé / Athlète" }
+                ]
+            },
+            {
+                q: "Quelle fréquence visez-vous ?",
+                a: [
+                    { icon: "1️⃣", txt: "1 fois par semaine" },
+                    { icon: "2️⃣", txt: "2 à 3 fois par semaine" },
+                    { icon: "🚀", txt: "Intensif (+3 fois)" }
+                ]
+            },
+            {
+                q: "Quelle formule préférez-vous ?",
+                a: [
+                    { icon: "👤", txt: "Solo (Focus 100% sur moi)" },
+                    { icon: "👥", txt: "Duo (Motivation à deux)" }
+                ]
+            }
         ];
 
-        let currentStep = 0; let userAnswers = [];
+        let currentStep = 0;
+        let userAnswers = []; // Stocker les réponses
         const modal = document.getElementById('quiz-modal');
         const content = document.getElementById('quizContent');
         const bar = document.getElementById('progressBar');
 
-        function openQuiz() { modal.classList.add('open'); currentStep = 0; userAnswers = []; showQuestion(); }
-        function closeQuiz() { modal.classList.remove('open'); }
-        modal.addEventListener('click', (e) => { if (e.target === modal) closeQuiz(); });
+        function openQuiz() {
+            modal.classList.add('open');
+            currentStep = 0;
+            userAnswers = [];
+            showQuestion();
+        }
+
+        function closeQuiz() {
+            modal.classList.remove('open');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeQuiz();
+        });
 
         function showQuestion() {
             bar.style.width = ((currentStep) / questions.length * 100) + '%';
+
             if (currentStep < questions.length) {
                 const q = questions[currentStep];
-                let html = `<div class="quiz-step active"><h3 class="text-2xl font-hand text-[#2F4F4F] mb-4">${q.q}</h3><div class="quiz-options">`;
-                q.a.forEach(opt => { html += `<div class="quiz-option" onclick="recordAnswer('${opt.txt}')"><span class="opt-icon text-xl mr-3">${opt.icon}</span> ${opt.txt}</div>`; });
-                html += `</div></div>`; content.innerHTML = html;
-            } else { showLoading(); }
+                let html = `<div class="quiz-step active">
+                    <h3 class="text-2xl font-hand text-[#2F4F4F] mb-4">${q.q}</h3>
+                    <div class="quiz-options">`;
+                
+                q.a.forEach(opt => {
+                    html += `<div class="option-btn" onclick="recordAnswer('${opt.txt}')">
+                        <span class="opt-icon">${opt.icon}</span> ${opt.txt}
+                    </div>`;
+                });
+
+                html += `</div></div>`;
+                content.innerHTML = html;
+            } else {
+                showLoading();
+            }
         }
 
-        function recordAnswer(answer) { userAnswers.push(answer); currentStep++; showQuestion(); }
+        function recordAnswer(answer) {
+            userAnswers.push(answer);
+            currentStep++;
+            showQuestion();
+        }
 
         function showLoading() {
             bar.style.width = '100%';
-            content.innerHTML = `<div class="loading-spinner"></div><h3 class="text-xl font-bold text-[#4A8D84] mt-4">Analyse en cours...</h3>`;
+            content.innerHTML = `
+                <div class="loading-spinner"></div>
+                <h3 class="text-xl font-bold text-[#4A8D84]">Analyse en cours...</h3>
+                <p class="text-sm text-gray-500 mt-2">Nous préparons votre bilan.</p>
+            `;
             setTimeout(showResult, 2000);
         }
 
         function showResult() {
-            content.innerHTML = `<div class="text-center"><span class="bg-[#E8B496] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Diagnostic Terminé</span><h2 class="text-3xl font-hand text-[#2F4F4F] mt-3 mb-2">Profil Validé !</h2><p class="text-sm text-gray-600 mb-6">Recevez votre bilan complet directement sur WhatsApp.</p><form onsubmit="sendToWhatsApp(event)"><input type="text" id="clientName" class="form-input" placeholder="Prénom & Nom" required><button type="submit" class="btn-submit-quiz">Recevoir mon bilan 📲</button></form></div>`;
+            content.innerHTML = `
+                <div class="text-center animate-fadeIn">
+                    <span class="bg-[#E8B496] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Diagnostic Terminé</span>
+                    <h2 class="text-3xl font-hand text-[#2F4F4F] mt-3 mb-2">Profil Validé !</h2>
+                    <p class="text-sm text-gray-600 mb-6">Recevez votre bilan complet directement sur WhatsApp.</p>
+                    
+                    <form onsubmit="sendToWhatsApp(event)">
+                        <input type="text" id="clientName" class="form-input" placeholder="Prénom & Nom" required>
+                        <button type="submit" class="btn-submit-quiz">Recevoir mon bilan WhatsApp 📲</button>
+                    </form>
+                </div>
+            `;
         }
 
         function sendToWhatsApp(e) {
             e.preventDefault();
             const name = document.getElementById('clientName').value;
-            let msg = `*Nouveau Bilan Coaching SVB* 📋\n\n👤 *Client:* ${name}\n\n1️⃣ *Objectif:* ${userAnswers[0]}\n2️⃣ *Niveau:* ${userAnswers[1]}\n3️⃣ *Fréquence:* ${userAnswers[2]}\n4️⃣ *Format:* ${userAnswers[3]}\n\n👉 *Demande:* Je souhaite être recontacté pour un programme personnalisé.`;
-            window.open(`https://wa.me/33744919155?text=${encodeURIComponent(msg)}`, '_blank');
+            
+            // Construction du message
+            let msg = `*Nouveau Bilan Coaching SVB* 📋\n\n`;
+            msg += `👤 *Client:* ${name}\n\n`;
+            msg += `1️⃣ *Objectif:* ${userAnswers[0]}\n`;
+            msg += `2️⃣ *Niveau:* ${userAnswers[1]}\n`;
+            msg += `3️⃣ *Fréquence:* ${userAnswers[2]}\n`;
+            msg += `4️⃣ *Format:* ${userAnswers[3]}\n\n`;
+            msg += `👉 *Demande:* Je souhaite être recontacté pour un programme personnalisé.`;
+
+            // Encodage et ouverture
+            const finalMsg = encodeURIComponent(msg);
+            window.open(`https://wa.me/33744919155?text=${finalMsg}`, '_blank');
             closeQuiz();
         }
     </script>
