@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah - Votre Coach Virtuelle | SVB</title>
+    
+    <link rel="icon" type="image/png" href="images/favicon.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --col-peach: #EBC6A6;   
+            --col-sand: #D4C3A3;    
+            --col-green: #88C0A6;   
+            --col-dark: #3A6B63;    
+            --svb-text: #2F4F4F;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #B8D8C0;
+            color: var(--svb-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* FOND IMMERSIF */
+        .ambient-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
+            background: linear-gradient(180deg, #CDE4D3 0%, #F5F0E1 100%);
+            overflow: hidden;
+        }
+        .blob {
+            position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.6;
+            animation: moveBlob 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .blob-1 { top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--col-green); }
+        .blob-2 { bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--col-peach); animation-delay: -5s; }
+        @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(40px, -40px) scale(1.1); } }
+        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); pointer-events: none; }
+
+        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
+
+        .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
+        @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+
+        /* CONTAINER CHAT */
+        .chat-wrapper {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(58, 107, 99, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        /* WHATSAPP */
+        .whatsapp-btn {
+            position: fixed; bottom: 25px; right: 25px; background-color: #25D366; color: white;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s ease; z-index: 9990; cursor: pointer;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+
+    </style>
+</head>
+<body>
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+    <div class="noise-overlay"></div>
+
+       <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
+        <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md">
+            </a>
+        </div>
+        
+        <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
+            <a href="index.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">ACCUEIL</a>
+            <a href="sessions.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">SESSIONS</a>
+            <a href="equipe.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">LA TEAM</a>
+            <a href="bien-etre.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
+            <a href="studio.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">PLANNING</a>
+            <a href="tarifs.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">TARIFS</a>
+            <a href="cadeau.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">CADEAU</a>
+            <a href="faq.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">FAQ</a>
+            
+            <a href="assistant.html" class="text-[#E8B496] bg-white/10 border border-white/40 px-3 py-1 rounded-full font-bold hover:bg-white hover:text-[#2F4F4F] transition hover:scale-105 inline-flex items-center gap-1 backdrop-blur-sm shadow-sm">
+                🤖 SARAH
+            </a>
+
+            <a href="contact.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">CONTACT</a>
+        </div>
+    </nav>
+
+    <div class="flex-grow flex flex-col items-center justify-center px-4 py-10 z-10 reveal-load">
+        
+        <div class="text-center mb-8">
+            <h1 class="text-5xl md:text-7xl text-[#2F4F4F] font-hand drop-shadow-md mb-2">Sarah</h1>
+            <p class="text-[#2F4F4F] uppercase tracking-widest text-xs font-bold bg-white/40 inline-block px-4 py-1 rounded-full backdrop-blur-md">
+                Votre Assistante SVB 24/7
+            </p>
+        </div>
+
+        <div class="w-full max-w-5xl chat-wrapper">
+            <iframe
+              src="https://websitebotpy-5iqtavcqhdcvvwwzjor2sr.streamlit.app/?embed=true"
+              style="width: 100%; height: 700px; border: none;"
+              title="Sarah - Accueil SVB">
+            </iframe>
+        </div>
+
+        <p class="text-center text-[10px] text-gray-500 mt-6 uppercase tracking-widest opacity-80">
+            Une question complexe ? <a href="contact.html" class="font-bold underline">Contactez l'humain</a>
+        </p>
+
+    </div>
+
+    <footer class="relative bg-[#2F4F4F] text-white py-12 border-t border-white/20 text-center z-10 mt-auto">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-left">
+            <div>
+                <img src="images/logo.png" alt="Logo SVB" class="w-24 mb-4 brightness-0 invert"> 
+                <p class="opacity-80 text-xs">Pilates, Yoga, Training et Soins à Saint-Ouen.</p>
+            </div>
+            <div>
+                <h3 class="font-bold uppercase tracking-widest mb-2 text-xs">Contact</h3>
+                <ul class="space-y-1 opacity-80 text-xs">
+                    <li>📞 07 44 91 91 55</li>
+                    <li>✉️ hello@studiosvb.fr</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold uppercase tracking-widest mb-2 text-xs">Adresse</h3>
+                <p class="opacity-80 text-xs">
+                    40 Cours des Lavandières<br>
+                    93400 Saint-Ouen-sur-Seine
+                </p>
+            </div>
+        </div>
+        <p class="text-[10px] opacity-60 uppercase tracking-widest mt-8 text-center">© 2026 SVB SantezVousBien</p>
+    </footer>
+
+    <a href="https://wa.me/33744919155" target="_blank" class="whatsapp-btn">
+        <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.096 0-4.141-.547-5.946-1.588L0 .057zm6.549-2.938c1.614.96 3.434 1.468 5.282 1.468 5.497 0 9.97-4.473 9.97-9.97s-4.473-9.97-9.97-9.97c-5.497 0-9.97 4.473-9.97 9.97 0 1.848.508 3.668 1.468 5.282L2.324 21.676l4.282-1.564zm11.334-7.129c-.314-.157-1.859-.917-2.148-1.021-.288-.105-.499-.157-.709.157-.21.314-.813 1.021-.996 1.231-.183.21-.367.236-.681.079-.314-.157-1.325-.489-2.524-1.559-.933-.833-1.563-1.861-1.747-2.175-.183-.314-.02-.484.137-.64.141-.141.314-.367.472-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.709-1.703-.971-2.332-.255-.612-.513-.529-.709-.539-.183-.01-.393-.012-.603-.012s-.551.079-.84.393c-.288.314-1.102 1.074-1.102 2.62s1.128 3.039 1.285 3.25c.157.21 2.221 3.391 5.38 4.755.751.325 1.337.519 1.794.664.754.24 1.441.206 1.983.125.603-.09 1.859-.759 2.121-1.467.262-.708.262-1.312.183-1.467-.079-.157-.288-.263-.603-.42z"/></svg>
+    </a>
+
+</body>
+</html>
