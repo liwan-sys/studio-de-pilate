@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot SVB - Assistant Virtuel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        /* BOUTON CHATBOT FLOTTANT */
+        .chatbot-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4A8D84, #88C0A6);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(74, 141, 132, 0.4);
+            transition: all 0.3s;
+            z-index: 9998;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 35px rgba(74, 141, 132, 0.6);
+        }
+
+        .chatbot-button.active {
+            transform: scale(0.9);
+        }
+
+        /* PULSE ANIMATION */
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid #4A8D84;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* NOTIFICATION BADGE */
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #FF6B6B;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 900;
+            animation: badgePulse 2s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* CONTENEUR CHATBOT */
+        .chatbot-container {
+            position: fixed;
+            bottom: 120px;
+            right: 30px;
+            width: 400px;
+            max-width: calc(100vw - 40px);
+            height: 600px;
+            max-height: calc(100vh - 150px);
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .chatbot-container.active {
+            display: flex;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* HEADER */
+        .chatbot-header {
+            background: linear-gradient(135deg, #4A8D84, #88C0A6);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 25px 25px 0 0;
+        }
+
+        .chatbot-header-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chatbot-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .chatbot-title h3 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 2px;
+        }
+
+        .chatbot-status {
+            font-size: 12px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .close-chat:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        /* ZONE DE MESSAGES */
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            scroll-behavior: smooth;
+        }
+
+        .chatbot-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background: #88C0A6;
+            border-radius: 3px;
+        }
+
+        /* MESSAGES */
+        .message {
+            display: flex;
+            margin-bottom: 15px;
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .message.bot .message-avatar {
+            background: linear-gradient(135deg, #4A8D84, #88C0A6);
+            color: white;
+            margin-right: 10px;
+        }
+
+        .message.user .message-avatar {
+            background: #e5e7eb;
+            margin-left: 10px;
+            order: 2;
+        }
+
+        .message-content {
+            max-width: 75%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .message.bot .message-content {
+            background: white;
+            color: #2F4F4F;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #4A8D84, #88C0A6);
+            color: white;
+        }
+
+        /* TYPING INDICATOR */
+        .typing-indicator {
+            display: none;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+            width: fit-content;
+        }
+
+        .typing-indicator.active {
+            display: block;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #88C0A6;
+            animation: typingDot 1.4s infinite;
+        }
+
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingDot {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        /* SUGGESTIONS RAPIDES */
+        .quick-replies {
+            padding: 10px 20px;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .quick-replies::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .quick-reply-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 2px solid #88C0A6;
+            border-radius: 20px;
+            color: #4A8D84;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .quick-reply-btn:hover {
+            background: linear-gradient(135deg, #4A8D84, #88C0A6);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 141, 132, 0.3);
+        }
+
+        /* INPUT ZONE */
+        .chatbot-input-area {
+            padding: 15px 20px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 25px;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .chatbot-input:focus {
+            border-color: #88C0A6;
+            box-shadow: 0 0 0 3px rgba(136, 192, 166, 0.1);
+        }
+
+        .send-button {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4A8D84, #88C0A6);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+
+        .send-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(74, 141, 132, 0.4);
+        }
+
+        .send-button:active {
+            transform: scale(0.95);
+        }
+
+        /* MESSAGE AVEC LIENS */
+        .message-content a {
+            color: inherit;
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        .message.bot .message-content a {
+            color: #4A8D84;
+        }
+
+        /* MESSAGE AVEC LISTE */
+        .message-content ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .message-content li {
+            margin: 4px 0;
+        }
+
+        /* TIMESTAMP */
+        .message-time {
+            font-size: 11px;
+            opacity: 0.6;
+            margin-top: 4px;
+            text-align: right;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .chatbot-container {
+                bottom: 100px;
+                right: 10px;
+                left: 10px;
+                width: auto;
+                max-width: none;
+            }
+
+            .chatbot-button {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* WELCOME MESSAGE */
+        .welcome-message {
+            text-align: center;
+            padding: 30px 20px;
+            color: #6b7280;
+        }
+
+        .welcome-message h4 {
+            font-size: 20px;
+            color: #4A8D84;
+            margin-bottom: 10px;
+        }
+
+        .welcome-message p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BOUTON CHATBOT -->
+    <button class="chatbot-button" id="chatbotButton">
+        <div class="pulse-ring"></div>
+        <span>💬</span>
+        <div class="notification-badge">1</div>
+    </button>
+
+    <!-- CONTENEUR CHATBOT -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <!-- HEADER -->
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <div class="chatbot-avatar">🤖</div>
+                <div class="chatbot-title">
+                    <h3>Assistant SVB</h3>
+                    <div class="chatbot-status">
+                        <span class="status-dot"></span>
+                        <span>En ligne</span>
+                    </div>
+                </div>
+            </div>
+            <button class="close-chat" id="closeChat">×</button>
+        </div>
+
+        <!-- ZONE DE MESSAGES -->
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="welcome-message">
+                <h4>👋 Bienvenue chez SVB !</h4>
+                <p>Je suis votre assistant virtuel. Comment puis-je vous aider aujourd'hui ?</p>
+            </div>
+        </div>
+
+        <!-- SUGGESTIONS RAPIDES -->
+        <div class="quick-replies" id="quickReplies">
+            <button class="quick-reply-btn" onclick="sendQuickReply('horaires')">📅 Horaires</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('tarifs')">💰 Tarifs</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('essai')">✨ Essai gratuit</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('adresse')">📍 Adresse</button>
+        </div>
+
+        <!-- ZONE DE SAISIE -->
+        <div class="chatbot-input-area">
+            <input 
+                type="text" 
+                class="chatbot-input" 
+                id="chatbotInput" 
+                placeholder="Posez votre question..."
+                onkeypress="handleKeyPress(event)"
+            >
+            <button class="send-button" onclick="sendMessage()">
+                <span>➤</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // BASE DE CONNAISSANCES SVB
+        const knowledgeBase = {
+            // INFORMATIONS GÉNÉRALES
+            'bonjour': 'Bonjour ! 👋 Bienvenue chez SVB SantezVousBien ! Je suis là pour répondre à toutes vos questions. Que souhaitez-vous savoir ?',
+            'hello': 'Hello ! 👋 Comment puis-je vous aider aujourd\'hui ?',
+            'salut': 'Salut ! 😊 Que puis-je faire pour vous ?',
+            
+            // HORAIRES
+            'horaires': 'Nos studios sont ouverts :\n\n📅 **Lundi - Vendredi** : 6h30 - 21h30\n📅 **Samedi** : 8h00 - 18h00\n📅 **Dimanche** : 9h00 - 14h00\n\nVous pouvez consulter le planning complet sur notre site : <a href="studio.html">Planning des cours</a>',
+            'ouverture': 'Nous sommes ouverts du lundi au dimanche ! Les horaires varient selon les jours. Souhaitez-vous plus de détails ?',
+            
+            // ADRESSE & LOCALISATION
+            'adresse': 'Nous avons **2 studios** à Saint-Ouen :\n\n📍 **Studio 1 - Parc des Docks**\nCoaching individuel & Small Group Training\n\n📍 **Studio 2 - 40 Cours des Lavandières**\n93400 Saint-Ouen-sur-Seine\nPilates Reformer, Crossformer & Yoga\n\n🚇 **Métro** : Mairie de Saint-Ouen (Ligne 14)\n\nLes deux studios sont à 5 minutes à pied l\'un de l\'autre !',
+            'localisation': 'Nos studios se trouvent à Saint-Ouen-sur-Seine, facilement accessibles en métro ligne 14. Voulez-vous l\'adresse exacte ?',
+            'parking': 'Oui, il y a des parkings publics à proximité des deux studios. Le quartier des Docks dispose également de places de stationnement.',
+            
+            // TARIFS & ABONNEMENTS
+            'tarifs': '💰 **Nos formules principales** :\n\n🎯 **New Pass Starter** : 99,90€\n   → 5 sessions au choix, sans engagement\n\n🏋️ **Pass Machines** (Reformer/Crossformer) :\n   → À partir de 70,30€/mois\n\n🤸 **Pass Training** (Cross/Focus) :\n   → À partir de 30,30€/mois\n\n👨‍👩‍👧 **Pass Kids** : 35,30€/mois\n\nConsultez tous nos tarifs : <a href="tarifs.html">Page Tarifs</a>',
+            'prix': 'Nos tarifs commencent à 30,30€/mois selon la formule. Le Pass Starter découverte est à 99,90€ pour 5 sessions. Quelle formule vous intéresse ?',
+            'abonnement': 'Nous proposons plusieurs types d\'abonnements sans engagement ou avec engagement 3 mois. Que recherchez-vous exactement ?',
+            
+            // ESSAI GRATUIT
+            'essai': '✨ **Séance d\'essai** :\n\n💪 Machines (Reformer/Crossformer) : 30€\n🏃 Training (Cross/Focus) : 30€\n\n**Bonus** : 15€ remboursés si vous vous inscrivez !\n\nRéservez votre essai : <a href="https://wa.me/33744919155">WhatsApp</a>',
+            'gratuit': 'Nous proposons des séances d\'essai à 30€ (15€ remboursés si inscription). C\'est la meilleure façon de découvrir nos cours !',
+            'découverte': 'Le Pass Starter à 99,90€ est parfait pour découvrir ! Il inclut 5 sessions différentes sans engagement.',
+            
+            // COURS & DISCIPLINES
+            'cours': '🎯 **Nos disciplines** :\n\n**Small Group Machines** :\n• Pilates Reformer 🧘\n• Crossformer 💪\n\n**Small Group Training** :\n• Cross Training 🏋️\n• Yoga 🕉️\n• Boxe 🥊\n• Danse 💃\n• Stretch 🤸\n\nDécouvrez tout : <a href="sessions.html">Nos Sessions</a>',
+            'pilates': 'Nous proposons du **Pilates Reformer** (sur machine) et du **Pilates Sol**. Les cours durent 50-55 minutes en petit groupe (max 8 personnes).',
+            'yoga': 'Nos cours de Yoga incluent : Hatha Yoga, Vinyasa, Yin Yoga et Cross Yoga. Parfait pour la détente et la souplesse ! 🕉️',
+            'crossformer': 'Le Crossformer combine cardio intensif et Pilates sur machine. C\'est notre cours signature ! 🔥',
+            'boxe': 'Nos cours de boxe sont accessibles à tous niveaux. Sans contact, focus sur la technique et le cardio ! 🥊',
+            
+            // COACHING PRIVÉ
+            'coaching': '👑 **Coaching Privé "Good Vibes"** :\n\n• Programme 100% sur-mesure\n• Suivi personnalisé\n• 4 séances : 300,30€/mois\n• 8 séances : 560,30€/mois\n\n**Pass Duo disponible** !\n\nFaites votre diagnostic : <a href="tarifs.html#coaching">Coaching Privé</a>',
+            'personnel': 'Oui ! Notre coaching privé propose un accompagnement 100% personnalisé. Formule solo ou duo disponible.',
+            
+            // RÉSERVATION
+            'réservation': '📱 **Pour réserver** :\n\n1️⃣ Via notre plateforme Sportigo\n2️⃣ Par WhatsApp : <a href="https://wa.me/33744919155">07 44 91 91 55</a>\n3️⃣ Sur place au studio\n\nLes réservations se font 48h à l\'avance maximum.',
+            'inscription': 'L\'inscription se fait en ligne ou sur place. Frais de dossier : 49€ (offerts avec l\'option Boost 🚀).',
+            
+            // ÉQUIPEMENT
+            'matériel': 'Tout le matériel est fourni ! Apportez juste :\n• Une bouteille d\'eau 💧\n• Une serviette 🧖\n• Des chaussettes antidérapantes pour les machines 🧦 (en vente sur place)',
+            'chaussettes': '🧦 Les chaussettes antidérapantes sont **OBLIGATOIRES** pour tous les cours sur machines (Reformer/Crossformer). Disponibles à l\'achat au studio !',
+            
+            // ANNULATION
+            'annulation': 'Vous pouvez annuler jusqu\'à **24h avant** le cours sans pénalité via l\'application Sportigo. Après, la séance est décomptée.',
+            
+            // PASS KIDS
+            'enfants': '👶 **Pass Kids** (hors vacances) :\n• Yoga Kids\n• Training Kids\n• 2 sessions : 35,30€/mois\n• 4 sessions : 65,30€/mois\n\nPrise de RDV sur place uniquement.',
+            
+            // BIEN-ÊTRE
+            'massage': 'Oui ! Nous proposons des massages, de l\'ostéopathie et des soins bien-être. Consultez notre page : <a href="bien-etre.html">Bien-être</a>',
+            'ostéo': 'Nous avons une ostéopathe disponible sur RDV. Contactez-nous pour plus d\'infos !',
+            
+            // CONTACT
+            'contact': '📞 **Nous contacter** :\n\n• WhatsApp : <a href="https://wa.me/33744919155">07 44 91 91 55</a>\n• Email : hello@studiosvb.fr\n• Instagram : @studiosvb\n\nOu visitez notre page : <a href="contact.html">Contact</a>',
+            'téléphone': 'Notre numéro : **07 44 91 91 55**\nDisponible sur WhatsApp ! 📱',
+            'email': 'Notre email : **hello@studiosvb.fr**\nNous répondons sous 24h ! ✉️',
+            
+            // CARTE CADEAU
+            'cadeau': '🎁 **Carte Cadeau SVB** :\n\nOffrez du bien-être à vos proches !\nMontant libre ou formules pré-définies.\n\nPlus d\'infos : <a href="cadeau.html">Cartes Cadeaux</a>',
+            
+            // FAQ
+            'débutant': 'Tous nos cours sont accessibles aux débutants ! Nos coachs adaptent les exercices à votre niveau. N\'hésitez pas à venir essayer ! 💪',
+            'enceinte': 'Oui, nous proposons des cours adaptés pour femmes enceintes, notamment le Pilates prénatal. Parlez-en à nos coachs !',
+            'blessure': 'Nos coachs sont formés pour adapter les exercices en cas de blessure. Signalez-le avant le cours pour un accompagnement personnalisé.',
+            
+            // OPTION BOOST
+            'boost': '🚀 **Option SVB Boost** (9,90€/mois) :\n\n✅ Frais d\'inscription offerts\n✅ 1 essai gratuit/mois pour un proche\n✅ Engagement réduit\n✅ Suspension d\'abonnement possible\n\nLe petit + qui change tout !',
+            
+            // MERCI / AU REVOIR
+            'merci': 'Avec plaisir ! 😊 N\'hésitez pas si vous avez d\'autres questions. À bientôt chez SVB ! 💚',
+            'aurevoir': 'Au revoir ! À très bientôt chez SVB ! 👋 Prenez soin de vous ! 💚',
+            
+            // DEFAULT
+            'default': 'Je ne suis pas sûr de comprendre votre question. 🤔\n\nVoici ce que je peux vous dire :\n• Horaires et planning\n• Tarifs et abonnements\n• Cours et disciplines\n• Réservations\n• Localisation\n\nOu contactez-nous directement : <a href="https://wa.me/33744919155">WhatsApp</a>'
+        };
+
+        // VARIABLES GLOBALES
+        const chatbotButton = document.getElementById('chatbotButton');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChat = document.getElementById('closeChat');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const notificationBadge = document.querySelector('.notification-badge');
+
+        let isOpen = false;
+
+        // TOGGLE CHATBOT
+        chatbotButton.addEventListener('click', () => {
+            isOpen = !isOpen;
+            chatbotContainer.classList.toggle('active');
+            chatbotButton.classList.toggle('active');
+            
+            if (isOpen) {
+                notificationBadge.style.display = 'none';
+                chatbotInput.focus();
+                
+                // Message de bienvenue si premier contact
+                if (chatbotMessages.querySelectorAll('.message').length === 0) {
+                    setTimeout(() => {
+                        addBotMessage('Bonjour ! 👋 Je suis l\'assistant virtuel de SVB. Comment puis-je vous aider aujourd\'hui ?');
+                    }, 500);
+                }
+            }
+        });
+
+        closeChat.addEventListener('click', () => {
+            isOpen = false;
+            chatbotContainer.classList.remove('active');
+            chatbotButton.classList.remove('active');
+        });
+
+        // ENVOYER MESSAGE
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (!message) return;
+
+            addUserMessage(message);
+            chatbotInput.value = '';
+
+            // Afficher l'indicateur de saisie
+            showTypingIndicator();
+
+            // Réponse du bot après un délai
+            setTimeout(() => {
+                const response = getBotResponse(message);
+                hideTypingIndicator();
+                addBotMessage(response);
+            }, 1000 + Math.random() * 1000); // Délai aléatoire entre 1-2s
+        }
+
+        // ENVOYER SUGGESTION RAPIDE
+        function sendQuickReply(keyword) {
+            addUserMessage(keyword.charAt(0).toUpperCase() + keyword.slice(1));
+            
+            showTypingIndicator();
+            setTimeout(() => {
+                const response = knowledgeBase[keyword] || knowledgeBase['default'];
+                hideTypingIndicator();
+                addBotMessage(response);
+            }, 800);
+        }
+
+        // AJOUTER MESSAGE UTILISATEUR
+        function addUserMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user';
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    ${text}
+                </div>
+                <div class="message-avatar">👤</div>
+            `;
+            
+            // Supprimer le message de bienvenue si présent
+            const welcomeMsg = chatbotMessages.querySelector('.welcome-message');
+            if (welcomeMsg) welcomeMsg.remove();
+            
+            chatbotMessages.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        // AJOUTER MESSAGE BOT
+        function addBotMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    ${text}
+                </div>
+            `;
+            chatbotMessages.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        // INDICATEUR DE SAISIE
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="typing-indicator active">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            `;
+            chatbotMessages.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) typingIndicator.remove();
+        }
+
+        // OBTENIR RÉPONSE DU BOT
+        function getBotResponse(userMessage) {
+            const normalizedMessage = userMessage.toLowerCase()
+                .normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Enlever accents
+            
+            // Recherche de mots-clés
+            for (let keyword in knowledgeBase) {
+                if (normalizedMessage.includes(keyword)) {
+                    return knowledgeBase[keyword];
+                }
+            }
+            
+            // Recherche approximative
+            if (normalizedMessage.match(/quand|heure|ouvert|ferme/)) {
+                return knowledgeBase['horaires'];
+            }
+            if (normalizedMessage.match(/combien|cout|coût|payer/)) {
+                return knowledgeBase['tarifs'];
+            }
+            if (normalizedMessage.match(/ou|où|trouve|aller/)) {
+                return knowledgeBase['adresse'];
+            }
+            if (normalizedMessage.match(/reserver|réserver|rdv|rendez-vous/)) {
+                return knowledgeBase['réservation'];
+            }
+            if (normalizedMessage.match(/annuler|annulation/)) {
+                return knowledgeBase['annulation'];
+            }
+            
+            return knowledgeBase['default'];
+        }
+
+        // SCROLL AUTOMATIQUE
+        function scrollToBottom() {
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // ENTRÉE POUR ENVOYER
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // NOTIFICATION INITIALE
+        setTimeout(() => {
+            if (!isOpen) {
+                notificationBadge.style.display = 'flex';
+            }
+        }, 5000);
+    </script>
+
+</body>
+</html>
