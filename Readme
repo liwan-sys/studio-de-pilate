@@ -1,0 +1,313 @@
+# 🚀 Chatbot SVB - Application Streamlit
+
+Application de chatbot intelligent pour SVB SantezVousBien, propulsée par Google Gemini AI.
+
+## 📦 Fichiers inclus
+
+```
+chatbot-svb-streamlit/
+├── streamlit_app.py          # Application principale
+├── requirements.txt           # Dépendances Python
+├── .streamlit/
+│   ├── config.toml           # Configuration Streamlit
+│   └── secrets.toml.example  # Exemple de configuration des secrets
+├── .gitignore                # Fichiers à ignorer sur Git
+└── README.md                 # Ce fichier
+```
+
+---
+
+## 🎯 Option 1 : Déploiement sur Streamlit Cloud (RECOMMANDÉ - GRATUIT)
+
+### Étape 1 : Obtenir votre clé API Gemini (GRATUIT)
+
+1. Allez sur https://makersuite.google.com/app/apikey
+2. Connectez-vous avec votre compte Google
+3. Cliquez sur "Create API Key"
+4. Copiez la clé (commence par `AIza...`)
+
+### Étape 2 : Préparer votre dépôt GitHub
+
+1. **Créez un nouveau dépôt GitHub** :
+   - Allez sur https://github.com/new
+   - Nom : `chatbot-svb` (ou ce que vous voulez)
+   - Laissez en Public ou Private (votre choix)
+   - Ne cochez PAS "Initialize with README"
+   - Cliquez sur "Create repository"
+
+2. **Uploadez vos fichiers sur GitHub** :
+   
+   **Option A : Via l'interface web GitHub**
+   - Dans votre nouveau dépôt, cliquez sur "uploading an existing file"
+   - Uploadez tous les fichiers (streamlit_app.py, requirements.txt, .gitignore)
+   - Créez un dossier `.streamlit` et uploadez `config.toml` dedans
+   - **NE PAS** uploader secrets.toml.example (on configure ça dans Streamlit Cloud)
+   - Commitez les changements
+
+   **Option B : Via Git en ligne de commande**
+   ```bash
+   git init
+   git add streamlit_app.py requirements.txt .gitignore .streamlit/config.toml
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/VOTRE_USERNAME/chatbot-svb.git
+   git push -u origin main
+   ```
+
+### Étape 3 : Déployer sur Streamlit Cloud
+
+1. **Allez sur** https://streamlit.io/cloud
+2. **Connectez-vous** avec votre compte GitHub
+3. **Cliquez sur** "New app"
+4. **Remplissez** :
+   - Repository : `VOTRE_USERNAME/chatbot-svb`
+   - Branch : `main`
+   - Main file path : `streamlit_app.py`
+5. **Cliquez sur** "Advanced settings"
+6. **Dans "Secrets"**, ajoutez :
+   ```toml
+   GEMINI_API_KEY = "AIzaVOTRE_VRAIE_CLE"
+   ```
+   (Remplacez par votre vraie clé API Gemini)
+7. **Cliquez sur** "Deploy!"
+
+### Étape 4 : C'est prêt ! 🎉
+
+Votre chatbot sera accessible à une URL comme :
+```
+https://chatbot-svb-votre-username.streamlit.app
+```
+
+---
+
+## 🖥️ Option 2 : Lancer en local (sur votre PC)
+
+### Prérequis
+- Python 3.8 ou supérieur installé
+- pip installé
+
+### Installation
+
+1. **Téléchargez** tous les fichiers dans un dossier
+
+2. **Créez le fichier secrets** :
+   ```bash
+   # Dans le dossier .streamlit/
+   cp secrets.toml.example secrets.toml
+   ```
+
+3. **Éditez** `.streamlit/secrets.toml` et remplacez `VOTRE_CLE_API_ICI` par votre clé API Gemini
+
+4. **Installez** les dépendances :
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Lancez** l'application :
+   ```bash
+   streamlit run streamlit_app.py
+   ```
+
+6. **Ouvrez** votre navigateur sur http://localhost:8501
+
+---
+
+## 🔑 Obtenir une clé API Gemini
+
+### Étapes détaillées
+
+1. Allez sur https://makersuite.google.com/app/apikey
+2. Connectez-vous avec votre compte Google
+3. Cliquez sur "Create API Key" (ou "Get API Key")
+4. Sélectionnez un projet ou créez-en un nouveau
+5. Copiez la clé qui s'affiche (format : `AIzaSy...`)
+
+### Vérifier que votre clé fonctionne
+
+Votre clé API est **valide** si :
+- ✅ Elle commence par `AIza`
+- ✅ Elle fait environ 39 caractères
+- ✅ Elle ne contient pas d'espaces
+
+### Quota gratuit Gemini
+
+- **60 requêtes par minute**
+- **1500 requêtes par jour**
+- Parfait pour un chatbot !
+
+---
+
+## 📱 Intégrer le chatbot sur votre site SVB
+
+### Option 1 : iFrame
+
+Ajoutez ceci sur votre site web :
+
+```html
+<iframe 
+    src="https://votre-app.streamlit.app/?embedded=true" 
+    width="100%" 
+    height="800px" 
+    style="border: none; border-radius: 15px;"
+></iframe>
+```
+
+### Option 2 : Lien direct
+
+Créez un bouton sur votre site :
+
+```html
+<a href="https://votre-app.streamlit.app" target="_blank">
+    💬 Discuter avec notre assistant
+</a>
+```
+
+---
+
+## 🎨 Personnalisation
+
+### Modifier les couleurs
+
+Éditez `.streamlit/config.toml` :
+
+```toml
+[theme]
+primaryColor = "#FF69B4"        # Couleur principale (rose SVB)
+backgroundColor = "#FFF5F7"      # Fond
+secondaryBackgroundColor = "#FFE4E8"  # Fond secondaire
+textColor = "#2F4F4F"           # Couleur du texte
+```
+
+### Modifier le contexte SVB
+
+Éditez `streamlit_app.py`, section `SVB_CONTEXT` (ligne 106) pour :
+- Ajouter de nouveaux tarifs
+- Mettre à jour les cours
+- Modifier les informations de contact
+
+---
+
+## 🔒 Sécurité
+
+### ✅ CE QU'IL FAUT FAIRE
+
+1. **Ne JAMAIS** commit le fichier `.streamlit/secrets.toml` sur GitHub
+2. **Toujours** utiliser les secrets Streamlit Cloud pour la clé API
+3. **Vérifier** que `.gitignore` contient `.streamlit/secrets.toml`
+
+### ❌ CE QU'IL NE FAUT PAS FAIRE
+
+- ❌ Mettre la clé API directement dans `streamlit_app.py`
+- ❌ Publier `.streamlit/secrets.toml` sur GitHub
+- ❌ Partager votre clé API publiquement
+
+---
+
+## 🐛 Dépannage
+
+### L'app ne démarre pas
+
+**Erreur : "No module named 'streamlit'"**
+```bash
+pip install -r requirements.txt
+```
+
+**Erreur : "GEMINI_API_KEY not found"**
+- Vérifiez que vous avez créé `.streamlit/secrets.toml`
+- Vérifiez que le fichier contient `GEMINI_API_KEY = "votre_clé"`
+
+### Le chatbot ne répond pas
+
+**Erreur : "API_KEY_INVALID"**
+- Votre clé API est incorrecte
+- Vérifiez sur https://makersuite.google.com/app/apikey
+
+**Erreur : "Quota exceeded"**
+- Vous avez dépassé le quota gratuit (60 req/min ou 1500/jour)
+- Attendez quelques minutes ou créez une nouvelle clé
+
+### Sur Streamlit Cloud
+
+**L'app ne se déploie pas**
+- Vérifiez que `requirements.txt` est à la racine
+- Vérifiez que vous avez bien configuré les secrets
+- Regardez les logs dans Streamlit Cloud
+
+---
+
+## 📊 Fonctionnalités
+
+### Ce que le chatbot peut faire
+
+✅ Répondre aux questions sur :
+- Les tarifs (tous les Pass)
+- Les horaires
+- La localisation des 2 studios
+- Les cours disponibles
+- Comment réserver
+- Les séances d'essai
+- Le coaching privé
+- Les Pass Kids
+- Les règles du studio
+
+✅ Conversations naturelles :
+- Mémorise le contexte de la conversation
+- Répond de manière personnalisée
+- Propose des actions concrètes
+
+✅ Interface moderne :
+- Design aux couleurs SVB (rose/rouge)
+- Historique des conversations
+- Responsive (mobile & desktop)
+
+---
+
+## 💡 Améliorations futures possibles
+
+- [ ] Ajouter des boutons de suggestions
+- [ ] Intégrer un système de réservation
+- [ ] Ajouter des images des studios
+- [ ] Multilingue (FR/EN)
+- [ ] Analytics des questions fréquentes
+- [ ] Export de la conversation
+- [ ] Notification par email
+
+---
+
+## 📞 Support
+
+Si vous rencontrez des problèmes :
+
+1. **Vérifiez** la section Dépannage ci-dessus
+2. **Consultez** la documentation Streamlit : https://docs.streamlit.io
+3. **Vérifiez** la documentation Gemini : https://ai.google.dev/docs
+
+---
+
+## 📝 Licence
+
+Ce chatbot a été créé spécifiquement pour SVB SantezVousBien.
+
+---
+
+## ✅ Checklist de déploiement
+
+Avant de mettre en production :
+
+- [ ] Clé API Gemini obtenue
+- [ ] Dépôt GitHub créé
+- [ ] Fichiers uploadés sur GitHub (sans secrets.toml)
+- [ ] App déployée sur Streamlit Cloud
+- [ ] Secrets configurés dans Streamlit Cloud
+- [ ] App testée : le chatbot répond correctement
+- [ ] URL partagée : https://votre-app.streamlit.app
+
+---
+
+## 🎉 Félicitations !
+
+Votre chatbot SVB est maintenant opérationnel ! 
+
+Vos clients peuvent poser des questions 24/7 et recevoir des réponses instantanées et intelligentes.
+
+**Le chatbot connaît TOUT sur SVB !** 🤖💚
