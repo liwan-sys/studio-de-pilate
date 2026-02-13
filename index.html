@@ -601,7 +601,7 @@
             <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
             <ul class="space-y-2 opacity-80">
                 <li>📞 07 44 91 91 55</li>
-                <li>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6b030e0707042b181f1e0f0204181d09450d19">[email&#160;protected]</a></li>
+                <li>✉️ hello@studiosvb.fr</li>
                 <li>📸 @studiosvb</li>
             </ul>
         </div>
@@ -626,7 +626,7 @@
     </div>
 </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash-screen');
             const logo = document.getElementById('splash-logo');
@@ -641,10 +641,13 @@
                 
                 setTimeout(() => {
                     splash.classList.add('splash-hidden');
-                    body.classList.remove('ove
-
-    <!-- CHATBOT SVB -->
-    <script src="chatbot-integration.js"></script>
+                    body.classList.remove('overflow-hidden');
+                    body.classList.add('content-visible');
+                    sessionStorage.setItem('svb-splash-seen', 'true');
+                }, 2500);
+            }
+        });
+    </script>
 
 </body>
 </html>
