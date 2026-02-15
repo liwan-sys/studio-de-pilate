@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -8,912 +9,457 @@
     })(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVB SantezVousBien | Studio Pilates & Coaching Saint-Ouen - Spécial Saint-Valentin ❤️</title>
-    
-    <link rel="icon" type="image/png" href="images/favicon.jpg">
-    <link rel="apple-touch-icon" href="images/favicon.jpg">
+    <title>SVB SantezVousBien | Studio Pilates & Coaching Saint-Ouen</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+```
+<link rel="icon" type="image/png" href="images/favicon.jpg">
+<link rel="apple-touch-icon" href="images/favicon.jpg">
 
-    <style>
-        :root {
-            --valentine-pink: #FF69B4;
-            --valentine-red: #E74C3C;
-            --valentine-rose: #FFB6C1;
-            --valentine-burgundy: #8B2252;
-            --valentine-cream: #FFF5F7;
-            --svb-text: #2F4F4F;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--valentine-cream);
-            color: var(--svb-text);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* === SPLASH SCREEN === */
-        #splash-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, #FF69B4 0%, #FFB6C1 50%, #FFF5F7 100%);
-            z-index: 9999; display: flex; justify-content: center; align-items: center;
-            transition: opacity 0.8s ease-in-out, visibility 0.8s;
-        }
-        #splash-logo { width: 150px; opacity: 0; transform: scale(0.8); filter: brightness(0) invert(1); }
-        .animate-logo { animation: logoIntro 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-        @keyframes logoIntro { 
-            0% { opacity: 0; transform: scale(0.8) rotate(-5deg); } 
-            50% { opacity: 1; transform: scale(1.15) rotate(5deg); } 
-            100% { opacity: 1; transform: scale(1) rotate(0deg); } 
-        }
-        .splash-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-
-        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
-
-        /* FOND ROMANTIQUE */
-        .ambient-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
-            background: linear-gradient(135deg, #FFB6C1 0%, #FFF5F7 50%, #FFE4E8 100%);
-            overflow: hidden;
-        }
-        
-        /* COEURS FLOTTANTS */
-        .hearts-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            pointer-events: none; z-index: 0; overflow: hidden;
-        }
-        
-        .heart {
-            position: absolute;
-            font-size: 20px;
-            opacity: 0;
-            animation: floatHeart 15s infinite ease-in-out;
-        }
-        
-        @keyframes floatHeart {
-            0% { 
-                transform: translateY(100vh) rotate(0deg) scale(0); 
-                opacity: 0; 
-            }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.3; }
-            100% { 
-                transform: translateY(-100vh) rotate(360deg) scale(1.5); 
-                opacity: 0; 
-            }
-        }
-        
-        .heart:nth-child(1) { left: 10%; animation-delay: 0s; color: #FF69B4; }
-        .heart:nth-child(2) { left: 20%; animation-delay: 2s; color: #E74C3C; font-size: 15px; }
-        .heart:nth-child(3) { left: 30%; animation-delay: 4s; color: #FF1493; }
-        .heart:nth-child(4) { left: 40%; animation-delay: 1s; color: #FFB6C1; font-size: 25px; }
-        .heart:nth-child(5) { left: 50%; animation-delay: 3s; color: #FF69B4; }
-        .heart:nth-child(6) { left: 60%; animation-delay: 5s; color: #E74C3C; font-size: 18px; }
-        .heart:nth-child(7) { left: 70%; animation-delay: 2.5s; color: #FF1493; }
-        .heart:nth-child(8) { left: 80%; animation-delay: 4.5s; color: #FFB6C1; font-size: 22px; }
-        .heart:nth-child(9) { left: 90%; animation-delay: 1.5s; color: #FF69B4; }
-        .heart:nth-child(10) { left: 15%; animation-delay: 3.5s; color: #E74C3C; }
-        
-        .blob {
-            position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.4;
-            animation: moveBlob 30s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .blob-1 { 
-            top: -15%; left: -15%; width: 60vw; height: 60vw; 
-            background: radial-gradient(circle, #FF69B4, #FFB6C1); 
-        }
-        .blob-2 { 
-            bottom: -15%; right: -15%; width: 70vw; height: 70vw; 
-            background: radial-gradient(circle, #E74C3C, #FF69B4); 
-            animation-delay: -5s; 
-        }
-        @keyframes moveBlob { 
-            0% { transform: translate(0, 0) scale(1); } 
-            100% { transform: translate(40px, -60px) scale(1.15); } 
-        }
-        
-        .noise-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            pointer-events: none;
-        }
-
-        .reveal-load { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
-        .content-visible .reveal-load { opacity: 1; transform: translateY(0); }
-        .d-1 { transition-delay: 0.2s; } .d-2 { transition-delay: 0.4s; } .d-3 { transition-delay: 0.6s; }
-
-        /* BOUTON ACTION PRINCIPAL */
-        .btn-action {
-            background: linear-gradient(135deg, #FF69B4, #E74C3C);
-            color: white; padding: 16px 40px; border-radius: 50px;
-            text-transform: uppercase; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.1em;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
-            display: inline-block; border: 2px solid rgba(255,255,255,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-action::before {
-            content: '❤️';
-            position: absolute;
-            left: -30px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-            transition: all 0.4s;
-        }
-        .btn-action:hover::before {
-            left: 10px;
-        }
-        .btn-action:hover { 
-            background: linear-gradient(135deg, #E74C3C, #FF69B4);
-            transform: translateY(-3px) scale(1.05); 
-            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.6); 
-        }
-
-        /* BOUTON HERO */
-        .btn-hero {
-            background: rgba(255,255,255,0.3); backdrop-filter: blur(10px);
-            border: 2px solid white; color: white; padding: 12px 30px; border-radius: 50px;
-            font-weight: 700; text-transform: uppercase; font-size: 0.8rem;
-            transition: all 0.3s;
-        }
-        .btn-hero:hover { 
-            background: white; 
-            color: var(--valentine-red); 
-            transform: translateY(-2px); 
-            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
-        }
-
-        /* BADGE SAINT-VALENTIN */
-        .valentine-badge {
-            position: absolute; top: -15px; right: -15px;
-            background: linear-gradient(135deg, #E74C3C, #FF1493);
-            color: white; font-weight: 900; text-transform: uppercase;
-            font-size: 0.7rem; padding: 10px 15px; border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); transform: rotate(10deg);
-            animation: pulse-valentine 2s infinite; border: 2px solid white;
-        }
-        @keyframes pulse-valentine { 
-            0% { transform: rotate(10deg) scale(1); } 
-            50% { transform: rotate(10deg) scale(1.15); } 
-            100% { transform: rotate(10deg) scale(1); } 
-        }
-
-        /* CARD STARTER */
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
-        .starter-card-wrapper { animation: float 6s ease-in-out infinite; }
-        .starter-card {
-            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-radius: 30px;
-            padding: 50px 30px; text-align: center; box-shadow: 0 30px 70px rgba(255, 105, 180, 0.2);
-            max-width: 500px; margin: 0 auto; position: relative; 
-            border: 3px solid rgba(255, 105, 180, 0.3);
-            transition: all 0.4s ease;
-        }
-        .starter-card:hover { 
-            transform: scale(1.02); 
-            box-shadow: 0 40px 90px rgba(255, 105, 180, 0.35);
-            border-color: rgba(255, 105, 180, 0.6);
-        }
-
-        /* TEXT CARDS */
-        .text-card {
-            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px); border-radius: 25px;
-            padding: 35px 25px; text-align: center; border: 2px solid rgba(255, 182, 193, 0.5);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); cursor: pointer; height: 100%;
-            display: flex; flex-direction: column; justify-content: space-between; 
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.1);
-        }
-        .text-card:hover { 
-            transform: translateY(-10px); 
-            background: rgba(255, 255, 255, 0.95); 
-            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.25);
-            border-color: var(--valentine-pink);
-        }
-        .card-title { 
-            font-family: 'Dancing Script', cursive; 
-            font-size: 2.2rem; 
-            color: var(--valentine-red); 
-            margin-bottom: 5px; 
-        }
-        .card-desc { 
-            font-size: 0.8rem; 
-            text-transform: uppercase; 
-            font-weight: 700; 
-            color: #555; 
-            margin-bottom: 15px; 
-        }
-        .card-price { 
-            font-size: 2.8rem; 
-            font-weight: 700; 
-            background: linear-gradient(135deg, #FF69B4, #E74C3C);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 25px; 
-        }
-        .btn-small {
-            border: 2px solid var(--valentine-pink); 
-            color: var(--valentine-pink); 
-            padding: 10px 25px;
-            border-radius: 25px; 
-            text-transform: uppercase; 
-            font-size: 0.75rem; 
-            font-weight: 700;
-            transition: all 0.3s; 
-            background: transparent;
-        }
-        .text-card:hover .btn-small { 
-            background: linear-gradient(135deg, #FF69B4, #E74C3C);
-            color: white; 
-            border-color: transparent;
-        }
-
-        /* IFRAME MAP */
-        iframe { 
-            border-radius: 25px; 
-            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.2); 
-            border: 4px solid rgba(255, 182, 193, 0.5); 
-        }
-
-        /* === SLIDER AVIS === */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .snap-x { scroll-snap-type: x mandatory; }
-        .snap-center { scroll-snap-align: center; }
-
-        /* WHATSAPP */
-        .whatsapp-btn {
-            position: fixed; bottom: 25px; right: 25px; 
-            background: linear-gradient(135deg, #FF69B4, #E74C3C);
-            color: white;
-            width: 60px; height: 60px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.5); 
-            transition: all 0.3s ease; z-index: 9990; cursor: pointer;
-        }
-        .whatsapp-btn:hover { 
-            transform: scale(1.1) rotate(5deg); 
-            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.7); 
-        }
-        .whatsapp-pulse {
-            position: absolute; width: 100%; height: 100%; border-radius: 50%;
-            border: 2px solid #FF69B4; animation: pulse-wa 2s infinite; opacity: 0;
-        }
-        @keyframes pulse-wa { 
-            0% { transform: scale(1); opacity: 0.8; } 
-            100% { transform: scale(1.5); opacity: 0; } 
-        }
-
-        /* BANNIÈRE SAINT-VALENTIN */
-        .valentine-banner {
-            background: linear-gradient(135deg, #E74C3C, #FF1493);
-            color: white;
-            text-align: center;
-            padding: 12px 20px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .valentine-banner::before {
-            content: '❤️';
-            position: absolute;
-            font-size: 100px;
-            opacity: 0.1;
-            left: -30px;
-            top: -40px;
-            transform: rotate(-15deg);
-        }
-        
-        .valentine-banner::after {
-            content: '💕';
-            position: absolute;
-            font-size: 80px;
-            opacity: 0.1;
-            right: -20px;
-            bottom: -30px;
-            transform: rotate(15deg);
-        }
-
-    </style>
-</head>
-<body class="overflow-hidden"> 
-    
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    
-    <!-- BANNIÈRE SAINT-VALENTIN -->
-    <div class="valentine-banner z-50 relative">
-        💖 SPÉCIAL SAINT-VALENTIN : OFFREZ DU BIEN-ÊTRE À VOTRE MOITIÉ 💖
-    </div>
-    
-    <div id="splash-screen">
-        <img id="splash-logo" src="images/logo.png" alt="SVB Logo">
-    </div>
-
-    <div class="ambient-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
-    
-    <!-- COEURS FLOTTANTS -->
-    <div class="hearts-container">
-        <div class="heart">❤️</div>
-        <div class="heart">💕</div>
-        <div class="heart">💖</div>
-        <div class="heart">💗</div>
-        <div class="heart">❤️</div>
-        <div class="heart">💕</div>
-        <div class="heart">💖</div>
-        <div class="heart">💗</div>
-        <div class="heart">❤️</div>
-        <div class="heart">💕</div>
-    </div>
-    
-    <div class="noise-overlay"></div>
-
-    <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
-        <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md">
-            </a>
-        </div>
-        
-        <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
-            <a href="index.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">ACCUEIL</a>
-            <a href="sessions.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">SESSIONS</a>
-            <a href="equipe.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">LA TEAM</a>
-            <a href="bien-etre.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
-            <a href="studio.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">ABONNEMENTS</a>
-            <a href="cadeau.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">CADEAU ❤️</a>
-            <a href="faq.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">FAQ</a>
-            <a href="contact.html" class="hover:text-pink-200 transition hover:scale-105 inline-block">CONTACT</a>
-        </div>
-    </nav>
-
-    <header class="relative text-center py-16 px-4 reveal-load d-1 z-10">
-        <h1 class="text-5xl sm:text-7xl md:text-9xl text-white drop-shadow-lg mb-4 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default">
-            SantezVousBien
-        </h1>
-        <p class="text-white text-lg font-light max-w-2xl mx-auto mb-4 leading-relaxed opacity-95 drop-shadow-md">
-            Plus qu'une salle de sport, un lieu de vie.<br>
-            <span class="font-medium italic">Deux studios, une seule énergie.</span>
-        </p>
-        <p class="text-white text-2xl font-hand mb-8 drop-shadow-md">
-            💕 Édition Spéciale Saint-Valentin 💕
-        </p>
-        <a href="#offres" class="btn-hero scroll-smooth">
-            Découvrir nos offres romantiques ↓
-        </a>
-    </header>
-
-    <div id="offres" class="relative px-4 pb-24 reveal-load d-2 z-10">
-        <div class="starter-card-wrapper">
-            <div class="starter-card">
-                <div class="valentine-badge">💘 Coup de Cœur</div>
-
-                <span class="bg-gradient-to-r from-pink-500 to-red-500 text-white px-5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 inline-block shadow-md">
-                    Offre Saint-Valentin
-                </span>
-                
-                <h2 class="text-5xl font-hand text-[#E74C3C] mb-2">New Pass Starter</h2>
-                
-                <div class="flex justify-center items-center space-x-2 text-[10px] font-bold text-gray-500 uppercase mb-6 tracking-wide">
-                    <span class="bg-pink-100 px-3 py-1 rounded-lg">5 Sessions différentes</span>
-                    <span>•</span>
-                    <span class="bg-pink-100 px-3 py-1 rounded-lg">Sans Engagement</span>
-                </div>
-                
-                <p class="text-7xl font-bold mb-2 tracking-tight drop-shadow-sm" style="background: linear-gradient(135deg, #FF69B4, #E74C3C); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                    99,90<span class="text-3xl align-top">€</span>
-                </p>
-                
-                <p class="text-sm text-pink-600 font-semibold mb-6">
-                    ❤️ Parfait pour débuter ❤️
-                </p>
-                
-                <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab" class="btn-action rounded-full text-lg shadow-xl transform hover:scale-105 transition duration-300">
-                    Je commence maintenant
-                </a>
-                
-                <div class="mt-6 flex justify-center space-x-4 text-[9px] text-gray-400 font-bold uppercase tracking-wider">
-                    <span class="flex items-center">🔒 Paiement Sécurisé</span>
-                    <span class="flex items-center">💕 Coachs Certifiés</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="relative max-w-6xl mx-auto px-4 pb-16 text-center reveal-load d-3 z-10">
-        <h2 class="text-4xl text-white font-hand mb-4 drop-shadow-md">💝 Offrez une séance découverte</h2>
-        <p class="text-white mb-12 text-sm opacity-90">Le cadeau parfait pour votre Valentine</p>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="text-card group">
-                <div>
-                    <h3 class="card-title">Reformer</h3>
-                    <p class="card-desc">Pilates sur machine</p>
-                </div>
-                <div>
-                    <p class="card-price">50€</p> 
-                    <span class="btn-small">Offrir ❤️</span>
-                </div>
-            </a>
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="text-card group">
-                <div>
-                    <h3 class="card-title">Crossformer</h3>
-                    <p class="card-desc">Intensité & Cardio</p>
-                </div>
-                <div>
-                    <p class="card-price">50€</p> 
-                    <span class="btn-small">Offrir 💕</span>
-                </div>
-            </a>
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="text-card group">
-                <div>
-                    <h3 class="card-title">Cross / Focus</h3>
-                    <p class="card-desc">Training • Yoga • Boxe</p>
-                </div>
-                <div>
-                    <p class="card-price">30€</p>
-                    <span class="btn-small">Offrir 💖</span>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <section class="relative py-20 reveal-load d-3 z-10">
-        <div class="text-center mb-10 px-4">
-            <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">💗 La communauté SVB</h2>
-            <div class="flex justify-center items-center space-x-1 text-pink-500 mb-2 text-2xl">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
-                Des avis qui viennent du cœur 💕
-            </p>
-        </div>
-
-        <div class="relative max-w-7xl mx-auto px-4 group">
-            
-            <button onclick="document.getElementById('reviews-slider').scrollBy({left: -350, behavior: 'smooth'})" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-pink-500 p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -ml-4 md:ml-0 hidden md:block">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-            </button>
-
-            <div id="reviews-slider" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth no-scrollbar px-4">
-                
-                <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 border-pink-200 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Un studio de sport au top, une super ambiance aux cours collectifs et des coaches attentives. Et des inscriptions ultra flexibles !"</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Marie de Sarnez</p></div>
-                </div>
-
-                <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 border-pink-200 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je suis cliente SVB depuis l'ouverture et c'est simple, j'adore cet endroit. Beaucoup de cours proposés, une ambiance toujours au top et douches hyper clean."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Amandine DUPRE</p></div>
-                </div>
-
-                <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 border-pink-200 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super salle de sport, Shanael et son équipe sont au top ! 👌 les coachs sont vraiment super, à l'écoute et savent vous booster sans vous brusquer."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">J</div><p class="font-bold text-xs uppercase">Justine Beck</p></div>
-                </div>
-
-                <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 border-pink-200 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Après 2 grossesses et avant mon mariage, je devais me reprendre vite en main ! Shanaël m'a accompagnée 12 mois, les résultats ont été bluffants."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">G</div><p class="font-bold text-xs uppercase">Gaëlle HENRIOT</p></div>
-                </div>
-
-                <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 border-pink-200 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Ancien footeux, j'ai fait ma séance d'essai cross former et j'étais agréablement surpris de cette séance full body bien structurée."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Mickael Sautron</p></div>
-                </div>
-
-                <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 border-pink-200 shadow-lg snap-center flex flex-col justify-between">
-                    <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super salle de sport/bien être. Les cours sont en petit groupe avec des profs au top et des séances toujours variées."</p>
-                    <div class="flex items-center"><div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">B</div><p class="font-bold text-xs uppercase">Blandine Hirtz</p></div>
-                </div>
-
-            </div>
-
-            <button onclick="document.getElementById('reviews-slider').scrollBy({left: 350, behavior: 'smooth'})" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-pink-500 p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -mr-4 md:mr-0 hidden md:block">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </button>
-
-        </div>
-
-        <div class="text-center mt-8">
-            <a href="https://www.google.fr/maps" target="_blank" class="text-white text-xs font-bold uppercase tracking-widest border-b border-white pb-1 hover:text-pink-300 hover:border-pink-300 transition">
-                Lire tous nos avis sur Google
-            </a>
-        </div>
-    </section>
-
-    <section class="relative max-w-6xl mx-auto px-4 pb-24 reveal-load d-2 z-10">
-        <div class="text-center mb-12">
-            <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">Nos 2 Studios</h2>
-            <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
-                Situés à 5 minutes à pied l'un de l'autre ❤️
-            </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            
-            <div class="text-right space-y-10 text-white">
-                <div class="group cursor-default">
-                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-pink-300 transition">📍 Parc des Docks</h3>
-                    <p class="text-base opacity-90 font-light leading-relaxed">
-                        L'espace dédié au <strong>Coaching Individuel</strong> et au <strong>Small Group Training</strong>. Un lieu moderne et dynamique pour se dépasser, seul ou en petit comité.
-                    </p>
-                </div>
-                <div class="group cursor-default">
-                    <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-pink-300 transition">📍 Cours des Lavandières</h3>
-                    <p class="text-base opacity-90 font-light leading-relaxed">
-                        Le cocon du <strong>Pilates Reformer</strong>, du <strong>Crossformer</strong> et du <strong>Yoga</strong>. Une atmosphère feutrée et apaisante pour sculpter votre silhouette en douceur.
-                    </p>
-                </div>
-                <div class="pt-6">
-                    <a href="contact.html" class="inline-block border-b-2 border-white pb-1 font-bold uppercase text-sm hover:text-pink-300 hover:border-pink-300 transition transform hover:translate-x-2">
-                        Voir les accès détaillés →
-                    </a>
-                </div>
-            </div>
-
-            <div class="h-[400px] w-full relative">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10492.34567890123!2d2.3333!3d48.9119!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ef2ae3fb71d%3A0x7068d80f07490!2sSaint-Ouen-sur-Seine!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            </div>
-
-        </div>
-    </section>
-
-<footer class="bg-gradient-to-r from-pink-900 to-red-900 text-white py-12 mt-16">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-        
-        <div>
-            <img src="images/logo.png" alt="Logo SVB" class="w-32 mb-6 brightness-0 invert"> 
-            
-            <p class="opacity-80 leading-relaxed">
-                Votre studio de coaching privé et bien-être à Saint-Ouen.<br>
-                Pilates, Yoga, Training et Soins.
-            </p>
-            <p class="mt-4 text-pink-200 font-hand text-lg">
-                💕 Bonne Saint-Valentin ! 💕
-            </p>
-        </div>
-
-        <div>
-            <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
-            <ul class="space-y-2 opacity-80">
-                <li>📞 07 44 91 91 55</li>
-                <li>✉️ hello@studiosvb.fr</li>
-                <li>📸 @studiosvb</li>
-            </ul>
-        </div>
-
-        <div>
-            <h3 class="font-bold uppercase tracking-widest mb-4">Nous trouver</h3>
-            <p class="opacity-80 leading-relaxed">
-                40 Cours des Lavandières<br>
-                93400 Saint-Ouen-sur-Seine<br>
-                (Métro Mairie de Saint-Ouen)
-            </p>
-        </div>
-    </div>
-
-    <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/20 text-center text-xs opacity-60">
-        <p class="mb-2">© 2026 SVB SantezVousBien - Tous droits réservés ❤️</p>
-        <div class="space-x-4">
-            <a href="mentions-legales.html" class="hover:text-pink-200 transition underline decoration-1 underline-offset-2">Mentions Légales</a>
-            <span>|</span>
-            <a href="cgv.html" class="hover:text-pink-200 transition underline decoration-1 underline-offset-2">CGV</a>
-        </div>
-    </div>
-</footer>
-
-    <script>
-        window.addEventListener('load', () => {
-            const splash = document.getElementById('splash-screen');
-            const logo = document.getElementById('splash-logo');
-            const body = document.body;
-
-            if (sessionStorage.getItem('svb-splash-seen')) {
-                splash.style.display = 'none';
-                body.classList.remove('overflow-hidden');
-                body.classList.add('content-visible');
-            } else {
-                logo.classList.add('animate-logo');
-                
-                setTimeout(() => {
-                    splash.classList.add('splash-hidden');
-                    body.classList.remove('overflow-hidden');
-                    body.classList.add('content-visible');
-                    sessionStorage.setItem('svb-splash-seen', 'true');
-                }, 2500);
-            }
-        });
-    </script>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-        /* BOUTON CHATBOT FLOTTANT */
-        .chatbot-button { position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #4A8D84, #88C0A6); color: white; border: none; cursor: pointer; box-shadow: 0 8px 25px rgba(74, 141, 132, 0.4); transition: all 0.3s; z-index: 9998; display: flex; align-items: center; justify-content: center; font-size: 32px; }
-        .chatbot-button:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 12px 35px rgba(74, 141, 132, 0.6); }
-        .chatbot-button.active { transform: scale(0.9); }
-        .pulse-ring { position: absolute; width: 100%; height: 100%; border: 3px solid #4A8D84; border-radius: 50%; animation: pulse 2s infinite; opacity: 0; }
-        @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.5); opacity: 0; } }
-        .notification-badge { position: absolute; top: -5px; right: -5px; background: #FF6B6B; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; animation: badgePulse 2s infinite; }
-        @keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+    :root {
+        --svb-green: #4A8D84;
+        --svb-light-green: #88C0A6;
+        --svb-cream: #F5F5F0;
+        --svb-text: #2F4F4F;
+    }
 
-        /* CONTENEUR CHATBOT */
-        .chatbot-container { position: fixed; bottom: 120px; right: 30px; width: 400px; max-width: calc(100vw - 40px); height: 600px; max-height: calc(100vh - 150px); background: white; border-radius: 25px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); z-index: 9999; display: none; flex-direction: column; overflow: hidden; animation: slideUp 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
-        .chatbot-container.active { display: flex; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: var(--svb-cream);
+        color: var(--svb-text);
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
 
-        /* HEADER */
-        .chatbot-header { background: linear-gradient(135deg, #4A8D84, #88C0A6); color: white; padding: 20px; display: flex; align-items: center; justify-content: space-between; border-radius: 25px 25px 0 0; }
-        .chatbot-header-info { display: flex; align-items: center; gap: 12px; }
-        .chatbot-avatar { width: 45px; height: 45px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-size: 24px; }
-        .chatbot-title h3 { font-size: 18px; font-weight: 800; margin-bottom: 2px; }
-        .chatbot-status { font-size: 12px; opacity: 0.9; display: flex; align-items: center; gap: 5px; }
-        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; animation: blink 2s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        .close-chat { background: none; border: none; color: white; font-size: 28px; cursor: pointer; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s; }
-        .close-chat:hover { background: rgba(255, 255, 255, 0.2); transform: rotate(90deg); }
+    h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
 
-        /* ZONE DE MESSAGES */
-        .chatbot-messages { flex: 1; overflow-y: auto; padding: 20px; background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%); scroll-behavior: smooth; }
-        .chatbot-messages::-webkit-scrollbar { width: 6px; }
-        .chatbot-messages::-webkit-scrollbar-thumb { background: #88C0A6; border-radius: 3px; }
-        .message { display: flex; margin-bottom: 15px; animation: messageSlide 0.3s ease-out; }
-        @keyframes messageSlide { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .message.bot { justify-content: flex-start; }
-        .message.user { justify-content: flex-end; }
-        .message-avatar { width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-        .message.bot .message-avatar { background: linear-gradient(135deg, #4A8D84, #88C0A6); color: white; margin-right: 10px; }
-        .message.user .message-avatar { background: #e5e7eb; margin-left: 10px; order: 2; }
-        .message-content { max-width: 75%; padding: 12px 16px; border-radius: 18px; font-size: 14px; line-height: 1.5; }
-        .message.bot .message-content { background: white; color: #2F4F4F; border: 1px solid #e5e7eb; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
-        .message.user .message-content { background: linear-gradient(135deg, #4A8D84, #88C0A6); color: white; }
+    /* FOND */
+    .ambient-bg {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
+        background: linear-gradient(135deg, #E8F3F1 0%, #F5F5F0 50%, #FFFFFF 100%);
+        overflow: hidden;
+    }
+    
+    .blob {
+        position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.3;
+        animation: moveBlob 30s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .blob-1 { 
+        top: -15%; left: -15%; width: 60vw; height: 60vw; 
+        background: radial-gradient(circle, #4A8D84, #88C0A6); 
+    }
+    .blob-2 { 
+        bottom: -15%; right: -15%; width: 70vw; height: 70vw; 
+        background: radial-gradient(circle, #88C0A6, #4A8D84); 
+        animation-delay: -5s; 
+    }
+    @keyframes moveBlob { 
+        0% { transform: translate(0, 0) scale(1); } 
+        100% { transform: translate(40px, -60px) scale(1.15); } 
+    }
+    
+    .noise-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        pointer-events: none;
+    }
 
-        /* TYPING INDICATOR */
-        .typing-indicator { display: none; padding: 12px 16px; background: white; border-radius: 18px; border: 1px solid #e5e7eb; width: fit-content; }
-        .typing-indicator.active { display: block; }
-        .typing-dots { display: flex; gap: 4px; }
-        .typing-dots span { width: 8px; height: 8px; border-radius: 50%; background: #88C0A6; animation: typingDot 1.4s infinite; }
-        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes typingDot { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-10px); opacity: 1; } }
+    .reveal-load { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+    .content-visible .reveal-load { opacity: 1; transform: translateY(0); }
+    .d-1 { transition-delay: 0.2s; } .d-2 { transition-delay: 0.4s; } .d-3 { transition-delay: 0.6s; }
 
-        /* SUGGESTIONS RAPIDES */
-        .quick-replies { padding: 10px 20px; display: flex; gap: 8px; overflow-x: auto; background: white; border-top: 1px solid #e5e7eb; }
-        .quick-replies::-webkit-scrollbar { height: 4px; }
-        .quick-reply-btn { padding: 8px 16px; background: white; border: 2px solid #88C0A6; border-radius: 20px; color: #4A8D84; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.3s; }
-        .quick-reply-btn:hover { background: linear-gradient(135deg, #4A8D84, #88C0A6); color: white; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(74, 141, 132, 0.3); }
+    /* BOUTON ACTION PRINCIPAL */
+    .btn-action {
+        background: linear-gradient(135deg, #4A8D84, #88C0A6);
+        color: white; padding: 16px 40px; border-radius: 50px;
+        text-transform: uppercase; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.1em;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        box-shadow: 0 10px 30px rgba(74, 141, 132, 0.4);
+        display: inline-block; border: 2px solid rgba(255,255,255,0.3);
+    }
+    .btn-action:hover { 
+        background: linear-gradient(135deg, #88C0A6, #4A8D84);
+        transform: translateY(-3px) scale(1.05); 
+        box-shadow: 0 15px 40px rgba(74, 141, 132, 0.6); 
+    }
 
-        /* INPUT ZONE */
-        .chatbot-input-area { padding: 15px 20px; background: white; border-top: 1px solid #e5e7eb; display: flex; gap: 10px; align-items: center; }
-        .chatbot-input { flex: 1; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 25px; font-size: 14px; font-family: inherit; outline: none; transition: all 0.3s; }
-        .chatbot-input:focus { border-color: #88C0A6; box-shadow: 0 0 0 3px rgba(136, 192, 166, 0.1); }
-        .send-button { width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #4A8D84, #88C0A6); color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; transition: all 0.3s; }
-        .send-button:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(74, 141, 132, 0.4); }
-        .send-button:active { transform: scale(0.95); }
+    /* BOUTON HERO */
+    .btn-hero {
+        background: rgba(255,255,255,0.3); backdrop-filter: blur(10px);
+        border: 2px solid white; color: white; padding: 12px 30px; border-radius: 50px;
+        font-weight: 700; text-transform: uppercase; font-size: 0.8rem;
+        transition: all 0.3s;
+    }
+    .btn-hero:hover { 
+        background: white; 
+        color: var(--svb-green); 
+        transform: translateY(-2px); 
+        box-shadow: 0 10px 25px rgba(74, 141, 132, 0.3);
+    }
 
-        /* MESSAGE EXTRA */
-        .message-content a { color: #4A8D84; text-decoration: underline; font-weight: 700; }
-        .message-content ul { margin: 8px 0; padding-left: 20px; }
-        .message-content li { margin: 4px 0; }
-        .welcome-message { text-align: center; padding: 30px 20px; color: #6b7280; }
-        .welcome-message h4 { font-size: 20px; color: #4A8D84; margin-bottom: 10px; }
-        .welcome-message p { font-size: 14px; line-height: 1.6; }
+    /* CARD STARTER */
+    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+    .starter-card-wrapper { animation: float 6s ease-in-out infinite; }
+    .starter-card {
+        background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-radius: 30px;
+        padding: 50px 30px; text-align: center; box-shadow: 0 30px 70px rgba(74, 141, 132, 0.2);
+        max-width: 500px; margin: 0 auto; position: relative; 
+        border: 3px solid rgba(74, 141, 132, 0.3);
+        transition: all 0.4s ease;
+    }
+    .starter-card:hover { 
+        transform: scale(1.02); 
+        box-shadow: 0 40px 90px rgba(74, 141, 132, 0.35);
+        border-color: rgba(74, 141, 132, 0.6);
+    }
 
-        @media (max-width: 768px) {
-            .chatbot-container { bottom: 100px; right: 10px; left: 10px; width: auto; max-width: none; }
-            .chatbot-button { bottom: 20px; right: 20px; }
-            /* On décale le bouton chatbot s'il gêne WhatsApp */
-            .chatbot-button { right: 100px; } 
-        }
-    </style>
+    /* TEXT CARDS */
+    .text-card {
+        background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px); border-radius: 25px;
+        padding: 35px 25px; text-align: center; border: 2px solid rgba(136, 192, 166, 0.5);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); cursor: pointer; height: 100%;
+        display: flex; flex-direction: column; justify-content: space-between; 
+        box-shadow: 0 10px 30px rgba(74, 141, 132, 0.1);
+    }
+    .text-card:hover { 
+        transform: translateY(-10px); 
+        background: rgba(255, 255, 255, 0.95); 
+        box-shadow: 0 20px 50px rgba(74, 141, 132, 0.25);
+        border-color: var(--svb-green);
+    }
+    .card-title { 
+        font-family: 'Dancing Script', cursive; 
+        font-size: 2.2rem; 
+        color: var(--svb-green); 
+        margin-bottom: 5px; 
+    }
+    .card-desc { 
+        font-size: 0.8rem; 
+        text-transform: uppercase; 
+        font-weight: 700; 
+        color: #555; 
+        margin-bottom: 15px; 
+    }
+    .card-price { 
+        font-size: 2.8rem; 
+        font-weight: 700; 
+        background: linear-gradient(135deg, #4A8D84, #88C0A6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 25px; 
+    }
+    .btn-small {
+        border: 2px solid var(--svb-green); 
+        color: var(--svb-green); 
+        padding: 10px 25px;
+        border-radius: 25px; 
+        text-transform: uppercase; 
+        font-size: 0.75rem; 
+        font-weight: 700;
+        transition: all 0.3s; 
+        background: transparent;
+    }
+    .text-card:hover .btn-small { 
+        background: linear-gradient(135deg, #4A8D84, #88C0A6);
+        color: white; 
+        border-color: transparent;
+    }
 
-    <button class="chatbot-button" id="chatbotButton">
-        <div class="pulse-ring"></div>
-        <span>💬</span>
-        <div class="notification-badge">1</div>
-    </button>
+    /* IFRAME MAP */
+    iframe { 
+        border-radius: 25px; 
+        box-shadow: 0 20px 50px rgba(74, 141, 132, 0.2); 
+        border: 4px solid rgba(136, 192, 166, 0.5); 
+    }
 
-    <div class="chatbot-container" id="chatbotContainer">
-        <div class="chatbot-header">
-            <div class="chatbot-header-info">
-                <div class="chatbot-avatar">🤖</div>
-                <div class="chatbot-title">
-                    <h3>Assistant SVB</h3>
-                    <div class="chatbot-status">
-                        <span class="status-dot"></span>
-                        <span>En ligne</span>
-                    </div>
-                </div>
+    /* === SLIDER AVIS === */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .snap-x { scroll-snap-type: x mandatory; }
+    .snap-center { scroll-snap-align: center; }
+</style>
+```
+
+</head>
+<body class="overflow-hidden"> 
+
+```
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="ambient-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+</div>
+
+<div class="noise-overlay"></div>
+
+<nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto reveal-load z-10" style="color: var(--svb-green);">
+    <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain drop-shadow-md">
+        </a>
+    </div>
+    
+    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
+        <a href="index.html" class="hover:text-[#88C0A6] transition hover:scale-105 inline-block">ACCUEIL</a>
+        <a href="sessions.html" class="hover:text-[#88C0A6] transition hover:scale-105 inline-block">SESSIONS</a>
+        <a href="equipe.html" class="hover:text-[#88C0A6] transition hover:scale-105 inline-block">LA TEAM</a>
+        <a href="bien-etre.html" class="hover:text-[#88C0A6] transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
+        <a href="studio.html" class="hover:text-[#88C0A6] transition hover:scale-105 inline-block">PLANNING</a>
+        <a href="tarifs.html" class="hover:text-[#88C0A6] transition hover:scale-105 inline-block">ABONNEMENTS</a>
+        <a href="cadeau.html" class="hover:text-[#88C0A6] transition hover:scale-105 inline-block">CADEAU 🎁</a>
+        <a href="faq.html" class="hover:text-[#88C0A6] transition hover:scale-105 inline-block">FAQ</a>
+        <a href="contact.html" class="hover:text-[#88C0A6] transition hover:scale-105 inline-block">CONTACT</a>
+    </div>
+</nav>
+
+<header class="relative text-center py-16 px-4 reveal-load d-1 z-10">
+    <h1 class="text-5xl sm:text-7xl md:text-9xl drop-shadow-lg mb-4 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default" style="color: var(--svb-green);">
+        SantezVousBien
+    </h1>
+    <p class="text-lg font-light max-w-2xl mx-auto mb-8 leading-relaxed opacity-95 drop-shadow-md" style="color: var(--svb-text);">
+        Plus qu'une salle de sport, un lieu de vie.<br>
+        <span class="font-medium italic">Deux studios, une seule énergie.</span>
+    </p>
+    <a href="#offres" class="btn-hero scroll-smooth">
+        Découvrir nos offres ↓
+    </a>
+</header>
+
+<div id="offres" class="relative px-4 pb-24 reveal-load d-2 z-10">
+    <div class="starter-card-wrapper">
+        <div class="starter-card">
+            <span class="bg-gradient-to-r from-[#4A8D84] to-[#88C0A6] text-white px-5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 inline-block shadow-md">
+                Offre Découverte
+            </span>
+            
+            <h2 class="text-5xl font-hand mb-2" style="color: var(--svb-green);">New Pass Starter</h2>
+            
+            <div class="flex justify-center items-center space-x-2 text-[10px] font-bold text-gray-500 uppercase mb-6 tracking-wide">
+                <span class="bg-[#E8F3F1] px-3 py-1 rounded-lg">5 Sessions différentes</span>
+                <span>•</span>
+                <span class="bg-[#E8F3F1] px-3 py-1 rounded-lg">Sans Engagement</span>
             </div>
-            <button class="close-chat" id="closeChat">×</button>
-        </div>
-
-        <div class="chatbot-messages" id="chatbotMessages">
-            <div class="welcome-message">
-                <h4>👋 Bienvenue chez SVB !</h4>
-                <p>Je suis votre assistant virtuel. Comment puis-je vous aider aujourd'hui ?</p>
+            
+            <p class="text-7xl font-bold mb-2 tracking-tight drop-shadow-sm" style="background: linear-gradient(135deg, #4A8D84, #88C0A6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                99,90<span class="text-3xl align-top">€</span>
+            </p>
+            
+            <p class="text-sm font-semibold mb-6" style="color: var(--svb-green);">
+                ✨ Parfait pour débuter !
+            </p>
+            
+            <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab" class="btn-action rounded-full text-lg shadow-xl transform hover:scale-105 transition duration-300">
+                Je commence maintenant
+            </a>
+            
+            <div class="mt-6 flex justify-center space-x-4 text-[9px] text-gray-400 font-bold uppercase tracking-wider">
+                <span class="flex items-center">🔒 Paiement Sécurisé</span>
+                <span class="flex items-center">💚 Coachs Certifiés</span>
             </div>
-        </div>
-
-        <div class="quick-replies" id="quickReplies">
-            <button class="quick-reply-btn" onclick="sendQuickReply('horaires')">📅 Horaires</button>
-            <button class="quick-reply-btn" onclick="sendQuickReply('tarifs')">💰 Tarifs</button>
-            <button class="quick-reply-btn" onclick="sendQuickReply('essai')">✨ Essai gratuit</button>
-            <button class="quick-reply-btn" onclick="sendQuickReply('adresse')">📍 Adresse</button>
-        </div>
-
-        <div class="chatbot-input-area">
-            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Posez votre question..." onkeypress="handleKeyPress(event)">
-            <button class="send-button" onclick="sendMessage()"><span>➤</span></button>
         </div>
     </div>
+</div>
 
-    <script>
-        const knowledgeBase = {
-            'bonjour': 'Bonjour ! 👋 Bienvenue chez SVB SantezVousBien ! Je suis là pour répondre à toutes vos questions. Que souhaitez-vous savoir ?',
-            'hello': 'Hello ! 👋 Comment puis-je vous aider aujourd\'hui ?',
-            'salut': 'Salut ! 😊 Que puis-je faire pour vous ?',
-            'horaires': 'Nos studios sont ouverts :\n\n📅 **Lundi - Vendredi** : 6h30 - 21h30\n📅 **Samedi** : 8h00 - 18h00\n📅 **Dimanche** : 9h00 - 14h00\n\nVous pouvez consulter le planning complet sur notre site : <a href="studio.html">Planning des cours</a>',
-            'ouverture': 'Nous sommes ouverts du lundi au dimanche ! Les horaires varient selon les jours. Souhaitez-vous plus de détails ?',
-            'adresse': 'Nous avons **2 studios** à Saint-Ouen :\n\n📍 **Studio 1 - Parc des Docks**\nCoaching individuel & Small Group Training\n\n📍 **Studio 2 - 40 Cours des Lavandières**\n93400 Saint-Ouen-sur-Seine\nPilates Reformer, Crossformer & Yoga\n\n🚇 **Métro** : Mairie de Saint-Ouen (Ligne 14)\n\nLes deux studios sont à 5 minutes à pied l\'un de l\'autre !',
-            'localisation': 'Nos studios se trouvent à Saint-Ouen-sur-Seine, facilement accessibles en métro ligne 14. Voulez-vous l\'adresse exacte ?',
-            'parking': 'Oui, il y a des parkings publics à proximité des deux studios. Le quartier des Docks dispose également de places de stationnement.',
-            'tarifs': '💰 **Nos formules principales** :\n\n🎯 **New Pass Starter** : 99,90€\n   → 5 sessions au choix, sans engagement\n\n🏋️ **Pass Machines** (Reformer/Crossformer) :\n   → À partir de 70,30€/mois\n\n🤸 **Pass Training** (Cross/Focus) :\n   → À partir de 30,30€/mois\n\n👨‍👩‍👧 **Pass Kids** : 35,30€/mois\n\nConsultez tous nos tarifs : <a href="tarifs.html">Page Tarifs</a>',
-            'prix': 'Nos tarifs commencent à 30,30€/mois selon la formule. Le Pass Starter découverte est à 99,90€ pour 5 sessions. Quelle formule vous intéresse ?',
-            'abonnement': 'Nous proposons plusieurs types d\'abonnements sans engagement ou avec engagement 3 mois. Que recherchez-vous exactement ?',
-            'essai': '✨ **Séance d\'essai** :\n\n💪 Machines (Reformer/Crossformer) : 30€\n🏃 Training (Cross/Focus) : 30€\n\n**Bonus** : 15€ remboursés si vous vous inscrivez !\n\nRéservez votre essai : <a href="https://wa.me/33744919155">WhatsApp</a>',
-            'gratuit': 'Nous proposons des séances d\'essai à 30€ (15€ remboursés si inscription). C\'est la meilleure façon de découvrir nos cours !',
-            'découverte': 'Le Pass Starter à 99,90€ est parfait pour découvrir ! Il inclut 5 sessions différentes sans engagement.',
-            'cours': '🎯 **Nos disciplines** :\n\n**Small Group Machines** :\n• Pilates Reformer 🧘\n• Crossformer 💪\n\n**Small Group Training** :\n• Cross Training 🏋️\n• Yoga 🕉️\n• Boxe 🥊\n• Danse 💃\n• Stretch 🤸\n\nDécouvrez tout : <a href="sessions.html">Nos Sessions</a>',
-            'pilates': 'Nous proposons du **Pilates Reformer** (sur machine) et du **Pilates Sol**. Les cours durent 50-55 minutes en petit groupe (max 8 personnes).',
-            'yoga': 'Nos cours de Yoga incluent : Hatha Yoga, Vinyasa, Yin Yoga et Cross Yoga. Parfait pour la détente et la souplesse ! 🕉️',
-            'crossformer': 'Le Crossformer combine cardio intensif et Pilates sur machine. C\'est notre cours signature ! 🔥',
-            'boxe': 'Nos cours de boxe sont accessibles à tous niveaux. Sans contact, focus sur la technique et le cardio ! 🥊',
-            'coaching': '👑 **Coaching Privé "Good Vibes"** :\n\n• Programme 100% sur-mesure\n• Suivi personnalisé\n• 4 séances : 300,30€/mois\n• 8 séances : 560,30€/mois\n\n**Pass Duo disponible** !\n\nFaites votre diagnostic : <a href="tarifs.html#coaching">Coaching Privé</a>',
-            'personnel': 'Oui ! Notre coaching privé propose un accompagnement 100% personnalisé. Formule solo ou duo disponible.',
-            'réservation': '📱 **Pour réserver** :\n\n1️⃣ Via notre plateforme Sportigo\n2️⃣ Par WhatsApp : <a href="https://wa.me/33744919155">07 44 91 91 55</a>\n3️⃣ Sur place au studio\n\nLes réservations se font 48h à l\'avance maximum.',
-            'inscription': 'L\'inscription se fait en ligne ou sur place. Frais de dossier : 49€ (offerts avec l\'option Boost 🚀).',
-            'matériel': 'Tout le matériel est fourni ! Apportez juste :\n• Une bouteille d\'eau 💧\n• Une serviette 🧖\n• Des chaussettes antidérapantes pour les machines 🧦 (en vente sur place)',
-            'chaussettes': '🧦 Les chaussettes antidérapantes sont **OBLIGATOIRES** pour tous les cours sur machines (Reformer/Crossformer). Disponibles à l\'achat au studio !',
-            'annulation': 'Vous pouvez annuler jusqu\'à **24h avant** le cours sans pénalité via l\'application Sportigo. Après, la séance est décomptée.',
-            'enfants': '👶 **Pass Kids** (hors vacances) :\n• Yoga Kids\n• Training Kids\n• 2 sessions : 35,30€/mois\n• 4 sessions : 65,30€/mois\n\nPrise de RDV sur place uniquement.',
-            'massage': 'Oui ! Nous proposons des massages, de l\'ostéopathie et des soins bien-être. Consultez notre page : <a href="bien-etre.html">Bien-être</a>',
-            'ostéo': 'Nous avons une ostéopathe disponible sur RDV. Contactez-nous pour plus d\'infos !',
-            'contact': '📞 **Nous contacter** :\n\n• WhatsApp : <a href="https://wa.me/33744919155">07 44 91 91 55</a>\n• Email : hello@studiosvb.fr\n• Instagram : @studiosvb\n\nOu visitez notre page : <a href="contact.html">Contact</a>',
-            'téléphone': 'Notre numéro : **07 44 91 91 55**\nDisponible sur WhatsApp ! 📱',
-            'email': 'Notre email : **hello@studiosvb.fr**\nNous répondons sous 24h ! ✉️',
-            'cadeau': '🎁 **Carte Cadeau SVB** :\n\nOffrez du bien-être à vos proches !\nMontant libre ou formules pré-définies.\n\nPlus d\'infos : <a href="cadeau.html">Cartes Cadeaux</a>',
-            'débutant': 'Tous nos cours sont accessibles aux débutants ! Nos coachs adaptent les exercices à votre niveau. N\'hésitez pas à venir essayer ! 💪',
-            'enceinte': 'Oui, nous proposons des cours adaptés pour femmes enceintes, notamment le Pilates prénatal. Parlez-en à nos coachs !',
-            'blessure': 'Nos coachs sont formés pour adapter les exercices en cas de blessure. Signalez-le avant le cours pour un accompagnement personnalisé.',
-            'boost': '🚀 **Option SVB Boost** (9,90€/mois) :\n\n✅ Frais d\'inscription offerts\n✅ 1 essai gratuit/mois pour un proche\n✅ Engagement réduit\n✅ Suspension d\'abonnement possible\n\nLe petit + qui change tout !',
-            'merci': 'Avec plaisir ! 😊 N\'hésitez pas si vous avez d\'autres questions. À bientôt chez SVB ! 💚',
-            'aurevoir': 'Au revoir ! À très bientôt chez SVB ! 👋 Prenez soin de vous ! 💚',
-            'default': 'Je ne suis pas sûr de comprendre votre question. 🤔\n\nVoici ce que je peux vous dire :\n• Horaires et planning\n• Tarifs et abonnements\n• Cours et disciplines\n• Réservations\n• Localisation\n\nOu contactez-nous directement : <a href="https://wa.me/33744919155">WhatsApp</a>'
-        };
+<div class="relative max-w-6xl mx-auto px-4 pb-16 text-center reveal-load d-3 z-10">
+    <h2 class="text-4xl font-hand mb-4 drop-shadow-md" style="color: var(--svb-green);">🎁 Offrez une séance découverte</h2>
+    <p class="mb-12 text-sm opacity-90" style="color: var(--svb-text);">Le cadeau parfait pour vos proches</p>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+        <a href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" class="text-card group">
+            <div>
+                <h3 class="card-title">Reformer</h3>
+                <p class="card-desc">Pilates sur machine</p>
+            </div>
+            <div>
+                <p class="card-price">50€</p> 
+                <span class="btn-small">Offrir 🎁</span>
+            </div>
+        </a>
+        <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" class="text-card group">
+            <div>
+                <h3 class="card-title">Crossformer</h3>
+                <p class="card-desc">Intensité & Cardio</p>
+            </div>
+            <div>
+                <p class="card-price">50€</p> 
+                <span class="btn-small">Offrir 🎁</span>
+            </div>
+        </a>
+        <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="text-card group">
+            <div>
+                <h3 class="card-title">Cross / Focus</h3>
+                <p class="card-desc">Training • Yoga • Boxe</p>
+            </div>
+            <div>
+                <p class="card-price">30€</p>
+                <span class="btn-small">Offrir 🎁</span>
+            </div>
+        </a>
+    </div>
+</div>
 
-        const chatbotBtn = document.getElementById('chatbotButton');
-        const chatbotCont = document.getElementById('chatbotContainer');
-        const closeBtn = document.getElementById('closeChat');
-        const chatMsgs = document.getElementById('chatbotMessages');
-        const chatInp = document.getElementById('chatbotInput');
-        const notifBadge = document.querySelector('.notification-badge');
+<section class="relative py-20 reveal-load d-3 z-10">
+    <div class="text-center mb-10 px-4">
+        <h2 class="text-6xl font-hand mb-4 drop-shadow-md" style="color: var(--svb-green);">💚 La communauté SVB</h2>
+        <div class="flex justify-center items-center space-x-1 mb-2 text-2xl" style="color: var(--svb-green);">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
+            Des avis qui comptent 💚
+        </p>
+    </div>
 
-        let isChatOpen = false;
+    <div class="relative max-w-7xl mx-auto px-4 group">
+        
+        <button onclick="document.getElementById('reviews-slider').scrollBy({left: -350, behavior: 'smooth'})" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -ml-4 md:ml-0 hidden md:block" style="color: var(--svb-green);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        </button>
 
-        chatbotBtn.addEventListener('click', () => {
-            isChatOpen = !isChatOpen;
-            chatbotCont.classList.toggle('active');
-            chatbotBtn.classList.toggle('active');
+        <div id="reviews-slider" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth no-scrollbar px-4">
             
-            if (isChatOpen) {
-                notifBadge.style.display = 'none';
-                chatInp.focus();
-                if (chatMsgs.querySelectorAll('.message').length === 0) {
-                    setTimeout(() => { addBotMessage('Bonjour ! 👋 Je suis l\'assistant virtuel de SVB. Comment puis-je vous aider aujourd\'hui ?'); }, 500);
-                }
-            }
-        });
+            <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 shadow-lg snap-center flex flex-col justify-between" style="border-color: rgba(136, 192, 166, 0.5);">
+                <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Un studio de sport au top, une super ambiance aux cours collectifs et des coaches attentives. Et des inscriptions ultra flexibles !"</p>
+                <div class="flex items-center"><div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3" style="background: var(--svb-green);">M</div><p class="font-bold text-xs uppercase">Marie de Sarnez</p></div>
+            </div>
 
-        closeBtn.addEventListener('click', () => {
-            isChatOpen = false;
-            chatbotCont.classList.remove('active');
-            chatbotBtn.classList.remove('active');
-        });
+            <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 shadow-lg snap-center flex flex-col justify-between" style="border-color: rgba(136, 192, 166, 0.5);">
+                <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je suis cliente SVB depuis l'ouverture et c'est simple, j'adore cet endroit. Beaucoup de cours proposés, une ambiance toujours au top et douches hyper clean."</p>
+                <div class="flex items-center"><div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3" style="background: var(--svb-light-green);">A</div><p class="font-bold text-xs uppercase">Amandine DUPRE</p></div>
+            </div>
 
-        function sendMessage() {
-            const message = chatInp.value.trim();
-            if (!message) return;
-            addUserMessage(message);
-            chatInp.value = '';
-            showTypingIndicator();
-            setTimeout(() => {
-                const response = getBotResponse(message);
-                hideTypingIndicator();
-                addBotMessage(response);
-            }, 1000 + Math.random() * 1000);
-        }
+            <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 shadow-lg snap-center flex flex-col justify-between" style="border-color: rgba(136, 192, 166, 0.5);">
+                <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super salle de sport, Shanael et son équipe sont au top ! 👌 les coachs sont vraiment super, à l'écoute et savent vous booster sans vous brusquer."</p>
+                <div class="flex items-center"><div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3" style="background: var(--svb-green);">J</div><p class="font-bold text-xs uppercase">Justine Beck</p></div>
+            </div>
 
-        function sendQuickReply(keyword) {
-            addUserMessage(keyword.charAt(0).toUpperCase() + keyword.slice(1));
-            showTypingIndicator();
-            setTimeout(() => {
-                const response = knowledgeBase[keyword] || knowledgeBase['default'];
-                hideTypingIndicator();
-                addBotMessage(response);
-            }, 800);
-        }
+            <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 shadow-lg snap-center flex flex-col justify-between" style="border-color: rgba(136, 192, 166, 0.5);">
+                <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Après 2 grossesses et avant mon mariage, je devais me reprendre vite en main ! Shanaël m'a accompagnée 12 mois, les résultats ont été bluffants."</p>
+                <div class="flex items-center"><div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3" style="background: var(--svb-light-green);">G</div><p class="font-bold text-xs uppercase">Gaëlle HENRIOT</p></div>
+            </div>
 
-        function addUserMessage(text) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'message user';
-            messageDiv.innerHTML = `<div class="message-content">${text}</div><div class="message-avatar">👤</div>`;
-            const welcomeMsg = chatMsgs.querySelector('.welcome-message');
-            if (welcomeMsg) welcomeMsg.remove();
-            chatMsgs.appendChild(messageDiv);
-            scrollToBottom();
-        }
+            <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 shadow-lg snap-center flex flex-col justify-between" style="border-color: rgba(136, 192, 166, 0.5);">
+                <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Ancien footeux, j'ai fait ma séance d'essai cross former et j'étais agréablement surpris de cette séance full body bien structurée."</p>
+                <div class="flex items-center"><div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3" style="background: var(--svb-green);">M</div><p class="font-bold text-xs uppercase">Mickael Sautron</p></div>
+            </div>
 
-        function addBotMessage(text) {
-            // Formater le texte brut en HTML (gestion des sauts de ligne)
-            const formattedText = text.replace(/\n/g, '<br>');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'message bot';
-            messageDiv.innerHTML = `<div class="message-avatar">🤖</div><div class="message-content">${formattedText}</div>`;
-            chatMsgs.appendChild(messageDiv);
-            scrollToBottom();
-        }
+            <div class="min-w-[300px] md:min-w-[400px] bg-white/70 backdrop-blur-md p-8 rounded-3xl border-2 shadow-lg snap-center flex flex-col justify-between" style="border-color: rgba(136, 192, 166, 0.5);">
+                <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super salle de sport/bien être. Les cours sont en petit groupe avec des profs au top et des séances toujours variées."</p>
+                <div class="flex items-center"><div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs mr-3" style="background: var(--svb-light-green);">B</div><p class="font-bold text-xs uppercase">Blandine Hirtz</p></div>
+            </div>
 
-        function showTypingIndicator() {
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'message bot';
-            typingDiv.id = 'typingIndicator';
-            typingDiv.innerHTML = `<div class="message-avatar">🤖</div><div class="typing-indicator active"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
-            chatMsgs.appendChild(typingDiv);
-            scrollToBottom();
-        }
+        </div>
 
-        function hideTypingIndicator() {
-            const typingIndicator = document.getElementById('typingIndicator');
-            if (typingIndicator) typingIndicator.remove();
-        }
+        <button onclick="document.getElementById('reviews-slider').scrollBy({left: 350, behavior: 'smooth'})" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -mr-4 md:mr-0 hidden md:block" style="color: var(--svb-green);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </button>
 
-        function getBotResponse(userMessage) {
-            const normalizedMessage = userMessage.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
-            for (let keyword in knowledgeBase) {
-                if (normalizedMessage.includes(keyword)) return knowledgeBase[keyword];
-            }
-            if (normalizedMessage.match(/quand|heure|ouvert|ferme/)) return knowledgeBase['horaires'];
-            if (normalizedMessage.match(/combien|cout|coût|payer/)) return knowledgeBase['tarifs'];
-            if (normalizedMessage.match(/ou|où|trouve|aller/)) return knowledgeBase['adresse'];
-            if (normalizedMessage.match(/reserver|réserver|rdv|rendez-vous/)) return knowledgeBase['réservation'];
-            if (normalizedMessage.match(/annuler|annulation/)) return knowledgeBase['annulation'];
-            return knowledgeBase['default'];
-        }
+    </div>
 
-        function scrollToBottom() { chatMsgs.scrollTop = chatMsgs.scrollHeight; }
+    <div class="text-center mt-8">
+        <a href="https://www.google.fr/maps" target="_blank" class="text-xs font-bold uppercase tracking-widest border-b pb-1 hover:opacity-70 transition" style="color: var(--svb-green); border-color: var(--svb-green);">
+            Lire tous nos avis sur Google
+        </a>
+    </div>
+</section>
 
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') sendMessage();
-        }
+<section class="relative max-w-6xl mx-auto px-4 pb-24 reveal-load d-2 z-10">
+    <div class="text-center mb-12">
+        <h2 class="text-6xl font-hand mb-4 drop-shadow-md" style="color: var(--svb-green);">Nos 2 Studios</h2>
+        <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
+            Situés à 5 minutes à pied l'un de l'autre
+        </p>
+    </div>
 
-        setTimeout(() => { if (!isChatOpen) notifBadge.style.display = 'flex'; }, 5000);
-    </script>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+        
+        <div class="text-right space-y-10" style="color: var(--svb-text);">
+            <div class="group cursor-default">
+                <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#88C0A6] transition">📍 Parc des Docks</h3>
+                <p class="text-base opacity-90 font-light leading-relaxed">
+                    L'espace dédié au <strong>Coaching Individuel</strong> et au <strong>Small Group Training</strong>. Un lieu moderne et dynamique pour se dépasser, seul ou en petit comité.
+                </p>
+            </div>
+            <div class="group cursor-default">
+                <h3 class="text-3xl font-bold uppercase mb-2 group-hover:text-[#88C0A6] transition">📍 Cours des Lavandières</h3>
+                <p class="text-base opacity-90 font-light leading-relaxed">
+                    Le cocon du <strong>Pilates Reformer</strong>, du <strong>Crossformer</strong> et du <strong>Yoga</strong>. Une atmosphère feutrée et apaisante pour sculpter votre silhouette en douceur.
+                </p>
+            </div>
+            <div class="pt-6">
+                <a href="contact.html" class="inline-block border-b-2 pb-1 font-bold uppercase text-sm hover:opacity-70 transition transform hover:translate-x-2" style="color: var(--svb-green); border-color: var(--svb-green);">
+                    Voir les accès détaillés →
+                </a>
+            </div>
+        </div>
+
+        <div class="h-[400px] w-full relative">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10492.34567890123!2d2.3333!3d48.9119!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ef2ae3fb71d%3A0x7068d80f07490!2sSaint-Ouen-sur-Seine!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+
+    </div>
+</section>
+```
+
+<footer class="py-12 mt-16" style="background: linear-gradient(135deg, #4A8D84, #88C0A6); color: white;">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+
+```
+    <div>
+        <img src="images/logo.png" alt="Logo SVB" class="w-32 mb-6 brightness-0 invert"> 
+        
+        <p class="opacity-80 leading-relaxed">
+            Votre studio de coaching privé et bien-être à Saint-Ouen.<br>
+            Pilates, Yoga, Training et Soins.
+        </p>
+    </div>
+
+    <div>
+        <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
+        <ul class="space-y-2 opacity-80">
+            <li>📞 07 44 91 91 55</li>
+            <li>✉️ hello@studiosvb.fr</li>
+            <li>📸 @studiosvb</li>
+        </ul>
+    </div>
+
+    <div>
+        <h3 class="font-bold uppercase tracking-widest mb-4">Nous trouver</h3>
+        <p class="opacity-80 leading-relaxed">
+            40 Cours des Lavandières<br>
+            93400 Saint-Ouen-sur-Seine<br>
+            (Métro Mairie de Saint-Ouen)
+        </p>
+    </div>
+</div>
+
+<div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/20 text-center text-xs opacity-60">
+    <p class="mb-2">© 2026 SVB SantezVousBien - Tous droits réservés</p>
+    <div class="space-x-4">
+        <a href="mentions-legales.html" class="hover:opacity-70 transition underline decoration-1 underline-offset-2">Mentions Légales</a>
+        <span>|</span>
+        <a href="cgv.html" class="hover:opacity-70 transition underline decoration-1 underline-offset-2">CGV</a>
+    </div>
+</div>
+```
+
+</footer>
+
+```
+<script>
+    document.body.classList.add('content-visible');
+</script>
+```
 
 </body>
 </html>
