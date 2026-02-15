@@ -74,7 +74,7 @@
     .content-visible .reveal-load { opacity: 1; transform: translateY(0); }
     .d-1 { transition-delay: 0.2s; } .d-2 { transition-delay: 0.4s; } .d-3 { transition-delay: 0.6s; }
 
-    /* BOUTON ACTION PRINCIPAL */
+    /* BOUTONS */
     .btn-action {
         background-color: var(--svb-green-dark); color: white; padding: 18px 45px; border-radius: 50px;
         text-transform: uppercase; font-weight: 900; font-size: 1rem; letter-spacing: 0.1em;
@@ -92,7 +92,6 @@
         box-shadow: 0 15px 40px rgba(74, 141, 132, 0.5); 
     }
 
-    /* BOUTON HERO (Transi) */
     .btn-hero {
         background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);
         border: 2px solid white; color: white; padding: 12px 30px; border-radius: 50px;
@@ -101,7 +100,7 @@
     }
     .btn-hero:hover { background: white; color: var(--svb-green-dark); transform: translateY(-2px); }
 
-    /* CARD STARTER AMÉLIORÉE */
+    /* CARD STARTER SIMPLIFIÉE */
     @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
     .starter-card-wrapper { animation: float 6s ease-in-out infinite; }
     .starter-card {
@@ -113,7 +112,6 @@
     }
     .starter-card:hover { transform: scale(1.03); box-shadow: 0 40px 90px rgba(0,0,0,0.25); }
 
-    /* BADGE BEST SELLER AMÉLIORÉ */
     .best-seller-badge {
         position: absolute; top: -18px; right: -18px;
         background: linear-gradient(135deg, #ff6b6b 0%, #E8B496 100%);
@@ -124,56 +122,18 @@
     }
     @keyframes pulse-badge { 0%, 100% { transform: rotate(10deg) scale(1); } 50% { transform: rotate(10deg) scale(1.12); } }
 
-    /* BANNIÈRE OFFRE DU MOMENT */
-    .urgence-banner {
-        background: linear-gradient(90deg, #4A8D84 0%, #2d5a54 100%);
-        color: white; padding: 8px 16px; border-radius: 20px;
-        font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
-        display: inline-flex; align-items: center; gap: 6px;
-        box-shadow: 0 4px 15px rgba(74, 141, 132, 0.4);
-        margin-bottom: 15px;
-    }
-
-    /* PRIX BARRÉ */
     .price-strike {
         text-decoration: line-through; opacity: 0.5; font-size: 2.5rem;
         color: #999; font-weight: 600; display: block; margin-bottom: -10px;
     }
 
-    /* ÉCONOMIES */
     .savings-badge {
         background: #4CAF50; color: white; padding: 6px 14px; border-radius: 15px;
         font-size: 0.75rem; font-weight: 800; display: inline-block; margin-top: 10px;
         box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
     }
 
-    /* GARANTIES */
-    .guarantee-items {
-        display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
-        margin-top: 20px; font-size: 0.7rem; color: #555;
-    }
-    .guarantee-item {
-        display: flex; align-items: center; gap: 6px; background: #f0f9f5;
-        padding: 8px 14px; border-radius: 20px; font-weight: 600;
-    }
-
-    /* SOCIAL PROOF */
-    .social-proof {
-        background: rgba(255, 255, 255, 0.8); padding: 12px 20px; border-radius: 15px;
-        font-size: 0.75rem; font-weight: 700; color: #2F4F4F;
-        display: inline-flex; align-items: center; gap: 8px; margin-top: 15px;
-        border: 2px solid rgba(74, 141, 132, 0.2);
-    }
-    .social-proof-avatar {
-        display: flex; margin-left: -5px;
-    }
-    .social-proof-avatar span {
-        width: 28px; height: 28px; border-radius: 50%; border: 2px solid white;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 0.7rem; font-weight: bold; margin-left: -8px;
-    }
-
-    /* TEXT CARDS AMÉLIORÉES */
+    /* TEXT CARDS */
     .text-card {
         background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px); border-radius: 25px;
         padding: 40px 30px; text-align: center; border: 2px solid rgba(255, 255, 255, 0.8);
@@ -246,32 +206,31 @@
     .cta-sticky.visible { transform: translateY(0); }
     .cta-sticky-content {
         max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between;
-        align-items: center; gap: 15px; flex-wrap: wrap;
+        align-items: center; gap: 15px;
     }
-    .cta-sticky-text { color: white; font-size: 0.9rem; font-weight: 600; }
-    .cta-sticky-price { color: #98D0B3; font-size: 1.5rem; font-weight: 900; }
+    .cta-sticky-info { color: white; }
+    .cta-sticky-text { font-size: 0.9rem; font-weight: 600; }
+    .cta-sticky-price { font-size: 1.5rem; font-weight: 900; color: #98D0B3; }
     .cta-sticky-btn {
         background: linear-gradient(135deg, #4A8D84 0%, #2d5a54 100%);
         color: white; padding: 12px 30px; border-radius: 50px;
         font-weight: 800; font-size: 0.9rem; text-transform: uppercase;
         box-shadow: 0 5px 15px rgba(74, 141, 132, 0.4);
         transition: all 0.3s; border: 2px solid rgba(255,255,255,0.2);
+        white-space: nowrap;
     }
     .cta-sticky-btn:hover {
         transform: translateY(-2px); box-shadow: 0 8px 20px rgba(74, 141, 132, 0.6);
         background: linear-gradient(135deg, #2d5a54 0%, #1a3d38 100%);
     }
 
-    /* IFRAME MAP */
+    /* DIVERS */
     iframe { border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 4px solid rgba(255,255,255,0.7); }
-
-    /* === SLIDER AVIS === */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     .snap-x { scroll-snap-type: x mandatory; }
     .snap-center { scroll-snap-align: center; }
 
-    /* WHATSAPP */
     .whatsapp-btn {
         position: fixed; bottom: 25px; right: 25px; background-color: #25D366; color: white;
         width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -284,6 +243,11 @@
     }
     @keyframes pulse-wa { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.5); opacity: 0; } }
 
+    @media (max-width: 640px) {
+        .cta-sticky-content { flex-direction: column; gap: 10px; }
+        .cta-sticky-text { font-size: 0.75rem; }
+        .cta-sticky-price { font-size: 1.2rem; }
+    }
 </style>
 ```
 
@@ -346,66 +310,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="starter-card">
             <div class="best-seller-badge">🔥 #1 PRÉFÉRÉ</div>
 
-            <!-- OFFRE DU MOMENT -->
-            <div class="urgence-banner">
-                ✨ OFFRE DU MOMENT • Testez 5 disciplines
-            </div>
-
-            <span class="bg-gradient-to-r from-[#E8B496] to-[#ff8e53] text-white px-6 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-4 inline-block shadow-lg">
-                🎁 Offre Découverte • Testez 5 Disciplines
+            <span class="bg-gradient-to-r from-[#E8B496] to-[#ff8e53] text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block shadow-lg">
+                ✨ Offre Découverte
             </span>
             
-            <h2 class="text-5xl md:text-6xl font-hand text-[#4A8D84] mb-3">New Pass Starter</h2>
-            
-            <div class="flex justify-center items-center space-x-2 text-[10px] font-bold text-gray-600 uppercase mb-4 tracking-wide">
-                <span class="bg-green-50 px-3 py-1 rounded-lg border border-green-200">✓ 5 Disciplines à tester</span>
-                <span>•</span>
-                <span class="bg-green-50 px-3 py-1 rounded-lg border border-green-200">✓ Sans Engagement</span>
-            </div>
+            <h2 class="text-5xl md:text-6xl font-hand text-[#4A8D84] mb-2">New Pass Starter</h2>
+            <p class="text-sm text-gray-600 font-semibold mb-6">Testez 5 disciplines • Sans engagement</p>
 
-            <!-- PRIX AVEC VALEUR -->
+            <!-- PRIX -->
             <div class="mb-6">
                 <span class="price-strike">190€</span>
                 <p class="text-7xl md:text-8xl font-black text-[#2F4F4F] mb-2 tracking-tight drop-shadow-sm">
                     99,90<span class="text-4xl align-top">€</span>
                 </p>
                 <div class="savings-badge">
-                    💰 VOUS ÉCONOMISEZ 90€ (-47%)
+                    💰 ÉCONOMISEZ 90€ (-47%)
                 </div>
-                <p class="text-xs text-gray-600 mt-2 font-semibold">Soit seulement 19,98€ par essai !</p>
+                <p class="text-xs text-gray-600 mt-2 font-semibold">Soit 19,98€ par essai</p>
             </div>
 
-            <!-- SOCIAL PROOF -->
-            <div class="social-proof">
-                <div class="social-proof-avatar">
-                    <span style="background: #4A8D84;">M</span>
-                    <span style="background: #E8B496;">A</span>
-                    <span style="background: #4A8D84;">J</span>
-                    <span style="background: #E8B496;">+</span>
-                </div>
-                <span>327 personnes ont pris ce pass ce mois-ci !</span>
-            </div>
-            
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab" class="btn-action rounded-full text-lg shadow-xl transform hover:scale-105 transition duration-300 mt-6">
+            <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab" class="btn-action rounded-full text-lg shadow-xl transform hover:scale-105 transition duration-300">
                 🚀 Je découvre maintenant
             </a>
 
-            <!-- GARANTIES -->
-            <div class="guarantee-items">
-                <div class="guarantee-item">🔒 Paiement 100% Sécurisé</div>
-                <div class="guarantee-item">🏆 Coachs Certifiés</div>
-                <div class="guarantee-item">😊 Satisfait ou Remboursé</div>
-            </div>
-
-            <!-- LISTE BÉNÉFICES -->
+            <!-- BÉNÉFICES -->
             <div class="mt-8 text-left max-w-md mx-auto space-y-3 text-sm text-gray-700">
                 <div class="flex items-start gap-3">
                     <span class="text-green-600 font-bold text-lg">✓</span>
-                    <span><strong>5 essais découverte</strong> : testez 5 disciplines différentes</span>
-                </div>
-                <div class="flex items-start gap-3">
-                    <span class="text-green-600 font-bold text-lg">✓</span>
-                    <span><strong>Trouvez VOTRE cours idéal</strong> parmi Pilates, Yoga, Cross, Boxe...</span>
+                    <span><strong>5 essais découverte</strong> : Reformer, Crossformer, Cross, Yoga, Boxe</span>
                 </div>
                 <div class="flex items-start gap-3">
                     <span class="text-green-600 font-bold text-lg">✓</span>
@@ -413,11 +345,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="flex items-start gap-3">
                     <span class="text-green-600 font-bold text-lg">✓</span>
-                    <span><strong>Conseils personnalisés</strong> par nos coachs à chaque séance</span>
+                    <span><strong>Conseils personnalisés</strong> par nos coachs certifiés</span>
                 </div>
                 <div class="flex items-start gap-3">
                     <span class="text-green-600 font-bold text-lg">✓</span>
-                    <span><strong>Zéro engagement</strong> : pas d'abonnement, pas de reconduction</span>
+                    <span><strong>Zéro engagement</strong> : pas de reconduction automatique</span>
                 </div>
             </div>
         </div>
@@ -473,13 +405,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="compare-price">190€</div>
             <div class="compare-price">
                 99,90€
-                <div class="compare-winner mt-2">🏆 ÉCONOMIE -47%</div>
+                <div class="compare-winner mt-2">🏆 -47%</div>
             </div>
         </div>
 
         <div class="text-center mt-6">
             <p class="text-xs text-gray-500 italic">
-                💡 Avec le Pass Starter, testez 5 disciplines pour moins de 100€ !
+                💡 Testez 5 disciplines pour moins de 100€
             </p>
         </div>
     </div>
@@ -503,7 +435,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="card-price">50<span class="text-2xl">€</span></p>
                 <p class="card-value">⭐ ÉQUIPEMENT HAUT DE GAMME</p>
                 <span class="btn-small">Réserver maintenant</span>
-                <p class="text-[10px] text-gray-500 mt-3 font-semibold">🔥 18 personnes ont réservé aujourd'hui</p>
             </div>
         </a>
 
@@ -516,9 +447,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div>
                 <p class="card-price">50<span class="text-2xl">€</span></p>
-                <p class="card-value">💪 BRÛLEZ JUSQU'À 600 CALORIES</p>
+                <p class="card-value">💪 BRÛLEZ 600 CALORIES</p>
                 <span class="btn-small">Réserver maintenant</span>
-                <p class="text-[10px] text-gray-500 mt-3 font-semibold">⚡ Résultats visibles dès la 1ère séance</p>
             </div>
         </a>
 
@@ -533,18 +463,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="card-price">30<span class="text-2xl">€</span></p>
                 <p class="card-value">🧘‍♀️ IDÉAL POUR DÉCOUVRIR</p>
                 <span class="btn-small">Réserver maintenant</span>
-                <p class="text-[10px] text-gray-500 mt-3 font-semibold">🌟 Cours adaptés à tous les niveaux</p>
             </div>
         </a>
     </div>
 
-    <!-- CTA ADDITIONNEL -->
+    <!-- CTA CONSEILLER -->
     <div class="mt-12 bg-white/20 backdrop-blur-md rounded-3xl p-8 border-2 border-white/40">
         <p class="text-white text-lg font-bold mb-4">
             🤔 Pas sûr(e) de quel cours choisir ?
         </p>
         <p class="text-white text-sm mb-6 opacity-90">
-            Notre équipe vous conseille gratuitement sur le cours le mieux adapté à vos objectifs
+            Notre équipe vous conseille gratuitement
         </p>
         <a href="contact.html" class="inline-block bg-white text-[#4A8D84] px-8 py-3 rounded-full font-bold text-sm hover:bg-gray-100 transition transform hover:scale-105">
             💬 Parler à un conseiller
@@ -660,15 +589,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- CTA STICKY -->
 <div id="cta-sticky" class="cta-sticky">
     <div class="cta-sticky-content">
-        <div class="flex items-center gap-3">
-            <div class="hidden sm:block">
-                <div class="cta-sticky-text">🎁 Pass Starter • Testez 5 disciplines</div>
-                <div class="cta-sticky-price">99,90€</div>
-            </div>
-            <div class="sm:hidden">
-                <div class="cta-sticky-text text-sm">Pass Starter</div>
-                <div class="cta-sticky-price text-xl">99,90€</div>
-            </div>
+        <div class="cta-sticky-info">
+            <div class="cta-sticky-text">🎁 Pass Starter • 5 disciplines</div>
+            <div class="cta-sticky-price">99,90€</div>
         </div>
         <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab" class="cta-sticky-btn">
             Je réserve
@@ -682,53 +605,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <path d="M17.472 14.382C17.119 14.205 15.396 13.359 15.068 13.243C14.739 13.128 14.503 13.072 14.265 13.424C14.032 13.782 13.364 14.569 13.159 14.804C12.956 15.039 12.753 15.067 12.399 14.889C12.043 14.71 10.908 14.336 9.559 13.132C8.502 12.188 7.785 11.022 7.581 10.668C7.375 10.315 7.558 10.126 7.734 9.949C7.893 9.792 8.085 9.539 8.261 9.336C8.441 9.13 8.498 8.983 8.614 8.749C8.733 8.514 8.674 8.309 8.583 8.132C8.496 7.954 7.788 6.22 7.492 5.517C7.206 4.832 6.918 4.922 6.703 4.913C6.495 4.904 6.257 4.904 6.019 4.904C5.782 4.904 5.394 4.994 5.068 5.348C4.742 5.702 3.824 6.564 3.824 8.309C3.824 10.054 5.093 11.739 5.271 11.975C5.452 12.213 7.799 15.839 11.488 17.429C14.018 18.522 14.629 18.286 15.158 18.236C15.938 18.163 17.519 17.319 17.846 16.398C18.174 15.48 18.174 14.685 18.087 14.538C17.994 14.391 17.761 14.323 17.472 14.382ZM11.011 21.996C11.009 21.996 11.006 21.996 11.003 21.996C9.406 21.995 7.842 21.564 6.467 20.748L6.091 20.525L2.613 21.439L3.541 18.046L3.298 17.659C2.421 16.262 1.956 14.646 1.958 12.992C1.961 8.01 6.013 3.961 10.998 3.961C13.411 3.962 15.681 4.9 17.387 6.607C19.094 8.314 20.033 10.584 20.03 12.998C20.026 17.981 15.975 21.996 11.011 21.996Z"/>
     </svg>
 </a>
-```
 
 <footer class="bg-[#2F4F4F] text-white py-12 mt-16">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-
-```
-    <div>
-        <img src="images/logo.png" alt="Logo SVB" class="w-32 mb-6"> 
         
-        <p class="opacity-80 leading-relaxed">
-            Votre studio de coaching privé et bien-être à Saint-Ouen.<br>
-            Pilates, Yoga, Training et Soins.
-        </p>
+        <div>
+            <img src="images/logo.png" alt="Logo SVB" class="w-32 mb-6"> 
+            
+            <p class="opacity-80 leading-relaxed">
+                Votre studio de coaching privé et bien-être à Saint-Ouen.<br>
+                Pilates, Yoga, Training et Soins.
+            </p>
+        </div>
+
+        <div>
+            <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
+            <ul class="space-y-2 opacity-80">
+                <li>📞 07 44 91 91 55</li>
+                <li>✉️ hello@studiosvb.fr</li>
+                <li>📸 @studiosvb</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="font-bold uppercase tracking-widest mb-4">Nous trouver</h3>
+            <p class="opacity-80 leading-relaxed">
+                40 Cours des Lavandières<br>
+                93400 Saint-Ouen-sur-Seine<br>
+                (Métro Mairie de Saint-Ouen)
+            </p>
+        </div>
     </div>
 
-    <div>
-        <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
-        <ul class="space-y-2 opacity-80">
-            <li>📞 07 44 91 91 55</li>
-            <li>✉️ hello@studiosvb.fr</li>
-            <li>📸 @studiosvb</li>
-        </ul>
+    <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/20 text-center text-xs opacity-60">
+        <p class="mb-2">© 2026 SVB SantezVousBien - Tous droits réservés</p>
+        <div class="space-x-4">
+            <a href="mentions-legales.html" class="hover:text-white transition underline decoration-1 underline-offset-2">Mentions Légales</a>
+            <span>|</span>
+            <a href="cgv.html" class="hover:text-white transition underline decoration-1 underline-offset-2">CGV</a>
+        </div>
     </div>
-
-    <div>
-        <h3 class="font-bold uppercase tracking-widest mb-4">Nous trouver</h3>
-        <p class="opacity-80 leading-relaxed">
-            40 Cours des Lavandières<br>
-            93400 Saint-Ouen-sur-Seine<br>
-            (Métro Mairie de Saint-Ouen)
-        </p>
-    </div>
-</div>
-
-<div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/20 text-center text-xs opacity-60">
-    <p class="mb-2">© 2026 SVB SantezVousBien - Tous droits réservés</p>
-    <div class="space-x-4">
-        <a href="mentions-legales.html" class="hover:text-white transition underline decoration-1 underline-offset-2">Mentions Légales</a>
-        <span>|</span>
-        <a href="cgv.html" class="hover:text-white transition underline decoration-1 underline-offset-2">CGV</a>
-    </div>
-</div>
-```
-
 </footer>
 
-```
 <script>
     window.addEventListener('load', () => {
         const splash = document.getElementById('splash-screen');
@@ -758,7 +676,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     window.addEventListener('scroll', () => {
         if (offresSection) {
             const offresRect = offresSection.getBoundingClientRect();
-            // Afficher le CTA sticky quand la section offres est passée
             if (offresRect.top < -200) {
                 ctaSticky.classList.add('visible');
             } else {
