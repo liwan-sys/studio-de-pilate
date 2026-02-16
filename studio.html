@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planning & Studios | SVB SantezVousBien</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -31,7 +31,7 @@
             position: relative;
         }
 
-        /* FOND IMMERSIF */
+        /* === FOND IMMERSIF (ANIMÉ) === */
         .ambient-bg {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -50,6 +50,7 @@
 
         .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-green-dark); animation-delay: 0s; }
         .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--svb-peach); animation-delay: -5s; }
+        .blob-3 { top: 40%; left: 40%; width: 40vw; height: 40vw; background: white; opacity: 0.4; animation-delay: -10s; }
 
         @keyframes moveBlob {
             0% { transform: translate(0, 0) scale(1); }
@@ -69,309 +70,146 @@
 
         /* Animation */
         @keyframes softSlideUp {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% { opacity: 0; transform: translateY(40px); filter: blur(5px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
         .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
         .d-1 { animation-delay: 0.1s; }
         .d-2 { animation-delay: 0.2s; }
         .d-3 { animation-delay: 0.3s; }
 
-        /* CONTENEUR PLANNING AMÉLIORÉ */
+        /* === CONTENEUR PLANNING (GLASSMORPHISM) === */
         .planning-box {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 35px;
             margin-bottom: 60px;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
             transition: transform 0.4s ease;
         }
         .planning-box:hover { transform: translateY(-5px); }
 
-        .studio-header { 
-            text-align: center; 
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid rgba(255,255,255,0.5);
-        }
-        .studio-header h2 { 
-            font-family: 'Dancing Script', cursive; 
-            font-size: 4rem; 
-            margin-bottom: 8px; 
-            text-shadow: 0 2px 15px rgba(0,0,0,0.08); 
-        }
+        .studio-header { text-align: center; margin-bottom: 35px; }
+        .studio-header h2 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin-bottom: 5px; text-shadow: 0 2px 10px rgba(0,0,0,0.05); }
 
-        /* GRILLE RESPONSIVE AMÉLIORÉE */
-        .week-grid { 
-            display: grid; 
-            grid-template-columns: repeat(7, 1fr); 
-            gap: 15px; 
-        }
-        @media (max-width: 1280px) { .week-grid { grid-template-columns: repeat(4, 1fr); } }
+        .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+        @media (max-width: 1024px) { .week-grid { grid-template-columns: repeat(4, 1fr); } }
         @media (max-width: 768px) { .week-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 480px) { .week-grid { grid-template-columns: 1fr; } }
 
-        /* COLONNE JOUR AMÉLIORÉE */
         .day-column {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            padding: 15px 15px 40px 15px;
-            min-height: 280px;
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 12px;
+            min-height: 220px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
             transition: all 0.3s ease;
-            position: relative;
         }
-        .day-column:hover { 
-            background: rgba(255, 255, 255, 0.8); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: translateY(-3px);
-        }
+        .day-column:hover { background: rgba(255, 255, 255, 0.6); }
 
-        /* HEADER JOUR AMÉLIORÉ */
         .day-header {
             text-align: center;
-            font-weight: 900;
+            font-weight: 800;
             text-transform: uppercase;
-            font-size: 0.95rem;
-            margin-bottom: 18px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
             color: var(--svb-text);
-            background: rgba(255,255,255,0.8);
-            padding: 12px 8px;
-            border-radius: 12px;
-            letter-spacing: 0.08em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-bottom: 2px solid rgba(255,255,255,0.6);
+            padding-bottom: 8px;
+            letter-spacing: 0.05em;
         }
 
-        /* SLOT DE COURS ULTRA-AMÉLIORÉ */
         .class-slot {
-            padding: 14px 10px;
-            border-radius: 12px;
-            margin-bottom: 12px;
+            padding: 10px 8px;
+            border-radius: 10px;
+            margin-bottom: 10px;
             color: white;
             text-align: center;
-            font-size: 0.75rem;
-            font-weight: 700;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            cursor: pointer;
-            border: 2px solid rgba(255,255,255,0.3);
-            position: relative;
-            overflow: hidden;
-            display: block;
-            text-decoration: none;
-        }
-
-        .class-slot::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .class-slot:hover::before { left: 100%; }
-
-        .class-slot:hover { 
-            transform: scale(1.08) translateY(-3px); 
-            box-shadow: 0 12px 25px rgba(0,0,0,0.25); 
-            z-index: 10;
-            border-color: rgba(255,255,255,0.6);
-        }
-
-        /* Indicateur cliquable */
-        .class-slot::after {
-            content: '👆 Cliquez pour réserver';
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255,255,255,0.95);
-            color: var(--svb-text);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.65rem;
-            font-weight: 800;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s, bottom 0.3s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .class-slot:hover::after {
-            opacity: 1;
-            bottom: -35px;
-        }
-
-        /* HORAIRE ULTRA-VISIBLE */
-        .class-time { 
-            font-size: 1.1rem; 
-            font-weight: 900; 
-            display: block; 
-            margin-bottom: 4px;
-            letter-spacing: 0.05em;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-        }
-
-        /* NOM DU COURS */
-        .class-name {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-
-        /* DURÉE DU COURS */
-        .class-duration {
-            font-size: 0.65rem;
-            opacity: 0.9;
-            margin-top: 3px;
+            font-size: 0.7rem;
             font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* ICÔNE TYPE DE COURS */
-        .class-icon {
-            font-size: 1.2rem;
-            display: block;
-            margin-bottom: 4px;
-        }
+        .class-slot:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 8px 15px rgba(0,0,0,0.15); z-index: 10; }
+        .class-time { font-size: 0.95rem; font-weight: 800; display: block; margin-bottom: 2px; }
 
-        /* COULEURS AMÉLIORÉES AVEC PLUS DE CONTRASTE */
-        .bg-cross { 
-            background: linear-gradient(135deg, #88C0A6 0%, #6fa88d 100%);
-        }
-        .bg-crossformer { 
-            background: linear-gradient(135deg, #E8B496 0%, #d9a080 100%);
-        }
-        .bg-reformer { 
-            background: linear-gradient(135deg, #C9B388 0%, #b8a478 100%);
-        }
-        .bg-yoga { 
-            background: linear-gradient(135deg, #e9d7ab 0%, #d9c79b 100%);
-        }
-        .bg-kids { 
-            background: linear-gradient(135deg, #ff9a76 0%, #ff7f50 100%);
-            border: 3px solid white;
-        }
+        /* COULEURS DES PASS */
+        .bg-cross { background-color: #88C0A6; }       /* Pass Cross */
+        .bg-crossformer { background-color: #E8B496; } /* Pass Crossformer */
+        .bg-reformer { background-color: #C9B388; }    /* Pass Reformer */
+        .bg-yoga { background-color: #e9d7ab; }        /* Pass Focus (Yoga/Boxe) */
+        .bg-kids { background-color: #E8B496; border: 2px solid white; }
 
-        /* LÉGENDE STICKY AMÉLIORÉE */
+        /* WHATSAPP */
+        .wa-container { position: fixed; bottom: 30px; right: 30px; z-index: 50; display: flex; flex-direction: column; align-items: flex-end; }
+        .wa-bubble { 
+            background: white; color: #2F4F4F; 
+            padding: 12px 18px; border-radius: 15px 15px 0 15px; 
+            font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            max-width: 220px; opacity: 0; transform: translateY(10px); 
+            transition: all 0.5s ease; pointer-events: none; 
+        }
+        .wa-bubble.show { opacity: 1; transform: translateY(0); }
+        .whatsapp-btn { 
+            background-color: #25d366; width: 65px; height: 65px; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); 
+            animation: pulse-wa 2.5s infinite; transition: transform 0.3s;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        /* === LÉGENDE STICKY (CORRIGÉE : HORS HEADER) === */
         .sticky-legend-wrapper {
             position: sticky;
-            top: 15px;
-            z-index: 100;
-            padding-bottom: 25px;
-            pointer-events: none;
+            top: 10px; /* Reste collé à 10px du haut de l'écran */
+            z-index: 100; /* Reste au-dessus de tout */
+            padding-bottom: 20px;
+            pointer-events: none; /* Permet de cliquer à travers si besoin */
             text-align: center;
         }
 
         .legend-bar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
             border-radius: 50px;
-            padding: 18px 35px;
+            padding: 12px 30px;
             margin: 0 auto;
             display: inline-flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
-            border: 2px solid rgba(255,255,255,0.8);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            gap: 20px;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             pointer-events: auto;
         }
 
         .legend-item {
             display: flex;
             align-items: center;
-            font-size: 0.85rem;
-            font-weight: 800;
+            font-size: 0.75rem;
+            font-weight: 700;
             color: var(--svb-text);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         .legend-dot {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            margin-right: 10px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-            border: 2px solid rgba(255,255,255,0.5);
-        }
-
-        /* CTA RÉSERVATION */
-        .cta-book {
-            background: linear-gradient(135deg, #4A8D84 0%, #2d5a54 100%);
-            color: white;
-            padding: 16px 35px;
-            border-radius: 50px;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
-            box-shadow: 0 10px 30px rgba(74, 141, 132, 0.4);
-            transition: all 0.3s;
-            display: inline-block;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-        .cta-book:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(74, 141, 132, 0.6);
-        }
-
-        /* WHATSAPP */
-        .wa-container { 
-            position: fixed; 
-            bottom: 30px; 
-            right: 30px; 
-            z-index: 50; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: flex-end; 
-        }
-        .wa-bubble { 
-            background: white; 
-            color: #2F4F4F; 
-            padding: 12px 18px; 
-            border-radius: 15px 15px 0 15px; 
-            font-size: 0.85rem; 
-            font-weight: 600; 
-            margin-bottom: 12px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-            max-width: 220px; 
-            opacity: 0; 
-            transform: translateY(10px); 
-            transition: all 0.5s ease; 
-            pointer-events: none; 
-        }
-        .wa-bubble.show { opacity: 1; transform: translateY(0); }
-        .whatsapp-btn { 
-            background-color: #25d366; 
-            width: 65px; 
-            height: 65px; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); 
-            animation: pulse-wa 2.5s infinite; 
-            transition: transform 0.3s;
-        }
-        .whatsapp-btn:hover { transform: scale(1.1); }
-        @keyframes pulse-wa { 
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } 
-        }
-
-        @media (max-width: 768px) {
-            .studio-header h2 { font-size: 3rem; }
-            .legend-bar { flex-direction: column; gap: 12px; padding: 15px 25px; }
-            .legend-item { font-size: 0.75rem; }
+            margin-right: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
     </style>
@@ -383,6 +221,7 @@
     <div class="ambient-bg">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
     <div class="noise-overlay"></div>
 
@@ -410,11 +249,6 @@
         <p class="text-white uppercase tracking-widest text-sm font-light opacity-90 bg-white/20 inline-block px-6 py-2 rounded-full backdrop-blur-sm mb-4">
             Deux studios • Une seule plateforme de réservation
         </p>
-        <div class="mt-4 inline-block bg-white/90 backdrop-blur-md px-6 py-3 rounded-2xl border-2 border-white shadow-lg">
-            <p class="text-[#2F4F4F] font-black text-sm uppercase tracking-wide">
-                👆 <span class="text-[#4A8D84]">Cliquez sur un cours</span> pour réserver directement !
-            </p>
-        </div>
     </div>
 
     <div class="sticky-legend-wrapper reveal-load d-2">
@@ -423,588 +257,155 @@
             <div class="legend-item"><span class="legend-dot bg-yoga"></span> Pass Focus</div>
             <div class="legend-item"><span class="legend-dot bg-reformer"></span> Pass Reformer</div>
             <div class="legend-item"><span class="legend-dot bg-crossformer"></span> Pass Crossformer</div>
-            <div class="legend-item"><span class="legend-dot bg-kids"></span> Pass Kids</div>
         </div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 pb-24 z-10">
         
-        <!-- PARC DES DOCKS -->
         <div class="planning-box reveal-load d-2">
             <div class="studio-header">
                 <h2 class="text-[#4A8D84]">Parc des Docks</h2>
-                <p class="text-sm font-bold uppercase tracking-widest text-gray-600 bg-white/50 inline-block px-4 py-2 rounded-full">
-                    🏋️ Cross Training & Intensité
-                </p>
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-500 bg-white/40 inline-block px-3 py-1 rounded">Cross Training & Intensité</p>
             </div>
             <div class="week-grid">
                 <div class="day-column">
-                    <div class="day-header">📅 Lundi</div>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/1cbe82dc-837a-4cfb-a0c8-117ebb53665d" target="_blank" class="class-slot bg-cross">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">12h00</span>
-                        <span class="class-name">Cross Training</span>
-                        <span class="class-duration">55min • Pass Cross</span>
-                    </a>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/1cbe82dc-837a-4cfb-a0c8-117ebb53665d" target="_blank" class="class-slot bg-cross">
-                        <span class="class-icon">🎯</span>
-                        <span class="class-time">13h00</span>
-                        <span class="class-name">Cross Core</span>
-                        <span class="class-duration">55min • Pass Cross</span>
-                    </a>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/1cbe82dc-837a-4cfb-a0c8-117ebb53665d" target="_blank" class="class-slot bg-cross">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">19h00</span>
-                        <span class="class-name">Cross Training</span>
-                        <span class="class-duration">55min • Pass Cross</span>
-                    </a>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/1cbe82dc-837a-4cfb-a0c8-117ebb53665d" target="_blank" class="class-slot bg-cross">
-                        <span class="class-icon">🔥</span>
-                        <span class="class-time">20h00</span>
-                        <span class="class-name">Cross Body</span>
-                        <span class="class-duration">55min • Pass Cross</span>
-                    </a>
+                    <div class="day-header">Lundi</div>
+                    <div class="class-slot bg-cross"><span class="class-time">12h</span> Cross Training</div>
+                    <div class="class-slot bg-cross"><span class="class-time">13h</span> Cross Core</div>
+                    <div class="class-slot bg-cross"><span class="class-time">19h</span> Cross Training</div>
+                    <div class="class-slot bg-cross"><span class="class-time">20h</span> Cross Body</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Mardi</div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">12h00</span>
-                        <span class="class-name">Cross Rox</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">🔥</span>
-                        <span class="class-time">19h00</span>
-                        <span class="class-name">Cross Body</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">20h00</span>
-                        <span class="class-name">Cross Training</span>
-                        <span class="class-duration">55min</span>
-                    </div>
+                    <div class="day-header">Mardi</div>
+                    <div class="class-slot bg-cross"><span class="class-time">12h</span> Cross Rox</div>
+                    <div class="class-slot bg-cross"><span class="class-time">19h</span> Cross Body</div>
+                    <div class="class-slot bg-cross"><span class="class-time">20h</span> Cross Training</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Mercredi</div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">12h00</span>
-                        <span class="class-name">Cross Training</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-kids">
-                        <span class="class-icon">👶</span>
-                        <span class="class-time">16h00</span>
-                        <span class="class-name">Yoga Kids</span>
-                        <span class="class-duration">45min</span>
-                    </div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">19h00</span>
-                        <span class="class-name">Cross Training</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🥊</span>
-                        <span class="class-time">20h00</span>
-                        <span class="class-name">Boxe</span>
-                        <span class="class-duration">55min</span>
-                    </div>
+                    <div class="day-header">Mercredi</div>
+                    <div class="class-slot bg-cross"><span class="class-time">12h</span> Cross Training</div>
+                    <div class="class-slot bg-kids"><span class="class-time">16h</span> Yoga Kids</div>
+                    <div class="class-slot bg-cross"><span class="class-time">19h</span> Cross Training</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">20h</span> Boxe</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Jeudi</div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">🌅</span>
-                        <span class="class-time">08h00</span>
-                        <span class="class-name">Cross Core</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">🔥</span>
-                        <span class="class-time">12h00</span>
-                        <span class="class-name">Cross Body</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🥊</span>
-                        <span class="class-time">13h00</span>
-                        <span class="class-name">Boxe</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">18h00</span>
-                        <span class="class-name">Cross Training</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">💃</span>
-                        <span class="class-time">19h00</span>
-                        <span class="class-name">Afrodance</span>
-                        <span class="class-duration">55min</span>
-                    </div>
+                    <div class="day-header">Jeudi</div>
+                    <div class="class-slot bg-cross"><span class="class-time">08h</span> Cross Core</div>
+                    <div class="class-slot bg-cross"><span class="class-time">12h</span> Cross Body</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">13h</span> Boxe</div>
+                    <div class="class-slot bg-cross"><span class="class-time">18h</span> Cross Training</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">19h</span> Afrodance</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Vendredi</div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">18h00</span>
-                        <span class="class-name">Cross Rox</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">19h00</span>
-                        <span class="class-name">Cross Training</span>
-                        <span class="class-duration">55min</span>
-                    </div>
+                    <div class="day-header">Vendredi</div>
+                    <div class="class-slot bg-cross"><span class="class-time">18h</span> Cross Rox</div>
+                    <div class="class-slot bg-cross"><span class="class-time">19h</span> Cross Training</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Samedi</div>
-                    <div class="class-slot bg-kids">
-                        <span class="class-icon">👶</span>
-                        <span class="class-time">09h30</span>
-                        <span class="class-name">Training Kids</span>
-                        <span class="class-duration">45min</span>
-                    </div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">🔥</span>
-                        <span class="class-time">10h30</span>
-                        <span class="class-name">Cross Body</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">11h30</span>
-                        <span class="class-name">Cross Training</span>
-                        <span class="class-duration">55min</span>
-                    </div>
+                    <div class="day-header">Samedi</div>
+                    <div class="class-slot bg-kids"><span class="class-time">09h30</span> Training Kids</div>
+                    <div class="class-slot bg-cross"><span class="class-time">10h30</span> Cross Body</div>
+                    <div class="class-slot bg-cross"><span class="class-time">11h30</span> Cross Training</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Dimanche</div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">10h30</span>
-                        <span class="class-name">Cross Training</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">🧘</span>
-                        <span class="class-time">11h30</span>
-                        <span class="class-name">Cross Yoga</span>
-                        <span class="class-duration">55min</span>
-                    </div>
+                    <div class="day-header">Dimanche</div>
+                    <div class="class-slot bg-cross"><span class="class-time">10h30</span> Cross Training</div>
+                    <div class="class-slot bg-cross"><span class="class-time">11h30</span> Cross Yoga</div>
                 </div>
             </div>
         </div>
 
-        <!-- LAVANDIÈRES -->
         <div class="planning-box reveal-load d-3">
             <div class="studio-header">
                 <h2 class="text-[#E8B496]">Lavandières</h2>
-                <p class="text-sm font-bold uppercase tracking-widest text-gray-600 bg-white/50 inline-block px-4 py-2 rounded-full">
-                    🧘 Reformer, Yoga & Bien-être
-                </p>
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-500 bg-white/40 inline-block px-3 py-1 rounded">Reformer, Yoga & Bien-être</p>
             </div>
             <div class="week-grid">
                 <div class="day-column">
-                    <div class="day-header">📅 Lundi</div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">12h00</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">12h15</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🌿</span>
-                        <span class="class-time">12h30</span>
-                        <span class="class-name">Yoga Vinyasa</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">18h45</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🌿</span>
-                        <span class="class-time">19h00</span>
-                        <span class="class-name">Yoga Vinyasa</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">19h15</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
+                    <div class="day-header">Lundi</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">12h</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">12h15</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">12h30</span> Yoga Vinyasa</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">18h45</span> Crossformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">19h</span> Yoga Vinyasa</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">19h15</span> Reformer</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Mardi</div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🌅</span>
-                        <span class="class-time">07h30</span>
-                        <span class="class-name">Hatha Flow</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">11h45</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">12h00</span>
-                        <span class="class-name">Power Pilates</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">13h15</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">18h45</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">19h15</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">20h00</span>
-                        <span class="class-name">Power Pilates</span>
-                        <span class="class-duration">55min</span>
-                    </div>
+                    <div class="day-header">Mardi</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">07h30</span> Hatha Flow</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">11h45</span> Crossformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">12h</span> Power Pilates</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">13h15</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">18h45</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">19h15</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">20h</span> Power Pilates</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Mercredi</div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">10h15</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">12h00</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">12h15</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">19h00</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">19h15</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">20h00</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
+                    <div class="day-header">Mercredi</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">10h15</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">12h</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">12h15</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">19h</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">19h15</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">20h</span> Reformer</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Jeudi</div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🌅</span>
-                        <span class="class-time">07h00</span>
-                        <span class="class-name">Classic Pilates</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🌿</span>
-                        <span class="class-time">12h00</span>
-                        <span class="class-name">Yoga Vinyasa</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">12h15</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">12h30</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">18h00</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">18h45</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">💪</span>
-                        <span class="class-time">19h15</span>
-                        <span class="class-name">Power Pilates</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-cross">
-                        <span class="class-icon">🧘</span>
-                        <span class="class-time">20h15</span>
-                        <span class="class-name">Cross Yoga</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">20h30</span>
-                        <span class="class-name">Cross Forme</span>
-                        <span class="class-duration">50min</span>
-                    </div>
+                    <div class="day-header">Jeudi</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">07h</span> Classic Pilates</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">12h</span> Yoga Vinyasa</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">12h15</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">12h30</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">18h</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">18h45</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">19h15</span> Power Pilates</div>
+                    <div class="class-slot bg-cross"><span class="class-time">20h15</span> Cross Yoga</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">20h30</span> Cross Forme</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Vendredi</div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">09h45</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">10h45</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">12h00</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">13h00</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🧘</span>
-                        <span class="class-time">18h00</span>
-                        <span class="class-name">Classic Pilates</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">18h30</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">19h15</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
+                    <div class="day-header">Vendredi</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">09h45</span> Crossformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">10h45</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">12h</span> Reformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">13h</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">18h</span> Classic Pilates</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">18h30</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">19h15</span> Crossformer</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Samedi</div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">09h00</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">09h30</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">10h00</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🧘</span>
-                        <span class="class-time">10h15</span>
-                        <span class="class-name">Classic Pilates</span>
-                        <span class="class-duration">55min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">10h30</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🌸</span>
-                        <span class="class-time">11h15</span>
-                        <span class="class-name">Core & Stretch</span>
-                        <span class="class-duration">55min</span>
-                    </div>
+                    <div class="day-header">Samedi</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">09h</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">9h30</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">10h</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">10h15</span> Classic Pilates</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">11h15</span> Core & Stretch</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">10h30</span> Crossformer</div>
                 </div>
-
                 <div class="day-column">
-                    <div class="day-header">📅 Dimanche</div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">10h00</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">10h15</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-crossformer">
-                        <span class="class-icon">⚡</span>
-                        <span class="class-time">11h00</span>
-                        <span class="class-name">Crossformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-reformer">
-                        <span class="class-icon">🧘‍♀️</span>
-                        <span class="class-time">11h15</span>
-                        <span class="class-name">Reformer</span>
-                        <span class="class-duration">50min</span>
-                    </div>
-                    <div class="class-slot bg-yoga">
-                        <span class="class-icon">🌿</span>
-                        <span class="class-time">11h30</span>
-                        <span class="class-name">Yoga Vinyasa</span>
-                        <span class="class-duration">55min</span>
-                    </div>
+                    <div class="day-header">Dimanche</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">10h</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">10h15</span> Reformer</div>
+                    <div class="class-slot bg-crossformer"><span class="class-time">11h</span> Crossformer</div>
+                    <div class="class-slot bg-reformer"><span class="class-time">11h15</span> Reformer</div>
+                    <div class="class-slot bg-yoga"><span class="class-time">11h30</span> Yoga Vinyasa</div>
                 </div>
             </div>
         </div>
-
-        <!-- CTA FINALE -->
-        <div class="text-center mt-12 reveal-load d-3">
-            <p class="text-white text-lg font-bold mb-4">
-                📅 Prêt(e) à réserver votre cours ?
-            </p>
-            <a href="https://svb.sportigo.fr" target="_blank" class="cta-book">
-                Accéder à la plateforme de réservation
-            </a>
-        </div>
     </div>
 
-    <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white py-12 border-t border-white/20 text-center z-10 mt-16">
+    <footer class="relative bg-[#4A8D84]/90 backdrop-filter backdrop-blur-lg text-white py-12 border-t border-white/20 text-center z-10">
         <img src="images/logo.png" alt="Logo SVB" class="h-16 mx-auto mb-4 brightness-0 invert opacity-90">
         <p class="text-xs opacity-80 mb-2">SVB SantezVousBien - Saint-Ouen</p>
         <p class="text-[10px] opacity-60 uppercase tracking-widest">© 2026 Tous droits réservés.</p>
     </footer>
 
     <div id="wa-container" class="wa-container">
-        <div id="wa-bubble" class="wa-bubble">👋 Une question sur le planning ?</div>
+        <div id="wa-bubble" class="wa-bubble">👋 Hello ! Une question sur le planning ?</div>
         <a href="https://wa.me/33744919155" class="whatsapp-btn" target="_blank">
             <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.096 0-4.141-.547-5.946-1.588L0 .057zm6.549-2.938c1.614.96 3.434 1.468 5.282 1.468 5.497 0 9.97-4.473 9.97-9.97s-4.473-9.97-9.97-9.97c-5.497 0-9.97 4.473-9.97 9.97 0 1.848.508 3.668 1.468 5.282L2.324 21.676l4.282-1.564zm11.334-7.129c-.314-.157-1.859-.917-2.148-1.021-.288-.105-.499-.157-.709.157-.21.314-.813 1.021-.996 1.231-.183.21-.367.236-.681.079-.314-.157-1.325-.489-2.524-1.559-.933-.833-1.563-1.861-1.747-2.175-.183-.314-.02-.484.137-.64.141-.141.314-.367.472-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.709-1.703-.971-2.332-.255-.612-.513-.529-.709-.539-.183-.01-.393-.012-.603-.012s-.551.079-.84.393c-.288.314-1.102 1.074-1.102 2.62s1.128 3.039 1.285 3.25c.157.21 2.221 3.391 5.38 4.755.751.325 1.337.519 1.794.664.754.24 1.441.206 1.983.125.603-.09 1.859-.759 2.121-1.467.262-.708.262-1.312.183-1.467-.079-.157-.288-.263-.603-.42z"/></svg>
         </a>
     </div>
 
     <script>
-        // Rendre les cours cliquables automatiquement
-        document.addEventListener('DOMContentLoaded', function() {
-            // URLs des différents pass
-            const passUrls = {
-                'bg-cross': 'https://svb.sportigo.fr/buy/offer-proposition/1cbe82dc-837a-4cfb-a0c8-117ebb53665d',
-                'bg-yoga': 'https://svb.sportigo.fr/buy/offer-proposition/9489a1a1-d37b-414b-bdb5-faad20312da3',
-                'bg-reformer': 'https://svb.sportigo.fr/buy/offer-proposition/c014b8b7-1d0e-4497-97dc-4623223e0efc',
-                'bg-crossformer': 'https://svb.sportigo.fr/buy/offer-proposition/bf0fa25f-e5bd-4ebe-bf33-e5cf1b6468da',
-                'bg-kids': 'https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20inscrire%20mon%20enfant%20au%20Pass%20Kids'
-            };
-
-            // Noms des pass pour affichage
-            const passNames = {
-                'bg-cross': 'Pass Cross',
-                'bg-yoga': 'Pass Focus',
-                'bg-reformer': 'Pass Reformer',
-                'bg-crossformer': 'Pass Crossformer',
-                'bg-kids': 'Pass Kids'
-            };
-
-            // Sélectionner tous les slots de cours
-            const classSlots = document.querySelectorAll('.class-slot');
-            
-            classSlots.forEach(slot => {
-                // Trouver quelle classe de couleur le slot a
-                let passClass = null;
-                let passUrl = null;
-                let passName = null;
-
-                for (let className in passUrls) {
-                    if (slot.classList.contains(className)) {
-                        passClass = className;
-                        passUrl = passUrls[className];
-                        passName = passNames[className];
-                        break;
-                    }
-                }
-
-                if (passUrl) {
-                    // Ajouter le nom du pass à la durée
-                    const durationSpan = slot.querySelector('.class-duration');
-                    if (durationSpan && !durationSpan.textContent.includes('•')) {
-                        durationSpan.textContent += ' • ' + passName;
-                    }
-
-                    // Rendre le slot cliquable
-                    slot.style.cursor = 'pointer';
-                    slot.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        window.open(passUrl, '_blank');
-                    });
-
-                    // Ajouter un tooltip au hover
-                    slot.title = 'Cliquez pour réserver avec ' + passName;
-                }
-            });
-        });
-
-        // WhatsApp bubble animation
         setTimeout(() => {
             const bubble = document.getElementById('wa-bubble');
             if(bubble) bubble.classList.add('show');
