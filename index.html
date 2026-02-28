@@ -268,6 +268,7 @@
       display: inline-block;
       position: relative;
       overflow: hidden;
+      text-decoration: none;
     }
     .cta-mega::before {
       content: '';
@@ -409,6 +410,7 @@
       transition: all 0.3s;
       background: transparent;
       display: inline-block;
+      text-decoration: none;
     }
     .text-card:hover .btn-small { background-color: var(--svb-green-dark); color: white; transform: scale(1.05); }
 
@@ -446,6 +448,7 @@
       transition: all 0.3s;
       border: 2px solid rgba(255,255,255,0.2);
       white-space: nowrap;
+      text-decoration: none;
     }
     .cta-sticky-btn:hover {
       transform: translateY(-2px);
@@ -467,6 +470,7 @@
       transition: all 0.3s ease;
       z-index: 9990;
       cursor: pointer;
+      text-decoration: none;
     }
     .whatsapp-btn:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6); }
     .whatsapp-pulse {
@@ -579,10 +583,10 @@
       </div>
 
       <!-- CODE PROMO -->
-      <div class="bg-gradient-to-r from-[#4A8D84] to-[#2d5a54] rounded-3xl p-8 max-w-2xl mx-auto mb-6 border-4 border-white shadow-2xl">
+      <div class="bg-gradient-to-r from-[#4A8D84] to-[#2d5a54] rounded-3xl p-6 md:p-8 max-w-2xl mx-auto mb-6 border-4 border-white shadow-2xl">
         <p class="text-white text-sm font-bold uppercase tracking-widest mb-4">Votre code promo</p>
-        <div class="bg-white rounded-2xl p-6 mb-4">
-          <p class="text-6xl md:text-7xl font-black text-[#4A8D84] tracking-wider" style="font-family: 'Montserrat', sans-serif; letter-spacing: 0.15em;">
+        <div class="bg-white rounded-2xl p-4 md:p-6 mb-4">
+          <p class="font-black text-[#4A8D84]" style="font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 10vw, 3.5rem); letter-spacing: 0.08em; white-space: nowrap;">
             SVBMARS
           </p>
         </div>
@@ -608,8 +612,7 @@
         </div>
       </div>
 
-      <a href="contact.html"
-         class="cta-mega mb-3">
+      <a href="contact.html" class="cta-mega mb-3">
         Voir nos horaires & adresse
       </a>
 
@@ -1060,7 +1063,7 @@
     </div>
   </div>
 
-  <a href="https://wa.me/33744919155" target="_blank" class="whatsapp-btn">
+  <a href="https://wa.me/33744919155?text=Bonjour,%20je%20viens%20pour%20l'offre%20SVBMARS" target="_blank" class="whatsapp-btn">
     <div class="whatsapp-pulse"></div>
     <svg width="35" height="35" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382C17.119 14.205 15.396 13.359 15.068 13.243C14.739 13.128 14.503 13.072 14.265 13.424C14.032 13.782 13.364 14.569 13.159 14.804C12.956 15.039 12.753 15.067 12.399 14.889C12.043 14.71 10.908 14.336 9.559 13.132C8.502 12.188 7.785 11.022 7.581 10.668C7.375 10.315 7.558 10.126 7.734 9.949C7.893 9.792 8.085 9.539 8.261 9.336C8.441 9.13 8.498 8.983 8.614 8.749C8.733 8.514 8.674 8.309 8.583 8.132C8.496 7.954 7.788 6.22 7.492 5.517C7.206 4.832 6.918 4.922 6.703 4.913C6.495 4.904 6.257 4.904 6.019 4.904C5.782 4.904 5.394 4.994 5.068 5.348C4.742 5.702 3.824 6.564 3.824 8.309C3.824 10.054 5.093 11.739 5.271 11.975C5.452 12.213 7.799 15.839 11.488 17.429C14.018 18.522 14.629 18.286 15.158 18.236C15.938 18.163 17.519 17.319 17.846 16.398C18.174 15.48 18.174 14.685 18.087 14.538C17.994 14.391 17.761 14.323 17.472 14.382ZM11.011 21.996C11.009 21.996 11.006 21.996 11.003 21.996C9.406 21.995 7.842 21.564 6.467 20.748L6.091 20.525L2.613 21.439L3.541 18.046L3.298 17.659C2.421 16.262 1.956 14.646 1.958 12.992C1.961 8.01 6.013 3.961 10.998 3.961C13.411 3.962 15.681 4.9 17.387 6.607C19.094 8.314 20.033 10.584 20.03 12.998C20.026 17.981 15.975 21.996 11.011 21.996Z"/>
@@ -1082,7 +1085,7 @@
     <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
     <ul class="space-y-2 opacity-80">
       <li>07 44 91 91 55</li>
-      <li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9af2fff6f6f5dae9eeeffef3f5e9ecf8b4fce8">[email&#160;protected]</a></li>
+      <li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1a9a4adadae81b2b5b4a5a8aeb2b7a3efa7b3">[email&#160;protected]</a></li>
       <li>@studiosvb</li>
     </ul>
   </div>
@@ -1148,5 +1151,14 @@ window.addEventListener('scroll', () => {
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', f
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
 ```
+
+  </script>
+</body>
+</html>
