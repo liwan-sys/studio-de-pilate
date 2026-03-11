@@ -58,15 +58,24 @@
     #splash-screen {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: linear-gradient(135deg, #4A8D84 0%, #98D0B3 50%, #E8B496 100%);
-      z-index: 9999; display: flex; justify-content: center; align-items: center;
+      z-index: 9999; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
       transition: opacity 0.8s ease-in-out, visibility 0.8s;
       padding: 20px;
     }
     .splash-offer-container {
       text-align: center;
-      max-width: 600px;
+      max-width: 90%;
+      width: 100%;
+      max-width: 500px;
       animation: splashFadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       opacity: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     @keyframes splashFadeIn { 
       0% { opacity: 0; transform: scale(0.9) translateY(30px); } 
@@ -86,12 +95,20 @@
       padding: 8px 24px;
       border-radius: 50px;
       display: inline-block;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .splash-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.5rem, 10vw, 4rem);
+      color: white;
+      margin-bottom: 2rem;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
       animation: titleFloat 3s ease-in-out infinite;
+      line-height: 1.2;
+      font-weight: 400;
+      width: 100%;
     }
     @keyframes titleFloat {
       0%, 100% { transform: translateY(0); }
@@ -102,14 +119,15 @@
       background: white;
       border-radius: 20px;
       padding: 1.5rem 2rem;
-      margin: 2rem auto;
+      margin: 0 auto 2rem;
       box-shadow: 0 15px 40px rgba(0,0,0,0.3);
       border: 3px solid rgba(255,255,255,0.5);
+      width: 100%;
       max-width: 400px;
     }
     .splash-code-label {
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 800;
       text-transform: uppercase;
       color: #4A8D84;
       letter-spacing: 0.1em;
@@ -117,32 +135,35 @@
     }
     .splash-code {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2rem, 8vw, 3rem);
+      font-size: clamp(1.8rem, 8vw, 2.5rem);
       font-weight: 900;
       color: #4A8D84;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       margin: 0;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
 
     .splash-description {
       color: white;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 2rem;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      line-height: 1.6;
+      width: 100%;
     }
 
     .splash-cta {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 12px;
       background: white;
       color: #4A8D84;
       padding: 18px 40px;
       border-radius: 50px;
       font-weight: 900;
-      font-size: 1.1rem;
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       text-decoration: none;
@@ -152,6 +173,8 @@
       margin-bottom: 1.5rem;
       position: relative;
       overflow: hidden;
+      width: 100%;
+      max-width: 350px;
     }
     .splash-cta::before {
       content: '';
@@ -173,6 +196,7 @@
     }
     .splash-arrow {
       transition: transform 0.3s;
+      flex-shrink: 0;
     }
     .splash-cta:hover .splash-arrow {
       transform: translateX(5px);
@@ -199,15 +223,22 @@
 
     @media (max-width: 640px) {
       .splash-code {
-        font-size: 2rem;
-        letter-spacing: 0.1em;
+        font-size: 1.8rem;
+        letter-spacing: 0.15em;
       }
       .splash-cta {
         padding: 14px 30px;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        max-width: 100%;
       }
       .splash-title {
-        font-size: 2.5rem !important;
+        font-size: 2.5rem;
+      }
+      .splash-code-box {
+        padding: 1rem 1.5rem;
+      }
+      .splash-description {
+        font-size: 0.85rem;
       }
     }
 
@@ -663,19 +694,19 @@
 
 ```
   <!-- Titre principal -->
-  <h1 class="splash-title" style="font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 8vw, 5rem); color: white; margin-bottom: 1rem; text-shadow: 3px 3px 10px rgba(0,0,0,0.3);">
+  <h1 class="splash-title">
     Première séance offerte
   </h1>
   
   <!-- Code promo -->
   <div class="splash-code-box">
-    <p class="splash-code-label">Votre code :</p>
+    <p class="splash-code-label">VOTRE CODE :</p>
     <p class="splash-code">SVBMARS</p>
   </div>
   
   <!-- Description -->
   <p class="splash-description">
-    Reformer ou Crossformer • 50 minutes • Valeur 50€
+    Reformer ou Crossformer • 50 minutes<br />Valeur 50€
   </p>
   
   <!-- Bouton Calendly -->
@@ -683,7 +714,7 @@
      target="_blank"
      class="splash-cta"
      onclick="sessionStorage.setItem('svb-splash-seen', 'true')">
-    Réserver maintenant
+    RÉSERVER MAINTENANT
     <svg class="splash-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
@@ -691,7 +722,7 @@
   
   <!-- Bouton fermer -->
   <button class="splash-skip" onclick="document.getElementById('splash-screen').classList.add('splash-hidden'); document.body.classList.remove('overflow-hidden'); document.body.classList.add('content-visible'); sessionStorage.setItem('svb-splash-seen', 'true');">
-    Passer →
+    PASSER →
   </button>
 </div>
 ```
