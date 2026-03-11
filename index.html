@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-
+répare le code <!DOCTYPE html>
 <html lang="fr">
 <head>
   <script>
@@ -8,21 +7,11 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-5RW8LB7B');
-  </script>
-
-  <meta charset="UTF-8" />
+  </script><meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SVB SantezVousBien | Studio Pilates & Coaching Saint-Ouen</title>
-
-  <link rel="icon" type="image/png" href="images/favicon.jpg" />
-  <link rel="apple-touch-icon" href="images/favicon.jpg" />
-
-  <!-- CALLIGRAPHIE PREMIUM AMÉLIORÉE -->
-
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
+  <title>SVB SantezVousBien | Studio Pilates & Coaching Saint-Ouen</title><link rel="icon" type="image/png" href="images/favicon.jpg" />
+  <link rel="apple-touch-icon" href="images/favicon.jpg" /><!-- CALLIGRAPHIE PREMIUM AMÉLIORÉE --><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script><style>
     :root {
       --svb-green-light: #98D0B3;
       --svb-green-dark: #4A8D84;
@@ -54,116 +43,17 @@
       letter-spacing: 0.02em;
     }
 
-    /* === SPLASH SCREEN ULTRA SIMPLE === */
+    /* === SPLASH SCREEN === */
     #splash-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #4A8D84 0%, #98D0B3 50%, #E8B496 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      opacity: 1;
-      transition: opacity 0.5s ease;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
+      z-index: 9999; display: flex; justify-content: center; align-items: center;
+      transition: opacity 0.8s ease-in-out, visibility 0.8s;
     }
-
-    #splash-screen.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .splash-box {
-      width: 90%;
-      max-width: 450px;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .splash-badge {
-      background: rgba(255,255,255,0.25);
-      border: 2px solid white;
-      color: white;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 3px;
-      padding: 8px 20px;
-      border-radius: 30px;
-      display: inline-block;
-      margin-bottom: 25px;
-    }
-
-    .splash-h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.8rem;
-      color: white;
-      margin: 0 0 25px 0;
-      line-height: 1.2;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    }
-
-    .splash-white-box {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      margin: 0 0 25px 0;
-    }
-
-    .splash-label {
-      font-size: 11px;
-      font-weight: 900;
-      color: #4A8D84;
-      letter-spacing: 2px;
-      margin: 0 0 8px 0;
-    }
-
-    .splash-code-text {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: #4A8D84;
-      letter-spacing: 4px;
-      margin: 0;
-    }
-
-    .splash-desc {
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      margin: 0 0 25px 0;
-      line-height: 1.5;
-    }
-
-    .splash-button {
-      display: inline-block;
-      background: white;
-      color: #4A8D84;
-      padding: 16px 35px;
-      border-radius: 30px;
-      font-weight: 900;
-      font-size: 13px;
-      text-decoration: none;
-      margin: 0 0 15px 0;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-    }
-
-    .splash-skip-btn {
-      background: transparent;
-      border: 2px solid rgba(255,255,255,0.5);
-      color: white;
-      padding: 8px 20px;
-      border-radius: 25px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    @media (max-width: 500px) {
-      .splash-h1 { font-size: 2.2rem; }
-      .splash-code-text { font-size: 1.4rem; letter-spacing: 2px; }
-      .splash-button { font-size: 12px; padding: 14px 28px; }
-    }
+    #splash-logo { width: 150px; opacity: 0; transform: scale(0.8); filter: brightness(0) invert(1); }
+    .animate-logo { animation: logoIntro 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    @keyframes logoIntro { 0% { opacity: 0; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
+    .splash-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
     /* FOND IMMERSIF */
     .ambient-bg {
@@ -599,64 +489,22 @@
       .cta-mega { padding: 12px 20px; font-size: 0.8rem; }
       h2 { font-size: 2.5rem !important; }
     }
-  </style>
-
-</head>
-
-<body class="overflow-hidden">
-
-  <noscript>
+  </style></head><body class="overflow-hidden"><noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-
-  <div id="splash-screen">
-    <div class="splash-box">
-      <div class="splash-badge">MARS 2026</div>
-
-```
-  <h1 class="splash-h1">Première séance offerte</h1>
-  
-  <div class="splash-white-box">
-    <p class="splash-label">VOTRE CODE :</p>
-    <p class="splash-code-text">SVBMARS</p>
-  </div>
-  
-  <p class="splash-desc">
-    Toutes nos disciplines<br>50 minutes • Valeur jusqu'à 50€
-  </p>
-  
-  <a href="https://calendly.com/santezvousbien-svb/presentation-et-visite-guidee-du-studio" 
-     target="_blank"
-     class="splash-button"
-     onclick="closeSplash()">
-    RÉSERVER MAINTENANT →
-  </a>
-  
-  <br>
-  
-  <button class="splash-skip-btn" onclick="closeSplash()">
-    PASSER →
-  </button>
-</div>
-```
-
-  </div>
-
-  <div class="ambient-bg">
+  </noscript><div id="splash-screen">
+    <img id="splash-logo" src="images/logo.png" alt="SVB Logo" />
+  </div><div class="ambient-bg">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
   </div>
-  <div class="noise-overlay"></div>
-
-  <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
+  <div class="noise-overlay"></div><nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
     <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
       <a href="index.html">
         <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md" />
       </a>
     </div>
 
-```
 <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
   <a href="index.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">ACCUEIL</a>
   <a href="sessions.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">SESSIONS</a>
@@ -668,11 +516,9 @@
   <a href="faq.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">FAQ</a>
   <a href="contact.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">CONTACT</a>
 </div>
-```
 
-  </nav>
 
-  <header class="relative text-center py-16 px-4 reveal-load d-1 z-10">
+</nav><header class="relative text-center py-16 px-4 reveal-load d-1 z-10">
     <h1 class="text-5xl sm:text-7xl md:text-9xl text-white drop-shadow-2xl mb-4 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default">
       SantezVousBien
     </h1>
@@ -684,16 +530,11 @@
       <a href="#offre-premium" class="btn-action scroll-smooth">1ère séance offerte</a>
       <a href="contact.html" class="btn-hero scroll-smooth">Nos studios</a>
     </div>
-  </header>
-
-  <!-- OFFRE PREMIUM GRATUITE -->
-
-  <div id="offre-premium" class="relative px-4 pb-16 reveal-load d-2 z-10" style="overflow: visible; max-width: 100vw;">
+  </header><!-- OFFRE PREMIUM GRATUITE --><div id="offre-premium" class="relative px-4 pb-16 reveal-load d-2 z-10" style="overflow: visible; max-width: 100vw;">
     <div class="premium-offer-wrapper" style="overflow: visible; max-width: 100%;">
       <div class="premium-offer-card">
         <div class="offer-flash-badge">PLACES LIMITÉES</div>
 
-```
     <div class="text-center">
       <span class="bg-gradient-to-r from-[#98D0B3] to-[#4A8D84] text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-5 inline-block shadow-md">
         Offre Découverte Mars 2026
@@ -702,12 +543,12 @@
       <h2 class="text-4xl md:text-6xl font-hand text-[#4A8D84] mb-4">Première séance offerte</h2>
 
       <p class="text-lg text-gray-700 font-bold mb-4">
-        Toutes nos disciplines au choix
+        Reformer ou Crossformer • Équipements haut de gamme
       </p>
 
       <div class="offer-hero-box">
         <div class="free-tag-impact">COURS OFFERT</div>
-        <div class="value-badge">Séance complète 50-55min • Valeur jusqu'à 50€</div>
+        <div class="value-badge">Séance complète 50min • Valeur 50€</div>
       </div>
 
       <!-- CODE PROMO -->
@@ -751,52 +592,24 @@
       </p>
 
       <!-- CHOIX DES COURS -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8 px-2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8 px-2">
         <div class="choice-card-premium">
-          <div class="font-black text-lg uppercase text-[#4A8D84] mb-2">Reformer</div>
-          <div class="text-xs text-gray-600 font-semibold mb-2">Pilates sur machine • 50min</div>
+          <div class="font-black text-xl uppercase text-[#D4C3A3] mb-3">Reformer</div>
+          <div class="text-sm text-gray-600 font-semibold mb-3">Pilates sur machine • 50min</div>
           <div class="text-xs text-gray-500">
-            Sculpte & tonifie • Renforce en profondeur
+            Sculpte & tonifie<br />
+            Renforce en profondeur<br />
+            Résultats visibles rapidement
           </div>
         </div>
 
         <div class="choice-card-premium">
-          <div class="font-black text-lg uppercase text-[#E8B496] mb-2">Crossformer</div>
-          <div class="text-xs text-gray-600 font-semibold mb-2">Intensité & Cardio • 50min</div>
+          <div class="font-black text-xl uppercase text-[#E8B496] mb-3">Crossformer</div>
+          <div class="text-sm text-gray-600 font-semibold mb-3">Intensité & Cardio • 50min</div>
           <div class="text-xs text-gray-500">
-            600 calories brûlées • Transformation rapide
-          </div>
-        </div>
-
-        <div class="choice-card-premium">
-          <div class="font-black text-lg uppercase text-[#98D0B3] mb-2">Cross Training</div>
-          <div class="text-xs text-gray-600 font-semibold mb-2">Functional Training • 55min</div>
-          <div class="text-xs text-gray-500">
-            Force & Endurance • Travail complet
-          </div>
-        </div>
-
-        <div class="choice-card-premium">
-          <div class="font-black text-lg uppercase text-[#D4C3A3] mb-2">Yoga</div>
-          <div class="text-xs text-gray-600 font-semibold mb-2">Bien-être & Souplesse • 55min</div>
-          <div class="text-xs text-gray-500">
-            Relaxation • Équilibre corps-esprit
-          </div>
-        </div>
-
-        <div class="choice-card-premium">
-          <div class="font-black text-lg uppercase text-[#E8B496] mb-2">Boxe</div>
-          <div class="text-xs text-gray-600 font-semibold mb-2">Cardio-Boxing • 55min</div>
-          <div class="text-xs text-gray-500">
-            Défouloir • Technique & Intensité
-          </div>
-        </div>
-
-        <div class="choice-card-premium">
-          <div class="font-black text-lg uppercase text-[#4A8D84] mb-2">Afrodance</div>
-          <div class="text-xs text-gray-600 font-semibold mb-2">Danse Fitness • 55min</div>
-          <div class="text-xs text-gray-500">
-            Énergie & Plaisir • Renforcement en musique
+            Jusqu'à 600 calories brûlées<br />
+            Concept signature SVB<br />
+            Transformation rapide
           </div>
         </div>
       </div>
@@ -808,7 +621,7 @@
       </div>
 
       <p class="text-xs text-gray-500 italic mt-4 mb-6">
-        * Offre valable pour les nouveaux membres uniquement • Une séance d'essai offerte au choix parmi toutes nos disciplines • Code SVBMARS à indiquer à l'accueil
+        * Offre valable pour les nouveaux membres uniquement • Code SVBMARS à indiquer à l'accueil
       </p>
 
       <!-- TÉMOIGNAGE -->
@@ -817,7 +630,7 @@
           <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
         </div>
         <p class="text-sm text-gray-700 italic mb-2">
-          "J'ai testé gratuitement plusieurs cours avec le code SVBMARS et j'ai signé le jour même ! Toutes les disciplines sont au top."
+          "J'ai fait mon essai gratuit Reformer et j'ai signé le jour même ! L'équipe est au top et les résultats sont là."
         </p>
         <p class="text-xs font-bold text-gray-600">Marie, membre SVB depuis 6 mois</p>
       </div>
@@ -836,19 +649,14 @@
     </div>
   </div>
 </div>
-```
 
-  </div>
 
-  <!-- PASS STARTER -->
-
-  <div id="pass-starter" class="relative px-4 pb-24 reveal-load d-3 z-10">
+</div><!-- PASS STARTER --><div id="pass-starter" class="relative px-4 pb-24 reveal-load d-3 z-10">
     <div class="text-center mb-10">
       <h2 class="text-5xl text-white font-hand mb-3 drop-shadow-md">Ou découvrez TOUTES nos activités</h2>
       <p class="text-white text-sm opacity-90 font-medium">Le meilleur rapport qualité/prix pour essayer l'ensemble du studio</p>
     </div>
 
-```
 <div class="starter-card-wrapper">
   <div class="starter-card">
     <div class="best-seller-badge">BEST-SELLER</div>
@@ -894,17 +702,12 @@
     </div>
   </div>
 </div>
-```
 
-  </div>
 
-  <!-- CARTES DE RÉSERVATION -->
-
-  <div class="relative max-w-6xl mx-auto px-4 pb-16 text-center reveal-load d-3 z-10">
+</div><!-- CARTES DE RÉSERVATION --><div class="relative max-w-6xl mx-auto px-4 pb-16 text-center reveal-load d-3 z-10">
     <h2 class="text-4xl md:text-5xl text-white font-hand mb-4 drop-shadow-md">Vous savez déjà ce que vous voulez ?</h2>
     <p class="text-white text-sm mb-12 opacity-90 font-medium">Réservez votre cours à l'unité • ou profitez du meilleur prix avec l'abonnement (dès 4 séances)</p>
 
-```
 <div class="grid md:grid-cols-3 gap-6">
   <!-- REFORMER -->
   <div class="text-card group cursor-pointer"
@@ -1071,13 +874,9 @@
     Parler à un conseiller
   </a>
 </div>
-```
 
-  </div>
 
-  <!-- TÉMOIGNAGES -->
-
-  <section class="relative py-20 reveal-load d-3 z-10">
+</div><!-- TÉMOIGNAGES --><section class="relative py-20 reveal-load d-3 z-10">
     <div class="text-center mb-10 px-4">
       <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">La communauté SVB</h2>
       <div class="flex justify-center items-center space-x-1 text-[#D4AF37] mb-2 text-2xl">
@@ -1086,7 +885,6 @@
       <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm">Vos témoignages 5/5 sur Google Maps</p>
     </div>
 
-```
 <div class="relative max-w-7xl mx-auto px-4 group">
   <button onclick="document.getElementById('reviews-slider').scrollBy({left: -350, behavior: 'smooth'})"
           class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-[#4A8D84] p-3 rounded-full shadow-lg backdrop-blur-sm transition opacity-0 group-hover:opacity-100 -ml-4 md:ml-0 hidden md:block">
@@ -1141,13 +939,9 @@
     Lire tous nos avis sur Google
   </a>
 </div>
-```
 
-  </section>
 
-  <!-- NOS 2 STUDIOS -->
-
-  <section class="relative max-w-6xl mx-auto px-4 pb-24 reveal-load d-2 z-10">
+</section><!-- NOS 2 STUDIOS --><section class="relative max-w-6xl mx-auto px-4 pb-24 reveal-load d-2 z-10">
     <div class="text-center mb-12">
       <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">Nos 2 Studios</h2>
       <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
@@ -1155,7 +949,6 @@
       </p>
     </div>
 
-```
 <div class="grid md:grid-cols-2 gap-12 items-center">
   <div class="text-right space-y-10 text-white">
     <div class="group cursor-default">
@@ -1186,13 +979,9 @@
     </iframe>
   </div>
 </div>
-```
 
-  </section>
 
-  <!-- CTA STICKY -->
-
-  <div id="cta-sticky" class="cta-sticky">
+</section><!-- CTA STICKY --><div id="cta-sticky" class="cta-sticky">
     <div class="cta-sticky-content">
       <div class="cta-sticky-info">
         <div class="cta-sticky-text">Réservez sur Calendly puis donnez le code SVBMARS au studio</div>
@@ -1202,16 +991,12 @@
         Réserver sur Calendly
       </a>
     </div>
-  </div>
-
-  <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20réserver%20un%20créneau%20pour%20l'offre%20SVBMARS" target="_blank" class="whatsapp-btn">
+  </div><a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20réserver%20un%20créneau%20pour%20l'offre%20SVBMARS" target="_blank" class="whatsapp-btn">
     <div class="whatsapp-pulse"></div>
     <svg width="35" height="35" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382C17.119 14.205 15.396 13.359 15.068 13.243C14.739 13.128 14.503 13.072 14.265 13.424C14.032 13.782 13.364 14.569 13.159 14.804C12.956 15.039 12.753 15.067 12.399 14.889C12.043 14.71 10.908 14.336 9.559 13.132C8.502 12.188 7.785 11.022 7.581 10.668C7.375 10.315 7.558 10.126 7.734 9.949C7.893 9.792 8.085 9.539 8.261 9.336C8.441 9.13 8.498 8.983 8.614 8.749C8.733 8.514 8.674 8.309 8.583 8.132C8.496 7.954 7.788 6.22 7.492 5.517C7.206 4.832 6.918 4.922 6.703 4.913C6.495 4.904 6.257 4.904 6.019 4.904C5.782 4.904 5.394 4.994 5.068 5.348C4.742 5.702 3.824 6.564 3.824 8.309C3.824 10.054 5.093 11.739 5.271 11.975C5.452 12.213 7.799 15.839 11.488 17.429C14.018 18.522 14.629 18.286 15.158 18.236C15.938 18.163 17.519 17.319 17.846 16.398C18.174 15.48 18.174 14.685 18.087 14.538C17.994 14.391 17.761 14.323 17.472 14.382ZM11.011 21.996C11.009 21.996 11.006 21.996 11.003 21.996C9.406 21.995 7.842 21.564 6.467 20.748L6.091 20.525L2.613 21.439L3.541 18.046L3.298 17.659C2.421 16.262 1.956 14.646 1.958 12.992C1.961 8.01 6.013 3.961 10.998 3.961C13.411 3.962 15.681 4.9 17.387 6.607C19.094 8.314 20.033 10.584 20.03 12.998C20.026 17.981 15.975 21.996 11.011 21.996Z"/>
     </svg>
-  </a>
-
-  <footer class="bg-[#2F4F4F] text-white py-12 mt-16">
+  </a><footer class="bg-[#2F4F4F] text-white py-12 mt-16">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
       <div>
         <img src="images/logo.png" alt="Logo SVB" class="w-32 mb-6" />
@@ -1221,13 +1006,12 @@
         </p>
       </div>
 
-```
   <div>
     <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
     <ul class="space-y-2 opacity-80">
       <li>07 44 91 91 55</li>
-      <li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1a9a4adadae81b2b5b4a5a8aeb2b7a3efa7b3">[email&#160;protected]</a></li>
-      <li>@studiosvb</li>
+      <li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1a9a4adadae81b2b5b4a5a8aeb2b7a3efa7b3"></a></li>
+      <li>Hello@studiosvb</li>
     </ul>
   </div>
 
@@ -1249,29 +1033,28 @@
     <a href="cgv.html" class="hover:text-white transition underline decoration-1 underline-offset-2">CGV</a>
   </div>
 </div>
-```
 
-  </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+</footer><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
-```
-function closeSplash() {
+window.addEventListener('load', () => {
   const splash = document.getElementById('splash-screen');
-  splash.classList.add('hidden');
-  document.body.classList.remove('overflow-hidden');
-  document.body.classList.add('content-visible');
-  sessionStorage.setItem('svb-splash-seen', 'true');
-}
+  const logo = document.getElementById('splash-logo');
+  const body = document.body;
 
-window.addEventListener('load', function() {
   if (sessionStorage.getItem('svb-splash-seen')) {
-    document.getElementById('splash-screen').style.display = 'none';
-    document.body.classList.remove('overflow-hidden');
-    document.body.classList.add('content-visible');
+    splash.style.display = 'none';
+    body.classList.remove('overflow-hidden');
+    body.classList.add('content-visible');
   } else {
-    // Auto-fermeture après 10 secondes
-    setTimeout(closeSplash, 10000);
+    logo.classList.add('animate-logo');
+
+    setTimeout(() => {
+      splash.classList.add('splash-hidden');
+      body.classList.remove('overflow-hidden');
+      body.classList.add('content-visible');
+      sessionStorage.setItem('svb-splash-seen', 'true');
+    }, 2500);
   }
 });
 
@@ -1296,8 +1079,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
 });
-```
 
-  </script>
+
+</script>
 </body>
-</html>
+</html>a
