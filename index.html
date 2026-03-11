@@ -54,192 +54,115 @@
       letter-spacing: 0.02em;
     }
 
-    /* === SPLASH SCREEN === */
+    /* === SPLASH SCREEN ULTRA SIMPLE === */
     #splash-screen {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(135deg, #4A8D84 0%, #98D0B3 50%, #E8B496 100%);
-      z-index: 9999; 
-      display: flex; 
-      justify-content: center; 
-      align-items: center;
-      transition: opacity 0.8s ease-in-out, visibility 0.8s;
-      padding: 20px;
-    }
-    .splash-offer-container {
-      text-align: center;
-      max-width: 90%;
-      width: 100%;
-      max-width: 500px;
-      animation: splashFadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      opacity: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    @keyframes splashFadeIn { 
-      0% { opacity: 0; transform: scale(0.9) translateY(30px); } 
-      100% { opacity: 1; transform: scale(1) translateY(0); } 
-    }
-    .splash-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-
-    .splash-badge {
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(10px);
-      border: 2px solid white;
-      color: white;
-      font-size: 0.75rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      padding: 8px 24px;
-      border-radius: 50px;
-      display: inline-block;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-
-    .splash-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(2.5rem, 10vw, 4rem);
-      color: white;
-      margin-bottom: 2rem;
-      text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
-      animation: titleFloat 3s ease-in-out infinite;
-      line-height: 1.2;
-      font-weight: 400;
-      width: 100%;
-    }
-    @keyframes titleFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .splash-code-box {
-      background: white;
-      border-radius: 20px;
-      padding: 1.5rem 2rem;
-      margin: 0 auto 2rem;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-      border: 3px solid rgba(255,255,255,0.5);
-      width: 100%;
-      max-width: 400px;
-    }
-    .splash-code-label {
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #4A8D84;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
-    .splash-code {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.8rem, 8vw, 2.5rem);
-      font-weight: 900;
-      color: #4A8D84;
-      letter-spacing: 0.2em;
-      margin: 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .splash-description {
-      color: white;
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-      line-height: 1.6;
-      width: 100%;
-    }
-
-    .splash-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: white;
-      color: #4A8D84;
-      padding: 18px 40px;
-      border-radius: 50px;
-      font-weight: 900;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      border: 3px solid rgba(255,255,255,0.3);
-      margin-bottom: 1.5rem;
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      max-width: 350px;
-    }
-    .splash-cta::before {
-      content: '';
-      position: absolute;
+      position: fixed;
       top: 0;
-      left: -100%;
+      left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(74, 141, 132, 0.2), transparent);
-      transition: left 0.6s;
-    }
-    .splash-cta:hover::before {
-      left: 100%;
-    }
-    .splash-cta:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-      background: #f8f8f8;
-    }
-    .splash-arrow {
-      transition: transform 0.3s;
-      flex-shrink: 0;
-    }
-    .splash-cta:hover .splash-arrow {
-      transform: translateX(5px);
+      background: linear-gradient(135deg, #4A8D84 0%, #98D0B3 50%, #E8B496 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease;
     }
 
-    .splash-skip {
+    #splash-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .splash-box {
+      width: 90%;
+      max-width: 450px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .splash-badge {
+      background: rgba(255,255,255,0.25);
+      border: 2px solid white;
+      color: white;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      padding: 8px 20px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 25px;
+    }
+
+    .splash-h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: white;
+      margin: 0 0 25px 0;
+      line-height: 1.2;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .splash-white-box {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      margin: 0 0 25px 0;
+    }
+
+    .splash-label {
+      font-size: 11px;
+      font-weight: 900;
+      color: #4A8D84;
+      letter-spacing: 2px;
+      margin: 0 0 8px 0;
+    }
+
+    .splash-code-text {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #4A8D84;
+      letter-spacing: 4px;
+      margin: 0;
+    }
+
+    .splash-desc {
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 25px 0;
+      line-height: 1.5;
+    }
+
+    .splash-button {
+      display: inline-block;
+      background: white;
+      color: #4A8D84;
+      padding: 16px 35px;
+      border-radius: 30px;
+      font-weight: 900;
+      font-size: 13px;
+      text-decoration: none;
+      margin: 0 0 15px 0;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    }
+
+    .splash-skip-btn {
       background: transparent;
       border: 2px solid rgba(255,255,255,0.5);
       color: white;
-      padding: 10px 25px;
-      border-radius: 50px;
-      font-size: 0.85rem;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 12px;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.3s;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .splash-skip:hover {
-      background: rgba(255,255,255,0.2);
-      border-color: white;
-      transform: translateX(3px);
     }
 
-    @media (max-width: 640px) {
-      .splash-code {
-        font-size: 1.8rem;
-        letter-spacing: 0.15em;
-      }
-      .splash-cta {
-        padding: 14px 30px;
-        font-size: 0.9rem;
-        max-width: 100%;
-      }
-      .splash-title {
-        font-size: 2.5rem;
-      }
-      .splash-code-box {
-        padding: 1rem 1.5rem;
-      }
-      .splash-description {
-        font-size: 0.85rem;
-      }
+    @media (max-width: 500px) {
+      .splash-h1 { font-size: 2.2rem; }
+      .splash-code-text { font-size: 1.4rem; letter-spacing: 2px; }
+      .splash-button { font-size: 12px; padding: 14px 28px; }
     }
 
     /* FOND IMMERSIF */
@@ -688,40 +611,31 @@
   </noscript>
 
   <div id="splash-screen">
-    <div class="splash-offer-container">
-      <!-- Badge MARS -->
+    <div class="splash-box">
       <div class="splash-badge">MARS 2026</div>
 
 ```
-  <!-- Titre principal -->
-  <h1 class="splash-title">
-    Première séance offerte
-  </h1>
+  <h1 class="splash-h1">Première séance offerte</h1>
   
-  <!-- Code promo -->
-  <div class="splash-code-box">
-    <p class="splash-code-label">VOTRE CODE :</p>
-    <p class="splash-code">SVBMARS</p>
+  <div class="splash-white-box">
+    <p class="splash-label">VOTRE CODE :</p>
+    <p class="splash-code-text">SVBMARS</p>
   </div>
   
-  <!-- Description -->
-  <p class="splash-description">
-    Reformer ou Crossformer • 50 minutes<br />Valeur 50€
+  <p class="splash-desc">
+    Toutes nos disciplines • 50 minutes<br>Valeur jusqu'à 50€
   </p>
   
-  <!-- Bouton Calendly -->
   <a href="https://calendly.com/santezvousbien-svb/presentation-et-visite-guidee-du-studio" 
      target="_blank"
-     class="splash-cta"
-     onclick="sessionStorage.setItem('svb-splash-seen', 'true')">
-    RÉSERVER MAINTENANT
-    <svg class="splash-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+     class="splash-button"
+     onclick="closeSplash()">
+    RÉSERVER MAINTENANT →
   </a>
   
-  <!-- Bouton fermer -->
-  <button class="splash-skip" onclick="document.getElementById('splash-screen').classList.add('splash-hidden'); document.body.classList.remove('overflow-hidden'); document.body.classList.add('content-visible'); sessionStorage.setItem('svb-splash-seen', 'true');">
+  <br>
+  
+  <button class="splash-skip-btn" onclick="closeSplash()">
     PASSER →
   </button>
 </div>
@@ -788,12 +702,12 @@
       <h2 class="text-4xl md:text-6xl font-hand text-[#4A8D84] mb-4">Première séance offerte</h2>
 
       <p class="text-lg text-gray-700 font-bold mb-4">
-        Reformer ou Crossformer • Équipements haut de gamme
+        Toutes nos disciplines • Reformer, Crossformer, Cross, Yoga, Boxe...
       </p>
 
       <div class="offer-hero-box">
         <div class="free-tag-impact">COURS OFFERT</div>
-        <div class="value-badge">Séance complète 50min • Valeur 50€</div>
+        <div class="value-badge">Séance complète 50-55min • Valeur jusqu'à 50€</div>
       </div>
 
       <!-- CODE PROMO -->
@@ -837,24 +751,52 @@
       </p>
 
       <!-- CHOIX DES COURS -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8 px-2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8 px-2">
         <div class="choice-card-premium">
-          <div class="font-black text-xl uppercase text-[#D4C3A3] mb-3">Reformer</div>
-          <div class="text-sm text-gray-600 font-semibold mb-3">Pilates sur machine • 50min</div>
+          <div class="font-black text-lg uppercase text-[#4A8D84] mb-2">Reformer</div>
+          <div class="text-xs text-gray-600 font-semibold mb-2">Pilates sur machine • 50min</div>
           <div class="text-xs text-gray-500">
-            Sculpte & tonifie<br />
-            Renforce en profondeur<br />
-            Résultats visibles rapidement
+            Sculpte & tonifie • Renforce en profondeur
           </div>
         </div>
 
         <div class="choice-card-premium">
-          <div class="font-black text-xl uppercase text-[#E8B496] mb-3">Crossformer</div>
-          <div class="text-sm text-gray-600 font-semibold mb-3">Intensité & Cardio • 50min</div>
+          <div class="font-black text-lg uppercase text-[#E8B496] mb-2">Crossformer</div>
+          <div class="text-xs text-gray-600 font-semibold mb-2">Intensité & Cardio • 50min</div>
           <div class="text-xs text-gray-500">
-            Jusqu'à 600 calories brûlées<br />
-            Concept signature SVB<br />
-            Transformation rapide
+            600 calories brûlées • Transformation rapide
+          </div>
+        </div>
+
+        <div class="choice-card-premium">
+          <div class="font-black text-lg uppercase text-[#98D0B3] mb-2">Cross Training</div>
+          <div class="text-xs text-gray-600 font-semibold mb-2">Functional Training • 55min</div>
+          <div class="text-xs text-gray-500">
+            Force & Endurance • Travail complet
+          </div>
+        </div>
+
+        <div class="choice-card-premium">
+          <div class="font-black text-lg uppercase text-[#D4C3A3] mb-2">Yoga</div>
+          <div class="text-xs text-gray-600 font-semibold mb-2">Bien-être & Souplesse • 55min</div>
+          <div class="text-xs text-gray-500">
+            Relaxation • Équilibre corps-esprit
+          </div>
+        </div>
+
+        <div class="choice-card-premium">
+          <div class="font-black text-lg uppercase text-[#E8B496] mb-2">Boxe</div>
+          <div class="text-xs text-gray-600 font-semibold mb-2">Cardio-Boxing • 55min</div>
+          <div class="text-xs text-gray-500">
+            Défouloir • Technique & Intensité
+          </div>
+        </div>
+
+        <div class="choice-card-premium">
+          <div class="font-black text-lg uppercase text-[#4A8D84] mb-2">Afrodance</div>
+          <div class="text-xs text-gray-600 font-semibold mb-2">Danse Fitness • 55min</div>
+          <div class="text-xs text-gray-500">
+            Énergie & Plaisir • Renforcement en musique
           </div>
         </div>
       </div>
@@ -866,7 +808,7 @@
       </div>
 
       <p class="text-xs text-gray-500 italic mt-4 mb-6">
-        * Offre valable pour les nouveaux membres uniquement • Code SVBMARS à indiquer à l'accueil
+        * Offre valable pour les nouveaux membres uniquement • Une séance d'essai offerte au choix parmi toutes nos disciplines • Code SVBMARS à indiquer à l'accueil
       </p>
 
       <!-- TÉMOIGNAGE -->
@@ -875,7 +817,7 @@
           <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
         </div>
         <p class="text-sm text-gray-700 italic mb-2">
-          "J'ai fait mon essai gratuit Reformer et j'ai signé le jour même ! L'équipe est au top et les résultats sont là."
+          "J'ai testé gratuitement plusieurs cours avec le code SVBMARS et j'ai signé le jour même ! Toutes les disciplines sont au top."
         </p>
         <p class="text-xs font-bold text-gray-600">Marie, membre SVB depuis 6 mois</p>
       </div>
@@ -1314,24 +1256,22 @@
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
 ```
-window.addEventListener('load', () => {
+function closeSplash() {
   const splash = document.getElementById('splash-screen');
-  const body = document.body;
+  splash.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+  document.body.classList.add('content-visible');
+  sessionStorage.setItem('svb-splash-seen', 'true');
+}
 
+window.addEventListener('load', function() {
   if (sessionStorage.getItem('svb-splash-seen')) {
-    splash.style.display = 'none';
-    body.classList.remove('overflow-hidden');
-    body.classList.add('content-visible');
+    document.getElementById('splash-screen').style.display = 'none';
+    document.body.classList.remove('overflow-hidden');
+    document.body.classList.add('content-visible');
   } else {
-    // Auto-fermeture après 8 secondes si pas d'interaction
-    setTimeout(() => {
-      if (!sessionStorage.getItem('svb-splash-seen')) {
-        splash.classList.add('splash-hidden');
-        body.classList.remove('overflow-hidden');
-        body.classList.add('content-visible');
-        sessionStorage.setItem('svb-splash-seen', 'true');
-      }
-    }, 8000);
+    // Auto-fermeture après 10 secondes
+    setTimeout(closeSplash, 10000);
   }
 });
 
