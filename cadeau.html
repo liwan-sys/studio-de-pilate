@@ -103,12 +103,12 @@
 
         /* === DESIGN CARTE CADEAU "LUXE" === */
         .gift-container {
-            background: rgba(255, 255, 255, 0.85); /* Plus opaque pour la lisibilitÃ© */
+            background: rgba(255, 255, 255, 0.85); /* Plus opaque pour la lisibilité */
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 2px solid white;
             border-radius: 40px;
-            padding: 0; /* Padding gÃ©rÃ© Ã  l'intÃ©rieur */
+            padding: 0; /* Padding géré à l'intérieur */
             box-shadow: 0 30px 60px rgba(0,0,0,0.1);
             max-width: 900px;
             margin: 0 auto;
@@ -116,7 +116,7 @@
             overflow: hidden;
         }
 
-        /* Bandeau dÃ©coratif en haut */
+        /* Bandeau décoratif en haut */
         .gift-header {
             background: linear-gradient(135deg, var(--svb-peach) 0%, #f6d0b9 100%);
             padding: 30px 20px;
@@ -137,7 +137,7 @@
             padding: 40px;
         }
 
-        /* Ãtapes */
+        /* Étapes */
         .steps-row {
             display: flex;
             justify-content: center;
@@ -168,7 +168,7 @@
             overflow: hidden;
         }
 
-        /* Petit ruban dÃ©coratif en CSS */
+        /* Petit ruban décoratif en CSS */
         .ribbon {
             position: absolute; top: -10px; right: 30px; width: 60px; height: 80px;
             background: var(--svb-green-dark);
@@ -240,7 +240,7 @@
             <a href="index.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">ACCUEIL</a>
             <a href="sessions.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">SESSIONS</a>
             <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">LA TEAM</a>
-            <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÃTRE</a>
+            <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
             <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
             <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">ABONNEMENTS</a>
             <a href="carte-cadeau.html" class="border-b-2 border-white pb-1">CADEAU</a>
@@ -250,9 +250,9 @@
     </nav>
 
     <header class="relative text-center pt-16 pb-10 px-4 reveal-load d-1 z-10">
-        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-4 font-hand">Offrez du Bien-Ãªtre</h1>
+        <h1 class="text-6xl md:text-8xl text-white drop-shadow-lg mb-4 font-hand">Offrez du Bien-être</h1>
         <p class="text-white text-lg font-light max-w-2xl mx-auto opacity-90 drop-shadow-md">
-            Le cadeau idÃ©al pour prendre soin de ceux que vous aimez.
+            Le cadeau idéal pour prendre soin de ceux que vous aimez.
         </p>
     </header>
 
@@ -274,7 +274,7 @@
                     </div>
                     <div class="step-item">
                         <div class="step-icon">2</div>
-                        <p class="step-text">Ãcrivez un mot doux</p>
+                        <p class="step-text">Écrivez un mot doux</p>
                     </div>
                     <div class="step-item">
                         <div class="step-icon">3</div>
@@ -287,7 +287,7 @@
                 <div id="sportigo-container-giftcard"></div>
                 
                 <p class="text-center text-[10px] text-gray-400 mt-6 italic">
-                    Paiement sÃ©curisÃ© via notre partenaire Sportigo. La carte est envoyÃ©e immÃ©diatement par email.
+                    Paiement sécurisé via notre partenaire Sportigo. La carte est envoyée immédiatement par email.
                 </p>
             </div>
         </div>
@@ -397,7 +397,7 @@
         @media (max-width: 768px) {
             .chatbot-container { bottom: 100px; right: 10px; left: 10px; width: auto; max-width: none; }
             .chatbot-button { bottom: 20px; right: 20px; }
-            /* On dÃ©cale le bouton chatbot s'il gÃªne WhatsApp */
+            /* On décale le bouton chatbot s'il gêne WhatsApp */
             .chatbot-button { right: 100px; } 
         }
     </style>
@@ -420,7 +420,7 @@
                     </div>
                 </div>
             </div>
-            <button class="close-chat" id="closeChat">Ã</button>
+            <button class="close-chat" id="closeChat">×</button>
         </div>
 
         <div class="chatbot-messages" id="chatbotMessages">
@@ -445,46 +445,46 @@
 
     <script>
         const knowledgeBase = {
-            'bonjour': 'Bonjour ! ð Bienvenue chez SVB SantezVousBien ! Je suis lÃ  pour rÃ©pondre Ã  toutes vos questions. Que souhaitez-vous savoir ?',
+            'bonjour': 'Bonjour ! ð Bienvenue chez SVB SantezVousBien ! Je suis là pour répondre à toutes vos questions. Que souhaitez-vous savoir ?',
             'hello': 'Hello ! ð Comment puis-je vous aider aujourd\'hui ?',
             'salut': 'Salut ! ð Que puis-je faire pour vous ?',
             'horaires': 'Nos studios sont ouverts :\n\nð **Lundi - Vendredi** : 6h30 - 21h30\nð **Samedi** : 8h00 - 18h00\nð **Dimanche** : 9h00 - 14h00\n\nVous pouvez consulter le planning complet sur notre site : <a href="studio.html">Planning des cours</a>',
-            'ouverture': 'Nous sommes ouverts du lundi au dimanche ! Les horaires varient selon les jours. Souhaitez-vous plus de dÃ©tails ?',
-            'adresse': 'Nous avons **2 studios** Ã  Saint-Ouen :\n\nð **Studio 1 - Parc des Docks**\nCoaching individuel & Small Group Training\n\nð **Studio 2 - 40 Cours des LavandiÃ¨res**\n93400 Saint-Ouen-sur-Seine\nPilates Reformer, Crossformer & Yoga\n\nð **MÃ©tro** : Mairie de Saint-Ouen (Ligne 14)\n\nLes deux studios sont Ã  5 minutes Ã  pied l\'un de l\'autre !',
-            'localisation': 'Nos studios se trouvent Ã  Saint-Ouen-sur-Seine, facilement accessibles en mÃ©tro ligne 14. Voulez-vous l\'adresse exacte ?',
-            'parking': 'Oui, il y a des parkings publics Ã  proximitÃ© des deux studios. Le quartier des Docks dispose Ã©galement de places de stationnement.',
-            'tarifs': 'ð° **Nos formules principales** :\n\nð¯ **New Pass Starter** : 99,90â¬\n   â 5 sessions au choix, sans engagement\n\nðï¸ **Pass Machines** (Reformer/Crossformer) :\n   â Ã partir de 70,30â¬/mois\n\nð¤¸ **Pass Training** (Cross/Focus) :\n   â Ã partir de 30,30â¬/mois\n\nð¨âð©âð§ **Pass Kids** : 35,30â¬/mois\n\nConsultez tous nos tarifs : <a href="tarifs.html">Page Tarifs</a>',
-            'prix': 'Nos tarifs commencent Ã  30,30â¬/mois selon la formule. Le Pass Starter dÃ©couverte est Ã  99,90â¬ pour 5 sessions. Quelle formule vous intÃ©resse ?',
+            'ouverture': 'Nous sommes ouverts du lundi au dimanche ! Les horaires varient selon les jours. Souhaitez-vous plus de détails ?',
+            'adresse': 'Nous avons **2 studios** à Saint-Ouen :\n\nð **Studio 1 - Parc des Docks**\nCoaching individuel & Small Group Training\n\nð **Studio 2 - 40 Cours des Lavandières**\n93400 Saint-Ouen-sur-Seine\nPilates Reformer, Crossformer & Yoga\n\nð **Métro** : Mairie de Saint-Ouen (Ligne 14)\n\nLes deux studios sont à 5 minutes à pied l\'un de l\'autre !',
+            'localisation': 'Nos studios se trouvent à Saint-Ouen-sur-Seine, facilement accessibles en métro ligne 14. Voulez-vous l\'adresse exacte ?',
+            'parking': 'Oui, il y a des parkings publics à proximité des deux studios. Le quartier des Docks dispose également de places de stationnement.',
+            'tarifs': 'ð° **Nos formules principales** :\n\nð¯ **New Pass Starter** : 99,90â¬\n   â 5 sessions au choix, sans engagement\n\nðï¸ **Pass Machines** (Reformer/Crossformer) :\n   â À partir de 70,30â¬/mois\n\nð¤¸ **Pass Training** (Cross/Focus) :\n   â À partir de 30,30â¬/mois\n\nð¨âð©âð§ **Pass Kids** : 35,30â¬/mois\n\nConsultez tous nos tarifs : <a href="tarifs.html">Page Tarifs</a>',
+            'prix': 'Nos tarifs commencent à 30,30â¬/mois selon la formule. Le Pass Starter découverte est à 99,90â¬ pour 5 sessions. Quelle formule vous intéresse ?',
             'abonnement': 'Nous proposons plusieurs types d\'abonnements sans engagement ou avec engagement 3 mois. Que recherchez-vous exactement ?',
-            'essai': 'â¨ **SÃ©ance d\'essai** :\n\nðª Machines (Reformer/Crossformer) : 30â¬\nð Training (Cross/Focus) : 30â¬\n\n**Bonus** : 15â¬ remboursÃ©s si vous vous inscrivez !\n\nRÃ©servez votre essai : <a href="https://wa.me/33744919155">WhatsApp</a>',
-            'gratuit': 'Nous proposons des sÃ©ances d\'essai Ã  30â¬ (15â¬ remboursÃ©s si inscription). C\'est la meilleure faÃ§on de dÃ©couvrir nos cours !',
-            'dÃ©couverte': 'Le Pass Starter Ã  99,90â¬ est parfait pour dÃ©couvrir ! Il inclut 5 sessions diffÃ©rentes sans engagement.',
-            'cours': 'ð¯ **Nos disciplines** :\n\n**Small Group Machines** :\nâ¢ Pilates Reformer ð§\nâ¢ Crossformer ðª\n\n**Small Group Training** :\nâ¢ Cross Training ðï¸\nâ¢ Yoga ðï¸\nâ¢ Boxe ð¥\nâ¢ Danse ð\nâ¢ Stretch ð¤¸\n\nDÃ©couvrez tout : <a href="sessions.html">Nos Sessions</a>',
+            'essai': 'â¨ **Séance d\'essai** :\n\nðª Machines (Reformer/Crossformer) : 30â¬\nð Training (Cross/Focus) : 30â¬\n\n**Bonus** : 15â¬ remboursés si vous vous inscrivez !\n\nRéservez votre essai : <a href="https://wa.me/33744919155">WhatsApp</a>',
+            'gratuit': 'Nous proposons des séances d\'essai à 30â¬ (15â¬ remboursés si inscription). C\'est la meilleure façon de découvrir nos cours !',
+            'découverte': 'Le Pass Starter à 99,90â¬ est parfait pour découvrir ! Il inclut 5 sessions différentes sans engagement.',
+            'cours': 'ð¯ **Nos disciplines** :\n\n**Small Group Machines** :\nâ¢ Pilates Reformer ð§\nâ¢ Crossformer ðª\n\n**Small Group Training** :\nâ¢ Cross Training ðï¸\nâ¢ Yoga ðï¸\nâ¢ Boxe ð¥\nâ¢ Danse ð\nâ¢ Stretch ð¤¸\n\nDécouvrez tout : <a href="sessions.html">Nos Sessions</a>',
             'pilates': 'Nous proposons du **Pilates Reformer** (sur machine) et du **Pilates Sol**. Les cours durent 50-55 minutes en petit groupe (max 8 personnes).',
-            'yoga': 'Nos cours de Yoga incluent : Hatha Yoga, Vinyasa, Yin Yoga et Cross Yoga. Parfait pour la dÃ©tente et la souplesse ! ðï¸',
+            'yoga': 'Nos cours de Yoga incluent : Hatha Yoga, Vinyasa, Yin Yoga et Cross Yoga. Parfait pour la détente et la souplesse ! ðï¸',
             'crossformer': 'Le Crossformer combine cardio intensif et Pilates sur machine. C\'est notre cours signature ! ð¥',
-            'boxe': 'Nos cours de boxe sont accessibles Ã  tous niveaux. Sans contact, focus sur la technique et le cardio ! ð¥',
-            'coaching': 'ð **Coaching PrivÃ© "Good Vibes"** :\n\nâ¢ Programme 100% sur-mesure\nâ¢ Suivi personnalisÃ©\nâ¢ 4 sÃ©ances : 300,30â¬/mois\nâ¢ 8 sÃ©ances : 560,30â¬/mois\n\n**Pass Duo disponible** !\n\nFaites votre diagnostic : <a href="tarifs.html#coaching">Coaching PrivÃ©</a>',
-            'personnel': 'Oui ! Notre coaching privÃ© propose un accompagnement 100% personnalisÃ©. Formule solo ou duo disponible.',
-            'rÃ©servation': 'ð± **Pour rÃ©server** :\n\n1ï¸â£ Via notre plateforme Sportigo\n2ï¸â£ Par WhatsApp : <a href="https://wa.me/33744919155">07 44 91 91 55</a>\n3ï¸â£ Sur place au studio\n\nLes rÃ©servations se font 48h Ã  l\'avance maximum.',
+            'boxe': 'Nos cours de boxe sont accessibles à tous niveaux. Sans contact, focus sur la technique et le cardio ! ð¥',
+            'coaching': 'ð **Coaching Privé "Good Vibes"** :\n\nâ¢ Programme 100% sur-mesure\nâ¢ Suivi personnalisé\nâ¢ 4 séances : 300,30â¬/mois\nâ¢ 8 séances : 560,30â¬/mois\n\n**Pass Duo disponible** !\n\nFaites votre diagnostic : <a href="tarifs.html#coaching">Coaching Privé</a>',
+            'personnel': 'Oui ! Notre coaching privé propose un accompagnement 100% personnalisé. Formule solo ou duo disponible.',
+            'réservation': 'ð± **Pour réserver** :\n\n1ï¸â£ Via notre plateforme Sportigo\n2ï¸â£ Par WhatsApp : <a href="https://wa.me/33744919155">07 44 91 91 55</a>\n3ï¸â£ Sur place au studio\n\nLes réservations se font 48h à l\'avance maximum.',
             'inscription': 'L\'inscription se fait en ligne ou sur place. Frais de dossier : 49â¬ (offerts avec l\'option Boost ð).',
-            'matÃ©riel': 'Tout le matÃ©riel est fourni ! Apportez juste :\nâ¢ Une bouteille d\'eau ð§\nâ¢ Une serviette ð§\nâ¢ Des chaussettes antidÃ©rapantes pour les machines ð§¦ (en vente sur place)',
-            'chaussettes': 'ð§¦ Les chaussettes antidÃ©rapantes sont **OBLIGATOIRES** pour tous les cours sur machines (Reformer/Crossformer). Disponibles Ã  l\'achat au studio !',
-            'annulation': 'Vous pouvez annuler jusqu\'Ã  **24h avant** le cours sans pÃ©nalitÃ© via l\'application Sportigo. AprÃ¨s, la sÃ©ance est dÃ©comptÃ©e.',
+            'matériel': 'Tout le matériel est fourni ! Apportez juste :\nâ¢ Une bouteille d\'eau ð§\nâ¢ Une serviette ð§\nâ¢ Des chaussettes antidérapantes pour les machines ð§¦ (en vente sur place)',
+            'chaussettes': 'ð§¦ Les chaussettes antidérapantes sont **OBLIGATOIRES** pour tous les cours sur machines (Reformer/Crossformer). Disponibles à l\'achat au studio !',
+            'annulation': 'Vous pouvez annuler jusqu\'à **24h avant** le cours sans pénalité via l\'application Sportigo. Après, la séance est décomptée.',
             'enfants': 'ð¶ **Pass Kids** (hors vacances) :\nâ¢ Yoga Kids\nâ¢ Training Kids\nâ¢ 2 sessions : 35,30â¬/mois\nâ¢ 4 sessions : 65,30â¬/mois\n\nPrise de RDV sur place uniquement.',
-            'massage': 'Oui ! Nous proposons des massages, de l\'ostÃ©opathie et des soins bien-Ãªtre. Consultez notre page : <a href="bien-etre.html">Bien-Ãªtre</a>',
-            'ostÃ©o': 'Nous avons une ostÃ©opathe disponible sur RDV. Contactez-nous pour plus d\'infos !',
+            'massage': 'Oui ! Nous proposons des massages, de l\'ostéopathie et des soins bien-être. Consultez notre page : <a href="bien-etre.html">Bien-être</a>',
+            'ostéo': 'Nous avons une ostéopathe disponible sur RDV. Contactez-nous pour plus d\'infos !',
             'contact': 'ð **Nous contacter** :\n\nâ¢ WhatsApp : <a href="https://wa.me/33744919155">07 44 91 91 55</a>\nâ¢ Email : hello@studiosvb.fr\nâ¢ Instagram : @studiosvb\n\nOu visitez notre page : <a href="contact.html">Contact</a>',
-            'tÃ©lÃ©phone': 'Notre numÃ©ro : **07 44 91 91 55**\nDisponible sur WhatsApp ! ð±',
-            'email': 'Notre email : **hello@studiosvb.fr**\nNous rÃ©pondons sous 24h ! âï¸',
-            'cadeau': 'ð **Carte Cadeau SVB** :\n\nOffrez du bien-Ãªtre Ã  vos proches !\nMontant libre ou formules prÃ©-dÃ©finies.\n\nPlus d\'infos : <a href="cadeau.html">Cartes Cadeaux</a>',
-            'dÃ©butant': 'Tous nos cours sont accessibles aux dÃ©butants ! Nos coachs adaptent les exercices Ã  votre niveau. N\'hÃ©sitez pas Ã  venir essayer ! ðª',
-            'enceinte': 'Oui, nous proposons des cours adaptÃ©s pour femmes enceintes, notamment le Pilates prÃ©natal. Parlez-en Ã  nos coachs !',
-            'blessure': 'Nos coachs sont formÃ©s pour adapter les exercices en cas de blessure. Signalez-le avant le cours pour un accompagnement personnalisÃ©.',
-            'boo3t': 'ð **Option SVB Boost** (9,90â¬/mois) :\n\nâ Frais d\'inscription offerts\nâ 1 essai gratuit/mois pour un proche\nâ Engagement rÃ©duit\nâ Suspension d\'abonnement possible\n\nLe petit + qui change tout !',
-            'merci': 'Avec plaisir ! ð N\'hÃ©sitez pas si vous avez d\'autres questions. Ã bientÃ´t chez SVB ! ð',
-            'aurevoir': 'Au revoir ! Ã trÃ¨s bientÃ´t chez SVB ! ð Prenez soin de vous ! ð',
-            'default': 'Je ne suis pas sÃ»r de comprendre votre question. ð¤\n\nVoici ce que je peux vous dire :\nâ¢ Horaires et planning\nâ¢ Tarifs et abonnements\nâ¢ Cours et disciplines\nâ¢ RÃ©servations\nâ¢ Localisation\n\nOu contactez-nous directement : <a href="https://wa.me/33744919155">WhatsApp</a>'
+            'téléphone': 'Notre numéro : **07 44 91 91 55**\nDisponible sur WhatsApp ! ð±',
+            'email': 'Notre email : **hello@studiosvb.fr**\nNous répondons sous 24h ! âï¸',
+            'cadeau': 'ð **Carte Cadeau SVB** :\n\nOffrez du bien-être à vos proches !\nMontant libre ou formules pré-définies.\n\nPlus d\'infos : <a href="cadeau.html">Cartes Cadeaux</a>',
+            'débutant': 'Tous nos cours sont accessibles aux débutants ! Nos coachs adaptent les exercices à votre niveau. N\'hésitez pas à venir essayer ! ðª',
+            'enceinte': 'Oui, nous proposons des cours adaptés pour femmes enceintes, notamment le Pilates prénatal. Parlez-en à nos coachs !',
+            'blessure': 'Nos coachs sont formés pour adapter les exercices en cas de blessure. Signalez-le avant le cours pour un accompagnement personnalisé.',
+            'boo3t': 'ð **Option SVB Boost** (9,90â¬/mois) :\n\nâ Frais d\'inscription offerts\nâ 1 essai gratuit/mois pour un proche\nâ Engagement réduit\nâ Suspension d\'abonnement possible\n\nLe petit + qui change tout !',
+            'merci': 'Avec plaisir ! ð N\'hésitez pas si vous avez d\'autres questions. À bientôt chez SVB ! ð',
+            'aurevoir': 'Au revoir ! À très bientôt chez SVB ! ð Prenez soin de vous ! ð',
+            'default': 'Je ne suis pas sûr de comprendre votre question. ð¤\n\nVoici ce que je peux vous dire :\nâ¢ Horaires et planning\nâ¢ Tarifs et abonnements\nâ¢ Cours et disciplines\nâ¢ Réservations\nâ¢ Localisation\n\nOu contactez-nous directement : <a href="https://wa.me/33744919155">WhatsApp</a>'
         };
 
         const chatbotBtn = document.getElementById('chatbotButton');
@@ -579,9 +579,9 @@
                 if (normalizedMessage.includes(keyword)) return knowledgeBase[keyword];
             }
             if (normalizedMessage.match(/quand|heure|ouvert|ferme/)) return knowledgeBase['horaires'];
-            if (normalizedMessage.match(/combien|cout|coÃ»t|payer/)) return knowledgeBase['tarifs'];
-            if (normalizedMessage.match(/ou|oÃ¹|trouve|aller/)) return knowledgeBase['adresse'];
-            if (normalizedMessage.match(/reserver|rÃ©server|rdv|rendez-vous/)) return knowledgeBase['rÃ©servation'];
+            if (normalizedMessage.match(/combien|cout|coût|payer/)) return knowledgeBase['tarifs'];
+            if (normalizedMessage.match(/ou|où|trouve|aller/)) return knowledgeBase['adresse'];
+            if (normalizedMessage.match(/reserver|réserver|rdv|rendez-vous/)) return knowledgeBase['réservation'];
             if (normalizedMessage.match(/annuler|annulation/)) return knowledgeBase['annulation'];
             return knowledgeBase['default'];
         }
@@ -596,7 +596,7 @@
     </script>
     ```
 
-*PS : Sur mobile, j'ai ajoutÃ© une petite rÃ¨gle CSS pour dÃ©caler le bouton du chatbot vers la gauche (`right: 100px;`) afin qu'il ne se superpose pas avec ton bouton WhatsApp qui est dÃ©jÃ  en bas Ã  droite.*
+*PS : Sur mobile, j'ai ajouté une petite règle CSS pour décaler le bouton du chatbot vers la gauche (`right: 100px;`) afin qu'il ne se superpose pas avec ton bouton WhatsApp qui est déjà en bas à droite.*
   <script src="optimisations.js" defer></script>
 </body>
 </html>
