@@ -1,0 +1,9 @@
+# SVB SantezVousBien - robots.txt
+User-agent: *
+Allow: /
+
+# Fichiers non indexables
+Disallow: /cdn-cgi/
+
+# Sitemap
+Sitemap: https://studiosvb.com/sitemap.xml
