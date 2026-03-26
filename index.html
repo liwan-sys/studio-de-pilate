@@ -382,6 +382,7 @@
 </head>
 
 <body class="overflow-hidden">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu principal</a>
 
   <noscript>
     <iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B" height="0" width="0" style="display:none;visibility:hidden"></iframe>
@@ -397,10 +398,10 @@
   </div>
   <div class="noise-overlay"></div>
 
-  <nav class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
+  <nav role="navigation" class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
     <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
       <a href="index.html">
-        <img src="images/logo.png" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md" />
+        <img src="images/logo.png" alt="Logo SVB Santez Vous Bien" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md" />
       </a>
     </div>
     <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
@@ -692,7 +693,7 @@
 
   <!-- TÉMOIGNAGES -->
 
-  <section class="relative py-20 reveal-load d-3 z-10">
+  <section id="main-content" class="relative py-20 reveal-load d-3 z-10">
     <div class="text-center mb-10 px-4">
       <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">La communauté SVB</h2>
       <div class="flex justify-center items-center space-x-1 text-[#D4AF37] mb-2 text-2xl">
@@ -821,8 +822,8 @@
       <div>
         <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
         <ul class="space-y-2 opacity-80">
-          <li>07 44 91 91 55</li>
-          <li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1a9a4adadae81b2b5b4a5a8aeb2b7a3efa7b3">[email&#160;protected]</a></li>
+          <li><a href="tel:0744919155" class="hover:text-white transition">07 44 91 91 55</a></li>
+          <li><a href="mailto:hello@studiosvb.fr" class="hover:text-white transition">hello@studiosvb.fr</a></li>
         </ul>
       </div>
       <div>
