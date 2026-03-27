@@ -62,6 +62,7 @@
             100% { opacity: 1; transform: translateY(0); }
         }
         .reveal-load { animation: softSlideUp 0.8s ease-out forwards; opacity: 0; }
+    nav.reveal-load, header.reveal-load, section:first-of-type.reveal-load { opacity: 1 !important; animation: none !important; transform: none !important; }
         .d-1 { animation-delay: 0.1s; }
         .d-2 { animation-delay: 0.3s; }
         .d-3 { animation-delay: 0.5s; }
@@ -217,7 +218,7 @@
   }
   </script>
 </head>
-<body>
+<body class="content-visible">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu principal</a>
 
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
