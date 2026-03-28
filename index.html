@@ -353,6 +353,20 @@
   @keyframes dotBlink { 0%,100%{opacity:1} 50%{opacity:0.3} }
   @keyframes shake { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-5deg)} 75%{transform:rotate(5deg)} }
   @keyframes progressPulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+  @keyframes priceGlow { 0%,100%{text-shadow:0 4px 15px rgba(74,141,132,0.15)} 50%{text-shadow:0 0 40px rgba(74,141,132,0.5),0 0 80px rgba(74,141,132,0.2)} }
+  @keyframes savingsBounce { 0%,100%{transform:rotate(-3deg) scale(1)} 50%{transform:rotate(3deg) scale(1.08)} }
+  @keyframes notifSlide { 0%{transform:translateX(-100%);opacity:0} 10%{transform:translateX(0);opacity:1} 90%{transform:translateX(0);opacity:1} 100%{transform:translateX(-100%);opacity:0} }
+  @keyframes viewersPulse { 0%,100%{opacity:0.9} 50%{opacity:1} }
+  @keyframes confettiFall { 0%{transform:translateY(-10px) rotate(0deg);opacity:1} 100%{transform:translateY(120vh) rotate(720deg);opacity:0} }
+  @keyframes borderGlow { 0%,100%{box-shadow:0 20px 60px rgba(74,141,132,0.08)} 50%{box-shadow:0 0 40px rgba(74,141,132,0.2),0 0 80px rgba(74,141,132,0.08),0 20px 60px rgba(74,141,132,0.12)} }
+  .offer-glow { animation: borderGlow 3s ease infinite; }
+  #social-proof-notif { position:fixed;bottom:20px;left:20px;z-index:9998;pointer-events:none; }
+  .notif-toast { background:white;border-radius:16px;padding:14px 20px;box-shadow:0 10px 40px rgba(0,0,0,0.15);display:flex;align-items:center;gap:12px;animation:notifSlide 5s ease forwards;max-width:340px;border-left:4px solid #4A8D84; }
+  .notif-name { font-weight:800;color:#4A8D84;font-size:0.85rem; }
+  .notif-action { font-size:0.75rem;color:#888;font-weight:600; }
+  .notif-time { font-size:0.65rem;color:#bbb;font-weight:600; }
+  #confetti-container { position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;overflow:hidden; }
+
 
   </style>
 
@@ -452,7 +466,7 @@
       <span class="font-medium italic">Deux studios, une seule énergie.</span>
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <a href="#offre-premium" class="btn-action scroll-smooth">Essai dès 15€ — Remboursé si inscription</a>
+      <a href="#offre-premium" class="btn-action scroll-smooth">Essai à 30€ — Remboursé si inscription</a>
       <a href="contact.html" class="btn-hero scroll-smooth">Nos studios</a>
     </div>
   </header>
@@ -461,7 +475,7 @@
 
   <div id="offre-premium" class="relative px-4 pb-16 reveal-load d-2 z-10" style="overflow: visible; max-width: 100vw;">
     <div class="premium-offer-wrapper" style="overflow: visible; max-width: 100%;">
-      <div class="premium-offer-card" style="position:relative;overflow:hidden;">
+      <div class="premium-offer-card offer-glow" style="position:relative;overflow:hidden;">
 
         <!-- BARRE URGENCE -->
         <div style="position:absolute;top:0;left:0;right:0;background:linear-gradient(90deg,#e74c3c,#ff6b6b,#e74c3c);background-size:200% 100%;animation:urgencySlide 3s linear infinite;color:white;font-weight:900;font-size:0.7rem;padding:10px;letter-spacing:0.25em;text-transform:uppercase;border-radius:35px 35px 0 0;text-align:center;">
@@ -472,8 +486,16 @@
         <div style="text-align:center;margin:40px 0 10px;">
         <div style="display:inline-flex;align-items:center;gap:8px;background:#fff3f0;border:2px solid #ffcdc2;color:#e74c3c;font-weight:900;font-size:0.75rem;padding:8px 20px;border-radius:50px;letter-spacing:0.1em;text-transform:uppercase;animation:placePulse 1.5s ease infinite;">
           <span style="width:8px;height:8px;border-radius:50%;background:#e74c3c;animation:dotBlink 1s infinite;display:inline-block;"></span>
-          Places limitées — Essai dès 15€
+          Places limitées — Essai à 30€
         </div>
+        </div>
+
+        <!-- VIEWERS LIVE -->
+        <div id="live-viewers" style="text-align:center;margin:8px 0 0;animation:viewersPulse 2s ease infinite;">
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:#e74c3c;background:rgba(231,76,60,0.08);padding:5px 14px;border-radius:20px;">
+            <span style="display:inline-block;width:8px;height:8px;background:#e74c3c;border-radius:50%;animation:dotBlink 1.2s infinite;"></span>
+            <span id="viewer-count">14</span> personnes regardent cette offre
+          </span>
         </div>
 
         <div class="text-center">
@@ -484,8 +506,9 @@
           <!-- PRIX -->
           <div style="margin:10px 0 25px;">
             <div style="font-size:1.4rem;color:#ccc;font-weight:800;text-decoration:line-through;">50€</div>
-            <div style="font-size:clamp(4rem,12vw,7rem);font-weight:900;color:#4A8D84;line-height:1;letter-spacing:-0.04em;text-shadow:0 4px 15px rgba(74,141,132,0.15);">30<span style="font-size:0.5em;vertical-align:super;">€</span></div>
+            <div style="font-size:clamp(4rem,12vw,7rem);font-weight:900;color:#4A8D84;line-height:1;letter-spacing:-0.04em;animation:priceGlow 2.5s ease infinite;">30<span style="font-size:0.5em;vertical-align:super;">€</span></div>
             <div style="font-size:1.1rem;font-weight:700;color:#999;margin-top:2px;">votre séance d'essai</div>
+            <div style="display:inline-block;margin-top:10px;background:linear-gradient(135deg,#27ae60,#2ecc71);color:white;font-weight:900;font-size:0.85rem;padding:8px 22px;border-radius:50px;animation:savingsBounce 2s ease infinite;box-shadow:0 6px 20px rgba(39,174,96,0.3);letter-spacing:0.05em;">Vous économisez 20€ !</div>
           </div>
 
           <!-- REMBOURSEMENT -->
@@ -532,21 +555,29 @@
           </div>
 
           <!-- CTA -->
-          <a href="https://calendly.com/santezvousbien-svb/presentation-et-visite-guidee-du-studio"
-             target="_blank"
-             class="cta-mega mb-4 inline-block">
-            Réserver mon essai à 30€
-          </a>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:16px;">
+            <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90"
+               target="_blank"
+               class="cta-mega inline-block" style="font-size:0.95rem;padding:18px 35px;">
+              Essai Reformer — 30€
+            </a>
+            <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74"
+               target="_blank"
+               class="cta-mega inline-block" style="font-size:0.95rem;padding:18px 35px;">
+              Essai Crossformer — 30€
+            </a>
+          </div>
           <div style="margin-top:8px;font-size:0.75rem;color:#aaa;font-weight:600;">Sans engagement • Remboursé si inscription</div>
 
-          <!-- ESSAI 15€ AUTRES DISCIPLINES -->
+          <!-- ESSAI 30€ AUTRES DISCIPLINES -->
           <div style="margin:30px auto;max-width:580px;background:linear-gradient(135deg,#f8fdfb,#fff8f4);border-radius:20px;padding:28px 30px;border:2px solid rgba(74,141,132,0.1);text-align:center;">
             <div style="font-size:0.7rem;font-weight:900;text-transform:uppercase;letter-spacing:0.2em;color:#E8B496;margin-bottom:8px;">Aussi disponible</div>
-            <div style="font-size:1.8rem;font-weight:900;color:#4A8D84;margin-bottom:5px;">Essai dès 15€</div>
+            <div style="font-size:1.8rem;font-weight:900;color:#4A8D84;margin-bottom:5px;">Essai à 30€</div>
             <div style="font-size:0.9rem;color:#777;font-weight:600;margin-bottom:15px;">Cross Training • Yoga • Pilate au sol</div>
-            <div style="background:linear-gradient(135deg,#E8B496,#e8a47a);color:white;border-radius:14px;padding:14px 25px;display:inline-block;font-weight:800;font-size:0.95rem;box-shadow:0 8px 20px rgba(232,180,150,0.3);">
+            <div style="background:linear-gradient(135deg,#E8B496,#e8a47a);color:white;border-radius:14px;padding:14px 25px;display:inline-block;font-weight:800;font-size:0.95rem;box-shadow:0 8px 20px rgba(232,180,150,0.3);margin-bottom:15px;">
               100% remboursé si inscription après l'essai !
             </div>
+            <div><a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" style="display:inline-block;background:#4A8D84;color:white;padding:12px 30px;border-radius:50px;font-weight:900;font-size:0.85rem;text-decoration:none;text-transform:uppercase;letter-spacing:0.08em;box-shadow:0 8px 25px rgba(74,141,132,0.3);transition:all 0.3s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 35px rgba(74,141,132,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 25px rgba(74,141,132,0.3)'">Réserver mon essai à 30€</a></div>
           </div>
 
           <!-- LIEN ABONNEMENTS -->
@@ -831,7 +862,7 @@
   <div id="cta-sticky" class="cta-sticky">
     <div class="cta-sticky-content">
       <div class="cta-sticky-info">
-        <div class="cta-sticky-text">Essai dès 15€ • 100% remboursé si inscription</div>
+        <div class="cta-sticky-text">Essai à 30€ • 100% remboursé si inscription</div>
         <div class="cta-sticky-price">ESSAI 30€</div>
       </div>
       <a href="https://calendly.com/santezvousbien-svb/presentation-et-visite-guidee-du-studio" target="_blank" class="cta-sticky-btn">
@@ -936,6 +967,62 @@
       if(txt){if(d<=3)txt.textContent='Derniers jours !';else if(d<=10)txt.textContent='Plus que '+d+' jours...';}
     }
     tick();setInterval(tick,1000);
+  })();
+  </script>
+
+  <!-- SOCIAL PROOF NOTIFICATIONS -->
+  <div id="social-proof-notif"></div>
+  <div id="confetti-container"></div>
+
+  <script>
+  // Live viewers counter
+  (function(){
+    var counts=[12,14,15,13,16,11,17,14,15,13,18,12,14,16,15];
+    var idx=0;
+    function upd(){var el=document.getElementById("viewer-count");if(el){el.textContent=counts[idx%counts.length];idx++;}}
+    setInterval(upd, 4000+Math.random()*3000);
+  })();
+
+  // Social proof notifications
+  (function(){
+    var names=[
+      {n:"Marie L.",a:"vient de réserver son essai Reformer",t:"il y a 2 min"},
+      {n:"Sophie D.",a:"a réservé une séance Crossformer",t:"il y a 5 min"},
+      {n:"Camille R.",a:"vient de s'inscrire après son essai !",t:"il y a 8 min"},
+      {n:"Julie M.",a:"a réservé son essai Reformer",t:"il y a 12 min"},
+      {n:"Laura B.",a:"vient de réserver son essai",t:"il y a 15 min"},
+      {n:"Emma P.",a:"s'est inscrite — essai remboursé !",t:"il y a 18 min"},
+      {n:"Sarah K.",a:"a réservé une séance Yoga",t:"il y a 22 min"},
+      {n:"Léa T.",a:"vient de réserver son essai Reformer",t:"il y a 25 min"}
+    ];
+    var initials=["ML","SD","CR","JM","LB","EP","SK","LT"];
+    var colors=["#4A8D84","#E8B496","#e74c3c","#9b59b6","#3498db","#f39c12","#1abc9c","#e67e22"];
+    var nIdx=0;
+    function showNotif(){
+      var c=document.getElementById("social-proof-notif");if(!c)return;
+      var p=names[nIdx%names.length],col=colors[nIdx%colors.length],ini=initials[nIdx%initials.length];
+      var t=document.createElement("div");t.className="notif-toast";
+      t.innerHTML='<div style="width:36px;height:36px;border-radius:50%;background:'+col+';color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:0.7rem;flex-shrink:0;">'+ini+'</div><div><div class="notif-name">'+p.n+'</div><div class="notif-action">'+p.a+'</div><div class="notif-time">'+p.t+'</div></div>';
+      c.innerHTML="";c.appendChild(t);
+      setTimeout(function(){if(c.contains(t))c.removeChild(t);},5500);
+      nIdx++;
+    }
+    setTimeout(showNotif,6000);setInterval(showNotif,12000);
+  })();
+
+  // Confetti on CTA click
+  (function(){
+    var cta=document.querySelector(".cta-mega");if(!cta)return;
+    cta.addEventListener("click",function(){
+      var container=document.getElementById("confetti-container");if(!container)return;
+      var cols=["#4A8D84","#98D0B3","#E8B496","#e74c3c","#f1c40f","#3498db","#9b59b6","#ff6b6b","#2ecc71"];
+      for(var i=0;i<60;i++){
+        var cf=document.createElement("div"),sz=Math.random()*10+5,co=cols[Math.floor(Math.random()*cols.length)],lf=Math.random()*100,dl=Math.random()*0.5,dr=Math.random()*2+2,sh=Math.random()>0.5?"50%":(Math.random()>0.5?"0":"2px");
+        cf.style.cssText="position:fixed;top:-10px;left:"+lf+"%;width:"+sz+"px;height:"+sz+"px;background:"+co+";border-radius:"+sh+";animation:confettiFall "+dr+"s ease "+dl+"s forwards;z-index:99999;";
+        container.appendChild(cf);
+      }
+      setTimeout(function(){container.innerHTML="";},4000);
+    });
   })();
   </script>
 </body>
