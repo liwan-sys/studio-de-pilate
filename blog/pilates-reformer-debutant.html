@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilates Reformer Débutant : Votre Première Séance Pas à Pas | Studio SVB</title>
+    <meta name="description" content="Première séance de Pilates Reformer ? Découvrez à quoi vous attendre : tenue, déroulement, exercices de base et conseils pour bien débuter au Studio SVB Saint-Ouen.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://studiosvb.com/blog/pilates-reformer-debutant">
+    <meta property="og:title" content="Pilates Reformer Débutant : Votre Première Séance Pas à Pas">
+    <meta property="og:description" content="Première séance de Pilates Reformer ? Découvrez à quoi vous attendre : tenue, déroulement, exercices de base et conseils.">
+    <meta property="og:url" content="https://studiosvb.com/blog/pilates-reformer-debutant">
+    <meta property="og:type" content="article">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --col-peach: #EBC6A6;
+            --col-sand: #D4C3A3;
+            --col-green: #88C0A6;
+            --col-cream: #F3EBD4;
+            --col-dark: #3A6B63;
+            --svb-text: #2F4F4F;
+        }
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        body {
+            background-color: #B8D8C0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ambient background with blobs */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -40%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(235, 198, 166, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -2;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(136, 192, 166, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -2;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        /* Noise overlay */
+        body {
+            background-image:
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="1"/><feColorMatrix type="saturate" values="0.1"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+            background-size: 200px 200px;
+        }
+
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+        }
+
+        .article-content {
+            max-width: 800px;
+        }
+
+        .article-content h2 {
+            color: var(--col-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .article-content p {
+            color: var(--svb-text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ol, .article-content ul {
+            list-style: decimal;
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content li {
+            color: var(--svb-text);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .article-content strong {
+            color: var(--col-dark);
+            font-weight: 700;
+        }
+
+        .breadcrumb {
+            color: var(--svb-text);
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb a {
+            color: var(--col-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .article-meta {
+            color: var(--svb-text);
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background-color: var(--col-dark);
+            color: var(--col-cream);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--col-green);
+            color: var(--col-dark);
+        }
+
+        nav a {
+            color: var(--col-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--col-peach);
+        }
+
+        .footer-link {
+            color: var(--col-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--col-peach);
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-button svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .info-box {
+            background-color: rgba(136, 192, 166, 0.2);
+            border-left: 4px solid var(--col-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            border-left: 2px solid var(--col-peach);
+        }
+
+        .timeline-item h4 {
+            color: var(--col-dark);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-time {
+            color: var(--col-peach);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Navigation -->
+    <nav class="bg-white bg-opacity-80 backdrop-blur sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-2">
+                    <img src="../images/logo.webp" alt="Studio SVB Logo" class="h-10">
+                </a>
+                <div class="hidden md:flex gap-6">
+                    <a href="../index.html">ACCUEIL</a>
+                    <a href="../sessions.html">SESSIONS</a>
+                    <a href="../equipe.html">LA TEAM</a>
+                    <a href="../bien-etre.html">BIEN-ÊTRE</a>
+                    <a href="../studio.html">STUDIO</a>
+                    <a href="../faq.html">FAQ</a>
+                    <a href="../tarifs.html">TARIFS</a>
+                    <a href="index.html">BLOG</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb mb-8">
+            <a href="../index.html">Accueil</a> > <a href="index.html">Blog</a> > Pilates Reformer Débutant : Votre Première Séance Pas à Pas
+        </div>
+
+        <!-- Article Container -->
+        <article class="glassmorphism p-12 article-content mx-auto">
+            <!-- Article Meta -->
+            <div class="article-meta mb-6">
+                <span>5 avril 2026</span> • <span>10 min de lecture</span> • <span>Par L'équipe SVB</span>
+            </div>
+
+            <!-- Article Title -->
+            <h1 style="font-size: 2.5rem; color: var(--col-dark); margin-bottom: 2rem;">Pilates Reformer Débutant : Votre Première Séance Pas à Pas</h1>
+
+            <!-- Introduction -->
+            <p>
+                La première fois qu'on voit un Reformer Pilates, on peut se demander : "Qu'est-ce que c'est que cette machine bizarre ?" Avec ses ressorts, ses barres mobiles et ses pédales, le Reformer a l'air complexe et intimidant. C'est précisément pourquoi nous avons écrit ce guide. Au Studio SVB, nous aidons des débutants chaque jour à dépasser cette appréhension initiale et à tomber amoureux de la méthode. Dans cet article, nous vous expliquons exactement ce qui vous attend lors de votre première séance, comment vous préparer, et comment réussir.
+            </p>
+
+            <!-- Content -->
+            <h2>Qu'est-ce qu'un Pilates Reformer ?</h2>
+            <p>
+                Le Reformer est une machine d'entraînement développée par Joseph Pilates en 1923. Imaginez un lit long, mince avec une plate-forme mobile (le chariot) reliée à des ressorts de résistance, plus une barre de pied, une barre de tête et des poignées.
+            </p>
+            <p>
+                Ces ressorts ne sont pas comme les poids à la salle de sport. La résistance des ressorts change selon votre position et le mouvement que vous faites, ce qui signifie que chaque exercice demande un engagement du core constant et du contrôle. Le chariot glisse sur des rails, créant à la fois une résistance et un étirement contrôlé. C'est cette combinaison unique qui rend le Reformer si efficace. Et ne vous inquiétez pas — nos coachs au Studio SVB ajustent tout pour vous lors de votre première séance.
+            </p>
+
+            <h2>Avant Votre Première Séance : La Préparation</h2>
+            <p>
+                Il y a quelques choses que vous devez savoir et préparer pour que votre première expérience soit positive.
+            </p>
+
+            <h3>Quoi Porter (Très Important !)</h3>
+            <p>
+                <strong>Chaussettes antidérapantes obligatoires.</strong> C'est une règle de sécurité au Studio SVB. Vous aurez besoin de friction pour contrôler le chariot et vos mouvements. Les chaussettes régulières peuvent glisser, ce qui peut être dangereux. Nous vendons des chaussettes antidérapantes au studio si vous n'en avez pas.
+            </p>
+            <p>
+                Apportez des vêtements confortables et flexibles : un legging ou un short de yoga, un t-shirt ou un haut de sport. Évitez les vêtements trop amples — vous voulez pouvoir voir votre alignement corporel. De nombreuses personnes trouvent que le Reformer est plus confortable que d'autres formes d'exercice parce que vous n'êtes jamais totalement horizontal ou debout, et la machine supporte une partie de votre poids.
+            </p>
+
+            <h3>Timing et Préparation Physique</h3>
+            <p>
+                Essayez de ne pas manger lourd dans les 1-2 heures précédant votre séance. Une collation légère 20-30 minutes avant est fine. Hydratez-vous bien, mais pas excessivement juste avant le début.
+            </p>
+            <p>
+                Arrivez 10-15 minutes avant votre créneau pour remplir les formulaires, vous présenter à votre coach, et avoir une moment pour vous détendre. L'anxiété est normale — nos coachs ont entraîné des centaines de débutants et savent comment mettre tout le monde à l'aise.
+            </p>
+
+            <h3>Communiquer Vos Limites</h3>
+            <p>
+                Informez votre coach de toute blessure antérieure, limitation de mouvement, ou problème de santé. Si vous avez une douleur au dos, des problèmes d'épaule, une chirurgie récente — dites-le. Nos coachs adaptent chaque séance à vos besoins. Le Reformer est étonnamment adaptable, et il existe des modifications pour presque tout.
+            </p>
+
+            <h2>Déroulement d'une Séance d'Introductory Pilates Reformer</h2>
+            <p>
+                Une séance typique dure 50 à 55 minutes. Voici ce à quoi vous pouvez vous attendre :
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">0-5 minutes</div>
+                    <h4>Installation et Warm-Up</h4>
+                    <p>
+                        Vous vous allongez sur le Reformer et commencez avec des mouvements simples pour "réveiller" votre corps. Généralement, cela commence par des mouvements de respiration et des allongements légers du chariot, permettant à votre corps de s'adapter à la sensation des ressorts.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">5-20 minutes</div>
+                    <h4>Exercices de Base du Core</h4>
+                    <p>
+                        Vous pratiquez les mouvements fondamentaux : le "Hundred" (respirations contrôlées), le "Footwork" (travail du pied sur la barre de pied, le mouvement roi du Reformer), et des mouvements de chariot simples. Votre coach vous aide à positionner chaque partie de votre corps correctement.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">20-40 minutes</div>
+                    <h4>Progression et Mouvements Intermédiaires</h4>
+                    <p>
+                        Une fois que vous êtes confortable avec les basiques, vous commencez des mouvements légèrement plus avancés : le "Elephant" (flexion de la colonne vertébrale), les "Leg Springs" (travail des jambes avec ressorts), et des rotations du core. C'est là que vous commencez à sentir le vrai travail du Pilates.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">40-50 minutes</div>
+                    <h4>Étirement et Cooldown</h4>
+                    <p>
+                        Les dernières minutes de la séance sont consacrées à l'étirement et à la récupération. Vous pratiquez des allongements doux de la colonne vertébrale, des étirements des hanches, et vous vous reconnectez à votre respiration. C'est étonnamment relaxant.
+                    </p>
+                </div>
+            </div>
+
+            <h2>Exercices de Base pour Débutants Expliqués</h2>
+
+            <h3>Le Footwork (Travail du Pied)</h3>
+            <p>
+                C'est probablement l'exercice le plus "signature" du Reformer. Vous vous allongez sur le dos, les pieds sur la barre de pied, et vous poussez le chariot en arrière contre la résistance des ressorts, puis le ramenez. Cet exercice simple renforce les jambes, les fessiers, et surtout le core qui doit rester stable pendant que le chariot bouge. Au début, vous utiliserez probablement un ressort léger, et c'est parfait. La concentration sur le contrôle du mouvement est plus importante que la résistance.
+            </p>
+
+            <h3>Le Hundred</h3>
+            <p>
+                Vous vous allongez sur le dos, les jambes levées ou légèrement pliées, et vous levez la tête et les épaules du Reformer. Vous bougez vos bras de haut en bas de manière contrôlée en respirant — typiquement 100 mouvements de bras (ou "pulses"). Cet exercice chauffe le core, améliore la circulation, et enseigne la respiration Pilates importante.
+            </p>
+
+            <h3>L'Elephant</h3>
+            <p>
+                Vous êtes en position de planche inversée sur le Reformer, les mains sur la barre de tête et les pieds sur le chariot mobile. De cette position, vous poussez le chariot vers l'arrière, en étendant votre corps en ligne droite. C'est un exercice de flexion de la colonne vertébrale et de renforcement du dos — plus intense, mais offrant un étirement merveilleux de la colonne vertébrale.
+            </p>
+
+            <h3>Leg Springs (Ressorts de Jambe)</h3>
+            <p>
+                Vous vous asseyez sur le Reformer ou vous vous allongez, les pieds attachés aux ressorts. De cette position, vous bougez les jambes — vers le haut, vers le bas, sur les côtés. Les ressorts offrent une résistance variable, créant un travail intense et contrôlé des jambes et des fessiers.
+            </p>
+
+            <h2>Erreurs Courantes des Débutants (Et Comment les Éviter)</h2>
+
+            <h3>Ignorer l'Alignement du Core</h3>
+            <p>
+                <strong>Le problème :</strong> Beaucoup de débutants se concentrent sur le mouvement externe — où bougent les jambes, les bras — et oublient que le Pilates est d'abord une affaire de core. Quand le core n'est pas engagé, la colonne vertébrale peut se cambrer dangereusement.
+            </p>
+            <p>
+                <strong>La solution :</strong> Concentrez-vous sur "le maintien de votre core" plutôt que sur "pousser fort". Imaginez que votre estomac revient vers votre colonne vertébrale. Dès que vous sentez le chariot, engagez votre core. C'est la clé du Pilates.
+            </p>
+
+            <h3>Utiliser Trop de Ressorts (ou Trop Peu)</h3>
+            <p>
+                <strong>Le problème :</strong> Certains débutants mettent trop de ressorts parce qu'ils pensent que plus lourd = plus difficile = mieux. D'autres mettent trop peu de ressorts parce qu'ils ont peur. La bonne résistance vous permet de contrôler le mouvement avec une bonne forme.
+            </p>
+            <p>
+                <strong>La solution :</strong> Écoutez votre coach. Le nombre de ressorts change pour chaque exercice et chaque person. Généralement, les débutants commencent avec 1-2 ressorts légers et progressent progressivement.
+            </p>
+
+            <h3>Respirer Incorrectement</h3>
+            <p>
+                <strong>Le problème :</strong> Retenez votre respiration ! C'est un réflexe naturel quand vous faites un effort. Mais cela vous rend plus tendu et réduit l'oxygène à votre cerveau et vos muscles.
+            </p>
+            <p>
+                <strong>La solution :</strong> Inspirez par le nez et expirez par la bouche, synchronisé avec le mouvement. Généralement, vous inspirez pour préparer et expirez pendant l'effort. Votre coach expliquera le timing exact de chaque mouvement.
+            </p>
+
+            <h3>Ne Pas Demander de Modifications</h3>
+            <p>
+                <strong>Le problème :</strong> Si un mouvement fait mal ou se sent bizarrement, certains débutants continuent simplement, en espérant que ça s'améliorera.
+            </p>
+            <p>
+                <strong>La solution :</strong> Levez votre main. Nos coachs sont formés à offrir de nombreuses modifications pour chaque exercice. Si vous avez un genoux douloureux, le coach peut vous montrer une variante qui renforce le même muscle sans la douleur. Le Reformer est incroyablement adaptable.
+            </p>
+
+            <h2>Ce Que Vous Ressentirez Après Votre Première Séance</h2>
+
+            <h3>Physiquement</h3>
+            <p>
+                Vous vous sentirez probablement énergisé plutôt qu'épuisé. Contrairement aux entraînements cardiovasculaires intenses, une séance de Reformer vous laisse généralement vous sentir allongée, posée, et étonnamment bien. Vos muscles peuvent être fatigués — c'est normal. Une légère douleur musculaire un jour ou deux après est courante (c'est appelée "DOMS" ou "Delayed Onset Muscle Soreness"). C'est un signe que vos muscles ont travaillé, pas une blessure.
+            </p>
+
+            <h3>Mentalement</h3>
+            <p>
+                Beaucoup de débutants rapportent une sensation de calme après leur première séance. Le Pilates est une pratique très mentale — vous devez vous concentrer sur votre respiration, votre alignement, votre core. C'est presque méditatif.
+            </p>
+
+            <h3>Progressivement</h3>
+            <p>
+                Après 3-4 séances, vous remarquerez une meilleure posture et moins de maux de dos. Après 8-10 séances, votre contrôle corporel commence à s'améliorer visiblement. Vous pouvez faire des mouvements que vous ne pouviez pas faire avant. C'est quand beaucoup de gens deviennent réellement accros — le Pilates construit un progrès mesuré et gratifiant.
+            </p>
+
+            <h2>FAQ des Débutants du Studio SVB</h2>
+
+            <h3>Le Reformer me convient-il si je suis hors de forme ?</h3>
+            <p>
+                Absolument. Le Reformer s'adapte à n'importe quel niveau de condition physique. Les débutants peu en forme commencent avec des mouvements très simples et très peu de ressorts, et progressent lentement. Beaucoup de gens découvrent que le Reformer est plus accessible que d'autres formes d'exercice parce que vous êtes soutenue partiellement par la machine.
+            </p>
+
+            <h3>Est-ce que ça va me faire très mal demain ?</h3>
+            <p>
+                Peut-être un peu — vos muscles sont utilisés de nouvelles manières. Mais le Pilates ne vous laisse généralement pas du tout aussi courbaturée que, disons, un entraînement de musculation lourd. Une douleur légère pendant 1-2 jours est normale. Une douleur intense ou persistante ? Dites-le à votre coach.
+            </p>
+
+            <h3>À quelle fréquence devrais-je venir ?</h3>
+            <p>
+                Idéalement, 2-3 fois par semaine pour commencer. Cela vous permet d'apprendre correctement, de construire une cohérence, et de progresser. Une fois par semaine aide, mais le Pilates fonctionne mieux avec une pratique régulière. Après quelques mois, certains clients viennent 4-5 fois par semaine.
+            </p>
+
+            <h3>Dois-je faire d'autres entraînements avec le Pilates ?</h3>
+            <p>
+                Non, pas nécessaire. Le Reformer offre un entraînement complet — force, flexibilité, endurance. De nombreux clients trouvent que c'est tout ce dont ils ont besoin. Certains aiment ajouter de la marche ou du yoga léger, ce qui complète bien le Pilates. Évitez juste les jours intenses de musculation lourd — le Pilates fonctionne mieux quand vous n'êtes pas déjà épuisée.
+            </p>
+
+            <h3>Suis-je trop flexible / trop rigide pour le Pilates ?</h3>
+            <p>
+                Aucun des deux. Si vous êtes très flexible, le Pilates vous aide à construire la force pour supporter cette flexibilité. Si vous êtes rigide, le Pilates améliore graduellement votre mobilité. Le Reformer convient à tout le monde.
+            </p>
+
+            <!-- CTA Section -->
+            <div style="background-color: var(--col-cream); padding: 2rem; border-radius: 12px; margin-top: 3rem;">
+                <h2>Prêt à Commencer ?</h2>
+                <p>
+                    Nous espérons que ce guide a réduit votre anxiété concernant votre première séance ! Au Studio SVB, nous nous spécialisons dans accueillir les débutants et les faire se sentir en confiance et supportées. Notre premier cours de découverte est conçu spécifiquement pour vous enseigner les bases, vous montrer chaque équipement, et vous faire vous sentir à l'aise.
+                </p>
+                <p>
+                    Avez-vous des questions spécifiques ? Envoyez-nous un message. Sinon, réservez votre session de découverte dès maintenant.
+                </p>
+                <a href="../sessions.html" class="cta-button">Réserver Ma Séance de Découverte</a>
+            </div>
+
+            <div class="info-box">
+                <p>
+                    <strong>Conseil du Coach :</strong> Votre première séance devrait être une séance "essai" pour voir comment vous vous sentez, comment vous vous connectez avec votre coach, et si le studio est adapté à vous. Il n'y a pas de pression pour vous engager dans un contrat ou un forfait immédiatement. Nous voulons que vous vous sentiez bien avant de progresser.
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white bg-opacity-80 backdrop-blur mt-16">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo & Intro -->
+                <div>
+                    <img src="../images/logo.webp" alt="Studio SVB Logo" class="h-12 mb-4">
+                    <p style="color: var(--svb-text);">Le studio de Pilates Reformer à Saint-Ouen-sur-Seine.</p>
+                </div>
+
+                <!-- Contacts -->
+                <div>
+                    <h4 style="font-family: 'Dancing Script', cursive; color: var(--col-dark); margin-bottom: 1rem;">Contacts</h4>
+                    <p><a href="tel:+33744919155" class="footer-link">07 44 91 91 55</a></p>
+                    <p><a href="mailto:hello@studiosvb.fr" class="footer-link">hello@studiosvb.fr</a></p>
+                </div>
+
+                <!-- Addresses -->
+                <div>
+                    <h4 style="font-family: 'Dancing Script', cursive; color: var(--col-dark); margin-bottom: 1rem;">Adresses</h4>
+                    <p style="color: var(--svb-text); font-size: 0.875rem;">6 Mail André Breton<br>93400 Saint-Ouen-sur-Seine</p>
+                    <p style="color: var(--svb-text); font-size: 0.875rem; margin-top: 1rem;">40 Cours des Lavandières<br>93400 Saint-Ouen-sur-Seine</p>
+                </div>
+
+                <!-- Social & Legal -->
+                <div>
+                    <h4 style="font-family: 'Dancing Script', cursive; color: var(--col-dark); margin-bottom: 1rem;">Suivez-Nous</h4>
+                    <div class="flex gap-4 mb-4">
+                        <a href="https://www.instagram.com/studiosvb/" class="footer-link">Instagram</a>
+                        <a href="https://www.facebook.com/studiosvb/" class="footer-link">Facebook</a>
+                    </div>
+                    <p style="font-size: 0.75rem;">
+                        <a href="../mentions-legales.html" class="footer-link">Mentions légales</a> |
+                        <a href="../cgv.html" class="footer-link">CGV</a>
+                    </p>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(58, 107, 99, 0.1); margin-top: 2rem; padding-top: 2rem; text-align: center;">
+                <p style="color: var(--svb-text); font-size: 0.875rem;">&copy; 2026 Studio SVB. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/33744919155" class="whatsapp-button" title="Chat WhatsApp">
+        <svg fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-1.567.902-2.821 2.265-3.639 3.792C2.04 12.556 1.897 14.318 2.224 15.97c.327 1.645 1.413 3.341 2.919 4.523l-.641 2.141c-.108.359-.022.748.245 1.05.266.302.665.39 1.012.214l2.384-1.366c.508.107 1.021.178 1.53.178 5.247 0 9.5-4.304 9.5-9.561 0-5.258-4.253-9.562-9.5-9.562" /></svg>
+    </a>
+
+    <!-- Optimisation Script -->
+    <script src="../optimisations.js" defer></script>
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Pilates Reformer Débutant : Votre Première Séance Pas à Pas",
+        "description": "Première séance de Pilates Reformer ? Découvrez à quoi vous attendre : tenue, déroulement, exercices de base et conseils.",
+        "image": "https://studiosvb.com/images/reformer-beginner.jpg",
+        "datePublished": "2026-04-05",
+        "dateModified": "2026-04-05",
+        "author": {
+            "@type": "Organization",
+            "name": "Studio SVB",
+            "url": "https://studiosvb.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Studio SVB",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://studiosvb.com/images/logo.webp"
+            }
+        }
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://studiosvb.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://studiosvb.com/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Pilates Reformer Débutant : Votre Première Séance Pas à Pas",
+                "item": "https://studiosvb.com/blog/pilates-reformer-debutant"
+            }
+        ]
+    }
+    </script>
+</body>
+</html>
