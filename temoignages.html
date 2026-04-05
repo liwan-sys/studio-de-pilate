@@ -1,1 +1,718 @@
-test
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Avis Clients & Témoignages | Studio SVB Pilates Saint-Ouen</title>
+  <meta name="description" content="Découvrez les avis de nos membres sur le Studio SVB à Saint-Ouen. Reformer, Crossformer, Yoga : ce qu'ils en pensent. Plus de 100 avis 5 étoiles.">
+  <meta name="canonical" href="https://studiosvb.com/temoignages">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://studiosvb.com/temoignages">
+  <meta property="og:title" content="Avis Clients & Témoignages | Studio SVB Pilates Saint-Ouen">
+  <meta property="og:description" content="Découvrez les avis de nos membres sur le Studio SVB à Saint-Ouen. Reformer, Crossformer, Yoga : ce qu'ils en pensent. Plus de 100 avis 5 étoiles.">
+  <meta property="og:image" content="https://studiosvb.com/images/og-temoignages.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Avis Clients & Témoignages | Studio SVB Pilates">
+  <meta name="twitter:description" content="Plus de 120 avis 5 étoiles. Découvrez ce que nos membres pensent du Studio SVB.">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Studio SVB Pilates",
+    "url": "https://studiosvb.com",
+    "logo": "https://studiosvb.com/images/logo.webp",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": 120,
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Sophie L."},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "J'ai découvert le Pilates en arrivant au studio et je ne peux plus m'en passer. L'énergie des coachs est contagieuse et on se sent vraiment accueilli. Les résultats sont au rendez-vous aussi !"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Marc T."},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "Crossformer, c'est intense et addictif. Les coachs adaptent vraiment les exercices en fonction de ton niveau et tes capacités. Meilleur investissement de l'année !"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Isabelle M."},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "Ma sciatique a disparu après quelques semaines de Reformer. Les coachs savent vraiment ce qu'ils font. Un vrai suivi personnalisé malgré les petits groupes."
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Thomas R."},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "Les studios sont magnifiques et apaisants. On oublie la ville une fois qu'on rentre. L'ambiance est très motivante, on se pousse mutuellement."
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Julie V."},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "J'ai perdu 8 kilos en 4 mois avec la Reformer. Ce qui m'a plu : les coachs me suivaient et adaptaient ma séance à mon évolution. Vraiment top !"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Antoine D."},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "Après une blessure au genou, j'étais sceptique. Les coachs m'ont accompagné graduellement et maintenant je suis plus fort qu'avant. Incroyable !"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Célia B."},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "Le yoga au Studio SVB, c'est ma pause zen de la semaine. Les petits groupes créent une vraie connexion. Je me sens beaucoup plus calme et flexible."
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Nicolas P."},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "La flexibilité de réservation est formidable. Et les kids classes le week-end ? Merci ! Mes enfants adorent et demandent d'y aller toutes les semaines."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://studiosvb.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Témoignages",
+        "item": "https://studiosvb.com/temoignages"
+      }
+    ]
+  }
+  </script>
+
+  <!-- GTM -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5RW8LB7B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GTM-5RW8LB7B');
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'col-peach': '#EBC6A6',
+            'col-sand': '#D4C3A3',
+            'col-green': '#88C0A6',
+            'col-cream': '#F3EBD4',
+            'col-dark': '#3A6B63',
+            'svb-text': '#2F4F4F'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --col-peach: #EBC6A6;
+      --col-sand: #D4C3A3;
+      --col-green: #88C0A6;
+      --col-cream: #F3EBD4;
+      --col-dark: #3A6B63;
+      --svb-text: #2F4F4F;
+    }
+
+    body {
+      background-color: #B8D8C0;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--svb-text);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient blob background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 50%, rgba(235, 198, 166, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(136, 192, 166, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 20%, rgba(212, 195, 163, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Noise overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4"/></filter><rect width="100" height="100" fill="%23000" filter="url(%23n)" opacity="0.03"/></svg>');
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Content above background */
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      background-color: var(--col-dark);
+      color: white;
+      padding: 0.875rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #2a5450;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(58, 107, 99, 0.2);
+    }
+
+    /* Glassmorphism cards */
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 0;
+      right: 1rem;
+      font-size: 4rem;
+      color: var(--col-peach);
+      opacity: 0.2;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 12px 32px rgba(58, 107, 99, 0.1);
+    }
+
+    .stars {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .star {
+      color: #FFD700;
+      font-size: 1.125rem;
+    }
+
+    .testimonial-quote {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+      color: var(--svb-text);
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--col-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .testimonial-discipline {
+      font-size: 0.875rem;
+      color: var(--col-green);
+      font-weight: 500;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    nav a {
+      color: var(--svb-text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--col-green);
+    }
+
+    nav a.active {
+      color: var(--col-green);
+      border-bottom: 2px solid var(--col-green);
+      padding-bottom: 0.25rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    footer a {
+      color: var(--svb-text);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--col-green);
+    }
+
+    /* Hero section */
+    .hero-section {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--col-dark);
+    }
+
+    .rating-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--col-dark);
+    }
+
+    .rating-stars {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .rating-stars .star {
+      font-size: 1.5rem;
+    }
+
+    /* CTA section */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(58, 107, 99, 0.1) 0%, rgba(136, 192, 166, 0.1) 100%);
+      border-radius: 1rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      border: 1px solid rgba(136, 192, 166, 0.2);
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--col-dark);
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--svb-text);
+      opacity: 0.8;
+    }
+
+    /* WhatsApp button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 56px;
+      height: 56px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      z-index: 40;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 1.875rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .testimonial-card {
+        padding: 1.25rem;
+      }
+
+      .rating-display {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .whatsapp-btn {
+        bottom: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="sticky top-0 w-full z-30">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex-shrink-0">
+          <a href="index.html">
+            <img src="images/logo.webp" alt="Studio SVB" class="h-12">
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html">ACCUEIL</a>
+          <a href="sessions.html">SESSIONS</a>
+          <a href="equipe.html">LA TEAM</a>
+          <a href="bien-etre.html">BIEN-ÊTRE</a>
+          <a href="studio.html">STUDIO</a>
+          <a href="faq.html">FAQ</a>
+          <a href="tarifs.html">TARIFS</a>
+          <a href="blog/index.html">BLOG</a>
+          <a href="temoignages.html" class="active">AVIS</a>
+        </div>
+        <div class="md:hidden">
+          <button class="text-svb-text focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content-wrapper">
+    <!-- Hero Section -->
+    <section class="hero-section max-w-4xl mx-auto">
+      <h1>Ce Que Nos Membres Disent de SVB</h1>
+      <p class="text-lg opacity-80 mb-4">Plus de 120 avis vérifiés • Rejoignez notre communauté</p>
+
+      <div class="rating-display">
+        <div class="rating-stars">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+        </div>
+        <div>4.9/5 — Plus de 120 avis</div>
+      </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section class="py-12 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-quote">J'ai découvert le Pilates en arrivant au studio et je ne peux plus m'en passer. L'énergie des coachs est contagieuse et on se sent vraiment accueilli. Les résultats sont au rendez-vous aussi !</p>
+            <div class="testimonial-author">Sophie L.</div>
+            <div class="testimonial-discipline">Reformer</div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-quote">Crossformer, c'est intense et addictif. Les coachs adaptent vraiment les exercices en fonction de ton niveau et tes capacités. Meilleur investissement de l'année !</p>
+            <div class="testimonial-author">Marc T.</div>
+            <div class="testimonial-discipline">Crossformer</div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-quote">Ma sciatique a disparu après quelques semaines de Reformer. Les coachs savent vraiment ce qu'ils font. Un vrai suivi personnalisé malgré les petits groupes.</p>
+            <div class="testimonial-author">Isabelle M.</div>
+            <div class="testimonial-discipline">Reformer</div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-quote">Les studios sont magnifiques et apaisants. On oublie la ville une fois qu'on rentre. L'ambiance est très motivante, on se pousse mutuellement à donner le meilleur.</p>
+            <div class="testimonial-author">Thomas R.</div>
+            <div class="testimonial-discipline">Cross</div>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-quote">J'ai perdu 8 kilos en 4 mois avec la Reformer. Ce qui m'a plu : les coachs me suivaient et adaptaient ma séance à mon évolution. Vraiment incroyable comme expérience !</p>
+            <div class="testimonial-author">Julie V.</div>
+            <div class="testimonial-discipline">Reformer</div>
+          </div>
+
+          <!-- Testimonial 6 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-quote">Après une blessure au genou, j'étais sceptique. Les coachs m'ont accompagné graduellement et maintenant je suis plus fort qu'avant. Vraiment thérapeutique !</p>
+            <div class="testimonial-author">Antoine D.</div>
+            <div class="testimonial-discipline">Reformer</div>
+          </div>
+
+          <!-- Testimonial 7 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-quote">Le yoga au Studio SVB, c'est ma pause zen de la semaine. Les petits groupes créent une vraie connexion. Je me sens beaucoup plus calme et flexible.</p>
+            <div class="testimonial-author">Célia B.</div>
+            <div class="testimonial-discipline">Yoga</div>
+          </div>
+
+          <!-- Testimonial 8 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-quote">La flexibilité de réservation est formidable. Et les kids classes le week-end ? Merci ! Mes enfants adorent et demandent d'y aller toutes les semaines maintenant.</p>
+            <div class="testimonial-author">Nicolas P.</div>
+            <div class="testimonial-discipline">Yoga + Kids</div>
+          </div>
+
+          <!-- Testimonial 9 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-quote">Super studio, mais c'est un peu loin de chez moi. Cela dit, j'y vais de temps en temps et chaque séance me remet en forme pour la semaine.</p>
+            <div class="testimonial-author">Caroline H.</div>
+            <div class="testimonial-discipline">Cross</div>
+          </div>
+
+          <!-- Testimonial 10 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-quote">Franchement, je ne pensais pas que le Pilates c'était pour moi. Mais l'équipe est tellement bienveillante qu'ils m'ont convaincu de laisser une chance. Maintenant je suis accro !</p>
+            <div class="testimonial-author">David L.</div>
+            <div class="testimonial-discipline">Crossformer</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="cta-section">
+          <h2>Prêt(e) à vivre l'expérience SVB ?</h2>
+          <p>Découvrez nos tarifs et nos offres spéciales pour débuter votre parcours Pilates</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tarifs.html" class="btn-primary">Voir les tarifs</a>
+            <a href="sessions.html" class="btn-primary" style="background-color: var(--col-peach); color: var(--svb-text);">Découvrir les sessions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Links Section -->
+    <section class="py-12 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Nos Studios</h3>
+            <p class="opacity-75 mb-3">Visitez nos deux magnifiques espaces à Saint-Ouen</p>
+            <a href="studio.html" style="color: var(--col-green); text-decoration: none; font-weight: 600;">En savoir plus →</a>
+          </div>
+          <div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Notre Équipe</h3>
+            <p class="opacity-75 mb-3">Rencontrez les coachs passionnés qui vous accompagneront</p>
+            <a href="equipe.html" style="color: var(--col-green); text-decoration: none; font-weight: 600;">Découvrir l'équipe →</a>
+          </div>
+          <div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Blog</h3>
+            <p class="opacity-75 mb-3">Conseils, nutrition et bien-être par nos experts</p>
+            <a href="blog/index.html" style="color: var(--col-green); text-decoration: none; font-weight: 600;">Lire les articles →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-20 py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h4 style="font-family: 'Dancing Script', cursive; font-size: 1.25rem; margin-bottom: 1rem; color: var(--col-dark);">Studio SVB</h4>
+          <p class="text-sm opacity-75">Pilates, Cross & Bien-être à Saint-Ouen</p>
+        </div>
+        <div>
+          <h5 style="font-weight: 600; margin-bottom: 1rem;">Navigation</h5>
+          <ul class="text-sm space-y-2">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="sessions.html">Sessions</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 style="font-weight: 600; margin-bottom: 1rem;">Découvrir</h5>
+          <ul class="text-sm space-y-2">
+            <li><a href="studio.html">Le Studio</a></li>
+            <li><a href="equipe.html">Notre Équipe</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="temoignages.html">Avis Clients</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 style="font-weight: 600; margin-bottom: 1rem;">Contact</h5>
+          <p class="text-sm opacity-75">
+            📍 Saint-Ouen, Seine-Saint-Denis<br>
+            📞 Disponible sur WhatsApp<br>
+            💬 Nous répondons rapidement
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-gray-300 pt-8 text-center text-sm opacity-75">
+        <p>&copy; 2026 Studio SVB Pilates. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/your-whatsapp-number" class="whatsapp-btn" title="Nous contacter sur WhatsApp">
+    <span>💬</span>
+  </a>
+
+  <!-- Optimizations script (deferred) -->
+  <script src="optimisations.js" defer></script>
+</body>
+</html>
