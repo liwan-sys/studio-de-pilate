@@ -501,169 +501,6 @@
   .notif-time { font-size:0.65rem;color:#bbb;font-weight:600; }
   #confetti-container { position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;overflow:hidden; }
 
-  /* === HERO VIDEO SECTION === */
-  #hero-video {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    overflow: hidden;
-    background: #1a3532;
-  }
-  #hero-video .hero-bg-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 0;
-    filter: brightness(0.75) saturate(1.05);
-  }
-  #hero-video .hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background:
-      radial-gradient(ellipse at center, rgba(26,53,50,0.35) 0%, rgba(26,53,50,0.65) 70%, rgba(26,53,50,0.85) 100%),
-      linear-gradient(180deg, rgba(47,79,79,0.55) 0%, rgba(47,79,79,0.2) 40%, rgba(47,79,79,0.85) 100%);
-    pointer-events: none;
-  }
-  #hero-video .hero-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 20;
-    padding: 1.25rem 1.5rem;
-  }
-  #hero-video .hero-content {
-    position: relative;
-    z-index: 10;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 1.25rem;
-    padding-top: 180px;
-    padding-bottom: 100px;
-  }
-  #hero-video .hero-eyebrow {
-    color: rgba(255,255,255,0.92);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.28em;
-    font-weight: 600;
-    margin-bottom: 1.25rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-  }
-  @media (min-width: 640px) { #hero-video .hero-eyebrow { font-size: 0.85rem; } }
-  #hero-video .hero-title {
-    color: white;
-    line-height: 0.95;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 6px 30px rgba(0,0,0,0.45);
-  }
-  #hero-video .hero-title .line-script {
-    display: block;
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 9vw, 7rem);
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    color: #F2E6CF;
-    margin-bottom: 0.2em;
-  }
-  #hero-video .hero-title .line-display {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: clamp(2.2rem, 7vw, 6rem);
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-  }
-  #hero-video .hero-sub {
-    color: rgba(255,255,255,0.95);
-    font-size: 1rem;
-    max-width: 640px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.6;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-  }
-  @media (min-width: 640px) { #hero-video .hero-sub { font-size: 1.1rem; } }
-  #hero-video .hero-cta-row {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-  }
-  @media (min-width: 640px) { #hero-video .hero-cta-row { flex-direction: row; gap: 1.25rem; } }
-  #hero-video .btn-cta-primary {
-    background: linear-gradient(135deg, #E8B496 0%, #D9A080 100%);
-    color: #2F4F4F;
-    font-weight: 900;
-    padding: 18px 42px;
-    border-radius: 999px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.85rem;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.35), 0 0 0 3px rgba(255,255,255,0.25);
-    border: 2px solid rgba(255,255,255,0.55);
-    transition: all 0.35s cubic-bezier(0.25,0.8,0.25,1);
-    display: inline-block;
-    text-decoration: none;
-  }
-  #hero-video .btn-cta-primary:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.45), 0 0 0 3px rgba(255,255,255,0.4);
-    background: linear-gradient(135deg, #F2C4A8 0%, #E0A88C 100%);
-  }
-  #hero-video .btn-cta-ghost {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    color: white;
-    font-weight: 700;
-    padding: 16px 38px;
-    border-radius: 999px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.8rem;
-    border: 2px solid rgba(255,255,255,0.65);
-    transition: all 0.35s;
-    display: inline-block;
-    text-decoration: none;
-  }
-  #hero-video .btn-cta-ghost:hover {
-    background: rgba(255,255,255,0.92);
-    color: #4A8D84;
-    transform: translateY(-3px);
-  }
-  #hero-video .scroll-hint {
-    position: absolute;
-    bottom: 1.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    color: rgba(255,255,255,0.85);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    animation: scrollBounce 2.4s ease-in-out infinite;
-    text-decoration: none;
-  }
-  @keyframes scrollBounce { 0%,100% { transform: translate(-50%,0); } 50% { transform: translate(-50%,8px); } }
-  @media (max-width: 640px) {
-    #hero-video { min-height: 100vh; height: 100dvh; }
-    #hero-video .hero-content { padding-top: 150px; padding-bottom: 80px; }
-    #hero-video .hero-nav { padding: 0.75rem 1rem; }
-  }
 
   </style>
 
@@ -735,65 +572,41 @@
   </div>
   <div class="noise-overlay"></div>
 
-  <!-- === HERO VIDEO — TON CORPS N'ATTEND QUE TOI === -->
-  <section id="hero-video">
-
-    <!-- VIDÉO DE FOND -->
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" poster="https://files.catbox.moe/h92vee.jpg" aria-hidden="true">
-      <source src="https://files.catbox.moe/umcgc9.mp4" type="video/mp4">
-    </video>
-
-    <!-- VOILE D'ASSOMBRISSEMENT -->
-    <div class="hero-overlay"></div>
-
-    <!-- NAV PAR-DESSUS LA VIDÉO -->
-    <nav role="navigation" class="hero-nav flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
-      <div class="mb-3 md:mb-0 transform hover:scale-105 transition duration-300">
-        <a href="index.html">
-          <img src="images/logo.webp" alt="Logo SVB Santez Vous Bien" class="h-16 md:h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142">
-        </a>
-      </div>
-      <div class="flex flex-wrap justify-center items-center gap-3 md:gap-5 text-[11px] md:text-xs font-semibold tracking-wide drop-shadow-sm">
-        <a href="index.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">ACCUEIL</a>
-        <a href="sessions.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">NOS COURS</a>
-        <a href="equipe.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">LA TEAM</a>
-        <a href="bien-etre.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
-        <a href="studio.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">PLANNING</a>
-        <a href="tarifs.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">ABONNEMENTS</a>
-        <a href="cadeau.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">CADEAU</a>
-        <a href="/blog/" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">BLOG</a>
-        <a href="/temoignages" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">AVIS</a>
-        <a href="faq.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">FAQ</a>
-        <a href="contact.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">CONTACT</a>
-      </div>
-    </nav>
-
-    <!-- CONTENU CENTRÉ : TITRE + CTA -->
-    <div class="hero-content">
-      <p class="hero-eyebrow">Studio de sport & coaching · Saint-Ouen</p>
-
-      <h1 class="hero-title">
-        <span class="line-script">ton corps</span>
-        <span class="line-display">N'attend que toi</span>
-      </h1>
-
-      <p class="hero-sub">
-        Pilates Reformer · Crossformer · Cross Training · Yoga · Boxe · Coaching<br>
-        <span class="italic opacity-90">Deux studios, une seule énergie.</span>
-      </p>
-
-      <div class="hero-cta-row">
-        <a href="#offre-premium" class="btn-cta-primary scroll-smooth">Réserver mon essai 30€</a>
-        <a href="questionnaire-abonnement-svb.html" class="btn-cta-ghost">M'abonner directement</a>
-      </div>
+  <nav role="navigation" class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
+    <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
+      <a href="index.html">
+        <img src="images/logo.webp" alt="Logo SVB Santez Vous Bien" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md" / width="200" height="142">
+      </a>
     </div>
+    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
+      <a href="index.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">ACCUEIL</a>
+      <a href="sessions.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">NOS COURS</a>
+      <a href="equipe.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">LA TEAM</a>
+      <a href="bien-etre.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
+      <a href="studio.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">PLANNING</a>
+      <a href="tarifs.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">ABONNEMENTS</a>
+      <a href="cadeau.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">CADEAU</a>
+      <a href="/blog/" class="hover:text-gray-200 transition hover:scale-105 inline-block">BLOG</a>
+      <a href="/temoignages" class="hover:text-gray-200 transition hover:scale-105 inline-block">AVIS</a>
+      <a href="faq.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">FAQ</a>
+      <a href="contact.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">CONTACT</a>
+    </div>
+  </nav>
 
-    <!-- INDICATEUR SCROLL -->
-    <a href="#offre-premium" class="scroll-hint scroll-smooth" aria-label="Découvrir">
-      <span>Découvrir</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-    </a>
-  </section>
+  <header class="relative text-center py-16 px-4 reveal-load d-1 z-10">
+    <h1 class="text-5xl sm:text-7xl md:text-9xl text-white drop-shadow-2xl mb-4 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default">
+      SantezVousBien
+    </h1>
+    <p class="text-lg sm:text-xl md:text-2xl text-white/90 font-light tracking-wide drop-shadow-lg">Studio de Sport & Coaching à Saint-Ouen</p>
+    <p class="text-white text-lg font-light max-w-2xl mx-auto mb-8 leading-relaxed opacity-95 drop-shadow-md">
+      Plus qu'une salle de sport, un lieu de vie.<br />
+      <span class="font-medium italic">Deux studios, une seule énergie.</span>
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="#offre-premium" class="btn-action scroll-smooth">Réserver mon essai</a>
+      <a href="contact.html" class="btn-hero scroll-smooth">Nos studios</a>
+    </div>
+  </header>
 
   <!-- === BARRE DE CONFIANCE — DIFFÉRENCIATEURS SVB === -->
   <div class="relative max-w-5xl mx-auto px-4 mb-8 reveal-load d-2 z-10">
