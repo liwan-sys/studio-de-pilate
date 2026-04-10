@@ -608,6 +608,29 @@
     </div>
   </header>
 
+  <!-- === BARRE DE CONFIANCE — DIFFÉRENCIATEURS SVB === -->
+  <div class="relative max-w-5xl mx-auto px-4 mb-8 reveal-load d-2 z-10">
+    <div class="bg-white/35 backdrop-blur-md rounded-3xl border border-white/50 shadow-xl px-6 py-5">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2 text-center">
+        <div class="flex flex-col items-center gap-1 px-2">
+          <div class="text-3xl leading-none">⏱️</div>
+          <p class="text-[11px] sm:text-xs font-black uppercase tracking-wider text-[#2F4F4F]">Annulation 1h avant</p>
+          <p class="text-[10px] text-gray-600 font-medium leading-snug">Les autres studios : 24h.<br/>Chez nous, vous décidez au dernier moment.</p>
+        </div>
+        <div class="flex flex-col items-center gap-1 px-2 sm:border-x sm:border-white/60">
+          <div class="text-3xl leading-none">👥</div>
+          <p class="text-[11px] sm:text-xs font-black uppercase tracking-wider text-[#2F4F4F]">Petits groupes</p>
+          <p class="text-[10px] text-gray-600 font-medium leading-snug">Max 8 personnes. Le coach<br/>vous voit, vous corrige, vous pousse.</p>
+        </div>
+        <div class="flex flex-col items-center gap-1 px-2">
+          <div class="text-3xl leading-none">🏖️</div>
+          <p class="text-[11px] sm:text-xs font-black uppercase tracking-wider text-[#2F4F4F]">Pause vacances</p>
+          <p class="text-[10px] text-gray-600 font-medium leading-snug">Partez tranquille : votre<br/>abonnement se met en pause.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- === NOS ESPACES — IMMERSIF === -->
   <div class="studio-panels-wrap reveal-load d-2">
     <!-- PANEL REFORMER -->
@@ -909,15 +932,87 @@
   </div>
 </div>
 
-<div class="mt-12 bg-white/20 backdrop-blur-md rounded-3xl p-8 border-2 border-white/40">
-  <p class="text-white text-lg font-bold mb-4">Pas sûr(e) de quel cours choisir ?</p>
-  <p class="text-white text-sm mb-6 opacity-90">Notre équipe vous conseille gratuitement</p>
-  <a href="contact.html" class="inline-block bg-white text-[#4A8D84] px-8 py-3 rounded-full font-bold text-sm hover:bg-gray-100 transition transform hover:scale-105">
-    Parler à un conseiller
-  </a>
+<!-- === DOUBLE CTA : CONSEIL + ABONNEMENT DIRECT === -->
+<div class="mt-12 grid md:grid-cols-2 gap-5">
+
+  <!-- CTA 1 — CONSEIL -->
+  <div class="bg-white/20 backdrop-blur-md rounded-3xl p-7 border-2 border-white/40 flex flex-col justify-between text-left">
+    <div>
+      <div class="text-3xl mb-2">💬</div>
+      <p class="text-white text-lg font-bold mb-2">Pas sûr(e) de quel cours choisir ?</p>
+      <p class="text-white/90 text-sm mb-5 leading-relaxed">Notre équipe vous conseille gratuitement, sans engagement.</p>
+    </div>
+    <a href="contact.html" class="inline-block bg-white text-[#4A8D84] px-8 py-3 rounded-full font-bold text-sm hover:bg-gray-100 transition transform hover:scale-105 text-center">
+      Parler à un conseiller
+    </a>
+  </div>
+
+  <!-- CTA 2 — ABONNEMENT DIRECT -->
+  <div class="rounded-3xl p-7 border-2 flex flex-col justify-between text-left relative overflow-hidden" style="background:linear-gradient(135deg, rgba(74,141,132,0.95), rgba(58,107,99,0.95));border-color:rgba(255,255,255,0.5);box-shadow:0 15px 40px rgba(74,141,132,0.3);">
+    <div style="position:absolute;top:12px;right:12px;background:#EBC6A6;color:#2F4F4F;font-size:0.6rem;font-weight:900;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.08em;">Le + simple</div>
+    <div>
+      <div class="text-3xl mb-2">🚀</div>
+      <p class="text-white text-lg font-bold mb-2">Déjà convaincu(e) ? Abonnez-vous.</p>
+      <p class="text-white/95 text-sm mb-5 leading-relaxed">Sans engagement de 6 mois. Annulation 1h avant, pause vacances, SEPA transparent. Remplissez le questionnaire, on revient vers vous en moins d'1h.</p>
+    </div>
+    <a href="questionnaire-abonnement-svb.html" class="inline-block bg-white text-[#4A8D84] px-8 py-3 rounded-full font-black text-sm hover:bg-[#F3EBD4] transition transform hover:scale-105 text-center uppercase tracking-wide">
+      Je m'abonne en 3 min →
+    </a>
+  </div>
 </div>
 
   </div>
+
+  <!-- === MINI-FAQ ENGAGEMENT — LEVER LES OBJECTIONS === -->
+  <section class="relative py-16 reveal-load d-3 z-10">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl md:text-5xl text-white font-hand mb-3 drop-shadow-md">Vos questions, nos réponses</h2>
+        <p class="text-white text-sm opacity-90 font-medium">Les 4 questions qu'on nous pose le plus sur l'abonnement.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <!-- Q1 — Engagement -->
+        <div class="bg-white/30 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-6">
+          <div class="flex items-start gap-3 mb-2">
+            <div class="text-2xl leading-none">🔓</div>
+            <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide">Y a-t-il un engagement ?</h3>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">Non. <strong>Aucun engagement de 6 mois ou 12 mois.</strong> Vous pouvez arrêter votre abonnement quand vous voulez, simplement en nous prévenant 1 mois à l'avance.</p>
+        </div>
+        <!-- Q2 — Annulation séance -->
+        <div class="bg-white/30 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-6">
+          <div class="flex items-start gap-3 mb-2">
+            <div class="text-2xl leading-none">⏱️</div>
+            <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide">Comment annuler une séance ?</h3>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">Vous pouvez annuler jusqu'à <strong>1h avant le début du cours</strong>, directement depuis l'appli Sportigo. Pas de pénalité, pas de crédit perdu. Les autres studios exigent 24h — pas nous.</p>
+        </div>
+        <!-- Q3 — Pause vacances -->
+        <div class="bg-white/30 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-6">
+          <div class="flex items-start gap-3 mb-2">
+            <div class="text-2xl leading-none">🏖️</div>
+            <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide">Pause pendant les vacances ?</h3>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">Oui. <strong>Votre abonnement se met en pause</strong> quand vous partez (vacances, déplacement pro, blessure). Un simple message et on s'occupe du reste. Vous ne payez pas pour des séances que vous ne prenez pas.</p>
+        </div>
+        <!-- Q4 — SEPA -->
+        <div class="bg-white/30 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-6">
+          <div class="flex items-start gap-3 mb-2">
+            <div class="text-2xl leading-none">💳</div>
+            <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide">Comment fonctionne le SEPA ?</h3>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">Prélèvement automatique mensuel, <strong>même montant chaque mois</strong>, prélevé le 5. Transparent, sécurisé, révocable à tout moment depuis votre banque. Aucun frais caché.</p>
+        </div>
+      </div>
+      <!-- CTA final de la FAQ -->
+      <div class="text-center mt-10">
+        <a href="questionnaire-abonnement-svb.html" class="inline-block bg-white text-[#4A8D84] px-10 py-4 rounded-full font-black text-sm hover:bg-[#F3EBD4] transition transform hover:scale-105 uppercase tracking-wide shadow-xl">
+          Toutes vos questions sont levées ? Je m'abonne →
+        </a>
+        <p class="text-white/80 text-xs mt-3 font-medium">3 minutes pour remplir le questionnaire • Réponse sous 1h</p>
+      </div>
+    </div>
+  </section>
 
   <!-- TOUS NOS COURS -->
   <section class="relative py-20 reveal-load d-3 z-10">
