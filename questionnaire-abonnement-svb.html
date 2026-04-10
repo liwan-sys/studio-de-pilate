@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscription abonnement — Studio SVB</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #88C0A6;
+    --sage-light: #B8DCC8;
+    --peach: #EBC6A6;
+    --sand: #D4C3A3;
+    --cream: #F3EBD4;
+    --teal: #3A6B63;
+    --teal-dark: #2A4F49;
+    --coral: #D97757;
+    --white: #FFFFFF;
+    --shadow: 0 10px 40px rgba(58, 107, 99, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--peach) 50%, var(--sage) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: var(--teal-dark);
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+
+  .container { max-width: 820px; margin: 0 auto; }
+
+  .header { text-align: center; margin-bottom: 36px; }
+  .header .logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+  }
+  .header .tagline {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--teal);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: var(--teal-dark);
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .header .subtitle {
+    font-size: 1.02rem;
+    color: var(--teal);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .steps-bar {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 22px 0 10px;
+    flex-wrap: wrap;
+  }
+  .steps-bar .chip {
+    background: rgba(255,255,255,0.7);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--teal-dark);
+    border: 1px solid rgba(58, 107, 99, 0.15);
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 24px;
+    padding: 36px 40px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    display: inline-flex;
+    background: var(--sage);
+    color: var(--white);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-right: 12px;
+  }
+
+  .section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+  }
+
+  .section-subtitle {
+    color: var(--teal);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    opacity: 0.85;
+  }
+
+  .conditions-list { list-style: none; margin-top: 10px; }
+  .conditions-list li {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px dashed rgba(58, 107, 99, 0.15);
+    align-items: flex-start;
+  }
+  .conditions-list li:last-child { border-bottom: none; }
+  .conditions-list .icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--sage);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  .conditions-list .text { flex: 1; padding-top: 6px; font-size: 0.96rem; }
+  .conditions-list .text strong { color: var(--teal-dark); font-weight: 700; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .form-row-3 {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 18px;
+  }
+  .form-group { margin-bottom: 18px; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+  }
+  label .required { color: var(--coral); }
+  label .hint { font-weight: 400; color: var(--teal); opacity: 0.75; font-size: 0.82rem; margin-left: 6px; }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid rgba(58, 107, 99, 0.15);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.85);
+    font-family: inherit;
+    font-size: 0.98rem;
+    color: var(--teal-dark);
+    transition: all 0.2s;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(136, 192, 166, 0.15);
+  }
+  textarea { resize: vertical; min-height: 90px; }
+
+  /* Radio comprehension items */
+  .comprehension-item {
+    background: rgba(243, 235, 212, 0.6);
+    border: 1.5px solid rgba(58, 107, 99, 0.12);
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    transition: all 0.2s;
+  }
+  .comprehension-item:hover {
+    border-color: var(--sage);
+    background: rgba(243, 235, 212, 0.9);
+  }
+  .comprehension-item .q {
+    font-size: 0.98rem;
+    color: var(--teal-dark);
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+  .comprehension-item .q strong { font-weight: 700; }
+  .radio-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .radio-group > label {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border: 1.5px solid rgba(58, 107, 99, 0.2);
+    border-radius: 12px;
+    background: var(--white);
+    cursor: pointer;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 0.92rem;
+    transition: all 0.15s;
+  }
+  .radio-group > label:hover {
+    border-color: var(--sage);
+    background: rgba(136, 192, 166, 0.08);
+  }
+  .radio-group input[type="radio"] {
+    accent-color: var(--teal);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  .inline-radios {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+  }
+  .inline-radios > label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  .inline-radios input[type="radio"] {
+    accent-color: var(--teal);
+    width: 18px;
+    height: 18px;
+  }
+
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .checkbox-grid > label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.7);
+    border: 1.5px solid rgba(58, 107, 99, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.92rem;
+    margin-bottom: 0;
+    transition: all 0.15s;
+  }
+  .checkbox-grid > label:hover {
+    border-color: var(--sage);
+    background: rgba(136, 192, 166, 0.08);
+  }
+  .checkbox-grid input[type="checkbox"] {
+    accent-color: var(--teal);
+    width: 18px;
+    height: 18px;
+  }
+
+  .studio-choice {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .studio-card {
+    border: 2px solid rgba(58, 107, 99, 0.15);
+    border-radius: 16px;
+    padding: 18px;
+    cursor: pointer;
+    background: var(--white);
+    transition: all 0.2s;
+    position: relative;
+  }
+  .studio-card:hover { border-color: var(--sage); }
+  .studio-card input[type="radio"] {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    accent-color: var(--teal);
+    width: 20px;
+    height: 20px;
+  }
+  .studio-card .title {
+    font-weight: 700;
+    color: var(--teal-dark);
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    padding-right: 30px;
+  }
+  .studio-card .addr {
+    font-size: 0.82rem;
+    color: var(--teal);
+    line-height: 1.45;
+  }
+  .studio-card .disciplines {
+    font-size: 0.78rem;
+    color: var(--teal);
+    margin-top: 8px;
+    opacity: 0.85;
+    line-height: 1.45;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 16px;
+    font-family: inherit;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 8px 24px rgba(58, 107, 99, 0.3);
+  }
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(58, 107, 99, 0.4);
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--teal);
+    margin-top: 20px;
+    opacity: 0.8;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(136, 192, 166, 0.22), rgba(235, 198, 166, 0.22));
+    border-left: 4px solid var(--sage);
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    font-size: 0.94rem;
+  }
+  .highlight-box strong { color: var(--teal-dark); }
+
+  .info-box {
+    background: rgba(255, 243, 224, 0.65);
+    border: 1.5px dashed var(--peach);
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin: 18px 0;
+    font-size: 0.93rem;
+    color: var(--teal-dark);
+  }
+  .info-box strong { color: var(--coral); }
+
+  .warning-box {
+    background: rgba(217, 119, 87, 0.08);
+    border-left: 4px solid var(--coral);
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    color: var(--teal-dark);
+  }
+
+  .iban-field input {
+    font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .final-box {
+    background: linear-gradient(135deg, var(--sage), var(--teal));
+    color: var(--white);
+    padding: 28px 32px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .final-box h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.9rem;
+    margin-bottom: 8px;
+  }
+  .final-box p { font-size: 0.95rem; opacity: 0.95; }
+
+  .contact-footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--teal-dark);
+    font-size: 0.85rem;
+    opacity: 0.75;
+    margin-top: 16px;
+  }
+
+  /* ===== PRICE CALCULATOR ===== */
+  .price-calc {
+    margin-top: 28px;
+    padding: 28px 30px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(136, 192, 166, 0.18), rgba(235, 198, 166, 0.22));
+    border: 2px solid rgba(58, 107, 99, 0.15);
+  }
+  .price-calc-header {
+    border-bottom: 1.5px solid rgba(58, 107, 99, 0.15);
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+  }
+  .price-calc-title {
+    display: block;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--teal-dark);
+    font-weight: 700;
+  }
+  .price-calc-sub {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--teal);
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+  .price-row.sub {
+    font-size: 0.9rem;
+    color: var(--teal);
+    padding: 6px 0;
+  }
+  .price-row.big {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .price-row .price-label {
+    color: var(--teal-dark);
+    font-weight: 500;
+  }
+  .price-row .price-value {
+    font-weight: 700;
+    color: var(--teal-dark);
+    font-variant-numeric: tabular-nums;
+  }
+  .price-divider {
+    height: 1px;
+    background: rgba(58, 107, 99, 0.15);
+    margin: 14px 0;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--peach);
+    color: var(--teal-dark);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin-left: 6px;
+  }
+  .prorata-box {
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin: 4px 0;
+  }
+  .prorata-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 0 !important;
+    color: var(--teal-dark);
+  }
+  .prorata-check input[type="checkbox"] {
+    accent-color: var(--teal);
+    width: 20px;
+    height: 20px;
+  }
+  .prorata-check strong { color: var(--teal-dark); font-weight: 700; }
+  .prorata-hint {
+    font-size: 0.82rem;
+    color: var(--teal);
+    opacity: 0.85;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  .price-total {
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    color: var(--white);
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin-top: 16px;
+  }
+  .price-total .price-row { padding: 6px 0; }
+  .price-total .price-label { color: var(--white); }
+  .price-total .price-value { color: var(--white); }
+  .price-total .total-row {
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    margin-bottom: 6px;
+  }
+  .price-total .total-row .price-value {
+    font-size: 1.5rem;
+  }
+  .price-total .sub .price-label,
+  .price-total .sub .price-value {
+    color: rgba(255,255,255,0.9);
+  }
+  .price-disclaimer {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 10px;
+    font-size: 0.82rem;
+    color: var(--teal-dark);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 680px) {
+    body { padding: 20px 12px; }
+    .card { padding: 26px 22px; }
+    .header .logo { font-size: 2.2rem; }
+    .header h1 { font-size: 2rem; }
+    .section-title { font-size: 1.6rem; }
+    .form-row, .form-row-3, .checkbox-grid, .studio-choice {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .studio-choice { gap: 10px; }
+    .radio-group > label { min-width: unset; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">SVB</div>
+      <div class="tagline">Santezvousbien</div>
+      <h1>Inscription à ton abonnement</h1>
+      <p class="subtitle">Remplis ce formulaire depuis chez toi. En cliquant sur Envoyer, <strong>WhatsApp s'ouvrira automatiquement</strong> avec toutes tes infos prêtes à être envoyées à notre équipe. Il ne te restera plus qu'à valider&nbsp;!</p>
+      <div class="steps-bar">
+        <span class="chip">1 · Toi</span>
+        <span class="chip">2 · Ton studio</span>
+        <span class="chip">3 · Ta formule</span>
+        <span class="chip">4 · Santé</span>
+        <span class="chip">5 · Conditions</span>
+        <span class="chip">6 · RIB</span>
+      </div>
+    </div>
+
+    <!-- INTRO / RÈGLEMENT INTÉRIEUR -->
+    <div class="card">
+      <h2 class="section-title">À savoir avant de commencer</h2>
+      <p class="section-subtitle">Voici les points essentiels de notre règlement intérieur.</p>
+
+      <ul class="conditions-list">
+        <li>
+          <div class="icon">1</div>
+          <div class="text">Règlement par <strong>prélèvement SEPA automatique</strong> chaque mois. Une <strong>caution bancaire</strong> est demandée à l'inscription (utilisée uniquement en cas d'impayé après relances).</div>
+        </li>
+        <li>
+          <div class="icon">2</div>
+          <div class="text"><strong>Engagement de 6 mois</strong> pour tous les Pass Small Group (3 mois pour les Coaching Pass, 4 mois pour le Pass Kids), avec tacite reconduction. 🚀 <strong>Tu ne veux pas t'engager&nbsp;? Ajoute l'option SVB Boost</strong> (+12,90&nbsp;€/mois) et tu es sans engagement.</div>
+        </li>
+        <li>
+          <div class="icon">3</div>
+          <div class="text"><strong>Frais de dossier&nbsp;: 49&nbsp;€</strong> à l'inscription. <strong>25&nbsp;€</strong> pour le Pass Kids. <strong>−50&nbsp;%</strong> sur les frais de dossier avec l'option SVB Boost.</div>
+        </li>
+        <li>
+          <div class="icon">4</div>
+          <div class="text"><strong>Résiliation par mail</strong>, avec un <strong>préavis d'1 mois</strong> (soit 1 mensualité) dès la fin de la période d'engagement.</div>
+        </li>
+        <li>
+          <div class="icon">5</div>
+          <div class="text"><strong>Absence &gt; 10 jours</strong> (vacances, déplacement)&nbsp;: un préavis d'1 mois est requis pour suspendre ton abonnement.</div>
+        </li>
+        <li>
+          <div class="icon">6</div>
+          <div class="text"><strong>✨ Annulation ultra-flexible&nbsp;: jusqu'à 1h avant le cours</strong> en small group, sans perdre ton crédit. Chez la plupart des autres studios, c'est 24h avant — chez nous, tu gardes toute ta liberté jusqu'au dernier moment. (Pour un coaching privé, le délai est de 24h avant.)</div>
+        </li>
+        <li>
+          <div class="icon">7</div>
+          <div class="text"><strong>Les crédits du mois en cours ne sont pas reportables</strong> sur le mois suivant.</div>
+        </li>
+        <li>
+          <div class="icon">8</div>
+          <div class="text"><strong>Booking jusqu'à 1 mois à l'avance</strong> en small group. <strong>Ajout de séance</strong> si plus de crédits&nbsp;: prix d'une séance à l'unité selon ton abonnement.</div>
+        </li>
+        <li>
+          <div class="icon">9</div>
+          <div class="text"><strong>Modification d'abonnement&nbsp;:</strong> pas de préavis pour passer à un abo supérieur&nbsp;; 1 mois pour passer à un abo inférieur (à la fin de l'engagement).</div>
+        </li>
+        <li>
+          <div class="icon">10</div>
+          <div class="text"><strong>Au studio Cours des Lavandières</strong>&nbsp;: chaussettes antidérapantes obligatoires (achat 10&nbsp;€, prêt 3&nbsp;€). <strong>Plus de 5 min de retard = cours refusé.</strong></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- FORM -->
+    <form id="svbForm" onsubmit="return sendToWhatsApp(event)">
+
+      <!-- SECTION 1 : COORDONNÉES -->
+      <div class="card">
+        <h2 class="section-title"><span class="section-number">1</span>Tes coordonnées</h2>
+        <p class="section-subtitle">Pour créer ta fiche client au studio.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Prénom <span class="required">*</span></label>
+            <input type="text" name="Prénom" required>
+          </div>
+          <div class="form-group">
+            <label>Nom <span class="required">*</span></label>
+            <input type="text" name="Nom" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email <span class="required">*</span></label>
+            <input type="email" name="Email" required>
+          </div>
+          <div class="form-group">
+            <label>Téléphone <span class="required">*</span></label>
+            <input type="tel" name="Téléphone" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date de naissance <span class="required">*</span></label>
+            <input type="date" name="Date de naissance" required>
+          </div>
+          <div class="form-group">
+            <label>Sexe <span class="hint">(facultatif)</span></label>
+            <select name="Sexe">
+              <option value="">— Non précisé —</option>
+              <option>Femme</option>
+              <option>Homme</option>
+              <option>Non-binaire</option>
+              <option>Préfère ne pas répondre</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Adresse postale <span class="required">*</span></label>
+          <input type="text" name="Adresse" placeholder="N° et nom de rue" required>
+        </div>
+
+        <div class="form-row-3">
+          <div class="form-group">
+            <label>Ville <span class="required">*</span></label>
+            <input type="text" name="Ville" required>
+          </div>
+          <div class="form-group">
+            <label>Code postal <span class="required">*</span></label>
+            <input type="text" name="Code postal" required>
+          </div>
+          <div class="form-group">
+            <label>Pays</label>
+            <input type="text" name="Pays" value="France">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Contact d'urgence — Nom <span class="required">*</span></label>
+            <input type="text" name="Contact urgence nom" required>
+          </div>
+          <div class="form-group">
+            <label>Contact d'urgence — Téléphone <span class="required">*</span></label>
+            <input type="tel" name="Contact urgence téléphone" required>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Comment as-tu connu le Studio SVB&nbsp;?</label>
+          <select name="Source">
+            <option value="">— Sélectionne —</option>
+            <option>Instagram (@svb.officiel)</option>
+            <option>TikTok</option>
+            <option>Google / Recherche web</option>
+            <option>Bouche à oreille / Parrainage</option>
+            <option>En passant devant le studio</option>
+            <option>Presse / Article</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label>Tu as été parrainé(e) par quelqu'un&nbsp;? <span class="hint">(facultatif)</span></label>
+          <input type="text" name="Parrain" placeholder="Prénom et nom de la personne qui t'a parrainé(e)">
+        </div>
+      </div>
+
+      <!-- SECTION 2 : STUDIO -->
+      <div class="card">
+        <h2 class="section-title"><span class="section-number">2</span>Ton studio</h2>
+        <p class="section-subtitle">Quel studio SVB correspond à ton abonnement&nbsp;?</p>
+
+        <div class="studio-choice">
+          <label class="studio-card">
+            <input type="radio" name="Studio" value="SVB Reformer & Crossformer – 40 Cours des Lavandières" required>
+            <div class="title">SVB Reformer &amp; Crossformer</div>
+            <div class="addr">40 Cours des Lavandières<br>93400 Saint Ouen</div>
+            <div class="disciplines">Pilates Reformer · Crossformer · Classic Pilates · Power Pilates · Yoga Vinyasa · Hatha Flow · Core &amp; Stretch</div>
+          </label>
+
+          <label class="studio-card">
+            <input type="radio" name="Studio" value="SVB Coaching & Small Group – 6 Mail André Breton" required>
+            <div class="title">SVB Coaching &amp; Small Group</div>
+            <div class="addr">6 Mail André Breton<br>93400 Saint Ouen</div>
+            <div class="disciplines">Cross Training · Cross Body · Cross Core · Cross Yoga · Cross Rox · Boxe · Afrodanc'All · Yoga Kids · Training Kids · Coaching individuel &amp; duo</div>
+          </label>
+        </div>
+      </div>
+
+      <!-- SECTION 3 : FORMULE -->
+      <div class="card">
+        <h2 class="section-title"><span class="section-number">3</span>Ton abonnement</h2>
+        <p class="section-subtitle">Choisis la formule qui te convient.</p>
+
+        <div class="form-group">
+          <label>Formule souhaitée <span class="required">*</span></label>
+          <select name="Formule" required>
+            <option value="">— Choisis ta formule —</option>
+            <optgroup label="Small Group Machines (50 min) — Engagement 6 mois">
+              <option>Pass Reformer</option>
+              <option>Pass Crossformer</option>
+              <option>Pass Full Former (Reformer + Crossformer)</option>
+            </optgroup>
+            <optgroup label="Small Group Training (55 min) — Engagement 6 mois">
+              <option>Pass Cross</option>
+              <option>Pass Focus</option>
+              <option>Pass Full (Cross + Focus)</option>
+            </optgroup>
+            <optgroup label="Coaching Individuel & Duo — Engagement 3 mois">
+              <option>Coaching Pass Good Vibes (individuel)</option>
+              <option>Coaching Pass Duo</option>
+            </optgroup>
+            <optgroup label="Kids — Engagement 4 mois">
+              <option>Pass Kids (1 activité au choix)</option>
+            </optgroup>
+            <optgroup label="Découverte — Sans engagement">
+              <option>New Pass Starter (5 sessions, 99,90 €)</option>
+            </optgroup>
+            <optgroup label="Autres">
+              <option>Je ne sais pas encore — conseille-moi</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre de séances par mois <span class="required">*</span></label>
+            <select name="Séances par mois" required>
+              <option value="">— Choisis —</option>
+              <option>2 séances / mois</option>
+              <option>4 séances / mois</option>
+              <option>6 séances / mois</option>
+              <option>8 séances / mois</option>
+              <option>10 séances / mois</option>
+              <option>12 séances / mois</option>
+              <option>Non applicable (Pass Starter / Pass Kids)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Date de démarrage souhaitée <span class="required">*</span></label>
+            <input type="date" name="Date de démarrage" required>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>🚀 Option <strong>SVB Boost</strong> — Pour éviter l'engagement de 6 mois (+12,90&nbsp;€/mois)</label>
+          <div class="info-box" style="margin-top: 6px; margin-bottom: 14px;">
+            <strong>L'option SVB Boost, c'est pour toi si tu ne veux pas t'engager sur 6 mois.</strong><br>
+            Pour seulement 12,90 €/mois en plus de ton pass, tu bénéficies de&nbsp;:
+            <ul style="margin: 10px 0 0 18px; padding: 0;">
+              <li><strong>✓ Aucun engagement</strong> — tu arrêtes quand tu veux</li>
+              <li><strong>✓ Suspension de ton abonnement sans préavis</strong> — tu pars en vacances&nbsp;? Pas de souci</li>
+              <li><strong>✓ −50&nbsp;% sur les frais de dossier</strong> (soit 24,50&nbsp;€ au lieu de 49&nbsp;€)</li>
+            </ul>
+          </div>
+          <label style="margin-top: 10px;">Souhaites-tu ajouter l'option SVB Boost à ton abonnement&nbsp;?</label>
+          <div class="inline-radios">
+            <label><input type="radio" name="SVB Boost" value="Oui, je veux éviter l'engagement 6 mois"> Oui, je veux éviter l'engagement 6 mois</label>
+            <label><input type="radio" name="SVB Boost" value="Non, je reste sur l'engagement 6 mois classique"> Non, je reste sur l'engagement 6 mois</label>
+            <label><input type="radio" name="SVB Boost" value="Je veux plus d'infos"> Je veux plus d'infos</label>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Créneaux qui te conviennent le mieux <span class="hint">(coche autant que tu veux)</span></label>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="Créneau matin tôt" value="Oui"> Matin tôt (6h–9h)</label>
+            <label><input type="checkbox" name="Créneau matinée" value="Oui"> Matinée (9h–12h)</label>
+            <label><input type="checkbox" name="Créneau midi" value="Oui"> Pause déj (12h–14h)</label>
+            <label><input type="checkbox" name="Créneau après-midi" value="Oui"> Après-midi (14h–18h)</label>
+            <label><input type="checkbox" name="Créneau soir" value="Oui"> Soir (18h–21h)</label>
+            <label><input type="checkbox" name="Créneau weekend" value="Oui"> Weekend</label>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Tes objectifs <span class="hint">(en quelques mots)</span></label>
+          <textarea name="Objectifs" placeholder="Ex : remise en forme, renforcement musculaire, perte de poids, souplesse, bien-être, préparation sportive..."></textarea>
+        </div>
+
+        <!-- ===== PRICE CALCULATOR ===== -->
+        <div id="priceCalculator" class="price-calc" style="display:none;">
+          <div class="price-calc-header">
+            <span class="price-calc-title">Récapitulatif tarifaire</span>
+            <span class="price-calc-sub">Calculé automatiquement selon ta formule</span>
+          </div>
+
+          <div class="price-row">
+            <span class="price-label" id="formuleLabel">—</span>
+            <span class="price-value" id="monthlyPrice">—</span>
+          </div>
+          <div class="price-row sub" id="perSessionRow">
+            <span class="price-label">Prix par séance</span>
+            <span class="price-value" id="perSessionPrice">—</span>
+          </div>
+
+          <div class="price-divider"></div>
+
+          <!-- Prorata section -->
+          <div class="prorata-box">
+            <label class="prorata-check">
+              <input type="checkbox" id="proStart" name="Démarrage en cours de mois" value="Oui">
+              <span>Je démarre <strong>en cours de mois</strong> (calculer un prorata)</span>
+            </label>
+
+            <div id="proFields" style="display:none; margin-top:14px;">
+              <label>Combien de séances feras-tu lors de ce premier mois&nbsp;?</label>
+              <input type="number" id="proSessions" name="Séances 1er mois" min="1" placeholder="Ex : 2">
+              <p class="prorata-hint">Tu paieras uniquement les séances que tu peux réellement faire avant la fin du mois. Les mois suivants, c'est le tarif plein.</p>
+            </div>
+          </div>
+
+          <div class="price-divider"></div>
+
+          <!-- Summary -->
+          <div class="price-row big">
+            <span class="price-label">Premier mois <span class="badge" id="badgeProrata" style="display:none;">prorata</span></span>
+            <span class="price-value" id="firstMonthPrice">—</span>
+          </div>
+          <div class="price-row sub">
+            <span class="price-label">Frais de dossier <span id="feesNote"></span></span>
+            <span class="price-value" id="filingFees">—</span>
+          </div>
+          <div class="price-row sub" id="boostRow" style="display:none;">
+            <span class="price-label">Option SVB Boost</span>
+            <span class="price-value">+12,90 €/mois</span>
+          </div>
+
+          <div class="price-total">
+            <div class="price-row total-row">
+              <span class="price-label">À régler au studio</span>
+              <span class="price-value" id="totalToday">—</span>
+            </div>
+            <div class="price-row sub">
+              <span class="price-label">Puis chaque mois</span>
+              <span class="price-value" id="totalMonthly">—</span>
+            </div>
+          </div>
+
+          <div class="price-disclaimer">
+            💡 Ces montants sont indicatifs. Ils seront confirmés lors de ton passage au studio et de la signature du mandat SEPA.
+          </div>
+
+          <!-- Hidden fields sent by email -->
+          <input type="hidden" name="💰 Tarif mensuel plein" id="h_monthly" value="">
+          <input type="hidden" name="💰 Premier mois (prorata)" id="h_first" value="">
+          <input type="hidden" name="💰 Frais de dossier" id="h_fees" value="">
+          <input type="hidden" name="💰 Total à régler au studio" id="h_today" value="">
+          <input type="hidden" name="💰 Total mensuel (suivants)" id="h_monthly_total" value="">
+        </div>
+      </div>
+
+      <!-- SECTION 4 : SANTÉ -->
+      <div class="card">
+        <h2 class="section-title"><span class="section-number">4</span>Ta santé</h2>
+        <p class="section-subtitle">Ces informations nous permettent d'adapter les cours à ta condition physique et de garantir ta sécurité.</p>
+
+        <div class="form-group">
+          <label>As-tu une pratique sportive régulière actuellement&nbsp;?</label>
+          <select name="Pratique sportive actuelle">
+            <option value="">— Sélectionne —</option>
+            <option>Oui, plusieurs fois par semaine</option>
+            <option>Oui, occasionnellement</option>
+            <option>Non, je reprends le sport</option>
+            <option>Non, je débute</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Souffres-tu d'une ou plusieurs pathologies, blessures ou douleurs&nbsp;? <span class="required">*</span></label>
+          <div class="inline-radios">
+            <label><input type="radio" name="Pathologies" value="Oui" required> Oui</label>
+            <label><input type="radio" name="Pathologies" value="Non" required> Non</label>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Si oui, précise&nbsp;: <span class="hint">(dos, genoux, épaules, tendinite, etc.)</span></label>
+          <textarea name="Détails pathologies" placeholder="Décris brièvement tes blessures ou douleurs actuelles, ce qu'il faut éviter..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>As-tu été opéré(e) récemment&nbsp;? <span class="required">*</span></label>
+          <div class="inline-radios">
+            <label><input type="radio" name="Opération récente" value="Oui" required> Oui</label>
+            <label><input type="radio" name="Opération récente" value="Non" required> Non</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Es-tu enceinte ou en post-partum&nbsp;?</label>
+          <div class="inline-radios">
+            <label><input type="radio" name="Grossesse" value="Oui"> Oui</label>
+            <label><input type="radio" name="Grossesse" value="Non"> Non</label>
+            <label><input type="radio" name="Grossesse" value="Non concerné(e)"> Non concerné(e)</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Prends-tu un traitement médical qui pourrait impacter ta pratique sportive&nbsp;? <span class="required">*</span></label>
+          <div class="inline-radios">
+            <label><input type="radio" name="Traitement" value="Oui" required> Oui</label>
+            <label><input type="radio" name="Traitement" value="Non" required> Non</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Certificat médical de non contre-indication au sport&nbsp;:</label>
+          <select name="Certificat médical">
+            <option value="">— Sélectionne —</option>
+            <option>Je l'ai déjà, je l'apporte au studio</option>
+            <option>Je vais le demander à mon médecin</option>
+            <option>J'ai besoin d'informations</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SECTION 5 : COMPRÉHENSION DES CONDITIONS -->
+      <div class="card">
+        <h2 class="section-title"><span class="section-number">5</span>Les conditions, point par point</h2>
+        <p class="section-subtitle">Merci de répondre à chaque question pour confirmer que tu as bien compris.</p>
+
+        <div class="highlight-box">
+          <strong>Pourquoi ces questions&nbsp;?</strong> Elles garantissent que tu pars sur de bonnes bases et qu'il n'y aura pas de surprise. Si un point n'est pas clair, choisis « Non, je veux plus d'infos » — on te rappellera pour en discuter.
+        </div>
+
+        <!-- Q1 -->
+        <div class="comprehension-item">
+          <div class="q">As-tu bien compris que le paiement de ton abonnement se fait par <strong>prélèvement SEPA automatique chaque mois</strong>, et qu'une <strong>caution bancaire</strong> sera demandée à l'inscription&nbsp;?</div>
+          <div class="radio-group">
+            <label><input type="radio" name="Q1 - Paiement SEPA & caution" value="Oui, j'ai compris" required> Oui, j'ai compris</label>
+            <label><input type="radio" name="Q1 - Paiement SEPA & caution" value="Non, je veux plus d'infos" required> Non, je veux plus d'infos</label>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="comprehension-item">
+          <div class="q">As-tu bien compris que les Pass Small Group comportent un <strong>engagement de 6 mois</strong> avec <strong>tacite reconduction</strong> à la fin de l'engagement&nbsp;? (3 mois pour le Coaching, 4 mois pour le Pass Kids)</div>
+          <div class="radio-group">
+            <label><input type="radio" name="Q2 - Engagement & tacite reconduction" value="Oui, j'ai compris" required> Oui, j'ai compris</label>
+            <label><input type="radio" name="Q2 - Engagement & tacite reconduction" value="Non, je veux plus d'infos" required> Non, je veux plus d'infos</label>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="comprehension-item">
+          <div class="q">As-tu bien compris que des <strong>frais de dossier de 49&nbsp;€</strong> (25&nbsp;€ pour le Pass Kids) sont à régler à l'inscription&nbsp;?</div>
+          <div class="radio-group">
+            <label><input type="radio" name="Q3 - Frais de dossier" value="Oui, j'ai compris" required> Oui, j'ai compris</label>
+            <label><input type="radio" name="Q3 - Frais de dossier" value="Non, je veux plus d'infos" required> Non, je veux plus d'infos</label>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="comprehension-item">
+          <div class="q">As-tu bien compris que pour résilier à la fin de ton engagement, il faut envoyer un <strong>email avec un mois de préavis</strong> (soit 1 mensualité)&nbsp;?</div>
+          <div class="radio-group">
+            <label><input type="radio" name="Q4 - Préavis résiliation" value="Oui, j'ai compris" required> Oui, j'ai compris</label>
+            <label><input type="radio" name="Q4 - Préavis résiliation" value="Non, je veux plus d'infos" required> Non, je veux plus d'infos</label>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="comprehension-item">
+          <div class="q">As-tu bien compris qu'en cas d'absence de <strong>plus de 10 jours</strong> (vacances, déplacement), tu peux <strong>suspendre ton abonnement avec un préavis d'1 mois</strong>&nbsp;?</div>
+          <div class="radio-group">
+            <label><input type="radio" name="Q5 - Pause vacances" value="Oui, j'ai compris" required> Oui, j'ai compris</label>
+            <label><input type="radio" name="Q5 - Pause vacances" value="Non, je veux plus d'infos" required> Non, je veux plus d'infos</label>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="comprehension-item">
+          <div class="q">✨ As-tu bien compris que chez SVB, tu peux annuler une séance <strong>jusqu'à 1h seulement avant le cours</strong> en small group, sans perdre ton crédit&nbsp;? C'est l'un de nos gros avantages&nbsp;: la plupart des autres studios exigent <strong>24h de préavis</strong>, chez nous tu restes libre jusqu'au dernier moment. (Coaching privé&nbsp;: 24h avant.)</div>
+          <div class="radio-group">
+            <label><input type="radio" name="Q6 - Annulation 1h vs 24h" value="Oui, j'ai compris" required> Oui, j'ai compris</label>
+            <label><input type="radio" name="Q6 - Annulation 1h vs 24h" value="Non, je veux plus d'infos" required> Non, je veux plus d'infos</label>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="comprehension-item">
+          <div class="q">As-tu bien compris que <strong>les crédits du mois en cours ne sont pas reportables</strong> sur le mois suivant&nbsp;?</div>
+          <div class="radio-group">
+            <label><input type="radio" name="Q7 - Crédits non reportables" value="Oui, j'ai compris" required> Oui, j'ai compris</label>
+            <label><input type="radio" name="Q7 - Crédits non reportables" value="Non, je veux plus d'infos" required> Non, je veux plus d'infos</label>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="comprehension-item">
+          <div class="q">As-tu bien compris que <strong>plus de 5 minutes de retard = cours refusé</strong>, et qu'au studio Cours des Lavandières les <strong>chaussettes antidérapantes sont obligatoires</strong>&nbsp;?</div>
+          <div class="radio-group">
+            <label><input type="radio" name="Q8 - Retard & chaussettes" value="Oui, j'ai compris" required> Oui, j'ai compris</label>
+            <label><input type="radio" name="Q8 - Retard & chaussettes" value="Non, je veux plus d'infos" required> Non, je veux plus d'infos</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 6 : RIB / SEPA -->
+      <div class="card">
+        <h2 class="section-title"><span class="section-number">6</span>Tes coordonnées bancaires</h2>
+        <p class="section-subtitle">Pour préparer ton mandat SEPA (signature au studio).</p>
+
+        <div class="info-box">
+          🔒 <strong>Confidentiel&nbsp;:</strong> tes informations bancaires sont transmises de manière sécurisée et servent uniquement à préparer ton mandat SEPA. La signature officielle se fera lors de ton passage au studio.
+        </div>
+
+        <div class="form-group full">
+          <label>Nom du titulaire du compte <span class="required">*</span><span class="hint">(tel qu'il apparaît sur le RIB)</span></label>
+          <input type="text" name="Titulaire du compte" required>
+        </div>
+
+        <div class="form-group full iban-field">
+          <label>IBAN <span class="required">*</span></label>
+          <input type="text" name="IBAN" placeholder="FR76 XXXX XXXX XXXX XXXX XXXX XXX" required maxlength="34">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>BIC / Code SWIFT <span class="required">*</span></label>
+            <input type="text" name="BIC" required>
+          </div>
+          <div class="form-group">
+            <label>Nom de la banque</label>
+            <input type="text" name="Banque">
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Le titulaire du compte est-il différent de l'abonné&nbsp;? <span class="required">*</span></label>
+          <div class="inline-radios">
+            <label><input type="radio" name="Titulaire différent" value="Non, c'est moi" required> Non, c'est moi</label>
+            <label><input type="radio" name="Titulaire différent" value="Oui, c'est quelqu'un d'autre" required> Oui, c'est quelqu'un d'autre</label>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Si différent, précise le lien et le nom <span class="hint">(parent, conjoint...)</span></label>
+          <input type="text" name="Lien avec le titulaire">
+        </div>
+      </div>
+
+      <!-- FINAL -->
+      <div class="card">
+        <div class="final-box">
+          <h3>Et après&nbsp;?</h3>
+          <p>En cliquant sur le bouton ci-dessous, <strong>WhatsApp va s'ouvrir automatiquement</strong> avec un message prérempli contenant toutes tes infos. Tu n'as qu'à cliquer sur «&nbsp;envoyer&nbsp;» dans WhatsApp&nbsp;! Notre équipe prépare ensuite ta fiche client et ton mandat SEPA. Il te suffira de <strong>passer au studio</strong> pour la <strong>photo</strong> et la signature finale. Ton premier cours t'attend&nbsp;! ✨</p>
+        </div>
+
+        <div class="comprehension-item">
+          <div class="q">Je comprends que je dois <strong>passer au studio pour finaliser mon inscription</strong> (photo, signature du mandat SEPA et confirmation).</div>
+          <div class="radio-group">
+            <label><input type="radio" name="Q9 - Passage studio" value="Oui, j'ai compris" required> Oui, j'ai compris</label>
+            <label><input type="radio" name="Q9 - Passage studio" value="Non, je veux plus d'infos" required> Non, je veux plus d'infos</label>
+          </div>
+        </div>
+
+        <div class="comprehension-item">
+          <div class="q">Je certifie que les informations fournies dans ce formulaire sont <strong>exactes</strong> et j'accepte que le Studio SVB les utilise pour créer ma fiche client et mettre en place mon abonnement.</div>
+          <div class="radio-group">
+            <label><input type="radio" name="Q10 - Véracité & RGPD" value="Oui, je certifie" required> Oui, je certifie</label>
+            <label><input type="radio" name="Q10 - Véracité & RGPD" value="Non" required> Non</label>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">📱 Envoyer ma demande via WhatsApp →</button>
+
+        <p class="footer-note">WhatsApp s'ouvrira avec ton message prérempli. Notre équipe te recontacte sous 24&nbsp;h.</p>
+      </div>
+
+    </form>
+
+    <div class="contact-footer">
+      <strong>Studio SVB</strong> · hello@studiosvb.fr · 07 44 91 91 55 · @svb.officiel<br>
+      40 Cours des Lavandières &amp; 6 Mail André Breton — 93400 Saint Ouen
+    </div>
+
+  </div>
+
+<script>
+  // ====== PRICING DATA (d'après la brochure Studio SVB) ======
+  const PRICES = {
+    "Pass Reformer":                                { 2: 70.30, 4: 136.30, 6: 198.30, 8: 256.30, 10: 310.30, 12: 360.30 },
+    "Pass Crossformer":                             { 2: 78.30, 4: 152.30, 6: 222.30, 8: 288.30, 10: 350.30, 12: 408.30 },
+    "Pass Full Former (Reformer + Crossformer)":    { 2: 74.30, 4: 144.30, 6: 210.30, 8: 272.30, 10: 330.30, 12: 384.30 },
+    "Pass Cross":                                   { 2: 30.30, 4: 60.30,  6: 90.30,  8: 116.30, 10: 145.30, 12: 168.30 },
+    "Pass Focus":                                   { 2: 36.30, 4: 72.30,  6: 105.30, 8: 136.30, 10: 165.30, 12: 192.30 },
+    "Pass Full (Cross + Focus)":                    { 2: 40.30, 4: 80.30,  6: 115.30, 8: 150.30, 10: 180.30, 12: 210.30 },
+    "Coaching Pass Good Vibes (individuel)":        { 4: 300.30, 8: 560.30 },
+    "Coaching Pass Duo":                            { 4: 400.60, 8: 720.60 },
+    "Pass Kids (1 activité au choix)":              { 2: 35.30, 4: 65.30 },
+    "New Pass Starter (5 sessions, 99,90 €)":       { 5: 99.90 }
+  };
+
+  const FILING_FEES = {
+    default: 49,
+    kids: 25,
+    starter: 0
+  };
+
+  // ====== HELPERS ======
+  const euro = (n) => (Math.round(n * 100) / 100).toFixed(2).replace('.', ',') + ' €';
+  const parseSeances = (s) => {
+    if (!s) return null;
+    const m = s.match(/(\d+)/);
+    return m ? parseInt(m[1], 10) : null;
+  };
+
+  // ====== ELEMENTS ======
+  const formuleEl   = document.querySelector('select[name="Formule"]');
+  const seancesEl   = document.querySelector('select[name="Séances par mois"]');
+  const boostEls    = document.querySelectorAll('input[name="SVB Boost"]');
+  const proCheckEl  = document.getElementById('proStart');
+  const proFieldsEl = document.getElementById('proFields');
+  const proSessEl   = document.getElementById('proSessions');
+
+  const calcEl      = document.getElementById('priceCalculator');
+  const formuleLbl  = document.getElementById('formuleLabel');
+  const monthlyEl   = document.getElementById('monthlyPrice');
+  const perSessEl   = document.getElementById('perSessionPrice');
+  const firstMoEl   = document.getElementById('firstMonthPrice');
+  const feesEl      = document.getElementById('filingFees');
+  const feesNote    = document.getElementById('feesNote');
+  const boostRow    = document.getElementById('boostRow');
+  const todayEl     = document.getElementById('totalToday');
+  const totalMoEl   = document.getElementById('totalMonthly');
+  const badgeEl     = document.getElementById('badgeProrata');
+
+  // Hidden fields
+  const h_monthly        = document.getElementById('h_monthly');
+  const h_first          = document.getElementById('h_first');
+  const h_fees           = document.getElementById('h_fees');
+  const h_today          = document.getElementById('h_today');
+  const h_monthly_total  = document.getElementById('h_monthly_total');
+
+  // ====== MAIN CALCULATION ======
+  function getBoostValue() {
+    for (const el of boostEls) {
+      if (el.checked) {
+        // Boost actif si la valeur commence par "Oui"
+        return el.value.startsWith('Oui') ? 'Oui' : el.value;
+      }
+    }
+    return null;
+  }
+
+  function calculate() {
+    const formule = formuleEl.value;
+    const seances = parseSeances(seancesEl.value);
+    const boost   = getBoostValue() === 'Oui';
+
+    // Hide calculator if no formule picked
+    if (!formule || !PRICES[formule]) {
+      calcEl.style.display = 'none';
+      return;
+    }
+
+    // Find the correct price (fallback to closest if sessions don't match this formule)
+    const priceTable = PRICES[formule];
+    const availableSessions = Object.keys(priceTable).map(Number);
+    let priceKey = seances;
+
+    if (!availableSessions.includes(seances)) {
+      // Auto-pick first available if mismatch (e.g. Starter = 5 only)
+      priceKey = availableSessions[0];
+    }
+
+    const monthlyPrice = priceTable[priceKey];
+    if (monthlyPrice == null) {
+      calcEl.style.display = 'none';
+      return;
+    }
+
+    calcEl.style.display = 'block';
+
+    // Per-session price
+    const perSession = monthlyPrice / priceKey;
+
+    // Filing fees
+    let fees;
+    if (formule.toLowerCase().includes('kids')) {
+      fees = FILING_FEES.kids;
+      feesNote.textContent = '(Pass Kids)';
+    } else if (formule.toLowerCase().includes('starter')) {
+      fees = FILING_FEES.starter;
+      feesNote.textContent = '(aucun — Pass Starter)';
+    } else {
+      fees = FILING_FEES.default;
+      feesNote.textContent = '';
+    }
+
+    // SVB Boost applique -50% sur les frais de dossier
+    if (boost && fees > 0) {
+      fees = fees / 2;
+      feesNote.textContent = '(−50 % avec SVB Boost)';
+    }
+
+    // First month (prorata if checked)
+    let firstMonth = monthlyPrice;
+    let isProrata = proCheckEl.checked;
+    let proSess = parseInt(proSessEl.value, 10);
+
+    if (isProrata && proSess && proSess > 0 && proSess <= priceKey) {
+      firstMonth = perSession * proSess;
+      badgeEl.style.display = 'inline-block';
+    } else {
+      badgeEl.style.display = 'none';
+    }
+
+    // Boost monthly add-on
+    const boostMonthly = boost ? 12.90 : 0;
+
+    // Totals
+    const todayTotal   = firstMonth + fees + boostMonthly;
+    const monthlyTotal = monthlyPrice + boostMonthly;
+
+    // ====== UPDATE DOM ======
+    formuleLbl.textContent = formule + ' — ' + priceKey + ' séances/mois';
+    monthlyEl.textContent  = euro(monthlyPrice) + ' /mois';
+    perSessEl.textContent  = euro(perSession);
+    firstMoEl.textContent  = euro(firstMonth);
+    feesEl.textContent     = euro(fees);
+    todayEl.textContent    = euro(todayTotal);
+    totalMoEl.textContent  = euro(monthlyTotal) + ' /mois';
+
+    boostRow.style.display = boost ? 'flex' : 'none';
+
+    // Hidden fields (envoyés par mail)
+    h_monthly.value       = euro(monthlyPrice);
+    h_first.value         = euro(firstMonth) + (isProrata ? ' (prorata ' + proSess + ' séances)' : '');
+    h_fees.value          = euro(fees);
+    h_today.value         = euro(todayTotal);
+    h_monthly_total.value = euro(monthlyTotal);
+  }
+
+  // ====== PRE-SELECTION VIA URL (?pass=reformer&sessions=4) ======
+  // Permet à tarifs.html de rediriger vers le questionnaire avec la formule
+  // déjà pré-remplie pour réduire la friction.
+  (function preselectFromURL() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const passKey = (params.get('pass') || '').toLowerCase().trim();
+      const sessKey = (params.get('sessions') || '').trim();
+
+      const passMap = {
+        'reformer': 'Pass Reformer',
+        'crossformer': 'Pass Crossformer',
+        'fullformer': 'Pass Full Former (Reformer + Crossformer)',
+        'full-former': 'Pass Full Former (Reformer + Crossformer)',
+        'cross': 'Pass Cross',
+        'focus': 'Pass Focus',
+        'full': 'Pass Full (Cross + Focus)',
+        'coaching': 'Coaching Pass Good Vibes (individuel)',
+        'coaching-solo': 'Coaching Pass Good Vibes (individuel)',
+        'coaching-duo': 'Coaching Pass Duo',
+        'kids': 'Pass Kids (1 activité au choix)',
+        'starter': 'New Pass Starter (5 sessions, 99,90 €)'
+      };
+
+      if (passKey && passMap[passKey]) {
+        formuleEl.value = passMap[passKey];
+        // Scroll doux vers la section formule
+        setTimeout(() => {
+          const section3 = document.querySelector('.section:nth-of-type(3)') || formuleEl.closest('.section');
+          if (section3) section3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 400);
+      }
+      if (sessKey && /^\d+$/.test(sessKey)) {
+        const targetOption = Array.from(seancesEl.options).find(o => o.value.startsWith(sessKey + ' '));
+        if (targetOption) seancesEl.value = targetOption.value;
+      }
+      if (passKey || sessKey) calculate();
+    } catch (err) { /* silencieux, pas bloquant */ }
+  })();
+
+  // ====== EVENT LISTENERS ======
+  formuleEl.addEventListener('change', calculate);
+  seancesEl.addEventListener('change', calculate);
+  boostEls.forEach(el => el.addEventListener('change', calculate));
+  proCheckEl.addEventListener('change', () => {
+    proFieldsEl.style.display = proCheckEl.checked ? 'block' : 'none';
+    calculate();
+  });
+  proSessEl.addEventListener('input', calculate);
+
+  // ====== WHATSAPP SUBMIT ======
+  // Numéro WhatsApp du Studio SVB : 07 44 91 91 55 → format international : 33744919155
+  const SVB_WHATSAPP_NUMBER = '33744919155';
+
+  // Récupère la valeur d'un champ du formulaire par son name
+  function getFieldValue(name) {
+    const el = document.querySelector('[name="' + name + '"]');
+    if (!el) return '';
+    if (el.type === 'radio' || el.type === 'checkbox') {
+      const checked = document.querySelector('[name="' + name + '"]:checked');
+      return checked ? checked.value : '';
+    }
+    return el.value || '';
+  }
+
+  // Récupère plusieurs checkboxes cochées (retourne la liste des noms)
+  function getCheckedList(names) {
+    return names.filter(n => {
+      const el = document.querySelector('[name="' + n + '"]');
+      return el && el.checked;
+    }).map(n => n.replace('Créneau ', ''));
+  }
+
+  function line(label, value) {
+    if (!value) return '';
+    return label + ' : ' + value + '\n';
+  }
+
+  function section(title) {
+    return '\n*' + title + '*\n';
+  }
+
+  function sendToWhatsApp(event) {
+    event.preventDefault();
+
+    // Validation HTML5 native
+    const form = document.getElementById('svbForm');
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return false;
+    }
+
+    let msg = '';
+    msg += '🌿 *NOUVELLE INSCRIPTION — STUDIO SVB* 🌿\n';
+    msg += 'Demande envoyée depuis le formulaire en ligne\n';
+
+    // === COORDONNÉES ===
+    msg += section('👤 COORDONNÉES');
+    msg += line('Prénom', getFieldValue('Prénom'));
+    msg += line('Nom', getFieldValue('Nom'));
+    msg += line('Email', getFieldValue('Email'));
+    msg += line('Téléphone', getFieldValue('Téléphone'));
+    msg += line('Date de naissance', getFieldValue('Date de naissance'));
+    const sexe = getFieldValue('Sexe');
+    if (sexe) msg += line('Sexe', sexe);
+    msg += line('Adresse', getFieldValue('Adresse'));
+    msg += line('Ville', getFieldValue('Ville') + ' ' + getFieldValue('Code postal'));
+    msg += line('Pays', getFieldValue('Pays'));
+    msg += line('Contact urgence', getFieldValue('Contact urgence nom') + ' — ' + getFieldValue('Contact urgence téléphone'));
+    const source = getFieldValue('Source');
+    if (source) msg += line('Source', source);
+    const parrain = getFieldValue('Parrain');
+    if (parrain) msg += line('Parrainé par', parrain);
+
+    // === STUDIO ===
+    msg += section('🏢 STUDIO');
+    msg += getFieldValue('Studio') + '\n';
+
+    // === FORMULE ===
+    msg += section('💪 FORMULE & TARIFS');
+    msg += line('Formule', getFieldValue('Formule'));
+    msg += line('Séances/mois', getFieldValue('Séances par mois'));
+    msg += line('Date de démarrage', getFieldValue('Date de démarrage'));
+    const boost = getFieldValue('SVB Boost');
+    if (boost) msg += line('Option SVB Boost', boost);
+
+    // Créneaux préférés
+    const creneaux = getCheckedList([
+      'Créneau matin tôt', 'Créneau matinée', 'Créneau midi',
+      'Créneau après-midi', 'Créneau soir', 'Créneau weekend'
+    ]);
+    if (creneaux.length) msg += line('Créneaux préférés', creneaux.join(', '));
+
+    const objectifs = getFieldValue('Objectifs');
+    if (objectifs) msg += line('Objectifs', objectifs);
+
+    // Tarifs calculés
+    const monthly = document.getElementById('h_monthly').value;
+    if (monthly) {
+      msg += '\n💰 *RÉCAP TARIFAIRE*\n';
+      msg += line('Tarif mensuel plein', monthly);
+      msg += line('Premier mois', document.getElementById('h_first').value);
+      msg += line('Frais de dossier', document.getElementById('h_fees').value);
+      msg += line('💳 À régler au studio', document.getElementById('h_today').value);
+      msg += line('📅 Puis chaque mois', document.getElementById('h_monthly_total').value);
+    }
+
+    // === SANTÉ ===
+    msg += section('🏥 SANTÉ');
+    const pratique = getFieldValue('Pratique sportive actuelle');
+    if (pratique) msg += line('Pratique actuelle', pratique);
+    msg += line('Pathologies', getFieldValue('Pathologies'));
+    const details = getFieldValue('Détails pathologies');
+    if (details) msg += line('Détails', details);
+    msg += line('Opération récente', getFieldValue('Opération récente'));
+    const grossesse = getFieldValue('Grossesse');
+    if (grossesse) msg += line('Grossesse', grossesse);
+    msg += line('Traitement médical', getFieldValue('Traitement'));
+    const certif = getFieldValue('Certificat médical');
+    if (certif) msg += line('Certificat médical', certif);
+
+    // === CONDITIONS VALIDÉES ===
+    msg += section('✅ CONDITIONS LUES & VALIDÉES');
+    msg += line('Paiement SEPA & caution', getFieldValue('Q1 - Paiement SEPA & caution'));
+    msg += line('Engagement & tacite reconduction', getFieldValue('Q2 - Engagement & tacite reconduction'));
+    msg += line('Frais de dossier', getFieldValue('Q3 - Frais de dossier'));
+    msg += line('Préavis résiliation', getFieldValue('Q4 - Préavis résiliation'));
+    msg += line('Pause vacances', getFieldValue('Q5 - Pause vacances'));
+    msg += line('Annulation 1h (vs 24h)', getFieldValue('Q6 - Annulation 1h vs 24h'));
+    msg += line('Crédits non reportables', getFieldValue('Q7 - Crédits non reportables'));
+    msg += line('Retard & chaussettes', getFieldValue('Q8 - Retard & chaussettes'));
+    msg += line('Passage studio', getFieldValue('Q9 - Passage studio'));
+    msg += line('Véracité & RGPD', getFieldValue('Q10 - Véracité & RGPD'));
+
+    // === RIB ===
+    msg += section('💳 COORDONNÉES BANCAIRES (SEPA)');
+    msg += line('Titulaire du compte', getFieldValue('Titulaire du compte'));
+    msg += line('IBAN', getFieldValue('IBAN'));
+    msg += line('BIC', getFieldValue('BIC'));
+    const banque = getFieldValue('Banque');
+    if (banque) msg += line('Banque', banque);
+    const different = getFieldValue('Titulaire différent');
+    if (different) msg += line('Titulaire différent', different);
+    const lien = getFieldValue('Lien avec le titulaire');
+    if (lien) msg += line('Lien', lien);
+
+    msg += '\n🙏 Merci de bien vouloir finaliser mon inscription.\n';
+    msg += 'Je passerai au studio pour la photo et la signature du mandat SEPA.';
+
+    // Encodage pour URL WhatsApp
+    const encoded = encodeURIComponent(msg);
+    const waUrl = 'https://wa.me/' + SVB_WHATSAPP_NUMBER + '?text=' + encoded;
+
+    // Ouvre WhatsApp dans un nouvel onglet
+    window.open(waUrl, '_blank');
+    return false;
+  }
+</script>
+</body>
+</html>
