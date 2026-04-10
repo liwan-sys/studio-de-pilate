@@ -629,7 +629,27 @@
       <!-- SECTION 1 : COORDONNÉES -->
       <div class="card">
         <h2 class="section-title"><span class="section-number">1</span>Tes coordonnées</h2>
-        <p class="section-subtitle">Juste de quoi te rappeler dans l'heure. Le reste (adresse, RIB, urgence) on le remplit ensemble au studio.</p>
+        <p class="section-subtitle">Toutes les infos pour créer ta fiche membre Studio SVB.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Type <span class="required">*</span></label>
+            <select name="Type" required>
+              <option value="">— Choisis —</option>
+              <option>Adulte</option>
+              <option>Enfant</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Sexe <span class="required">*</span></label>
+            <select name="Sexe" required>
+              <option value="">— Choisis —</option>
+              <option>Femme</option>
+              <option>Homme</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
 
         <div class="form-row">
           <div class="form-group">
@@ -652,11 +672,63 @@
             <input type="tel" name="Téléphone" placeholder="06 ou 07…" required>
           </div>
         </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date de naissance <span class="required">*</span></label>
+            <input type="date" name="Date de naissance" required>
+          </div>
+          <div class="form-group">
+            <label>Profession</label>
+            <input type="text" name="Profession" placeholder="Ex : Cadre, étudiant(e), infirmier(e)…">
+          </div>
+        </div>
       </div>
 
-      <!-- SECTION 2 : STUDIO -->
+      <!-- SECTION 2 : ADRESSE -->
       <div class="card">
-        <h2 class="section-title"><span class="section-number">2</span>Ton studio</h2>
+        <h2 class="section-title"><span class="section-number">2</span>Ton adresse</h2>
+        <p class="section-subtitle">Pour ta fiche membre et l'envoi éventuel de courriers (facture, attestation, cadeau d'anniv 🎁).</p>
+
+        <div class="form-group full">
+          <label>Adresse postale complète <span class="required">*</span></label>
+          <input type="text" name="Adresse" placeholder="N° rue, code postal, ville" required>
+        </div>
+      </div>
+
+      <!-- SECTION 3 : CONTACT D'URGENCE -->
+      <div class="card">
+        <h2 class="section-title"><span class="section-number">3</span>Contact d'urgence</h2>
+        <p class="section-subtitle">La personne à prévenir si jamais il y a le moindre souci pendant un cours.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nom complet <span class="required">*</span></label>
+            <input type="text" name="Urgence — Nom" required>
+          </div>
+          <div class="form-group">
+            <label>Téléphone <span class="required">*</span></label>
+            <input type="tel" name="Urgence — Téléphone" placeholder="06…" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Lien avec toi <span class="required">*</span></label>
+          <select name="Urgence — Lien" required>
+            <option value="">— Choisis —</option>
+            <option>Conjoint(e)</option>
+            <option>Parent</option>
+            <option>Enfant majeur</option>
+            <option>Frère / Sœur</option>
+            <option>Ami(e) proche</option>
+            <option>Autre</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SECTION 4 : STUDIO -->
+      <div class="card">
+        <h2 class="section-title"><span class="section-number">4</span>Ton studio</h2>
         <p class="section-subtitle">Quel studio SVB correspond à ton abonnement&nbsp;?</p>
 
         <div class="studio-choice">
@@ -676,9 +748,9 @@
         </div>
       </div>
 
-      <!-- SECTION 3 : FORMULE -->
+      <!-- SECTION 5 : FORMULE -->
       <div class="card">
-        <h2 class="section-title"><span class="section-number">3</span>Ton abonnement</h2>
+        <h2 class="section-title"><span class="section-number">5</span>Ton abonnement</h2>
         <p class="section-subtitle">Choisis la formule qui te convient.</p>
 
         <div class="form-group">
@@ -798,13 +870,51 @@
         </div>
       </div>
 
-      <!-- SECTION 4 : SANTÉ -->
+      <!-- SECTION 6 : OBJECTIF & NIVEAU SPORTIF -->
       <div class="card">
-        <h2 class="section-title"><span class="section-number">4</span>Ta santé</h2>
-        <p class="section-subtitle">Juste une question pour qu'on sache s'il y a des points de vigilance. On approfondira au studio si besoin.</p>
+        <h2 class="section-title"><span class="section-number">6</span>Ton objectif & ton niveau</h2>
+        <p class="section-subtitle">Pour qu'on puisse te conseiller les bons cours dès le premier jour.</p>
 
         <div class="form-group">
-          <label>As-tu une pathologie, une blessure, une opération récente ou un traitement médical dont on doit être informés&nbsp;? <span class="required">*</span></label>
+          <label>Objectif <span class="required">*</span></label>
+          <select name="Objectif" required>
+            <option value="">— Choisis ton objectif principal —</option>
+            <option>Remise en forme générale</option>
+            <option>Perte de poids / tonification</option>
+            <option>Renforcement musculaire</option>
+            <option>Souplesse & mobilité</option>
+            <option>Gestion du stress / bien-être</option>
+            <option>Rééducation / récupération post-blessure</option>
+            <option>Préparation physique (sport, événement)</option>
+            <option>Grossesse / post-partum</option>
+            <option>Plaisir & sociabilité</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label>Autres objectifs / précisions <span class="hint">(optionnel)</span></label>
+          <textarea name="Objectifs précisions" placeholder="Ex : retrouver mon niveau d'avant grossesse, travailler mon dos, tenir un trail de 10 km…"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Niveau sportif <span class="required">*</span></label>
+          <select name="Niveau sportif" required>
+            <option value="">— Choisis —</option>
+            <option>Débutant</option>
+            <option>Intermédiaire</option>
+            <option>Avancé</option>
+            <option>Expert</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SECTION 7 : PATHOLOGIES / SANTÉ -->
+      <div class="card">
+        <h2 class="section-title"><span class="section-number">7</span>Pathologies</h2>
+        <p class="section-subtitle">Merci de nous signaler toute pathologie, blessure, opération récente, grossesse ou traitement médical dont on doit être informés.</p>
+
+        <div class="form-group">
+          <label>As-tu un point de vigilance santé à nous signaler&nbsp;? <span class="required">*</span></label>
           <div class="inline-radios">
             <label><input type="radio" name="Santé — point de vigilance" value="Oui" required> Oui</label>
             <label><input type="radio" name="Santé — point de vigilance" value="Non" required> Non, tout va bien</label>
@@ -812,10 +922,39 @@
         </div>
 
         <div class="form-group full">
-          <label>Si oui, précise en quelques mots <span class="hint">(dos, genoux, tendinite, grossesse, opération, traitement…)</span></label>
-          <textarea name="Détails santé" placeholder="Ex : lombalgie chronique, post-partum 6 mois, tendinite épaule droite, traitement anti-hypertenseur…"></textarea>
+          <label>Si oui, précise <span class="hint">(dos, genoux, tendinite, grossesse, opération, traitement…)</span></label>
+          <textarea name="Pathologies" placeholder="Ex : lombalgie chronique, post-partum 6 mois, tendinite épaule droite, traitement anti-hypertenseur…"></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 8 : ORIGINE & DROIT À L'IMAGE -->
+      <div class="card">
+        <h2 class="section-title"><span class="section-number">8</span>Dernières questions</h2>
+        <p class="section-subtitle">Deux petites infos pour finaliser ta fiche membre.</p>
+
+        <div class="form-group">
+          <label>Comment nous avez-vous connu&nbsp;? <span class="required">*</span></label>
+          <select name="Comment nous avez-vous connu" required>
+            <option value="">— Choisis —</option>
+            <option>Instagram / réseaux sociaux</option>
+            <option>Recherche Google</option>
+            <option>Bouche à oreille / recommandation d'un(e) ami(e)</option>
+            <option>En passant devant le studio</option>
+            <option>Flyer / affichage</option>
+            <option>Article de blog / presse</option>
+            <option>Événement / pop-up</option>
+            <option>Autre</option>
+          </select>
         </div>
 
+        <div class="form-group">
+          <label>Autorisation du droit à l'image et de sa diffusion <span class="required">*</span></label>
+          <p class="hint" style="margin:4px 0 10px;">Le Studio SVB peut être amené à filmer/photographier les cours pour sa communication (Instagram, site, vidéos promo). Tu peux accepter ou refuser — aucune incidence sur ton abonnement.</p>
+          <div class="inline-radios">
+            <label><input type="radio" name="Autorisation droit à l'image" value="Oui" required> Oui, j'accepte</label>
+            <label><input type="radio" name="Autorisation droit à l'image" value="Non" required> Non, je refuse</label>
+          </div>
+        </div>
       </div>
 
       <!-- FINAL -->
@@ -1042,6 +1181,12 @@
     return el.value || '';
   }
 
+  // Récupère plusieurs valeurs cochées (checkboxes avec le même name)
+  function getFieldValues(name) {
+    const all = document.querySelectorAll('[name="' + name + '"]:checked');
+    return [...all].map(el => el.value).join(', ');
+  }
+
   function line(label, value) {
     if (!value) return '';
     return label + ' : ' + value + '\n';
@@ -1065,12 +1210,23 @@
     msg += '🌿 *NOUVELLE INSCRIPTION — STUDIO SVB* 🌿\n';
     msg += 'Demande envoyée depuis le formulaire en ligne\n';
 
-    // === COORDONNÉES ===
-    msg += section('👤 COORDONNÉES');
+    // === FICHE MEMBRE ===
+    msg += section('👤 FICHE MEMBRE');
+    msg += line('Type', getFieldValue('Type'));
+    msg += line('Sexe', getFieldValue('Sexe'));
     msg += line('Prénom', getFieldValue('Prénom'));
     msg += line('Nom', getFieldValue('Nom'));
     msg += line('Email', getFieldValue('Email'));
     msg += line('Téléphone', getFieldValue('Téléphone'));
+    msg += line('Date de naissance', getFieldValue('Date de naissance'));
+    msg += line('Profession', getFieldValue('Profession'));
+    msg += line('Adresse', getFieldValue('Adresse'));
+
+    // === CONTACT D'URGENCE ===
+    msg += section('🚨 CONTACT D\'URGENCE');
+    msg += line('Nom', getFieldValue('Urgence — Nom'));
+    msg += line('Téléphone', getFieldValue('Urgence — Téléphone'));
+    msg += line('Lien', getFieldValue('Urgence — Lien'));
 
     // === STUDIO ===
     msg += section('🏢 STUDIO');
@@ -1093,11 +1249,23 @@
       msg += line('📅 Puis chaque mois', document.getElementById('h_monthly_total').value);
     }
 
-    // === SANTÉ ===
-    msg += section('🏥 SANTÉ');
+    // === OBJECTIF & NIVEAU ===
+    msg += section('🎯 OBJECTIF & NIVEAU SPORTIF');
+    msg += line('Objectif', getFieldValue('Objectif'));
+    const objPrec = getFieldValue('Objectifs précisions');
+    if (objPrec) msg += line('Précisions', objPrec);
+    msg += line('Niveau sportif', getFieldValue('Niveau sportif'));
+
+    // === PATHOLOGIES ===
+    msg += section('🏥 PATHOLOGIES');
     msg += line('Point de vigilance', getFieldValue('Santé — point de vigilance'));
-    const details = getFieldValue('Détails santé');
-    if (details) msg += line('Détails', details);
+    const patho = getFieldValue('Pathologies');
+    if (patho) msg += line('Détails', patho);
+
+    // === ORIGINE & DROIT À L'IMAGE ===
+    msg += section('📣 ORIGINE & DROIT À L\'IMAGE');
+    msg += line('Comment nous avez-vous connu', getFieldValue('Comment nous avez-vous connu'));
+    msg += line('Autorisation droit à l\'image', getFieldValue('Autorisation droit à l\'image'));
 
     // === CONSENTEMENT ===
     msg += section('✅ CONSENTEMENT');
