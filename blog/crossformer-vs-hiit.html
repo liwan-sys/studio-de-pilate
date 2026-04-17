@@ -5,7 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
+    <script>
+    /* GTM gated by RGPD consent (svb.js handles the banner + reload).
+       Fires only if user has explicitly granted consent. */
+    (function(){
+      var granted = false;
+      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+      if (!granted) { window.dataLayer = window.dataLayer || []; return; }
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5RW8LB7B');
+    })();
+  </script>
     <!-- End Google Tag Manager -->
 
     <!-- SEO Meta Tags -->
@@ -475,6 +488,7 @@
         .border-t { border-top: 1px solid; }
         .border-gray-300 { border-color: #d1d5db; }
     </style>
+  <link rel="stylesheet" href="/assets/svb.css" />
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->

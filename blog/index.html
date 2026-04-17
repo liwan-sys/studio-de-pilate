@@ -1,499 +1,233 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Studio SVB — Conseils Pilates, Cross, Yoga, Boxe à Saint-Ouen</title>
+  <meta name="description" content="Tous nos articles pour bouger mieux : Pilates Reformer, Crossformer, Yoga Vinyasa, Boxe, Afrodance, Training Kids. 16 coachs vous conseillent." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="SVB Santez Vous Bien" />
+  <link rel="canonical" href="https://studiosvb.com/blog/" />
+  <link rel="alternate" type="application/rss+xml" title="Blog Studio SVB — flux RSS" href="/blog/rss.xml" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../images/favicon.jpg" />
-    <title>Blog Sport & Bien-être | Conseils Fitness | Studio SVB</title>
-    <meta name="description" content="Conseils sport et bien-être : Cross Training, Pilates Reformer, Crossformer, Yoga, Boxe. Articles experts du Studio SVB à Saint-Ouen-sur-Seine.">
-    <meta name="keywords" content="blog sport, conseils fitness, cross training, pilates reformer, crossformer, yoga, boxe, bien-être, saint-ouen">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="SVB SantezVousBien">
-    <link rel="canonical" href="https://studiosvb.com/blog/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://studiosvb.com/blog/" />
+  <meta property="og:title" content="Blog Studio SVB — Conseils sport & bien-être" />
+  <meta property="og:description" content="Pilates, Cross, Yoga, Boxe : conseils et guides signés par l'équipe du Studio SVB Saint-Ouen." />
+  <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg" />
+  <meta property="og:locale" content="fr_FR" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://studiosvb.com/blog/">
-    <meta property="og:title" content="Blog Sport & Bien-être | Conseils Fitness | Studio SVB">
-    <meta property="og:description" content="Conseils sport et bien-être : Cross Training, Pilates Reformer, Crossformer, Yoga, Boxe. Articles experts du Studio SVB.">
-    <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:site_name" content="SVB SantezVousBien">
+  <meta name="theme-color" content="#4A8D84" />
+  <link rel="icon" type="image/png" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Blog Pilates & Bien-être | Studio SVB">
-    <meta name="twitter:description" content="Conseils experts, guides pratiques et actualités sur le Pilates Reformer et le bien-être.">
-    <meta name="twitter:image" content="https://studiosvb.com/images/og-image.jpg">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <meta name="theme-color" content="#4A8D84">
+  <!-- Tailwind self-hosted + design system -->
+  <link rel="stylesheet" href="/assets/tailwind.css" />
+  <link rel="stylesheet" href="/assets/svb.css" />
 
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- GTM (RGPD-gated) -->
+  <script>
+    (function(){
+      var granted = false;
+      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+      if (!granted) { window.dataLayer = window.dataLayer || []; return; }
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5RW8LB7B');
+    })();
+  </script>
 
-    <style>
-        :root {
-            --col-peach: #EBC6A6;
-            --col-sand: #D4C3A3;
-            --col-green: #88C0A6;
-            --col-cream: #F3EBD4;
-            --col-dark: #3A6B63;
-            --svb-text: #2F4F4F;
-        }
+  <!-- Schema.org Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Studio SVB",
+    "url": "https://studiosvb.com/blog/",
+    "publisher": { "@type": "Organization", "name": "SVB Santez Vous Bien", "url": "https://studiosvb.com" }
+  }
+  </script>
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #B8D8C0;
-            color: var(--svb-text);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-            scroll-behavior: smooth;
-        }
-
-        /* FOND IMMERSIF */
-        .ambient-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
-            background: linear-gradient(180deg, #CDE4D3 0%, #F5F0E1 100%);
-            overflow: hidden;
-        }
-        .blob {
-            position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.6;
-            animation: moveBlob 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .blob-1 { top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--col-green); }
-        .blob-2 { bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--col-peach); animation-delay: -5s; }
-        @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(40px, -40px) scale(1.1); } }
-        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); pointer-events: none; }
-
-        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
-
-        .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
-        nav.reveal-load, header.reveal-load, section:first-of-type.reveal-load { opacity: 1 !important; animation: none !important; transform: none !important; }
-        @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
-        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
-
-        /* === BLOG CARD === */
-        .blog-card {
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 28px;
-            height: 100%;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .blog-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
-            background: currentColor;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-        }
-
-        .blog-category {
-            display: inline-block;
-            background: rgba(136, 192, 166, 0.15);
-            color: var(--col-dark);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 12px;
-            width: fit-content;
-        }
-
-        .blog-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--svb-text);
-            margin-bottom: 12px;
-            line-height: 1.3;
-            flex-grow: 1;
-        }
-
-        .blog-excerpt {
-            font-size: 0.9rem;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 16px;
-            flex-grow: 1;
-        }
-
-        .blog-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 16px;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .blog-reading-time {
-            font-size: 0.8rem;
-            color: #888;
-            font-weight: 500;
-        }
-
-        .blog-link {
-            color: var(--col-dark);
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s;
-        }
-
-        .blog-link:hover {
-            transform: translateX(4px);
-            color: var(--col-green);
-        }
-
-        /* === BREADCRUMB === */
-        .breadcrumb {
-            display: inline-flex;
-            gap: 8px;
-            align-items: center;
-            font-size: 0.85rem;
-            color: rgba(47, 79, 79, 0.7);
-            margin-bottom: 30px;
-        }
-
-        .breadcrumb a {
-            color: rgba(47, 79, 79, 0.7);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--col-dark);
-            text-decoration: underline;
-        }
-
-        .breadcrumb span {
-            color: rgba(47, 79, 79, 0.5);
-        }
-
-        /* === BOUTON FLOTTANT === */
-        .wa-container { position: fixed; bottom: 30px; right: 30px; z-index: 50; }
-        .whatsapp-btn { background-color: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); transition: transform 0.3s; text-decoration: none; color: white; }
-        .whatsapp-btn:hover { transform: scale(1.1); }
-
-    </style>
-
-    <!-- Schema.org Blog -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "@id": "https://studiosvb.com/blog/",
-        "name": "Blog SVB - Sport & Bien-être",
-        "description": "Conseils, guides et actualités sport et bien-être : Cross Training, Pilates Reformer, Crossformer, Yoga, Boxe.",
-        "url": "https://studiosvb.com/blog/",
-        "mainEntity": {
-            "@type": "Organization",
-            "name": "SVB SantezVousBien",
-            "url": "https://studiosvb.com",
-            "logo": "https://studiosvb.com/images/logo.webp",
-            "image": "https://studiosvb.com/images/og-image.jpg"
-        }
+  <style>
+    body{
+      background:linear-gradient(180deg,#98D0B3 0%,#F2E6CF 100%);
+      min-height:100vh;font-family:'Montserrat',sans-serif;color:#2F4F4F;
     }
-    </script>
+    .nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(251,246,236,.85);backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(47,79,79,.08);
+      padding:14px 24px;display:flex;align-items:center;gap:18px;font-size:.92rem;
+    }
+    .nav a{text-decoration:none;color:#2F4F4F;font-weight:500;padding:6px 10px;border-radius:20px;transition:background .2s}
+    .nav a:hover{background:rgba(74,141,132,.1);color:#4A8D84}
+    .nav-brand{font-family:'Great Vibes',cursive;font-size:1.8rem;color:#4A8D84;line-height:.8;margin-right:auto;padding:0 6px}
+    .nav .cta{background:#4A8D84;color:#fff!important;padding:10px 20px;border-radius:30px;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}
+    .nav .cta:hover{background:#2d5a54}
+    .blog-hero{text-align:center;padding:80px 24px 60px;max-width:900px;margin:0 auto}
+    .blog-hero h1{
+      font-family:'Great Vibes',cursive;font-weight:400;
+      font-size:clamp(3.5rem,8vw,6rem);line-height:.95;
+      color:#2F4F4F;margin:0 0 .4rem;text-shadow:3px 3px 6px rgba(0,0,0,.08);
+    }
+    .blog-hero .sub{
+      font-family:'Dancing Script',cursive;font-weight:500;
+      font-size:clamp(1.4rem,2.6vw,2rem);color:#4A8D84;margin:0 0 1.2rem;
+    }
+    .blog-hero p{color:#2F4F4F;opacity:.75;max-width:60ch;margin:0 auto;line-height:1.6}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:900px;margin:0 auto 40px;padding:0 24px}
+    .filter-btn{
+      padding:8px 18px;border-radius:24px;
+      background:rgba(255,255,255,.7);border:1.5px solid rgba(47,79,79,.12);
+      font-size:.85rem;font-weight:600;color:#2F4F4F;cursor:pointer;transition:all .2s;
+    }
+    .filter-btn:hover{background:#fff;border-color:#4A8D84;color:#4A8D84}
+    .filter-btn.active{background:#2F4F4F;color:#FBF6EC;border-color:#2F4F4F}
+    .grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:24px;max-width:1240px;margin:0 auto 80px;padding:0 24px;
+    }
+    .card{
+      background:#fff;border-radius:24px;overflow:hidden;
+      box-shadow:0 2px 12px rgba(47,79,79,.06);
+      border:1px solid rgba(47,79,79,.08);
+      display:flex;flex-direction:column;
+      transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s;
+      text-decoration:none;color:inherit;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(47,79,79,.15)}
+    .card-thumb{aspect-ratio:16/10;background:linear-gradient(135deg,#98D0B3,#E8B496);background-size:cover;background-position:center;position:relative}
+    .card-cat{
+      position:absolute;top:14px;left:14px;
+      background:rgba(47,79,79,.92);color:#FBF6EC;
+      padding:5px 12px;border-radius:16px;
+      font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+    }
+    .card-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column;gap:.6rem}
+    .card-body h2{font-family:'Dancing Script',cursive;font-weight:600;font-size:1.5rem;line-height:1.2;color:#2F4F4F;margin:0}
+    .card-body p{font-size:.9rem;color:#2F4F4F;opacity:.7;margin:0;line-height:1.55}
+    .card-meta{margin-top:auto;padding-top:1rem;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:#4A8D84;font-weight:600}
+    .card-meta .arrow{display:inline-flex;align-items:center;gap:4px;transition:gap .25s}
+    .card:hover .card-meta .arrow{gap:10px}
+    .empty{text-align:center;padding:60px 24px;grid-column:1/-1;color:#4A8D84}
+  </style>
 </head>
 <body>
-    <div class="ambient-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
-    <div class="noise-overlay"></div>
+  <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu</a>
 
-    <!-- NAVIGATION -->
-    <nav role="navigation" class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
-        <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
-            <a href="../index.html">
-                <img src="../images/logo.webp" alt="Logo SVB Santez Vous Bien" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142">
-            </a>
-        </div>
-        <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
-            <a href="../index.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">ACCUEIL</a>
-            <a href="../sessions.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">SESSIONS</a>
-            <a href="../equipe.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">LA TEAM</a>
-            <a href="../bien-etre.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
-            <a href="../studio.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">PLANNING</a>
-            <a href="../tarifs.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">ABONNEMENTS</a>
-            <a href="../cadeau.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">CADEAU</a>
-            <a href="../faq.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">FAQ</a>
-            <a href="../contact.html" class="hover:text-gray-200 transition hover:scale-105 inline-block">CONTACT</a>
-            <a href="index.html" class="hover:text-gray-200 transition hover:scale-105 inline-block font-bold">BLOG</a>
-        </div>
-    </nav>
+  <nav class="nav" aria-label="Navigation principale">
+    <a href="/" class="nav-brand" aria-label="Accueil Studio SVB">SVB</a>
+    <a href="/">Accueil</a>
+    <a href="/tarifs">Tarifs</a>
+    <a href="/equipe">Équipe</a>
+    <a href="/blog/" aria-current="page">Blog</a>
+    <a href="/contact">Contact</a>
+    <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" rel="noopener noreferrer" class="cta" data-track="cta_blog_to_booking">Essai 30€</a>
+  </nav>
 
-    <!-- HERO SECTION -->
-    <header class="relative text-center py-24 px-4 reveal-load d-1 z-10">
-        <h1 class="text-5xl sm:text-6xl md:text-7xl text-white drop-shadow-2xl mb-4 leading-tight font-hand transform hover:scale-105 transition duration-700 cursor-default">
-            Le Blog SVB
-        </h1>
-        <p class="text-white text-lg font-light max-w-2xl mx-auto mb-8 leading-relaxed opacity-95 drop-shadow-md">
-            Conseils d'experts, guides pratiques et actualités bien-être
-        </p>
-    </header>
+  <header class="blog-hero">
+    <p style="font-family:'Great Vibes',cursive;font-size:1.8rem;color:#4A8D84;margin:0">Le blog</p>
+    <h1>Bouge mieux, <em>lis mieux</em></h1>
+    <p class="sub">Conseils, guides et inspirations par l'équipe SVB</p>
+    <p>Tout ce qu'il faut savoir sur le Pilates Reformer, le Crossformer, le yoga, la boxe et le bien-être — écrit par nos 16 coachs certifiés à Saint-Ouen.</p>
+  </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="relative z-10 max-w-6xl mx-auto px-6 pb-20">
-        <!-- BREADCRUMB -->
-        <nav class="breadcrumb reveal-load d-2">
-            <a href="../index.html">Accueil</a>
-            <span>&gt;</span>
-            <span>Blog</span>
-        </nav>
+  <nav class="filters" role="tablist" aria-label="Filtrer par catégorie">
+    <button class="filter-btn active" data-cat="all" role="tab" aria-selected="true">Tout</button>
+  </nav>
 
-        <!-- BLOG GRID -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-load d-3">
+  <main id="content" class="grid" aria-live="polite" aria-label="Articles du blog">
+    <p class="empty">Chargement des articles…</p>
+  </main>
 
-            <!-- CARD 1: CROSSFORMER -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(235, 198, 166, 0.15); color: #8B6D50;">Disciplines</div>
-                <h2 class="blog-title">Qu'est-ce que le Crossformer ? Le Guide Complet</h2>
-                <p class="blog-excerpt">Découvrez le Crossformer, notre discipline exclusive qui fusionne la puissance du cross-training avec la précision du pilates. Un entraînement complet et innovant.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">5 min de lecture</span>
-                    <a href="crossformer-guide-complet.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
+  <footer style="background:#2F4F4F;color:#FBF6EC;padding:40px 24px;margin-top:40px;text-align:center;font-size:.85rem">
+    <p>© <span id="year"></span> Studio SVB — Santez Vous Bien · Saint-Ouen-sur-Seine</p>
+    <p style="margin-top:8px;opacity:.6"><a href="/mentions-legales" style="color:inherit">Mentions légales</a> · <a href="/cgv" style="color:inherit">CGV</a> · <a href="/contact" style="color:inherit">Contact</a></p>
+  </footer>
 
-            <!-- CARD 2: BIENFAITS REFORMER -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(136, 192, 166, 0.15); color: #3A6B63;">Santé</div>
-                <h2 class="blog-title">10 Bienfaits du Pilates Reformer Prouvés par la Science</h2>
-                <p class="blog-excerpt">Explorez les bénéfices scientifiquement validés du Pilates Reformer : renforcement musculaire, flexibilité, posture et bien-être mental.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">7 min de lecture</span>
-                    <a href="bienfaits-pilates-reformer.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
+  <script src="/assets/svb.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-            <!-- CARD 3: DEBUTANT -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(212, 195, 163, 0.15); color: #6B6B4D;">Conseils</div>
-                <h2 class="blog-title">Pilates Reformer Débutant : Votre Première Séance Pas à Pas</h2>
-                <p class="blog-excerpt">Premiers pas au Reformer ? Ce guide complet vous accompagne à chaque étape : posture, respiration et premiers exercices essentiels.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">6 min de lecture</span>
-                    <a href="pilates-reformer-debutant.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
+    fetch('/assets/blog-index.json', { cache: 'force-cache' })
+      .then(function(r){ return r.json(); })
+      .then(function(articles){
+        var grid = document.querySelector('.grid');
+        var filters = document.querySelector('.filters');
+        var cats = Array.from(new Set(articles.map(function(a){ return a.category; }))).sort();
 
-            <!-- CARD 4: REFORMER VS MAT -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(235, 198, 166, 0.15); color: #8B6D50;">Disciplines</div>
-                <h2 class="blog-title">Reformer vs Mat Pilates : Quelles Différences ?</h2>
-                <p class="blog-excerpt">Quelle est la différence entre le Pilates Reformer et le Mat Pilates ? Découvrez les avantages et inconvénients de chaque méthode.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">5 min de lecture</span>
-                    <a href="reformer-vs-mat-pilates.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
+        cats.forEach(function(cat){
+          var b = document.createElement('button');
+          b.className = 'filter-btn';
+          b.setAttribute('role','tab');
+          b.dataset.cat = cat;
+          b.textContent = cat;
+          filters.appendChild(b);
+        });
 
-            <!-- CARD 5: MAL DE DOS -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(136, 192, 166, 0.15); color: #3A6B63;">Santé</div>
-                <h2 class="blog-title">Pilates et Mal de Dos : Comment le Reformer Peut Vous Soulager</h2>
-                <p class="blog-excerpt">Le mal de dos peut être atténué grâce au Pilates Reformer. Apprenez comment cette méthode renforce votre soutien lombaire naturellement.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">6 min de lecture</span>
-                    <a href="pilates-mal-de-dos.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
+        var render = function(cat){
+          grid.innerHTML = '';
+          var items = cat === 'all' ? articles : articles.filter(function(a){ return a.category === cat; });
+          if (!items.length) {
+            grid.innerHTML = '<p class="empty">Aucun article pour l\'instant.</p>';
+            return;
+          }
+          items.forEach(function(a){
+            var card = document.createElement('a');
+            card.className = 'card svb-reveal';
+            card.href = '/blog/' + a.slug;
+            card.dataset.track = 'blog_article_click';
+            card.innerHTML = '\
+              <div class="card-thumb" style="background-image:url(/images/' + a.thumb + ')" role="img" aria-label="' + a.title.replace(/"/g,'&quot;') + '">\
+                <span class="card-cat">' + a.category + '</span>\
+              </div>\
+              <div class="card-body">\
+                <h2>' + a.h1 + '</h2>\
+                <p>' + a.description + '</p>\
+                <div class="card-meta">\
+                  <span>' + new Date(a.date).toLocaleDateString('fr-FR',{year:'numeric',month:'long'}) + '</span>\
+                  <span class="arrow">Lire →</span>\
+                </div>\
+              </div>';
+            grid.appendChild(card);
+          });
+          if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function(entries){
+              entries.forEach(function(e){
+                if (e.isIntersecting) { e.target.classList.add('svb-in'); io.unobserve(e.target); }
+              });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.card.svb-reveal').forEach(function(el){ io.observe(el); });
+          }
+        };
 
-            <!-- CARD 6: YOGA VINYASA -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(136, 192, 166, 0.15); color: #3A6B63;">Bien-être</div>
-                <h2 class="blog-title">Yoga Vinyasa : 8 Bienfaits pour le Corps et l'Esprit</h2>
-                <p class="blog-excerpt">Souplesse, force, gestion du stress, perte de poids... Découvrez pourquoi le Yoga Vinyasa est la pratique idéale pour un corps et un esprit en harmonie.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">12 min de lecture</span>
-                    <a href="yoga-vinyasa-bienfaits.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
+        render('all');
 
-            <!-- CARD 7: PILATES PRENATAL -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(235, 198, 166, 0.15); color: #8B6D50;">Grossesse</div>
-                <h2 class="blog-title">Pilates Prénatal : Le Guide Complet pour une Grossesse Active</h2>
-                <p class="blog-excerpt">Exercices adaptés par trimestre, bienfaits pour maman et bébé, précautions essentielles. Tout savoir pour pratiquer le Pilates enceinte.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">14 min de lecture</span>
-                    <a href="pilates-prenatal-guide.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- CARD 8: PERTE DE POIDS -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(136, 192, 166, 0.15); color: #3A6B63;">Santé</div>
-                <h2 class="blog-title">Pilates Reformer et Perte de Poids : Ça Marche Vraiment ?</h2>
-                <p class="blog-excerpt">Calories brûlées, métabolisme, tonification musculaire. Découvrez comment le Reformer transforme votre silhouette durablement.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">10 min de lecture</span>
-                    <a href="pilates-reformer-perte-de-poids.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- CARD 9: CROSSFORMER VS HIIT -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(235, 198, 166, 0.15); color: #8B6D50;">Disciplines</div>
-                <h2 class="blog-title">Crossformer vs HIIT : Quelle Discipline Choisir ?</h2>
-                <p class="blog-excerpt">Comparaison détaillée : calories, impact articulaire, résultats, accessibilité. Trouvez l'entraînement qui vous correspond.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">11 min de lecture</span>
-                    <a href="crossformer-vs-hiit.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- CARD 10: POSTURE -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(212, 195, 163, 0.15); color: #6B6B4D;">Conseils</div>
-                <h2 class="blog-title">Comment Améliorer sa Posture avec le Pilates Reformer</h2>
-                <p class="blog-excerpt">Mauvaise posture au bureau ? Le Reformer corrige les déséquilibres musculaires et redresse votre colonne. 5 exercices clés et programme 8 semaines.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">12 min de lecture</span>
-                    <a href="ameliorer-posture-pilates.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- CARD 11: CROSS TRAINING -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(136, 192, 166, 0.15); color: #3A6B63;">Cross Training</div>
-                <h2 class="blog-title">Cross Training : 7 Bienfaits pour Votre Corps</h2>
-                <p class="blog-excerpt">Renforcement musculaire, cardio, perte de poids, motivation... Découvrez pourquoi le Cross Training en small group donne des résultats rapides.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">8 min de lecture</span>
-                    <a href="cross-training-bienfaits.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- CARD 12: BOXE ANGLAISE -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(235, 198, 166, 0.15); color: #8B6D50;">Boxe</div>
-                <h2 class="blog-title">Boxe Anglaise : Pourquoi S'y Mettre ?</h2>
-                <p class="blog-excerpt">Bien plus qu'un sport de combat : cardio intense, confiance en soi, défoulement. La boxe anglaise est l'entraînement complet par excellence.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">7 min de lecture</span>
-                    <a href="boxe-anglaise-bienfaits.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- CARD 13: AFRODANCE -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(235, 198, 166, 0.15); color: #8B6D50;">Danse</div>
-                <h2 class="blog-title">Afrodance : Danse, Cardio et Bonne Humeur</h2>
-                <p class="blog-excerpt">L'Afrodance mêle danses africaines contemporaines et cardio fitness. Un cours fun et énergique qui fait travailler tout le corps sans s'en rendre compte.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">6 min de lecture</span>
-                    <a href="afrodance-cours-danse.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- CARD 14: TRAINING KIDS -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(212, 195, 163, 0.15); color: #6B6B4D;">Enfants</div>
-                <h2 class="blog-title">Training Kids : Le Sport Ludique pour Enfants</h2>
-                <p class="blog-excerpt">Motricité, confiance en soi, socialisation. Le Training Kids chez SVB offre aux enfants un cadre sportif adapté et bienveillant le week-end.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">7 min de lecture</span>
-                    <a href="training-kids-sport-enfants.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- CARD 15: CROSS BODY / CROSS CORE / CROSS ROX -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(136, 192, 166, 0.15); color: #3A6B63;">Disciplines</div>
-                <h2 class="blog-title">Cross Body, Cross Core, Cross Rox : Le Guide Complet</h2>
-                <p class="blog-excerpt">Trois disciplines complémentaires pour sculpter, gainer et se défouler. Découvrez les différences et trouvez celle qui vous correspond.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">8 min de lecture</span>
-                    <a href="cross-body-cross-core-cross-rox.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- CARD 16: STUDIO COACHING VS SALLE DE SPORT -->
-            <article class="blog-card">
-                <div class="blog-category" style="background: rgba(235, 198, 166, 0.15); color: #8B6D50;">Conseils</div>
-                <h2 class="blog-title">Studio de Coaching vs Salle de Sport : Que Choisir ?</h2>
-                <p class="blog-excerpt">Encadrement personnalisé ou liberté totale ? Comparez les deux modèles pour trouver la formule qui correspond à vos objectifs sportifs.</p>
-                <div class="blog-meta">
-                    <span class="blog-reading-time">7 min de lecture</span>
-                    <a href="studio-coaching-vs-salle-de-sport.html" class="blog-link">Lire l'article →</a>
-                </div>
-            </article>
-
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-[#2F4F4F] text-white py-12 mt-8">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-            <div>
-                <img src="../images/logo.webp" alt="Logo SVB Santez Vous Bien" class="w-32 mb-6 brightness-0 invert" width="120" height="85">
-                <p class="opacity-80 leading-relaxed">Votre studio de sport et coaching à Saint-Ouen.<br/>Cross Training, Pilates Reformer, Yoga, Boxe & plus.</p>
-                <div class="flex gap-4 mt-4">
-                    <a href="https://www.instagram.com/studiosvb/" target="_blank" rel="noopener noreferrer" aria-label="Instagram SVB" class="opacity-70 hover:opacity-100 transition">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61574972498498" target="_blank" rel="noopener noreferrer" aria-label="Facebook SVB" class="opacity-70 hover:opacity-100 transition">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div>
-                <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
-                <ul class="space-y-2 opacity-80">
-                    <li><a href="tel:0744919155" class="hover:text-white transition">07 44 91 91 55</a></li>
-                    <li><a href="mailto:hello@studiosvb.fr" class="hover:text-white transition">hello@studiosvb.fr</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-bold uppercase tracking-widest mb-4">Nous trouver</h3>
-                <p class="opacity-80 leading-relaxed">6 Mail André Breton<br/>&amp; 40 Cours des Lavandières<br/>93400 Saint-Ouen-sur-Seine<br/>(Métro Mairie de Saint-Ouen)</p>
-            </div>
-        </div>
-        <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/20 text-center text-xs opacity-60">
-            <p class="mb-2">© 2026 SVB Santez Vous Bien - Tous droits réservés</p>
-            <div class="space-x-4">
-                <a href="../mentions-legales.html" class="hover:text-white transition underline decoration-1 underline-offset-2">Mentions Légales</a>
-                <span>|</span>
-                <a href="../cgv.html" class="hover:text-white transition underline decoration-1 underline-offset-2">CGV</a>
-            </div>
-        </div>
-    </footer>
-
-    <div class="wa-container">
-        <a href="https://wa.me/33744919155" class="whatsapp-btn" target="_blank">
-            <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.096 0-4.141-.547-5.946-1.588L0 .057zm6.549-2.938c1.614.96 3.434 1.468 5.282 1.468 5.497 0 9.97-4.473 9.97-9.97s-4.473-9.97-9.97-9.97c-5.497 0-9.97 4.473-9.97 9.97 0 1.848.508 3.668 1.468 5.282L2.324 21.676l4.282-1.564zm11.334-7.129c-.314-.157-1.859-.917-2.148-1.021-.288-.105-.499-.157-.709.157-.21.314-.813 1.021-.996 1.231-.183.21-.367.236-.681.079-.314-.157-1.325-.489-2.524-1.559-.933-.833-1.563-1.861-1.747-2.175-.183-.314-.02-.484.137-.64.141-.141.314-.367.472-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.709-1.703-.971-2.332-.255-.612-.513-.529-.709-.539-.183-.01-.393-.012-.603-.012s-.551.079-.84.393c-.288.314-1.102 1.074-1.102 2.62s1.128 3.039 1.285 3.25c.157.21 2.221 3.391 5.38 4.755.751.325 1.337.519 1.794.664.754.24 1.441.206 1.983.125.603-.09 1.859-.759 2.121-1.467.262-.708.262-1.312.183-1.467-.079-.157-.288-.263-.603-.42z"/></svg>
-        </a>
-    </div>
-
-    <script src="../optimisations.js" defer></script>
+        filters.addEventListener('click', function(e){
+          var btn = e.target.closest('.filter-btn');
+          if (!btn) return;
+          filters.querySelectorAll('.filter-btn').forEach(function(b){
+            b.classList.remove('active');
+            b.setAttribute('aria-selected','false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected','true');
+          render(btn.dataset.cat);
+          if (window.svbTrack) window.svbTrack('blog_filter', { cat: btn.dataset.cat });
+        });
+      })
+      .catch(function(){
+        document.querySelector('.grid').innerHTML = '<p class="empty">Impossible de charger les articles. <a href="/contact">Contactez-nous</a>.</p>';
+      });
+  </script>
 </body>
 </html>

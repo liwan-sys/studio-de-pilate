@@ -1,0 +1,26 @@
+[
+  {
+    "author": "Amina K.",
+    "rating": 5,
+    "text": "Les cours Afrodance de Lila sont une thérapie. On sue, on rigole, on se défoule. Le meilleur moment de ma semaine.",
+    "discipline": "Afrodance",
+    "date": "2026-03-22",
+    "published": true
+  },
+  {
+    "author": "Claire M.",
+    "rating": 5,
+    "text": "Le meilleur studio de Saint-Ouen. Shanael est incroyable, les cours Reformer sont exigeants mais accessibles. J'ai complètement redressé ma posture en 2 mois.",
+    "discipline": "Pilates Reformer",
+    "date": "2026-03-12",
+    "published": true
+  },
+  {
+    "author": "Yanis B.",
+    "rating": 5,
+    "text": "Ambiance de dingue, groupes de 12 vraiment. On te reconnaît, on te corrige. Rien à voir avec les chaînes. Je reviens 4× par semaine.",
+    "discipline": "Cross Training",
+    "date": "2026-03-03",
+    "published": true
+  }
+]

@@ -23,14 +23,20 @@
     <!-- GTM -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5RW8LB7B"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GTM-5RW8LB7B');
-    </script>
+    /* GTM gated by RGPD consent (svb.js handles banner + reload) */
+    (function(){
+      window.dataLayer = window.dataLayer || [];
+      var granted = false;
+      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+      if (!granted) return;
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GTM-5RW8LB7B');
+    })();
+  </script>
 
     <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/tailwind.css" />
     <script>
         tailwind.config = {
             theme: {
@@ -51,7 +57,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Structured Data: Article -->
     <script type="application/ld+json">
@@ -338,6 +345,7 @@
             }
         }
     </style>
+  <link rel="stylesheet" href="/assets/svb.css" />
 </head>
 <body>
     <div class="noise"></div>
@@ -346,7 +354,7 @@
     <header class="bg-white bg-opacity-80 backdrop-blur sticky top-0 z-50 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="../index.html" class="flex items-center gap-2">
-                <img src="../images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-12">
+                <img src="../images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-12" width="593" height="420" decoding="async">
             </a>
             <nav class="hidden md:flex gap-6 text-sm font-medium text-svbtext">
                 <a href="../index.html" class="hover:text-peach transition">ACCUEIL</a>
@@ -631,7 +639,7 @@
             <!-- Studio Info -->
             <div>
                 <a href="../index.html" class="mb-4 block">
-                    <img src="../images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-10 brightness-0 invert">
+                    <img src="../images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-10 brightness-0 invert" width="593" height="420" decoding="async">
                 </a>
                 <p class="text-sm opacity-80">Pilates Reformer et Crossformer à Saint-Ouen-sur-Seine</p>
             </div>
@@ -686,6 +694,6 @@
     </a>
 
     <!-- Optimizations -->
-    <script src="../optimisations.js" defer></script>
+    <script src="/assets/svb.js" defer></script>
 </body>
 </html>

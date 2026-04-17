@@ -1,0 +1,86 @@
+# ================================================================
+# Studio SVB · Redirects Netlify
+# Permet des URLs propres sans extension .html (matching sitemap.xml)
+# ================================================================
+
+# URLs propres (sans .html) → page HTML correspondante, statut 200 (rewrite)
+/sessions                         /sessions.html                          200
+/tarifs                           /tarifs.html                            200
+/studio                           /studio.html                            200
+/temoignages                      /temoignages.html                       200
+/equipe                           /equipe.html                            200
+/bien-etre                        /bien-etre.html                         200
+/faq                              /faq.html                               200
+/contact                          /contact.html                           200
+/cadeau                           /cadeau.html                            200
+
+# Studios
+/studio-parc-des-docks            /studio-parc-des-docks.html             200
+/studio-cours-des-lavandieres     /studio-cours-des-lavandieres.html      200
+
+# Disciplines Saint-Ouen
+/pilates-reformer-saint-ouen      /pilates-reformer-saint-ouen.html       200
+/crossformer-saint-ouen           /crossformer-saint-ouen.html            200
+/salle-de-sport-saint-ouen        /salle-de-sport-saint-ouen.html         200
+/yoga-saint-ouen                  /yoga-saint-ouen.html                   200
+/boxe-anglaise-saint-ouen         /boxe-anglaise-saint-ouen.html          200
+/cross-training-saint-ouen        /cross-training-saint-ouen.html         200
+/cours-barre-saint-ouen           /cours-barre-saint-ouen.html            200
+/coaching-sportif-saint-ouen      /coaching-sportif-saint-ouen.html       200
+
+# Pilates thématiques
+/pilates-prenatal-postnatal       /pilates-prenatal-postnatal.html        200
+/pilates-senior                   /pilates-senior.html                    200
+
+# Pilates quartiers
+/pilates-clichy                   /pilates-clichy.html                    200
+/pilates-paris-18                 /pilates-paris-18.html                  200
+/pilates-epinay-sur-seine         /pilates-epinay-sur-seine.html          200
+/pilates-ile-saint-denis          /pilates-ile-saint-denis.html           200
+
+# Réservation (Netlify Forms)
+/reserver                         /reserver.html                          200
+/merci-reservation                /Merci.html                             200
+
+# Phase 7 — Parrainage, CMS, API
+/parrainage                       /parrainage.html                        200
+/merci-newsletter                 /merci-newsletter.html                  200
+/admin                            /admin/index.html                       200
+
+# Page forms.html : utile pour Netlify au build, jamais servie aux users
+/forms                            /                                       301
+/forms.html                       /                                       301
+
+# API routes (Netlify Functions)
+# /api/track est géré par l'Edge Function (voir netlify.toml)
+/api/calendly                     /.netlify/functions/calendly-webhook    200
+/api/newsletter                   /.netlify/functions/newsletter          200!
+/api/newsletter/confirm           /.netlify/functions/newsletter          200!
+
+# Légal
+/mentions-legales                 /mentions-legales.html                  200
+/cgv                              /cgv.html                               200
+
+# Blog — rewrite individuel
+/blog/crossformer-guide-complet          /blog/crossformer-guide-complet.html          200
+/blog/bienfaits-pilates-reformer         /blog/bienfaits-pilates-reformer.html         200
+/blog/pilates-reformer-debutant          /blog/pilates-reformer-debutant.html          200
+/blog/reformer-vs-mat-pilates            /blog/reformer-vs-mat-pilates.html            200
+/blog/pilates-mal-de-dos                 /blog/pilates-mal-de-dos.html                 200
+/blog/yoga-vinyasa-bienfaits             /blog/yoga-vinyasa-bienfaits.html             200
+/blog/pilates-prenatal-guide             /blog/pilates-prenatal-guide.html             200
+/blog/pilates-reformer-perte-de-poids    /blog/pilates-reformer-perte-de-poids.html    200
+/blog/crossformer-vs-hiit                /blog/crossformer-vs-hiit.html                200
+/blog/ameliorer-posture-pilates          /blog/ameliorer-posture-pilates.html          200
+/blog/cross-training-bienfaits           /blog/cross-training-bienfaits.html           200
+/blog/boxe-anglaise-bienfaits            /blog/boxe-anglaise-bienfaits.html            200
+/blog/afrodance-cours-danse              /blog/afrodance-cours-danse.html              200
+/blog/training-kids-sport-enfants        /blog/training-kids-sport-enfants.html        200
+/blog/cross-body-cross-core-cross-rox    /blog/cross-body-cross-core-cross-rox.html    200
+/blog/studio-coaching-vs-salle-de-sport  /blog/studio-coaching-vs-salle-de-sport.html  200
+
+# Anciennes URLs → nouvelles (301 pour le SEO)
+/index-old                        /                                       301
+/index-old.html                   /                                       301
+
+# Fallback 404 géré par Netlify automatiquement

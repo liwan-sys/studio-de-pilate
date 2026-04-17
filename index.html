@@ -2,19 +2,24 @@
 
 <html lang="fr">
 <head>
+  <meta charset="UTF-8" />
   <meta name="google-site-verification" content="T5MdNHyMbEHGOQ8c80Y3zeTPC1zhWufCfmK20JrIEYQ" />
   <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5RW8LB7B');
+    /* GTM gated by RGPD consent (svb.js handles the banner + reload).
+       Fires only if user has explicitly granted consent. */
+    (function(){
+      var granted = false;
+      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+      if (!granted) { window.dataLayer = window.dataLayer || []; return; }
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5RW8LB7B');
+    })();
   </script>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <title>Studio SVB — Sport & Coaching Small Group | Saint-Ouen</title>
@@ -23,6 +28,11 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="SVB Santez Vous Bien">
   <link rel="canonical" href="https://studiosvb.com/">
+  <link rel="alternate" hreflang="fr" href="https://studiosvb.com/" />
+  <link rel="alternate" hreflang="en" href="https://studiosvb.com/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://studiosvb.com/" />
+  <!-- Preload LCP assets (poster de la vidéo hero) -->
+  <link rel="preload" as="image" href="/videos/hero-poster.jpg" fetchpriority="high">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -44,624 +54,11 @@
   <link rel="icon" type="image/png" href="images/favicon.jpg" />
   <link rel="apple-touch-icon" href="images/favicon.jpg" />
 
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/tailwind.css" />
 
-  <style>
-    :root {
-      --svb-green-light: #98D0B3;
-      --svb-green-dark: #4A8D84;
-      --svb-sand: #F2E6CF;
-      --svb-peach: #E8B496;
-      --svb-text: #2F4F4F;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--svb-green-light);
-      color: var(--svb-text);
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      text-shadow: 3px 3px 6px rgba(0,0,0,0.15);
-    }
-
-    h2, h3, .font-hand {
-      font-family: 'Dancing Script', cursive;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    #splash-screen {
-      display: none;
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
-      z-index: 9999; display: flex; justify-content: center; align-items: center;
-      transition: opacity 0.8s ease-in-out, visibility 0.8s;
-    }
-    #splash-logo { width: 150px; opacity: 0; transform: scale(0.8); filter: brightness(0) invert(1); }
-    .animate-logo { animation: logoIntro 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-    @keyframes logoIntro { 0% { opacity: 0; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
-    .splash-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-
-    .ambient-bg {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
-      background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
-      overflow: hidden;
-    }
-    .blob {
-      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6;
-      animation: moveBlob 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-green-dark); }
-    .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--svb-peach); animation-delay: -5s; }
-    @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -50px) scale(1.1); } }
-
-    .noise-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.05;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-
-    .reveal-load { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
-    .content-visible .reveal-load { opacity: 1; transform: translateY(0); }
-    nav.reveal-load, header.reveal-load { opacity: 1 !important; transform: translateY(0) !important; }
-    /* LCP fix: hero visible immediately for Lighthouse */
-    nav.reveal-load, header.reveal-load { opacity: 1 !important; transform: translateY(0) !important; }
-    .d-1 { transition-delay: 0.2s; } .d-2 { transition-delay: 0.4s; } .d-3 { transition-delay: 0.6s; }
-
-    .btn-action {
-      background-color: var(--svb-green-dark); color: white; padding: 18px 45px; border-radius: 50px;
-      text-transform: uppercase; font-weight: 900; font-size: 1rem; letter-spacing: 0.1em;
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 10px 30px rgba(74, 141, 132, 0.3);
-      display: inline-block; border: 2px solid rgba(255,255,255,0.3); position: relative; overflow: hidden;
-    }
-    .btn-action::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s;
-    }
-    .btn-action:hover::before { left: 100%; }
-    .btn-action:hover { background-color: #2d5a54; transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 40px rgba(74, 141, 132, 0.5); }
-
-    .btn-hero {
-      background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);
-      border: 2px solid white; color: white; padding: 12px 30px; border-radius: 50px;
-      font-weight: 700; text-transform: uppercase; font-size: 0.8rem; transition: all 0.3s;
-    }
-    .btn-hero:hover { background: white; color: var(--svb-green-dark); transform: translateY(-2px); }
-
-    @keyframes gentle-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-    @keyframes shimmer { 0%{background-position:-1000px 0} 100%{background-position:1000px 0} }
-
-    .premium-offer-wrapper { animation: gentle-float 5s ease-in-out infinite; }
-
-    .premium-offer-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.92) 100%);
-      backdrop-filter: blur(30px); border-radius: 35px; padding: 55px 45px; max-width: 950px;
-      margin: 0 auto; position: relative; border: 3px solid rgba(255,255,255,0.9);
-      box-shadow: 0 25px 70px rgba(0,0,0,0.15); transition: all 0.5s ease;
-      word-wrap: break-word; overflow-wrap: break-word;
-    }
-    @media (max-width: 768px) { .premium-offer-card { padding: 40px 20px; border-radius: 25px; max-width: calc(100vw - 2rem); } }
-    .premium-offer-card::before {
-      content: ''; position: absolute; top: -3px; left: -3px; right: -3px; bottom: -3px;
-      background: linear-gradient(135deg, var(--svb-green-light), var(--svb-peach), var(--svb-green-dark));
-      border-radius: 35px; z-index: -1; opacity: 0; transition: opacity 0.5s;
-    }
-    .premium-offer-card:hover::before { opacity: 1; }
-    .premium-offer-card:hover { transform: translateY(-8px); box-shadow: 0 35px 90px rgba(0,0,0,0.2); }
-
-    .offer-flash-badge {
-      position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(135deg, #ff6b6b 0%, var(--svb-peach) 100%);
-      color: white; font-weight: 900; text-transform: uppercase; font-size: 0.8rem;
-      padding: 12px 35px; border-radius: 50px; box-shadow: 0 10px 30px rgba(255,107,107,0.4);
-      border: 3px solid white; letter-spacing: 0.15em; animation: pulse-glow 2s infinite; white-space: nowrap;
-    }
-    @media (max-width: 640px) { .offer-flash-badge { font-size: 0.65rem; padding: 8px 20px; border: 2px solid white; top: -15px; } }
-    @keyframes pulse-glow { 0%,100%{box-shadow:0 10px 30px rgba(255,107,107,0.4)} 50%{box-shadow:0 10px 40px rgba(255,107,107,0.6)} }
-
-    .offer-hero-box {
-      background: linear-gradient(135deg, rgba(152,208,179,0.25) 0%, rgba(74,141,132,0.15) 100%);
-      border-radius: 25px; padding: 35px; margin: 25px 0;
-      border: 2px solid rgba(152,208,179,0.5); position: relative; overflow: hidden;
-    }
-    .offer-hero-box::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      animation: shimmer 3s infinite;
-    }
-
-    .free-tag-impact {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--svb-green-dark) 0%, #2d5a54 100%);
-      color: white; font-size: 3.5rem; font-weight: 900; padding: 20px 60px;
-      border-radius: 25px; box-shadow: 0 15px 40px rgba(74,141,132,0.4);
-      border: 4px solid white; position: relative; z-index: 1;
-    }
-    @media (max-width: 640px) { .free-tag-impact { font-size: 2.2rem; padding: 15px 30px; border: 3px solid white; } }
-
-    .value-badge {
-      background: rgba(255,255,255,0.9); color: var(--svb-text); padding: 8px 20px;
-      border-radius: 15px; font-weight: 800; font-size: 0.85rem; display: inline-block;
-      margin-top: 15px; border: 2px solid var(--svb-green-light);
-    }
-
-    .bonus-highlight {
-      background: linear-gradient(135deg, var(--svb-peach) 0%, #d9a080 100%);
-      color: white; padding: 18px 35px; border-radius: 20px; font-weight: 900;
-      font-size: 1.1rem; display: inline-block; margin: 20px 0;
-      box-shadow: 0 10px 30px rgba(232,180,150,0.4); border: 3px solid white;
-    }
-    @media (max-width: 640px) { .bonus-highlight { padding: 15px 20px; font-size: 0.9rem; border: 2px solid white; } }
-
-    .cta-mega {
-      background: linear-gradient(135deg, var(--svb-green-dark) 0%, #2d5a54 100%);
-      color: white; padding: 20px 50px; border-radius: 50px; font-weight: 900;
-      font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.1em;
-      box-shadow: 0 15px 40px rgba(74,141,132,0.4); border: 3px solid rgba(255,255,255,0.3);
-      transition: all 0.4s; display: inline-block; position: relative; overflow: hidden; text-decoration: none;
-    }
-    .cta-mega::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s;
-    }
-    .cta-mega:hover::before { left: 100%; }
-    .cta-mega:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 20px 50px rgba(74,141,132,0.6); }
-
-    .choice-card-premium {
-      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%);
-      backdrop-filter: blur(15px); padding: 30px 25px; border-radius: 25px;
-      border: 2px solid rgba(255,255,255,0.9); transition: all 0.4s ease;
-      display: block; box-shadow: 0 12px 35px rgba(0,0,0,0.1); position: relative;
-    }
-    .choice-card-premium::after {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-      background: linear-gradient(90deg, var(--svb-green-dark), var(--svb-peach)); transform: scaleX(0); transition: transform 0.4s;
-    }
-    .choice-card-premium:hover::after { transform: scaleX(1); }
-    .choice-card-premium:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); background: rgba(255,255,255,0.98); }
-
-    @keyframes float { 0%{transform:translateY(0)} 50%{transform:translateY(-15px)} 100%{transform:translateY(0)} }
-    .starter-card-wrapper { animation: float 6s ease-in-out infinite; }
-    .starter-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
-      backdrop-filter: blur(20px); border-radius: 30px; padding: 50px 35px; text-align: center;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.2); max-width: 550px; margin: 0 auto;
-      position: relative; border: 3px solid white; transition: all 0.4s ease;
-    }
-    .starter-card:hover { transform: scale(1.03); box-shadow: 0 40px 90px rgba(0,0,0,0.25); }
-
-    .best-seller-badge {
-      position: absolute; top: -18px; right: -18px;
-      background: linear-gradient(135deg, #ff6b6b 0%, #E8B496 100%);
-      color: white; font-weight: 900; text-transform: uppercase; font-size: 0.75rem;
-      padding: 12px 18px; border-radius: 50px; box-shadow: 0 8px 20px rgba(232,180,150,0.5);
-      transform: rotate(10deg); animation: pulse-badge 2s infinite; border: 3px solid white;
-    }
-    @keyframes pulse-badge { 0%,100%{transform:rotate(10deg) scale(1)} 50%{transform:rotate(10deg) scale(1.12)} }
-
-    .price-strike { text-decoration: line-through; opacity: 0.5; font-size: 2.5rem; color: #999; font-weight: 600; display: block; margin-bottom: -10px; }
-
-    .savings-badge {
-      background: #4CAF50; color: white; padding: 6px 14px; border-radius: 15px;
-      font-size: 0.75rem; font-weight: 800; display: inline-block; margin-top: 10px;
-      box-shadow: 0 4px 10px rgba(76,175,80,0.3);
-    }
-
-    .text-card {
-      background: rgba(255,255,255,0.7); backdrop-filter: blur(15px); border-radius: 25px;
-      padding: 25px 20px; text-align: center; border: 2px solid rgba(255,255,255,0.8);
-      transition: all 0.4s cubic-bezier(0.25,0.8,0.25,1); cursor: pointer; height: 100%;
-      display: flex; flex-direction: column; justify-content: space-between;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08); position: relative; overflow: hidden;
-    }
-    .text-card::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-      background: linear-gradient(90deg, var(--svb-green-dark), var(--svb-peach)); transform: scaleX(0); transition: transform 0.4s;
-    }
-    .text-card:hover::before { transform: scaleX(1); }
-    .text-card:hover { transform: translateY(-12px); background: rgba(255,255,255,0.95); box-shadow: 0 25px 60px rgba(0,0,0,0.15); border-color: var(--svb-green-dark); }
-
-    .card-title { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--svb-green-dark); margin-bottom: 4px; font-weight: 600; }
-    .card-desc { font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: #555; margin-bottom: 12px; }
-    .card-price { font-size: 2.8rem; font-weight: 800; color: var(--svb-text); margin-bottom: 8px; }
-    .card-value { font-size: 0.7rem; color: #4CAF50; font-weight: 800; margin-bottom: 8px; }
-
-    .btn-small {
-      border: 2px solid var(--svb-green-dark); color: var(--svb-green-dark); padding: 10px 20px;
-      border-radius: 25px; text-transform: uppercase; font-size: 0.75rem; font-weight: 800;
-      transition: all 0.3s; background: transparent; display: inline-block; text-decoration: none;
-    }
-    .text-card:hover .btn-small { background-color: var(--svb-green-dark); color: white; transform: scale(1.05); }
-
-    .cta-sticky {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9000;
-      background: linear-gradient(to top, rgba(47,79,79,0.98) 0%, rgba(47,79,79,0.95) 100%);
-      backdrop-filter: blur(10px); padding: 15px 20px;
-      box-shadow: 0 -5px 20px rgba(0,0,0,0.2); transform: translateY(100%);
-      transition: transform 0.4s ease-in-out; border-top: 2px solid rgba(255,255,255,0.1);
-    }
-    .cta-sticky.visible { transform: translateY(0); }
-    .cta-sticky-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
-    .cta-sticky-info { color: white; }
-    .cta-sticky-text { font-size: 0.9rem; font-weight: 600; }
-    .cta-sticky-price { font-size: 1.5rem; font-weight: 900; color: #98D0B3; }
-    .cta-sticky-btn {
-      background: linear-gradient(135deg, #4A8D84 0%, #2d5a54 100%);
-      color: white; padding: 12px 30px; border-radius: 50px; font-weight: 800;
-      font-size: 0.9rem; text-transform: uppercase; box-shadow: 0 5px 15px rgba(74,141,132,0.4);
-      transition: all 0.3s; border: 2px solid rgba(255,255,255,0.2); white-space: nowrap; text-decoration: none;
-    }
-    .cta-sticky-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(74,141,132,0.6); background: linear-gradient(135deg, #2d5a54 0%, #1a3d38 100%); }
-
-    iframe { border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 4px solid rgba(255,255,255,0.7); }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-    .whatsapp-btn {
-      position: fixed; bottom: 25px; right: 25px; background-color: #25D366; color: white;
-      width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 5px 20px rgba(37,211,102,0.4); transition: all 0.3s ease; z-index: 9990; cursor: pointer; text-decoration: none;
-    }
-    .whatsapp-btn:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 8px 25px rgba(37,211,102,0.6); }
-    .whatsapp-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #25D366; animation: pulse-wa 2s infinite; opacity: 0; }
-    @keyframes pulse-wa { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.5); opacity: 0; } }
-
-    /* === SECTIONS STUDIO IMMERSIVES === */
-    .studio-panel {
-      position: relative;
-      width: 100%;
-      height: 55vh;
-      min-height: 380px;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-    }
-    .studio-panel-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 8s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    .studio-panel:hover .studio-panel-img {
-      transform: scale(1.06);
-    }
-    .studio-panel::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 40%, transparent 70%);
-      pointer-events: none;
-    }
-    .studio-panel-content {
-      position: relative;
-      z-index: 2;
-      padding: 40px 50px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-    .studio-panel-text h3 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
-      color: white;
-      margin: 0;
-      text-shadow: 2px 3px 10px rgba(0,0,0,0.4);
-      line-height: 1.1;
-    }
-    .studio-panel-text p {
-      color: rgba(255,255,255,0.9);
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-top: 6px;
-      letter-spacing: 0.03em;
-    }
-    .studio-panel-cta {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255,255,255,0.5);
-      color: white;
-      padding: 12px 28px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      transition: all 0.3s;
-      white-space: nowrap;
-    }
-    .studio-panel-cta:hover {
-      background: white;
-      color: #2F4F4F;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    }
-    .studio-panels-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      z-index: 10;
-    }
-    .studio-panels-divider {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 20;
-      width: 60px;
-      height: 60px;
-      background: rgba(255,255,255,0.95);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      font-family: 'Dancing Script', cursive;
-      font-size: 0.75rem;
-      color: #2F4F4F;
-      font-weight: 700;
-    }
-    /* Petites vignettes sous les panels */
-    .studio-thumbs {
-      display: flex;
-      gap: 8px;
-      max-width: 1200px;
-      margin: 12px auto;
-      padding: 0 16px;
-      position: relative;
-      z-index: 10;
-    }
-    .studio-thumb {
-      flex: 1;
-      height: 90px;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-    }
-    .studio-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    .studio-thumb:hover img {
-      transform: scale(1.1);
-    }
-    @media (max-width: 768px) {
-      .studio-panels-wrap { grid-template-columns: 1fr; }
-      .studio-panel { height: 45vh; min-height: 300px; }
-      .studio-panel-content { padding: 25px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
-      .studio-panel-text h3 { font-size: 2.2rem; }
-      .studio-panels-divider { display: none; }
-      .studio-thumbs { flex-wrap: wrap; }
-      .studio-thumb { flex: 1 1 calc(33% - 6px); height: 70px; }
-    }
-
-    @media (max-width: 640px) {
-      .cta-sticky-content { flex-direction: column; gap: 10px; }
-      .cta-sticky-text { font-size: 0.75rem; }
-      .cta-sticky-price { font-size: 1.2rem; }
-      .text-card { padding: 30px 20px; }
-      .free-tag-impact { font-size: 2.2rem; padding: 15px 30px; border: 3px solid white; }
-      .premium-offer-card { padding: 40px 20px; border-radius: 25px; }
-      .cta-mega { padding: 14px 25px; font-size: 0.85rem; }
-      #offre-premium { padding-left: 1rem; padding-right: 1rem; }
-      .offer-hero-box { padding: 25px 20px; }
-      .bonus-highlight { padding: 15px 20px; font-size: 0.9rem; }
-      .value-badge { font-size: 0.75rem; padding: 6px 15px; }
-    }
-    @media (max-width: 480px) {
-      .premium-offer-card { padding: 35px 15px; }
-      .free-tag-impact { font-size: 1.8rem; padding: 12px 25px; }
-      .cta-mega { padding: 12px 20px; font-size: 0.8rem; }
-      h2 { font-size: 2.5rem !important; }
-    }
-  
-  /* COUNTDOWN OFFER */
-  .cd-box-offer {
-    background: linear-gradient(180deg, #4A8D84 0%, #2d5a54 100%);
-    color: white; border-radius: 16px; padding: 16px 8px; min-width: 70px;
-    box-shadow: 0 8px 25px rgba(74,141,132,0.3); position: relative; overflow: hidden; text-align: center;
-  }
-  .cd-box-offer::after {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%;
-    background: rgba(255,255,255,0.08); border-radius: 16px 16px 0 0;
-  }
-  .cd-num-offer { font-size: 2.2rem; font-weight: 900; line-height: 1; position: relative; z-index: 1; }
-  .cd-label-offer { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.75; margin-top: 5px; position: relative; z-index: 1; }
-  @media (max-width: 640px) { .cd-box-offer { min-width: 58px; padding: 12px 6px; } .cd-num-offer { font-size: 1.7rem; } }
-  @keyframes urgencySlide { 0%{background-position:0% 0} 100%{background-position:200% 0} }
-  @keyframes placePulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
-  @keyframes dotBlink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  @keyframes shake { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-5deg)} 75%{transform:rotate(5deg)} }
-  @keyframes progressPulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
-  @keyframes priceGlow { 0%,100%{text-shadow:0 4px 15px rgba(74,141,132,0.15)} 50%{text-shadow:0 0 40px rgba(74,141,132,0.5),0 0 80px rgba(74,141,132,0.2)} }
-  @keyframes savingsBounce { 0%,100%{transform:rotate(-3deg) scale(1)} 50%{transform:rotate(3deg) scale(1.08)} }
-  @keyframes notifSlide { 0%{transform:translateX(-100%);opacity:0} 10%{transform:translateX(0);opacity:1} 90%{transform:translateX(0);opacity:1} 100%{transform:translateX(-100%);opacity:0} }
-  @keyframes viewersPulse { 0%,100%{opacity:0.9} 50%{opacity:1} }
-  @keyframes confettiFall { 0%{transform:translateY(-10px) rotate(0deg);opacity:1} 100%{transform:translateY(120vh) rotate(720deg);opacity:0} }
-  @keyframes borderGlow { 0%,100%{box-shadow:0 20px 60px rgba(74,141,132,0.08)} 50%{box-shadow:0 0 40px rgba(74,141,132,0.2),0 0 80px rgba(74,141,132,0.08),0 20px 60px rgba(74,141,132,0.12)} }
-  .offer-glow { animation: borderGlow 3s ease infinite; }
-  /* SOCIAL PROOF NOTIFICATION STYLES REMOVED */
-  #confetti-container { position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;overflow:hidden; }
-
-  /* === HERO VIDEO SECTION === */
-  #hero-video {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    overflow: hidden;
-    background: #1a3532;
-  }
-  #hero-video .hero-bg-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 0;
-    filter: brightness(0.75) saturate(1.05);
-  }
-  #hero-video .hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background:
-      radial-gradient(ellipse at center, rgba(26,53,50,0.35) 0%, rgba(26,53,50,0.65) 70%, rgba(26,53,50,0.85) 100%),
-      linear-gradient(180deg, rgba(47,79,79,0.55) 0%, rgba(47,79,79,0.2) 40%, rgba(47,79,79,0.85) 100%);
-    pointer-events: none;
-  }
-  #hero-video .hero-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 20;
-    padding: 1.25rem 1.5rem;
-  }
-  #hero-video .hero-content {
-    position: relative;
-    z-index: 10;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 1.25rem;
-    padding-top: 180px;
-    padding-bottom: 100px;
-  }
-  #hero-video .hero-eyebrow {
-    color: rgba(255,255,255,0.92);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.28em;
-    font-weight: 600;
-    margin-bottom: 1.25rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-  }
-  @media (min-width: 640px) { #hero-video .hero-eyebrow { font-size: 0.85rem; } }
-  #hero-video .hero-title {
-    color: white;
-    line-height: 0.95;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 6px 30px rgba(0,0,0,0.45);
-  }
-  #hero-video .hero-title .line-script {
-    display: block;
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 9vw, 7rem);
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    color: #F2E6CF;
-    margin-bottom: 0.2em;
-  }
-  #hero-video .hero-title .line-display {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: clamp(2.2rem, 7vw, 6rem);
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-  }
-  #hero-video .hero-sub {
-    color: rgba(255,255,255,0.95);
-    font-size: 1rem;
-    max-width: 640px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.6;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-  }
-  @media (min-width: 640px) { #hero-video .hero-sub { font-size: 1.1rem; } }
-  #hero-video .hero-cta-row {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-  }
-  @media (min-width: 640px) { #hero-video .hero-cta-row { flex-direction: row; gap: 1.25rem; } }
-  #hero-video .btn-cta-primary {
-    background: linear-gradient(135deg, #E8B496 0%, #D9A080 100%);
-    color: #2F4F4F;
-    font-weight: 900;
-    padding: 18px 42px;
-    border-radius: 999px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.85rem;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.35), 0 0 0 3px rgba(255,255,255,0.25);
-    border: 2px solid rgba(255,255,255,0.55);
-    transition: all 0.35s cubic-bezier(0.25,0.8,0.25,1);
-    display: inline-block;
-    text-decoration: none;
-  }
-  #hero-video .btn-cta-primary:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.45), 0 0 0 3px rgba(255,255,255,0.4);
-    background: linear-gradient(135deg, #F2C4A8 0%, #E0A88C 100%);
-  }
-  #hero-video .btn-cta-ghost {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    color: white;
-    font-weight: 700;
-    padding: 16px 38px;
-    border-radius: 999px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.8rem;
-    border: 2px solid rgba(255,255,255,0.65);
-    transition: all 0.35s;
-    display: inline-block;
-    text-decoration: none;
-  }
-  #hero-video .btn-cta-ghost:hover {
-    background: rgba(255,255,255,0.92);
-    color: #4A8D84;
-    transform: translateY(-3px);
-  }
-  #hero-video .scroll-hint {
-    position: absolute;
-    bottom: 1.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    color: rgba(255,255,255,0.85);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    animation: scrollBounce 2.4s ease-in-out infinite;
-    text-decoration: none;
-  }
-  @keyframes scrollBounce { 0%,100% { transform: translate(-50%,0); } 50% { transform: translate(-50%,8px); } }
-  @media (max-width: 640px) {
-    #hero-video { min-height: 100vh; height: 100dvh; }
-    #hero-video .hero-content { padding-top: 150px; padding-bottom: 80px; }
-    #hero-video .hero-nav { padding: 0.75rem 1rem; }
-  }
-
-  </style>
+  <link rel="stylesheet" href="/assets/index.css" />
 
 
   <!-- Schema.org LocalBusiness -->
@@ -709,9 +106,80 @@
       "name": "SVB Santez Vous Bien",
       "url": "https://studiosvb.com",
       "description": "Studio de sport et coaching a Saint-Ouen-sur-Seine. Cross Training, Pilates Reformer, Crossformer, Yoga, Boxe.",
-      "publisher": { "@id": "https://studiosvb.com/#organization" }
+      "publisher": { "@id": "https://studiosvb.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://studiosvb.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://studiosvb.com/" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne le cours d'essai à 30€ ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Réservez un cours dans la discipline de votre choix. Si vous vous abonnez dans les 7 jours qui suivent, les 30€ sont intégralement déduits de votre premier prélèvement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je annuler un cours à la dernière minute ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Vous pouvez annuler jusqu'à 1 heure avant le cours depuis votre espace membre. Au-delà, le cours est décompté (sauf certificat médical)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'engagement 6 mois est-il flexible ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Vous pouvez mettre votre abonnement en pause pour les vacances avec un préavis d'1 mois. Déménagement hors Île-de-France ou raison médicale : résiliation sans frais."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les cours sont-ils ouverts aux débutants ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolument. Pilates Reformer, Yoga, Cross Training : toutes les disciplines ont des séances adaptées aux débutants, avec des coachs qui ajustent l'intensité et la technique individuellement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Où se trouvent les studios SVB ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deux studios à Saint-Ouen-sur-Seine (93400) : 6 Mail André Breton et 40 Cours des Lavandières, tous deux à 4 minutes à pied du métro Mairie de Saint-Ouen (lignes 13 et 14)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de personnes par cours ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "12 personnes maximum en cours collectifs, 8 maximum en Pilates Reformer. Cette approche small group garantit un suivi personnalisé par les coachs."
+          }
+        }
+      ]
+    }
+    </script>
+  <link rel="stylesheet" href="/assets/svb.css" />
 </head>
 
 <body class="content-visible overflow-hidden">
@@ -734,9 +202,9 @@
   <!-- === HERO VIDEO — TON CORPS N'ATTEND QUE TOI === -->
   <section id="hero-video">
 
-    <!-- VIDÉO DE FOND -->
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" poster="videos/hero-poster.jpg" aria-hidden="true">
-      <source src="videos/hero.mp4" type="video/mp4">
+    <!-- VIDÉO DE FOND (lazy, chargée après interaction/FCP) -->
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="none" poster="videos/hero-poster.jpg" aria-hidden="true" data-svb-lazy-video>
+      <source data-src="videos/hero.mp4" type="video/mp4">
     </video>
 
     <!-- VOILE D'ASSOMBRISSEMENT -->
@@ -875,19 +343,19 @@
           <!-- CTA -->
           <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:16px;">
             <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90"
-               target="_blank"
+               target="_blank" rel="noopener noreferrer"
                class="cta-mega inline-block" style="font-size:0.95rem;padding:18px 35px;">
               Essai Reformer — 30€
             </a>
             <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74"
-               target="_blank"
+               target="_blank" rel="noopener noreferrer"
                class="cta-mega inline-block" style="font-size:0.95rem;padding:18px 35px;">
               Essai Crossformer — 30€
             </a>
           </div>
           <div style="display:flex;justify-content:center;margin-top:8px;">
             <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e"
-               target="_blank"
+               target="_blank" rel="noopener noreferrer"
                class="cta-mega inline-block" style="font-size:0.95rem;padding:18px 35px;background:linear-gradient(135deg,#E8B496,#e8a47a);">
               Essai Cross Training / Yoga / Pilates — 30€
             </a>
@@ -986,7 +454,7 @@
       <p class="card-price">50<span class="text-xl">€</span></p>
       <p class="card-value">ÉQUIPEMENT HAUT DE GAMME</p>
       <div class="mt-3 space-y-2">
-        <a onclick="event.stopPropagation()" href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank"
+        <a onclick="event.stopPropagation()" href="https://svb.sportigo.fr/buy/offer-proposition/fe1fed77-745a-4c2c-b101-72435e2548f0" target="_blank" rel="noopener noreferrer"
            class="inline-block w-full text-center bg-[#2F4F4F] text-white py-2 rounded-full font-black uppercase text-[10px] tracking-widest hover:opacity-95 transition">
           Unité (50€)
         </a>
@@ -995,7 +463,7 @@
             <div class="text-left"><p class="text-[9px] uppercase font-bold text-gray-600">Unité</p><p class="text-base font-black text-[#2F4F4F]">50€</p></div>
             <div class="text-right"><p class="text-[9px] uppercase font-bold text-gray-600">Abonnement</p><p class="text-base font-black text-[#4A8D84]">34€</p><p class="text-[9px] text-gray-500 font-semibold">-32%</p></div>
           </div>
-          <a href="https://svb.sportigo.fr/buy/offer-proposition/c014b8b7-1d0e-4497-97dc-4623223e0efc" target="_blank"
+          <a href="https://svb.sportigo.fr/buy/offer-proposition/c014b8b7-1d0e-4497-97dc-4623223e0efc" target="_blank" rel="noopener noreferrer"
              class="inline-block w-full text-center bg-[#4A8D84] text-white py-2 rounded-full font-black uppercase text-[10px] tracking-widest hover:opacity-95 transition">
             Abonnement (dès 4)
           </a>
@@ -1014,7 +482,7 @@
       <p class="card-price">50<span class="text-xl">€</span></p>
       <p class="card-value">BRÛLEZ 600 CALORIES</p>
       <div class="mt-3 space-y-2">
-        <a onclick="event.stopPropagation()" href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank"
+        <a onclick="event.stopPropagation()" href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" rel="noopener noreferrer"
            class="inline-block w-full text-center bg-[#2F4F4F] text-white py-2 rounded-full font-black uppercase text-[10px] tracking-widest hover:opacity-95 transition">
           Unité (50€)
         </a>
@@ -1023,7 +491,7 @@
             <div class="text-left"><p class="text-[9px] uppercase font-bold text-gray-600">Unité</p><p class="text-base font-black text-[#2F4F4F]">50€</p></div>
             <div class="text-right"><p class="text-[9px] uppercase font-bold text-gray-600">Abonnement</p><p class="text-base font-black text-[#4A8D84]">38€</p><p class="text-[9px] text-gray-500 font-semibold">-24%</p></div>
           </div>
-          <a href="https://svb.sportigo.fr/buy/offer-proposition/bf0fa25f-e5bd-4ebe-bf33-e5cf1b6468da" target="_blank"
+          <a href="https://svb.sportigo.fr/buy/offer-proposition/bf0fa25f-e5bd-4ebe-bf33-e5cf1b6468da" target="_blank" rel="noopener noreferrer"
              class="inline-block w-full text-center bg-[#4A8D84] text-white py-2 rounded-full font-black uppercase text-[10px] tracking-widest hover:opacity-95 transition">
             Abonnement (dès 4)
           </a>
@@ -1042,20 +510,20 @@
       <p class="card-price">30<span class="text-xl">€</span></p>
       <p class="card-value">IDÉAL DÉCOUVERTE</p>
       <div class="mt-3 space-y-2">
-        <a onclick="event.stopPropagation()" href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank"
+        <a onclick="event.stopPropagation()" href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" rel="noopener noreferrer"
            class="inline-block w-full text-center bg-[#2F4F4F] text-white py-2 rounded-full font-black uppercase text-[10px] tracking-widest hover:opacity-95 transition">
           Unité (30€)
         </a>
         <div onclick="event.stopPropagation()" class="bg-white/50 rounded-xl p-2.5 border border-white/50 space-y-1.5">
           <p class="text-[9px] uppercase font-bold text-gray-600">Abonnements (dès 4)</p>
           <div class="flex items-center justify-between text-[10px]"><span class="font-bold text-[#2F4F4F]">Pass Cross</span><span class="font-black text-[#4A8D84]">15€</span></div>
-          <a href="https://svb.sportigo.fr/buy/offer-proposition/1cbe82dc-837a-4cfb-a0c8-117ebb53665d" target="_blank"
+          <a href="https://svb.sportigo.fr/buy/offer-proposition/1cbe82dc-837a-4cfb-a0c8-117ebb53665d" target="_blank" rel="noopener noreferrer"
              class="inline-block w-full text-center bg-[#4A8D84] text-white py-1.5 rounded-full font-black uppercase text-[9px] tracking-widest hover:opacity-95 transition">Cross</a>
           <div class="flex items-center justify-between text-[10px]"><span class="font-bold text-[#2F4F4F]">Pass Focus</span><span class="font-black text-[#4A8D84]">18€</span></div>
-          <a href="https://svb.sportigo.fr/buy/offer-proposition/9489a1a1-d37b-414b-bdb5-faad20312da3" target="_blank"
+          <a href="https://svb.sportigo.fr/buy/offer-proposition/9489a1a1-d37b-414b-bdb5-faad20312da3" target="_blank" rel="noopener noreferrer"
              class="inline-block w-full text-center bg-[#4A8D84] text-white py-1.5 rounded-full font-black uppercase text-[9px] tracking-widest hover:opacity-95 transition">Focus</a>
           <div class="flex items-center justify-between text-[10px] pt-1 border-t border-white/40"><span class="font-black text-[#2F4F4F]">Pass Full</span><span class="font-black text-[#4A8D84]">20€</span></div>
-          <a href="https://svb.sportigo.fr/buy/offer-proposition/e38c28ba-fe1e-4e7b-bb75-d43c4c38a21b" target="_blank"
+          <a href="https://svb.sportigo.fr/buy/offer-proposition/e38c28ba-fe1e-4e7b-bb75-d43c4c38a21b" target="_blank" rel="noopener noreferrer"
              class="inline-block w-full text-center bg-gradient-to-r from-[#E8B496] to-[#ff8e53] text-white py-1.5 rounded-full font-black uppercase text-[9px] tracking-widest hover:opacity-95 transition">Full</a>
         </div>
       </div>
@@ -1246,7 +714,7 @@
 </div>
 
 <div class="text-center mt-8">
-  <a href="https://www.google.fr/maps" target="_blank"
+  <a href="https://www.google.fr/maps" target="_blank" rel="noopener noreferrer"
      class="text-white text-xs font-bold uppercase tracking-widest border-b border-white pb-1 hover:text-[#2F4F4F] hover:border-[#2F4F4F] transition">
     Lire tous nos avis sur Google
   </a>
@@ -1284,20 +752,24 @@
         <div class="cta-sticky-text">Essai à 30€ • 100% remboursé si inscription</div>
         <div class="cta-sticky-price">ESSAI 30€</div>
       </div>
-      <a href="https://calendly.com/Santez Vous Bien-svb/presentation-et-visite-guidee-du-studio" target="_blank" class="cta-sticky-btn">
+      <a href="https://calendly.com/Santez Vous Bien-svb/presentation-et-visite-guidee-du-studio" target="_blank" rel="noopener noreferrer" class="cta-sticky-btn">
         Réserver mon essai
       </a>
     </div>
   </div>
 
-  <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20réserver%20un%20créneau%20pour%20l'essai%20Reformer%20à%2030€" target="_blank" class="whatsapp-btn">
-    <div class="whatsapp-pulse"></div>
-    <svg width="35" height="35" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+  <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20réserver%20un%20créneau%20pour%20l'essai%20Reformer%20à%2030€" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contacter Studio SVB sur WhatsApp">
+    <div class="whatsapp-pulse" aria-hidden="true"></div>
+    <svg width="35" height="35" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
       <path d="M17.472 14.382C17.119 14.205 15.396 13.359 15.068 13.243C14.739 13.128 14.503 13.072 14.265 13.424C14.032 13.782 13.364 14.569 13.159 14.804C12.956 15.039 12.753 15.067 12.399 14.889C12.043 14.71 10.908 14.336 9.559 13.132C8.502 12.188 7.785 11.022 7.581 10.668C7.375 10.315 7.558 10.126 7.734 9.949C7.893 9.792 8.085 9.539 8.261 9.336C8.441 9.13 8.498 8.983 8.614 8.749C8.733 8.514 8.674 8.309 8.583 8.132C8.496 7.954 7.788 6.22 7.492 5.517C7.206 4.832 6.918 4.922 6.703 4.913C6.495 4.904 6.257 4.904 6.019 4.904C5.782 4.904 5.394 4.994 5.068 5.348C4.742 5.702 3.824 6.564 3.824 8.309C3.824 10.054 5.093 11.739 5.271 11.975C5.452 12.213 7.799 15.839 11.488 17.429C14.018 18.522 14.629 18.286 15.158 18.236C15.938 18.163 17.519 17.319 17.846 16.398C18.174 15.48 18.174 14.685 18.087 14.538C17.994 14.391 17.761 14.323 17.472 14.382ZM11.011 21.996C11.009 21.996 11.006 21.996 11.003 21.996C9.406 21.995 7.842 21.564 6.467 20.748L6.091 20.525L2.613 21.439L3.541 18.046L3.298 17.659C2.421 16.262 1.956 14.646 1.958 12.992C1.961 8.01 6.013 3.961 10.998 3.961C13.411 3.962 15.681 4.9 17.387 6.607C19.094 8.314 20.033 10.584 20.03 12.998C20.026 17.981 15.975 21.996 11.011 21.996Z"/>
     </svg>
   </a>
 
   <footer class="bg-[#2F4F4F] text-white py-12 mt-16">
+    <!-- Newsletter Phase 7 : widget injecté par svb.js -->
+    <div class="max-w-6xl mx-auto px-6 mb-10">
+      <div data-svb-newsletter data-source="home-footer"></div>
+    </div>
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
       <div>
         <img src="images/logo.webp" alt="Logo SVB" class="w-32 mb-6" / width="120" height="85">
@@ -1366,7 +838,7 @@
     });
   </script>
 
-  <script src="optimisations.js" defer></script>
+  <script src="/assets/svb.js" defer></script>
 
     <!-- COUNTDOWN REMOVED -->
       <!---->

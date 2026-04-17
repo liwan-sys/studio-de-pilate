@@ -33,9 +33,31 @@
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
-# HTML ne doit pas etre cache longtemps
+# HTML : charset explicite (sinon certains navigateurs decodent en Latin-1
+# malgre <meta charset> — surtout Safari mobile avec X-Content-Type-Options: nosniff)
 /*.html
+  Content-Type: text/html; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate
 
 /
+  Content-Type: text/html; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate
+
+# API JSON feeds (reviews, blog index, etc.) : charset explicite aussi
+/assets/*.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+# RSS
+/blog/rss.xml
+  Content-Type: application/rss+xml; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+# Service worker doit toujours etre revalide (sinon MAJ bloquees)
+/service-worker.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Manifest PWA
+/site.webmanifest
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json

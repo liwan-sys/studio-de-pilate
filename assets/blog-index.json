@@ -1,0 +1,146 @@
+[
+  {
+    "slug": "afrodance-cours-danse",
+    "title": "Afrodance à Saint-Ouen : Danse & Cardio",
+    "h1": "Afrodance à Saint-Ouen : Quand la Danse Africaine Rencontre le Fitness",
+    "description": "L'Afrodance mêle danse africaine et cardio fitness. Cours fun et énergiques à Saint-Ouen. Tous niveaux bienvenus. Studio SVB, 16 coachs.",
+    "category": "Afrodance",
+    "date": "2026-04-05",
+    "thumb": "og-image.jpg"
+  },
+  {
+    "slug": "ameliorer-posture-pilates",
+    "title": "Améliorer sa Posture avec le Pilates Reformer",
+    "h1": "Comment Améliorer sa Posture avec le Pilates Reformer",
+    "description": "Mauvaise posture au bureau ? Le Pilates Reformer corrige les déséquilibres musculaires et redresse votre colonne. 5 exercices clés et conseils d'experts.",
+    "category": "Pilates",
+    "date": "2026-04-05",
+    "thumb": "logo.webp"
+  },
+  {
+    "slug": "bienfaits-pilates-reformer",
+    "title": "10 Bienfaits du Pilates Reformer",
+    "h1": "10 Bienfaits du Pilates Reformer Prouvés par la Science",
+    "description": "10 bienfaits du Pilates Reformer : posture, souplesse, renforcement profond, réduction du stress. Le Reformer vs le Pilates au sol.",
+    "category": "Pilates",
+    "date": "2026-04-05",
+    "thumb": "logo.webp"
+  },
+  {
+    "slug": "boxe-anglaise-bienfaits",
+    "title": "Boxe Anglaise : Pourquoi S'y Mettre ?",
+    "h1": "Boxe Anglaise : Pourquoi S'y Mettre ? Un Guide Complet des Bienfaits",
+    "description": "La boxe anglaise, bien plus qu'un sport de combat. Cardio, confiance en soi, défoulement. Cours encadrés à Saint-Ouen chez Studio SVB.",
+    "category": "Boxe",
+    "date": "2026-04-05",
+    "thumb": "og-image.jpg"
+  },
+  {
+    "slug": "cross-body-cross-core-cross-rox",
+    "title": "Cross Body, Cross Core, Cross Rox : Le Guide",
+    "h1": "Cross Body, Cross Core, Cross Rox : Le Guide",
+    "description": "Cross Body, Cross Core et Cross Rox : 3 cours de cross training uniques chez SVB à Saint-Ouen. Objectifs, différences et bienfaits de chaque format.",
+    "category": "Cross Training",
+    "date": "2026-04-05",
+    "thumb": "og-image.jpg"
+  },
+  {
+    "slug": "cross-training-bienfaits",
+    "title": "Cross Training Saint-Ouen : 7 Bienfaits",
+    "h1": "Cross Training Saint-Ouen : Les 7 Bienfaits Essentiels",
+    "description": "Découvrez les 7 bienfaits du Cross Training en small group à Saint-Ouen. Renforcement, cardio, perte de poids. Studio SVB, 16 coachs certifiés.",
+    "category": "Cross Training",
+    "date": "2026-04-05",
+    "thumb": "og-image.jpg"
+  },
+  {
+    "slug": "crossformer-guide-complet",
+    "title": "Crossformer : Guide Complet",
+    "h1": "Crossformer : Le Guide Complet de la Discipline Exclusive SVB",
+    "description": "Le Crossformer combine Pilates Reformer et cardio intensif. Bienfaits, déroulement d'une séance et pourquoi il brûle jusqu'à 600 calories.",
+    "category": "Cross Training",
+    "date": "2026-04-05",
+    "thumb": "og-image.jpg"
+  },
+  {
+    "slug": "crossformer-vs-hiit",
+    "title": "Crossformer vs HIIT : Que Choisir ?",
+    "h1": "Crossformer vs HIIT : Quelle Discipline Choisir ?",
+    "description": "Crossformer ou HIIT classique ? Comparaison détaillée : calories, impact articulaire, résultats, accessibilité. Trouvez l'entraînement qui vous correspond.",
+    "category": "Cross Training",
+    "date": "2026-04-05",
+    "thumb": "og-image.jpg"
+  },
+  {
+    "slug": "pilates-mal-de-dos",
+    "title": "Pilates Reformer & Mal de Dos : Soulager",
+    "h1": "Pilates et Mal de Dos : Comment le Reformer Peut Vous Soulager",
+    "description": "Le Pilates Reformer soulage le mal de dos grâce au renforcement profond et aux exercices guidés. Réduisez vos douleurs lombaires.",
+    "category": "Pilates",
+    "date": "2026-04-05",
+    "thumb": "logo.webp"
+  },
+  {
+    "slug": "pilates-prenatal-guide",
+    "title": "Pilates Prénatal : Guide Grossesse Active",
+    "h1": "Pilates Prénatal : Le Guide Complet pour une Grossesse Active",
+    "description": "Pilates prénatal : exercices par trimestre, bienfaits maman et bébé, précautions. Guide pour pratiquer en sécurité pendant la grossesse.",
+    "category": "Pilates",
+    "date": "2026-04-05",
+    "thumb": "logo.webp"
+  },
+  {
+    "slug": "pilates-reformer-debutant",
+    "title": "Pilates Reformer Débutant : 1re Séance",
+    "h1": "Pilates Reformer Débutant : Votre Première Séance Pas à Pas",
+    "description": "1re séance de Pilates Reformer ? Tenue, déroulement, exercices de base et conseils pour bien débuter au Studio SVB Saint-Ouen.",
+    "category": "Pilates",
+    "date": "2026-04-05",
+    "thumb": "logo.webp"
+  },
+  {
+    "slug": "pilates-reformer-perte-de-poids",
+    "title": "Pilates Reformer & Perte de Poids",
+    "h1": "Pilates Reformer et Perte de Poids : Ça Marche Vraiment ?",
+    "description": "Le Pilates Reformer aide-t-il à perdre du poids ? Calories brûlées, métabolisme, tonification. Découvrez comment le Reformer transforme votre silhouette.",
+    "category": "Pilates",
+    "date": "2026-04-05",
+    "thumb": "logo.webp"
+  },
+  {
+    "slug": "reformer-vs-mat-pilates",
+    "title": "Reformer vs Mat Pilates : Le Comparatif",
+    "h1": "Reformer vs Mat Pilates : Quelles Différences ?",
+    "description": "Reformer ou Pilates au sol ? Différences, avantages de chaque méthode et comment choisir. Guide comparatif Studio SVB.",
+    "category": "Pilates",
+    "date": "2026-04-05",
+    "thumb": "logo.webp"
+  },
+  {
+    "slug": "studio-coaching-vs-salle-de-sport",
+    "title": "Studio Coaching vs Salle de Sport : Que Choisir ?",
+    "h1": "Studio Coaching vs Salle de Sport : Que Choisir ?",
+    "description": "Studio de coaching ou salle de sport classique ? Comparatif encadrement, résultats, ambiance et prix. Découvrez pourquoi le small group change tout.",
+    "category": "Studio",
+    "date": "2026-04-05",
+    "thumb": "og-image.jpg"
+  },
+  {
+    "slug": "training-kids-sport-enfants",
+    "title": "Training Kids : Sport Enfants à Saint-Ouen",
+    "h1": "Training Kids : Sport Enfants à Saint-Ouen",
+    "description": "Training Kids chez Studio SVB : cours de sport ludiques pour enfants à Saint-Ouen. Motricité, confiance, énergie. Samedi et dimanche.",
+    "category": "Kids",
+    "date": "2026-04-05",
+    "thumb": "og-image.jpg"
+  },
+  {
+    "slug": "yoga-vinyasa-bienfaits",
+    "title": "Yoga Vinyasa : 8 Bienfaits Corps & Esprit",
+    "h1": "Yoga Vinyasa : 8 Bienfaits pour le Corps et l'Esprit",
+    "description": "Découvrez les 8 bienfaits du Yoga Vinyasa : souplesse, force, gestion du stress, perte de poids. Pourquoi pratiquer le Vinyasa à Saint-Ouen-sur-Seine.",
+    "category": "Yoga",
+    "date": "2026-04-05",
+    "thumb": "logo.webp"
+  }
+]

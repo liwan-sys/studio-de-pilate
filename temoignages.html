@@ -115,14 +115,20 @@
   <!-- GTM -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5RW8LB7B"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'GTM-5RW8LB7B');
+    /* GTM gated by RGPD consent (svb.js handles banner + reload) */
+    (function(){
+      window.dataLayer = window.dataLayer || [];
+      var granted = false;
+      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+      if (!granted) return;
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GTM-5RW8LB7B');
+    })();
   </script>
 
   <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/tailwind.css" />
   <script>
     tailwind.config = {
       theme: {
@@ -141,6 +147,7 @@
   </script>
 
   <!-- Google Fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -429,6 +436,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="/assets/svb.css" />
 </head>
 <body>
   <!-- Navigation -->
@@ -437,7 +445,7 @@
       <div class="flex items-center justify-between">
         <div class="flex-shrink-0">
           <a href="index.html">
-            <img src="images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-12">
+            <img src="images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-12" width="593" height="420" decoding="async">
           </a>
         </div>
         <div class="hidden md:flex items-center space-x-8">
@@ -714,6 +722,6 @@
   </a>
 
   <!-- Optimizations script (deferred) -->
-  <script src="optimisations.js" defer></script>
+  <script src="/assets/svb.js" defer></script>
 </body>
 </html>

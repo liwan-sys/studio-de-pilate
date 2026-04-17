@@ -18,19 +18,29 @@
     <meta property="twitter:image" content="https://studiosvb.com/images/pilates-prenatal.jpg">
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
+    <script>
+    /* GTM gated by RGPD consent (svb.js handles the banner + reload).
+       Fires only if user has explicitly granted consent. */
+    (function(){
+      var granted = false;
+      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+      if (!granted) { window.dataLayer = window.dataLayer || []; return; }
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5RW8LB7B');
+    })();
+  </script>
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/tailwind.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -265,6 +275,7 @@
             margin-bottom: 0;
         }
     </style>
+  <link rel="stylesheet" href="/assets/svb.css" />
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -276,7 +287,7 @@
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <a href="../index.html" class="flex items-center gap-2">
-                    <img src="../images/logo.webp" alt="Studio SVB Logo" class="h-10">
+                    <img src="../images/logo.webp" alt="Studio SVB Logo" class="h-10" width="593" height="420" decoding="async">
                 </a>
                 <div class="hidden md:flex gap-6">
                     <a href="../index.html">ACCUEIL</a>
@@ -543,7 +554,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Logo & Intro -->
                 <div>
-                    <img src="../images/logo.webp" alt="Studio SVB Logo" class="h-12 mb-4">
+                    <img src="../images/logo.webp" alt="Studio SVB Logo" class="h-12 mb-4" width="593" height="420" decoding="async">
                     <p style="color: var(--svb-text);">Le studio de Pilates Reformer à Saint-Ouen-sur-Seine.</p>
                 </div>
 
@@ -587,7 +598,7 @@
     </a>
 
     <!-- Optimisation Script -->
-    <script src="../optimisations.js" defer></script>
+    <script src="/assets/svb.js" defer></script>
 
     <!-- Article Schema -->
     <script type="application/ld+json">

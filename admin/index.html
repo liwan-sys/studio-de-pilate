@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Studio SVB — Espace rédaction</title>
+  <link rel="icon" type="image/png" href="/images/favicon-32.png" />
+  <style>
+    /* Brand Decap CMS login & editor subtly */
+    :root{--nc-brand-color:#4A8D84}
+  </style>
+</head>
+<body>
+  <!-- Decap CMS (fork OSS maintenu de Netlify CMS) -->
+  <script src="https://unpkg.com/decap-cms@^3.8.0/dist/decap-cms.js"></script>
+
+  <script>
+    // Customize preview pane: inject brand styles for a WYSIWYG close to production
+    if (window.CMS) {
+      CMS.registerPreviewStyle('/assets/svb.css');
+      CMS.registerPreviewStyle('/assets/tailwind.css');
+
+      // Live preview component for blog posts
+      var h = window.h || null;
+      CMS.registerPreviewTemplate('blog', createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var title = entry.getIn(['data', 'title']);
+          var category = entry.getIn(['data', 'category']);
+          var description = entry.getIn(['data', 'description']);
+          var body = this.props.widgetFor('body');
+          return h('article', { style: 'max-width:720px;margin:0 auto;padding:40px 24px;font-family:Montserrat,sans-serif;color:#2F4F4F' },
+            h('p', { style: 'font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#4A8D84;font-weight:700' }, category),
+            h('h1', { style: "font-family:'Dancing Script',cursive;font-size:2.6rem;line-height:1.1;margin:.3rem 0 1rem;color:#2F4F4F" }, title),
+            h('p', { style: 'opacity:.75;line-height:1.6;font-style:italic;border-left:3px solid #98D0B3;padding-left:1rem' }, description),
+            h('div', { style: 'margin-top:2rem;line-height:1.75' }, body)
+          );
+        }
+      }));
+    }
+
+    // Fallback for older React-based preview template signature
+    function createClass(spec){
+      if (window.CMS && window.CMS.createClass) return window.CMS.createClass(spec);
+      // Decap >=3 uses React directly; use a minimal class
+      return class extends window.React.Component {
+        render(){ return spec.render.call(this); }
+      };
+    }
+  </script>
+</body>
+</html>

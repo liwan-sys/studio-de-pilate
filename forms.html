@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Studio SVB — Form declarations for Netlify Forms.
+  This page is PARSED AT BUILD TIME by Netlify to detect forms,
+  then never served to users (noindex + Disallow via redirect).
+  DO NOT REMOVE without also removing the corresponding
+  Netlify Form in the Netlify UI.
+  ============================================================
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Forms (internal)</title>
+</head>
+<body>
+  <h1>Formulaires internes — ne pas supprimer</h1>
+  <p>Cette page déclare les formulaires que Netlify doit détecter au build.</p>
+
+  <!-- 1. Réservation essai (utilisé par /reserver) -->
+  <form
+    name="reservation-essai"
+    data-netlify="true"
+    data-netlify-honeypot="website-url"
+    hidden>
+    <input type="text" name="firstname" />
+    <input type="text" name="lastname" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="discipline" />
+    <textarea name="availability"></textarea>
+    <input type="hidden" name="ref" />
+    <input type="checkbox" name="consent" />
+    <input type="text" name="website-url" />
+  </form>
+
+  <!-- 2. Leads Calendly (remplis par la Netlify Function calendly-webhook) -->
+  <form
+    name="calendly-leads"
+    data-netlify="true"
+    hidden>
+    <input type="text" name="at" />
+    <input type="text" name="kind" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="scheduled_for" />
+    <input type="text" name="event_name" />
+    <input type="text" name="cancel_url" />
+    <input type="text" name="reschedule_url" />
+    <textarea name="questions"></textarea>
+  </form>
+
+  <!-- 3. Newsletter (Phase 7 : inscription + double opt-in via /api/newsletter) -->
+  <form
+    name="newsletter"
+    data-netlify="true"
+    data-netlify-honeypot="website-url"
+    hidden>
+    <input type="email" name="email" />
+    <input type="text" name="firstname" />
+    <input type="text" name="confirmed_at" />
+    <input type="text" name="source" />
+    <input type="text" name="ref" />
+    <input type="text" name="website-url" />
+  </form>
+
+  <!-- 4. Contact existant (déjà dans contact.html, on duplique juste pour safety) -->
+  <form
+    name="contact"
+    data-netlify="true"
+    data-netlify-honeypot="website-url"
+    hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <textarea name="message"></textarea>
+    <input type="text" name="website-url" />
+  </form>
+</body>
+</html>

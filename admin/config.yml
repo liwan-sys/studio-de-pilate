@@ -1,0 +1,138 @@
+# ================================================================
+# Studio SVB — Decap CMS config
+# Auth via Netlify Identity (à activer depuis Netlify UI)
+# ================================================================
+
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'content(cms): ajout "{{slug}}"'
+    update: 'content(cms): maj "{{slug}}"'
+    delete: 'content(cms): suppression "{{slug}}"'
+    uploadMedia: 'content(cms): upload média "{{path}}"'
+    deleteMedia: 'content(cms): suppression média "{{path}}"'
+
+# Uploads : dans /images/blog/, accessibles à /images/blog/…
+media_folder: "images/blog"
+public_folder: "/images/blog"
+
+# Langue UI (fr dispo sur Decap 3.x)
+locale: 'fr'
+
+# Éditeur de prévisualisation
+site_url: https://studiosvb.com
+display_url: https://studiosvb.com
+logo_url: https://studiosvb.com/images/logo.webp
+show_preview_links: true
+
+# ---- Collections ----
+collections:
+  # ---- Articles de blog (format Markdown + front-matter) ----
+  - name: "blog"
+    label: "📝 Articles du blog"
+    label_singular: "Article"
+    folder: "content/blog"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    preview_path: "blog/{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Titre SEO", name: "title", widget: "string", hint: "Affiché dans l'onglet et Google (55-60 caractères max)" }
+      - { label: "Titre de l'article (H1)", name: "h1", widget: "string", hint: "Peut être plus long et accrocheur" }
+      - { label: "Description (meta)", name: "description", widget: "text", hint: "Résumé pour Google (150-160 caractères)", pattern: ['^.{80,170}$', "entre 80 et 170 caractères"] }
+      - label: "Catégorie"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Pilates", value: "Pilates" }
+          - { label: "Cross Training", value: "Cross Training" }
+          - { label: "Crossformer", value: "Crossformer" }
+          - { label: "Yoga", value: "Yoga" }
+          - { label: "Boxe", value: "Boxe" }
+          - { label: "Afrodance", value: "Afrodance" }
+          - { label: "Kids", value: "Kids" }
+          - { label: "Studio", value: "Studio" }
+          - { label: "Bien-être", value: "Bien-être" }
+      - { label: "Image d'illustration", name: "thumb", widget: "image", required: false, hint: "1200×675 idéal. Sera redimensionnée automatiquement." }
+      - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, default: "" }
+      - { label: "Auteur", name: "author", widget: "string", default: "Équipe SVB" }
+      - label: "Tags (optionnel)"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Mettre en avant sur le blog ?", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Contenu de l'article", name: "body", widget: "markdown", hint: "Utilise les titres (H2/H3), listes, images, citations. La mise en page SVB est appliquée automatiquement." }
+
+  # ---- Témoignages / avis (JSON géré par le widget reviews) ----
+  - name: "reviews"
+    label: "⭐ Avis clients"
+    label_singular: "Avis"
+    folder: "content/reviews"
+    create: true
+    delete: true
+    slug: "{{author | lower | replace(' ', '-')}}-{{year}}{{month}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Auteur", name: "author", widget: "string" }
+      - { label: "Note (1-5)", name: "rating", widget: "number", min: 1, max: 5, default: 5 }
+      - { label: "Avis", name: "text", widget: "text" }
+      - label: "Discipline concernée"
+        name: "discipline"
+        widget: "select"
+        required: false
+        options: ["Pilates Reformer", "Crossformer", "Cross Training", "Yoga", "Boxe", "Afrodance", "Training Kids"]
+      - { label: "Date de l'avis", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Afficher sur le site ?", name: "published", widget: "boolean", default: true }
+      - { label: "Photo (optionnel)", name: "photo", widget: "image", required: false }
+
+  # ---- Coachs (édition équipe via CMS) ----
+  - name: "coachs"
+    label: "👥 Coachs"
+    label_singular: "Coach"
+    folder: "content/coachs"
+    create: true
+    delete: true
+    slug: "{{name | lower | replace(' ', '-')}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Prénom", name: "name", widget: "string" }
+      - { label: "Rôle", name: "role", widget: "string", hint: "Ex: Coach Reformer, Responsable studio…" }
+      - label: "Spécialités"
+        name: "specialties"
+        widget: "list"
+        field: { label: "Spécialité", name: "s", widget: "string" }
+      - { label: "Bio courte", name: "bio", widget: "text", hint: "1-2 phrases maximum" }
+      - { label: "Citation favorite", name: "quote", widget: "string", required: false }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Ordre d'affichage", name: "order", widget: "number", default: 100 }
+      - { label: "Visible ?", name: "published", widget: "boolean", default: true }
+
+  # ---- Paramètres du site (toggles + infos globales) ----
+  - name: "settings"
+    label: "⚙️ Paramètres"
+    files:
+      - label: "Offre du moment (banner home)"
+        name: "offer"
+        file: "content/settings/offer.json"
+        fields:
+          - { label: "Activer la bannière ?", name: "active", widget: "boolean", default: false }
+          - { label: "Titre", name: "title", widget: "string", required: false }
+          - { label: "Sous-titre", name: "subtitle", widget: "string", required: false }
+          - { label: "CTA texte", name: "cta_label", widget: "string", required: false }
+          - { label: "CTA URL", name: "cta_url", widget: "string", required: false }
+          - { label: "Date de fin", name: "ends_at", widget: "datetime", required: false }
+      - label: "Coordonnées"
+        name: "contact"
+        file: "content/settings/contact.json"
+        fields:
+          - { label: "Téléphone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "WhatsApp (numéro international)", name: "whatsapp", widget: "string" }
+          - { label: "Adresse Breton", name: "address_breton", widget: "string" }
+          - { label: "Adresse Lavandières", name: "address_lavandieres", widget: "string" }

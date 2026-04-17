@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+    <script>
+    (function(){
+      var granted = false;
+      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+      if (!granted) { window.dataLayer = window.dataLayer || []; return; }
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5RW8LB7B');
+    })();
+  </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/favicon.jpg" />
     <title>Abonnements Pilates Saint-Ouen — Inscription en 3 min | Studio SVB</title>
   <meta name="description" content="Tarifs Studio SVB : Pass Starter sans engagement, abonnements Reformer et Crossformer. Essai à 30€. Inscription en 3 min.">
@@ -33,158 +40,13 @@
 
   <meta name="theme-color" content="#4A8D84">
     
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/tailwind.css" />
 
-    <style>
-        /* VOS COULEURS ORIGINALES */
-        :root {
-            --col-peach: #EBC6A6;   
-            --col-sand: #D4C3A3;    
-            --col-green: #88C0A6;   
-            --col-cream: #F3EBD4;   
-            --col-dark: #3A6B63;    
-            --svb-text: #2F4F4F;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #B8D8C0;
-            color: var(--svb-text);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* FOND IMMERSIF */
-        .ambient-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
-            background: linear-gradient(180deg, #CDE4D3 0%, #F5F0E1 100%);
-            overflow: hidden;
-        }
-        .blob {
-            position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.6;
-            animation: moveBlob 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .blob-1 { top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--col-green); }
-        .blob-2 { bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--col-peach); animation-delay: -5s; }
-        @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(40px, -40px) scale(1.1); } }
-        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); pointer-events: none; }
-
-        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
-
-        .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
-    nav.reveal-load, header.reveal-load, section:first-of-type.reveal-load { opacity: 1 !important; animation: none !important; transform: none !important; }
-        @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
-        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
-
-        /* DESIGN CARTES */
-        .price-card {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 24px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            display: flex; flex-direction: column; justify-content: space-between; height: 100%;
-            position: relative; /* Important pour les badges */
-        }
-        .price-card:hover { transform: translateY(-8px) scale(1.02); background: rgba(255, 255, 255, 0.85); box-shadow: 0 30px 60px rgba(74, 141, 132, 0.25); z-index: 10; }
-
-        /* COULEURS */
-        .header-peach { background: var(--col-peach); color: white; }
-        .header-sand { background: var(--col-sand); color: white; }
-        .header-green { background: var(--col-green); color: white; }
-        .header-cream { background: var(--col-cream); color: var(--svb-text); }
-        .header-dark { background: var(--col-dark); color: white; }
-        .header-bicolor-former { background: linear-gradient(135deg, var(--col-sand) 0%, var(--col-peach) 100%); color: white; }
-        .header-bicolor-full { background: linear-gradient(135deg, var(--col-green) 0%, var(--col-cream) 100%); color: var(--svb-text); }
-        .header-kids { background: linear-gradient(135deg, var(--col-peach), var(--col-sand)); color: white; }
-
-        .body-peach { background: linear-gradient(180deg, rgba(235, 198, 166, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
-        .body-sand { background: linear-gradient(180deg, rgba(212, 195, 163, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
-        .body-green { background: linear-gradient(180deg, rgba(136, 192, 166, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
-        .body-cream { background: linear-gradient(180deg, rgba(243, 235, 212, 0.5) 0%, rgba(255,255,255,0.8) 100%); }
-        .body-dark { background: linear-gradient(180deg, rgba(58, 107, 99, 0.15) 0%, rgba(255,255,255,0.7) 100%); }
-        .body-bicolor-former { background: linear-gradient(180deg, rgba(212, 195, 163, 0.25) 0%, rgba(235, 198, 166, 0.25) 100%); }
-        .body-bicolor-full { background: linear-gradient(180deg, rgba(136, 192, 166, 0.25) 0%, rgba(243, 235, 212, 0.4) 100%); }
-        .body-kids { background: linear-gradient(180deg, rgba(235, 198, 166, 0.2) 0%, rgba(255,255,255,0.8) 100%); }
-
-        .card-header { padding: 20px; text-align: center; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; font-size: 1rem; }
-        
-        /* Ligne Discipline */
-        .discipline-row {
-            background: rgba(255,255,255,0.6); padding: 8px 5px; text-align: center;
-            font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--svb-text);
-            border-bottom: 1px solid rgba(0,0,0,0.05); letter-spacing: 0.05em; line-height: 1.2;
-        }
-
-        .price-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 6px 20px; font-size: 0.8rem; font-weight: 600; color: #555; }
-        .price-row:last-child { border-bottom: none; }
-        .price-row span:last-child { font-weight: 800; color: var(--svb-text); font-size: 0.9rem; }
-
-        .btn-action { display: block; width: 100%; background-color: var(--col-dark); color: white; text-align: center; padding: 18px 0; text-transform: uppercase; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.15em; transition: all 0.3s; margin-top: auto; cursor: pointer; border: none;}
-        .btn-action:hover { background-color: #2F4F4F; letter-spacing: 0.2em; padding-bottom: 22px; }
-
-        .offer-banner { text-align: center; padding: 15px; border-radius: 12px; margin-bottom: 25px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .banner-machines { background: var(--col-peach); }
-        .banner-training { background: var(--col-green); }
-
-        .btn-unit { background: white; color: var(--col-dark); border: 1px solid var(--col-dark); padding: 6px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; transition: all 0.3s; margin-left: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .btn-unit:hover { background: var(--col-dark); color: white; transform: translateY(-2px); }
-        .unit-row { background-color: rgba(255,255,255,0.4); padding: 10px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
-        
-        .terms-row { padding: 15px 20px; text-align: center; font-size: 0.7rem; border-top: 1px solid rgba(0,0,0,0.05); background: rgba(255,255,255,0.3); }
-        .terms-fee { color: var(--svb-text); font-weight: 700; text-transform: uppercase; }
-        .terms-warning { color: #dc2626; font-weight: 900; text-transform: uppercase; display: block; margin-top: 5px; font-size: 0.65rem; letter-spacing: 0.05em; }
-
-        /* === OPTION BOOST CORRIGÉE (Overflow Visible) === */
-        .boost-card {
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 24px;
-            padding: 40px;
-            position: relative;
-            overflow: visible; /* Permet au badge de dépasser */
-            border: 2px solid #88C0A6;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            margin-top: 30px;
-        }
-        .boost-card:hover { transform: translateY(-5px); }
-        .boost-badge {
-            position: absolute; top: -15px; right: 20px;
-            background: var(--col-peach); color: white;
-            font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em;
-            padding: 10px 25px; border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .boost-list li { margin-bottom: 12px; display: flex; align-items: flex-start; color: #555; font-size: 0.9rem; }
-        .boost-icon { margin-right: 10px; color: var(--col-dark); font-size: 1.1rem; }
-
-        /* === MODAL & QUIZ === */
-        #quiz-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 9999; display: none; opacity: 0; transition: opacity 0.3s; justify-content: center; align-items: center; padding: 20px; }
-        #quiz-modal.open { display: flex; opacity: 1; }
-        .quiz-card { background: white; width: 100%; max-width: 600px; border-radius: 25px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.25); animation: slideUp 0.4s ease-out; position: relative; }
-        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: #aaa; cursor: pointer; z-index: 10; line-height: 0.5; }
-        .progress-bar { height: 6px; background: #eee; width: 100%; }
-        .progress-fill { height: 100%; background: var(--col-dark); width: 0%; transition: width 0.3s; }
-        .quiz-content { padding: 30px; text-align: center; }
-        .quiz-step { display: none; } .quiz-step.active { display: block; animation: fadeIn 0.3s; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .quiz-options { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 20px; }
-        .option-btn { border: 2px solid #eee; padding: 15px; border-radius: 12px; cursor: pointer; transition: all 0.2s; font-weight: 600; color: #555; text-align: left; display: flex; align-items: center; }
-        .option-btn:hover { border-color: var(--col-dark); background: #f9f9f9; }
-        .opt-icon { margin-right: 15px; font-size: 1.4rem; }
-        .loading-spinner { border: 4px solid #f3f3f3; border-top: 4px solid var(--col-dark); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; }
-        .btn-submit-quiz { width: 100%; padding: 15px; background-color: #25D366; color: white; font-weight: bold; border-radius: 50px; text-transform: uppercase; margin-top: 10px; transition: transform 0.2s; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
-        .btn-submit-quiz:hover { transform: scale(1.02); background-color: #1ebc57; }
-
-    </style>
+    <link rel="stylesheet" href="/assets/tarifs.css" />
 
   <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json">
@@ -289,7 +151,8 @@
     ]
   }
   </script>
-  </head>
+    <link rel="stylesheet" href="/assets/svb.css" />
+</head>
 <body class="content-visible">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu principal</a>
 
@@ -422,7 +285,7 @@
                 <div class="discipline-row">Inclus : Crossformer</div>
                 <div class="unit-row">
                     <span class="font-bold text-[#2F4F4F]">Essai</span>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74" target="_blank" class="btn-unit">30€</a>
+                    <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74" target="_blank" rel="noopener noreferrer" class="btn-unit">30€</a>
                 </div>
                 <div class="body-peach h-full flex flex-col justify-between">
                     <div>
@@ -447,7 +310,7 @@
                 <div class="discipline-row">Inclus : Pilates Reformer</div>
                 <div class="unit-row">
                     <span class="font-bold text-[#2F4F4F]">Essai</span>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90" target="_blank" class="btn-unit">30€</a>
+                    <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90" target="_blank" rel="noopener noreferrer" class="btn-unit">30€</a>
                 </div>
                 <div class="body-sand h-full flex flex-col justify-between">
                     <div>
@@ -500,7 +363,7 @@
                 <div class="discipline-row">Inclus : Cross Training • Hyrox • Core • Body • Cross Yoga</div>
                 <div class="unit-row">
                     <span class="font-bold text-[#2F4F4F]">Essai</span>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" class="btn-unit">30€</a>
+                    <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" rel="noopener noreferrer" class="btn-unit">30€</a>
                 </div>
                 <div class="body-green h-full flex flex-col justify-between">
                     <div>
@@ -525,7 +388,7 @@
                 <div class="discipline-row">Inclus : Yoga • Pilates Sol • Boxe • Danse • Stretch</div>
                 <div class="unit-row">
                     <span class="font-bold text-[#2F4F4F]">Essai</span>
-                    <a href="https://svb.sportigo.fr/buy/offer-proposition/9489a1a1-d37b-414b-bdb5-faad20312da3" target="_blank" class="btn-unit">30€</a>
+                    <a href="https://svb.sportigo.fr/buy/offer-proposition/9489a1a1-d37b-414b-bdb5-faad20312da3" target="_blank" rel="noopener noreferrer" class="btn-unit">30€</a>
                 </div>
                 <div class="body-cream h-full flex flex-col justify-between">
                     <div>
@@ -608,7 +471,7 @@
                         <span class="terms-warning">⚠️ NON REPORTABLES LE MOIS SUIVANT</span>
                     </div>
                 </div>
-                <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20prendre%20RDV%20pour%20une%20inscription%20Pass%20Kids" target="_blank" class="btn-action">Prendre RDV (Sur Place)</a>
+                <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20prendre%20RDV%20pour%20une%20inscription%20Pass%20Kids" target="_blank" rel="noopener noreferrer" class="btn-action">Prendre RDV (Sur Place)</a>
             </div>
         </div>
 
@@ -714,8 +577,8 @@
         <img src="images/logo.webp" alt="Logo SVB Santez Vous Bien" class="w-32 mb-6 brightness-0 invert" / width="120" height="85">
         <p class="opacity-80 leading-relaxed">Votre studio de coaching privé et bien-être à Saint-Ouen.<br/>Pilates, Yoga, Training et Soins.</p>
         <div class="flex gap-4 mt-4">
-          <a href="https://www.instagram.com/studiosvb/" target="_blank" rel="noopener noreferrer" aria-label="Instagram SVB" class="opacity-70 hover:opacity-100 transition"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="https://www.facebook.com/profile.php?id=61574972498498" target="_blank" rel="noopener noreferrer" aria-label="Facebook SVB" class="opacity-70 hover:opacity-100 transition"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/studiosvb/" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" aria-label="Instagram SVB" class="opacity-70 hover:opacity-100 transition"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61574972498498" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" aria-label="Facebook SVB" class="opacity-70 hover:opacity-100 transition"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
         </div>
       </div>
       <div>
@@ -919,6 +782,6 @@
     })();
     </script>
 
-  <script src="optimisations.js" defer></script>
+  <script src="/assets/svb.js" defer></script>
 </body>
 </html>
