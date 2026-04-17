@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page introuvable — Studio SVB</title>
+  <meta name="description" content="La page que vous cherchez n'existe pas ou a été déplacée. Retrouvez le Studio SVB et tous nos cours à Saint-Ouen." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/png" href="/images/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/svb.css" />
+  <style>
+    body{
+      margin:0;min-height:100svh;
+      background:linear-gradient(165deg,#98D0B3 0%,#F2E6CF 50%,#E8B496 100%);
+      display:flex;align-items:center;justify-content:center;
+      padding:24px;
+      position:relative;overflow:hidden;
+    }
+    .blob-404{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none}
+    .blob-404.one{top:-10%;left:-5%;width:420px;height:420px;background:#4A8D84}
+    .blob-404.two{bottom:-12%;right:-10%;width:520px;height:520px;background:#E8B496}
+    .card{
+      position:relative;z-index:2;
+      background:rgba(255,255,255,.82);
+      backdrop-filter:blur(24px);
+      border-radius:32px;
+      padding:clamp(40px,6vw,72px) clamp(28px,5vw,56px);
+      box-shadow:0 30px 80px rgba(47,79,79,.18);
+      max-width:640px;width:100%;text-align:center;
+      border:1px solid rgba(255,255,255,.9);
+    }
+    .huge{
+      font-family:'Great Vibes',cursive;
+      font-size:clamp(6rem,18vw,11rem);
+      color:#4A8D84;
+      line-height:.9;margin:0 0 .3rem;
+      text-shadow:3px 4px 8px rgba(47,79,79,.12);
+    }
+    h1{
+      font-family:'Dancing Script',cursive;
+      font-weight:600;
+      font-size:clamp(1.6rem,3.2vw,2.4rem);
+      color:#2F4F4F;margin:0 0 1rem;
+    }
+    p{color:#2F4F4F;opacity:.78;margin:0 0 1.8rem;line-height:1.6}
+    .actions{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+    .btn{
+      padding:.9rem 1.6rem;border-radius:999px;
+      font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;
+      text-decoration:none;display:inline-block;
+      transition:transform .25s,box-shadow .25s,background .25s,color .25s;
+    }
+    .btn-primary{background:#4A8D84;color:#fff;box-shadow:0 12px 24px -8px rgba(74,141,132,.5)}
+    .btn-primary:hover{background:#2d5a54;transform:translateY(-2px);box-shadow:0 18px 32px -8px rgba(74,141,132,.65)}
+    .btn-ghost{background:transparent;color:#2F4F4F;border:1.5px solid #2F4F4F}
+    .btn-ghost:hover{background:#2F4F4F;color:#fff}
+    .links{
+      margin-top:2rem;padding-top:1.6rem;
+      border-top:1px solid rgba(47,79,79,.12);
+      font-size:.88rem;
+    }
+    .links a{color:#4A8D84;font-weight:600;text-decoration:none;margin:0 .5rem;white-space:nowrap}
+    .links a:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+  <div class="blob-404 one" aria-hidden="true"></div>
+  <div class="blob-404 two" aria-hidden="true"></div>
+
+  <main class="card" role="main">
+    <p class="huge" aria-hidden="true">404</p>
+    <h1>Tu t'es perdu·e en chemin&nbsp;?</h1>
+    <p>Pas de panique, on reste en forme.<br/>La page que tu cherches n'existe plus ou a changé de nom.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/">Retour à l'accueil</a>
+      <a class="btn btn-ghost" href="/sessions">Voir les cours</a>
+    </div>
+    <nav class="links" aria-label="Liens utiles">
+      <a href="/tarifs">Tarifs</a>·
+      <a href="/equipe">Équipe</a>·
+      <a href="/blog/">Blog</a>·
+      <a href="/contact">Contact</a>·
+      <a href="/faq">FAQ</a>
+    </nav>
+  </main>
+
+  <script src="/assets/svb.js" defer></script>
+</body>
+</html>
