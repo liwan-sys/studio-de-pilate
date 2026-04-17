@@ -86,6 +86,9 @@
     button[type="submit"]:hover{background:#4A8D84;transform:translateY(-2px)}
     button[type="submit"]:disabled{opacity:.5;cursor:wait}
     .note{grid-column:1 / -1;text-align:center;font-size:.78rem;color:#2F4F4F;opacity:.6;margin:0}
+    .benefits{list-style:none;padding:0;margin:0 0 1.6rem;display:grid;gap:.5rem;font-size:.88rem;color:#2F4F4F}
+    .benefits li{padding:10px 14px;background:rgba(152,208,179,.2);border:1px solid rgba(74,141,132,.15);border-radius:12px;line-height:1.5}
+    .benefits strong{color:#2F4F4F}
     .hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
     .thanks{
       text-align:center;padding:32px 8px;
@@ -102,9 +105,15 @@
     <a href="/" class="back">← Retour au site</a>
     <div class="card">
       <div id="form-container">
-        <p class="eyebrow">Cours d'essai · 30€ remboursés</p>
+        <p class="eyebrow">Essai · 30 € · 15 € remboursables</p>
         <h1>On te garde une place.</h1>
-        <p class="lead">Remplis ces 6 champs (30 secondes) et l'équipe te rappelle dans l'heure pour confirmer ton créneau.</p>
+        <p class="lead">Remplis 6 champs (30 secondes), l'équipe te rappelle dans l'heure pour confirmer ton créneau. <strong>Aucune carte bleue demandée.</strong></p>
+
+        <ul class="benefits" aria-label="Avantages de la réservation">
+          <li>✓ <strong>Réponse sous 1 h</strong> · 7j/7</li>
+          <li>✓ <strong>15 € remboursés</strong> si tu t'abonnes dans les 7 jours</li>
+          <li>✓ <strong>Aucune carte bleue</strong> demandée à la réservation</li>
+        </ul>
 
         <form
           name="reservation-essai"
@@ -153,16 +162,16 @@
             <input type="checkbox" required name="consent" />
             <span>J'accepte d'être contacté·e par le Studio SVB pour confirmer ma réservation. Aucune newsletter, aucun spam.</span>
           </label>
-          <button type="submit">Réserver mon essai · 30€</button>
-          <p class="note">Les 30€ sont intégralement déduits de votre premier abonnement.</p>
+          <button type="submit">Confirmer mon essai</button>
+          <p class="note">Paiement sécurisé après confirmation · 15 € déduits de ton premier prélèvement à l'abonnement.</p>
         </form>
       </div>
 
       <!-- Réponse affichée après soumission AJAX réussie -->
       <div id="thanks" class="thanks" hidden>
         <div class="thanks-emoji">🎉</div>
-        <h2>Reçu, on te rappelle sous 1h.</h2>
-        <p>Tu vas recevoir un email de confirmation dans quelques minutes.<br/>Une question urgente&nbsp;? <a href="https://wa.me/33744919155" style="color:#4A8D84;font-weight:600" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou <a href="tel:+33744919155" style="color:#4A8D84;font-weight:600">07&nbsp;44&nbsp;91&nbsp;91&nbsp;55</a>.</p>
+        <h2>Reçu. On t'appelle dans l'heure.</h2>
+        <p>Tu vas recevoir un email de confirmation dans quelques minutes. En attendant, une question urgente&nbsp;? <a href="https://wa.me/33744919155" style="color:#4A8D84;font-weight:600" target="_blank" rel="noopener noreferrer">WhatsApp&nbsp;💬</a> ou <a href="tel:+33744919155" style="color:#4A8D84;font-weight:600">07&nbsp;44&nbsp;91&nbsp;91&nbsp;55</a>.</p>
       </div>
     </div>
   </div>
