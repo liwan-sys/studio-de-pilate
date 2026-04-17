@@ -1,0 +1,292 @@
+/* ================================================================
+   SVB SantezVousBien · Stylesheet commune (v2.1)
+   Cache-Control: public, max-age=31536000, immutable (_headers)
+   Non-destructive : styles inline des pages prennent le pas.
+   ================================================================ */
+
+/* --- Design tokens (les 2 conventions cohabitent) --------------- */
+:root{
+  --svb-green-light:#98D0B3;
+  --svb-green-dark:#4A8D84;
+  --svb-green-darker:#2d5a54;
+  --svb-sand:#F2E6CF;
+  --svb-peach:#E8B496;
+  --svb-text:#2F4F4F;
+  --svb-ink:#1d3838;
+  --svb-cream:#FBF6EC;
+  --svb-white:#ffffff;
+
+  /* alias "col-*" utilisés sur certaines pages */
+  --col-peach:#EBC6A6;
+  --col-sand:#D4C3A3;
+  --col-green:#88C0A6;
+  --col-cream:#F3EBD4;
+  --col-dark:#3A6B63;
+
+  /* radius */
+  --r-sm:10px;
+  --r-md:18px;
+  --r-lg:28px;
+  --r-full:999px;
+
+  /* motion */
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+/* --- Reset léger & base ----------------------------------------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+img,video,svg{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--svb-green-dark);outline-offset:3px;border-radius:6px}
+
+/* --- Typographie base (la police est déjà chargée par Google Fonts) */
+body{
+  font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color:var(--svb-text);
+  -webkit-font-smoothing:antialiased;
+}
+h1{font-family:'Great Vibes',cursive;font-weight:400;letter-spacing:.03em}
+h2,h3,.font-hand{font-family:'Dancing Script',cursive;font-weight:600;letter-spacing:.02em}
+
+/* --- Accessibilité : respect des préférences utilisateur -------- */
+@media (prefers-reduced-motion:reduce){
+  *,::before,::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+
+/* --- Skip link (a11y) ------------------------------------------- */
+.svb-skip{
+  position:absolute;left:-9999px;top:0;
+  background:var(--svb-ink);color:var(--svb-cream);
+  padding:.75rem 1.2rem;border-radius:0 0 var(--r-md) 0;
+  font-weight:600;z-index:99999;
+}
+.svb-skip:focus{left:0}
+
+/* --- Utility : images toujours responsive ----------------------- */
+img.svb-responsive,img[data-svb-responsive]{
+  max-width:100%;height:auto;
+}
+
+/* --- Sélection de texte ----------------------------------------- */
+::selection{background:var(--svb-green-dark);color:var(--svb-cream)}
+
+/* --- Print ------------------------------------------------------ */
+@media print{
+  .no-print,video,iframe,.btn-action,.sticky-cta,.wa-fab{display:none!important}
+  body{background:#fff!important;color:#000!important}
+  a::after{content:" (" attr(href) ")";font-size:.85em;color:#555}
+}
+
+/* --- Noise overlay utility (reusable) --------------------------- */
+.svb-noise{
+  position:fixed;inset:0;z-index:-1;opacity:.05;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- Scroll reveal commun (remplace optimisations.js) ----------- */
+.svb-reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);
+  will-change:opacity,transform;
+}
+.svb-reveal.svb-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .svb-reveal{opacity:1!important;transform:none!important}
+}
+
+/* --- Fix lazy images qui "flashent" ----------------------------- */
+img[loading="lazy"]{
+  background:color-mix(in srgb,var(--svb-sand) 60%,transparent);
+}
+
+/* ================================================================
+   COMPOSANTS COMMUNS (extraits de <style> inline répétés sur 15+ pages)
+   Permettent le cache inter-pages.
+   Les pages peuvent toujours overrider via leur <style> local.
+   ================================================================ */
+
+/* --- Bouton principal CTA (.btn-action) ------------------------- */
+.btn-action{
+  background-color:var(--svb-green-dark);color:#fff;
+  padding:18px 45px;border-radius:50px;
+  text-transform:uppercase;font-weight:900;font-size:1rem;letter-spacing:.1em;
+  transition:all .4s cubic-bezier(.25,.8,.25,1);
+  box-shadow:0 10px 30px rgba(74,141,132,.3);
+  display:inline-block;border:2px solid rgba(255,255,255,.3);
+  position:relative;overflow:hidden;text-decoration:none;
+}
+.btn-action::before{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+  transition:left .5s;
+}
+.btn-action:hover::before{left:100%}
+.btn-action:hover{
+  background-color:var(--svb-green-darker);
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 15px 40px rgba(74,141,132,.5);
+}
+
+/* --- Bouton héro (verre) --------------------------------------- */
+.btn-hero{
+  background:rgba(255,255,255,.2);backdrop-filter:blur(10px);
+  border:2px solid #fff;color:#fff;
+  padding:12px 30px;border-radius:50px;
+  font-weight:700;text-transform:uppercase;font-size:.8rem;
+  transition:all .3s;text-decoration:none;display:inline-block;
+}
+.btn-hero:hover{
+  background:#fff;color:var(--svb-green-dark);transform:translateY(-2px);
+}
+
+/* --- Blobs (hero ambient) -------------------------------------- */
+.blob{
+  position:absolute;border-radius:50%;filter:blur(80px);opacity:.6;
+  animation:moveBlob 25s infinite alternate cubic-bezier(.4,0,.2,1);
+}
+@keyframes moveBlob{
+  0%{transform:translate(0,0) scale(1)}
+  100%{transform:translate(30px,-50px) scale(1.1)}
+}
+
+/* --- Floating WhatsApp ----------------------------------------- */
+.whatsapp-btn{
+  position:fixed;bottom:25px;right:25px;
+  width:60px;height:60px;border-radius:50%;
+  background-color:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 5px 20px rgba(37,211,102,.4);
+  transition:all .3s ease;z-index:9990;
+  cursor:pointer;text-decoration:none;
+}
+.whatsapp-btn:hover{
+  transform:scale(1.1) rotate(5deg);
+  box-shadow:0 8px 25px rgba(37,211,102,.6);
+}
+.whatsapp-pulse{
+  position:absolute;inset:0;border-radius:50%;
+  border:2px solid #25D366;opacity:0;
+  animation:pulse-wa 2s infinite;
+}
+@keyframes pulse-wa{
+  0%{transform:scale(1);opacity:1}
+  100%{transform:scale(1.5);opacity:0}
+}
+
+/* --- Reveal-load (scroll entrance utilisé partout) ------------- */
+.reveal-load{opacity:0;transform:translateY(30px);transition:all 1s ease-out}
+.content-visible .reveal-load{opacity:1;transform:translateY(0)}
+nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!important}
+.d-1{transition-delay:.2s}.d-2{transition-delay:.4s}.d-3{transition-delay:.6s}
+
+/* --- Float gentle (flottements subtils) ------------------------ */
+@keyframes gentle-float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+/* --- Ambient background (fixed full-screen gradient) ----------- */
+.ambient-bg{
+  position:fixed;inset:0;z-index:-2;overflow:hidden;
+  background:linear-gradient(180deg,#98D0B3 0%,#F2E6CF 100%);
+}
+
+/* --- Noise overlay (alias de .svb-noise) ----------------------- */
+.noise-overlay{
+  position:fixed;inset:0;width:100%;height:100%;z-index:-1;
+  opacity:.05;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* --- Anti-CLS : forcer un ratio stable sur les images coach ---- */
+.coach-img{aspect-ratio:1/1;object-fit:cover;background:var(--svb-sand)}
+
+/* ================================================================
+   CONSENT BANNER RGPD (CNIL-friendly, non-bloquant)
+   Apparaît uniquement si aucun choix n'a été stocké.
+   ================================================================ */
+.svb-consent{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:10000;
+  background:var(--svb-ink);color:var(--svb-cream);
+  border-radius:var(--r-md);
+  padding:18px 22px;max-width:780px;margin:0 auto;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  transform:translateY(20px);opacity:0;
+  animation:svb-consent-in .5s var(--ease-out) forwards;
+  animation-delay:.2s;
+  font-size:.92rem;line-height:1.5;
+}
+@keyframes svb-consent-in{to{transform:none;opacity:1}}
+.svb-consent-hide{animation:svb-consent-out .4s var(--ease-out) forwards!important}
+@keyframes svb-consent-out{to{transform:translateY(20px);opacity:0}}
+.svb-consent p{margin:0 0 10px}
+.svb-consent strong{color:var(--svb-sand)}
+.svb-consent-inner{display:flex;flex-direction:column;gap:10px}
+.svb-consent-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.svb-consent button{
+  padding:.6rem 1.2rem;border-radius:var(--r-full);
+  font-weight:600;font-size:.85rem;cursor:pointer;
+  transition:transform .2s var(--ease),background .2s,color .2s;
+  border:0;
+}
+.svb-consent-deny{
+  background:transparent;color:var(--svb-cream);
+  border:1.5px solid color-mix(in srgb,var(--svb-cream) 40%,transparent)!important;
+}
+.svb-consent-deny:hover{background:rgba(255,255,255,.1)}
+.svb-consent-allow{
+  background:var(--svb-green-light);color:var(--svb-ink);
+}
+.svb-consent-allow:hover{background:var(--svb-sand);transform:translateY(-1px)}
+@media (min-width:640px){
+  .svb-consent-inner{flex-direction:row;align-items:center}
+  .svb-consent p{flex:1;margin:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .svb-consent{animation:none;opacity:1;transform:none}
+}
+
+/* ================================================================
+   NEWSLETTER WIDGET (injecté via svb.js sur footer si absent)
+   ================================================================ */
+.svb-newsletter{
+  max-width:560px;margin:0 auto;padding:20px 24px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:var(--r-lg);color:var(--svb-cream);
+}
+.svb-newsletter p{margin:0 0 10px;font-size:.9rem;line-height:1.5;opacity:.9}
+.svb-newsletter p strong{color:var(--svb-sand)}
+.svb-newsletter form{display:flex;gap:8px;flex-wrap:wrap}
+.svb-newsletter input[type="email"]{
+  flex:1;min-width:200px;
+  padding:12px 16px;border-radius:var(--r-full);
+  border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);
+  color:var(--svb-cream);font-size:.92rem;font-weight:500;
+  transition:border-color .2s,background .2s;
+}
+.svb-newsletter input[type="email"]::placeholder{color:rgba(251,246,236,.55)}
+.svb-newsletter input[type="email"]:focus{
+  outline:none;background:rgba(255,255,255,.14);border-color:var(--svb-green-light);
+}
+.svb-newsletter button{
+  padding:12px 24px;border-radius:var(--r-full);
+  background:var(--svb-green-light);color:var(--svb-ink);
+  font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;transition:background .2s,transform .2s;
+}
+.svb-newsletter button:hover{background:var(--svb-sand);transform:translateY(-1px)}
+.svb-newsletter button:disabled{opacity:.55;cursor:wait}
+.svb-newsletter .hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
+.svb-newsletter-msg{
+  margin-top:10px;font-size:.82rem;line-height:1.5;
+  min-height:1.2em;color:var(--svb-sand);
+}
+.svb-newsletter-msg.ok{color:var(--svb-green-light)}
+.svb-newsletter-msg.err{color:#ff9a8a}
