@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réserver mon essai 30€ — Studio SVB Saint-Ouen</title>
+  <meta name="description" content="Réservez votre cours d'essai à 30€ au Studio SVB Saint-Ouen. Remboursé intégralement à l'abonnement. Réponse sous 1h." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://studiosvb.com/reserver" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://studiosvb.com/reserver" />
+  <meta property="og:title" content="Réserver mon essai au Studio SVB" />
+  <meta property="og:description" content="30€ remboursés à l'abonnement. Réponse sous 1h." />
+  <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg" />
+
+  <meta name="theme-color" content="#4A8D84" />
+  <link rel="icon" type="image/png" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/tailwind.css" />
+  <link rel="stylesheet" href="/assets/svb.css" />
+
+  <script>
+    (function(){
+      var granted = false;
+      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+      if (!granted) { window.dataLayer = window.dataLayer || []; return; }
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5RW8LB7B');
+    })();
+  </script>
+
+  <style>
+    body{
+      margin:0;min-height:100vh;font-family:'Montserrat',sans-serif;color:#2F4F4F;
+      background:linear-gradient(165deg,#98D0B3 0%,#F2E6CF 50%,#E8B496 100%);
+      padding:24px;display:flex;align-items:center;justify-content:center;
+    }
+    .wrap{max-width:620px;width:100%}
+    .back{display:inline-flex;align-items:center;gap:6px;margin-bottom:20px;color:#2F4F4F;text-decoration:none;font-size:.9rem;font-weight:600;opacity:.7;transition:opacity .2s}
+    .back:hover{opacity:1}
+    .card{
+      background:rgba(255,255,255,.92);backdrop-filter:blur(24px);
+      border-radius:32px;padding:clamp(28px,5vw,56px);
+      box-shadow:0 30px 80px rgba(47,79,79,.18);
+      border:1px solid rgba(255,255,255,.9);
+    }
+    h1{
+      font-family:'Dancing Script',cursive;font-weight:700;
+      font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:#2F4F4F;margin:0 0 .4rem;
+    }
+    .eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#4A8D84;font-weight:700}
+    .lead{color:#2F4F4F;opacity:.75;margin:.4rem 0 1.8rem;line-height:1.6}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    label{display:flex;flex-direction:column;gap:5px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4A8D84}
+    .full{grid-column:1 / -1}
+    input,select,textarea{
+      font:inherit;padding:12px 14px;border-radius:12px;
+      border:1.5px solid rgba(47,79,79,.15);background:#fff;
+      font-size:.95rem;color:#2F4F4F;text-transform:none;letter-spacing:0;font-weight:500;
+      transition:border-color .2s,box-shadow .2s;
+    }
+    input:focus,select:focus,textarea:focus{
+      outline:none;border-color:#4A8D84;box-shadow:0 0 0 3px rgba(74,141,132,.15);
+    }
+    textarea{resize:vertical;min-height:84px}
+    .check{flex-direction:row;align-items:flex-start;gap:10px;text-transform:none;letter-spacing:0;font-weight:500;color:#2F4F4F;font-size:.85rem}
+    .check input{width:18px;height:18px;margin-top:3px;accent-color:#4A8D84}
+    button[type="submit"]{
+      grid-column:1 / -1;
+      padding:16px 32px;border:0;border-radius:999px;
+      background:#2F4F4F;color:#FBF6EC;font-size:1rem;font-weight:700;
+      letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+      box-shadow:0 14px 28px -10px rgba(47,79,79,.5);
+      transition:transform .2s,background .2s,box-shadow .2s;margin-top:8px;
+    }
+    button[type="submit"]:hover{background:#4A8D84;transform:translateY(-2px)}
+    button[type="submit"]:disabled{opacity:.5;cursor:wait}
+    .note{grid-column:1 / -1;text-align:center;font-size:.78rem;color:#2F4F4F;opacity:.6;margin:0}
+    .hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
+    .thanks{
+      text-align:center;padding:32px 8px;
+      animation:fadeIn .6s cubic-bezier(.16,1,.3,1);
+    }
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    .thanks-emoji{font-size:3.4rem;margin-bottom:8px}
+    .thanks h2{font-family:'Dancing Script',cursive;font-weight:600;font-size:2rem;color:#4A8D84;margin:0 0 12px}
+    .thanks p{color:#2F4F4F;line-height:1.6}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="/" class="back">← Retour au site</a>
+    <div class="card">
+      <div id="form-container">
+        <p class="eyebrow">Cours d'essai · 30€ remboursés</p>
+        <h1>On te garde une place.</h1>
+        <p class="lead">Remplis ces 6 champs (30 secondes) et l'équipe te rappelle dans l'heure pour confirmer ton créneau.</p>
+
+        <form
+          name="reservation-essai"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="website-url"
+          netlify
+          action="/merci-reservation"
+        >
+          <!-- Netlify required hidden input -->
+          <input type="hidden" name="form-name" value="reservation-essai" />
+          <!-- Honeypot field (bots rempliront, humains ignorent) -->
+          <p class="hp">
+            <label>Ne pas remplir: <input name="website-url" autocomplete="off" tabindex="-1" /></label>
+          </p>
+
+          <label>Prénom *
+            <input required name="firstname" autocomplete="given-name" type="text" maxlength="40" />
+          </label>
+          <label>Nom *
+            <input required name="lastname" autocomplete="family-name" type="text" maxlength="60" />
+          </label>
+          <label>Email *
+            <input required type="email" name="email" autocomplete="email" />
+          </label>
+          <label>Téléphone *
+            <input required type="tel" name="phone" autocomplete="tel" pattern="[0-9\s\+\-\.\(\)]{8,}" />
+          </label>
+          <label class="full">Discipline souhaitée *
+            <select required name="discipline">
+              <option value="">Choisir…</option>
+              <option>Pilates Reformer</option>
+              <option>Crossformer</option>
+              <option>Cross Training</option>
+              <option>Yoga</option>
+              <option>Boxe anglaise</option>
+              <option>Afrodance</option>
+              <option>Training Kids</option>
+              <option>Je ne sais pas, aidez-moi à choisir</option>
+            </select>
+          </label>
+          <label class="full">Disponibilités (optionnel)
+            <textarea name="availability" placeholder="Ex : lundi soir après 19h, samedi matin..."></textarea>
+          </label>
+          <label class="full check">
+            <input type="checkbox" required name="consent" />
+            <span>J'accepte d'être contacté·e par le Studio SVB pour confirmer ma réservation. Aucune newsletter, aucun spam.</span>
+          </label>
+          <button type="submit">Réserver mon essai · 30€</button>
+          <p class="note">Les 30€ sont intégralement déduits de votre premier abonnement.</p>
+        </form>
+      </div>
+
+      <!-- Réponse affichée après soumission AJAX réussie -->
+      <div id="thanks" class="thanks" hidden>
+        <div class="thanks-emoji">🎉</div>
+        <h2>Reçu, on te rappelle sous 1h.</h2>
+        <p>Tu vas recevoir un email de confirmation dans quelques minutes.<br/>Une question urgente&nbsp;? <a href="https://wa.me/33744919155" style="color:#4A8D84;font-weight:600" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou <a href="tel:+33744919155" style="color:#4A8D84;font-weight:600">07&nbsp;44&nbsp;91&nbsp;91&nbsp;55</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/svb.js" defer></script>
+  <script>
+    // Soumission AJAX pour éviter le refresh + tracker conversion
+    document.querySelector('form[name="reservation-essai"]').addEventListener('submit', function(e){
+      e.preventDefault();
+      var form = e.target;
+      var data = new FormData(form);
+      // Honeypot check
+      if (data.get('website-url')) { return; /* silent drop spam */ }
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Envoi…';
+
+      fetch('/', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(data).toString()
+      })
+      .then(function(res){
+        if (res.ok) {
+          document.getElementById('form-container').hidden = true;
+          document.getElementById('thanks').hidden = false;
+          if (window.svbTrack) {
+            window.svbTrack('form_submit_essai', {
+              discipline: data.get('discipline') || null,
+              variant: document.body.dataset.abVariant || 'A'
+            });
+          }
+        } else {
+          btn.textContent = 'Erreur — réessayer';
+          btn.disabled = false;
+        }
+      })
+      .catch(function(){
+        btn.textContent = 'Erreur réseau — réessayer';
+        btn.disabled = false;
+      });
+    });
+  </script>
+</body>
+</html>

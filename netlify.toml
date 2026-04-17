@@ -1,0 +1,60 @@
+# ================================================================
+# Studio SVB · Configuration Netlify
+# Build, headers, redirects, edge functions, forms
+# ================================================================
+
+[build]
+  publish = "."
+  command = "./build.sh"
+  functions = "netlify/functions"
+  edge_functions = "netlify/edge-functions"
+  environment = { TAILWIND_VERSION = "v3.4.17" }
+
+# Identity & Git-Gateway (nécessaires pour Decap CMS)
+#   → À activer via Netlify UI : Site settings > Identity > Enable
+#   → Puis : Services > Git Gateway > Enable
+#   → Puis inviter un premier utilisateur (roles: admin ou editor)
+
+# ---- Plugins Netlify ----
+# On active seulement les plugins vraiment utiles (Lighthouse CI, sitemap auto).
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs.thresholds]
+    performance   = 0.85
+    accessibility = 0.90
+    best-practices = 0.90
+    seo           = 0.95
+    pwa           = 0.75
+
+  [plugins.inputs.audits]
+    output_path = "reports/lighthouse.html"
+
+# ---- Edge Functions ----
+# path relatif à publish. Elles s'exécutent à la frontière (CDN) en V8.
+# Utilisées pour A/B testing et analytics first-party.
+
+[[edge_functions]]
+  path = "/"
+  function = "ab-test-hero"
+
+[[edge_functions]]
+  path = "/api/track"
+  function = "track"
+
+# ---- Forms Netlify ----
+# Detection automatique dans le HTML via attribute data-netlify="true"
+# (voir contact.html)
+
+# ---- Security & performance headers (rappel, _headers file a priorité) ----
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+# ---- Environment ----
+# Variables d'env pour les Edge Functions (set via Netlify UI aussi) :
+#   AB_TEST_ROLLOUT=0.5                 ← % de users en variante B
+#   ANALYTICS_ENABLED=true              ← toggle analytics first-party
