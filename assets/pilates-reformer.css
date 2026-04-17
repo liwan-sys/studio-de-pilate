@@ -1,0 +1,109 @@
+/* Studio SVB — pilates-reformer-saint-ouen.html · Extracted Phase 5 */
+
+:root {
+            --col-peach: #EBC6A6;
+            --col-sand: #D4C3A3;
+            --col-green: #88C0A6;
+            --col-cream: #F3EBD4;
+            --col-dark: #3A6B63;
+            --svb-text: #2F4F4F;
+        }
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        body {
+            background-color: #B8D8C0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Blob background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(235, 198, 166, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(136, 192, 166, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(212, 195, 163, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -2;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        /* Noise overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise'/%3E%3C/filter%3E%3Crect width='400' height='400' fill='%23B8D8C0' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        /* Reveal animation */
+        .reveal-load {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealLoad 0.8s ease-out forwards;
+        }
+
+        @keyframes revealLoad {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal-load:nth-child(1) { animation-delay: 0.1s; }
+        .reveal-load:nth-child(2) { animation-delay: 0.2s; }
+        .reveal-load:nth-child(3) { animation-delay: 0.3s; }
+        .reveal-load:nth-child(4) { animation-delay: 0.4s; }
+        .reveal-load:nth-child(5) { animation-delay: 0.5s; }
+        .reveal-load:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(243, 235, 212, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+        }
+
+        a {
+            color: var(--col-dark);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--col-green);
+        }
+
+        button, .btn {
+            background-color: var(--col-green);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        button:hover, .btn:hover {
+            background-color: var(--col-dark);
+            transform: translateY(-2px);
+        }

@@ -1,0 +1,50 @@
+# ================================================================
+# Studio SVB — .gitignore
+# ================================================================
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python (optimisations scripts ponctuels)
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Node / npm (si ajouté plus tard)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Netlify local dev
+.netlify/
+
+# Logs
+*.log
+
+# Backups accidentels
+*.bak
+*.backup
+*.orig
+
+# Artefacts de build Tailwind (l'output assets/tailwind.css est versionné)
+# — rien à ignorer, build.sh est reproductible
+
+# Environnement local
+.env
+.env.local
