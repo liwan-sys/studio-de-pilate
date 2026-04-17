@@ -303,8 +303,15 @@
         <div class="quick-replies" id="quickReplies">
             <button class="quick-reply-btn" onclick="sendQuickReply('horaires')">&#x1F4C5; Horaires</button>
             <button class="quick-reply-btn" onclick="sendQuickReply('tarifs')">&#x1F4B0; Tarifs</button>
-            <button class="quick-reply-btn" onclick="sendQuickReply('essai')">&#x2728; Essai gratuit</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('essai')">&#x2728; Essai</button>
             <button class="quick-reply-btn" onclick="sendQuickReply('adresse')">&#x1F4CD; Adresse</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('cours')">&#x1F3AF; Cours</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('reservation')">&#x1F4DD; R&#xE9;server</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('coaching')">&#x1F451; Coaching priv&#xE9;</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('enfants')">&#x1F476; Kids</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('debutant')">&#x1F4AA; D&#xE9;butant</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('materiel')">&#x1F9F3; Mat&#xE9;riel</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('contact')">&#x260E;&#xFE0F; Contact</button>
         </div>
 
         <div class="chatbot-input-area">
@@ -403,7 +410,16 @@
             addUserMessage(keyword.charAt(0).toUpperCase() + keyword.slice(1));
             showTypingIndicator();
             setTimeout(() => {
-                const response = knowledgeBase[keyword] || knowledgeBase['default'];
+                // Les clés avec accents doivent être résolues comme dans getBotResponse
+                const keyMap = {
+                    'reservation': 'r\u00E9servation',
+                    'debutant':    'd\u00E9butant',
+                    'materiel':    'mat\u00E9riel',
+                    'telephone':   't\u00E9l\u00E9phone',
+                    'osteo':       'ost\u00E9o'
+                };
+                const realKey = keyMap[keyword] || keyword;
+                const response = knowledgeBase[realKey] || knowledgeBase['default'];
                 hideTypingIndicator();
                 addBotMessage(response);
             }, 800);
@@ -443,17 +459,93 @@
             if (typingIndicator) typingIndicator.remove();
         }
 
+        // ===== Intent matching (v2) =====
+        // 1) Normalise le message (lowercase + sans accents + sans ponctuation)
+        // 2) Tokenise en mots
+        // 3) Pour chaque intent : score = nombre de tokens-clefs qui matchent + match regex
+        // 4) Retourne le meilleur intent, ou un fallback intelligent avec suggestions
+        const INTENTS = [
+            { key: 'horaires',    aliases: ['horaire','heure','ouvert','ouverture','ferme','fermeture','quand','jour','creneau','planning','dimanche','samedi','semaine'] },
+            { key: 'tarifs',      aliases: ['tarif','prix','coute','cout','payer','combien','cher','couter','abonnement','formule','pass','mensuel','engagement'] },
+            { key: 'essai',       aliases: ['essai','essaye','decouvrir','decouverte','premier','premiere','tester','test','gratuit','discovery','starter'] },
+            { key: 'adresse',     aliases: ['adresse','ou','localisation','trouve','trouver','situe','situee','rue','metro','acces','aller','parking','stationnement','docks','lavandieres'] },
+            { key: 'cours',       aliases: ['cours','discipline','activite','activites','classe','que','quoi','quelles','offrez','proposez','sport','training','session','sessions'] },
+            { key: 'pilates',     aliases: ['pilate','pilates','reformer','mat','sol'] },
+            { key: 'yoga',        aliases: ['yoga','vinyasa','hatha','yin','relaxation','souplesse','stretch','etirement'] },
+            { key: 'crossformer', aliases: ['crossformer','cross','hiit','cardio','intense'] },
+            { key: 'boxe',        aliases: ['boxe','boxing','frappe','combat'] },
+            { key: 'coaching',    aliases: ['coaching','coach','prive','privee','personnel','individuel','solo','duo','suivi','accompagnement'] },
+            { key: 'reservation', aliases: ['reserv','reserver','reservation','booker','booking','rdv','rendez','rendezvous','inscrire','inscription','sportigo'] },
+            { key: 'annulation',  aliases: ['annul','annulation','annuler','change','modifier','reporter'] },
+            { key: 'materiel',    aliases: ['materiel','apporter','amener','equipement','tenue','affaires','sac','vetement','vestiaire','douche'] },
+            { key: 'chaussettes', aliases: ['chaussette','chaussettes','antiderapant','antiderapante','sock'] },
+            { key: 'enfants',     aliases: ['enfant','enfants','kid','kids','bebe','ados','adolescent','famille','jeune','ecole'] },
+            { key: 'enceinte',    aliases: ['enceinte','grossesse','prenatal','prenatale','maternite','postnatal','postpartum'] },
+            { key: 'blessure',    aliases: ['blessure','blesse','mal','douleur','probleme','rehabilitation','genou','dos','poignet','epaule'] },
+            { key: 'debutant',    aliases: ['debutant','debut','jamais','niveau','commencer','premiere','nouveau','nouvelle'] },
+            { key: 'massage',     aliases: ['massage','bien-etre','bienetre','spa','detente','relax','soin','kine'] },
+            { key: 'osteo',       aliases: ['osteo','osteopathe','osteopathie','kine','kinesitherapie'] },
+            { key: 'contact',     aliases: ['contact','contacter','joindre','message','ecrire'] },
+            { key: 'telephone',   aliases: ['telephone','tel','numero','appeler','sms','whatsapp','wa'] },
+            { key: 'email',       aliases: ['email','mail','courriel'] },
+            { key: 'cadeau',      aliases: ['cadeau','carte','offrir','present','noel','anniversaire','surprise','gift'] },
+            { key: 'parking',     aliases: ['parking','garer','voiture','stationner','stationnement'] },
+            { key: 'bonjour',     aliases: ['bonjour','salut','hello','hi','bonsoir','coucou','yo','hey'] },
+            { key: 'merci',       aliases: ['merci','thanks','thx','super','parfait','cool'] },
+            { key: 'aurevoir',    aliases: ['aurevoir','ciao','bye','bientot','tchao','revoir'] },
+            { key: 'boo3t',       aliases: ['boost','option','avantage','fidelite','member'] },
+        ];
+
+        function normalize(s){
+            return s.toLowerCase()
+                    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+                    .replace(/[^a-z0-9\s]/g,' ')
+                    .replace(/\s+/g,' ').trim();
+        }
+
         function getBotResponse(userMessage) {
-            const normalizedMessage = userMessage.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
-            for (let keyword in knowledgeBase) {
-                if (normalizedMessage.includes(keyword)) return knowledgeBase[keyword];
+            const n = normalize(userMessage);
+            if (!n) return knowledgeBase['default'];
+            const tokens = n.split(' ');
+
+            // Score chaque intent : +3 par alias trouvé en entier, +1 pour match partiel (inclus dans un token)
+            let best = { key: null, score: 0 };
+            for (const intent of INTENTS) {
+                let score = 0;
+                for (const alias of intent.aliases) {
+                    if (tokens.includes(alias)) score += 3;
+                    else if (n.includes(alias)) score += 1;
+                }
+                if (score > best.score) best = { key: intent.key, score };
             }
-            if (normalizedMessage.match(/quand|heure|ouvert|ferme/)) return knowledgeBase['horaires'];
-            if (normalizedMessage.match(/combien|cout|coût|payer/)) return knowledgeBase['tarifs'];
-            if (normalizedMessage.match(/ou|où|trouve|aller/)) return knowledgeBase['adresse'];
-            if (normalizedMessage.match(/reserver|réserver|rdv|rendez-vous/)) return knowledgeBase['r\u00E9servation'];
-            if (normalizedMessage.match(/annuler|annulation/)) return knowledgeBase['annulation'];
-            return knowledgeBase['default'];
+
+            // Accède à la réponse même si la clé a des accents (ex: 'r\u00E9servation')
+            const resolve = (key) => {
+                if (key === 'reservation') return knowledgeBase['r\u00E9servation'] || knowledgeBase['reservation'];
+                if (key === 'debutant')    return knowledgeBase['d\u00E9butant'];
+                if (key === 'telephone')   return knowledgeBase['t\u00E9l\u00E9phone'];
+                if (key === 'osteo')       return knowledgeBase['ost\u00E9o'];
+                if (key === 'materiel')    return knowledgeBase['mat\u00E9riel'];
+                return knowledgeBase[key];
+            };
+
+            if (best.key && best.score >= 1) {
+                const r = resolve(best.key);
+                if (r) return r;
+            }
+
+            // Fallback intelligent : suggère les 3 intents les plus proches
+            // + invitation à reformuler ou à contacter l'équipe directement.
+            return 'Je ne suis pas s\u00FBr d\'avoir la r\u00E9ponse exacte \u{1F914}, '
+                 + 'mais tu peux me demander&nbsp;:'
+                 + '<br>\u2022 <b>Horaires</b>, <b>Tarifs</b>, <b>Essai</b>, <b>Adresse</b>'
+                 + '<br>\u2022 <b>Cours</b> : Pilates, Crossformer, Yoga, Boxe, Danse...'
+                 + '<br>\u2022 <b>R\u00E9servation</b>, <b>Annulation</b>, <b>Mat\u00E9riel</b>'
+                 + '<br>\u2022 <b>Kids</b>, <b>Enceinte</b>, <b>Blessure</b>, <b>D\u00E9butant</b>'
+                 + '<br>\u2022 <b>Coaching priv\u00E9</b>, <b>Massage</b>, <b>Cartes cadeaux</b>'
+                 + '<br><br>Ou r\u00E9ponse directe&nbsp;: '
+                 + '<a href="https://wa.me/33744919155">WhatsApp \u{1F4AC}</a> '
+                 + '\u00B7 <a href="tel:+33744919155">07 44 91 91 55</a>';
         }
 
         function scrollToBottom() { chatMsgs.scrollTop = chatMsgs.scrollHeight; }
@@ -464,9 +556,6 @@
 
         setTimeout(() => { if (!isChatOpen) notifBadge.style.display = 'flex'; }, 5000);
     </script>
-    ```
-
-*PS : Sur mobile, j'ai ajout&#xE9; une petite r&#xE8;gle CSS pour d&#xE9;caler le bouton du chatbot vers la gauche (`right: 100px;`) afin qu'il ne se superpose pas avec ton bouton WhatsApp qui est d&#xE9;j&#xE0; en bas &#xE0; droite.*
   <script src="/assets/svb.js" defer></script>
 </body>
 </html>
