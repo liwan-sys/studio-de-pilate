@@ -1,0 +1,405 @@
+/* ==========================================================================
+   SVB Santez Vous Bien — Design System Tokens (CSS Custom Properties)
+   Source of truth : tokens.json · v1.0.0 · 2026-04-17
+   Personnalité : LUXE · LUDIQUE · MODERNE
+   ========================================================================== */
+
+:root {
+  /* ================================================================
+     COLOR · BRAND (signature visuelle, ne pas modifier)
+     ================================================================ */
+  --svb-color-brand-sage:   #98D0B3;
+  --svb-color-brand-dark:   #4A8D84;
+  --svb-color-brand-darker: #2D5A54;
+  --svb-color-brand-sand:   #F2E6CF;
+  --svb-color-brand-peach:  #E8B496;
+  --svb-color-brand-cream:  #FBF6EC;
+  --svb-color-brand-ink:    #2F4F4F;
+  --svb-color-brand-ink-2:  #1D3838;
+
+  /* ================================================================
+     COLOR · PRIMARY (vert sage) — 50 → 900
+     Utiliser --svb-color-primary-500 comme DEFAULT en UI.
+     ================================================================ */
+  --svb-color-primary-50:  #EFF7F2;
+  --svb-color-primary-100: #DBEDE3;
+  --svb-color-primary-200: #C1E1CF;
+  --svb-color-primary-300: #98D0B3;
+  --svb-color-primary-400: #6EB79A;
+  --svb-color-primary-500: #4A8D84;
+  --svb-color-primary-600: #3D7370;
+  --svb-color-primary-700: #2D5A54;
+  --svb-color-primary-800: #1F423E;
+  --svb-color-primary-900: #102825;
+
+  /* ================================================================
+     COLOR · SECONDARY (sable → pêche)
+     ================================================================ */
+  --svb-color-secondary-50:  #FDF7F3;
+  --svb-color-secondary-100: #FAEADB;
+  --svb-color-secondary-200: #F2E6CF;
+  --svb-color-secondary-300: #EED3AE;
+  --svb-color-secondary-400: #E8B496;
+  --svb-color-secondary-500: #D69879;
+  --svb-color-secondary-600: #B87A5B;
+  --svb-color-secondary-700: #8F5D44;
+  --svb-color-secondary-800: #5F3E2E;
+  --svb-color-secondary-900: #321F17;
+
+  /* ================================================================
+     COLOR · NEUTRAL
+     ================================================================ */
+  --svb-color-neutral-0:   #FFFFFF;
+  --svb-color-neutral-50:  #FBF9F5;
+  --svb-color-neutral-100: #F4F1EA;
+  --svb-color-neutral-200: #E6E1D6;
+  --svb-color-neutral-300: #CAC3B2;
+  --svb-color-neutral-400: #9A927F;
+  --svb-color-neutral-500: #6F6857;
+  --svb-color-neutral-600: #524C3E;
+  --svb-color-neutral-700: #3A3528;
+  --svb-color-neutral-800: #201E16;
+  --svb-color-neutral-900: #0A0908;
+
+  /* ================================================================
+     COLOR · SEMANTIC (success, warning, error, info)
+     ================================================================ */
+  --svb-color-success-light: #DBEDE3;
+  --svb-color-success:       #2E9B6F;
+  --svb-color-success-dark:  #1E6B4C;
+
+  --svb-color-warning-light: #FEF3DB;
+  --svb-color-warning:       #E8A846;
+  --svb-color-warning-dark:  #A8771F;
+
+  --svb-color-error-light:   #FCE3DF;
+  --svb-color-error:         #D85B4A;
+  --svb-color-error-dark:    #9B3628;
+
+  --svb-color-info-light:    #DDEEF4;
+  --svb-color-info:          #4A8CA8;
+  --svb-color-info-dark:     #2E5E75;
+
+  /* ================================================================
+     COLOR · SURFACE (alias contextuels — changent en dark)
+     ================================================================ */
+  --svb-surface-base:    var(--svb-color-neutral-0);
+  --svb-surface-raised:  var(--svb-color-neutral-50);
+  --svb-surface-sunken:  var(--svb-color-neutral-100);
+  --svb-surface-hero:    var(--svb-color-brand-sage);
+  --svb-surface-brand:   var(--svb-color-brand-dark);
+  --svb-surface-overlay: rgba(10, 9, 8, 0.55);
+
+  /* ================================================================
+     COLOR · TEXT
+     ================================================================ */
+  --svb-text-primary:   var(--svb-color-brand-ink);
+  --svb-text-secondary: var(--svb-color-neutral-500);
+  --svb-text-tertiary:  var(--svb-color-neutral-400);
+  --svb-text-inverse:   var(--svb-color-brand-cream);
+  --svb-text-brand:     var(--svb-color-brand-dark);
+  --svb-text-success:   var(--svb-color-success-dark);
+  --svb-text-warning:   var(--svb-color-warning-dark);
+  --svb-text-error:     var(--svb-color-error-dark);
+  --svb-text-disabled:  var(--svb-color-neutral-400);
+
+  /* ================================================================
+     COLOR · BORDER
+     ================================================================ */
+  --svb-border-subtle:  rgba(47, 79, 79, 0.08);
+  --svb-border-default: rgba(47, 79, 79, 0.15);
+  --svb-border-strong:  rgba(47, 79, 79, 0.30);
+  --svb-border-focus:   var(--svb-color-brand-dark);
+  --svb-border-error:   var(--svb-color-error);
+  --svb-border-inverse: rgba(251, 246, 236, 0.25);
+
+  /* ================================================================
+     TYPOGRAPHY · FAMILIES
+     ================================================================ */
+  --svb-font-body:    'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --svb-font-display: 'Dancing Script', 'Brush Script MT', cursive;
+  --svb-font-hero:    'Great Vibes', 'Dancing Script', cursive;
+  --svb-font-mono:    'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Poids */
+  --svb-fw-light:     300;
+  --svb-fw-regular:   400;
+  --svb-fw-medium:    500;
+  --svb-fw-semibold:  600;
+  --svb-fw-bold:      700;
+  --svb-fw-extrabold: 800;
+  --svb-fw-black:     900;
+
+  /* Line-height */
+  --svb-lh-tight:   1.1;
+  --svb-lh-snug:    1.25;
+  --svb-lh-normal:  1.5;
+  --svb-lh-relaxed: 1.65;
+  --svb-lh-loose:   1.85;
+
+  /* Letter-spacing */
+  --svb-ls-tightest: -0.03em;
+  --svb-ls-tighter:  -0.02em;
+  --svb-ls-tight:    -0.01em;
+  --svb-ls-normal:   0;
+  --svb-ls-wide:     0.04em;
+  --svb-ls-wider:    0.08em;
+  --svb-ls-widest:   0.16em;
+
+  /* ================================================================
+     TYPOGRAPHY · SCALE (9 niveaux, fluide)
+     ================================================================ */
+  --svb-type-eyebrow-size:   0.75rem;
+  --svb-type-caption-size:   0.8125rem;
+  --svb-type-body-sm-size:   0.875rem;
+  --svb-type-body-size:      1rem;
+  --svb-type-body-lg-size:   1.125rem;
+  --svb-type-h4-size:        clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+  --svb-type-h3-size:        clamp(1.375rem, 1vw + 1.125rem, 1.875rem);
+  --svb-type-h2-size:        clamp(1.875rem, 2vw + 1.5rem, 3rem);
+  --svb-type-h1-size:        clamp(3rem, 6vw + 1rem, 6rem);
+  --svb-type-display-size:   clamp(4rem, 10vw, 9rem);
+
+  /* ================================================================
+     SPACING · base 8px, demi-pas 4/12 pour compact
+     ================================================================ */
+  --svb-space-0:   0;
+  --svb-space-px:  1px;
+  --svb-space-0-5: 0.125rem; /* 2 */
+  --svb-space-1:   0.25rem;  /* 4 */
+  --svb-space-1-5: 0.375rem; /* 6 */
+  --svb-space-2:   0.5rem;   /* 8 — BASE */
+  --svb-space-3:   0.75rem;  /* 12 */
+  --svb-space-4:   1rem;     /* 16 */
+  --svb-space-5:   1.25rem;  /* 20 */
+  --svb-space-6:   1.5rem;   /* 24 */
+  --svb-space-8:   2rem;     /* 32 */
+  --svb-space-10:  2.5rem;   /* 40 */
+  --svb-space-12:  3rem;     /* 48 */
+  --svb-space-16:  4rem;     /* 64 */
+  --svb-space-20:  5rem;     /* 80 */
+  --svb-space-24:  6rem;     /* 96 */
+  --svb-space-32:  8rem;     /* 128 */
+
+  /* ================================================================
+     RADIUS
+     ================================================================ */
+  --svb-radius-none: 0;
+  --svb-radius-xs:   4px;
+  --svb-radius-sm:   8px;
+  --svb-radius-md:   12px;
+  --svb-radius-lg:   18px;
+  --svb-radius-xl:   24px;
+  --svb-radius-2xl:  32px;
+  --svb-radius-3xl:  44px;
+  --svb-radius-full: 9999px;
+
+  /* ================================================================
+     ELEVATION (shadows)
+     ================================================================ */
+  --svb-shadow-none: none;
+  --svb-shadow-xs:   0 1px 2px rgba(47, 79, 79, 0.04);
+  --svb-shadow-sm:   0 2px 10px rgba(47, 79, 79, 0.06);
+  --svb-shadow-md:   0 10px 30px rgba(47, 79, 79, 0.08);
+  --svb-shadow-lg:   0 20px 50px rgba(47, 79, 79, 0.15);
+  --svb-shadow-xl:   0 30px 80px rgba(47, 79, 79, 0.18);
+  --svb-shadow-2xl:  0 40px 120px rgba(47, 79, 79, 0.25);
+  --svb-shadow-brand:0 14px 30px -12px rgba(74, 141, 132, 0.55);
+  --svb-shadow-peach:0 14px 30px -12px rgba(232, 180, 150, 0.55);
+  --svb-shadow-inner:inset 0 2px 4px rgba(47, 79, 79, 0.06);
+  --svb-shadow-focus:0 0 0 3px rgba(74, 141, 132, 0.25);
+
+  /* ================================================================
+     MOTION
+     ================================================================ */
+  --svb-dur-instant: 0ms;
+  --svb-dur-xfast:   120ms;
+  --svb-dur-fast:    180ms;
+  --svb-dur-base:    250ms;
+  --svb-dur-medium:  400ms;
+  --svb-dur-slow:    600ms;
+  --svb-dur-xslow:   800ms;
+  --svb-dur-crawl:   1200ms;
+
+  --svb-ease-linear:      cubic-bezier(0, 0, 1, 1);
+  --svb-ease-standard:    cubic-bezier(0.2, 0.7, 0.2, 1);
+  --svb-ease-accelerate:  cubic-bezier(0.4, 0, 1, 1);
+  --svb-ease-decelerate:  cubic-bezier(0, 0, 0.2, 1);
+  --svb-ease-emphasized:  cubic-bezier(0.16, 1, 0.3, 1);
+  --svb-ease-bounce:      cubic-bezier(0.34, 1.56, 0.64, 1);
+  --svb-ease-anticipate:  cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  /* ================================================================
+     BREAKPOINTS (pour container queries & JS)
+     ================================================================ */
+  --svb-bp-xs:  320px;
+  --svb-bp-sm:  640px;
+  --svb-bp-md:  768px;
+  --svb-bp-lg:  1024px;
+  --svb-bp-xl:  1280px;
+  --svb-bp-2xl: 1536px;
+  --svb-bp-3xl: 1920px;
+
+  --svb-container-sm:  640px;
+  --svb-container-md:  768px;
+  --svb-container-lg:  1024px;
+  --svb-container-xl:  1240px;
+  --svb-container-2xl: 1440px;
+
+  /* ================================================================
+     Z-INDEX
+     ================================================================ */
+  --svb-z-base:     0;
+  --svb-z-raised:   10;
+  --svb-z-sticky:   50;
+  --svb-z-dropdown: 60;
+  --svb-z-fab:      90;
+  --svb-z-nav:      100;
+  --svb-z-drawer:   200;
+  --svb-z-modal:    300;
+  --svb-z-popover:  400;
+  --svb-z-toast:    500;
+  --svb-z-consent:  10000;
+  --svb-z-splash:   99999;
+
+  /* ================================================================
+     BORDERS
+     ================================================================ */
+  --svb-border-0:     0;
+  --svb-border-hair:  1px;
+  --svb-border-thin:  1.5px;
+  --svb-border-thick: 2px;
+  --svb-border-heavy: 3px;
+
+  /* ================================================================
+     BLUR
+     ================================================================ */
+  --svb-blur-sm:  4px;
+  --svb-blur-md:  12px;
+  --svb-blur-lg:  24px;
+  --svb-blur-xl:  40px;
+  --svb-blur-2xl: 80px;
+
+  /* ================================================================
+     A11Y
+     ================================================================ */
+  --svb-a11y-min-tap:     44px;
+  --svb-a11y-focus-width: var(--svb-border-thick);
+  --svb-a11y-focus-off:   3px;
+  --svb-a11y-focus-color: var(--svb-border-focus);
+}
+
+/* ==========================================================================
+   DARK MODE — activé par [data-theme="dark"] ou @media preference
+   ========================================================================== */
+[data-theme="dark"] {
+  --svb-surface-base:    #14201E;
+  --svb-surface-raised:  #1B2B28;
+  --svb-surface-sunken:  #0C1514;
+  --svb-surface-hero:    #1F423E;
+  --svb-surface-brand:   var(--svb-color-brand-sage);
+  --svb-surface-overlay: rgba(0, 0, 0, 0.75);
+
+  --svb-text-primary:   #EAE5D8;
+  --svb-text-secondary: #B4AE9E;
+  --svb-text-tertiary:  #8B8572;
+  --svb-text-inverse:   var(--svb-color-brand-ink-2);
+  --svb-text-brand:     var(--svb-color-brand-sage);
+
+  --svb-border-subtle:  rgba(251, 246, 236, 0.06);
+  --svb-border-default: rgba(251, 246, 236, 0.12);
+  --svb-border-strong:  rgba(251, 246, 236, 0.25);
+  --svb-border-inverse: rgba(47, 79, 79, 0.25);
+
+  /* Primary remonté d'un cran pour le contraste */
+  --svb-color-primary-300: #ABDDC0;
+  --svb-color-primary-500: #6EB79A;
+  --svb-color-primary-700: #3D7370;
+
+  /* Shadows moins marquées en dark */
+  --svb-shadow-sm:  0 2px 10px rgba(0, 0, 0, 0.25);
+  --svb-shadow-md:  0 10px 30px rgba(0, 0, 0, 0.35);
+  --svb-shadow-lg:  0 20px 50px rgba(0, 0, 0, 0.45);
+  --svb-shadow-xl:  0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --svb-surface-base:    #14201E;
+    --svb-surface-raised:  #1B2B28;
+    --svb-surface-sunken:  #0C1514;
+    --svb-surface-hero:    #1F423E;
+    --svb-text-primary:    #EAE5D8;
+    --svb-text-secondary:  #B4AE9E;
+    --svb-text-tertiary:   #8B8572;
+    --svb-border-subtle:   rgba(251, 246, 236, 0.06);
+    --svb-border-default:  rgba(251, 246, 236, 0.12);
+    --svb-border-strong:   rgba(251, 246, 236, 0.25);
+    --svb-color-primary-300: #ABDDC0;
+    --svb-color-primary-500: #6EB79A;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION — respect WCAG 2.3.3
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --svb-dur-instant: 0ms;
+    --svb-dur-xfast:   0ms;
+    --svb-dur-fast:    0ms;
+    --svb-dur-base:    0ms;
+    --svb-dur-medium:  0ms;
+    --svb-dur-slow:    0ms;
+    --svb-dur-xslow:   0ms;
+    --svb-dur-crawl:   0ms;
+  }
+}
+
+/* ==========================================================================
+   UTILITY CLASSES — usage optionnel, pour prototypage rapide
+   ========================================================================== */
+
+/* Typography presets */
+.svb-eyebrow {
+  font: var(--svb-fw-bold) var(--svb-type-eyebrow-size)/var(--svb-lh-snug) var(--svb-font-body);
+  letter-spacing: var(--svb-ls-widest);
+  text-transform: uppercase;
+  color: var(--svb-text-brand);
+}
+.svb-caption  { font: var(--svb-fw-medium) var(--svb-type-caption-size)/var(--svb-lh-normal) var(--svb-font-body); color: var(--svb-text-secondary); }
+.svb-body-sm  { font: var(--svb-fw-regular) var(--svb-type-body-sm-size)/var(--svb-lh-normal) var(--svb-font-body); }
+.svb-body     { font: var(--svb-fw-regular) var(--svb-type-body-size)/var(--svb-lh-relaxed) var(--svb-font-body); }
+.svb-body-lg  { font: var(--svb-fw-regular) var(--svb-type-body-lg-size)/var(--svb-lh-relaxed) var(--svb-font-body); }
+.svb-h4       { font: var(--svb-fw-semibold) var(--svb-type-h4-size)/var(--svb-lh-snug) var(--svb-font-body); letter-spacing: var(--svb-ls-tight); }
+.svb-h3       { font: var(--svb-fw-semibold) var(--svb-type-h3-size)/var(--svb-lh-snug) var(--svb-font-display); color: var(--svb-text-primary); }
+.svb-h2       { font: var(--svb-fw-semibold) var(--svb-type-h2-size)/var(--svb-lh-tight) var(--svb-font-display); color: var(--svb-text-primary); }
+.svb-h1       { font: var(--svb-fw-regular) var(--svb-type-h1-size)/0.95 var(--svb-font-hero); letter-spacing: var(--svb-ls-tight); color: var(--svb-text-primary); }
+.svb-display  { font: var(--svb-fw-regular) var(--svb-type-display-size)/0.9 var(--svb-font-hero); letter-spacing: var(--svb-ls-tight); }
+
+/* Focus ring — à appliquer sur tout contrôle interactif */
+.svb-focus-ring:focus-visible,
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: var(--svb-a11y-focus-width) solid var(--svb-a11y-focus-color);
+  outline-offset: var(--svb-a11y-focus-off);
+  border-radius: 6px;
+}
+
+/* Screen-reader only */
+.svb-sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Visually-hidden helper for skip-to-content pattern */
+.svb-skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--svb-color-brand-ink-2); color: var(--svb-color-brand-cream);
+  padding: var(--svb-space-3) var(--svb-space-5);
+  border-radius: 0 0 var(--svb-radius-md) 0;
+  font-weight: var(--svb-fw-semibold); z-index: var(--svb-z-consent);
+}
+.svb-skip:focus { left: 0; }

@@ -47,6 +47,9 @@
 /merci-newsletter                 /merci-newsletter.html                  200
 /admin                            /admin/index.html                       200
 
+# Design system (accessible directement à /design-system)
+/design-system                    /design-system/index.html               200
+
 # Page forms.html : utile pour Netlify au build, jamais servie aux users
 /forms                            /                                       301
 /forms.html                       /                                       301
