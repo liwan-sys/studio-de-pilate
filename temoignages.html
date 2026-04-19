@@ -134,12 +134,13 @@
       theme: {
         extend: {
           colors: {
-            'col-peach': '#EBC6A6',
-            'col-sand': '#D4C3A3',
-            'col-green': '#88C0A6',
-            'col-cream': '#F3EBD4',
-            'col-dark': '#3A6B63',
-            'svb-text': '#2F4F4F'
+            /* Aligned on official SVB brand palette */
+            'col-peach': '#E8B496',
+            'col-sand':  '#F2E6CF',
+            'col-green': '#98D0B3',
+            'col-cream': '#F2E6CF',
+            'col-dark':  '#4A8D84',
+            'svb-text':  '#2F4F4F'
           }
         }
       }
@@ -152,16 +153,18 @@
 
   <style>
     :root {
-      --col-peach: #EBC6A6;
-      --col-sand: #D4C3A3;
-      --col-green: #88C0A6;
-      --col-cream: #F3EBD4;
-      --col-dark: #3A6B63;
-      --svb-text: #2F4F4F;
+      /* Aligned on official SVB brand palette */
+      --col-peach: #E8B496;
+      --col-sand:  #F2E6CF;
+      --col-green: #98D0B3;
+      --col-cream: #F2E6CF;
+      --col-dark:  #4A8D84;
+      --svb-text:  #2F4F4F;
     }
 
     body {
-      background-color: #B8D8C0;
+      background: linear-gradient(165deg, #98D0B3 0%, #F2E6CF 50%, #E8B496 100%);
+      background-attachment: fixed;
       font-family: 'Montserrat', sans-serif;
       color: var(--svb-text);
       position: relative;
@@ -441,15 +444,15 @@
 <body>
     <a href="#main-content" class="svb-skip">Aller au contenu principal</a>
 <!-- Navigation -->
-  <nav class="sticky top-0 w-full z-30">
+  <nav class="sticky top-0 w-full z-30" aria-label="Navigation principale">
     <div class="max-w-6xl mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
         <div class="flex-shrink-0">
-          <a href="index.html">
+          <a href="index.html" aria-label="Accueil Studio SVB">
             <img src="images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-12" width="593" height="420" decoding="async">
           </a>
         </div>
-        <div class="hidden md:flex items-center space-x-8">
+        <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
           <a href="index.html">ACCUEIL</a>
           <a href="sessions.html">SESSIONS</a>
           <a href="equipe.html">LA TEAM</a>
@@ -458,18 +461,48 @@
           <a href="faq.html">FAQ</a>
           <a href="tarifs.html">TARIFS</a>
           <a href="blog/index.html">BLOG</a>
-          <a href="temoignages.html" class="active">AVIS</a>
+          <a href="temoignages.html" class="active" aria-current="page">AVIS</a>
+          <a href="cadeau.html">CADEAU</a>
+          <a href="contact.html">CONTACT</a>
         </div>
+        <a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 text-sm font-semibold" data-track="nav_whatsapp">WhatsApp</a>
         <div class="md:hidden">
-          <button class="text-svb-text focus:outline-none">
+          <button id="svb-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="svb-mobile-menu" class="text-svb-text focus:outline-none">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
         </div>
       </div>
+      <!-- Mobile menu -->
+      <div id="svb-mobile-menu" class="md:hidden hidden mt-3 flex flex-col gap-1 border-t border-white/40 pt-3 text-sm font-medium">
+        <a href="index.html" class="px-2 py-2 rounded hover:bg-white/30">ACCUEIL</a>
+        <a href="sessions.html" class="px-2 py-2 rounded hover:bg-white/30">SESSIONS</a>
+        <a href="equipe.html" class="px-2 py-2 rounded hover:bg-white/30">LA TEAM</a>
+        <a href="bien-etre.html" class="px-2 py-2 rounded hover:bg-white/30">BIEN-ÊTRE</a>
+        <a href="studio.html" class="px-2 py-2 rounded hover:bg-white/30">STUDIO</a>
+        <a href="faq.html" class="px-2 py-2 rounded hover:bg-white/30">FAQ</a>
+        <a href="tarifs.html" class="px-2 py-2 rounded hover:bg-white/30">TARIFS</a>
+        <a href="blog/index.html" class="px-2 py-2 rounded hover:bg-white/30">BLOG</a>
+        <a href="temoignages.html" class="px-2 py-2 rounded bg-white/50 font-semibold" aria-current="page">AVIS</a>
+        <a href="cadeau.html" class="px-2 py-2 rounded hover:bg-white/30">CADEAU</a>
+        <a href="contact.html" class="px-2 py-2 rounded hover:bg-white/30">CONTACT</a>
+        <a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer" class="mt-2 px-3 py-2 rounded bg-green-500 text-white font-semibold text-center">WhatsApp</a>
+      </div>
     </div>
   </nav>
+  <script>
+    (function(){
+      var btn = document.getElementById('svb-burger');
+      var menu = document.getElementById('svb-mobile-menu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var open = !menu.classList.contains('hidden');
+        if(open){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
+        else    { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
+      });
+    })();
+  </script>
 
   <!-- Main Content -->
   <main id="main-content" class="content-wrapper">

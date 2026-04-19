@@ -62,22 +62,21 @@
       background:linear-gradient(180deg,#98D0B3 0%,#F2E6CF 100%);
       min-height:100vh;font-family:'Montserrat',sans-serif;color:#2F4F4F;
     }
-    .nav{
-      position:sticky;top:0;z-index:50;
-      background:rgba(251,246,236,.85);backdrop-filter:blur(20px);
-      border-bottom:1px solid rgba(47,79,79,.08);
-      padding:14px 24px;display:flex;align-items:center;gap:18px;font-size:.92rem;
-    }
-    .nav a{text-decoration:none;color:#2F4F4F;font-weight:500;padding:6px 10px;border-radius:20px;transition:background .2s}
-    .nav a:hover{background:rgba(74,141,132,.1);color:#4A8D84}
-    .nav-brand{font-family:'Great Vibes',cursive;font-size:1.8rem;color:#4A8D84;line-height:.8;margin-right:auto;padding:0 6px}
-    .nav .cta{background:#4A8D84;color:#fff!important;padding:10px 20px;border-radius:30px;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}
-    .nav .cta:hover{background:#2d5a54}
+    /* Unified sticky nav (matches pilates-reformer-saint-ouen.html) */
+    .svb-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(47,79,79,.08)}
+    .svb-nav-inner{max-width:80rem;margin:0 auto;padding:0 1rem;display:flex;justify-content:space-between;align-items:center;height:4rem}
+    .svb-nav a.link{font-size:.85rem;font-weight:600;color:#2F4F4F;text-decoration:none;letter-spacing:.02em;transition:color .2s}
+    .svb-nav a.link:hover,.svb-nav a.link[aria-current="page"]{color:#4A8D84}
+    .svb-nav .links{display:none;gap:1.8rem}
+    .svb-nav .cta{display:none;padding:.5rem 1rem;background:#25D366;color:#fff;border-radius:.375rem;font-weight:600;font-size:.85rem;text-decoration:none;transition:background .2s}
+    .svb-nav .cta:hover{background:#1ebe59}
+    @media(min-width:768px){.svb-nav .links{display:flex}}
+    @media(min-width:1024px){.svb-nav .cta{display:inline-block}}
     .blog-hero{text-align:center;padding:80px 24px 60px;max-width:900px;margin:0 auto}
     .blog-hero h1{
-      font-family:'Great Vibes',cursive;font-weight:400;
-      font-size:clamp(3.5rem,8vw,6rem);line-height:.95;
-      color:#2F4F4F;margin:0 0 .4rem;text-shadow:3px 3px 6px rgba(0,0,0,.08);
+      font-family:'Dancing Script',cursive;font-weight:700;
+      font-size:clamp(3rem,7vw,5rem);line-height:1.05;
+      color:#2F4F4F;margin:0 0 .4rem;
     }
     .blog-hero .sub{
       font-family:'Dancing Script',cursive;font-weight:500;
@@ -124,18 +123,28 @@
 <body>
   <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu</a>
 
-  <nav class="nav" aria-label="Navigation principale">
-    <a href="/" class="nav-brand" aria-label="Accueil Studio SVB">SVB</a>
-    <a href="/">Accueil</a>
-    <a href="/tarifs">Tarifs</a>
-    <a href="/equipe">Équipe</a>
-    <a href="/blog/" aria-current="page">Blog</a>
-    <a href="/contact">Contact</a>
-    <a href="https://svb.sportigo.fr/buy/offer-proposition/ae1691df-ac9d-4e1c-9f83-edd64decdc5a" target="_blank" rel="noopener noreferrer" class="cta" data-track="cta_blog_to_booking">Essai 30€</a>
+  <nav class="svb-nav" aria-label="Navigation principale">
+    <div class="svb-nav-inner">
+      <a href="/" class="flex items-center" aria-label="Accueil Studio SVB">
+        <img src="/images/logo.webp" alt="Studio SVB Santez Vous Bien" class="h-10" width="593" height="420" decoding="async" />
+      </a>
+      <div class="links">
+        <a href="/" class="link">ACCUEIL</a>
+        <a href="/sessions.html" class="link">SESSIONS</a>
+        <a href="/equipe.html" class="link">LA TEAM</a>
+        <a href="/bien-etre.html" class="link">BIEN-ÊTRE</a>
+        <a href="/studio.html" class="link">STUDIO</a>
+        <a href="/faq.html" class="link">FAQ</a>
+        <a href="/tarifs.html" class="link">TARIFS</a>
+        <a href="/blog/" class="link" aria-current="page">BLOG</a>
+        <a href="/temoignages" class="link">AVIS</a>
+      </div>
+      <a href="https://wa.me/33744919155" class="cta" target="_blank" rel="noopener noreferrer" data-track="nav_whatsapp">WhatsApp</a>
+    </div>
   </nav>
 
   <header class="blog-hero">
-    <p style="font-family:'Great Vibes',cursive;font-size:1.8rem;color:#4A8D84;margin:0">Le blog</p>
+    <p style="font-family:'Dancing Script',cursive;font-weight:600;font-size:1.4rem;color:#4A8D84;margin:0">Le blog</p>
     <h1>Bouge mieux, <em>lis mieux</em></h1>
     <p class="sub">Conseils, guides et inspirations par l'équipe SVB</p>
     <p>Tout ce qu'il faut savoir sur le Pilates Reformer, le Crossformer, le yoga, la boxe et le bien-être — écrit par nos 16 coachs certifiés à Saint-Ouen.</p>
