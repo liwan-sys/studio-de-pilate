@@ -247,58 +247,26 @@
       font-weight: 500;
     }
 
-    /* Navigation */
-    nav {
-      background-color: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    }
+    /* Nav + footer styles come from sessions.html shell + unified dark footer.
+       The old white-nav / white-footer rules have been removed because they
+       overrode the canonical transparent+white nav (CSS specificity).    */
 
-    nav a {
-      color: var(--svb-text);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.875rem;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--col-green);
-    }
-
-    nav a.active {
-      color: var(--col-green);
-      border-bottom: 2px solid var(--col-green);
-      padding-bottom: 0.25rem;
-    }
-
-    /* Footer */
-    footer {
-      background-color: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    footer a {
-      color: var(--svb-text);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-      color: var(--col-green);
-    }
-
-    /* Hero section */
+    /* Hero section — huge script title like sessions.html / equipe.html */
     .hero-section {
       text-align: center;
-      padding: 4rem 1rem;
+      padding: 4rem 1rem 2rem;
+      position: relative;
+      z-index: 10;
     }
 
     .hero-section h1 {
-      font-size: 2.5rem;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1.05;
       margin-bottom: 1rem;
-      color: var(--col-dark);
+      color: #2F4F4F;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.08);
     }
 
     .rating-display {
