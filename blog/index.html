@@ -158,9 +158,38 @@
     <p class="empty">Chargement des articles…</p>
   </main>
 
-  <footer style="background:#2F4F4F;color:#FBF6EC;padding:40px 24px;margin-top:40px;text-align:center;font-size:.85rem">
-    <p>© <span id="year"></span> Studio SVB — Santez Vous Bien · Saint-Ouen-sur-Seine</p>
-    <p style="margin-top:8px;opacity:.6"><a href="/mentions-legales" style="color:inherit">Mentions légales</a> · <a href="/cgv" style="color:inherit">CGV</a> · <a href="/contact" style="color:inherit">Contact</a></p>
+  <!-- Footer (unified with the rest of the site) -->
+  <footer class="bg-[#2F4F4F] text-white py-12 mt-16">
+    <div class="max-w-6xl mx-auto px-6 mb-10">
+      <div data-svb-newsletter data-source="blog-footer"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <img src="/images/logo.webp" alt="Logo SVB" class="w-32 mb-6" width="120" height="85" />
+        <p class="opacity-80 leading-relaxed">Votre studio de coaching privé et bien-être à Saint-Ouen.<br />Pilates, Yoga, Training et Soins.</p>
+      </div>
+      <div>
+        <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
+        <ul class="space-y-2 opacity-80">
+          <li><a href="tel:0744919155" class="hover:text-white transition">07 44 91 91 55</a></li>
+          <li><a href="mailto:hello@studiosvb.fr" class="hover:text-white transition">hello@studiosvb.fr</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold uppercase tracking-widest mb-4">Nous trouver</h3>
+        <p class="opacity-80 leading-relaxed">6 Mail André Breton<br />&amp; 40 Cours des Lavandières<br />93400 Saint-Ouen-sur-Seine<br />(Métro Mairie de Saint-Ouen)</p>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/20 text-center text-xs opacity-60">
+      <p class="mb-2">© <span id="year"></span> SVB Santez Vous Bien — Tous droits réservés</p>
+      <div class="space-x-4">
+        <a href="/mentions-legales.html" class="hover:text-white transition underline decoration-1 underline-offset-2">Mentions Légales</a>
+        <span>|</span>
+        <a href="/cgv.html" class="hover:text-white transition underline decoration-1 underline-offset-2">CGV</a>
+        <span>|</span>
+        <a href="/contact.html" class="hover:text-white transition underline decoration-1 underline-offset-2">Contact</a>
+      </div>
+    </div>
   </footer>
 
   <script src="/assets/svb.js" defer></script>

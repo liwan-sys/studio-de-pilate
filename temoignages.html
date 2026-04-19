@@ -709,49 +709,40 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="mt-20 py-12 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <div>
-          <h4 style="font-family: 'Dancing Script', cursive; font-size: 1.25rem; margin-bottom: 1rem; color: var(--col-dark);">Studio SVB</h4>
-          <p class="text-sm opacity-75">Pilates, Cross & Bien-être à Saint-Ouen</p>
-        </div>
-        <div>
-          <h5 style="font-weight: 600; margin-bottom: 1rem;">Navigation</h5>
-          <ul class="text-sm space-y-2">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="sessions.html">Sessions</a></li>
-            <li><a href="tarifs.html">Tarifs</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 style="font-weight: 600; margin-bottom: 1rem;">Découvrir</h5>
-          <ul class="text-sm space-y-2">
-            <li><a href="studio.html">Le Studio</a></li>
-            <li><a href="equipe.html">Notre Équipe</a></li>
-            <li><a href="blog/index.html">Blog</a></li>
-            <li><a href="temoignages.html">Avis Clients</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 style="font-weight: 600; margin-bottom: 1rem;">Contact</h5>
-          <p class="text-sm opacity-75">
-            📍 Saint-Ouen, Seine-Saint-Denis<br>
-            📞 Disponible sur WhatsApp<br>
-            💬 Nous répondons rapidement
-          </p>
-        </div>
+  <!-- Footer (unified with the rest of the site) -->
+  <footer class="bg-[#2F4F4F] text-white py-12 mt-16">
+    <div class="max-w-6xl mx-auto px-6 mb-10">
+      <div data-svb-newsletter data-source="temoignages-footer"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <img src="images/logo.webp" alt="Logo SVB" class="w-32 mb-6" width="120" height="85" />
+        <p class="opacity-80 leading-relaxed">Votre studio de coaching privé et bien-être à Saint-Ouen.<br />Pilates, Yoga, Training et Soins.</p>
       </div>
-      <div class="border-t border-gray-300 pt-8 text-center text-sm opacity-75">
-        <p>&copy; 2026 Studio SVB Pilates. Tous droits réservés.</p>
+      <div>
+        <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
+        <ul class="space-y-2 opacity-80">
+          <li><a href="tel:0744919155" class="hover:text-white transition">07 44 91 91 55</a></li>
+          <li><a href="mailto:hello@studiosvb.fr" class="hover:text-white transition">hello@studiosvb.fr</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold uppercase tracking-widest mb-4">Nous trouver</h3>
+        <p class="opacity-80 leading-relaxed">6 Mail André Breton<br />&amp; 40 Cours des Lavandières<br />93400 Saint-Ouen-sur-Seine<br />(Métro Mairie de Saint-Ouen)</p>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/20 text-center text-xs opacity-60">
+      <p class="mb-2">© 2026 SVB Santez Vous Bien — Tous droits réservés</p>
+      <div class="space-x-4">
+        <a href="mentions-legales.html" class="hover:text-white transition underline decoration-1 underline-offset-2">Mentions Légales</a>
+        <span>|</span>
+        <a href="cgv.html" class="hover:text-white transition underline decoration-1 underline-offset-2">CGV</a>
       </div>
     </div>
   </footer>
 
   <!-- WhatsApp Button -->
-  <a href="https://wa.me/your-whatsapp-number" class="whatsapp-btn" title="Nous contacter sur WhatsApp">
+  <a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" title="Nous contacter sur WhatsApp" aria-label="WhatsApp" data-track="float_whatsapp">
     <span>💬</span>
   </a>
 
