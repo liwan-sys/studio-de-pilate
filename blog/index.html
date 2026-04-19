@@ -30,7 +30,6 @@
 
   <!-- Tailwind self-hosted + design system -->
   <link rel="stylesheet" href="/assets/tailwind.css" />
-  <link rel="stylesheet" href="/assets/svb-landing-base.css" />
   <link rel="stylesheet" href="/assets/svb.css" />
 
   <!-- GTM (RGPD-gated) -->
@@ -59,119 +58,99 @@
   </script>
 
   <style>
-    /* Body chrome (palette + blobs + noise) comes from svb-landing-base.css */
-    body { min-height: 100vh; }
+    /* Body chrome (gradient background + noise) comes from svb.css:
+       .ambient-bg (linear-gradient 98D0B3 → F2E6CF) + .noise-overlay.
+       Same pattern as sessions.html / equipe.html / bien-etre.html. */
 
-    /* Hero — same pattern as pilates-reformer-saint-ouen.html */
-    .blog-hero{text-align:center;padding:80px 24px 40px;max-width:900px;margin:0 auto}
+    /* Hero — same massive Dancing Script pattern as sessions.html */
+    .blog-hero{text-align:center;padding:60px 24px 40px;max-width:1100px;margin:0 auto}
+    .blog-hero .eyebrow{font-family:'Great Vibes',cursive;font-size:2rem;color:#4A8D84;margin:0 0 .4rem;line-height:1}
     .blog-hero h1{
       font-family:'Dancing Script',cursive;font-weight:700;
-      font-size:clamp(2.5rem,6vw,4rem);line-height:1.1;
-      color:var(--col-dark);margin:0 0 .6rem;
+      font-size:clamp(3rem,8vw,6rem);line-height:1.05;
+      color:#2F4F4F;margin:0 0 1rem;
+      text-shadow:2px 2px 6px rgba(0,0,0,.08);
     }
-    .blog-hero p.lead{color:var(--svb-text);opacity:.8;max-width:60ch;margin:0 auto;line-height:1.6;font-size:1.1rem}
+    .blog-hero p.lead{color:#2F4F4F;font-weight:500;max-width:62ch;margin:0 auto;line-height:1.6;font-size:1rem}
 
-    /* Filters — same peach/cream tint as other pages */
-    .filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:900px;margin:0 auto 40px;padding:0 24px}
+    /* Filters */
+    .filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:900px;margin:30px auto 40px;padding:0 24px}
     .filter-btn{
-      padding:8px 18px;border-radius:24px;
-      background:rgba(243,235,212,.7);border:1.5px solid rgba(58,107,99,.15);
-      font-size:.85rem;font-weight:600;color:var(--svb-text);cursor:pointer;transition:all .2s;
+      padding:8px 20px;border-radius:24px;
+      background:rgba(255,255,255,.5);border:1.5px solid rgba(255,255,255,.5);
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+      font-size:.82rem;font-weight:600;color:#2F4F4F;cursor:pointer;transition:all .2s;
+      font-family:'Montserrat',sans-serif;
     }
-    .filter-btn:hover{background:var(--col-cream);border-color:var(--col-dark);color:var(--col-dark)}
-    .filter-btn.active{background:var(--col-dark);color:#fff;border-color:var(--col-dark)}
+    .filter-btn:hover{background:rgba(255,255,255,.8);border-color:#4A8D84;color:#4A8D84}
+    .filter-btn.active{background:#2F4F4F;color:#FBF6EC;border-color:#2F4F4F}
 
-    /* Grid of article cards — glass-card style, matching other landings */
+    /* Grid of article cards — glass-card style to match site-wide premium feel */
     .grid{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
       gap:24px;max-width:1240px;margin:0 auto 80px;padding:0 24px;
+      position:relative;z-index:10;
     }
     .card{
-      background:rgba(243,235,212,.7);
-      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,.3);
-      border-radius:12px;overflow:hidden;
+      background:rgba(255,255,255,.55);
+      backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      border:1px solid rgba(255,255,255,.6);
+      border-radius:20px;overflow:hidden;
       display:flex;flex-direction:column;
       transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s;
       text-decoration:none;color:inherit;
+      box-shadow:0 10px 30px rgba(47,79,79,.08);
     }
-    .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(58,107,99,.18)}
-    .card-thumb{aspect-ratio:16/10;background:linear-gradient(135deg,var(--col-green),var(--col-peach));background-size:cover;background-position:center;position:relative}
+    .card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(47,79,79,.18)}
+    .card-thumb{aspect-ratio:16/10;background:linear-gradient(135deg,#98D0B3,#E8B496);background-size:cover;background-position:center;position:relative}
     .card-cat{
       position:absolute;top:14px;left:14px;
-      background:rgba(58,107,99,.92);color:#fff;
+      background:rgba(47,79,79,.92);color:#FBF6EC;
       padding:5px 12px;border-radius:16px;
       font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-family:'Montserrat',sans-serif;
     }
     .card-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column;gap:.6rem}
-    .card-body h2{font-family:'Dancing Script',cursive;font-weight:600;font-size:1.5rem;line-height:1.2;color:var(--col-dark);margin:0}
-    .card-body p{font-family:'Montserrat',sans-serif;font-size:.9rem;color:var(--svb-text);opacity:.8;margin:0;line-height:1.55}
-    .card-meta{margin-top:auto;padding-top:1rem;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--col-dark);font-weight:600;font-family:'Montserrat',sans-serif}
+    .card-body h2{font-family:'Dancing Script',cursive;font-weight:600;font-size:1.55rem;line-height:1.2;color:#2F4F4F;margin:0}
+    .card-body p{font-family:'Montserrat',sans-serif;font-size:.9rem;color:#2F4F4F;opacity:.78;margin:0;line-height:1.55}
+    .card-meta{margin-top:auto;padding-top:1rem;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:#4A8D84;font-weight:600;font-family:'Montserrat',sans-serif}
     .card-meta .arrow{display:inline-flex;align-items:center;gap:4px;transition:gap .25s}
     .card:hover .card-meta .arrow{gap:10px}
-    .empty{text-align:center;padding:60px 24px;grid-column:1/-1;color:var(--col-dark)}
+    .empty{text-align:center;padding:60px 24px;grid-column:1/-1;color:#4A8D84}
   </style>
 </head>
-<body>
+<body class="content-visible">
   <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu</a>
 
-  <!-- Canonical nav (identical to pilates-reformer-saint-ouen.html) -->
-  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200" aria-label="Navigation principale">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <a href="/" class="flex items-center" aria-label="Accueil Studio SVB">
-          <img src="/images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-10" width="593" height="420" decoding="async">
-        </a>
-        <div class="hidden md:flex space-x-8">
-          <a href="/" class="text-sm font-medium hover:text-green-600">ACCUEIL</a>
-          <a href="/sessions.html" class="text-sm font-medium hover:text-green-600">SESSIONS</a>
-          <a href="/equipe.html" class="text-sm font-medium hover:text-green-600">LA TEAM</a>
-          <a href="/bien-etre.html" class="text-sm font-medium hover:text-green-600">BIEN-ÊTRE</a>
-          <a href="/studio.html" class="text-sm font-medium hover:text-green-600">STUDIO</a>
-          <a href="/faq.html" class="text-sm font-medium hover:text-green-600">FAQ</a>
-          <a href="/tarifs.html" class="text-sm font-medium hover:text-green-600">TARIFS</a>
-          <a href="/blog/" class="text-sm font-medium text-green-600" aria-current="page">BLOG</a>
-          <a href="/temoignages" class="text-sm font-medium hover:text-green-600">AVIS</a>
-        </div>
-        <a href="https://wa.me/33744919155" class="hidden lg:inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600" target="_blank" rel="noopener noreferrer" data-track="nav_whatsapp">WhatsApp</a>
-        <button id="svb-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="svb-mobile-menu" class="md:hidden focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-      <div id="svb-mobile-menu" class="md:hidden hidden pb-4 flex flex-col gap-1 text-sm font-medium">
-        <a href="/" class="px-2 py-2 rounded hover:bg-white/30">ACCUEIL</a>
-        <a href="/sessions.html" class="px-2 py-2 rounded hover:bg-white/30">SESSIONS</a>
-        <a href="/equipe.html" class="px-2 py-2 rounded hover:bg-white/30">LA TEAM</a>
-        <a href="/bien-etre.html" class="px-2 py-2 rounded hover:bg-white/30">BIEN-ÊTRE</a>
-        <a href="/studio.html" class="px-2 py-2 rounded hover:bg-white/30">STUDIO</a>
-        <a href="/faq.html" class="px-2 py-2 rounded hover:bg-white/30">FAQ</a>
-        <a href="/tarifs.html" class="px-2 py-2 rounded hover:bg-white/30">TARIFS</a>
-        <a href="/blog/" class="px-2 py-2 rounded bg-white/50 font-semibold" aria-current="page">BLOG</a>
-        <a href="/temoignages" class="px-2 py-2 rounded hover:bg-white/30">AVIS</a>
-        <a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer" class="mt-2 px-3 py-2 rounded bg-green-500 text-white font-semibold text-center">WhatsApp</a>
-      </div>
+  <!-- Ambient background (identical to sessions.html / equipe.html) -->
+  <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+  <div class="noise-overlay"></div>
+
+  <!-- Canonical nav (identical to sessions.html): transparent, white text, 11 links, inverted logo -->
+  <nav role="navigation" class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10" aria-label="Navigation principale">
+    <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
+      <a href="/" aria-label="Accueil Studio SVB">
+        <img src="/images/logo.webp" alt="Logo SVB Santez Vous Bien" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md" width="60" height="42">
+      </a>
+    </div>
+    <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
+      <a href="/" class="hover:text-gray-100 transition hover:scale-105 inline-block">ACCUEIL</a>
+      <a href="/sessions.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">SESSIONS</a>
+      <a href="/equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">LA TEAM</a>
+      <a href="/bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
+      <a href="/studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
+      <a href="/tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">ABONNEMENTS</a>
+      <a href="/cadeau.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CADEAU</a>
+      <a href="/blog/" class="border-b-2 border-white pb-1" aria-current="page">BLOG</a>
+      <a href="/temoignages" class="hover:text-gray-100 transition hover:scale-105 inline-block">AVIS</a>
+      <a href="/faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
+      <a href="/contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CONTACT</a>
     </div>
   </nav>
-  <script>
-    (function(){
-      var btn = document.getElementById('svb-burger');
-      var menu = document.getElementById('svb-mobile-menu');
-      if(!btn || !menu) return;
-      btn.addEventListener('click', function(){
-        var open = !menu.classList.contains('hidden');
-        if(open){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
-        else    { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
-      });
-    })();
-  </script>
 
-  <header class="blog-hero">
-    <p style="font-family:'Dancing Script',cursive;font-weight:600;font-size:1.4rem;color:#4A8D84;margin:0">Le blog</p>
-    <h1>Bouge mieux, <em>lis mieux</em></h1>
-    <p class="sub">Conseils, guides et inspirations par l'équipe SVB</p>
-    <p>Tout ce qu'il faut savoir sur le Pilates Reformer, le Crossformer, le yoga, la boxe et le bien-être — écrit par nos 16 coachs certifiés à Saint-Ouen.</p>
+  <header class="blog-hero reveal-load d-1">
+    <p class="eyebrow">Le blog</p>
+    <h1>Bouge mieux, lis mieux.</h1>
+    <p class="lead">Conseils, guides et inspirations signés par nos 16 coachs certifiés à Saint-Ouen — Pilates Reformer, Crossformer, Yoga, Boxe, Afrodance, Bien-être.</p>
   </header>
 
   <nav class="filters" role="tablist" aria-label="Filtrer par catégorie">
