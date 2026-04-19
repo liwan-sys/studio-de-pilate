@@ -127,8 +127,9 @@
     })();
   </script>
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS + canonical landing base -->
   <link rel="stylesheet" href="/assets/tailwind.css" />
+  <link rel="stylesheet" href="/assets/svb-landing-base.css" />
   <script>
     tailwind.config = {
       theme: {
@@ -152,63 +153,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      /* Production palette — matches pilates-reformer.css, yoga.css, etc. */
-      --col-peach: #EBC6A6;
-      --col-sand:  #D4C3A3;
-      --col-green: #88C0A6;
-      --col-cream: #F3EBD4;
-      --col-dark:  #3A6B63;
-      --svb-text:  #2F4F4F;
-    }
+    /* Palette + body + blobs + noise + fonts come from svb-landing-base.css */
 
-    body {
-      background-color: #B8D8C0;
-      font-family: 'Montserrat', sans-serif;
-      color: var(--svb-text);
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    /* Ambient blob background */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 50%, rgba(235, 198, 166, 0.15) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 80%, rgba(136, 192, 166, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 40% 20%, rgba(212, 195, 163, 0.1) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Noise overlay */
-    body::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image:
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4"/></filter><rect width="100" height="100" fill="%23000" filter="url(%23n)" opacity="0.03"/></svg>');
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Content above background */
-    .content-wrapper {
-      position: relative;
-      z-index: 1;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Dancing Script', cursive;
-      font-weight: 500;
-    }
+    /* Content above background blobs */
+    .content-wrapper { position: relative; z-index: 1; }
 
     .btn-primary {
       background-color: var(--col-dark);
@@ -443,38 +391,32 @@
 <body>
     <a href="#main-content" class="svb-skip">Aller au contenu principal</a>
 <!-- Navigation -->
-  <nav class="sticky top-0 w-full z-30" aria-label="Navigation principale">
-    <div class="max-w-6xl mx-auto px-4 py-4">
-      <div class="flex items-center justify-between">
-        <div class="flex-shrink-0">
-          <a href="index.html" aria-label="Accueil Studio SVB">
-            <img src="images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-12" width="593" height="420" decoding="async">
-          </a>
+  <!-- Canonical nav (identical to pilates-reformer-saint-ouen.html) -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200" aria-label="Navigation principale">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center" aria-label="Accueil Studio SVB">
+          <img src="images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-10" width="593" height="420" decoding="async">
+        </a>
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="text-sm font-medium hover:text-green-600">ACCUEIL</a>
+          <a href="sessions.html" class="text-sm font-medium hover:text-green-600">SESSIONS</a>
+          <a href="equipe.html" class="text-sm font-medium hover:text-green-600">LA TEAM</a>
+          <a href="bien-etre.html" class="text-sm font-medium hover:text-green-600">BIEN-ÊTRE</a>
+          <a href="studio.html" class="text-sm font-medium hover:text-green-600">STUDIO</a>
+          <a href="faq.html" class="text-sm font-medium hover:text-green-600">FAQ</a>
+          <a href="tarifs.html" class="text-sm font-medium hover:text-green-600">TARIFS</a>
+          <a href="blog/index.html" class="text-sm font-medium hover:text-green-600">BLOG</a>
+          <a href="temoignages.html" class="text-sm font-medium text-green-600" aria-current="page">AVIS</a>
         </div>
-        <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
-          <a href="index.html">ACCUEIL</a>
-          <a href="sessions.html">SESSIONS</a>
-          <a href="equipe.html">LA TEAM</a>
-          <a href="bien-etre.html">BIEN-ÊTRE</a>
-          <a href="studio.html">STUDIO</a>
-          <a href="faq.html">FAQ</a>
-          <a href="tarifs.html">TARIFS</a>
-          <a href="blog/index.html">BLOG</a>
-          <a href="temoignages.html" class="active" aria-current="page">AVIS</a>
-          <a href="cadeau.html">CADEAU</a>
-          <a href="contact.html">CONTACT</a>
-        </div>
-        <a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 text-sm font-semibold" data-track="nav_whatsapp">WhatsApp</a>
-        <div class="md:hidden">
-          <button id="svb-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="svb-mobile-menu" class="text-svb-text focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
+        <a href="https://wa.me/33744919155" class="hidden lg:inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600" target="_blank" rel="noopener noreferrer" data-track="nav_whatsapp">WhatsApp</a>
+        <button id="svb-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="svb-mobile-menu" class="md:hidden text-svb-text focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
       </div>
-      <!-- Mobile menu -->
-      <div id="svb-mobile-menu" class="md:hidden hidden mt-3 flex flex-col gap-1 border-t border-white/40 pt-3 text-sm font-medium">
+      <div id="svb-mobile-menu" class="md:hidden hidden pb-4 flex flex-col gap-1 text-sm font-medium">
         <a href="index.html" class="px-2 py-2 rounded hover:bg-white/30">ACCUEIL</a>
         <a href="sessions.html" class="px-2 py-2 rounded hover:bg-white/30">SESSIONS</a>
         <a href="equipe.html" class="px-2 py-2 rounded hover:bg-white/30">LA TEAM</a>
@@ -484,8 +426,6 @@
         <a href="tarifs.html" class="px-2 py-2 rounded hover:bg-white/30">TARIFS</a>
         <a href="blog/index.html" class="px-2 py-2 rounded hover:bg-white/30">BLOG</a>
         <a href="temoignages.html" class="px-2 py-2 rounded bg-white/50 font-semibold" aria-current="page">AVIS</a>
-        <a href="cadeau.html" class="px-2 py-2 rounded hover:bg-white/30">CADEAU</a>
-        <a href="contact.html" class="px-2 py-2 rounded hover:bg-white/30">CONTACT</a>
         <a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer" class="mt-2 px-3 py-2 rounded bg-green-500 text-white font-semibold text-center">WhatsApp</a>
       </div>
     </div>
