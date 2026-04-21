@@ -44,9 +44,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/tailwind.css?v=20260422b" />
+    <link rel="stylesheet" href="/assets/tailwind.css?v=20260422c" />
 
-    <link rel="stylesheet" href="/assets/tarifs.css?v=20260422b" />
+    <link rel="stylesheet" href="/assets/tarifs.css?v=20260422c" />
 
   <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json">
@@ -151,7 +151,7 @@
     ]
   }
   </script>
-    <link rel="stylesheet" href="/assets/svb.css?v=20260422b" />
+    <link rel="stylesheet" href="/assets/svb.css?v=20260422c" />
 </head>
 <body class="content-visible">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu principal</a>
@@ -381,24 +381,32 @@
         </div>
 
         <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2 drop-shadow-md">Coaching privé — toi, ton coach, zéro autre</h2>
-        <div class="flex justify-center mb-24 reveal-load d-3">
-            <div class="price-card group max-w-md w-full border-2 border-[#3A6B63]">
-                <div class="card-header header-dark">Coaching Good Vibes</div>
-                <div class="p-6 body-dark h-full flex flex-col justify-center">
-                    <p class="text-center text-sm text-gray-600 mb-6 italic">Un programme 100% sur-mesure pour des résultats rapides.</p>
-                    <div class="price-row"><span>4 Séances / mois</span> <span>300,30€ <small>(75€/u)</small></span></div>
-                    <div class="price-row"><span>8 Séances / mois</span> <span>560,30€ <small>(70€/u)</small></span></div>
-                    <hr class="border-gray-300 my-4 opacity-50">
-                    <div class="text-center font-bold text-sm mb-2 text-[#2F4F4F]">PASS DUO</div>
-                    <div class="price-row"><span>4 Séances / mois</span> <span>400,60€ <small>(50€/pers)</small></span></div>
-                    <div class="price-row"><span>8 Séances / mois</span> <span>720,60€ <small>(45€/pers)</small></span></div>
-                    <div class="mt-6 text-center">
-                        <span class="terms-fee block text-xs">Frais de dossier: 49€</span>
-                        <span class="terms-fee block text-xs mt-1">Engagement 6 mois</span>
-                        <span class="terms-warning">⚠️ NON REPORTABLES LE MOIS SUIVANT</span>
+        <div class="grid md:grid-cols-2 gap-8 reveal-load d-3 mb-24 max-w-4xl mx-auto">
+
+            <!-- Coaching Pass Good Vibes (individuel) — brochure p.4 -->
+            <div class="price-card group">
+                <div class="card-header header-dark">Coaching Pass Good Vibes <br><span class="text-xs font-normal opacity-80">(55 Minutes)</span></div>
+                <div class="p-6 body-dark h-full flex flex-col justify-between">
+                    <div>
+                        <p class="text-center text-sm text-gray-600 mb-6 italic">Un·e coach dédié·e. Programme 100% sur-mesure.</p>
+                        <div class="price-row"><span>4 Séances / mois</span> <span>300,30€ <small class="opacity-60 font-normal">· 75€/séance</small></span></div>
+                        <div class="price-row"><span>8 Séances / mois</span> <span>560,30€ <small class="opacity-60 font-normal">· 70€/séance</small></span></div>
                     </div>
                 </div>
                 <button onclick="openQuiz()" class="btn-action">Faire mon Diagnostic</button>
+            </div>
+
+            <!-- Coaching Pass Duo (à 2) — brochure p.4 -->
+            <div class="price-card group">
+                <div class="card-header header-dark">Coaching Pass Duo <br><span class="text-xs font-normal opacity-80">(55 Minutes · à 2)</span></div>
+                <div class="p-6 body-dark h-full flex flex-col justify-between">
+                    <div>
+                        <p class="text-center text-sm text-gray-600 mb-6 italic">À deux, même coach, même séance. Moitié du prix individuel.</p>
+                        <div class="price-row"><span>4 Séances / mois</span> <span>400,60€ <small class="opacity-60 font-normal">· 200,30€/pers</small></span></div>
+                        <div class="price-row"><span>8 Séances / mois</span> <span>720,60€ <small class="opacity-60 font-normal">· 360,30€/pers</small></span></div>
+                    </div>
+                </div>
+                <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20un%20coaching%20duo" target="_blank" rel="noopener noreferrer" class="btn-action">Prendre RDV WhatsApp</a>
             </div>
         </div>
 
@@ -478,12 +486,33 @@
         <h2 class="text-4xl text-center text-[#2F4F4F] font-hand mb-3 reveal-load d-2 drop-shadow-md">Pas encore prête pour un pass ?</h2>
         <p class="text-center text-[#2F4F4F] text-sm max-w-xl mx-auto mb-8 reveal-load d-2">Le Pass Starter te donne 5 sessions pour tester 5 disciplines différentes, sans engagement. Valable 1 mois.</p>
 
-        <div class="max-w-xl mx-auto mb-24 reveal-load d-3">
-            <div class="bg-white/70 backdrop-blur-md rounded-3xl p-8 border border-white/50 shadow-xl text-center">
-                <h3 class="text-2xl font-extrabold text-[#4A8D84] uppercase mb-1">New Pass Starter</h3>
-                <p class="text-5xl font-extrabold text-[#2F4F4F] mb-4">99,90€</p>
-                <p class="text-xs text-[#2F4F4F]/70 uppercase tracking-wide font-bold mb-6">5 sessions · Valable 1 mois · Sans engagement · Sans reconduction</p>
+        <!-- Pass Starter + Option SVB Boost (côte-à-côte comme la brochure p.4) -->
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-24 reveal-load d-3">
+
+            <!-- New Pass Starter -->
+            <div class="bg-white/70 backdrop-blur-md rounded-3xl p-8 border border-white/50 shadow-xl text-center flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-extrabold text-[#4A8D84] uppercase mb-1">New Pass Starter</h3>
+                    <p class="text-5xl font-extrabold text-[#2F4F4F] mb-4">99,90€</p>
+                    <p class="text-xs text-[#2F4F4F]/70 uppercase tracking-wide font-bold mb-6">5 sessions · Valable 1 mois · Sans engagement · Pas de tacite reconduction</p>
+                </div>
                 <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab" class="inline-block bg-[#4A8D84] hover:bg-[#3A6B63] text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-lg transform hover:scale-105 transition duration-300">Prendre le Pass Starter</a>
+            </div>
+
+            <!-- Option SVB Boost (brochure p.4 "Nos options") -->
+            <div class="bg-[#F3EBD4]/70 backdrop-blur-md rounded-3xl p-8 border border-white/50 shadow-xl text-center flex flex-col justify-between">
+                <div>
+                    <div class="inline-block bg-[#E8B496] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3">Option complémentaire</div>
+                    <h3 class="text-2xl font-extrabold text-[#4A8D84] uppercase mb-1">Option SVB Boost</h3>
+                    <p class="text-5xl font-extrabold text-[#2F4F4F] mb-1">12,90€<span class="text-base font-semibold opacity-70">/mois</span></p>
+                    <p class="text-xs text-[#2F4F4F]/60 font-semibold mb-5">En supplément d'un pass small group</p>
+                    <ul class="text-left text-sm text-[#2F4F4F] space-y-2 mb-6 mx-auto max-w-xs">
+                        <li>✅ <strong>−50 %</strong> sur les frais de dossier (49 € → 24,50 €)</li>
+                        <li>✅ <strong>Sans engagement</strong></li>
+                        <li>✅ <strong>Suspension d'abonnement sans préavis</strong></li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20ajouter%20l'Option%20SVB%20Boost%20%C3%A0%20mon%20abonnement" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#E8B496] hover:bg-[#d49c7d] text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-lg transform hover:scale-105 transition duration-300">Ajouter Boost à mon pass</a>
             </div>
         </div>
 
@@ -794,6 +823,6 @@
     })();
     </script>
 
-  <script src="/assets/svb.js?v=20260422b" defer></script>
+  <script src="/assets/svb.js?v=20260422c" defer></script>
 </body>
 </html>
