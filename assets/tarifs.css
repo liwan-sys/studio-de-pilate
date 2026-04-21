@@ -67,8 +67,12 @@
         .header-green { background: var(--col-green); color: white; }                          /* Pass Cross — sauge */
         .header-cream { background: var(--col-cream); color: var(--svb-text); }                /* Pass Focus — crème */
         .header-dark { background: var(--col-dark); color: white; }                            /* Coaching Good Vibes — teal */
-        .header-bicolor-former { background: #24454d; color: white; }                          /* Pass Full Former — teal sombre (identique Crossformer, comme brochure p.5) */
-        .header-bicolor-full { background: var(--col-green); color: white; }                   /* Pass Full — sauge (identique Cross, comme brochure p.5) */
+        /* Pass Full Former & Pass Full = combo passes. La brochure les affiche en BICOLOR
+           (split diagonal 50/50) pour signaler qu'ils combinent 2 pass parents :
+             Full Former = Reformer (sable) + Crossformer (teal)
+             Full        = Cross (sauge) + Focus (crème) */
+        .header-bicolor-former { background: linear-gradient(135deg, #E2DAC6 0%, #E2DAC6 50%, #24454d 50%, #24454d 100%); color: white; text-shadow: 0 1px 2px rgba(0,0,0,.3); }
+        .header-bicolor-full { background: linear-gradient(135deg, var(--col-green) 0%, var(--col-green) 50%, var(--col-cream) 50%, var(--col-cream) 100%); color: var(--svb-text); }
         .header-kids { background: #E8B496; color: white; }                                    /* Pass Kids — pêche */
 
         .body-peach { background: linear-gradient(180deg, rgba(36, 69, 77, 0.12) 0%, rgba(255,255,255,0.8) 100%); }       /* teint teal */
@@ -76,8 +80,9 @@
         .body-green { background: linear-gradient(180deg, rgba(136, 192, 166, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
         .body-cream { background: linear-gradient(180deg, rgba(243, 235, 212, 0.5) 0%, rgba(255,255,255,0.8) 100%); }
         .body-dark { background: linear-gradient(180deg, rgba(58, 107, 99, 0.15) 0%, rgba(255,255,255,0.7) 100%); }
-        .body-bicolor-former { background: linear-gradient(180deg, rgba(36, 69, 77, 0.12) 0%, rgba(255,255,255,0.8) 100%); }  /* teint teal identique Crossformer */
-        .body-bicolor-full { background: linear-gradient(180deg, rgba(136, 192, 166, 0.25) 0%, rgba(255,255,255,0.8) 100%); } /* teint sauge identique Cross */
+        /* Body tint pour les combos : split vertical très léger (sable→teal et sauge→crème) */
+        .body-bicolor-former { background: linear-gradient(135deg, rgba(226,218,198,0.35) 0%, rgba(226,218,198,0.35) 50%, rgba(36,69,77,0.12) 50%, rgba(36,69,77,0.12) 100%); }
+        .body-bicolor-full { background: linear-gradient(135deg, rgba(136,192,166,0.25) 0%, rgba(136,192,166,0.25) 50%, rgba(243,235,212,0.4) 50%, rgba(243,235,212,0.4) 100%); }
         .body-kids { background: linear-gradient(180deg, rgba(232, 180, 150, 0.25) 0%, rgba(255,255,255,0.8) 100%); }
 
         .card-header { padding: 20px; text-align: center; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; font-size: 1rem; }
