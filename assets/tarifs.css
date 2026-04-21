@@ -54,24 +54,31 @@
         }
         .price-card:hover { transform: translateY(-8px) scale(1.02); background: rgba(255, 255, 255, 0.85); box-shadow: 0 30px 60px rgba(74, 141, 132, 0.25); z-index: 10; }
 
-        /* COULEURS */
-        .header-peach { background: var(--col-peach); color: white; }
-        .header-sand { background: var(--col-sand); color: white; }
-        .header-green { background: var(--col-green); color: white; }
-        .header-cream { background: var(--col-cream); color: var(--svb-text); }
-        .header-dark { background: var(--col-dark); color: white; }
-        .header-bicolor-former { background: linear-gradient(135deg, var(--col-sand) 0%, var(--col-peach) 100%); color: white; }
-        .header-bicolor-full { background: linear-gradient(135deg, var(--col-green) 0%, var(--col-cream) 100%); color: var(--svb-text); }
-        .header-kids { background: linear-gradient(135deg, var(--col-peach), var(--col-sand)); color: white; }
+        /* COULEURS — alignées sur la brochure SVB 2026 (p. 5 & p. 6-7 des plannings).
+           Pass Crossformer / Full Former = teal sombre (#24454d).
+           Pass Reformer = beige sable chaud (#E2DAC6).
+           Pass Cross = vert sauge (#88C0A6).
+           Pass Focus = crème (#F3EBD4).
+           Pass Full = sauge + crème (mélange des deux pass qu'il combine).
+           Pass Kids = pêche/corail (#E8B496).
+           Coaching Good Vibes = teal foncé #3A6B63. */
+        .header-peach { background: #24454d; color: white; }                                   /* Pass Crossformer — teal sombre */
+        .header-sand { background: #E2DAC6; color: var(--svb-text); }                          /* Pass Reformer — beige sable chaud */
+        .header-green { background: var(--col-green); color: white; }                          /* Pass Cross — sauge */
+        .header-cream { background: var(--col-cream); color: var(--svb-text); }                /* Pass Focus — crème */
+        .header-dark { background: var(--col-dark); color: white; }                            /* Coaching Good Vibes — teal */
+        .header-bicolor-former { background: linear-gradient(135deg, #24454d 0%, #E2DAC6 100%); color: white; }   /* Pass Full Former — teal + sable */
+        .header-bicolor-full { background: linear-gradient(135deg, var(--col-green) 0%, var(--col-cream) 100%); color: var(--svb-text); }  /* Pass Full — sauge + crème */
+        .header-kids { background: #E8B496; color: white; }                                    /* Pass Kids — pêche */
 
-        .body-peach { background: linear-gradient(180deg, rgba(235, 198, 166, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
-        .body-sand { background: linear-gradient(180deg, rgba(212, 195, 163, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
+        .body-peach { background: linear-gradient(180deg, rgba(36, 69, 77, 0.12) 0%, rgba(255,255,255,0.8) 100%); }       /* teint teal */
+        .body-sand { background: linear-gradient(180deg, rgba(226, 218, 198, 0.45) 0%, rgba(255,255,255,0.8) 100%); }      /* teint sable */
         .body-green { background: linear-gradient(180deg, rgba(136, 192, 166, 0.3) 0%, rgba(255,255,255,0.7) 100%); }
         .body-cream { background: linear-gradient(180deg, rgba(243, 235, 212, 0.5) 0%, rgba(255,255,255,0.8) 100%); }
         .body-dark { background: linear-gradient(180deg, rgba(58, 107, 99, 0.15) 0%, rgba(255,255,255,0.7) 100%); }
-        .body-bicolor-former { background: linear-gradient(180deg, rgba(212, 195, 163, 0.25) 0%, rgba(235, 198, 166, 0.25) 100%); }
+        .body-bicolor-former { background: linear-gradient(180deg, rgba(36, 69, 77, 0.12) 0%, rgba(226, 218, 198, 0.35) 100%); }
         .body-bicolor-full { background: linear-gradient(180deg, rgba(136, 192, 166, 0.25) 0%, rgba(243, 235, 212, 0.4) 100%); }
-        .body-kids { background: linear-gradient(180deg, rgba(235, 198, 166, 0.2) 0%, rgba(255,255,255,0.8) 100%); }
+        .body-kids { background: linear-gradient(180deg, rgba(232, 180, 150, 0.25) 0%, rgba(255,255,255,0.8) 100%); }
 
         .card-header { padding: 20px; text-align: center; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; font-size: 1rem; }
         
