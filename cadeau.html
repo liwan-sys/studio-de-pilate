@@ -118,21 +118,27 @@
     <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
     <div class="noise-overlay"></div>
 
-    <nav role="navigation" class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
+    <nav role="navigation" class="relative p-6 flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
         <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
             <a href="index.html"><img src="images/logo.webp" alt="Logo SVB" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md" width="120" height="85"></a>
         </div>
-        <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-xs md:text-sm font-semibold tracking-wide drop-shadow-sm">
-            <a href="index.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">ACCUEIL</a>
-            <a href="sessions.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">SESSIONS</a>
-            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">PLANNING</a>
-            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">ABONNEMENTS</a>
-            <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">LA TEAM</a>
-            <a href="/temoignages" class="hover:text-gray-100 transition hover:scale-105 inline-block">AVIS</a>
-            <a href="cadeau.html" class="border-b-2 border-white pb-1">CADEAU</a>
-            <a href="/blog/" class="hover:text-gray-100 transition hover:scale-105 inline-block">BLOG</a>
+        <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='center';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}})()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <div id="nav-menu" class="hidden md:flex flex-wrap justify-center space-x-4 md:space-x-6 text-[10px] md:text-xs font-semibold tracking-normal drop-shadow-sm">
+            <a href="index.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Accueil</a>
+            <a href="sessions.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Sessions</a>
+            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Planning</a>
+            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Abonnements</a>
+            <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">La Team</a>
+            <a href="/temoignages" class="hover:text-gray-100 transition hover:scale-105 inline-block">Avis</a>
+            <a href="cadeau.html" class="border-b-2 border-white pb-1">Cadeau</a>
+            <a href="/blog/" class="hover:text-gray-100 transition hover:scale-105 inline-block">Blog</a>
             <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
-            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">CONTACT</a>
+            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Contact</a>
+        <a href="/en/" class="opacity-80 hover:opacity-100 transition inline-block"><strong>FR</strong>&nbsp;|&nbsp;EN</a>
         </div>
     </nav>
 
