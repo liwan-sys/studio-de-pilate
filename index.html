@@ -221,12 +221,23 @@
   <section id="hero-video">
 
     <!-- VIDÉO DE FOND (lazy, chargée après interaction/FCP) -->
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="videos/hero-poster.jpg" aria-hidden="true" >
+    <video id="hero-vid" class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="videos/hero-poster.jpg" aria-hidden="true" style="z-index:0;">
       <source src="videos/hero.mp4" type="video/mp4">
     </video>
+    <script>
+      (function(){
+        var v=document.getElementById('hero-vid');
+        if(v){
+          var p=v.play();
+          if(p!==undefined){p.catch(function(){
+            document.addEventListener('touchstart',function(){v.play();},{once:true});
+          });}
+        }
+      })();
+    </script>
 
     <!-- VOILE D'ASSOMBRISSEMENT -->
-    <div class="hero-overlay"></div>
+    <div class="hero-overlay" style="z-index:1;"></div>
 
     <!-- NAV PAR-DESSUS LA VIDÉO -->
         <nav role="navigation" class="hero-nav flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
@@ -253,7 +264,7 @@
     </nav>
 
     <!-- CONTENU CENTRÉ HERO -->
-    <div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none;z-index:5;">
+    <div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none;z-index:20;">
       <p style="color:rgba(255,255,255,0.75);font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;margin:0 0 12px;">Saint-Ouen · 4 min du métro · Ouvert 7j/7</p>
       <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(3rem,14vw,7rem);color:white;margin:0 0 8px;line-height:1;text-shadow:0 4px 20px rgba(0,0,0,0.4);">Santez Vous Bien</h1>
       <p style="color:rgba(255,255,255,0.85);font-size:clamp(13px,3.5vw,18px);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin:0 0 28px;text-shadow:0 2px 8px rgba(0,0,0,0.4);">Reformer · Crossformer · Yoga · Boxe · Training</p>
