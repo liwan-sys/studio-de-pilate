@@ -155,6 +155,24 @@
     footer{background:#2F4F4F;color:#FBF6EC;padding:40px 24px;text-align:center;font-size:.85rem}
     footer a{color:inherit}
   </style>
+
+  <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
+  <script>
+    (function(){
+      var granted = false;
+      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+      if (!granted) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DHS707Y6XJ';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-DHS707Y6XJ', { anonymize_ip: true });
+    })();
+  </script>
 </head>
 <body>
     <a href="#main-content" class="svb-skip">Aller au contenu principal</a>

@@ -99,6 +99,24 @@
     .thanks h2{font-family:'Dancing Script',cursive;font-weight:600;font-size:2rem;color:#4A8D84;margin:0 0 12px}
     .thanks p{color:#2F4F4F;line-height:1.6}
   </style>
+
+  <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
+  <script>
+    (function(){
+      var granted = false;
+      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+      if (!granted) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DHS707Y6XJ';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-DHS707Y6XJ', { anonymize_ip: true });
+    })();
+  </script>
 </head>
 <body>
     <a href="#main-content" class="svb-skip">Aller au contenu principal</a>
