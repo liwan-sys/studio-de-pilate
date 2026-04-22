@@ -221,6 +221,35 @@
 
   // 6bis) Analytics first-party (opt-in, respecte le consent RGPD)
   //       Endpoint Edge Function /api/track
+  //       Les events HIGH-VALUE (conversions) pinguent aussi /api/notify
+  //       qui forward vers Telegram pour notif push immédiate à l'admin.
+  var NOTIFY_EVENTS = {
+    form_submit_essai: 'form_submit',
+    form_submit_contact: 'contact_submit',
+    cta_sportigo: 'sportigo_click',
+    cta_whatsapp: 'whatsapp_click',
+    cta_calendly: 'cta_click',
+    newsletter_pending: 'newsletter_submit'
+  };
+  var svbNotify = function(event, props){
+    try {
+      var mappedEvent = NOTIFY_EVENTS[event];
+      if (!mappedEvent) return; // seulement les events high-value
+      var body = JSON.stringify({
+        event: mappedEvent,
+        label: (props && (props.label || props.discipline || props.source)) || event,
+        page: location.pathname,
+        referer: document.referrer || null,
+        userData: (props && props.userData) || null
+      });
+      fetch('/api/notify', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: body,
+        keepalive: true
+      }).catch(function(){});
+    } catch(e) {/* silent */}
+  };
   var svbTrack = function(event, props){
     try {
       if (!event) return;
@@ -243,9 +272,12 @@
           keepalive: true
         }).catch(function(){});
       }
+      // Forward high-value events vers /api/notify (Telegram push)
+      svbNotify(event, props);
     } catch(e) {/* silent */}
   };
   window.svbTrack = svbTrack;
+  window.svbNotify = svbNotify;
 
   // Auto-track CTA clicks (liens Sportigo + boutons avec data-track)
   document.addEventListener('click', function(e){
