@@ -277,25 +277,42 @@
       <a href="#main-content" class="svb-skip">Aller au contenu principal</a>
 <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="flex items-center">
-                    <img src="images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-10" width="593" height="420" decoding="async">
-                </a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-sm font-medium hover:text-green-600">ACCUEIL</a>
-                    <a href="sessions.html" class="text-sm font-medium hover:text-green-600">SESSIONS</a>
-                    <a href="studio.html" class="text-sm font-medium hover:text-green-600">STUDIO</a>
-                    <a href="tarifs.html" class="text-sm font-medium hover:text-green-600">TARIFS</a>
-                    <a href="equipe.html" class="text-sm font-medium hover:text-green-600">LA TEAM</a>
-                    <a href="/temoignages" class="text-sm font-medium hover:text-green-600">AVIS</a>
-                    <a href="bien-etre.html" class="text-sm font-medium hover:text-green-600">BIEN-ÊTRE</a>
-                    <a href="blog/index.html" class="text-sm font-medium hover:text-green-600">BLOG</a>
-                    <a href="faq.html" class="text-sm font-medium hover:text-green-600">FAQ</a>
-                </div>
-                <a href="https://wa.me/33744919155" class="hidden lg:inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">WhatsApp</a>
-            </div>
-        </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+        <a href="/index.html">
+          <img src="/images/logo.webp" alt="Logo SVB" style="height:64px;width:auto;filter:brightness(0) invert(1);" width="200" height="142">
+        </a>
+        <button id="svb-burger" aria-label="Menu" style="background:none;border:none;color:white;cursor:pointer;padding:8px;">
+          <svg id="icon-open" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg id="icon-close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div id="svb-menu" class="hidden" style="display:none;flex-direction:column;gap:12px;padding:16px 0;width:100%;text-align:center;">
+        <a href="/index.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Accueil</a>
+        <a href="/sessions.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Sessions</a>
+        <a href="/studio.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Planning</a>
+        <a href="/tarifs.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Abonnements</a>
+        <a href="/equipe.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">La Team</a>
+        <a href="/temoignages" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Avis</a>
+        <a href="/bien-etre.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Bien-être</a>
+        <a href="/cadeau.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Cadeau</a>
+        <a href="/blog/" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Blog</a>
+        <a href="/faq.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">FAQ</a>
+        <a href="/contact.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Contact</a>
+      </div>
+      <script>
+        (function(){
+          var btn=document.getElementById('svb-burger');
+          var menu=document.getElementById('svb-menu');
+          var iconO=document.getElementById('icon-open');
+          var iconC=document.getElementById('icon-close');
+          if(btn){btn.addEventListener('click',function(){
+            var isHidden=(menu.style.display==='none'||menu.style.display==='');
+            menu.style.display=isHidden?'flex':'none';
+            iconO.style.display=isHidden?'none':'block';
+            iconC.style.display=isHidden?'block':'none';
+          });}
+        })();
+      </script>
     </nav>
 
     <!-- Hero Section -->

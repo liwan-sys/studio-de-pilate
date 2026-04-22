@@ -200,34 +200,27 @@
     <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <nav role="navigation" class="p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load">
-      <div class="flex justify-between items-center w-full md:w-auto">
-        <div class="mb-0 transform hover:scale-105 transition duration-300">
-          <a href="/index.html">
-            <img src="/images/logo.webp" alt="Logo SVB" class="h-16 md:h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142">
-          </a>
-        </div>
-        <div class="flex items-center gap-3 md:hidden">
-          <a href="/en/index.html" class="text-[10px] font-semibold tracking-widest text-white/70 hover:text-[#EBC6A6] transition">FR&nbsp;|&nbsp;<strong class="text-white">EN</strong></a>
-          <button id="svb-burger" aria-label="Ouvrir le menu" class="text-white focus:outline-none p-2">
-            <svg id="icon-open" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-            <svg id="icon-close" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-        </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+        <a href="/index.html">
+          <img src="/images/logo.webp" alt="Logo SVB" style="height:64px;width:auto;filter:brightness(0) invert(1);" width="200" height="142">
+        </a>
+        <button id="svb-burger" aria-label="Menu" style="background:none;border:none;color:white;cursor:pointer;padding:8px;">
+          <svg id="icon-open" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg id="icon-close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
       </div>
-      <div id="svb-menu" class="hidden md:flex flex-col md:flex-row flex-wrap justify-center items-center gap-2 md:gap-5 text-[11px] md:text-xs font-semibold tracking-wide drop-shadow-sm w-full md:w-auto mt-3 md:mt-0">
-        <a href="/index.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Accueil</a>
-        <a href="/sessions.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Sessions</a>
-        <a href="/studio.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Planning</a>
-        <a href="/tarifs.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Abonnements</a>
-        <a href="/equipe.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">La Team</a>
-        <a href="/temoignages" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Avis</a>
-        <a href="/bien-etre.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Bien-être</a>
-        <a href="/cadeau.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Cadeau</a>
-        <a href="/blog/" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Blog</a>
-        <a href="/faq.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">FAQ</a>
-        <a href="/contact.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Contact</a>
-        <span class="hidden md:inline text-white/40">|</span>
-        <a href="/en/index.html" class="hidden md:inline hover:text-[#EBC6A6] transition text-[10px] tracking-widest">FR&nbsp;|&nbsp;<strong>EN</strong></a>
+      <div id="svb-menu" class="hidden" style="display:none;flex-direction:column;gap:12px;padding:16px 0;width:100%;text-align:center;">
+        <a href="/index.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Accueil</a>
+        <a href="/sessions.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Sessions</a>
+        <a href="/studio.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Planning</a>
+        <a href="/tarifs.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Abonnements</a>
+        <a href="/equipe.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">La Team</a>
+        <a href="/temoignages" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Avis</a>
+        <a href="/bien-etre.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Bien-être</a>
+        <a href="/cadeau.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Cadeau</a>
+        <a href="/blog/" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Blog</a>
+        <a href="/faq.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">FAQ</a>
+        <a href="/contact.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;display:block;padding:6px 0;">Contact</a>
       </div>
       <script>
         (function(){
@@ -236,9 +229,10 @@
           var iconO=document.getElementById('icon-open');
           var iconC=document.getElementById('icon-close');
           if(btn){btn.addEventListener('click',function(){
-            var open=menu.classList.toggle('hidden');
-            iconO.style.display=open?'block':'none';
-            iconC.style.display=open?'none':'block';
+            var isHidden=(menu.style.display==='none'||menu.style.display==='');
+            menu.style.display=isHidden?'flex':'none';
+            iconO.style.display=isHidden?'none':'block';
+            iconC.style.display=isHidden?'block':'none';
           });}
         })();
       </script>
