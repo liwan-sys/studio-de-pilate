@@ -221,61 +221,59 @@
   <section id="hero-video">
 
     <!-- VIDÉO DE FOND (lazy, chargée après interaction/FCP) -->
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="none" poster="videos/hero-poster.jpg" aria-hidden="true" data-svb-lazy-video>
-      <source data-src="videos/hero.mp4" type="video/mp4">
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="videos/hero-poster.jpg" aria-hidden="true" >
+      <source src="videos/hero.mp4" type="video/mp4">
     </video>
 
     <!-- VOILE D'ASSOMBRISSEMENT -->
     <div class="hero-overlay"></div>
 
     <!-- NAV PAR-DESSUS LA VIDÉO -->
-    <nav role="navigation" class="hero-nav flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
-      <div class="mb-3 md:mb-0 transform hover:scale-105 transition duration-300">
-        <a href="index.html">
-          <img src="images/logo.webp" alt="Logo SVB Santez Vous Bien" class="h-16 md:h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142">
-        </a>
+        <nav role="navigation" class="hero-nav flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
+      <div class="flex justify-between items-center w-full md:w-auto mb-0 md:mb-0">
+        <div class="transform hover:scale-105 transition duration-300">
+          <a href="/index.html">
+            <img src="/images/logo.webp" alt="Logo SVB Santez Vous Bien" class="h-16 md:h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142">
+          </a>
+        </div>
+        <div class="flex items-center gap-3 md:hidden">
+          <a href="/en/index.html" class="text-[10px] font-semibold tracking-widest text-white/70 hover:text-[#EBC6A6] transition">FR&nbsp;|&nbsp;<strong class="text-white">EN</strong></a>
+          <button id="svb-burger" aria-label="Ouvrir le menu" class="text-white focus:outline-none p-2">
+            <svg id="icon-open" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <svg id="icon-close" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="flex flex-wrap justify-center items-center gap-3 md:gap-5 text-[11px] md:text-xs font-semibold tracking-wide drop-shadow-sm">
-        <a href="index.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">ACCUEIL</a>
-        <a href="sessions.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">SESSIONS</a>
-        <a href="studio.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">PLANNING</a>
-        <a href="tarifs.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">ABONNEMENTS</a>
-        <a href="equipe.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">LA TEAM</a>
-        <a href="/temoignages" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">AVIS</a>
-        <a href="bien-etre.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">BIEN-ÊTRE</a>
-        <a href="cadeau.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">CADEAU</a>
-        <a href="/blog/" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">BLOG</a>
-        <a href="faq.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">FAQ</a>
-        <a href="contact.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">CONTACT</a>
+      <div id="svb-menu" class="hidden md:flex flex-col md:flex-row flex-wrap justify-center items-center gap-2 md:gap-5 text-[11px] md:text-xs font-semibold tracking-wide drop-shadow-sm w-full md:w-auto mt-3 md:mt-0 pb-4 md:pb-0">
+        <a href="/index.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Accueil</a>
+        <a href="/sessions.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Sessions</a>
+        <a href="/studio.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Planning</a>
+        <a href="/tarifs.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Abonnements</a>
+        <a href="/equipe.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">La Team</a>
+        <a href="/temoignages" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Avis</a>
+        <a href="/bien-etre.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Bien-être</a>
+        <a href="/cadeau.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Cadeau</a>
+        <a href="/blog/" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Blog</a>
+        <a href="/faq.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">FAQ</a>
+        <a href="/contact.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Contact</a>
+        <span class="hidden md:inline text-white/40">|</span>
+        <a href="/en/index.html" class="hidden md:inline hover:text-[#EBC6A6] transition text-[10px] tracking-widest">FR&nbsp;|&nbsp;<strong>EN</strong></a>
       </div>
+      <script>
+        (function(){
+          var btn=document.getElementById('svb-burger');
+          var menu=document.getElementById('svb-menu');
+          var iconO=document.getElementById('icon-open');
+          var iconC=document.getElementById('icon-close');
+          if(btn){btn.addEventListener('click',function(){
+            var open=menu.classList.toggle('hidden');
+            iconO.style.display=open?'block':'none';
+            iconC.style.display=open?'none':'block';
+          });}
+        })();
+      </script>
     </nav>
-
-    <!-- CONTENU CENTRÉ : TITRE + CTA -->
-    <div class="hero-content">
-      <p class="hero-eyebrow">Saint-Ouen · 4 min du métro Mairie · Ouvert 7j/7</p>
-
-      <h1 class="hero-title">
-        <span class="line-script">Bouge mieux,</span>
-        <span class="line-display">Vis plus fort.</span>
-      </h1>
-
-      <p class="hero-sub">
-        Le studio où 12 personnes max partagent ton cours.<br>
-        <span class="italic opacity-90">Reformer · Crossformer · Cross Training · Yoga · Boxe · 16 coachs certifiés</span>
-      </p>
-
-      <div class="hero-cta-row">
-        <a href="#offre-premium" class="btn-cta-primary scroll-smooth">Je teste pour 30 € — intégralement remboursés</a>
-        <a href="questionnaire-abonnement-svb.html" class="btn-cta-ghost">Je sais déjà ce que je veux</a>
-      </div>
-    </div>
-
-    <!-- INDICATEUR SCROLL -->
-    <a href="#offre-premium" class="scroll-hint scroll-smooth" aria-label="Découvrir">
-      <span>Découvrir</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-    </a>
-  </section>
+</section>
 
   <!-- === BARRE DE CONFIANCE — DIFFÉRENCIATEURS SVB === -->
   <!-- Bloc 1 : VEDETTE — comparaison annulation 1h vs 24h ailleurs -->
