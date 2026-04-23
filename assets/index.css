@@ -98,8 +98,10 @@
     .premium-offer-wrapper { animation: gentle-float 5s ease-in-out infinite; }
 
     .premium-offer-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.92) 100%);
-      backdrop-filter: blur(30px); border-radius: 35px; padding: 55px 45px; max-width: 950px;
+      background: rgba(255,255,255,0.55);
+      -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 35px; padding: 55px 45px; max-width: 950px;
       margin: 0 auto; position: relative; border: 3px solid rgba(255,255,255,0.9);
       box-shadow: 0 25px 70px rgba(0,0,0,0.15); transition: all 0.5s ease;
       word-wrap: break-word; overflow-wrap: break-word;
