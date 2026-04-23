@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
     <script>
-    /* GTM gated by RGPD consent (svb.js handles the banner + reload).
-       Fires only if user has explicitly granted consent. */
     (function(){
       var granted = false;
       try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
@@ -17,27 +15,27 @@
     })();
   </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/favicon.jpg" />
-    <title>Cours Reformer, Crossformer, Cross Training, Yoga à Saint-Ouen | SVB</title>
-  <meta name="description" content="Cross Training, Pilates Reformer, Crossformer, Yoga, Boxe et Afrodance en petit groupe à Saint-Ouen. 16 coachs certifiés. Réservez votre séance d'essai !">
-  <meta name="keywords" content="cours sport saint-ouen, cross training, pilates reformer, crossformer, yoga, boxe, afrodance, coaching petit groupe 93">
+    <link rel="icon" type="image/png" href="/images/favicon.jpg" />
+    <title>Pilates Reformer, Crossformer, Cross Training, Yoga Classes in Saint-Ouen | SVB</title>
+  <meta name="description" content="Cross Training, Pilates Reformer, Crossformer, Yoga, Boxing and Afrodance in small groups in Saint-Ouen. 16 certified coaches. Book your trial class!">
+  <meta name="keywords" content="fitness classes saint-ouen, cross training, pilates reformer, crossformer, yoga, boxing, afrodance, small group coaching 93">
   <meta name="robots" content="index, follow">
   <meta name="author" content="SVB SantezVousBien">
-  <link rel="canonical" href="https://studiosvb.com/sessions">
+  <link rel="canonical" href="https://studiosvb.com/en/sessions.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://studiosvb.com/sessions">
-  <meta property="og:title" content="Cours Reformer, Crossformer, Cross Training, Yoga à Saint-Ouen | SVB">
-  <meta property="og:description" content="Cross Training, Pilates Reformer, Crossformer, Yoga, Boxe et Afrodance en petit groupe à Saint-Ouen. 16 coachs certifiés. Essai offert !">
+  <meta property="og:url" content="https://studiosvb.com/en/sessions.html">
+  <meta property="og:title" content="Pilates Reformer, Crossformer, Cross Training, Yoga Classes in Saint-Ouen | SVB">
+  <meta property="og:description" content="Cross Training, Pilates Reformer, Crossformer, Yoga, Boxing and Afrodance in small groups in Saint-Ouen. 16 certified coaches. Free trial!">
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
-  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="SVB SantezVousBien">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Nos Cours &amp; Sessions | SVB SantezVousBien">
-  <meta name="twitter:description" content="Cross Training, Pilates Reformer, Crossformer, Yoga, Boxe. Sessions de 50 min avec coachs certifies a Saint-Ouen-sur-Seine.">
+  <meta name="twitter:title" content="Our Classes & Sessions | SVB SantezVousBien">
+  <meta name="twitter:description" content="Cross Training, Pilates Reformer, Crossformer, Yoga, Boxing. 50-minute sessions with certified coaches in Saint-Ouen-sur-Seine.">
   <meta name="twitter:image" content="https://studiosvb.com/images/og-image.jpg">
 
   <meta name="theme-color" content="#4A8D84">
@@ -46,7 +44,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/tailwind.css?v=20260423a" />
+    <link rel="stylesheet" href="/assets/tailwind.css?v=20260422p" />
 
     <style>
         :root {
@@ -68,7 +66,6 @@
             scroll-behavior: smooth;
         }
 
-        /* FOND IMMERSIF */
         .ambient-bg {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
             background: linear-gradient(180deg, #CDE4D3 0%, #F5F0E1 100%);
@@ -90,7 +87,6 @@
         @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
         .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
 
-        /* === SUB-NAV STICKY === */
         .sub-nav-wrapper {
             position: sticky; top: 20px; z-index: 40;
             display: flex; justify-content: center; margin-bottom: 40px; pointer-events: none;
@@ -108,9 +104,8 @@
         }
         .nav-pill:hover { background: white; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-        /* === CARTE SESSION (DESIGN ÉPURÉ) === */
         .session-card {
-            background: rgba(255, 255, 255, 0.5); /* Transparence légère */
+            background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(12px);
             border-radius: 24px;
             padding: 35px;
@@ -123,16 +118,14 @@
             overflow: hidden;
         }
 
-        /* Indicateur couleur en haut */
         .session-card::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
-            background: currentColor; /* Prend la couleur du texte/theme */
+            background: currentColor;
         }
 
-        /* Effet au survol */
         .session-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.9); /* Devient plus blanc */
+            background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
 
@@ -144,7 +137,6 @@
             font-size: 0.95rem; line-height: 1.7; color: #555; font-weight: 500;
         }
 
-        /* Section Headers */
         .section-header { display: flex; align-items: center; margin-bottom: 30px; margin-top: 20px; }
         .section-icon { 
             width: 60px; height: 60px; border-radius: 50%; 
@@ -154,7 +146,6 @@
         }
         .section-title { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: var(--svb-text); line-height: 1; }
 
-        /* THÈMES COULEURS */
         .theme-crossformer { color: var(--col-peach); }
         .theme-crossformer .section-icon { background: var(--col-peach); }
         .theme-reformer { color: var(--col-sand); }
@@ -166,14 +157,12 @@
         .theme-kids { color: var(--col-peach); }
         .theme-kids .section-icon { background: linear-gradient(135deg, var(--col-peach), var(--col-green)); }
 
-        /* BOUTON FLOTTANT */
         .wa-container { position: fixed; bottom: 30px; right: 30px; z-index: 50; }
         .whatsapp-btn { background-color: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); transition: transform 0.3s; }
         .whatsapp-btn:hover { transform: scale(1.1); }
 
     </style>
 
-  <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -181,7 +170,7 @@
     "@id": "https://studiosvb.com/#organization",
     "name": "SVB SantezVousBien",
     "alternateName": "Studio SVB",
-    "description": "Studio Pilates Reformer & coaching sportif a Saint-Ouen-sur-Seine. Crossformer, yoga, small group training avec 16 coachs certifies.",
+    "description": "Pilates Reformer & fitness coaching studio in Saint-Ouen-sur-Seine. Crossformer, yoga, small group training with 16 certified coaches.",
     "url": "https://studiosvb.com",
     "telephone": "+33744919155",
     "email": "contact@studiosvb.fr",
@@ -209,9 +198,8 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260423a" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260422p" />
 
-  <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
   <script>
     (function(){
       var granted = false;
@@ -230,46 +218,44 @@
   </script>
 </head>
 <body class="content-visible">
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu principal</a>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
 
     <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
     <div class="noise-overlay"></div>
 
-    <nav role="navigation" class="relative p-6 flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
-        <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
-            <a href="index.html"><img src="images/logo.webp" alt="Logo SVB Santez Vous Bien" class="h-24 w-auto object-contain brightness-0 invert drop-shadow-md" width="60" fetchpriority="high" height="42"></a>
+        <nav role="navigation" class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
+      <div style="display:flex;flex-direction:column;width:100%;gap:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+          <a href="/en/index.html">
+            <img src="/images/logo.webp" alt="Logo SVB" style="height:48px;width:auto;filter:brightness(0) invert(1);" width="200" height="142">
+          </a>
+          <a href="/en/sessions.html" style="color:white;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;white-space:nowrap;">EN&nbsp;|&nbsp;FR</a>
         </div>
-        <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='center';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}})()">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-      <div id="nav-menu" class="hidden md:flex flex-wrap justify-center space-x-4 md:space-x-6 text-[10px] md:text-xs font-semibold tracking-normal drop-shadow-sm">
-            <a href="index.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Accueil</a>
-            <a href="sessions.html" class="border-b-2 border-white pb-1">Sessions</a>
-            <a href="studio.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Planning</a>
-            <a href="tarifs.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Abonnements</a>
-            <a href="equipe.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">La Team</a>
-            <a href="/temoignages" class="hover:text-gray-100 transition hover:scale-105 inline-block">Avis</a>
-            <a href="bien-etre.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Bien-Être</a>
-            <a href="cadeau.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Cadeau</a>
-            <a href="/blog/" class="hover:text-gray-100 transition hover:scale-105 inline-block">Blog</a>
-            <a href="faq.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
-            <a href="contact.html" class="hover:text-gray-100 transition hover:scale-105 inline-block">Contact</a>
-        <a href="/en/" class="opacity-80 hover:opacity-100 transition inline-block"><strong>FR</strong>&nbsp;|&nbsp;EN</a>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:2px 0;">
+          <a href="/en/index.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Home</a>
+          <a href="/en/sessions.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Sessions</a>
+          <a href="/en/studio.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Schedule</a>
+          <a href="/en/tarifs.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Memberships</a>
+          <a href="/en/equipe.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">The Team</a>
+          <a href="/en/index.html#reviews" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Reviews</a>
+          <a href="/en/bien-etre.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Wellness</a>
+          <a href="/en/cadeau.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Gift</a>
+          <a href="/blog/" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Blog</a>
+          <a href="/en/faq.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">FAQ</a>
+          <a href="/en/contact.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Contact</a>
         </div>
       </div>
     </nav>
 
     <div id="main-content" class="relative text-center py-16 px-4 reveal-load d-1 z-10">
-        <h1 class="text-7xl md:text-9xl text-[#2F4F4F] drop-shadow-xl mb-4 font-hand">7 façons de te sentir vivant·e.</h1>
+        <h1 class="text-7xl md:text-9xl text-[#2F4F4F] drop-shadow-xl mb-4 font-hand">7 ways to feel alive.</h1>
         <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-bold bg-white/40 inline-block px-6 py-2 rounded-full backdrop-blur-md shadow-sm border border-white/20">
-            Une méthode par objectif
+            One method per goal
         </p>
         <p class="text-[#2F4F4F] text-base md:text-lg max-w-2xl mx-auto mt-6 font-medium leading-relaxed">
-            Tonus, cardio, mobilité, puissance, confiance. 16 coachs certifiés, petits groupes (max 12), technique avant tout.
+            Tone, cardio, mobility, power, confidence. 16 certified coaches, small groups (max 12), technique first.
         </p>
     </div>
 
@@ -293,7 +279,7 @@
             <div class="grid md:grid-cols-1 gap-6">
                 <div class="session-card">
                     <h3 class="activity-name">Crossformer</h3>
-                    <p class="activity-desc"><strong>50 min · 8 max · tous niveaux.</strong> Le cours signature SVB : 20 min de Reformer pour activer les muscles profonds, puis 15 à 20 min de cardio dynamique. La combinaison stimule l'effet EPOC (dépense calorique post-effort). Beaucoup observent des progrès visibles après 8 à 12 semaines de pratique régulière.</p>
+                    <p class="activity-desc"><strong>50 min · 8 max · all levels.</strong> SVB's signature class: 20 minutes of Reformer to activate deep muscles, then 15-20 minutes of dynamic cardio. The combination stimulates the EPOC effect (post-workout calorie burn). Many see visible progress after 8-12 weeks of regular practice.</p>
                 </div>
             </div>
         </div>
@@ -306,7 +292,7 @@
             <div class="grid md:grid-cols-1 gap-6">
                 <div class="session-card">
                     <h3 class="activity-name">Pilates Reformer</h3>
-                    <p class="activity-desc"><strong>50 min · 8 max · tous niveaux.</strong> Ressorts calibrés, précision technique, zéro impact articulaire. La plupart des pratiquant·es rapportent une meilleure conscience posturale dès les premières séances, avec un travail progressif des muscles profonds. Discipline accessible à tous — grossesse, post-partum, senior, reprise après blessure.</p>
+                    <p class="activity-desc"><strong>50 min · 8 max · all levels.</strong> Calibrated springs, technical precision, zero joint impact. Most practitioners report better postural awareness from the first sessions, with progressive work on deep muscles. Accessible to everyone — pregnancy, postpartum, seniors, returning from injury.</p>
                 </div>
             </div>
         </div>
@@ -320,27 +306,27 @@
                 
                 <div class="session-card">
                     <h3 class="activity-name">Cross Training</h3>
-                    <p class="activity-desc"><strong>55 min · tous niveaux.</strong> Le format SVB le plus polyvalent : cardio + charges légères + poids de corps. Se dépasser sans se casser — technique avant chrono.</p>
+                    <p class="activity-desc"><strong>55 min · all levels.</strong> SVB's most versatile format: cardio + light weights + bodyweight. Push yourself without breaking — technique before speed.</p>
                 </div>
 
                 <div class="session-card">
                     <h3 class="activity-name">Cross Rox</h3>
-                    <p class="activity-desc"><strong>55 min · intermédiaire.</strong> Inspiration Hyrox : course + ateliers fonctionnels. Tu sors KO, tu reviens. Pour les sportifs qui veulent un vrai défi.</p>
+                    <p class="activity-desc"><strong>55 min · intermediate.</strong> Hyrox-inspired: running + functional workshops. You leave exhausted, you come back. For athletes who want a real challenge.</p>
                 </div>
 
                 <div class="session-card">
                     <h3 class="activity-name">Cross Core</h3>
-                    <p class="activity-desc"><strong>55 min · tous niveaux.</strong> Sangle abdominale profonde, gainage intelligent, obliques. On ne fait pas 100 crunchs — on fait 20 exercices bien exécutés. Les changements se ressentent généralement après quelques semaines de pratique régulière.</p>
+                    <p class="activity-desc"><strong>55 min · all levels.</strong> Deep abdominal strength, smart core work, obliques. We don't do 100 crunches — we do 20 exercises done right. Changes feel noticeable after a few weeks of regular practice.</p>
                 </div>
 
                 <div class="session-card">
                     <h3 class="activity-name">Cross Body</h3>
-                    <p class="activity-desc"><strong>55 min · débutant ok.</strong> Renforcement global <strong>sans impact ni sauts</strong>. Parfait pour reprendre le sport, post-partum, ou si tu préserves tes articulations.</p>
+                    <p class="activity-desc"><strong>55 min · beginner friendly.</strong> Full-body strengthening <strong>with no impact or jumping</strong>. Perfect for returning to fitness, postpartum, or protecting your joints.</p>
                 </div>
 
                 <div class="session-card">
                     <h3 class="activity-name">Cross Yoga</h3>
-                    <p class="activity-desc"><strong>55 min · tous niveaux.</strong> Yoga + mobilité, axe physique pur (pas de chant, pas de spirituel). Idéal après un gros Cross Training ou un lundi compliqué.</p>
+                    <p class="activity-desc"><strong>55 min · all levels.</strong> Yoga + mobility, pure physical focus (no chanting, no spiritual). Ideal after a heavy Cross Training session or a tough Monday.</p>
                 </div>
             </div>
         </div>
@@ -354,37 +340,37 @@
                 
                 <div class="session-card">
                     <h3 class="activity-name">Yoga Vinyasa</h3>
-                    <p class="activity-desc"><strong>60 min · tous niveaux.</strong> Flow dynamique où chaque mouvement suit ton souffle. Tu gaines, tu t'étires, tu transpires — et tu sors aligné·e.</p>
+                    <p class="activity-desc"><strong>60 min · all levels.</strong> Dynamic flow where every movement follows your breath. You strengthen, you stretch, you sweat — and you leave aligned.</p>
                 </div>
 
                 <div class="session-card">
                     <h3 class="activity-name">Hatha Flow</h3>
-                    <p class="activity-desc"><strong>60 min · débutant friendly.</strong> Pratique plus lente, postures tenues 30-90 sec. Parfait pour débuter, pour retrouver le calme ou pour travailler l'alignement profond.</p>
+                    <p class="activity-desc"><strong>60 min · beginner friendly.</strong> Slower practice, poses held 30-90 seconds. Perfect for beginners, regaining calm, or working on deep alignment.</p>
                 </div>
 
                 <div class="session-card">
                     <h3 class="activity-name">Classic Pilates</h3>
-                    <p class="activity-desc"><strong>55 min · tous niveaux.</strong> Le Pilates au sol traditionnel. Contrôle du mouvement, respiration, Powerhouse. La base technique, sans machine.</p>
+                    <p class="activity-desc"><strong>55 min · all levels.</strong> Traditional mat-based Pilates. Movement control, breathing, Powerhouse. Technical foundation, no machines.</p>
                 </div>
 
                 <div class="session-card">
                     <h3 class="activity-name">Power Pilates</h3>
-                    <p class="activity-desc"><strong>55 min · intermédiaire.</strong> Pilates au sol version rythmée — enchaînements rapides, cardio modéré. Plus de sueur que le Classic, sans machine.</p>
+                    <p class="activity-desc"><strong>55 min · intermediate.</strong> Mat Pilates at a faster pace — rapid sequences, moderate cardio. More sweat than Classic, no machines.</p>
                 </div>
 
                 <div class="session-card">
-                    <h3 class="activity-name">Boxe Anglaise</h3>
-                    <p class="activity-desc"><strong>55 min · tous niveaux.</strong> Pieds, gardes, combos, esquives. Sacs et pattes d'ours — <strong>zéro contact</strong>. Technique + cardio + confiance. Matériel prêté.</p>
+                    <h3 class="activity-name">Boxing</h3>
+                    <p class="activity-desc"><strong>55 min · all levels.</strong> Footwork, stance, combinations, evasion. Bags and pads — <strong>zero contact</strong>. Technique + cardio + confidence. Equipment provided.</p>
                 </div>
 
                 <div class="session-card">
                     <h3 class="activity-name">Afrodance'All</h3>
-                    <p class="activity-desc"><strong>60 min · fun.</strong> Chorégraphies sur rythmes afro, cardio collectif, pur lâcher-prise. Tu sues, tu ris, tu kiffes. Débarque en tenue confortable.</p>
+                    <p class="activity-desc"><strong>60 min · fun.</strong> Choreography to Afro beats, group cardio, pure release. You sweat, you laugh, you enjoy. Come in comfortable clothes.</p>
                 </div>
 
                 <div class="session-card">
                     <h3 class="activity-name">Core & Stretch</h3>
-                    <p class="activity-desc"><strong>55 min · tous niveaux.</strong> Mix parfait : gainage + étirements guidés. Idéal après une grosse semaine, ou pour complémenter Reformer et Cross.</p>
+                    <p class="activity-desc"><strong>55 min · all levels.</strong> Perfect mix: core work + guided stretching. Ideal after a big week, or to complement Reformer and Cross training.</p>
                 </div>
             </div>
         </div>
@@ -397,12 +383,12 @@
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="session-card">
                     <h3 class="activity-name">Training Kids</h3>
-                    <p class="activity-desc"><strong>45 min · 5-12 ans · samedi 9 h 30.</strong> Parcours de motricité, jeux d'équipe, défis sportifs. On construit coordination, confiance en soi et esprit d'équipe.</p>
+                    <p class="activity-desc"><strong>45 min · 5-12 years · Saturday 9:30 AM.</strong> Motor skills course, team games, sports challenges. We build coordination, self-confidence, and team spirit.</p>
                 </div>
 
                 <div class="session-card">
                     <h3 class="activity-name">Yoga Kids</h3>
-                    <p class="activity-desc"><strong>45 min · 5-12 ans · mercredi 16 h.</strong> Apprendre à respirer, à s'ancrer, à connaître son corps — à travers des histoires et postures ludiques. Utile pour l'attention à l'école.</p>
+                    <p class="activity-desc"><strong>45 min · 5-12 years · Wednesday 4 PM.</strong> Learn to breathe, ground yourself, know your body — through stories and playful poses. Helpful for classroom focus.</p>
                 </div>
             </div>
         </div>
@@ -412,35 +398,35 @@
     <footer class="bg-[#2F4F4F] text-white py-12 mt-8">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
       <div>
-        <img src="images/logo.webp" alt="Logo SVB Santez Vous Bien" class="w-32 mb-6 brightness-0 invert" / width="120" height="85">
-        <p class="opacity-80 leading-relaxed">Votre studio de coaching privé et bien-être à Saint-Ouen.<br/>Pilates, Yoga, Training et Soins.</p>
+        <img src="/images/logo.webp" alt="Logo SVB Santez Vous Bien" class="w-32 mb-6 brightness-0 invert" width="120" height="85">
+        <p class="opacity-80 leading-relaxed">Your private coaching and wellness studio in Saint-Ouen.<br/>Pilates, Yoga, Training and Care.</p>
         <div class="flex gap-4 mt-4">
-          <a href="https://www.instagram.com/studiosvb/" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" aria-label="Instagram SVB" class="opacity-70 hover:opacity-100 transition">
+          <a href="https://www.instagram.com/studiosvb/" target="_blank" rel="noopener noreferrer" aria-label="Instagram SVB" class="opacity-70 hover:opacity-100 transition">
             <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61574972498498" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" aria-label="Facebook SVB" class="opacity-70 hover:opacity-100 transition">
+          <a href="https://www.facebook.com/profile.php?id=61574972498498" target="_blank" rel="noopener noreferrer" aria-label="Facebook SVB" class="opacity-70 hover:opacity-100 transition">
             <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
         </div>
       </div>
       <div>
-        <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
+        <h3 class="font-bold uppercase tracking-widest mb-4">Contact Us</h3>
         <ul class="space-y-2 opacity-80">
           <li><a href="tel:0744919155" class="hover:text-white transition">07 44 91 91 55</a></li>
           <li><a href="mailto:hello@studiosvb.fr" class="hover:text-white transition">hello@studiosvb.fr</a></li>
         </ul>
       </div>
       <div>
-        <h3 class="font-bold uppercase tracking-widest mb-4">Nous trouver</h3>
-        <p class="opacity-80 leading-relaxed">6 Mail André Breton<br/>&amp; 40 Cours des Lavandières<br/>93400 Saint-Ouen-sur-Seine<br/>(Métro Mairie de Saint-Ouen)</p>
+        <h3 class="font-bold uppercase tracking-widest mb-4">Find Us</h3>
+        <p class="opacity-80 leading-relaxed">6 Mail André Breton<br/>&amp; 40 Cours des Lavandières<br/>93400 Saint-Ouen-sur-Seine<br/>(Metro Mairie de Saint-Ouen)</p>
       </div>
     </div>
     <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/20 text-center text-xs opacity-60">
-      <p class="mb-2">© 2026 SVB Santez Vous Bien - Tous droits réservés</p>
+      <p class="mb-2">© 2026 SVB Santez Vous Bien - All rights reserved</p>
       <div class="space-x-4">
-        <a href="mentions-legales.html" class="hover:text-white transition underline decoration-1 underline-offset-2">Mentions Légales</a>
+        <a href="mentions-legales.html" class="hover:text-white transition underline decoration-1 underline-offset-2">Legal Notice</a>
         <span>|</span>
-        <a href="cgv.html" class="hover:text-white transition underline decoration-1 underline-offset-2">CGV</a>
+        <a href="cgv.html" class="hover:text-white transition underline decoration-1 underline-offset-2">T&Cs</a>
       </div>
     </div>
   </footer>
@@ -451,6 +437,6 @@
         </a>
     </div>
 
-  <script src="/assets/svb.js?v=20260423a" defer></script>
+  <script src="/assets/svb.js?v=20260422p" defer></script>
 </body>
 </html>

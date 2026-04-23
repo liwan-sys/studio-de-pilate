@@ -224,9 +224,20 @@
     <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="videos/hero-poster.jpg" aria-hidden="true">
       <source src="videos/hero.mp4" type="video/mp4">
     </video>
+    <script>
+      (function(){
+        var v=document.getElementById('hero-vid');
+        if(v){
+          var p=v.play();
+          if(p!==undefined){p.catch(function(){
+            document.addEventListener('touchstart',function(){v.play();},{once:true});
+          });}
+        }
+      })();
+    </script>
 
     <!-- VOILE D'ASSOMBRISSEMENT -->
-    <div class="hero-overlay"></div>
+    <div class="hero-overlay" style="z-index:1;"></div>
 
     <!-- NAV PAR-DESSUS LA VIDÉO -->
     <nav role="navigation" class="hero-nav flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
@@ -256,13 +267,7 @@
       </div>
     </nav>
     </div>
-
-    <!-- INDICATEUR SCROLL -->
-    <a href="#offre-premium" class="scroll-hint scroll-smooth" aria-label="Découvrir">
-      <span>Découvrir</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-    </a>
-  </section>
+</section>
 
   <!-- === BARRE DE CONFIANCE — DIFFÉRENCIATEURS SVB === -->
   <!-- Bloc 1 : VEDETTE — comparaison annulation 1h vs 24h ailleurs -->
