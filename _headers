@@ -33,6 +33,16 @@
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
+# Videos : Content-Type explicite + accepte Range pour streaming mobile
+/*.mp4
+  Content-Type: video/mp4
+  Accept-Ranges: bytes
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/*.webm
+  Content-Type: video/webm
+  Accept-Ranges: bytes
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
 # HTML : charset explicite (sinon certains navigateurs decodent en Latin-1
 # malgre <meta charset> — surtout Safari mobile avec X-Content-Type-Options: nosniff)
 /*.html
