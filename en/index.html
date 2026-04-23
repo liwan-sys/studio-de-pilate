@@ -125,27 +125,30 @@
     </video>
     <div class="hero-overlay"></div>
 
-    <nav role="navigation" class="hero-nav flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
-      <div style="display:flex;flex-direction:column;width:100%;gap:8px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-          <a href="/en/index.html">
-            <img src="/images/logo.webp" alt="Logo SVB" style="height:48px;width:auto;filter:brightness(0) invert(1);" width="200" height="142">
-          </a>
-          <a href="/index.html" aria-label="Version française" style="color:white;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;white-space:nowrap;background:rgba(255,255,255,0.15);"><span style="opacity:0.55;">FR</span>&nbsp;|&nbsp;<span style="font-weight:900;color:#E8B496;">EN</span></a>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:2px 0;">
-          <a href="/en/index.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Home</a>
-          <a href="/en/sessions.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Sessions</a>
-          <a href="/en/studio.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Schedule</a>
-          <a href="/en/tarifs.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Memberships</a>
-          <a href="/en/equipe.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">The Team</a>
-          <a href="/en/index.html#reviews" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Reviews</a>
-          <a href="/en/bien-etre.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Wellness</a>
-          <a href="/en/cadeau.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Gift</a>
-          <a href="/blog/" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Blog</a>
-          <a href="/en/faq.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">FAQ</a>
-          <a href="/en/contact.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Contact</a>
-        </div>
+    <nav role="navigation" class="hero-nav flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
+      <div class="mb-3 md:mb-0 transform hover:scale-105 transition duration-300">
+        <a href="/en/index.html">
+          <img src="/images/logo.webp" alt="Logo SVB Santez Vous Bien" class="h-16 md:h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142">
+        </a>
+      </div>
+      <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='center';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}})()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <div id="nav-menu" class="hidden md:flex flex-wrap justify-center items-center gap-3 md:gap-5 text-[10px] md:text-xs font-semibold tracking-normal drop-shadow-sm">
+        <a href="/en/index.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Home</a>
+        <a href="/en/sessions.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Sessions</a>
+        <a href="/en/studio.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Schedule</a>
+        <a href="/en/tarifs.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Memberships</a>
+        <a href="/en/equipe.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">The Team</a>
+        <a href="/en/index.html#reviews" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Reviews</a>
+        <a href="/en/bien-etre.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Wellness</a>
+        <a href="/en/cadeau.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Gift</a>
+        <a href="/blog/" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Blog</a>
+        <a href="/en/faq.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">FAQ</a>
+        <a href="/en/contact.html" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Contact</a>
+        <a href="/index.html" aria-label="Version française" class="transition inline-block" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.15);white-space:nowrap;"><span style="opacity:0.55;">FR</span>&nbsp;|&nbsp;<span style="font-weight:900;color:#E8B496;">EN</span></a>
       </div>
     </nav>
 
