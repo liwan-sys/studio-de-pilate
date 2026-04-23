@@ -219,6 +219,34 @@
   if (document.readyState === 'complete') initLazyVideos();
   else window.addEventListener('load', initLazyVideos);
 
+  // 5bis) Autoplay safety-net — certains navigateurs (mobile, Low Power Mode,
+  //       autoplay policy stricte) bloquent play() au chargement initial.
+  //       On force le play après le premier geste utilisateur (scroll/tap/click).
+  function forceHeroAutoplay(){
+    var videos = document.querySelectorAll('video[autoplay][muted]');
+    videos.forEach(function(v){
+      if (v.paused) {
+        v.muted = true; // requis pour autoplay
+        v.playsInline = true;
+        var p = v.play();
+        if (p && typeof p.catch === 'function') p.catch(function(){ /* silent, retry on interact */ });
+      }
+    });
+  }
+  // Tenter une fois à l'init
+  if (document.readyState === 'complete') forceHeroAutoplay();
+  else window.addEventListener('DOMContentLoaded', forceHeroAutoplay);
+  // Puis au premier geste utilisateur (scroll, tap, clic)
+  var onFirstInteract = function(){
+    forceHeroAutoplay();
+    ['touchstart','click','scroll','keydown'].forEach(function(ev){
+      window.removeEventListener(ev, onFirstInteract, { passive: true });
+    });
+  };
+  ['touchstart','click','scroll','keydown'].forEach(function(ev){
+    window.addEventListener(ev, onFirstInteract, { passive: true, once: true });
+  });
+
   // 6bis) Analytics first-party (opt-in, respecte le consent RGPD)
   //       Endpoint Edge Function /api/track
   //       Les events HIGH-VALUE (conversions) pinguent aussi /api/notify
