@@ -211,68 +211,66 @@
 })();
 
 /*!
- * Studio SVB — Mobile nav drawer
+ * Studio SVB — Mobile nav drawer (v2, stacking-context-safe)
  *
- * Remplace le toggle inline (display:flex column inline-styles) par un vrai
- * drawer right-slide + backdrop, scroll-lock, animations hamburger→X, et
- * fermeture automatique au clic lien / outside / ESC.
- *
- * Zéro changement HTML requis : on détecte #nav-toggle + #nav-menu, on strip
- * l'onclick inline existant, on réinstalle nos handlers. Marche identique sur
- * les 24+ pages du site.
+ * Stratégie: cloner les <a> du #nav-menu dans un drawer séparé, enfant direct
+ * de <body>. Évite les bugs de stacking context causés par reveal-load / blobs
+ * ambients qui ont leur propre contexte z-index. Le #nav-menu original reste
+ * intact pour la desktop (md:flex), il est juste forcé display:none en mobile
+ * pour qu'on ne voie pas la version legacy empilée.
  */
 (function () {
     'use strict';
 
     var CSS = [
-        /* Le drawer ne s'active qu'en mobile (<768px, breakpoint md de Tailwind) */
         '@media (max-width: 767px){',
-            /* Toggle (hamburger → X) */
-            '#nav-toggle{position:relative;z-index:100002;transition:transform .25s ease;}',
+            /* Toggle hamburger au-dessus de tout */
+            '#nav-toggle{position:relative;z-index:100003;transition:transform .25s ease;}',
             'body.svb-nav-open #nav-toggle{transform:rotate(90deg);color:#2F4F4F;}',
+            /* Drawer ORIGINAL (#nav-menu dans la nav): caché en mobile — on utilise le clone */
+            '#nav-menu{display:none !important;}',
             /* Backdrop */
             '.svb-nav-backdrop{',
-                'position:fixed;inset:0;z-index:100000;',
-                'background:rgba(47,79,79,0.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);',
+                'position:fixed;top:0;left:0;right:0;bottom:0;z-index:100000;',
+                'background:rgba(47,79,79,0.5);',
                 'opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s;',
             '}',
             'body.svb-nav-open .svb-nav-backdrop{opacity:1;visibility:visible;}',
-            /* Drawer — override des inline-styles injectés par l\'onclick historique */
-            '#nav-menu{',
-                'position:fixed !important;top:0 !important;right:0 !important;bottom:0 !important;left:auto !important;',
-                'width:82% !important;max-width:320px !important;',
-                'margin:0 !important;padding:88px 22px 28px !important;',
-                'background:rgba(255,255,255,0.98) !important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);',
+            /* Drawer CLONE (enfant de body, pas de piège stacking context) */
+            '.svb-mobile-drawer{',
+                'position:fixed;top:0;right:0;bottom:0;',
+                'width:82%;max-width:320px;',
+                'margin:0;padding:82px 20px 28px;',
+                'background:#ffffff;',
                 'box-shadow:-18px 0 50px -12px rgba(47,79,79,0.28);',
-                'display:flex !important;flex-direction:column !important;align-items:stretch !important;',
-                'justify-content:flex-start !important;',
-                'gap:2px !important;',
-                'overflow-y:auto;-webkit-overflow-scrolling:touch;',
-                'transform:translateX(100%);transition:transform .28s cubic-bezier(.16,1,.3,1);',
-                'z-index:100001;',
-                'text-align:left;',
+                'display:flex;flex-direction:column;align-items:stretch;',
+                'gap:0;overflow-y:auto;-webkit-overflow-scrolling:touch;',
+                'transform:translateX(105%);transition:transform .3s cubic-bezier(.16,1,.3,1);',
+                'z-index:100001;font-family:"Montserrat",sans-serif;',
+                'visibility:hidden;',
             '}',
-            '#nav-menu.hidden{transform:translateX(100%);display:flex !important;}',
-            'body.svb-nav-open #nav-menu{transform:translateX(0) !important;}',
-            '#nav-menu a{',
-                'display:block !important;width:100%;',
-                'padding:14px 14px !important;margin:0 !important;',
-                'font-size:15px !important;font-weight:600 !important;',
-                'color:#2F4F4F !important;text-align:left !important;',
-                'border-radius:10px;border-bottom:1px solid rgba(47,79,79,0.06);',
-                'transition:background .15s ease,color .15s ease,transform .15s ease;',
+            'body.svb-nav-open .svb-mobile-drawer{transform:translateX(0);visibility:visible;}',
+            '.svb-mobile-drawer a{',
+                'display:block;width:100%;',
+                'padding:15px 16px;margin:0;',
+                'font-size:15px;font-weight:600;',
+                'color:#2F4F4F;text-align:left;text-decoration:none;',
+                'border-radius:10px;border-bottom:1px solid rgba(47,79,79,0.08);',
+                'transition:background .15s ease,color .15s ease;',
+                'background:transparent;',
+                'letter-spacing:0;text-transform:none;',
             '}',
-            '#nav-menu a:last-child{border-bottom:0;}',
-            '#nav-menu a:hover,#nav-menu a:active,#nav-menu a:focus{',
-                'background:#F2E6CF !important;color:#2F4F4F !important;outline:none;',
+            '.svb-mobile-drawer a:last-child{border-bottom:0;}',
+            '.svb-mobile-drawer a:hover,.svb-mobile-drawer a:active,.svb-mobile-drawer a:focus{',
+                'background:#F2E6CF;color:#2F4F4F;outline:none;',
             '}',
-            /* Le toggle FR|EN — styling spécifique, garde son apparence pilule */
-            '#nav-menu a[aria-label="English version"]{',
-                'margin-top:18px !important;border-bottom:0 !important;',
-                'text-align:center !important;padding:10px 14px !important;',
-                'background:rgba(242,230,207,0.35) !important;',
+            /* FR|EN gardé en pilule centrée en bas */
+            '.svb-mobile-drawer a[aria-label="English version"]{',
+                'margin-top:16px;border-bottom:0;text-align:center;',
+                'padding:11px 14px;background:rgba(242,230,207,0.5);',
+                'border-radius:22px;',
             '}',
-            /* Scroll-lock body quand drawer ouvert */
+            /* Scroll-lock body */
             'body.svb-nav-open{overflow:hidden;}',
         '}'
     ].join('');
@@ -286,42 +284,56 @@
         document.head.appendChild(s);
     }
 
+    var backdrop = null, drawer = null;
+
     function ensureBackdrop() {
-        var b = document.querySelector('.svb-nav-backdrop');
-        if (b) return b;
-        b = document.createElement('div');
-        b.className = 'svb-nav-backdrop';
-        b.setAttribute('aria-hidden', 'true');
-        document.body.appendChild(b);
-        b.addEventListener('click', close);
-        return b;
+        if (backdrop) return backdrop;
+        backdrop = document.querySelector('.svb-nav-backdrop');
+        if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.className = 'svb-nav-backdrop';
+            backdrop.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(backdrop);
+        }
+        backdrop.addEventListener('click', close);
+        return backdrop;
+    }
+
+    function buildDrawer() {
+        if (drawer) return drawer;
+        var menu = document.getElementById('nav-menu');
+        if (!menu) return null;
+
+        drawer = document.createElement('nav');
+        drawer.className = 'svb-mobile-drawer';
+        drawer.setAttribute('aria-label', 'Menu principal mobile');
+        drawer.setAttribute('role', 'navigation');
+
+        // Clone chaque <a> du menu original (préserve href + classes Tailwind,
+        // qu'on override ensuite via notre CSS haute spécificité).
+        var anchors = menu.querySelectorAll('a');
+        anchors.forEach(function (a) {
+            var clone = a.cloneNode(true);
+            // Strip les classes Tailwind de hover/transform qui parasitent le rendu
+            clone.removeAttribute('class');
+            // Ferme le drawer au clic
+            clone.addEventListener('click', function () { close(); });
+            drawer.appendChild(clone);
+        });
+
+        document.body.appendChild(drawer);
+        return drawer;
     }
 
     function open() {
         document.body.classList.add('svb-nav-open');
-        var menu = document.getElementById('nav-menu');
         var tog = document.getElementById('nav-toggle');
-        if (menu) {
-            menu.classList.remove('hidden');
-            menu.setAttribute('aria-expanded', 'true');
-        }
         if (tog) tog.setAttribute('aria-expanded', 'true');
     }
 
     function close() {
         document.body.classList.remove('svb-nav-open');
-        var menu = document.getElementById('nav-menu');
         var tog = document.getElementById('nav-toggle');
-        if (menu) {
-            menu.classList.add('hidden');
-            menu.setAttribute('aria-expanded', 'false');
-            // Purge inline styles legacy laissés par l'ancien onclick
-            menu.style.display = '';
-            menu.style.flexDirection = '';
-            menu.style.alignItems = '';
-            menu.style.gap = '';
-            menu.style.paddingTop = '';
-        }
         if (tog) tog.setAttribute('aria-expanded', 'false');
     }
 
@@ -338,20 +350,16 @@
 
         injectCSS();
         ensureBackdrop();
+        buildDrawer();
 
-        // Retire l'onclick inline historique pour éviter double-toggle
+        // Neutralise l'onclick inline historique (qui tenterait encore d'afficher
+        // l'ancien menu empilé avec inline styles)
         tog.removeAttribute('onclick');
 
         tog.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             toggle();
-        });
-
-        // Ferme quand on tape un lien du menu
-        menu.addEventListener('click', function (e) {
-            var a = e.target.closest('a');
-            if (a) close();
         });
 
         // ESC ferme
