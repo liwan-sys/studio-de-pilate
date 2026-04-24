@@ -515,23 +515,31 @@
     <!-- End Google Tag Manager -->
 
     <!-- Navigation -->
-    <nav class="py-4 px-4 md:px-8">
-        <div class="max-w-7xl mx-auto flex justify-between items-center gap-8 flex-wrap">
-            <div class="font-dancing text-2xl font-bold text-col-dark">Studio SVB</div>
-            <div class="flex gap-4 md:gap-8 text-sm md:text-base flex-wrap justify-center md:justify-end">
-                <a href="../index.html">ACCUEIL</a>
-                <a href="../studio.html">PLANNING</a>
-                <a href="../tarifs.html">ABONNEMENTS</a>
-                <a href="../equipe.html">LA TEAM</a>
-                <a href="../temoignages.html">AVIS</a>
-                <a href="../bien-etre.html">BIEN-ÊTRE</a>
-                <a href="../cadeau.html">CADEAU</a>
-                <a href="/">BLOG</a>
-                <a href="../faq.html">FAQ</a>
-                <a href="../contact.html">CONTACT</a>
-                <a href="../sessions.html">NOS COURS</a>
-            </div>
-        </div>
+    <nav role="navigation" class="p-6 flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-[#4A8D84] reveal-load">
+      <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
+        <a href="/" aria-label="Accueil Studio SVB">
+          <img src="/images/logo.webp" alt="Logo SVB Santez Vous Bien" class="h-20 w-auto object-contain" width="200" height="142" fetchpriority="high">
+        </a>
+      </div>
+      <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='center';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}})()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <div id="nav-menu" class="hidden md:flex flex-wrap justify-center items-center space-x-4 md:space-x-5 text-[10px] md:text-xs font-semibold tracking-normal">
+        <a href="/" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Accueil</a>
+        <a href="/sessions" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Sessions</a>
+        <a href="/studio" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Planning</a>
+        <a href="/tarifs" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Abonnements</a>
+        <a href="/equipe" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">La Team</a>
+        <a href="/temoignages" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Avis</a>
+        <a href="/bien-etre" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Bien-Être</a>
+        <a href="/cadeau" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Cadeau</a>
+        <a href="/blog/" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Blog</a>
+        <a href="/faq" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">FAQ</a>
+        <a href="/contact" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Contact</a>
+        <a href="/en/" aria-label="English version" class="inline-block transition ml-1" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(74,141,132,0.4);padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.5);white-space:nowrap;color:#4A8D84;"><span style="font-weight:900;color:#E8B496;">FR</span>&nbsp;|&nbsp;<span style="opacity:0.55;">EN</span></a>
+      </div>
     </nav>
 
     <!-- Main Content -->
