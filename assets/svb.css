@@ -406,3 +406,66 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
   font-size:1.4rem;letter-spacing:.03em;text-transform:none;
   color:#E8B496;
 }
+
+/* =================================================================
+   Section Immersion vidéo (portrait 9:16 façon Reels)
+   ================================================================= */
+.svb-immersion{
+  max-width:1100px;margin:0 auto;padding:20px 24px 60px;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:28px;
+}
+.svb-immersion-head{max-width:620px}
+.svb-immersion-eyebrow{
+  font-family:'Montserrat',sans-serif;
+  font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:#4A8D84;margin:0 0 .4rem;
+}
+.svb-immersion-title{
+  font-family:'Dancing Script',cursive;font-weight:700;
+  font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.05;
+  color:#2F4F4F;margin:0 0 .6rem;
+  text-shadow:2px 2px 6px rgba(0,0,0,.06);
+}
+.svb-immersion-lead{
+  font-family:'Montserrat',sans-serif;
+  font-size:1rem;line-height:1.55;color:#2F4F4F;
+  max-width:54ch;margin:0 auto;opacity:.88;
+}
+.svb-immersion-lead strong{color:#4A8D84}
+.svb-immersion-frame{
+  position:relative;
+  width:100%;max-width:380px;
+  aspect-ratio:9/16;
+  border-radius:28px;overflow:hidden;
+  background:#1d3838;
+  box-shadow:
+    0 24px 70px -12px rgba(47,79,79,.32),
+    0 8px 20px -6px rgba(47,79,79,.18),
+    inset 0 0 0 1px rgba(232,180,150,.25);
+  transform:translateZ(0);
+}
+.svb-immersion-video{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;background:#1d3838;
+}
+.svb-immersion-badge{
+  position:absolute;bottom:14px;left:14px;right:14px;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  background:rgba(29,56,56,.82);
+  color:#F2E6CF;
+  padding:8px 14px;border-radius:22px;
+  font-family:'Montserrat',sans-serif;
+  font-size:.72rem;font-weight:600;letter-spacing:.04em;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(232,180,150,.22);
+  pointer-events:none;
+  max-width:calc(100% - 28px);margin:0 auto;
+  text-align:center;
+}
+@media (max-width:560px){
+  .svb-immersion{padding:8px 16px 40px;gap:22px}
+  .svb-immersion-frame{max-width:320px;border-radius:22px}
+  .svb-immersion-badge{font-size:.68rem;padding:7px 12px}
+}
