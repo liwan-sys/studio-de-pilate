@@ -31,8 +31,11 @@
   <link rel="alternate" hreflang="fr" href="https://studiosvb.com/" />
   <link rel="alternate" hreflang="en" href="https://studiosvb.com/en/" />
   <link rel="alternate" hreflang="x-default" href="https://studiosvb.com/" />
-  <!-- Preload LCP assets (poster de la vidéo hero) -->
+  <!-- ── Perf : LCP + dns-prefetch services externes ── -->
   <link rel="preload" as="image" href="/videos/hero-poster.jpg" fetchpriority="high">
+  <link rel="dns-prefetch" href="https://calendly.com">
+  <link rel="dns-prefetch" href="https://api.sportigo.fr">
+  <link rel="dns-prefetch" href="https://wa.me">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -222,7 +225,7 @@
   <section id="hero-video">
 
     <!-- VIDÉO DE FOND (lazy, chargée après interaction/FCP) -->
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="videos/hero-poster.jpg" aria-hidden="true">
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" poster="videos/hero-poster.jpg" aria-hidden="true">
       <source src="videos/hero.mp4" type="video/mp4">
     </video>
     <script>
