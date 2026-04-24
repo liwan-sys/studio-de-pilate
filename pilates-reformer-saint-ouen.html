@@ -397,30 +397,37 @@
     })();
   </script>
   <script src="/assets/nav-dropdown.js?v=20260424b" defer></script>
+    <link rel="stylesheet" href="/assets/discipline-brand.css?v=20260424a" />
   </head>
 <body>
       <a href="#main-content" class="svb-skip">Aller au contenu principal</a>
 <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
-      <div style="display:flex;flex-direction:column;width:100%;gap:8px;">
+    <nav role="navigation" class="sticky top-0 z-50 border-b border-white/10" style="background:#2F4F4F;">
+      <div class="max-w-7xl mx-auto px-4 py-3" style="display:flex;flex-direction:column;width:100%;gap:8px;">
         <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-          <a href="/index.html">
-            <img src="/images/logo.webp" alt="Logo SVB" style="height:48px;width:auto;filter:brightness(0) invert(1);" width="200" height="142">
+          <a href="/" class="transform hover:scale-105 transition duration-300">
+            <img src="/images/logo.webp" alt="Logo SVB Santez Vous Bien" style="height:48px;width:auto;filter:brightness(0) invert(1);" width="200" height="142">
           </a>
-          <a href="/en/index.html" style="color:white;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;white-space:nowrap;">FR&nbsp;|&nbsp;EN</a>
+          <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded text-white focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='flex-start';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}})()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <a href="/en/" aria-label="English version" class="hidden md:inline-block transition" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.15);white-space:nowrap;color:white;"><span style="font-weight:900;color:#E8B496;">FR</span>&nbsp;|&nbsp;<span style="opacity:0.55;">EN</span></a>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:2px 0;">
-          <a href="/index.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Accueil</a>
-          <a href="/sessions.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Sessions</a>
-          <a href="/studio.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Planning</a>
-          <a href="/tarifs.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Abonnements</a>
-          <a href="/equipe.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">La Team</a>
-          <a href="/temoignages" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Avis</a>
-          <a href="/bien-etre.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Bien-être</a>
-          <a href="/cadeau.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Cadeau</a>
-          <a href="/blog/" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Blog</a>
-          <a href="/faq.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">FAQ</a>
-          <a href="/contact.html" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Contact</a>
+        <div id="nav-menu" class="hidden md:flex flex-wrap justify-start items-center gap-3 md:gap-5 text-[10px] md:text-xs font-semibold tracking-normal text-white">
+          <a href="/" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Accueil</a>
+          <a href="/sessions" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Sessions</a>
+          <a href="/studio" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Planning</a>
+          <a href="/tarifs" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Abonnements</a>
+          <a href="/equipe" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">La Team</a>
+          <a href="/temoignages" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Avis</a>
+          <a href="/bien-etre" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Bien-Être</a>
+          <a href="/cadeau" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Cadeau</a>
+          <a href="/blog/" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Blog</a>
+          <a href="/faq" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">FAQ</a>
+          <a href="/contact" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Contact</a>
+          <a href="/en/" aria-label="English version" class="md:hidden transition" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.15);white-space:nowrap;color:white;"><span style="font-weight:900;color:#E8B496;">FR</span>&nbsp;|&nbsp;<span style="opacity:0.55;">EN</span></a>
         </div>
       </div>
     </nav>

@@ -1,0 +1,133 @@
+/* =================================================
+   Studio SVB — Discipline Brand CSS
+   Aligne la DA des pages intérieures sur index.html
+   Chargé APRÈS le <style> inline de chaque page pour gagner la cascade.
+   ================================================= */
+
+:root {
+    /* Palette officielle (home) */
+    --svb-green-light: #98D0B3;
+    --svb-green-dark:  #4A8D84;
+    --svb-sand:        #F2E6CF;
+    --svb-peach:       #E8B496;
+    --svb-peach-hi:    #EBC6A6;
+    --svb-text:        #2F4F4F;
+    --svb-text-hover:  #3A6B63;
+
+    /* Alias de compatibilité avec l'ancien --col-* (utilisé en inline sur ~500 lignes) */
+    --col-dark:   #2F4F4F;
+    --col-green:  #4A8D84;
+    --col-peach:  #E8B496;
+    --col-sand:   #F2E6CF;
+    --col-cream:  #F2E6CF;
+}
+
+/* ---------- Body / Ambient (identique home index.css) ---------- */
+html, body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--svb-text);
+    min-height: 100vh;
+}
+body {
+    background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
+    background-color: #98D0B3;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+/* Neutralise les bg bizarres et les blobs/noise introduits par les <style> inline des disciplines */
+body::before,
+body::after {
+    display: none !important;
+}
+
+/* ---------- Typographie home ---------- */
+/* H1 = Great Vibes (signature home), fin, large letter-spacing, shadow subtil */
+h1,
+h1.text-5xl,
+h1.text-6xl,
+section h1 {
+    font-family: 'Great Vibes', cursive !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.03em;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.12);
+    line-height: 1.05;
+    color: var(--svb-text);
+}
+
+/* H2-H6 et .font-hand = Dancing Script (home h2/h3) */
+h2, h3, h4, h5, h6,
+.font-hand {
+    font-family: 'Dancing Script', cursive !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em;
+    color: var(--svb-text);
+}
+
+/* Paragraphes en Montserrat (safe — certains inline-styles écrasaient) */
+p, li, span:not([class*="font-"]) {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ---------- Cartes glass alignées home (bg-white/70 backdrop-blur) ---------- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.72) !important;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.55) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 10px 40px rgba(47, 79, 79, 0.08) !important;
+}
+
+/* ---------- Boutons unifiés (reprise pattern home "Essai à 30€") ---------- */
+.btn,
+button.btn,
+a.btn {
+    background-color: var(--svb-text);
+    color: #ffffff;
+    padding: 16px 38px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    line-height: 1;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(47, 79, 79, 0.25);
+    border: none;
+}
+.btn:hover,
+button.btn:hover,
+a.btn:hover {
+    background-color: var(--svb-text-hover);
+    transform: translateY(-2px) scale(1.03);
+    color: #ffffff;
+}
+
+/* ---------- Liens (hors nav) ---------- */
+a { transition: color 0.2s ease; }
+
+/* ---------- Reveal animation compatible home ---------- */
+.reveal-load {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: disciplineReveal 0.8s ease-out forwards;
+}
+@keyframes disciplineReveal {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Safe overrides pour rétro-compat : Tailwind text-* sur titres ---------- */
+/* Les classes Tailwind text-5xl/6xl/7xl forcent font-weight:700 par défaut ; on corrige pour Great Vibes */
+h1.font-bold,
+h1[class*="text-"] { font-weight: 400 !important; }
+
+/* Focus visible unifié */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--svb-peach);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
