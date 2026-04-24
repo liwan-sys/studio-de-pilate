@@ -595,12 +595,12 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
 /* C ─ Hero éditorial : photo plein largeur + citation centr\u00e9e */
 .svb-photo-hero{
   position:relative;width:100%;
-  aspect-ratio:21/9;background:#2F4F4F;overflow:hidden;
+  aspect-ratio:16/9;background:#2F4F4F;overflow:hidden;
 }
 @media (max-width:760px){.svb-photo-hero{aspect-ratio:4/5}}
 .svb-photo-hero img{
   width:100%;height:100%;object-fit:cover;display:block;
-  object-position:center 20%;
+  /* object-position d\u00e9fini inline sur chaque photo selon son sujet */
 }
 .svb-photo-hero::after{
   content:"";position:absolute;inset:0;pointer-events:none;
