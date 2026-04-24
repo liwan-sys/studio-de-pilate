@@ -37,6 +37,7 @@
 /* --- Reset léger & base ----------------------------------------- */
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
+html,body{overflow-x:hidden}
 img,video,svg{max-width:100%;height:auto;display:block}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--svb-green-dark);outline-offset:3px;border-radius:6px}
@@ -503,80 +504,122 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
   outline:none;
 }
 
-/* --- Photo gallery (shoot Reformer & Cie) --------------------- */
-.svb-photo-section{
-  position:relative;
-  padding:64px 24px;
-  background:linear-gradient(180deg,#FBF6EC 0%,#F2E6CF 100%);
-  overflow:hidden;
+/* --- Photo system (éditorial full-bleed, signature SVB) ------ */
+
+/* Full-bleed helper : sort de n'importe quel container max-width */
+.svb-photo-fullbleed{
+  position:relative;left:50%;right:50%;
+  margin-left:-50vw;margin-right:-50vw;
+  width:100vw;
+  /* au cas où le wrapper overflow:hidden, on masque les débordements */
+  max-width:100vw;
 }
-.svb-photo-section-accent{
-  position:absolute;left:50%;top:0;transform:translateX(-50%);
-  width:120px;height:4px;border-radius:0 0 4px 4px;
-  background:linear-gradient(90deg,#E8B496,#4A8D84);
+
+/* A ─ Triptyque éditorial : 3 portraits coll\u00e9es, texte dessous */
+.svb-photo-triptych{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;width:100%;
+  background:#FBF6EC;
+  padding:56px 0 64px;
 }
-.svb-photo-section-inner{max-width:1180px;margin:0 auto}
-.svb-photo-section-head{text-align:center;margin-bottom:40px}
-.svb-photo-section-eyebrow{
-  font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-  color:#4A8D84;font-weight:700;margin:0 0 12px;
+@media (max-width:760px){
+  .svb-photo-triptych{grid-template-columns:1fr;padding:32px 0 40px}
 }
-.svb-photo-section-title{
-  font-family:"Dancing Script",cursive;
-  color:#2F4F4F;font-size:clamp(28px,4.4vw,44px);
-  margin:0 0 12px;line-height:1.15;
+.svb-photo-triptych-item{
+  position:relative;display:flex;flex-direction:column;
 }
-.svb-photo-section-lead{
-  max-width:620px;margin:0 auto;color:#3a5858;
-  font-size:clamp(15px,2vw,17px);line-height:1.55;
+.svb-photo-triptych-item + .svb-photo-triptych-item::before{
+  content:"";position:absolute;top:0;bottom:0;left:0;
+  width:1px;background:rgba(232,180,150,.35);
 }
-.svb-photo-gallery{
-  display:grid;gap:20px;
-  grid-template-columns:repeat(3,1fr);
+@media (max-width:760px){
+  .svb-photo-triptych-item + .svb-photo-triptych-item::before{display:none}
+  .svb-photo-triptych-item + .svb-photo-triptych-item{margin-top:40px}
 }
-@media (max-width:900px){.svb-photo-gallery{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.svb-photo-gallery{grid-template-columns:1fr;gap:16px}}
-.svb-photo-tile{
-  position:relative;border-radius:18px;overflow:hidden;
-  background:#2F4F4F;
-  box-shadow:0 16px 40px -18px rgba(47,79,79,.45);
-  transition:transform .3s ease,box-shadow .3s ease;
-  aspect-ratio:3/4;
+.svb-photo-triptych-media{
+  aspect-ratio:3/4;background:#2F4F4F;overflow:hidden;
 }
-.svb-photo-tile:hover{
-  transform:translateY(-4px);
-  box-shadow:0 22px 48px -16px rgba(47,79,79,.55);
-}
-.svb-photo-tile img,.svb-photo-tile picture{
+.svb-photo-triptych-media img{
   width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform .6s ease;
 }
-.svb-photo-tile:hover img{transform:scale(1.04)}
-.svb-photo-tile-caption{
-  position:absolute;inset:auto 0 0 0;
-  padding:16px 18px 14px;
-  background:linear-gradient(180deg,rgba(47,79,79,0) 0%,rgba(47,79,79,.75) 100%);
-  color:#fff;font-size:13px;font-weight:600;letter-spacing:.02em;
-  line-height:1.35;
+.svb-photo-triptych-body{
+  padding:28px clamp(16px,3vw,28px) 0;text-align:center;
 }
-.svb-photo-tile-caption strong{color:#E8B496;font-weight:700}
-.svb-photo-solo{
-  position:relative;border-radius:22px;overflow:hidden;
-  max-width:1080px;margin:0 auto;
-  box-shadow:0 20px 50px -20px rgba(47,79,79,.45);
-  aspect-ratio:16/9;
+.svb-photo-triptych-eyebrow{
+  display:inline-block;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:#4A8D84;font-weight:700;margin:0 0 10px;
 }
-@media (max-width:700px){.svb-photo-solo{aspect-ratio:4/5}}
-.svb-photo-solo img{width:100%;height:100%;object-fit:cover;display:block}
-.svb-photo-solo-badge{
-  position:absolute;left:16px;bottom:16px;
-  padding:7px 14px;border-radius:999px;
-  background:rgba(47,79,79,.82);color:#F2E6CF;
-  font-size:12px;font-weight:600;letter-spacing:.04em;
-  backdrop-filter:blur(6px);
+.svb-photo-triptych-title{
+  font-family:"Dancing Script",cursive;
+  font-size:clamp(26px,3.4vw,36px);
+  color:#2F4F4F;margin:0 0 12px;line-height:1.15;
 }
-.svb-photo-duo{
-  display:grid;gap:20px;grid-template-columns:1fr 1fr;
-  max-width:1080px;margin:0 auto;
+.svb-photo-triptych-body p{
+  margin:0;font-size:15px;line-height:1.55;color:#3a5858;
+  max-width:32ch;margin-inline:auto;
 }
-@media (max-width:700px){.svb-photo-duo{grid-template-columns:1fr;gap:16px}}
+
+/* B ─ Split magazine : photo mi-viewport + texte mi-viewport */
+.svb-photo-split{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;width:100%;background:#FBF6EC;
+}
+@media (max-width:760px){.svb-photo-split{grid-template-columns:1fr}}
+.svb-photo-split-media{
+  aspect-ratio:3/4;background:#2F4F4F;overflow:hidden;
+}
+.svb-photo-split-media img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.svb-photo-split-body{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(32px,6vw,72px) clamp(22px,5vw,64px);
+  background:#F2E6CF;
+}
+.svb-photo-split-body .svb-photo-eyebrow{
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:#4A8D84;font-weight:700;margin:0 0 14px;
+}
+.svb-photo-split-body h2,.svb-photo-split-body h3{
+  font-family:"Dancing Script",cursive;
+  color:#2F4F4F;font-size:clamp(28px,4.2vw,46px);
+  margin:0 0 18px;line-height:1.15;
+}
+.svb-photo-split-body p{
+  margin:0 0 16px;font-size:17px;line-height:1.6;color:#3a5858;
+}
+.svb-photo-split-body p:last-child{margin-bottom:0}
+.svb-photo-split-body p strong{color:#2F4F4F;font-weight:700}
+
+/* C ─ Hero éditorial : photo plein largeur + citation centr\u00e9e */
+.svb-photo-hero{
+  position:relative;width:100%;
+  aspect-ratio:21/9;background:#2F4F4F;overflow:hidden;
+}
+@media (max-width:760px){.svb-photo-hero{aspect-ratio:4/5}}
+.svb-photo-hero img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  object-position:center 20%;
+}
+.svb-photo-hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(47,79,79,.15) 0%,rgba(47,79,79,.55) 100%);
+}
+.svb-photo-hero-quote{
+  position:absolute;inset:0;display:flex;
+  align-items:center;justify-content:center;
+  padding:40px 24px;text-align:center;color:#fff;z-index:2;
+}
+.svb-photo-hero-quote-text{
+  font-family:"Dancing Script",cursive;
+  font-size:clamp(36px,6vw,72px);line-height:1.05;
+  max-width:900px;margin:0;
+  text-shadow:0 2px 20px rgba(47,79,79,.55);
+}
+.svb-photo-hero-signature{
+  margin:18px 0 0;
+  font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  font-weight:700;color:#F2E6CF;
+  text-shadow:0 2px 10px rgba(47,79,79,.5);
+}
