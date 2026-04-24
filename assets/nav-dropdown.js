@@ -270,6 +270,43 @@
                 'padding:11px 14px;background:rgba(242,230,207,0.5);',
                 'border-radius:22px;',
             '}',
+            /* Accordéon Abonnements (remplace le dropdown hover desktop) */
+            '.svb-mobile-abo{border-bottom:1px solid rgba(47,79,79,0.08);}',
+            '.svb-mobile-abo-head{',
+                'display:flex;align-items:center;justify-content:space-between;width:100%;',
+                'padding:15px 16px;margin:0;',
+                'background:transparent;border:0;cursor:pointer;',
+                'font-family:"Montserrat",sans-serif;font-size:15px;font-weight:600;',
+                'color:#2F4F4F;text-align:left;border-radius:10px;',
+                'transition:background .15s ease;',
+            '}',
+            '.svb-mobile-abo-head:hover,.svb-mobile-abo-head:active,.svb-mobile-abo-head:focus{',
+                'background:#F2E6CF;outline:none;',
+            '}',
+            '.svb-mobile-abo-head .svb-chev{',
+                'width:14px;height:14px;transition:transform .2s ease;flex-shrink:0;margin-left:8px;',
+            '}',
+            '.svb-mobile-abo[data-open="true"] .svb-mobile-abo-head .svb-chev{transform:rotate(180deg);}',
+            '.svb-mobile-abo-body{',
+                'max-height:0;overflow:hidden;transition:max-height .28s ease;',
+                'padding-left:10px;',
+            '}',
+            '.svb-mobile-abo[data-open="true"] .svb-mobile-abo-body{max-height:620px;}',
+            '.svb-mobile-abo-body a{',
+                'display:block;padding:12px 14px !important;',
+                'font-size:14px !important;font-weight:500 !important;',
+                'color:#2F4F4F !important;text-decoration:none;',
+                'border-bottom:1px solid rgba(47,79,79,0.05) !important;',
+                'background:transparent;',
+            '}',
+            '.svb-mobile-abo-body a .svb-sub-tag{',
+                'display:block;font-size:11px;font-weight:500;color:#4A8D84;margin-top:2px;',
+            '}',
+            '.svb-mobile-abo-body a.svb-abo-all{',
+                'color:#4A8D84 !important;font-weight:700 !important;',
+                'text-transform:uppercase;letter-spacing:.08em;font-size:12px !important;',
+                'border-bottom:0 !important;padding:14px 14px !important;',
+            '}',
             /* Scroll-lock body */
             'body.svb-nav-open{overflow:hidden;}',
         '}'
@@ -309,10 +346,19 @@
         drawer.setAttribute('aria-label', 'Menu principal mobile');
         drawer.setAttribute('role', 'navigation');
 
-        // Clone chaque <a> du menu original (préserve href + classes Tailwind,
-        // qu'on override ensuite via notre CSS haute spécificité).
+        // Liste des disciplines pour l'accordéon Abonnements (même source que le
+        // dropdown desktop hydrate via le premier IIFE).
+        var DISCIPLINES = (window.SvbNavDropdown && window.SvbNavDropdown.DISCIPLINES) || [];
+
+        // Clone chaque <a> du menu original, en remplaçant le lien "Abonnements"
+        // par un accordéon déployant les disciplines.
         var anchors = menu.querySelectorAll('a');
         anchors.forEach(function (a) {
+            var txt = (a.textContent || '').trim();
+            if (txt === 'Abonnements' && DISCIPLINES.length) {
+                drawer.appendChild(buildAboAccordion(DISCIPLINES));
+                return;
+            }
             var clone = a.cloneNode(true);
             // Strip les classes Tailwind de hover/transform qui parasitent le rendu
             clone.removeAttribute('class');
@@ -323,6 +369,51 @@
 
         document.body.appendChild(drawer);
         return drawer;
+    }
+
+    function buildAboAccordion(disciplines) {
+        var wrap = document.createElement('div');
+        wrap.className = 'svb-mobile-abo';
+        wrap.setAttribute('data-open', 'false');
+
+        var head = document.createElement('button');
+        head.type = 'button';
+        head.className = 'svb-mobile-abo-head';
+        head.setAttribute('aria-expanded', 'false');
+        head.innerHTML = 'Abonnements' +
+            '<svg class="svb-chev" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+            '<path d="M1 1l6 6 6-6" stroke="#4A8D84" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</svg>';
+
+        var body = document.createElement('div');
+        body.className = 'svb-mobile-abo-body';
+
+        disciplines.forEach(function (d) {
+            var a = document.createElement('a');
+            a.href = d.href;
+            a.innerHTML = d.label + '<span class="svb-sub-tag">' + d.tag + '</span>';
+            a.addEventListener('click', function () { close(); });
+            body.appendChild(a);
+        });
+
+        var all = document.createElement('a');
+        all.href = '/tarifs';
+        all.className = 'svb-abo-all';
+        all.textContent = 'Voir tous les tarifs →';
+        all.addEventListener('click', function () { close(); });
+        body.appendChild(all);
+
+        head.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var isOpen = wrap.getAttribute('data-open') === 'true';
+            wrap.setAttribute('data-open', isOpen ? 'false' : 'true');
+            head.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        });
+
+        wrap.appendChild(head);
+        wrap.appendChild(body);
+        return wrap;
     }
 
     function open() {
