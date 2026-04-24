@@ -528,6 +528,14 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
   width:100%;height:100%;
   object-fit:cover;object-position:center;
   display:block;background:#1d3838;
+  pointer-events:none; /* pas d'interaction — boucle silencieuse décorative */
+}
+/* masque les contrôles webkit résiduels (iOS Safari affiche parfois un overlay) */
+.svb-video-hero-media video::-webkit-media-controls,
+.svb-video-hero-media video::-webkit-media-controls-panel,
+.svb-video-hero-media video::-webkit-media-controls-start-playback-button{
+  display:none !important;
+  -webkit-appearance:none;
 }
 .svb-video-hero-badge{
   position:absolute;bottom:18px;left:18px;
