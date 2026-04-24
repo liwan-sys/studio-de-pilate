@@ -196,8 +196,8 @@
                     '<div class="svb-sim-details" data-details></div>' +
                 '</div>' +
                 '<div class="svb-sim-includes-wrap" data-includes></div>' +
-                '<a class="svb-sim-cta" data-cta href="/questionnaire-abonnement-svb.html?pass=' + PASSES[initialPass].url + '">' +
-                    'Je m\'inscris avec cette formule →' +
+                '<a class="svb-sim-cta" data-cta href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90" target="_blank" rel="noopener noreferrer">' +
+                    'Faire une séance d\'essai →' +
                 '</a>' +
                 '<p class="svb-sim-foot">Essai à 30 € · 15 € remboursés si inscription · Pas d\'engagement annuel obligatoire · Résiliation flexible</p>' +
             '</div>';
@@ -223,7 +223,7 @@
                 'Durée de chaque séance : ' + pass.duration;
             $week.textContent = rhythmText(state.sessions);
             $includes.innerHTML = buildIncludesHtml(pass, cfg.highlight);
-            $cta.setAttribute('href', '/questionnaire-abonnement-svb.html?pass=' + pass.url);
+            // Le CTA est fixe : lien Sportigo vers la séance d'essai. On ne change pas l'href selon le pass.
         }
 
         Array.prototype.forEach.call(el.querySelectorAll('.svb-sim-pass-btn'), function (btn) {
