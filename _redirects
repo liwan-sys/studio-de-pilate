@@ -20,6 +20,12 @@
 
 # Disciplines Saint-Ouen
 /pilates-reformer-saint-ouen      /pilates-reformer-saint-ouen.html       200
+/pilates-reformer-paris           /pilates-reformer-paris.html            200
+/pilates-reformer-paris-17        /pilates-reformer-paris-17.html         200
+/pilates-reformer-paris-18        /pilates-reformer-paris-18.html         200
+/pilates-reformer-clichy          /pilates-reformer-clichy.html           200
+/pilates-reformer-levallois       /pilates-reformer-levallois.html        200
+/pilates-reformer-asnieres        /pilates-reformer-asnieres.html         200
 /crossformer-saint-ouen           /crossformer-saint-ouen.html            200
 /salle-de-sport-saint-ouen        /salle-de-sport-saint-ouen.html         200
 /yoga-saint-ouen                  /yoga-saint-ouen.html                   200
@@ -82,6 +88,11 @@
 /blog/training-kids-sport-enfants        /blog/training-kids-sport-enfants.html        200
 /blog/cross-body-cross-core-cross-rox    /blog/cross-body-cross-core-cross-rox.html    200
 /blog/studio-coaching-vs-salle-de-sport  /blog/studio-coaching-vs-salle-de-sport.html  200
+/blog/pilates-reformer-prix-paris        /blog/pilates-reformer-prix-paris.html        200
+/blog/pilates-reformer-vs-yoga           /blog/pilates-reformer-vs-yoga.html           200
+/blog/pilates-reformer-femme-enceinte    /blog/pilates-reformer-femme-enceinte.html    200
+/blog/pilates-reformer-seniors           /blog/pilates-reformer-seniors.html           200
+/blog/pilates-reformer-apres-accouchement /blog/pilates-reformer-apres-accouchement.html 200
 
 # Anciennes URLs → nouvelles (301 pour le SEO)
 /index-old                        /                                       301
