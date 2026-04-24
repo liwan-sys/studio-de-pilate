@@ -64,12 +64,7 @@
       pointer-events: none;
     }
 
-    .reveal-load { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
-    .content-visible .reveal-load { opacity: 1; transform: translateY(0); }
-    nav.reveal-load, header.reveal-load { opacity: 1 !important; transform: translateY(0) !important; }
-    /* LCP fix: hero visible immediately for Lighthouse */
-    nav.reveal-load, header.reveal-load { opacity: 1 !important; transform: translateY(0) !important; }
-    .d-1 { transition-delay: 0.2s; } .d-2 { transition-delay: 0.4s; } .d-3 { transition-delay: 0.6s; }
+    /* .reveal-load / .d-1/d-2/d-3 definis dans svb.css (source unique) */
 
     .btn-action {
       background-color: var(--svb-green-dark); color: white; padding: 18px 45px; border-radius: 50px;
