@@ -101,6 +101,12 @@
             passes: ["focus", "full"],
             trial: "other"
         },
+        "pilates": {
+            label: "Pilates",
+            highlight: "Classic Pilates",
+            passes: ["focus", "full"],
+            trial: "other"
+        },
         "afrodance": {
             label: "Afrodance",
             highlight: "Afrodance'All",

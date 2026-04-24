@@ -15,6 +15,7 @@
     var DISCIPLINES = [
         { label: "Pilates Reformer", href: "/pilates-reformer-saint-ouen", tag: "50 min · small group" },
         { label: "Crossformer",      href: "/crossformer-saint-ouen",      tag: "50 min · Reformer + cardio" },
+        { label: "Pilates",          href: "/pilates-saint-ouen",          tag: "55 min · Classic & Power au sol" },
         { label: "Cross Training",   href: "/cross-training-saint-ouen",   tag: "55 min · small group" },
         { label: "Yoga",             href: "/yoga-saint-ouen",             tag: "60 min · Vinyasa & Hatha" },
         { label: "Boxe Anglaise",    href: "/boxe-anglaise-saint-ouen",    tag: "55 min · zéro contact" }
