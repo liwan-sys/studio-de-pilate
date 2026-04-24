@@ -187,38 +187,52 @@
   </main>
 
   <!-- Footer (unified with the rest of the site) -->
-  <footer class="bg-[#2F4F4F] text-white py-12 mt-16">
-    <div class="max-w-6xl mx-auto px-6 mb-10">
-      <div data-svb-newsletter data-source="blog-footer"></div>
-    </div>
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-      <div>
-        <img src="/images/logo.webp" alt="Logo SVB" class="w-32 mb-6" width="120" height="85" />
-        <p class="opacity-80 leading-relaxed">Votre studio de coaching privé et bien-être à Saint-Ouen.<br />Pilates, Yoga, Training et Soins.</p>
-      </div>
-      <div>
-        <h3 class="font-bold uppercase tracking-widest mb-4">Nous contacter</h3>
-        <ul class="space-y-2 opacity-80">
-          <li><a href="tel:0744919155" class="hover:text-white transition">07 44 91 91 55</a></li>
-          <li><a href="mailto:hello@studiosvb.fr" class="hover:text-white transition">hello@studiosvb.fr</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-bold uppercase tracking-widest mb-4">Nous trouver</h3>
-        <p class="opacity-80 leading-relaxed mb-3"><strong class="block text-white">Parc des Docks</strong>6 Mail André Breton<br />93400 Saint-Ouen-sur-Seine</p><p class="opacity-80 leading-relaxed"><strong class="block text-white">Cours des Lavandières</strong>40 Cours des Lavandières<br />93400 Saint-Ouen-sur-Seine<br /><span class="text-xs">(Métro Mairie de Saint-Ouen)</span></p>
-      </div>
-    </div>
-    <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/20 text-center text-xs opacity-60">
-      <p class="mb-2">© <span id="year"></span> SVB Santez Vous Bien — Tous droits réservés</p>
-      <div class="space-x-4">
-        <a href="/mentions-legales.html" class="hover:text-white transition underline decoration-1 underline-offset-2">Mentions Légales</a>
-        <span>|</span>
-        <a href="/cgv.html" class="hover:text-white transition underline decoration-1 underline-offset-2">CGV</a>
-        <span>|</span>
-        <a href="/contact.html" class="hover:text-white transition underline decoration-1 underline-offset-2">Contact</a>
-      </div>
-    </div>
-  </footer>
+  <footer class="bg-white/90 backdrop-blur-md border-t border-gray-200 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="images/logo.webp" alt="Studio SVB - Pilates, Yoga et Fitness à Saint-Ouen" class="h-8 mb-4" width="593" height="420" decoding="async">
+                    <p class="text-sm text-gray-600">Studio de Pilates, Yoga & Fitness à Saint-Ouen-sur-Seine</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4" style="color: var(--col-dark);">Studios</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/studio-parc-des-docks" class="hover:text-green-600">Parc des Docks</a></li>
+                        <li><a href="/studio-cours-des-lavandieres" class="hover:text-green-600">Cours des Lavandières</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4" style="color: var(--col-dark);">Contacts</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="tel:+33744919155" class="hover:text-green-600">07 44 91 91 55</a></li>
+                        <li><a href="mailto:hello@studiosvb.fr" class="hover:text-green-600">hello@studiosvb.fr</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4" style="color: var(--col-dark);">Réseaux</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://www.instagram.com/studiosvb/" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" class="hover:text-green-600">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61574972498498" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" class="hover:text-green-600">Facebook</a></li>
+                        <li><a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" class="hover:text-green-600">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8">
+                <div class="grid md:grid-cols-3 gap-4 text-xs text-gray-600">
+                    <div>
+                        <p class="font-semibold mb-2" style="color: var(--col-dark);">Adresses</p>
+                        <p>Parc des Docks: 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine</p>
+                        <p>Cours des Lavandières: 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine</p>
+                    </div>
+                    <div></div>
+                    <div class="text-right">
+                        <a href="/mentions-legales" class="hover:text-green-600 mr-4">Mentions légales</a>
+                        <a href="/cgv" class="hover:text-green-600">CGV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
   <script src="/assets/svb.js?v=20260423a" defer></script>
   <script>
