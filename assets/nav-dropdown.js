@@ -209,3 +209,167 @@
 
     window.SvbNavDropdown = { init: init, DISCIPLINES: DISCIPLINES };
 })();
+
+/*!
+ * Studio SVB — Mobile nav drawer
+ *
+ * Remplace le toggle inline (display:flex column inline-styles) par un vrai
+ * drawer right-slide + backdrop, scroll-lock, animations hamburger→X, et
+ * fermeture automatique au clic lien / outside / ESC.
+ *
+ * Zéro changement HTML requis : on détecte #nav-toggle + #nav-menu, on strip
+ * l'onclick inline existant, on réinstalle nos handlers. Marche identique sur
+ * les 24+ pages du site.
+ */
+(function () {
+    'use strict';
+
+    var CSS = [
+        /* Le drawer ne s'active qu'en mobile (<768px, breakpoint md de Tailwind) */
+        '@media (max-width: 767px){',
+            /* Toggle (hamburger → X) */
+            '#nav-toggle{position:relative;z-index:100002;transition:transform .25s ease;}',
+            'body.svb-nav-open #nav-toggle{transform:rotate(90deg);color:#2F4F4F;}',
+            /* Backdrop */
+            '.svb-nav-backdrop{',
+                'position:fixed;inset:0;z-index:100000;',
+                'background:rgba(47,79,79,0.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);',
+                'opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s;',
+            '}',
+            'body.svb-nav-open .svb-nav-backdrop{opacity:1;visibility:visible;}',
+            /* Drawer — override des inline-styles injectés par l\'onclick historique */
+            '#nav-menu{',
+                'position:fixed !important;top:0 !important;right:0 !important;bottom:0 !important;left:auto !important;',
+                'width:82% !important;max-width:320px !important;',
+                'margin:0 !important;padding:88px 22px 28px !important;',
+                'background:rgba(255,255,255,0.98) !important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);',
+                'box-shadow:-18px 0 50px -12px rgba(47,79,79,0.28);',
+                'display:flex !important;flex-direction:column !important;align-items:stretch !important;',
+                'justify-content:flex-start !important;',
+                'gap:2px !important;',
+                'overflow-y:auto;-webkit-overflow-scrolling:touch;',
+                'transform:translateX(100%);transition:transform .28s cubic-bezier(.16,1,.3,1);',
+                'z-index:100001;',
+                'text-align:left;',
+            '}',
+            '#nav-menu.hidden{transform:translateX(100%);display:flex !important;}',
+            'body.svb-nav-open #nav-menu{transform:translateX(0) !important;}',
+            '#nav-menu a{',
+                'display:block !important;width:100%;',
+                'padding:14px 14px !important;margin:0 !important;',
+                'font-size:15px !important;font-weight:600 !important;',
+                'color:#2F4F4F !important;text-align:left !important;',
+                'border-radius:10px;border-bottom:1px solid rgba(47,79,79,0.06);',
+                'transition:background .15s ease,color .15s ease,transform .15s ease;',
+            '}',
+            '#nav-menu a:last-child{border-bottom:0;}',
+            '#nav-menu a:hover,#nav-menu a:active,#nav-menu a:focus{',
+                'background:#F2E6CF !important;color:#2F4F4F !important;outline:none;',
+            '}',
+            /* Le toggle FR|EN — styling spécifique, garde son apparence pilule */
+            '#nav-menu a[aria-label="English version"]{',
+                'margin-top:18px !important;border-bottom:0 !important;',
+                'text-align:center !important;padding:10px 14px !important;',
+                'background:rgba(242,230,207,0.35) !important;',
+            '}',
+            /* Scroll-lock body quand drawer ouvert */
+            'body.svb-nav-open{overflow:hidden;}',
+        '}'
+    ].join('');
+
+    function injectCSS() {
+        if (document.getElementById('svb-mobile-nav-css')) return;
+        var s = document.createElement('style');
+        s.id = 'svb-mobile-nav-css';
+        s.type = 'text/css';
+        s.appendChild(document.createTextNode(CSS));
+        document.head.appendChild(s);
+    }
+
+    function ensureBackdrop() {
+        var b = document.querySelector('.svb-nav-backdrop');
+        if (b) return b;
+        b = document.createElement('div');
+        b.className = 'svb-nav-backdrop';
+        b.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(b);
+        b.addEventListener('click', close);
+        return b;
+    }
+
+    function open() {
+        document.body.classList.add('svb-nav-open');
+        var menu = document.getElementById('nav-menu');
+        var tog = document.getElementById('nav-toggle');
+        if (menu) {
+            menu.classList.remove('hidden');
+            menu.setAttribute('aria-expanded', 'true');
+        }
+        if (tog) tog.setAttribute('aria-expanded', 'true');
+    }
+
+    function close() {
+        document.body.classList.remove('svb-nav-open');
+        var menu = document.getElementById('nav-menu');
+        var tog = document.getElementById('nav-toggle');
+        if (menu) {
+            menu.classList.add('hidden');
+            menu.setAttribute('aria-expanded', 'false');
+            // Purge inline styles legacy laissés par l'ancien onclick
+            menu.style.display = '';
+            menu.style.flexDirection = '';
+            menu.style.alignItems = '';
+            menu.style.gap = '';
+            menu.style.paddingTop = '';
+        }
+        if (tog) tog.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggle() {
+        if (document.body.classList.contains('svb-nav-open')) close(); else open();
+    }
+
+    function init() {
+        var tog = document.getElementById('nav-toggle');
+        var menu = document.getElementById('nav-menu');
+        if (!tog || !menu) return;
+        if (tog.dataset.svbMobileHydrated === '1') return;
+        tog.dataset.svbMobileHydrated = '1';
+
+        injectCSS();
+        ensureBackdrop();
+
+        // Retire l'onclick inline historique pour éviter double-toggle
+        tog.removeAttribute('onclick');
+
+        tog.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggle();
+        });
+
+        // Ferme quand on tape un lien du menu
+        menu.addEventListener('click', function (e) {
+            var a = e.target.closest('a');
+            if (a) close();
+        });
+
+        // ESC ferme
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && document.body.classList.contains('svb-nav-open')) close();
+        });
+
+        // Resize vers desktop → force close
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 768 && document.body.classList.contains('svb-nav-open')) close();
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    window.SvbMobileNav = { open: open, close: close, toggle: toggle };
+})();
