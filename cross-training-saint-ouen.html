@@ -219,7 +219,7 @@
             transform: translateY(-2px);
         }
     </style>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260424j" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260424k" />
   <link rel="stylesheet" href="/assets/simulator.css?v=20260424a" />
   <script src="/assets/simulator.js?v=20260424c" defer></script>
 
@@ -273,38 +273,30 @@
       </div>
     </nav>
 
-    <!-- hero -->
-    <section id="main-content" class="relative pt-20 pb-16 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-6xl font-bold text-center mb-4 reveal-load" style="color: var(--col-dark);">
-                Cross Training à Saint-Ouen — 8 semaines pour te transformer.
-            </h1>
-            <p class="text-xl text-center mb-8 reveal-load" style="color: var(--svb-text);">
-                HIIT, conditioning, mobilité · 55 min · 4 formats SVB (Body, Core, Rox, Yoga) · tous niveaux
-            </p>
+    <!-- Hero immersion : vidéo plein-haut + titre à droite -->
+    <section class="svb-immersion reveal-load" id="main-content" aria-labelledby="immersion-title">
+      <div class="svb-immersion-accent" aria-hidden="true"></div>
+      <div class="svb-immersion-inner">
+        <div class="svb-immersion-frame">
+          <video
+            class="svb-immersion-video"
+            src="/videos/cross-training-immersion.mp4"
+            poster="/videos/cross-training-immersion-poster.jpg"
+            preload="metadata"
+            playsinline
+            controls
+            muted
+            loop
+            autoplay
+            aria-label="Immersion dans un cours de Cross Training au Studio SVB"></video>
+          <span class="svb-immersion-badge">📍 Studio SVB · Saint-Ouen</span>
         </div>
-    </section>
-
-    <!-- Immersion vidéo : extrait d'un cours Cross Training -->
-    <section class="svb-immersion reveal-load" aria-labelledby="immersion-title">
-      <div class="svb-immersion-head">
-        <p class="svb-immersion-eyebrow">Immersion</p>
-        <h2 id="immersion-title" class="svb-immersion-title">Un cours, filmé.</h2>
-        <p class="svb-immersion-lead">HIIT, conditioning, mobilité — <strong>Cross Training</strong> au Studio SVB, tous les jours de la semaine. Lundi 12 h, Mardi 19 h, Mercredi 12 h &amp; 19 h, Jeudi 18 h, Vendredi 19 h, Dimanche.</p>
-      </div>
-      <div class="svb-immersion-frame">
-        <video
-          class="svb-immersion-video"
-          src="/videos/cross-training-immersion.mp4"
-          poster="/videos/cross-training-immersion-poster.jpg"
-          preload="metadata"
-          playsinline
-          controls
-          muted
-          loop
-          autoplay
-          aria-label="Immersion dans un cours de Cross Training au Studio SVB"></video>
-        <span class="svb-immersion-badge">📍 Studio SVB · Saint-Ouen</span>
+        <div class="svb-immersion-text">
+          <p class="svb-immersion-eyebrow">Immersion · Cross Training</p>
+          <h1 id="immersion-title" class="svb-immersion-title">Cross Training à Saint-Ouen — 8 semaines pour te transformer.</h1>
+          <p class="svb-immersion-lead">HIIT, conditioning, mobilité · 55 min · 4 formats SVB (Body, Core, Rox, Yoga) · tous niveaux. <strong>Lun 12 h · Mar 19 h · Mer 12 h &amp; 19 h · Jeu 18 h · Ven 19 h · Dim</strong>.</p>
+          <a href="/reserver" class="svb-immersion-cta">Réserver ma séance d'essai</a>
+        </div>
       </div>
     </section>
 

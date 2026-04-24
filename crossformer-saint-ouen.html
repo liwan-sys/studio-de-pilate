@@ -204,7 +204,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/crossformer.css?v=20260423a" />
-  <link rel="stylesheet" href="/assets/svb.css?v=20260424j" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260424k" />
   <link rel="stylesheet" href="/assets/simulator.css?v=20260424a" />
   <script src="/assets/simulator.js?v=20260424c" defer></script>
 
@@ -258,38 +258,30 @@
       </div>
     </nav>
 
-    <!-- hero -->
-    <section id="main-content" class="relative pt-20 pb-16 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-6xl font-bold text-center mb-4 reveal-load" style="color: var(--col-dark);">
-                Crossformer à Saint-Ouen — 50 min, effet 24 h après.
-            </h1>
-            <p class="text-xl text-center mb-8 reveal-load" style="color: var(--svb-text);">
-                Pilates Reformer + cardio dynamique · 50 min · 8 places max · progrès ressentis dès les premières semaines
-            </p>
+    <!-- Hero immersion : vidéo plein-haut + titre à droite -->
+    <section class="svb-immersion reveal-load" id="main-content" aria-labelledby="immersion-title">
+      <div class="svb-immersion-accent" aria-hidden="true"></div>
+      <div class="svb-immersion-inner">
+        <div class="svb-immersion-frame">
+          <video
+            class="svb-immersion-video"
+            src="/videos/crossformer-immersion.mp4"
+            poster="/videos/crossformer-immersion-poster.jpg"
+            preload="metadata"
+            playsinline
+            controls
+            muted
+            loop
+            autoplay
+            aria-label="Immersion dans un cours de Crossformer avec Alopé"></video>
+          <span class="svb-immersion-badge">📍 40 Cours des Lavandières · 93</span>
         </div>
-    </section>
-
-    <!-- Immersion vidéo : extrait d'un cours Crossformer au Cours des Lavandières -->
-    <section class="svb-immersion reveal-load" aria-labelledby="immersion-title">
-      <div class="svb-immersion-head">
-        <p class="svb-immersion-eyebrow">Immersion</p>
-        <h2 id="immersion-title" class="svb-immersion-title">Un cours, filmé.</h2>
-        <p class="svb-immersion-lead">Plonge dans l'ambiance d'un cours Crossformer avec notre coach <strong>Alopé</strong> — Cours des Lavandières, Saint-Ouen.</p>
-      </div>
-      <div class="svb-immersion-frame">
-        <video
-          class="svb-immersion-video"
-          src="/videos/crossformer-immersion.mp4"
-          poster="/videos/crossformer-immersion-poster.jpg"
-          preload="metadata"
-          playsinline
-          controls
-          muted
-          loop
-          autoplay
-          aria-label="Immersion dans un cours de Crossformer avec Alopé"></video>
-        <span class="svb-immersion-badge">📍 40 Cours des Lavandières · 93</span>
+        <div class="svb-immersion-text">
+          <p class="svb-immersion-eyebrow">Immersion · Crossformer</p>
+          <h1 id="immersion-title" class="svb-immersion-title">Crossformer à Saint-Ouen — 50 min, effet 24 h après.</h1>
+          <p class="svb-immersion-lead">Pilates Reformer + cardio dynamique · 50 min · 8 places max. Plonge dans l'ambiance d'un cours avec notre coach <strong>Alopé</strong>, au Cours des Lavandières.</p>
+          <a href="/reserver" class="svb-immersion-cta">Réserver ma séance d'essai</a>
+        </div>
       </div>
     </section>
 
