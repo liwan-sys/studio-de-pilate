@@ -584,12 +584,21 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
   position:relative;left:50%;right:50%;
   margin-left:-50vw;margin-right:-50vw;
   width:100vw;max-width:100vw;
-  aspect-ratio:16/9;
+  /* remplit tout le haut du viewport (sous la nav ~72px), plafonné pour ne pas devenir géant sur écrans 4K */
+  height:calc(100vh - 72px);
+  height:calc(100svh - 72px);
+  min-height:560px;
+  max-height:960px;
   background:#2F4F4F;
   overflow:hidden;
 }
 @media (max-width:760px){
-  .svb-video-hero-media{aspect-ratio:4/5}
+  .svb-video-hero-media{
+    height:calc(100vh - 72px);
+    height:calc(100svh - 72px);
+    min-height:480px;
+    max-height:760px;
+  }
 }
 .svb-video-hero-media video{
   width:100%;height:100%;
