@@ -60,43 +60,58 @@
         }
     };
 
+    // URLs Sportigo pour les séances d'essai par discipline
+    var TRIAL_URL = {
+        reformer:    "https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90",
+        crossformer: "https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74",
+        other:       "https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e"
+    };
+
     // Discipline → passes pertinents (ordre = priorité d'affichage)
     // `highlight` = discipline à mettre en avant comme "celle que tu cherches"
+    // `trial` = clé dans TRIAL_URL pour le bouton "Faire une séance d'essai"
     var DISCIPLINE_MAP = {
         "pilates-reformer": {
             label: "Pilates Reformer",
             highlight: "Pilates Reformer",
-            passes: ["reformer", "fullformer"]
+            passes: ["reformer", "fullformer"],
+            trial: "reformer"
         },
         "crossformer": {
             label: "Crossformer",
             highlight: "Crossformer",
-            passes: ["crossformer", "fullformer"]
+            passes: ["crossformer", "fullformer"],
+            trial: "crossformer"
         },
         "cross-training": {
             label: "Cross Training",
             highlight: "Cross Training",
-            passes: ["cross", "full"]
+            passes: ["cross", "full"],
+            trial: "other"
         },
         "yoga": {
             label: "Yoga",
             highlight: "Yoga Vinyasa",
-            passes: ["focus", "full"]
+            passes: ["focus", "full"],
+            trial: "other"
         },
         "boxe": {
             label: "Boxe Anglaise",
             highlight: "Boxe Anglaise",
-            passes: ["focus", "full"]
+            passes: ["focus", "full"],
+            trial: "other"
         },
         "barre": {
             label: "Cours Barre",
             highlight: "Classic Pilates",
-            passes: ["focus", "full"]
+            passes: ["focus", "full"],
+            trial: "other"
         },
         "afrodance": {
             label: "Afrodance",
             highlight: "Afrodance'All",
-            passes: ["focus", "full"]
+            passes: ["focus", "full"],
+            trial: "other"
         }
     };
 
@@ -196,7 +211,7 @@
                     '<div class="svb-sim-details" data-details></div>' +
                 '</div>' +
                 '<div class="svb-sim-includes-wrap" data-includes></div>' +
-                '<a class="svb-sim-cta" data-cta href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90" target="_blank" rel="noopener noreferrer">' +
+                '<a class="svb-sim-cta" data-cta href="' + (TRIAL_URL[cfg.trial] || TRIAL_URL.other) + '" target="_blank" rel="noopener noreferrer">' +
                     'Faire une séance d\'essai →' +
                 '</a>' +
                 '<p class="svb-sim-foot">Essai à 30 € · 15 € remboursés si inscription · Pas d\'engagement annuel obligatoire · Résiliation flexible</p>' +
