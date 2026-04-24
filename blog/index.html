@@ -102,9 +102,39 @@
       box-shadow:0 10px 30px rgba(47,79,79,.08);
     }
     .card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(47,79,79,.18)}
-    .card-thumb{aspect-ratio:16/10;background:linear-gradient(135deg,#98D0B3,#E8B496);background-size:cover;background-position:center;position:relative}
+    /* Typography-driven cover — pas de photo, un gradient + nom catégorie en Dancing Script */
+    .card-thumb{
+      aspect-ratio:16/10;position:relative;overflow:hidden;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,#4A8D84,#98D0B3);
+    }
+    .card-thumb::before{
+      content:'';position:absolute;inset:0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.25), transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,.12), transparent 50%);
+      pointer-events:none;
+    }
+    .card-thumb .thumb-script{
+      font-family:'Dancing Script',cursive;font-weight:700;
+      font-size:clamp(2.2rem,4.5vw,3rem);line-height:1;
+      color:rgba(255,255,255,.96);
+      text-shadow:2px 2px 10px rgba(0,0,0,.18);
+      position:relative;z-index:1;padding:0 16px;text-align:center;
+    }
+    /* Palette par catégorie */
+    .card[data-cat="Pilates"]         .card-thumb{background:linear-gradient(135deg,#4A8D84,#98D0B3)}
+    .card[data-cat="Cross Training"]  .card-thumb{background:linear-gradient(135deg,#E8B496,#F2E6CF)}
+    .card[data-cat="Cross Training"]  .card-thumb .thumb-script{color:#2F4F4F;text-shadow:1px 1px 6px rgba(255,255,255,.5)}
+    .card[data-cat="Yoga"]            .card-thumb{background:linear-gradient(135deg,#B8D8C0,#98D0B3)}
+    .card[data-cat="Yoga"]            .card-thumb .thumb-script{color:#2F4F4F;text-shadow:1px 1px 6px rgba(255,255,255,.5)}
+    .card[data-cat="Boxe"]            .card-thumb{background:linear-gradient(135deg,#2F4F4F,#4A8D84)}
+    .card[data-cat="Afrodance"]       .card-thumb{background:linear-gradient(135deg,#D97757,#E8B496)}
+    .card[data-cat="Studio"]          .card-thumb{background:linear-gradient(135deg,#2F4F4F,#3d6864)}
+    .card[data-cat="Kids"]            .card-thumb{background:linear-gradient(135deg,#F2E6CF,#E8B496)}
+    .card[data-cat="Kids"]            .card-thumb .thumb-script{color:#2F4F4F;text-shadow:1px 1px 6px rgba(255,255,255,.5)}
     .card-cat{
-      position:absolute;top:14px;left:14px;
+      position:absolute;top:14px;left:14px;z-index:2;
       background:rgba(47,79,79,.92);color:#FBF6EC;
       padding:5px 12px;border-radius:16px;
       font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-family:'Montserrat',sans-serif;
@@ -259,14 +289,27 @@
             grid.innerHTML = '<p class="empty">Aucun article pour l\'instant.</p>';
             return;
           }
+          // Phrase d'accroche courte (Dancing Script) par catégorie
+          var THUMB_SCRIPT = {
+            'Pilates':        'Pilates Reformer',
+            'Cross Training': 'Cross Training',
+            'Yoga':           'Yoga Vinyasa',
+            'Boxe':           'Boxe anglaise',
+            'Afrodance':      'Afrodance',
+            'Studio':         'Studio SVB',
+            'Kids':           'Training Kids'
+          };
           items.forEach(function(a){
             var card = document.createElement('a');
             card.className = 'card svb-reveal';
             card.href = '/blog/' + a.slug;
             card.dataset.track = 'blog_article_click';
+            card.dataset.cat = a.category;
+            var script = THUMB_SCRIPT[a.category] || a.category;
             card.innerHTML = '\
-              <div class="card-thumb" style="background-image:url(/images/' + a.thumb + ')" role="img" aria-label="' + a.title.replace(/"/g,'&quot;') + '">\
+              <div class="card-thumb" role="img" aria-label="' + a.title.replace(/"/g,'&quot;') + '">\
                 <span class="card-cat">' + a.category + '</span>\
+                <span class="thumb-script">' + script + '</span>\
               </div>\
               <div class="card-body">\
                 <h2>' + a.h1 + '</h2>\
