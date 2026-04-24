@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c" />
-  <link rel="stylesheet" href="/assets/svb.css?v=20260424s" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260424u" />
 
   <script>
     (function(){
@@ -91,6 +91,16 @@
     button[type="submit"]:hover{background:#4A8D84;transform:translateY(-2px)}
     button[type="submit"]:disabled{opacity:.5;cursor:wait}
     .note{grid-column:1 / -1;text-align:center;font-size:.78rem;color:#2F4F4F;opacity:.6;margin:0}
+    .trust-line{
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+      padding:12px 16px;margin:0 0 1.2rem;
+      background:rgba(255,255,255,.55);
+      border:1px solid rgba(74,141,132,.15);
+      border-radius:14px;
+      font-size:.82rem;color:#2F4F4F;
+    }
+    .trust-stars{color:#E8B496;letter-spacing:1px;font-size:.95rem}
+    .trust-line strong{color:#2F4F4F;font-weight:700}
     .benefits{list-style:none;padding:0;margin:0 0 1.6rem;display:grid;gap:.5rem;font-size:.88rem;color:#2F4F4F}
     .benefits li{padding:10px 14px;background:rgba(152,208,179,.2);border:1px solid rgba(74,141,132,.15);border-radius:12px;line-height:1.5}
     .benefits strong{color:#2F4F4F}
@@ -130,8 +140,13 @@
     <div class="card">
       <div id="form-container">
         <p class="eyebrow">Essai · 30 € · 15 € remboursables</p>
-        <h1>On te garde une place.</h1>
+        <h1 class="svb-split">On te garde une place.</h1>
         <p class="lead">Remplis 6 champs (30 secondes), l'équipe te rappelle dans l'heure pour confirmer ton créneau. <strong>Aucune carte bleue demandée.</strong></p>
+
+        <div class="trust-line" aria-label="Réassurance studio">
+          <span class="trust-stars" aria-hidden="true">★★★★★</span>
+          <span><strong>5,0</strong> · 146 avis Google · <strong>2 studios</strong> à Saint-Ouen</span>
+        </div>
 
         <ul class="benefits" aria-label="Avantages de la réservation">
           <li>✓ <strong>Réponse sous 1 h</strong> · 7j/7</li>
@@ -186,7 +201,7 @@
             <input type="checkbox" required name="consent" />
             <span>J'accepte d'être contacté·e par le Studio SVB pour confirmer ma réservation. Aucune newsletter, aucun spam.</span>
           </label>
-          <button type="submit">Confirmer mon essai</button>
+          <button type="submit" class="svb-magnetic">Confirmer mon essai · 30&nbsp;€</button>
           <p class="note">Paiement sécurisé après confirmation · 15 € déduits de ton premier prélèvement à l'abonnement.</p>
         </form>
       </div>
