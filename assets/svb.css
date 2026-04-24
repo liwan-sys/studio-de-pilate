@@ -290,3 +290,119 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
 }
 .svb-newsletter-msg.ok{color:var(--svb-green-light)}
 .svb-newsletter-msg.err{color:#ff9a8a}
+
+/* =================================================================
+   Footer DA SVB — fond teal foncé, accents peach/sand, logo visible
+   ================================================================= */
+.svb-footer{
+  position:relative;margin-top:80px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(74,141,132,.55) 0%, transparent 45%),
+    radial-gradient(circle at 88% 82%, rgba(232,180,150,.18) 0%, transparent 55%),
+    linear-gradient(180deg, #2F4F4F 0%, #1d3838 100%);
+  color:#F2E6CF;
+  font-family:'Montserrat',sans-serif;
+  overflow:hidden;
+}
+.svb-footer-accent{
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg, transparent 0%, #E8B496 20%, #F2E6CF 50%, #E8B496 80%, transparent 100%);
+}
+.svb-footer-inner{
+  max-width:1200px;margin:0 auto;padding:64px 28px 28px;
+  position:relative;z-index:1;
+}
+.svb-footer-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:44px;
+  align-items:start;
+}
+@media (max-width:880px){
+  .svb-footer-grid{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media (max-width:520px){
+  .svb-footer-grid{grid-template-columns:1fr;gap:28px;text-align:left}
+  .svb-footer-inner{padding:48px 22px 22px}
+}
+
+/* Brand column */
+.svb-footer-brand .svb-footer-logo{
+  height:56px;width:auto;margin:0 0 18px;
+  filter:drop-shadow(0 2px 8px rgba(0,0,0,.25));
+}
+.svb-footer-sig{
+  font-family:'Dancing Script',cursive;font-weight:600;
+  font-size:1.8rem;line-height:1.1;color:#E8B496;
+  margin:0 0 12px;
+}
+.svb-footer-tagline{
+  font-size:.85rem;line-height:1.55;opacity:.82;margin:0;
+  max-width:280px;
+}
+
+/* Columns */
+.svb-footer-col{min-width:0}
+.svb-footer-head{
+  font-family:'Dancing Script',cursive;font-weight:600;
+  font-size:1.5rem;color:#E8B496;margin:0 0 14px;
+  letter-spacing:.02em;
+}
+.svb-footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.svb-footer-col a{
+  display:inline-flex;align-items:center;gap:8px;
+  color:#F2E6CF;text-decoration:none;font-size:.88rem;font-weight:500;
+  padding:2px 0;
+  transition:color .2s ease,transform .2s ease;
+}
+.svb-footer-col a:hover,
+.svb-footer-col a:focus{
+  color:#E8B496;outline:none;transform:translateX(2px);
+}
+.svb-footer-col a:focus-visible{text-decoration:underline;text-underline-offset:3px}
+.svb-ico{
+  width:14px;height:14px;flex-shrink:0;
+  color:#E8B496;opacity:.85;transition:opacity .2s;
+}
+.svb-footer-col a:hover .svb-ico{opacity:1}
+
+/* Separator */
+.svb-footer-sep{
+  height:1px;margin:40px 0 22px;
+  background:linear-gradient(90deg, transparent 0%, rgba(232,180,150,.35) 20%, rgba(232,180,150,.35) 80%, transparent 100%);
+}
+
+/* Bottom row */
+.svb-footer-bottom{
+  display:grid;grid-template-columns:1.6fr 1fr;gap:24px;
+  align-items:start;
+  font-size:.78rem;line-height:1.6;opacity:.82;
+}
+@media (max-width:720px){
+  .svb-footer-bottom{grid-template-columns:1fr;gap:16px}
+}
+.svb-footer-eyebrow{
+  font-family:'Montserrat',sans-serif;
+  font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#E8B496;margin:0 0 6px;opacity:.95;
+}
+.svb-footer-adresses p{margin:0}
+.svb-footer-adresses p + p{margin-top:2px}
+.svb-footer-legal{text-align:right;display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.svb-footer-legal a{color:#F2E6CF;text-decoration:none;transition:color .2s}
+.svb-footer-legal a:hover{color:#E8B496}
+.svb-footer-legal span{opacity:.4}
+@media (max-width:720px){
+  .svb-footer-legal{justify-content:flex-start}
+}
+
+/* Signoff — Great Vibes signature */
+.svb-footer-signoff{
+  text-align:center;margin:28px 0 0;padding-top:22px;
+  border-top:1px dashed rgba(242,230,207,.15);
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(242,230,207,.55);font-weight:600;
+}
+.svb-footer-signoff span:first-child{
+  font-family:'Great Vibes',cursive;font-weight:400;
+  font-size:1.4rem;letter-spacing:.03em;text-transform:none;
+  color:#E8B496;
+}
