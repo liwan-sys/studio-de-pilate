@@ -485,6 +485,11 @@
     z-index: 20;
     padding: 1.25rem 1.5rem;
   }
+  /* Hero CTAs — stack sur mobile, côte-à-côte dès 540px */
+  .hero-cta-stack { flex-direction: column !important; }
+  @media (min-width: 540px){
+    .hero-cta-stack { flex-direction: row !important; }
+  }
   #hero-video .hero-content {
     position: relative;
     z-index: 10;
