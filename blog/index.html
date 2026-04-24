@@ -236,8 +236,6 @@
 
   <script src="/assets/svb.js?v=20260423a" defer></script>
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
     fetch('/assets/blog-index.json', { cache: 'force-cache' })
       .then(function(r){ return r.json(); })
       .then(function(articles){
