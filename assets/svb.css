@@ -502,3 +502,81 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
   box-shadow:0 14px 34px -8px rgba(242,230,207,.6);
   outline:none;
 }
+
+/* --- Photo gallery (shoot Reformer & Cie) --------------------- */
+.svb-photo-section{
+  position:relative;
+  padding:64px 24px;
+  background:linear-gradient(180deg,#FBF6EC 0%,#F2E6CF 100%);
+  overflow:hidden;
+}
+.svb-photo-section-accent{
+  position:absolute;left:50%;top:0;transform:translateX(-50%);
+  width:120px;height:4px;border-radius:0 0 4px 4px;
+  background:linear-gradient(90deg,#E8B496,#4A8D84);
+}
+.svb-photo-section-inner{max-width:1180px;margin:0 auto}
+.svb-photo-section-head{text-align:center;margin-bottom:40px}
+.svb-photo-section-eyebrow{
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:#4A8D84;font-weight:700;margin:0 0 12px;
+}
+.svb-photo-section-title{
+  font-family:"Dancing Script",cursive;
+  color:#2F4F4F;font-size:clamp(28px,4.4vw,44px);
+  margin:0 0 12px;line-height:1.15;
+}
+.svb-photo-section-lead{
+  max-width:620px;margin:0 auto;color:#3a5858;
+  font-size:clamp(15px,2vw,17px);line-height:1.55;
+}
+.svb-photo-gallery{
+  display:grid;gap:20px;
+  grid-template-columns:repeat(3,1fr);
+}
+@media (max-width:900px){.svb-photo-gallery{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.svb-photo-gallery{grid-template-columns:1fr;gap:16px}}
+.svb-photo-tile{
+  position:relative;border-radius:18px;overflow:hidden;
+  background:#2F4F4F;
+  box-shadow:0 16px 40px -18px rgba(47,79,79,.45);
+  transition:transform .3s ease,box-shadow .3s ease;
+  aspect-ratio:3/4;
+}
+.svb-photo-tile:hover{
+  transform:translateY(-4px);
+  box-shadow:0 22px 48px -16px rgba(47,79,79,.55);
+}
+.svb-photo-tile img,.svb-photo-tile picture{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s ease;
+}
+.svb-photo-tile:hover img{transform:scale(1.04)}
+.svb-photo-tile-caption{
+  position:absolute;inset:auto 0 0 0;
+  padding:16px 18px 14px;
+  background:linear-gradient(180deg,rgba(47,79,79,0) 0%,rgba(47,79,79,.75) 100%);
+  color:#fff;font-size:13px;font-weight:600;letter-spacing:.02em;
+  line-height:1.35;
+}
+.svb-photo-tile-caption strong{color:#E8B496;font-weight:700}
+.svb-photo-solo{
+  position:relative;border-radius:22px;overflow:hidden;
+  max-width:1080px;margin:0 auto;
+  box-shadow:0 20px 50px -20px rgba(47,79,79,.45);
+  aspect-ratio:16/9;
+}
+@media (max-width:700px){.svb-photo-solo{aspect-ratio:4/5}}
+.svb-photo-solo img{width:100%;height:100%;object-fit:cover;display:block}
+.svb-photo-solo-badge{
+  position:absolute;left:16px;bottom:16px;
+  padding:7px 14px;border-radius:999px;
+  background:rgba(47,79,79,.82);color:#F2E6CF;
+  font-size:12px;font-weight:600;letter-spacing:.04em;
+  backdrop-filter:blur(6px);
+}
+.svb-photo-duo{
+  display:grid;gap:20px;grid-template-columns:1fr 1fr;
+  max-width:1080px;margin:0 auto;
+}
+@media (max-width:700px){.svb-photo-duo{grid-template-columns:1fr;gap:16px}}
