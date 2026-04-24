@@ -17,8 +17,7 @@
         { label: "Crossformer",      href: "/crossformer-saint-ouen",      tag: "50 min · Reformer + cardio" },
         { label: "Cross Training",   href: "/cross-training-saint-ouen",   tag: "55 min · small group" },
         { label: "Yoga",             href: "/yoga-saint-ouen",             tag: "60 min · Vinyasa & Hatha" },
-        { label: "Boxe Anglaise",    href: "/boxe-anglaise-saint-ouen",    tag: "55 min · zéro contact" },
-        { label: "Cours Barre",      href: "/cours-barre-saint-ouen",      tag: "55 min · posture & tonus" }
+        { label: "Boxe Anglaise",    href: "/boxe-anglaise-saint-ouen",    tag: "55 min · zéro contact" }
     ];
 
     var CSS = [

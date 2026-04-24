@@ -101,12 +101,6 @@
             passes: ["focus", "full"],
             trial: "other"
         },
-        "barre": {
-            label: "Cours Barre",
-            highlight: "Classic Pilates",
-            passes: ["focus", "full"],
-            trial: "other"
-        },
         "afrodance": {
             label: "Afrodance",
             highlight: "Afrodance'All",
