@@ -504,6 +504,82 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
   outline:none;
 }
 
+/* =================================================================
+   Video Hero éditorial (POSES-style : full-bleed 16:9, texte dessous)
+   ================================================================= */
+.svb-video-hero{
+  position:relative;
+  background:#FBF6EC;
+  padding:0 0 clamp(48px,6vw,80px);
+}
+.svb-video-hero-media{
+  /* full-bleed — sort de n'importe quel container max-width */
+  position:relative;left:50%;right:50%;
+  margin-left:-50vw;margin-right:-50vw;
+  width:100vw;max-width:100vw;
+  aspect-ratio:16/9;
+  background:#2F4F4F;
+  overflow:hidden;
+}
+@media (max-width:760px){
+  .svb-video-hero-media{aspect-ratio:4/5}
+}
+.svb-video-hero-media video{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;background:#1d3838;
+}
+.svb-video-hero-badge{
+  position:absolute;bottom:18px;left:18px;
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(29,56,56,.82);color:#F2E6CF;
+  padding:8px 14px;border-radius:22px;
+  font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.04em;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(232,180,150,.22);
+  pointer-events:none;
+}
+@media (max-width:560px){
+  .svb-video-hero-badge{bottom:12px;left:12px;padding:6px 10px;font-size:.66rem}
+}
+.svb-video-hero-body{
+  max-width:860px;margin:0 auto;
+  padding:clamp(36px,5vw,64px) clamp(22px,5vw,48px) 0;
+  text-align:center;
+}
+.svb-video-hero-eyebrow{
+  font-family:'Montserrat',sans-serif;
+  font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:#4A8D84;margin:0 0 1rem;opacity:.95;
+}
+.svb-video-hero-title{
+  font-family:'Dancing Script',cursive;font-weight:700;
+  font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.08;
+  color:#2F4F4F;margin:0 0 1.2rem;
+}
+.svb-video-hero-lead{
+  font-family:'Montserrat',sans-serif;
+  font-size:1.02rem;line-height:1.6;color:#2F4F4F;
+  opacity:.88;margin:0 auto 1.8rem;max-width:58ch;
+}
+.svb-video-hero-lead strong{color:#4A8D84;font-weight:700}
+.svb-video-hero-cta{
+  display:inline-block;
+  padding:14px 30px;border-radius:999px;
+  background:#E8B496;color:#2F4F4F;
+  font-family:'Montserrat',sans-serif;
+  font-size:.95rem;font-weight:700;letter-spacing:.02em;
+  text-decoration:none;
+  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
+  box-shadow:0 10px 28px -8px rgba(232,180,150,.55);
+}
+.svb-video-hero-cta:hover,.svb-video-hero-cta:focus{
+  transform:translateY(-2px);
+  background:#F2E6CF;color:#2F4F4F;
+  box-shadow:0 14px 34px -8px rgba(242,230,207,.6);
+  outline:none;
+}
+
 /* --- Photo system (éditorial full-bleed, signature SVB) ------ */
 
 /* Full-bleed helper : sort de n'importe quel container max-width */
