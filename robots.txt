@@ -4,6 +4,15 @@ Allow: /
 
 # Fichiers non indexables
 Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+Disallow: /forms.html
+Disallow: /Merci.html
+Disallow: /merci-newsletter.html
+Disallow: /merci-newsletter
+Disallow: /merci-reservation
+Disallow: /questionnaire-abonnement-svb.html
+Disallow: /404.html
 
 # Sitemap
 Sitemap: https://studiosvb.com/sitemap.xml
