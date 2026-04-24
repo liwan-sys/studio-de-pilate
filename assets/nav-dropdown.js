@@ -22,8 +22,6 @@
     ];
 
     var CSS = [
-        '.svb-abo-caret{display:inline-block;margin-left:4px;font-size:0.7em;opacity:0.75;transition:transform 0.2s ease;}',
-        'a.svb-abo-open .svb-abo-caret{transform:rotate(180deg);}',
         '#svb-abo-panel{position:fixed;z-index:99998;min-width:280px;max-width:320px;',
             'background:#ffffff;border-radius:14px;padding:8px;',
             'box-shadow:0 20px 50px -12px rgba(47,79,79,0.35),0 4px 14px -4px rgba(47,79,79,0.15);',
@@ -158,12 +156,7 @@
         a.setAttribute('aria-haspopup', 'menu');
         a.setAttribute('aria-expanded', 'false');
 
-        // Chevron visuel
-        var caret = document.createElement('span');
-        caret.className = 'svb-abo-caret';
-        caret.setAttribute('aria-hidden', 'true');
-        caret.textContent = '▾';
-        a.appendChild(caret);
+        // Pas de chevron visible — le dropdown se révèle au hover sans indicateur parasite.
 
         a.addEventListener('mouseenter', function () { show(a); });
         a.addEventListener('mouseleave', scheduleHide);

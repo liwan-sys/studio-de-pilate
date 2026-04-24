@@ -225,19 +225,19 @@
       <a href="#main-content" class="svb-skip">Aller au contenu principal</a>
 <!-- Navigation -->
     <nav role="navigation" class="sticky top-0 z-50 border-b border-white/10" style="background:#2F4F4F;">
-      <div class="max-w-7xl mx-auto px-4 py-3" style="display:flex;flex-direction:column;width:100%;gap:8px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-          <a href="/" class="transform hover:scale-105 transition duration-300">
-            <img src="/images/logo.webp" alt="Logo SVB Santez Vous Bien" style="height:48px;width:auto;filter:brightness(0) invert(1);" width="200" height="142">
-          </a>
-          <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded text-white focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='flex-start';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}})()">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-          <a href="/en/" aria-label="English version" class="hidden md:inline-block transition" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.15);white-space:nowrap;color:white;"><span style="font-weight:900;color:#E8B496;">FR</span>&nbsp;|&nbsp;<span style="opacity:0.55;">EN</span></a>
-        </div>
-        <div id="nav-menu" class="hidden md:flex flex-wrap justify-start items-center gap-3 md:gap-5 text-[10px] md:text-xs font-semibold tracking-normal text-white">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+        <!-- Logo gauche -->
+        <a href="/" class="flex-shrink-0 transform hover:scale-105 transition duration-300" aria-label="Accueil Studio SVB">
+          <img src="/images/logo.webp" alt="Logo SVB Santez Vous Bien" style="height:44px;width:auto;filter:brightness(0) invert(1);" width="200" height="142">
+        </a>
+        <!-- Burger mobile -->
+        <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded text-white focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='flex-start';m.style.gap='12px';m.style.paddingTop='12px';m.style.width='100%';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.style.width='';m.classList.add('hidden');}})()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+        <!-- Menu droite -->
+        <div id="nav-menu" class="hidden md:flex flex-wrap items-center justify-end gap-3 lg:gap-5 text-[11px] lg:text-xs font-semibold tracking-normal text-white">
           <a href="/" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Accueil</a>
           <a href="/sessions" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Sessions</a>
           <a href="/studio" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Planning</a>
@@ -249,7 +249,7 @@
           <a href="/blog/" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Blog</a>
           <a href="/faq" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">FAQ</a>
           <a href="/contact" class="hover:text-[#EBC6A6] transition hover:scale-105 inline-block">Contact</a>
-          <a href="/en/" aria-label="English version" class="md:hidden transition" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.15);white-space:nowrap;color:white;"><span style="font-weight:900;color:#E8B496;">FR</span>&nbsp;|&nbsp;<span style="opacity:0.55;">EN</span></a>
+          <a href="/en/" aria-label="English version" class="inline-block transition ml-1" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.15);white-space:nowrap;color:white;"><span style="font-weight:900;color:#E8B496;">FR</span>&nbsp;|&nbsp;<span style="opacity:0.55;">EN</span></a>
         </div>
       </div>
     </nav>
@@ -291,14 +291,14 @@
     <section class="max-w-5xl mx-auto px-4 py-12 reveal-load">
         <div class="text-center mb-10">
             <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4A8D84] mb-2">Dans quel abonnement&nbsp;?</p>
-            <h2 class="text-4xl md:text-5xl text-[#2F4F4F] leading-none" style="font-family:'Dancing Script',cursive;font-weight:700;">
+            <h2 class="text-4xl md:text-5xl text-[#2F4F4F]" style="font-family:'Dancing Script',cursive;font-weight:700;line-height:1.25;padding:0.1em 0;">
                 Cours Barre est inclus dans ces pass
             </h2>
         </div>
         <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <!-- Primary pass -->
             <div class="relative bg-white/85 backdrop-blur-md rounded-3xl p-7 border-2 border-[#4A8D84] shadow-xl">
-                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E8B496] text-[#2F4F4F] text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-md border-2 border-white whitespace-nowrap" style="font-family:'Montserrat',sans-serif;">Recommandé</span>
+                <span class="absolute -top-3 right-5 bg-[#E8B496] text-[#2F4F4F] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md border-2 border-white whitespace-nowrap" style="font-family:'Montserrat',sans-serif;">Recommandé</span>
                 <h3 class="text-3xl text-[#2F4F4F] mb-1" style="font-family:'Dancing Script',cursive;font-weight:700;">Pass Focus</h3>
                 <p class="text-sm text-[#2F4F4F]/80 mb-5" style="font-family:'Montserrat',sans-serif;">Dès&nbsp;<strong class="text-[#2F4F4F] text-lg">36,30&nbsp;€/mois</strong><span class="text-[#2F4F4F]/60"> · 55-60 min · 2 séances</span></p>
                 <div class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#4A8D84] mb-3" style="font-family:'Montserrat',sans-serif;">Disciplines incluses</div>
@@ -329,7 +329,7 @@
     <section class="max-w-5xl mx-auto px-4 py-12 reveal-load">
         <div class="text-center mb-10">
             <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4A8D84] mb-2">Bon à savoir</p>
-            <h2 class="text-4xl md:text-5xl text-[#2F4F4F] leading-none" style="font-family:'Dancing Script',cursive;font-weight:700;">
+            <h2 class="text-4xl md:text-5xl text-[#2F4F4F]" style="font-family:'Dancing Script',cursive;font-weight:700;line-height:1.25;padding:0.1em 0;">
                 Ce qui fait la différence SVB
             </h2>
         </div>
