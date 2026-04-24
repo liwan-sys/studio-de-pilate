@@ -223,7 +223,12 @@
     'use strict';
 
     var CSS = [
+        /* Base: drawer + backdrop CACHÉS partout par défaut (évite flash desktop) */
+        '.svb-mobile-drawer,.svb-nav-backdrop{display:none;}',
         '@media (max-width: 767px){',
+            /* Réactivation mobile */
+            '.svb-mobile-drawer{display:flex;}',
+            '.svb-nav-backdrop{display:block;}',
             /* Toggle hamburger au-dessus de tout */
             '#nav-toggle{position:relative;z-index:100003;transition:transform .25s ease;}',
             'body.svb-nav-open #nav-toggle{transform:rotate(90deg);color:#2F4F4F;}',
