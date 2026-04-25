@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Été 2026 — 3 mois pour bouger juste · Studio SVB Saint-Ouen</title>
+  <title>Été 2026 — Studio SVB Saint-Ouen</title>
   <meta name="description" content="Été 2026 au Studio SVB : 3 mois pour bâtir ta routine — Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe. Saint-Ouen, petit comité, coachs certifiés.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://studiosvb.com/ete-2026">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://studiosvb.com/ete-2026">
-  <meta property="og:title" content="Été 2026 — 3 mois pour bouger juste · Studio SVB">
+  <meta property="og:title" content="Été 2026 — Studio SVB Saint-Ouen">
   <meta property="og:description" content="L'été approche. Et tout change un peu. 3 mois pour bâtir ta routine au Studio SVB Saint-Ouen.">
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Studio SVB">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Été 2026 — 3 mois pour bouger juste · Studio SVB">
+  <meta name="twitter:title" content="Été 2026 — Studio SVB Saint-Ouen">
   <meta name="twitter:description" content="L'été approche. 3 mois pour bâtir ta routine. Pilates Reformer, Crossformer, Cross, Yoga, Boxe à Saint-Ouen.">
   <meta name="twitter:image" content="https://studiosvb.com/images/og-image.jpg">
 
-  <meta name="theme-color" content="#2F4F4F">
+  <meta name="theme-color" content="#FBF6EC">
   <link rel="icon" type="image/png" href="/images/favicon.jpg">
   <link rel="apple-touch-icon" href="/images/favicon.jpg">
 
@@ -31,20 +31,19 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
-  <link rel="stylesheet" href="/assets/svb.css?v=20260425j">
+  <link rel="stylesheet" href="/assets/svb.css?v=20260425k">
 
-  <!-- Schema.org Event-like : programme été 2026 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Été 2026 — 3 mois pour bouger juste",
+    "name": "Été 2026 — Studio SVB",
     "url": "https://studiosvb.com/ete-2026",
-    "description": "Programme Été 2026 du Studio SVB : 3 mois pour bâtir une routine sport/bien-être avec Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe.",
+    "description": "Programme Été 2026 du Studio SVB : Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe à Saint-Ouen.",
     "isPartOf": { "@id": "https://studiosvb.com/#organization" },
     "primaryImageOfPage": "https://studiosvb.com/images/og-image.jpg",
     "datePublished": "2026-04-25",
@@ -68,849 +67,636 @@
   <script src="/assets/nav-dropdown.js?v=20260424h" defer></script>
 
   <style>
+    /* ================================================================
+       Été 2026 — STYLE POSES (minimaliste luxe Scandi)
+       Palette : cream #FBF6EC dominant · noir #0F1010 texte · peach
+       poudré #F5D5C8 pour les cards packs · zéro hand script.
+       Typo : Montserrat (200-800), uppercase tracké pour titres,
+       lowercase pour copy. Hiérarchie noir/gris.
+       ================================================================ */
+    *{box-sizing:border-box}
     body{
-      background:#FBF6EC;color:#2F4F4F;
-      font-family:'Montserrat',sans-serif;
       margin:0;
+      background:#FBF6EC;color:#0F1010;
+      font-family:'Montserrat',sans-serif;font-weight:400;
+      -webkit-font-smoothing:antialiased;
     }
 
-    /* === HERO ÉDITORIAL ÉTÉ 2026 === */
+    /* === TOP PROMO BAR === */
+    .ete-promobar{
+      position:fixed;top:0;left:0;right:0;z-index:80;
+      background:#0F1010;color:#FBF6EC;
+      padding:11px 20px;
+      text-align:center;
+      font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    }
+    .ete-promobar a{color:#F5D5C8;text-decoration:underline;font-weight:700;text-underline-offset:3px;}
+    .ete-promobar strong{color:#F5D5C8;}
+
+    /* === NAV (claire, pas overlay sombre) === */
+    body:has(.ete-page) > nav[role="navigation"]{
+      position:absolute;
+      top:42px;left:0;right:0;
+      max-width:none !important;
+      margin:0 !important;
+      padding:22px clamp(20px,4vw,52px) !important;
+      z-index:60;
+      background:transparent;
+    }
+    body:has(.ete-page) > nav[role="navigation"] a,
+    body:has(.ete-page) > nav[role="navigation"] button{
+      color:#FBF6EC !important;
+      text-shadow:0 1px 3px rgba(0,0,0,.35);
+    }
+    body:has(.ete-page) > nav[role="navigation"] img{
+      filter:brightness(0) invert(1);
+    }
+
+    /* ================================================================
+       HERO
+       ================================================================ */
     .ete-hero{
       position:relative;
       min-height:100vh;min-height:100svh;
       overflow:hidden;
-      background:#1d3838;
-      display:flex;flex-direction:column;
+      background:#0F1010;
+      display:flex;flex-direction:column;justify-content:flex-end;
+      padding:0 clamp(24px,5vw,72px) clamp(48px,8vw,96px);
     }
-    .ete-hero-video{
-      position:absolute;inset:0;
+    .ete-hero-media{
+      position:absolute;inset:0;z-index:0;
+    }
+    .ete-hero-media video,
+    .ete-hero-media img{
       width:100%;height:100%;
-      object-fit:cover;object-position:center 30%;
-      filter:brightness(.55) saturate(1.05);
-      z-index:0;
+      object-fit:cover;object-position:center 35%;
+      filter:brightness(.62) saturate(.95) contrast(1.05);
     }
-    .ete-hero-overlay{
-      position:absolute;inset:0;z-index:1;
-      background:
-        radial-gradient(ellipse at center, rgba(29,56,56,.25) 0%, rgba(29,56,56,.6) 80%, rgba(29,56,56,.9) 100%),
-        linear-gradient(180deg, rgba(29,56,56,.4) 0%, rgba(29,56,56,.1) 40%, rgba(29,56,56,.7) 100%);
+    .ete-hero-media::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(15,16,16,.15) 0%, rgba(15,16,16,.0) 35%, rgba(15,16,16,.55) 100%);
       pointer-events:none;
     }
     .ete-hero-content{
       position:relative;z-index:5;
-      flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-      text-align:center;padding:120px 24px 80px;
+      max-width:1400px;width:100%;margin:0 auto;
       color:#FBF6EC;
     }
     .ete-hero-eyebrow{
-      font-family:'Montserrat',sans-serif;
-      font-size:.78rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
-      color:#E8B496;
-      margin:0 0 26px;
-      text-shadow:0 2px 10px rgba(0,0,0,.5);
+      font-size:.7rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;
+      color:#FBF6EC;opacity:.85;
+      margin:0 0 24px;
     }
-    /* Hero Poses-style : très grand sans-serif uppercase, sub-tagline italique */
     .ete-hero-title{
       font-family:'Montserrat',sans-serif;
-      font-size:clamp(4rem, 18vw, 11rem);
-      font-weight:200;
-      letter-spacing:-.04em;
-      line-height:.9;
-      margin:0 0 24px;
-      text-shadow:0 4px 30px rgba(0,0,0,.4);
+      font-size:clamp(4.2rem, 16vw, 13rem);
+      font-weight:800;
+      letter-spacing:-.045em;
+      line-height:.85;
+      margin:0 0 28px;
       text-transform:uppercase;
+      color:#FBF6EC;
     }
     .ete-hero-tagline{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(1.4rem, 3.5vw, 2.4rem);
-      font-weight:500;
-      color:#E8B496;
-      margin:0 0 24px;
-      letter-spacing:0;
-      text-shadow:0 2px 14px rgba(0,0,0,.4);
+      font-size:clamp(1.05rem, 1.8vw, 1.3rem);
+      font-weight:400;line-height:1.5;
+      max-width:540px;
+      margin:0 0 36px;
+      opacity:.92;
     }
-    .ete-hero-lead{
+    .ete-hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+    .ete-btn{
+      display:inline-flex;align-items:center;justify-content:center;
       font-family:'Montserrat',sans-serif;
-      font-size:clamp(1.1rem, 2.4vw, 1.4rem);
-      font-weight:400;
-      max-width:640px;line-height:1.5;
-      margin:0 auto 40px;
-      opacity:.95;
-      text-shadow:0 2px 14px rgba(0,0,0,.4);
-    }
-    .ete-hero-cta{
-      display:inline-block;
-      background:#FBF6EC;color:#2F4F4F;
-      font-family:'Montserrat',sans-serif;
-      font-size:.85rem;font-weight:800;
-      letter-spacing:.16em;text-transform:uppercase;
+      font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
       text-decoration:none;
-      padding:20px 42px;border-radius:999px;
-      box-shadow:0 14px 40px rgba(0,0,0,.35);
-      transition:transform .25s ease, background .25s ease;
+      padding:18px 34px;
+      border-radius:6px;
+      border:1px solid transparent;
+      transition:background .2s ease, color .2s ease, border-color .2s ease;
+      cursor:pointer;
     }
-    .ete-hero-cta:hover{transform:translateY(-3px) scale(1.02);background:#fff;}
+    .ete-btn--primary{background:#FBF6EC;color:#0F1010;}
+    .ete-btn--primary:hover{background:#F5D5C8;}
+    .ete-btn--ghost{background:transparent;color:#FBF6EC;border-color:rgba(251,246,236,.5);}
+    .ete-btn--ghost:hover{background:rgba(251,246,236,.1);border-color:#FBF6EC;}
+    .ete-btn--dark{background:#0F1010;color:#FBF6EC;}
+    .ete-btn--dark:hover{background:#252727;}
 
-    .ete-hero-scroll{
-      position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+    .ete-scroll-cue{
+      position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
       z-index:5;color:#FBF6EC;
-      font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
-      opacity:.7;animation:scrollHint 2s ease-in-out infinite;
-    }
-    @keyframes scrollHint{
-      0%,100%{transform:translateX(-50%) translateY(0);opacity:.7}
-      50%{transform:translateX(-50%) translateY(8px);opacity:1}
+      font-size:.6rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;
+      opacity:.6;
     }
 
-    /* === MANIFESTE === */
-    .ete-manifeste{
-      padding:clamp(80px, 12vw, 140px) 24px;
-      background:#FBF6EC;
-      text-align:center;
+    /* ================================================================
+       MANIFESTE
+       ================================================================ */
+    .ete-section{
+      padding:clamp(100px, 14vw, 180px) clamp(24px,5vw,72px);
     }
-    .ete-manifeste-inner{max-width:780px;margin:0 auto;}
+    .ete-section--cream{background:#FBF6EC;}
+    .ete-section--white{background:#fff;}
+    .ete-section--peach{background:#F5D5C8;}
+    .ete-section--dark{background:#0F1010;color:#FBF6EC;}
+
     .ete-section-eyebrow{
-      font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-      color:#4A8D84;margin:0 0 20px;
+      font-size:.66rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+      color:#0F1010;opacity:.55;margin:0 0 28px;
     }
-    .ete-manifeste-title{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(2.6rem, 7vw, 5rem);
-      font-weight:600;line-height:1.05;
-      color:#2F4F4F;
-      margin:0 0 30px;
-    }
-    .ete-manifeste-text{
-      font-size:clamp(1.05rem, 2vw, 1.25rem);
-      line-height:1.65;color:#2F4F4F;
-      max-width:620px;margin:0 auto;
-      opacity:.85;
-    }
-    .ete-manifeste-text strong{font-weight:700;color:#2F4F4F;opacity:1;}
+    .ete-section--dark .ete-section-eyebrow{color:#FBF6EC;opacity:.6;}
 
-    /* === DISCIPLINES === */
-    .ete-disciplines{
-      padding:clamp(60px, 10vw, 120px) 24px;
-      background:#F2E6CF;
+    .ete-h2{
+      font-family:'Montserrat',sans-serif;
+      font-size:clamp(2.4rem, 7vw, 5.4rem);
+      font-weight:800;letter-spacing:-.035em;line-height:.95;
+      text-transform:uppercase;
+      margin:0 0 36px;color:#0F1010;
     }
-    .ete-disciplines-inner{max-width:1200px;margin:0 auto;}
-    .ete-disciplines-head{text-align:center;margin-bottom:60px;}
-    .ete-disciplines-title{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(2.2rem, 6vw, 4rem);
-      font-weight:600;line-height:1.05;
-      color:#2F4F4F;
-      margin:0 0 16px;
+    .ete-section--dark .ete-h2{color:#FBF6EC;}
+
+    .ete-manifeste{max-width:920px;margin:0 auto;text-align:left;}
+    .ete-lead{
+      font-size:clamp(1.1rem, 1.7vw, 1.35rem);
+      line-height:1.6;
+      max-width:680px;
+      color:#0F1010;opacity:.78;
+      margin:0;
     }
-    .ete-disciplines-sub{
-      font-size:1.05rem;color:#2F4F4F;opacity:.78;
-      max-width:520px;margin:0 auto;line-height:1.5;
+
+    /* ================================================================
+       DISCIPLINES (grille minimale, sans script)
+       ================================================================ */
+    .ete-disciplines-grid{
+      max-width:1400px;margin:0 auto;
+      display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:1px;background:rgba(15,16,16,.1);
+      border:1px solid rgba(15,16,16,.1);
     }
-    .ete-discipline-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:24px;
-    }
-    .ete-discipline-card{
-      position:relative;
-      background:#FBF6EC;border-radius:24px;overflow:hidden;
-      box-shadow:0 8px 28px rgba(47,79,79,.08);
-      transition:transform .35s ease, box-shadow .35s ease;
-      display:flex;flex-direction:column;
+    .ete-discipline{
+      background:#FBF6EC;
+      padding:48px 36px;
+      display:flex;flex-direction:column;gap:18px;
       text-decoration:none;color:inherit;
+      transition:background .25s ease;
+      min-height:340px;justify-content:space-between;
     }
-    .ete-discipline-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 18px 50px rgba(47,79,79,.16);
-    }
-    .ete-discipline-media{
-      position:relative;aspect-ratio:4/3;
-      background:#2F4F4F;overflow:hidden;
-    }
-    .ete-discipline-media video,
-    .ete-discipline-media img{
-      width:100%;height:100%;object-fit:cover;
-      display:block;
-      transition:transform .8s ease;
-    }
-    .ete-discipline-card:hover .ete-discipline-media video,
-    .ete-discipline-card:hover .ete-discipline-media img{
-      transform:scale(1.05);
-    }
-    .ete-discipline-body{
-      padding:24px 26px 28px;display:flex;flex-direction:column;gap:8px;
+    .ete-discipline:hover{background:#fff;}
+    .ete-discipline-num{
+      font-size:.66rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+      color:#0F1010;opacity:.45;
     }
     .ete-discipline-name{
       font-family:'Montserrat',sans-serif;
-      font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-      color:#4A8D84;margin:0;
+      font-size:clamp(1.4rem, 2.4vw, 1.9rem);
+      font-weight:800;letter-spacing:-.02em;line-height:1.05;
+      text-transform:uppercase;
+      color:#0F1010;margin:0;
     }
     .ete-discipline-promise{
-      font-family:'Dancing Script',cursive;
-      font-size:1.7rem;font-weight:600;line-height:1.1;
-      color:#2F4F4F;margin:4px 0 0;
+      font-size:.95rem;font-weight:400;line-height:1.5;
+      color:#0F1010;opacity:.7;margin:0;
     }
-    .ete-discipline-detail{
-      font-size:.85rem;color:#2F4F4F;opacity:.7;
-      margin:8px 0 0;line-height:1.5;
+    .ete-discipline-arrow{
+      font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+      color:#0F1010;
+      display:flex;align-items:center;gap:8px;margin-top:auto;
     }
+    .ete-discipline-arrow::after{content:"→";font-size:1rem;letter-spacing:0;}
 
-    /* === COMMENT DÉMARRER === */
-    .ete-start{
-      padding:clamp(80px, 12vw, 140px) 24px;
-      background:#FBF6EC;
+    /* ================================================================
+       LES PACKS (cards peach poudré)
+       ================================================================ */
+    .ete-packs-head{max-width:1200px;margin:0 auto 60px;}
+    .ete-packs-grid{
+      max-width:1200px;margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:24px;
     }
-    .ete-start-inner{max-width:1100px;margin:0 auto;}
-    .ete-start-head{text-align:center;margin-bottom:60px;}
-    .ete-start-title{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(2.4rem, 6vw, 4rem);
-      font-weight:600;line-height:1.05;
-      color:#2F4F4F;margin:0 0 16px;
+    @media (min-width:840px){
+      .ete-packs-grid{grid-template-columns:repeat(3, 1fr);}
     }
-    .ete-start-grid{
-      display:grid;grid-template-columns:1fr;gap:24px;
-    }
-    @media (min-width:760px){
-      .ete-start-grid{grid-template-columns:1fr 1fr;}
-    }
-    .ete-start-card{
-      background:#fff;border-radius:28px;padding:40px 36px;
-      box-shadow:0 12px 32px rgba(47,79,79,.08);
-      border:1px solid rgba(47,79,79,.06);
+    .ete-pack{
+      background:#F5D5C8;
+      border-radius:8px;
+      padding:48px 36px 40px;
       display:flex;flex-direction:column;
+      min-height:480px;
+      position:relative;
+      transition:transform .25s ease, box-shadow .25s ease;
     }
-    .ete-start-card-num{
+    .ete-pack:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(15,16,16,.08);}
+    .ete-pack--feature{background:#0F1010;color:#FBF6EC;}
+    .ete-pack--feature .ete-pack-num,
+    .ete-pack--feature .ete-pack-name,
+    .ete-pack--feature .ete-pack-detail,
+    .ete-pack--feature .ete-pack-list li{color:#FBF6EC;}
+    .ete-pack--feature .ete-pack-num{opacity:.6;}
+    .ete-pack--feature .ete-pack-detail{opacity:.7;}
+    .ete-pack--feature .ete-pack-list li{opacity:.8;}
+    .ete-pack--feature .ete-pack-price{color:#F5D5C8;}
+    .ete-pack-num{
+      font-size:.66rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+      color:#0F1010;opacity:.55;margin:0 0 24px;
+    }
+    .ete-pack-name{
+      font-family:'Montserrat',sans-serif;
+      font-size:clamp(1.6rem, 2.4vw, 2.2rem);
+      font-weight:800;letter-spacing:-.02em;line-height:.95;
+      text-transform:uppercase;
+      color:#0F1010;margin:0 0 28px;
+    }
+    .ete-pack-price{
+      font-family:'Montserrat',sans-serif;
+      font-size:clamp(2.6rem, 4.5vw, 3.8rem);
+      font-weight:300;letter-spacing:-.04em;line-height:.9;
+      color:#0F1010;margin:0 0 8px;
+    }
+    .ete-pack-price-tag{
+      font-size:.74rem;font-weight:600;letter-spacing:.06em;
+      color:#0F1010;opacity:.6;margin:0 0 28px;
+    }
+    .ete-pack-list{
+      list-style:none;padding:0;margin:0 0 32px;
+      display:flex;flex-direction:column;gap:8px;flex:1;
+    }
+    .ete-pack-list li{
+      font-size:.86rem;font-weight:400;line-height:1.5;
+      color:#0F1010;opacity:.78;
+      padding-left:18px;position:relative;
+    }
+    .ete-pack-list li::before{
+      content:"";position:absolute;left:0;top:.55em;
+      width:8px;height:1.2px;background:#0F1010;opacity:.6;
+    }
+    .ete-pack--feature .ete-pack-list li::before{background:#FBF6EC;opacity:.5;}
+    .ete-pack-feature-badge{
+      position:absolute;top:24px;right:24px;
+      font-size:.6rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+      color:#F5D5C8;border:1px solid #F5D5C8;
+      padding:5px 11px;border-radius:4px;
+    }
+    .ete-pack-cta{
+      display:inline-flex;align-items:center;justify-content:center;
       font-family:'Montserrat',sans-serif;
       font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-      color:#4A8D84;margin:0 0 12px;
-    }
-    .ete-start-card-name{
-      font-family:'Dancing Script',cursive;
-      font-size:2.2rem;font-weight:600;line-height:1.1;
-      color:#2F4F4F;margin:0 0 18px;
-    }
-    .ete-start-card-price{
-      font-family:'Montserrat',sans-serif;
-      font-size:2.4rem;font-weight:300;color:#2F4F4F;
-      letter-spacing:-.02em;line-height:1;
-      margin:0 0 6px;
-    }
-    .ete-start-card-price-tag{
-      font-size:.78rem;font-weight:600;color:#4A8D84;
-      margin:0 0 26px;
-    }
-    .ete-start-card-list{
-      list-style:none;padding:0;margin:0 0 28px;
-      display:flex;flex-direction:column;gap:10px;
-    }
-    .ete-start-card-list li{
-      font-size:.92rem;color:#2F4F4F;line-height:1.5;
-      padding-left:22px;position:relative;
-    }
-    .ete-start-card-list li::before{
-      content:"";position:absolute;left:0;top:.55em;
-      width:10px;height:10px;border-radius:50%;
-      background:#E8B496;
-    }
-    .ete-start-card-cta{
-      display:inline-flex;align-items:center;justify-content:center;
-      background:#2F4F4F;color:#FBF6EC;
-      font-family:'Montserrat',sans-serif;
-      font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
       text-decoration:none;
-      padding:16px 28px;border-radius:999px;
-      transition:background .25s ease, transform .25s ease;
+      padding:16px 24px;
+      border-radius:6px;
+      background:#0F1010;color:#FBF6EC;
+      border:1px solid #0F1010;
+      transition:background .2s ease, color .2s ease;
       margin-top:auto;
     }
-    .ete-start-card-cta:hover{background:#4A8D84;transform:translateY(-2px);}
-    .ete-start-card-secondary{
-      display:inline-block;
-      font-size:.78rem;font-weight:700;
-      color:#4A8D84;text-decoration:underline;
-      margin-top:14px;text-align:center;
+    .ete-pack-cta:hover{background:#252727;}
+    .ete-pack--feature .ete-pack-cta{background:#FBF6EC;color:#0F1010;border-color:#FBF6EC;}
+    .ete-pack--feature .ete-pack-cta:hover{background:#F5D5C8;}
+
+    .ete-fineprint{
+      max-width:1200px;margin:48px auto 0;
+      font-size:.74rem;font-weight:400;letter-spacing:.02em;line-height:1.6;
+      color:#0F1010;opacity:.55;
     }
 
-    /* Sub-options pour la card essai 30€ : 3 mini-CTA Sportigo direct */
-    .ete-start-essai-options{
-      display:flex;flex-direction:column;gap:8px;margin-bottom:18px;
-    }
-    .ete-start-essai-option{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:14px 16px;border-radius:14px;
-      background:#F2E6CF;border:1px solid rgba(74,141,132,.1);
-      text-decoration:none;color:#2F4F4F;
-      transition:background .2s ease;
-      font-size:.88rem;font-weight:700;
-    }
-    .ete-start-essai-option:hover{background:rgba(232,180,150,.4);}
-    .ete-start-essai-option-arrow{
-      font-size:1rem;color:#4A8D84;flex-shrink:0;
-    }
-
-    /* === STUDIOS === */
-    .ete-studios{
-      padding:clamp(80px, 12vw, 140px) 24px;
-      background:#F2E6CF;
-    }
-    .ete-studios-inner{max-width:1200px;margin:0 auto;}
-    .ete-studios-head{text-align:center;margin-bottom:50px;}
-    .ete-studios-title{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(2.2rem, 6vw, 4rem);
-      font-weight:600;line-height:1.05;color:#2F4F4F;margin:0 0 14px;
-    }
-    .ete-studios-sub{
-      font-size:1rem;color:#2F4F4F;opacity:.78;
-      max-width:560px;margin:0 auto;line-height:1.5;
-    }
+    /* ================================================================
+       STUDIOS (compact, line-art)
+       ================================================================ */
     .ete-studios-grid{
-      display:grid;grid-template-columns:1fr;gap:20px;
+      max-width:1200px;margin:0 auto;
+      display:grid;grid-template-columns:1fr;gap:32px;
     }
     @media (min-width:760px){
       .ete-studios-grid{grid-template-columns:1fr 1fr;}
     }
-    .ete-studio-card{
-      background:#FBF6EC;border-radius:24px;padding:30px 32px;
-      box-shadow:0 8px 24px rgba(47,79,79,.06);
-    }
-    .ete-studio-name{
-      font-family:'Dancing Script',cursive;
-      font-size:1.8rem;font-weight:600;color:#2F4F4F;
-      margin:0 0 6px;
+    .ete-studio{
+      padding:36px 0;
+      border-top:1px solid rgba(15,16,16,.18);
     }
     .ete-studio-tag{
-      font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-      color:#4A8D84;margin:0 0 14px;
+      font-size:.66rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+      color:#0F1010;opacity:.55;margin:0 0 18px;
+    }
+    .ete-studio-name{
+      font-family:'Montserrat',sans-serif;
+      font-size:clamp(1.6rem, 3vw, 2.4rem);
+      font-weight:700;letter-spacing:-.02em;line-height:1;
+      color:#0F1010;margin:0 0 14px;
     }
     .ete-studio-detail{
-      font-size:.92rem;color:#2F4F4F;opacity:.85;line-height:1.6;margin:0;
+      font-size:.95rem;font-weight:400;line-height:1.6;
+      color:#0F1010;opacity:.7;margin:0;
     }
-    .ete-studio-detail strong{color:#2F4F4F;}
 
-    /* === AVIS === */
-    .ete-avis{
-      padding:clamp(70px, 10vw, 110px) 24px;
-      background:#2F4F4F;color:#FBF6EC;text-align:center;
-    }
-    .ete-avis-stars{
-      font-size:1.6rem;color:#E8B496;letter-spacing:6px;margin-bottom:12px;
-    }
+    /* ================================================================
+       AVIS (cream bg, sans-serif, no script)
+       ================================================================ */
+    .ete-avis-head{max-width:1200px;margin:0 auto 60px;}
     .ete-avis-rating{
-      font-family:'Montserrat',sans-serif;
-      font-size:1rem;font-weight:600;
-      color:#FBF6EC;opacity:.85;
-      margin:0 0 28px;
+      font-size:.74rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+      color:#0F1010;opacity:.6;margin:0 0 36px;
     }
-    .ete-avis-quote{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(1.4rem, 3vw, 2rem);
-      font-weight:500;line-height:1.4;
-      color:#FBF6EC;
-      max-width:760px;margin:0 auto;
-      opacity:.96;
-    }
-    .ete-avis-author{
-      font-family:'Montserrat',sans-serif;
-      font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-      color:#E8B496;
-      margin-top:24px;
-    }
-
-    /* === CTA FIN === */
-    .ete-cta-fin{
-      padding:clamp(70px, 10vw, 120px) 24px;
-      background:linear-gradient(180deg, #F2E6CF 0%, #FBF6EC 100%);
-      text-align:center;
-    }
-    .ete-cta-fin-title{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(2.6rem, 7vw, 4.5rem);
-      font-weight:600;line-height:1.05;
-      color:#2F4F4F;margin:0 0 22px;
-    }
-    .ete-cta-fin-sub{
-      font-size:1.05rem;color:#2F4F4F;opacity:.78;
-      max-width:540px;margin:0 auto 36px;line-height:1.6;
-    }
-
-    /* nav overlay sombre */
-    body:has(.ete-hero) > nav[role="navigation"]{
-      position:absolute;
-      top:0;left:0;right:0;
-      max-width:none !important;
-      margin:0 !important;
-      padding:18px clamp(16px,4vw,40px) !important;
-      z-index:60;
-      background:linear-gradient(to bottom,rgba(29,56,56,.55) 0%,rgba(29,56,56,.2) 60%,transparent 100%);
-      backdrop-filter:blur(2px);
-      -webkit-backdrop-filter:blur(2px);
-    }
-    body:has(.ete-hero) > nav[role="navigation"] a,
-    body:has(.ete-hero) > nav[role="navigation"] button{
-      color:#FBF6EC !important;
-      text-shadow:0 1px 2px rgba(0,0,0,.28);
-    }
-    body:has(.ete-hero) > nav[role="navigation"] img{
-      filter:brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,.3));
-    }
-
-    /* Quand la promo bar est présente, décale la nav vers le bas */
-    body:has(.ete-promo-bar) > nav[role="navigation"]{
-      top:36px !important;
-    }
-
-    /* === TOP PROMO BAR (façon Poses) === */
-    .ete-promo-bar{
-      position:fixed;top:0;left:0;right:0;
-      z-index:80;
-      background:#2F4F4F;color:#FBF6EC;
-      padding:9px 16px;
-      text-align:center;
-      font-family:'Montserrat',sans-serif;
-      font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-      box-shadow:0 2px 12px rgba(0,0,0,.15);
-    }
-    .ete-promo-bar a{color:#E8B496;text-decoration:underline;font-weight:800;}
-    .ete-promo-bar strong{color:#E8B496;}
-
-    /* === LES OFFRES (façon Poses "LES PACKS") === */
-    .ete-offres{
-      padding:clamp(80px, 12vw, 140px) 24px;
-      background:#FBF6EC;
-    }
-    .ete-offres-inner{max-width:1200px;margin:0 auto;}
-    .ete-offres-head{text-align:center;margin-bottom:60px;}
-    .ete-offres-title{
-      font-family:'Montserrat',sans-serif;
-      font-size:clamp(2rem, 5.5vw, 3.4rem);
-      font-weight:200;letter-spacing:.04em;text-transform:uppercase;
-      color:#2F4F4F;margin:0 0 16px;
-    }
-    .ete-offres-sub{
-      font-size:1rem;color:#2F4F4F;opacity:.78;
-      max-width:560px;margin:0 auto;line-height:1.55;
-    }
-    .ete-offres-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:20px;
-    }
-    @media (min-width:760px){
-      .ete-offres-grid{grid-template-columns:repeat(3, 1fr);}
-    }
-    .ete-offre-card{
-      background:#fff;
-      border:1px solid rgba(47,79,79,.08);
-      border-radius:24px;
-      padding:36px 32px;
-      display:flex;flex-direction:column;
-      transition:transform .25s ease, box-shadow .25s ease;
-    }
-    .ete-offre-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 18px 50px rgba(47,79,79,.12);
-    }
-    .ete-offre-card.featured{
-      background:#2F4F4F;color:#FBF6EC;
-      position:relative;
-      box-shadow:0 18px 50px rgba(47,79,79,.18);
-    }
-    .ete-offre-card.featured .ete-offre-num,
-    .ete-offre-card.featured .ete-offre-detail,
-    .ete-offre-card.featured .ete-offre-list li{color:#FBF6EC;}
-    .ete-offre-card.featured .ete-offre-name{color:#FBF6EC;}
-    .ete-offre-card.featured .ete-offre-price{color:#E8B496;}
-    .ete-offre-card.featured .ete-offre-price-tag{color:rgba(251,246,236,.78);}
-    .ete-offre-card.featured .ete-offre-list li::before{background:#E8B496;}
-    .ete-offre-card.featured .ete-offre-cta{
-      background:#FBF6EC;color:#2F4F4F;
-    }
-    .ete-offre-card.featured .ete-offre-cta:hover{background:#fff;}
-    .ete-offre-badge{
-      position:absolute;top:-12px;right:24px;
-      background:#E8B496;color:#2F4F4F;
-      font-family:'Montserrat',sans-serif;
-      font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
-      padding:5px 14px;border-radius:999px;
-    }
-    .ete-offre-num{
-      font-family:'Montserrat',sans-serif;
-      font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-      color:#4A8D84;margin:0 0 12px;
-    }
-    .ete-offre-name{
-      font-family:'Dancing Script',cursive;
-      font-size:1.9rem;font-weight:600;line-height:1.1;
-      color:#2F4F4F;margin:0 0 18px;
-    }
-    .ete-offre-price{
-      font-family:'Montserrat',sans-serif;
-      font-size:2.6rem;font-weight:200;color:#2F4F4F;
-      letter-spacing:-.02em;line-height:1;margin:0 0 6px;
-    }
-    .ete-offre-price-tag{
-      font-size:.78rem;font-weight:600;color:#4A8D84;
-      margin:0 0 24px;
-    }
-    .ete-offre-list{
-      list-style:none;padding:0;margin:0 0 26px;
-      display:flex;flex-direction:column;gap:10px;flex:1;
-    }
-    .ete-offre-list li{
-      font-size:.9rem;color:#2F4F4F;line-height:1.5;
-      padding-left:22px;position:relative;
-    }
-    .ete-offre-list li::before{
-      content:"";position:absolute;left:0;top:.55em;
-      width:8px;height:8px;border-radius:50%;
-      background:#E8B496;
-    }
-    .ete-offre-cta{
-      display:inline-flex;align-items:center;justify-content:center;
-      background:#2F4F4F;color:#FBF6EC;
-      font-family:'Montserrat',sans-serif;
-      font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
-      text-decoration:none;
-      padding:16px 24px;border-radius:999px;
-      transition:background .25s ease, transform .25s ease;
-      margin-top:auto;
-    }
-    .ete-offre-cta:hover{background:#4A8D84;transform:translateY(-2px);}
-    .ete-offre-fineprint{
-      max-width:780px;margin:36px auto 0;
-      text-align:center;font-size:.78rem;color:#2F4F4F;opacity:.6;
-      line-height:1.55;
-    }
-
-    /* === AVIS GRID (5 témoignages façon Poses) === */
+    .ete-avis-rating strong{font-weight:800;color:#0F1010;opacity:1;font-size:1.1rem;letter-spacing:0;margin-right:8px;}
     .ete-avis-grid{
-      display:grid;grid-template-columns:1fr;gap:20px;
-      margin-top:36px;text-align:left;
+      max-width:1200px;margin:0 auto;
+      display:grid;grid-template-columns:1fr;gap:32px;
     }
     @media (min-width:760px){
-      .ete-avis-grid{grid-template-columns:repeat(3, 1fr);}
-      .ete-avis-grid > :nth-child(4){grid-column:1/2;}
-      .ete-avis-grid > :nth-child(5){grid-column:2/4;}
+      .ete-avis-grid{grid-template-columns:repeat(3, 1fr);gap:40px;}
     }
     .ete-avis-card{
-      background:rgba(255,255,255,.06);
-      backdrop-filter:blur(8px);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:18px;
-      padding:24px 26px;
+      background:transparent;
+      padding:0;
+      border-top:1px solid rgba(15,16,16,.18);
+      padding-top:28px;
     }
-    .ete-avis-card-stars{color:#E8B496;letter-spacing:3px;font-size:.95rem;margin-bottom:10px;}
     .ete-avis-card-text{
-      font-family:'Montserrat',sans-serif;
-      font-size:.92rem;line-height:1.55;color:#FBF6EC;opacity:.92;
-      margin:0 0 14px;
+      font-size:1.02rem;font-weight:400;line-height:1.6;letter-spacing:-.005em;
+      color:#0F1010;opacity:.85;
+      margin:0 0 22px;
     }
     .ete-avis-card-author{
-      font-family:'Montserrat',sans-serif;
-      font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-      color:#E8B496;margin:0;
+      font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+      color:#0F1010;opacity:.7;margin:0;
+    }
+
+    /* ================================================================
+       CTA FIN (band sombre)
+       ================================================================ */
+    .ete-cta-fin{text-align:center;}
+    .ete-cta-fin .ete-h2{margin-bottom:24px;}
+    .ete-cta-fin-sub{
+      font-size:1.05rem;line-height:1.6;
+      max-width:540px;margin:0 auto 36px;
+      opacity:.78;
+    }
+
+    /* responsive nav adjustments */
+    @media (max-width:780px){
+      body:has(.ete-page) > nav[role="navigation"]{
+        top:42px !important;
+        padding:14px 20px !important;
+      }
+      body:has(.ete-page) > nav[role="navigation"] img{height:48px !important;}
     }
   </style>
 </head>
-<body>
+<body class="ete-page">
   <a href="#main-content" class="svb-skip">Aller au contenu principal</a>
-
   <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- TOP PROMO BAR (sticky) -->
-  <div class="ete-promo-bar">
-    Été 2026 · Séance d'essai à <strong>30 €</strong> — déduits de ton 1<sup>er</sup> prélèvement si tu t'abonnes · <a href="#offres">Voir les offres</a>
+  <!-- TOP PROMO BAR -->
+  <div class="ete-promobar">
+    Été 2026 · Séance d'essai à <strong>30 €</strong> — déduits si abonnement · <a href="#packs">Voir les offres</a>
   </div>
 
-  <!-- Navigation -->
-  <nav role="navigation" class="p-6 flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-[#4A8D84] reveal-load">
+  <!-- NAV -->
+  <nav role="navigation" class="p-6 flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto reveal-load">
     <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
       <a href="/" aria-label="Accueil Studio SVB">
-        <img src="/images/logo.webp" alt="Logo SVB Santez Vous Bien" class="h-20 w-auto object-contain" width="200" height="142" fetchpriority="high">
+        <img src="/images/logo.webp" alt="Logo SVB" class="h-20 w-auto object-contain" width="200" height="142" fetchpriority="high">
       </a>
     </div>
     <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='center';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}})()">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
     <div id="nav-menu" class="hidden md:flex flex-wrap justify-center items-center space-x-4 md:space-x-5 text-[10px] md:text-xs font-semibold tracking-normal">
-      <a href="/" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Accueil</a>
-      <a href="/sessions" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Cours</a>
-      <a href="/studio" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Planning</a>
-      <a href="/tarifs" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Abonnements</a>
-      <a href="/equipe" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block" style="color:#E8B496;">La Team</a>
-        <a href="/ete-2026" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block" style="color:#E8B496;font-weight:800;">Promo</a>
-      <a href="/bien-etre" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Bien-Être</a>
-      <a href="/cadeau" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Cadeau</a>
-      <a href="/contact" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Contact</a>
-      <a href="/en/" aria-label="English version" class="inline-block transition ml-1" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(74,141,132,0.4);padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.5);white-space:nowrap;color:#4A8D84;"><span style="font-weight:900;color:#E8B496;">FR</span>&nbsp;|&nbsp;<span style="opacity:0.55;">EN</span></a>
+      <a href="/" class="transition hover:scale-105 inline-block">Accueil</a>
+      <a href="/sessions" class="transition hover:scale-105 inline-block">Cours</a>
+      <a href="/studio" class="transition hover:scale-105 inline-block">Planning</a>
+      <a href="/tarifs" class="transition hover:scale-105 inline-block">Abonnements</a>
+      <a href="/equipe" class="transition hover:scale-105 inline-block">La Team</a>
+      <a href="/ete-2026" class="transition hover:scale-105 inline-block" style="font-weight:800;">Promo</a>
+      <a href="/bien-etre" class="transition hover:scale-105 inline-block">Bien-Être</a>
+      <a href="/cadeau" class="transition hover:scale-105 inline-block">Cadeau</a>
+      <a href="/contact" class="transition hover:scale-105 inline-block">Contact</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="ete-hero" id="main-content" aria-labelledby="ete-title">
-    <video class="ete-hero-video" autoplay muted loop playsinline preload="metadata" poster="/videos/hero-poster.jpg" aria-hidden="true">
-      <source src="/videos/hero.mp4" type="video/mp4">
-    </video>
-    <div class="ete-hero-overlay"></div>
-
-    <div class="ete-hero-content">
-      <p class="ete-hero-eyebrow">Studio SVB · Été 2026</p>
-      <h1 id="ete-title" class="ete-hero-title">Été<br>2026</h1>
-      <p class="ete-hero-tagline">L'été approche. Et tout change un peu.</p>
-      <p class="ete-hero-lead">3 mois pour bâtir ta routine — Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe. En petit comité, à Saint-Ouen.</p>
-      <a href="#offres" class="ete-hero-cta svb-magnetic">Voir les offres</a>
+    <div class="ete-hero-media" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata" poster="/videos/hero-poster.jpg">
+        <source src="/videos/hero.mp4" type="video/mp4">
+      </video>
     </div>
 
-    <div class="ete-hero-scroll">↓ Scroll</div>
+    <div class="ete-hero-content">
+      <p class="ete-hero-eyebrow">Studio SVB · Saint-Ouen</p>
+      <h1 id="ete-title" class="ete-hero-title">Été<br>2026</h1>
+      <p class="ete-hero-tagline">L'été approche. Et tout change un peu. Trois mois pour bâtir ta routine — Pilates Reformer, Crossformer, Cross, Yoga, Boxe. En petit comité, à Saint-Ouen.</p>
+      <div class="ete-hero-actions">
+        <a href="#packs" class="ete-btn ete-btn--primary svb-magnetic">Voir les offres</a>
+        <a href="#disciplines" class="ete-btn ete-btn--ghost">Les disciplines</a>
+      </div>
+    </div>
+
+    <div class="ete-scroll-cue">↓ Scroll</div>
   </section>
 
   <!-- MANIFESTE -->
-  <section class="ete-manifeste">
-    <div class="ete-manifeste-inner">
+  <section class="ete-section ete-section--cream">
+    <div class="ete-manifeste">
       <p class="ete-section-eyebrow">Le programme</p>
-      <h2 class="ete-manifeste-title">3 mois pour bouger juste.</h2>
-      <p class="ete-manifeste-text">
-        Pas une promesse de transformation en 6 semaines. Pas un challenge avec photo avant/après. <strong>Trois mois pour t'installer dans une routine qui te ressemble</strong> — un studio où le coach connaît ton prénom, où tu peux annuler 1 h avant sans te justifier, et où l'engagement vient de l'envie de revenir.
-      </p>
+      <h2 class="ete-h2">Trois mois<br>pour bouger juste.</h2>
+      <p class="ete-lead">Pas de transformation en six semaines. Pas de challenge avec photo avant/après. Trois mois pour t'installer dans une routine qui te ressemble — un studio où le coach connaît ton prénom, où tu peux annuler 1 h avant sans te justifier, et où l'engagement vient de l'envie de revenir.</p>
     </div>
   </section>
 
   <!-- DISCIPLINES -->
-  <section class="ete-disciplines">
-    <div class="ete-disciplines-inner">
-      <div class="ete-disciplines-head">
-        <p class="ete-section-eyebrow">5 disciplines · 1 abonnement</p>
-        <h2 class="ete-disciplines-title">Choisis ton tempo.</h2>
-        <p class="ete-disciplines-sub">Chaque cours a sa promesse. Tu peux passer de l'un à l'autre selon ton humeur, ta semaine, tes objectifs.</p>
-      </div>
+  <section class="ete-section ete-section--cream" id="disciplines" style="padding-top:0;">
+    <div class="ete-manifeste" style="margin-bottom:60px;">
+      <p class="ete-section-eyebrow">5 disciplines · 1 abonnement</p>
+      <h2 class="ete-h2">Le studio.</h2>
+    </div>
+    <div class="ete-disciplines-grid">
 
-      <div class="ete-discipline-grid">
+      <a href="/pilates-reformer-saint-ouen" class="ete-discipline">
+        <div>
+          <p class="ete-discipline-num">01</p>
+          <h3 class="ete-discipline-name">Pilates Reformer</h3>
+        </div>
+        <p class="ete-discipline-promise">50 min · 9 places max. Gainage profond, posture, mobilité.</p>
+        <span class="ete-discipline-arrow">Découvrir</span>
+      </a>
 
-        <!-- Pilates Reformer -->
-        <a href="/pilates-reformer-saint-ouen" class="ete-discipline-card">
-          <div class="ete-discipline-media">
-            <video autoplay muted loop playsinline preload="metadata" poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true">
-              <source src="/videos/pilates-reformer-immersion.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="ete-discipline-body">
-            <p class="ete-discipline-name">Pilates Reformer</p>
-            <p class="ete-discipline-promise">pour s'aligner.</p>
-            <p class="ete-discipline-detail">50 min · 9 places max · gainage profond, posture, mobilité.</p>
-          </div>
-        </a>
+      <a href="/crossformer-saint-ouen" class="ete-discipline">
+        <div>
+          <p class="ete-discipline-num">02</p>
+          <h3 class="ete-discipline-name">Crossformer</h3>
+        </div>
+        <p class="ete-discipline-promise">50 min · 8 places max. Reformer + cardio dynamique. Effet 24 h.</p>
+        <span class="ete-discipline-arrow">Découvrir</span>
+      </a>
 
-        <!-- Crossformer -->
-        <a href="/crossformer-saint-ouen" class="ete-discipline-card">
-          <div class="ete-discipline-media">
-            <video autoplay muted loop playsinline preload="metadata" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true">
-              <source src="/videos/crossformer-immersion.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="ete-discipline-body">
-            <p class="ete-discipline-name">Crossformer</p>
-            <p class="ete-discipline-promise">pour transpirer juste.</p>
-            <p class="ete-discipline-detail">50 min · 8 places max · Reformer + cardio dynamique, effet 24 h.</p>
-          </div>
-        </a>
+      <a href="/cross-training-saint-ouen" class="ete-discipline">
+        <div>
+          <p class="ete-discipline-num">03</p>
+          <h3 class="ete-discipline-name">Cross Training</h3>
+        </div>
+        <p class="ete-discipline-promise">55 min · small group. Force, endurance, conditionnement.</p>
+        <span class="ete-discipline-arrow">Découvrir</span>
+      </a>
 
-        <!-- Cross Training -->
-        <a href="/cross-training-saint-ouen" class="ete-discipline-card">
-          <div class="ete-discipline-media">
-            <video autoplay muted loop playsinline preload="metadata" poster="/videos/cross-training-immersion-poster.jpg" aria-hidden="true">
-              <source src="/videos/cross-training-immersion.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="ete-discipline-body">
-            <p class="ete-discipline-name">Cross Training</p>
-            <p class="ete-discipline-promise">pour se dépasser.</p>
-            <p class="ete-discipline-detail">55 min · small group · force, endurance, conditionnement.</p>
-          </div>
-        </a>
+      <a href="/yoga-saint-ouen" class="ete-discipline">
+        <div>
+          <p class="ete-discipline-num">04</p>
+          <h3 class="ete-discipline-name">Yoga</h3>
+        </div>
+        <p class="ete-discipline-promise">60 min · 12 places max. Vinyasa, Hatha Flow, Yin, Cross Yoga.</p>
+        <span class="ete-discipline-arrow">Découvrir</span>
+      </a>
 
-        <!-- Yoga -->
-        <a href="/yoga-saint-ouen" class="ete-discipline-card">
-          <div class="ete-discipline-media">
-            <picture>
-              <source type="image/webp" srcset="/images/yoga-saint-ouen.webp">
-              <img src="/images/yoga-vinyasa.jpg" alt="Cours de Yoga au Studio SVB" loading="lazy" decoding="async" width="800" height="600" style="object-position:center 30%;">
-            </picture>
-          </div>
-          <div class="ete-discipline-body">
-            <p class="ete-discipline-name">Yoga</p>
-            <p class="ete-discipline-promise">pour respirer.</p>
-            <p class="ete-discipline-detail">60 min · 12 places max · Vinyasa, Hatha Flow, Yin, Cross Yoga.</p>
-          </div>
-        </a>
+      <a href="/boxe-anglaise-saint-ouen" class="ete-discipline">
+        <div>
+          <p class="ete-discipline-num">05</p>
+          <h3 class="ete-discipline-name">Boxe Anglaise</h3>
+        </div>
+        <p class="ete-discipline-promise">55 min · zéro contact. Pieds, gardes, confiance.</p>
+        <span class="ete-discipline-arrow">Découvrir</span>
+      </a>
 
-        <!-- Boxe -->
-        <a href="/boxe-anglaise-saint-ouen" class="ete-discipline-card">
-          <div class="ete-discipline-media">
-            <picture>
-              <source type="image/webp" srcset="/images/boxe-anglaise.webp">
-              <img src="/images/boxe-anglaise.webp" alt="Cours de Boxe au Studio SVB" loading="lazy" decoding="async" width="800" height="600" style="object-position:center 30%;">
-            </picture>
-          </div>
-          <div class="ete-discipline-body">
-            <p class="ete-discipline-name">Boxe Anglaise</p>
-            <p class="ete-discipline-promise">pour décharger.</p>
-            <p class="ete-discipline-detail">55 min · zéro contact · pieds, gardes, confiance.</p>
-          </div>
-        </a>
+      <a href="/coaching-sportif-saint-ouen" class="ete-discipline">
+        <div>
+          <p class="ete-discipline-num">06</p>
+          <h3 class="ete-discipline-name">Coaching individuel</h3>
+        </div>
+        <p class="ete-discipline-promise">60 min · 1 coach pour toi. Objectifs personnalisés, posture, prépa.</p>
+        <span class="ete-discipline-arrow">Découvrir</span>
+      </a>
 
-        <!-- Coaching -->
-        <a href="/coaching-sportif-saint-ouen" class="ete-discipline-card">
-          <div class="ete-discipline-media">
-            <picture>
-              <source type="image/webp" srcset="/images/coaching-sportif.webp">
-              <img src="/images/coaching-sportif.webp" alt="Coaching individuel au Studio SVB" loading="lazy" decoding="async" width="800" height="600" style="object-position:center 30%;">
-            </picture>
-          </div>
-          <div class="ete-discipline-body">
-            <p class="ete-discipline-name">Coaching individuel</p>
-            <p class="ete-discipline-promise">pour cadrer.</p>
-            <p class="ete-discipline-detail">60 min · 1 coach pour toi · objectifs personnalisés, posture, prépa physique.</p>
-          </div>
-        </a>
-
-      </div>
     </div>
   </section>
 
-  <!-- LES OFFRES (façon Poses "LES PACKS") -->
-  <section class="ete-offres" id="offres">
-    <div class="ete-offres-inner">
-      <div class="ete-offres-head">
-        <p class="ete-section-eyebrow">Trois entrées</p>
-        <h2 class="ete-offres-title">Les offres</h2>
-        <p class="ete-offres-sub">Choisis le format qui te convient — tester en une séance, explorer en 5 cours, ou t'engager sur 6 mois pour bâtir ta routine.</p>
-      </div>
-
-      <div class="ete-offres-grid">
-
-        <!-- Offre 1 — Séance d'essai 30 € -->
-        <div class="ete-offre-card">
-          <p class="ete-offre-num">01 · La séance d'essai</p>
-          <h3 class="ete-offre-name">Une séance.<br>Une décision.</h3>
-          <p class="ete-offre-price">30&nbsp;€</p>
-          <p class="ete-offre-price-tag">Déduits si abonnement dans les 7 jours</p>
-          <ul class="ete-offre-list">
-            <li>50 min avec un coach qui t'explique ton corps</li>
-            <li>Aucune carte bleue à la réservation</li>
-            <li>Sans engagement</li>
-          </ul>
-          <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90" target="_blank" rel="noopener noreferrer" class="ete-offre-cta svb-magnetic">J'essaie · 30 €</a>
-        </div>
-
-        <!-- Offre 2 — Pass Starter (FEATURED, mise en avant) -->
-        <div class="ete-offre-card featured">
-          <span class="ete-offre-badge">Populaire</span>
-          <p class="ete-offre-num">02 · Pass Starter</p>
-          <h3 class="ete-offre-name">Cinq cours<br>pour explorer.</h3>
-          <p class="ete-offre-price">99,90&nbsp;€</p>
-          <p class="ete-offre-price-tag">5 sessions · sans engagement · valable 1 mois</p>
-          <ul class="ete-offre-list">
-            <li>Teste plusieurs disciplines avant de choisir</li>
-            <li>Idéal pour les débutants ou les indécis</li>
-            <li>Aucun frais de dossier</li>
-          </ul>
-          <a href="/tarifs#pass-starter" class="ete-offre-cta svb-magnetic">Prendre le Pass Starter</a>
-        </div>
-
-        <!-- Offre 3 — Abonnement -->
-        <div class="ete-offre-card">
-          <p class="ete-offre-num">03 · Abonnement</p>
-          <h3 class="ete-offre-name">Bâtir ta routine<br>sur 6 mois.</h3>
-          <p class="ete-offre-price">dès 30,30&nbsp;€</p>
-          <p class="ete-offre-price-tag">Par mois · pause vacances incluse</p>
-          <ul class="ete-offre-list">
-            <li>Pass Cross, Reformer, Crossformer, Full Former, Coaching</li>
-            <li>Annulation jusqu'à 1 h avant le cours</li>
-            <li>Tarif dégressif selon la fréquence</li>
-          </ul>
-          <a href="/tarifs" class="ete-offre-cta svb-magnetic">Voir les abonnements</a>
-        </div>
-
-      </div>
-
-      <p class="ete-offre-fineprint">
-        Engagement 6 mois pour les Pass Small Group · 3 mois pour le Coaching · 4 mois pour le Pass Kids · Préavis d'1 mois pour résilier · Pause vacances et pause médicale incluses.
-      </p>
+  <!-- LES PACKS -->
+  <section class="ete-section ete-section--white" id="packs">
+    <div class="ete-packs-head">
+      <p class="ete-section-eyebrow">Les offres</p>
+      <h2 class="ete-h2">Trois entrées.</h2>
     </div>
+
+    <div class="ete-packs-grid">
+
+      <!-- 01 — Essai 30 € -->
+      <article class="ete-pack">
+        <p class="ete-pack-num">01 · La séance d'essai</p>
+        <h3 class="ete-pack-name">Une séance.<br>Une décision.</h3>
+        <p class="ete-pack-price">30 €</p>
+        <p class="ete-pack-price-tag">Déduits si abonnement dans les 7 jours</p>
+        <ul class="ete-pack-list">
+          <li>50 min avec un coach qui t'explique ton corps</li>
+          <li>Aucune carte bleue à la réservation</li>
+          <li>Sans engagement</li>
+        </ul>
+        <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90" target="_blank" rel="noopener noreferrer" class="ete-pack-cta svb-magnetic">J'essaie · 30 €</a>
+      </article>
+
+      <!-- 02 — Pass Starter (FEATURE) -->
+      <article class="ete-pack ete-pack--feature">
+        <span class="ete-pack-feature-badge">Populaire</span>
+        <p class="ete-pack-num">02 · Pass Starter</p>
+        <h3 class="ete-pack-name">Cinq cours,<br>cinq disciplines.</h3>
+        <p class="ete-pack-price">99,90 €</p>
+        <p class="ete-pack-price-tag">5 sessions · sans engagement · valable 1 mois</p>
+        <ul class="ete-pack-list">
+          <li>Teste plusieurs disciplines avant de choisir</li>
+          <li>Idéal pour les débutants ou les indécis</li>
+          <li>Aucun frais de dossier</li>
+        </ul>
+        <a href="/tarifs#pass-starter" class="ete-pack-cta svb-magnetic">Prendre le Pass Starter</a>
+      </article>
+
+      <!-- 03 — Abonnement -->
+      <article class="ete-pack">
+        <p class="ete-pack-num">03 · Abonnement</p>
+        <h3 class="ete-pack-name">Bâtir ta routine<br>sur 6 mois.</h3>
+        <p class="ete-pack-price">dès 30,30 €</p>
+        <p class="ete-pack-price-tag">Par mois · pause vacances incluse</p>
+        <ul class="ete-pack-list">
+          <li>Pass Cross, Reformer, Crossformer, Coaching</li>
+          <li>Annulation jusqu'à 1 h avant le cours</li>
+          <li>Tarif dégressif selon la fréquence</li>
+        </ul>
+        <a href="/tarifs" class="ete-pack-cta svb-magnetic">Voir les abonnements</a>
+      </article>
+
+    </div>
+
+    <p class="ete-fineprint">
+      Engagement 6 mois pour les Pass Small Group · 3 mois pour le Coaching · 4 mois pour le Pass Kids · Préavis d'1 mois pour résilier · Pause vacances et pause médicale incluses.
+    </p>
   </section>
 
   <!-- STUDIOS -->
-  <section class="ete-studios">
-    <div class="ete-studios-inner">
-      <div class="ete-studios-head">
-        <p class="ete-section-eyebrow">Deux studios · Saint-Ouen</p>
-        <h2 class="ete-studios-title">À 200 m l'un de l'autre.</h2>
-        <p class="ete-studios-sub">4 minutes à pied du métro Mairie de Saint-Ouen, lignes 13 &amp; 14. 10 minutes de Paris intra-muros.</p>
-      </div>
+  <section class="ete-section ete-section--cream">
+    <div class="ete-packs-head">
+      <p class="ete-section-eyebrow">Deux studios · 200 m</p>
+      <h2 class="ete-h2">Saint-Ouen.</h2>
+      <p class="ete-lead" style="max-width:560px;">À 4 minutes du métro Mairie de Saint-Ouen, lignes 13 et 14. Dix minutes de Paris intra-muros.</p>
+    </div>
 
-      <div class="ete-studios-grid">
-        <article class="ete-studio-card">
-          <p class="ete-studio-tag">Studio Lavandières</p>
-          <h3 class="ete-studio-name">40 Cours des Lavandières.</h3>
-          <p class="ete-studio-detail"><strong>Reformer ·</strong> 9 machines pro, lumière naturelle, vestiaires soignés. Pour les cours Pilates Reformer et Crossformer.</p>
-        </article>
-
-        <article class="ete-studio-card">
-          <p class="ete-studio-tag">Studio Breton</p>
-          <h3 class="ete-studio-name">6 Mail André Breton.</h3>
-          <p class="ete-studio-detail"><strong>Small Group ·</strong> Cross Training, Yoga, Boxe, Pilates au sol, Coaching particulier. Salle modulable, équipement complet.</p>
-        </article>
-      </div>
+    <div class="ete-studios-grid">
+      <article class="ete-studio">
+        <p class="ete-studio-tag">Studio Lavandières</p>
+        <h3 class="ete-studio-name">40 Cours des Lavandières.</h3>
+        <p class="ete-studio-detail">Reformer · 9 machines pro, lumière naturelle, vestiaires soignés. Pour les cours Pilates Reformer et Crossformer.</p>
+      </article>
+      <article class="ete-studio">
+        <p class="ete-studio-tag">Studio Breton</p>
+        <h3 class="ete-studio-name">6 Mail André Breton.</h3>
+        <p class="ete-studio-detail">Small Group · Cross Training, Yoga, Boxe, Pilates au sol, Coaching particulier. Salle modulable, équipement complet.</p>
+      </article>
     </div>
   </section>
 
   <!-- AVIS -->
-  <section class="ete-avis">
-    <div class="ete-avis-stars">★★★★★</div>
-    <p class="ete-avis-rating">5,0 sur 146 avis Google</p>
-    <p class="ete-avis-quote">«&nbsp;Le meilleur studio de Saint-Ouen. Les coachs sont vraiment top, à l'écoute et savent te booster sans te brusquer.&nbsp;»</p>
-    <p class="ete-avis-author">Hélène · membre depuis 2024</p>
+  <section class="ete-section ete-section--cream">
+    <div class="ete-avis-head">
+      <p class="ete-section-eyebrow">L'avis des membres</p>
+      <h2 class="ete-h2">5,0 étoiles.<br>146 avis Google.</h2>
+      <p class="ete-avis-rating"><strong>★★★★★</strong> 5,0 sur 146 avis vérifiés Google</p>
+    </div>
 
-    <div class="ete-avis-grid" style="max-width:1100px;margin-left:auto;margin-right:auto;padding:0 16px;">
+    <div class="ete-avis-grid">
       <article class="ete-avis-card">
-        <div class="ete-avis-card-stars">★★★★★</div>
-        <p class="ete-avis-card-text">«&nbsp;Super salle de sport, Shanael et son équipe sont au top ! Les coachs sont vraiment super, à l'écoute et savent te booster sans te brusquer.&nbsp;»</p>
+        <p class="ete-avis-card-text">«&nbsp;Super salle de sport, Shanael et son équipe sont au top. Les coachs sont vraiment super, à l'écoute, savent te booster sans te brusquer.&nbsp;»</p>
         <p class="ete-avis-card-author">Sophie L.</p>
       </article>
       <article class="ete-avis-card">
-        <div class="ete-avis-card-stars">★★★★★</div>
-        <p class="ete-avis-card-text">«&nbsp;Cours de Reformer exigeants mais accessibles. J'ai complètement redressé ma posture en 2 mois.&nbsp;»</p>
+        <p class="ete-avis-card-text">«&nbsp;Cours de Reformer exigeants mais accessibles. J'ai complètement redressé ma posture en deux mois.&nbsp;»</p>
         <p class="ete-avis-card-author">Claire M.</p>
       </article>
       <article class="ete-avis-card">
-        <div class="ete-avis-card-stars">★★★★★</div>
-        <p class="ete-avis-card-text">«&nbsp;Petits groupes, vraie technique, prénom retenu dès le premier cours. Ça change tout par rapport à une grosse salle.&nbsp;»</p>
+        <p class="ete-avis-card-text">«&nbsp;Petits groupes, vraie technique, prénom retenu dès le premier cours. Ça change tout.&nbsp;»</p>
         <p class="ete-avis-card-author">Marc T.</p>
       </article>
       <article class="ete-avis-card">
-        <div class="ete-avis-card-stars">★★★★★</div>
         <p class="ete-avis-card-text">«&nbsp;Le Crossformer m'a redonné de l'énergie après ma grossesse. Coachs bienveillants, cadre sécurisé.&nbsp;»</p>
         <p class="ete-avis-card-author">Julie V.</p>
       </article>
       <article class="ete-avis-card">
-        <div class="ete-avis-card-stars">★★★★★</div>
         <p class="ete-avis-card-text">«&nbsp;Annulation 1 h avant, pause vacances, vraie communauté. Tout est pensé pour qu'on revienne sans culpabilité.&nbsp;»</p>
         <p class="ete-avis-card-author">Antoine D.</p>
+      </article>
+      <article class="ete-avis-card">
+        <p class="ete-avis-card-text">«&nbsp;Le meilleur studio de Saint-Ouen. Coachs à l'écoute, ambiance professionnelle, cours techniques.&nbsp;»</p>
+        <p class="ete-avis-card-author">Hélène · membre depuis 2024</p>
       </article>
     </div>
   </section>
 
   <!-- CTA FIN -->
-  <section class="ete-cta-fin">
-    <h2 class="ete-cta-fin-title">On commence quand ?</h2>
-    <p class="ete-cta-fin-sub">Réserve ta séance d'essai à 30 € — déduits de ton premier prélèvement si tu t'abonnes dans les 7 jours.</p>
-    <a href="#offres" class="ete-hero-cta svb-magnetic" style="background:#2F4F4F;color:#FBF6EC;">Choisir mon offre</a>
+  <section class="ete-section ete-section--dark">
+    <div class="ete-cta-fin">
+      <p class="ete-section-eyebrow">On commence ?</p>
+      <h2 class="ete-h2">Été 2026.</h2>
+      <p class="ete-cta-fin-sub">Réserve ta séance d'essai à 30 € — déduits de ton premier prélèvement si tu t'abonnes dans les 7 jours.</p>
+      <a href="#packs" class="ete-btn ete-btn--primary svb-magnetic">Choisir mon offre</a>
+    </div>
   </section>
 
-  <!-- WhatsApp + Sticky CTA hérités -->
+  <!-- WhatsApp flottant -->
   <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20r%C3%A9server%20une%20s%C3%A9ance%20d'essai%20%C3%A0%2030%E2%82%AC" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contacter Studio SVB sur WhatsApp">
     <div class="whatsapp-pulse" aria-hidden="true"></div>
     <svg width="35" height="35" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
