@@ -4,24 +4,62 @@
    Non-destructive : styles inline des pages prennent le pas.
    ================================================================ */
 
-/* --- Design tokens (les 2 conventions cohabitent) --------------- */
+/* ================================================================
+   DESIGN SYSTEM SVB · v2.6 (avril 2026 — color hierarchy locked)
+   ----------------------------------------------------------------
+   La marque SVB utilise UNE couleur de marque dominante (teal),
+   UN accent signature (peach), et trois surfaces neutres.
+
+   ┌──────────────┬──────────┬──────────────────────────────────┐
+   │ TIER         │ HEX      │ USAGE                            │
+   ├──────────────┼──────────┼──────────────────────────────────┤
+   │ ink          │ #2F4F4F  │ Texte principal, CTA principaux  │
+   │ ink-soft     │ #4A8D84  │ Texte secondaire, links, hover   │
+   │ accent       │ #E8B496  │ Badges, accent Team, hover sur   │
+   │              │          │ fond sombre — RARE et SIGNATURE  │
+   ├──────────────┼──────────┼──────────────────────────────────┤
+   │ cream        │ #FBF6EC  │ Fond clair, texte sur ink        │
+   │ sand         │ #F2E6CF  │ Surface chaude (cards, sections) │
+   │ mint         │ #B8D8C0  │ Fond corps (body bg)             │
+   └──────────────┴──────────┴──────────────────────────────────┘
+
+   RÈGLES :
+   1. Un CTA principal = ink (#2F4F4F) sur cream OU cream sur ink.
+      Jamais peach pour un CTA — peach = accent ponctuel uniquement.
+   2. Le peach se mérite : ne pas dépasser ~5 % de la surface visible.
+   3. Les surfaces (cream/sand/mint) NE servent JAMAIS pour du texte.
+   4. Le rouge (#e74c3c, #ff6b6b) est BANNI hors erreurs réelles.
+      Plus de "Offre limitée" rouge pulsant.
+   5. Les anciennes vars (--col-*, --svb-green-*) restent en alias
+      pour ne pas casser le legacy, mais ne PLUS les utiliser pour
+      les nouveaux composants.
+   ================================================================ */
 :root{
-  --svb-green-light:#98D0B3;
-  --svb-green-dark:#4A8D84;
-  --svb-green-darker:#2d5a54;
-  --svb-sand:#F2E6CF;
-  --svb-peach:#E8B496;
-  --svb-text:#2F4F4F;
-  --svb-ink:#1d3838;
-  --svb-cream:#FBF6EC;
+  /* === COULEURS DE MARQUE (utiliser celles-ci en priorité) ====== */
+  --svb-ink:#2F4F4F;          /* teal foncé — texte principal, CTA */
+  --svb-ink-soft:#4A8D84;     /* teal moyen — texte secondaire, links */
+  --svb-accent:#E8B496;       /* peach — accents signature, RARE */
+
+  /* === SURFACES (jamais pour du texte) ========================= */
+  --svb-cream:#FBF6EC;        /* fond clair principal */
+  --svb-sand:#F2E6CF;         /* surface chaude alt */
+  --svb-mint:#B8D8C0;         /* fond corps (body) */
   --svb-white:#ffffff;
 
-  /* alias "col-*" utilisés sur certaines pages */
-  --col-peach:#EBC6A6;
-  --col-sand:#D4C3A3;
-  --col-green:#88C0A6;
-  --col-cream:#F3EBD4;
-  --col-dark:#3A6B63;
+  /* === DEEP INK (pour très rares fonds très sombres) =========== */
+  --svb-ink-deep:#1d3838;     /* contrast max — hero overlays seulement */
+
+  /* === ALIAS LEGACY (ne plus utiliser sur nouveau code) ======== */
+  --svb-text:var(--svb-ink);
+  --svb-peach:var(--svb-accent);
+  --svb-green-dark:var(--svb-ink-soft);
+  --svb-green-light:#98D0B3;       /* legacy — utilisé dans gradients */
+  --svb-green-darker:#2d5a54;      /* legacy — utilisé dans gradients */
+  --col-peach:var(--svb-accent);   /* unifié sur accent */
+  --col-cream:#F3EBD4;             /* legacy — sand-warm utilisé dans blogs */
+  --col-sand:#D4C3A3;              /* legacy — sand foncé */
+  --col-green:#88C0A6;             /* legacy — utilisé dans gradients */
+  --col-dark:#3A6B63;              /* legacy — utilisé dans gradients */
 
   /* radius */
   --r-sm:10px;
