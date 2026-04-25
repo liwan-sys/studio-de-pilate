@@ -35,7 +35,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
-  <link rel="stylesheet" href="/assets/svb.css?v=20260425k">
+  <link rel="stylesheet" href="/assets/svb.css?v=20260425l">
 
   <script type="application/ld+json">
   {
@@ -93,23 +93,30 @@
     .ete-promobar a{color:#F5D5C8;text-decoration:underline;font-weight:700;text-underline-offset:3px;}
     .ete-promobar strong{color:#F5D5C8;}
 
-    /* === NAV (claire, pas overlay sombre) === */
+    /* === NAV (fixed cream, logo natif noir, comme Poses) === */
     body:has(.ete-page) > nav[role="navigation"]{
-      position:absolute;
+      position:fixed;
       top:42px;left:0;right:0;
       max-width:none !important;
       margin:0 !important;
-      padding:22px clamp(20px,4vw,52px) !important;
+      padding:14px clamp(20px,4vw,52px) !important;
       z-index:60;
-      background:transparent;
+      background:#FBF6EC;
+      border-bottom:1px solid rgba(15,16,16,.08);
+      backdrop-filter:saturate(1.05);
     }
     body:has(.ete-page) > nav[role="navigation"] a,
     body:has(.ete-page) > nav[role="navigation"] button{
-      color:#FBF6EC !important;
-      text-shadow:0 1px 3px rgba(0,0,0,.35);
+      color:#0F1010 !important;
+      text-shadow:none;
     }
     body:has(.ete-page) > nav[role="navigation"] img{
-      filter:brightness(0) invert(1);
+      filter:none;
+      height:48px !important;
+    }
+    /* Décale le hero pour qu'il commence sous la promo bar + nav */
+    .ete-page .ete-hero{
+      padding-top:120px;
     }
 
     /* ================================================================
