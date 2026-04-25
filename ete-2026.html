@@ -35,7 +35,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
-  <link rel="stylesheet" href="/assets/svb.css?v=20260425i">
+  <link rel="stylesheet" href="/assets/svb.css?v=20260425j">
 
   <!-- Schema.org Event-like : programme été 2026 -->
   <script type="application/ld+json">
@@ -109,20 +109,25 @@
       margin:0 0 26px;
       text-shadow:0 2px 10px rgba(0,0,0,.5);
     }
+    /* Hero Poses-style : très grand sans-serif uppercase, sub-tagline italique */
     .ete-hero-title{
       font-family:'Montserrat',sans-serif;
-      font-size:clamp(3.5rem, 14vw, 9rem);
-      font-weight:300;
-      letter-spacing:-.02em;
-      line-height:.95;
-      margin:0 0 30px;
+      font-size:clamp(4rem, 18vw, 11rem);
+      font-weight:200;
+      letter-spacing:-.04em;
+      line-height:.9;
+      margin:0 0 24px;
       text-shadow:0 4px 30px rgba(0,0,0,.4);
+      text-transform:uppercase;
     }
-    .ete-hero-title em{
+    .ete-hero-tagline{
       font-family:'Dancing Script',cursive;
-      font-style:normal;font-weight:600;
+      font-size:clamp(1.4rem, 3.5vw, 2.4rem);
+      font-weight:500;
       color:#E8B496;
+      margin:0 0 24px;
       letter-spacing:0;
+      text-shadow:0 2px 14px rgba(0,0,0,.4);
     }
     .ete-hero-lead{
       font-family:'Montserrat',sans-serif;
@@ -449,12 +454,174 @@
     body:has(.ete-hero) > nav[role="navigation"] img{
       filter:brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,.3));
     }
+
+    /* Quand la promo bar est présente, décale la nav vers le bas */
+    body:has(.ete-promo-bar) > nav[role="navigation"]{
+      top:36px !important;
+    }
+
+    /* === TOP PROMO BAR (façon Poses) === */
+    .ete-promo-bar{
+      position:fixed;top:0;left:0;right:0;
+      z-index:80;
+      background:#2F4F4F;color:#FBF6EC;
+      padding:9px 16px;
+      text-align:center;
+      font-family:'Montserrat',sans-serif;
+      font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+      box-shadow:0 2px 12px rgba(0,0,0,.15);
+    }
+    .ete-promo-bar a{color:#E8B496;text-decoration:underline;font-weight:800;}
+    .ete-promo-bar strong{color:#E8B496;}
+
+    /* === LES OFFRES (façon Poses "LES PACKS") === */
+    .ete-offres{
+      padding:clamp(80px, 12vw, 140px) 24px;
+      background:#FBF6EC;
+    }
+    .ete-offres-inner{max-width:1200px;margin:0 auto;}
+    .ete-offres-head{text-align:center;margin-bottom:60px;}
+    .ete-offres-title{
+      font-family:'Montserrat',sans-serif;
+      font-size:clamp(2rem, 5.5vw, 3.4rem);
+      font-weight:200;letter-spacing:.04em;text-transform:uppercase;
+      color:#2F4F4F;margin:0 0 16px;
+    }
+    .ete-offres-sub{
+      font-size:1rem;color:#2F4F4F;opacity:.78;
+      max-width:560px;margin:0 auto;line-height:1.55;
+    }
+    .ete-offres-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+    @media (min-width:760px){
+      .ete-offres-grid{grid-template-columns:repeat(3, 1fr);}
+    }
+    .ete-offre-card{
+      background:#fff;
+      border:1px solid rgba(47,79,79,.08);
+      border-radius:24px;
+      padding:36px 32px;
+      display:flex;flex-direction:column;
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .ete-offre-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 50px rgba(47,79,79,.12);
+    }
+    .ete-offre-card.featured{
+      background:#2F4F4F;color:#FBF6EC;
+      position:relative;
+      box-shadow:0 18px 50px rgba(47,79,79,.18);
+    }
+    .ete-offre-card.featured .ete-offre-num,
+    .ete-offre-card.featured .ete-offre-detail,
+    .ete-offre-card.featured .ete-offre-list li{color:#FBF6EC;}
+    .ete-offre-card.featured .ete-offre-name{color:#FBF6EC;}
+    .ete-offre-card.featured .ete-offre-price{color:#E8B496;}
+    .ete-offre-card.featured .ete-offre-price-tag{color:rgba(251,246,236,.78);}
+    .ete-offre-card.featured .ete-offre-list li::before{background:#E8B496;}
+    .ete-offre-card.featured .ete-offre-cta{
+      background:#FBF6EC;color:#2F4F4F;
+    }
+    .ete-offre-card.featured .ete-offre-cta:hover{background:#fff;}
+    .ete-offre-badge{
+      position:absolute;top:-12px;right:24px;
+      background:#E8B496;color:#2F4F4F;
+      font-family:'Montserrat',sans-serif;
+      font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+      padding:5px 14px;border-radius:999px;
+    }
+    .ete-offre-num{
+      font-family:'Montserrat',sans-serif;
+      font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+      color:#4A8D84;margin:0 0 12px;
+    }
+    .ete-offre-name{
+      font-family:'Dancing Script',cursive;
+      font-size:1.9rem;font-weight:600;line-height:1.1;
+      color:#2F4F4F;margin:0 0 18px;
+    }
+    .ete-offre-price{
+      font-family:'Montserrat',sans-serif;
+      font-size:2.6rem;font-weight:200;color:#2F4F4F;
+      letter-spacing:-.02em;line-height:1;margin:0 0 6px;
+    }
+    .ete-offre-price-tag{
+      font-size:.78rem;font-weight:600;color:#4A8D84;
+      margin:0 0 24px;
+    }
+    .ete-offre-list{
+      list-style:none;padding:0;margin:0 0 26px;
+      display:flex;flex-direction:column;gap:10px;flex:1;
+    }
+    .ete-offre-list li{
+      font-size:.9rem;color:#2F4F4F;line-height:1.5;
+      padding-left:22px;position:relative;
+    }
+    .ete-offre-list li::before{
+      content:"";position:absolute;left:0;top:.55em;
+      width:8px;height:8px;border-radius:50%;
+      background:#E8B496;
+    }
+    .ete-offre-cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      background:#2F4F4F;color:#FBF6EC;
+      font-family:'Montserrat',sans-serif;
+      font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+      text-decoration:none;
+      padding:16px 24px;border-radius:999px;
+      transition:background .25s ease, transform .25s ease;
+      margin-top:auto;
+    }
+    .ete-offre-cta:hover{background:#4A8D84;transform:translateY(-2px);}
+    .ete-offre-fineprint{
+      max-width:780px;margin:36px auto 0;
+      text-align:center;font-size:.78rem;color:#2F4F4F;opacity:.6;
+      line-height:1.55;
+    }
+
+    /* === AVIS GRID (5 témoignages façon Poses) === */
+    .ete-avis-grid{
+      display:grid;grid-template-columns:1fr;gap:20px;
+      margin-top:36px;text-align:left;
+    }
+    @media (min-width:760px){
+      .ete-avis-grid{grid-template-columns:repeat(3, 1fr);}
+      .ete-avis-grid > :nth-child(4){grid-column:1/2;}
+      .ete-avis-grid > :nth-child(5){grid-column:2/4;}
+    }
+    .ete-avis-card{
+      background:rgba(255,255,255,.06);
+      backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:18px;
+      padding:24px 26px;
+    }
+    .ete-avis-card-stars{color:#E8B496;letter-spacing:3px;font-size:.95rem;margin-bottom:10px;}
+    .ete-avis-card-text{
+      font-family:'Montserrat',sans-serif;
+      font-size:.92rem;line-height:1.55;color:#FBF6EC;opacity:.92;
+      margin:0 0 14px;
+    }
+    .ete-avis-card-author{
+      font-family:'Montserrat',sans-serif;
+      font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+      color:#E8B496;margin:0;
+    }
   </style>
 </head>
 <body>
   <a href="#main-content" class="svb-skip">Aller au contenu principal</a>
 
   <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- TOP PROMO BAR (sticky) -->
+  <div class="ete-promo-bar">
+    Été 2026 · Séance d'essai à <strong>30 €</strong> — déduits de ton 1<sup>er</sup> prélèvement si tu t'abonnes · <a href="#offres">Voir les offres</a>
+  </div>
 
   <!-- Navigation -->
   <nav role="navigation" class="p-6 flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-[#4A8D84] reveal-load">
@@ -474,7 +641,7 @@
       <a href="/studio" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Planning</a>
       <a href="/tarifs" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Abonnements</a>
       <a href="/equipe" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block" style="color:#E8B496;">La Team</a>
-        <a href="/ete-2026" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block" style="color:#E8B496;font-weight:800;">Été 2026</a>
+        <a href="/ete-2026" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block" style="color:#E8B496;font-weight:800;">Promo</a>
       <a href="/bien-etre" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Bien-Être</a>
       <a href="/cadeau" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Cadeau</a>
       <a href="/contact" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Contact</a>
@@ -490,10 +657,11 @@
     <div class="ete-hero-overlay"></div>
 
     <div class="ete-hero-content">
-      <p class="ete-hero-eyebrow">Été 2026 · Studio SVB</p>
-      <h1 id="ete-title" class="ete-hero-title">L'été approche.<br><em>Et tout change un peu.</em></h1>
+      <p class="ete-hero-eyebrow">Studio SVB · Été 2026</p>
+      <h1 id="ete-title" class="ete-hero-title">Été<br>2026</h1>
+      <p class="ete-hero-tagline">L'été approche. Et tout change un peu.</p>
       <p class="ete-hero-lead">3 mois pour bâtir ta routine — Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe. En petit comité, à Saint-Ouen.</p>
-      <a href="#demarrer" class="ete-hero-cta svb-magnetic">Voir le programme</a>
+      <a href="#offres" class="ete-hero-cta svb-magnetic">Voir les offres</a>
     </div>
 
     <div class="ete-hero-scroll">↓ Scroll</div>
@@ -612,60 +780,65 @@
     </div>
   </section>
 
-  <!-- COMMENT DÉMARRER -->
-  <section class="ete-start" id="demarrer">
-    <div class="ete-start-inner">
-      <div class="ete-start-head">
-        <p class="ete-section-eyebrow">Comment démarrer</p>
-        <h2 class="ete-start-title">Deux portes d'entrée.</h2>
+  <!-- LES OFFRES (façon Poses "LES PACKS") -->
+  <section class="ete-offres" id="offres">
+    <div class="ete-offres-inner">
+      <div class="ete-offres-head">
+        <p class="ete-section-eyebrow">Trois entrées</p>
+        <h2 class="ete-offres-title">Les offres</h2>
+        <p class="ete-offres-sub">Choisis le format qui te convient — tester en une séance, explorer en 5 cours, ou t'engager sur 6 mois pour bâtir ta routine.</p>
       </div>
 
-      <div class="ete-start-grid">
+      <div class="ete-offres-grid">
 
-        <!-- Carte 1 — Séance d'essai 30€ -->
-        <div class="ete-start-card">
-          <p class="ete-start-card-num">01 · La séance d'essai</p>
-          <h3 class="ete-start-card-name">Une séance, une décision.</h3>
-          <p class="ete-start-card-price">30&nbsp;€</p>
-          <p class="ete-start-card-price-tag">Déduits si tu t'abonnes dans les 7 jours</p>
-          <ul class="ete-start-card-list">
+        <!-- Offre 1 — Séance d'essai 30 € -->
+        <div class="ete-offre-card">
+          <p class="ete-offre-num">01 · La séance d'essai</p>
+          <h3 class="ete-offre-name">Une séance.<br>Une décision.</h3>
+          <p class="ete-offre-price">30&nbsp;€</p>
+          <p class="ete-offre-price-tag">Déduits si abonnement dans les 7 jours</p>
+          <ul class="ete-offre-list">
             <li>50 min avec un coach qui t'explique ton corps</li>
             <li>Aucune carte bleue à la réservation</li>
-            <li>Pas d'engagement</li>
+            <li>Sans engagement</li>
           </ul>
-          <p class="ete-start-card-num" style="margin:6px 0 10px;">Choisis ta discipline</p>
-          <div class="ete-start-essai-options">
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90" target="_blank" rel="noopener noreferrer" class="ete-start-essai-option">
-              <span>Pilates Reformer · 30 €</span>
-              <span class="ete-start-essai-option-arrow">→</span>
-            </a>
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74" target="_blank" rel="noopener noreferrer" class="ete-start-essai-option">
-              <span>Crossformer · 30 €</span>
-              <span class="ete-start-essai-option-arrow">→</span>
-            </a>
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e" target="_blank" rel="noopener noreferrer" class="ete-start-essai-option">
-              <span>Cross / Yoga / Pilates · 30 €</span>
-              <span class="ete-start-essai-option-arrow">→</span>
-            </a>
-          </div>
+          <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90" target="_blank" rel="noopener noreferrer" class="ete-offre-cta svb-magnetic">J'essaie · 30 €</a>
         </div>
 
-        <!-- Carte 2 — Pass Starter -->
-        <div class="ete-start-card">
-          <p class="ete-start-card-num">02 · Pass Starter</p>
-          <h3 class="ete-start-card-name">Cinq cours pour explorer.</h3>
-          <p class="ete-start-card-price">99,90&nbsp;€</p>
-          <p class="ete-start-card-price-tag">5 sessions · sans engagement · valable 1 mois</p>
-          <ul class="ete-start-card-list">
-            <li>Teste plusieurs disciplines avant de choisir ton abonnement</li>
+        <!-- Offre 2 — Pass Starter (FEATURED, mise en avant) -->
+        <div class="ete-offre-card featured">
+          <span class="ete-offre-badge">Populaire</span>
+          <p class="ete-offre-num">02 · Pass Starter</p>
+          <h3 class="ete-offre-name">Cinq cours<br>pour explorer.</h3>
+          <p class="ete-offre-price">99,90&nbsp;€</p>
+          <p class="ete-offre-price-tag">5 sessions · sans engagement · valable 1 mois</p>
+          <ul class="ete-offre-list">
+            <li>Teste plusieurs disciplines avant de choisir</li>
             <li>Idéal pour les débutants ou les indécis</li>
             <li>Aucun frais de dossier</li>
           </ul>
-          <a href="/tarifs#pass-starter" class="ete-start-card-cta svb-magnetic">Prendre le Pass Starter</a>
-          <a href="/tarifs" class="ete-start-card-secondary">Voir tous les abonnements →</a>
+          <a href="/tarifs#pass-starter" class="ete-offre-cta svb-magnetic">Prendre le Pass Starter</a>
+        </div>
+
+        <!-- Offre 3 — Abonnement -->
+        <div class="ete-offre-card">
+          <p class="ete-offre-num">03 · Abonnement</p>
+          <h3 class="ete-offre-name">Bâtir ta routine<br>sur 6 mois.</h3>
+          <p class="ete-offre-price">dès 30,30&nbsp;€</p>
+          <p class="ete-offre-price-tag">Par mois · pause vacances incluse</p>
+          <ul class="ete-offre-list">
+            <li>Pass Cross, Reformer, Crossformer, Full Former, Coaching</li>
+            <li>Annulation jusqu'à 1 h avant le cours</li>
+            <li>Tarif dégressif selon la fréquence</li>
+          </ul>
+          <a href="/tarifs" class="ete-offre-cta svb-magnetic">Voir les abonnements</a>
         </div>
 
       </div>
+
+      <p class="ete-offre-fineprint">
+        Engagement 6 mois pour les Pass Small Group · 3 mois pour le Coaching · 4 mois pour le Pass Kids · Préavis d'1 mois pour résilier · Pause vacances et pause médicale incluses.
+      </p>
     </div>
   </section>
 
@@ -700,13 +873,41 @@
     <p class="ete-avis-rating">5,0 sur 146 avis Google</p>
     <p class="ete-avis-quote">«&nbsp;Le meilleur studio de Saint-Ouen. Les coachs sont vraiment top, à l'écoute et savent te booster sans te brusquer.&nbsp;»</p>
     <p class="ete-avis-author">Hélène · membre depuis 2024</p>
+
+    <div class="ete-avis-grid" style="max-width:1100px;margin-left:auto;margin-right:auto;padding:0 16px;">
+      <article class="ete-avis-card">
+        <div class="ete-avis-card-stars">★★★★★</div>
+        <p class="ete-avis-card-text">«&nbsp;Super salle de sport, Shanael et son équipe sont au top ! Les coachs sont vraiment super, à l'écoute et savent te booster sans te brusquer.&nbsp;»</p>
+        <p class="ete-avis-card-author">Sophie L.</p>
+      </article>
+      <article class="ete-avis-card">
+        <div class="ete-avis-card-stars">★★★★★</div>
+        <p class="ete-avis-card-text">«&nbsp;Cours de Reformer exigeants mais accessibles. J'ai complètement redressé ma posture en 2 mois.&nbsp;»</p>
+        <p class="ete-avis-card-author">Claire M.</p>
+      </article>
+      <article class="ete-avis-card">
+        <div class="ete-avis-card-stars">★★★★★</div>
+        <p class="ete-avis-card-text">«&nbsp;Petits groupes, vraie technique, prénom retenu dès le premier cours. Ça change tout par rapport à une grosse salle.&nbsp;»</p>
+        <p class="ete-avis-card-author">Marc T.</p>
+      </article>
+      <article class="ete-avis-card">
+        <div class="ete-avis-card-stars">★★★★★</div>
+        <p class="ete-avis-card-text">«&nbsp;Le Crossformer m'a redonné de l'énergie après ma grossesse. Coachs bienveillants, cadre sécurisé.&nbsp;»</p>
+        <p class="ete-avis-card-author">Julie V.</p>
+      </article>
+      <article class="ete-avis-card">
+        <div class="ete-avis-card-stars">★★★★★</div>
+        <p class="ete-avis-card-text">«&nbsp;Annulation 1 h avant, pause vacances, vraie communauté. Tout est pensé pour qu'on revienne sans culpabilité.&nbsp;»</p>
+        <p class="ete-avis-card-author">Antoine D.</p>
+      </article>
+    </div>
   </section>
 
   <!-- CTA FIN -->
   <section class="ete-cta-fin">
     <h2 class="ete-cta-fin-title">On commence quand ?</h2>
     <p class="ete-cta-fin-sub">Réserve ta séance d'essai à 30 € — déduits de ton premier prélèvement si tu t'abonnes dans les 7 jours.</p>
-    <a href="#demarrer" class="ete-hero-cta svb-magnetic" style="background:#2F4F4F;color:#FBF6EC;">Choisir ma discipline</a>
+    <a href="#offres" class="ete-hero-cta svb-magnetic" style="background:#2F4F4F;color:#FBF6EC;">Choisir mon offre</a>
   </section>
 
   <!-- WhatsApp + Sticky CTA hérités -->
