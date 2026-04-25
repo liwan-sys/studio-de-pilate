@@ -143,7 +143,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/yoga.css?v=20260423a" />
-  <link rel="stylesheet" href="/assets/svb.css?v=20260425l" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260425m" />
   <link rel="stylesheet" href="/assets/simulator.css?v=20260424a" />
   <script src="/assets/simulator.js?v=20260424c" defer></script>
 
@@ -195,18 +195,21 @@
       </div>
     </nav>
 
-    <!-- hero éditorial -->
-    <section id="main-content" class="relative pt-24 pb-14 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="reveal-load" style="font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#4A8D84;margin:0 0 1.2rem;">Studio SVB · Saint-Ouen (93)</p>
-            <h1 class="text-6xl md:text-8xl font-hand svb-split reveal-load d-1" style="color:#2F4F4F;line-height:1.08;letter-spacing:.02em;margin:0 0 1.4rem;">
-                Respire, enracine-toi.
-            </h1>
-            <p class="text-lg md:text-xl reveal-load d-2" style="color:#2F4F4F;opacity:.88;max-width:620px;margin:0 auto 2rem;">
-                Vinyasa · Hatha Flow · Yin · Cross Yoga · 60 min · 12 places max · tous niveaux.
-            </p>
-            <a href="/reserver" class="svb-magnetic reveal-load d-3" style="display:inline-block;background:#2F4F4F;color:#FBF6EC;padding:16px 34px;border-radius:999px;font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.02em;text-decoration:none;transition:all .3s cubic-bezier(.2,.8,.2,1);">Réserver mon essai · 30&nbsp;€</a>
-        </div>
+    <!-- Hero full-bleed (image — pas de vidéo d'immersion sur Yoga) -->
+    <section class="svb-video-hero reveal-load" id="main-content" aria-labelledby="immersion-title">
+      <div class="svb-video-hero-media">
+        <picture>
+          <source type="image/webp" srcset="/images/yoga-vinyasa.webp">
+          <img src="/images/yoga-vinyasa.jpg" alt="Studio SVB Yoga — Saint-Ouen" width="1920" height="1080" fetchpriority="high">
+        </picture>
+        <span class="svb-video-hero-badge">📍 Studio Breton · Saint-Ouen</span>
+      </div>
+      <div class="svb-video-hero-body">
+        <p class="svb-video-hero-eyebrow">Saint-Ouen (93)</p>
+        <h1 id="immersion-title" class="svb-video-hero-title svb-split">Yoga</h1>
+        <p class="svb-video-hero-lead">60 min · 12 places max · Vinyasa, Hatha Flow, Yin, Cross Yoga.</p>
+        <a href="/reserver" class="svb-video-hero-cta svb-magnetic">Réserver mon essai · 30&nbsp;€</a>
+      </div>
     </section>
 
     <div data-svb-passes-trust="v1">

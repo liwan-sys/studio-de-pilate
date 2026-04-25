@@ -687,6 +687,14 @@ body:has(.svb-video-hero) .svb-video-hero{
   display:none !important;
   -webkit-appearance:none;
 }
+/* Support image full-bleed dans le hero (pour les disciplines sans vidéo : Pilates, Yoga, Boxe) */
+.svb-video-hero-media picture{display:block;width:100%;height:100%;}
+.svb-video-hero-media img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 30%;
+  display:block;background:#1d3838;
+}
 .svb-video-hero-badge{
   position:absolute;bottom:18px;left:18px;
   display:inline-flex;align-items:center;gap:6px;

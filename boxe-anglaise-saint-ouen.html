@@ -224,7 +224,7 @@
             transform: translateY(-2px);
         }
     </style>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260425l" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260425m" />
   <link rel="stylesheet" href="/assets/simulator.css?v=20260424a" />
   <script src="/assets/simulator.js?v=20260424c" defer></script>
 
@@ -276,18 +276,21 @@
       </div>
     </nav>
 
-    <!-- hero éditorial -->
-    <section id="main-content" class="relative pt-24 pb-14 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="reveal-load" style="font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#4A8D84;margin:0 0 1.2rem;">Studio SVB · Saint-Ouen (93)</p>
-            <h1 class="text-6xl md:text-8xl font-hand svb-split reveal-load d-1" style="color:#2F4F4F;line-height:1.08;letter-spacing:.02em;margin:0 0 1.4rem;">
-                Pieds, gardes, confiance.
-            </h1>
-            <p class="text-lg md:text-xl reveal-load d-2" style="color:#2F4F4F;opacity:.88;max-width:620px;margin:0 auto 2rem;">
-                Cardio-boxing technique · 55 min · sans contact · tous niveaux · mercredi 20 h &amp; jeudi 13 h.
-            </p>
-            <a href="/reserver" class="svb-magnetic reveal-load d-3" style="display:inline-block;background:#2F4F4F;color:#FBF6EC;padding:16px 34px;border-radius:999px;font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.02em;text-decoration:none;transition:all .3s cubic-bezier(.2,.8,.2,1);">Réserver mon essai · 30&nbsp;€</a>
-        </div>
+    <!-- Hero full-bleed (image — pas de vidéo d'immersion sur Boxe) -->
+    <section class="svb-video-hero reveal-load" id="main-content" aria-labelledby="immersion-title">
+      <div class="svb-video-hero-media">
+        <picture>
+          <source type="image/webp" srcset="/images/boxe-anglaise.webp">
+          <img src="/images/boxe-anglaise.webp" alt="Studio SVB Boxe Anglaise — Saint-Ouen" width="1920" height="1080" fetchpriority="high">
+        </picture>
+        <span class="svb-video-hero-badge">📍 Studio Breton · Saint-Ouen</span>
+      </div>
+      <div class="svb-video-hero-body">
+        <p class="svb-video-hero-eyebrow">Saint-Ouen (93)</p>
+        <h1 id="immersion-title" class="svb-video-hero-title svb-split">Boxe Anglaise</h1>
+        <p class="svb-video-hero-lead">55 min · zéro contact · pieds, gardes.</p>
+        <a href="/reserver" class="svb-video-hero-cta svb-magnetic">Réserver mon essai · 30&nbsp;€</a>
+      </div>
     </section>
 
     <div data-svb-passes-trust="v1">
