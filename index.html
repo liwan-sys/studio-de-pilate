@@ -183,7 +183,7 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260425g" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260425h" />
 
   <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
   <script>
@@ -314,6 +314,132 @@
       </div>
     </div>
   </div>
+
+  <!-- === BANDEAU PROMO ÉTÉ 2026 === -->
+  <section class="relative py-16 md:py-20 reveal-load d-2 z-10" aria-labelledby="ete-2026-promo">
+    <style>
+      .ete-promo{
+        background:#2F4F4F;color:#FBF6EC;
+        max-width:1200px;margin:0 auto;
+        border-radius:32px;
+        overflow:hidden;
+        box-shadow:0 30px 80px rgba(47,79,79,.25);
+      }
+      .ete-promo-inner{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:0;
+      }
+      @media (min-width:880px){
+        .ete-promo-inner{grid-template-columns:1.1fr 1fr;}
+      }
+      .ete-promo-content{
+        padding:clamp(36px, 6vw, 64px);
+        display:flex;flex-direction:column;justify-content:center;
+      }
+      .ete-promo-eyebrow{
+        font-family:'Montserrat',sans-serif;
+        font-size:.7rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+        color:#E8B496;margin:0 0 18px;
+      }
+      .ete-promo-title{
+        font-family:'Montserrat',sans-serif;
+        font-size:clamp(2.2rem, 5vw, 3.6rem);
+        font-weight:300;letter-spacing:-.02em;line-height:1;
+        margin:0 0 14px;color:#FBF6EC;
+      }
+      .ete-promo-title em{
+        font-family:'Dancing Script',cursive;
+        font-style:normal;font-weight:600;
+        color:#E8B496;letter-spacing:0;
+      }
+      .ete-promo-text{
+        font-family:'Montserrat',sans-serif;
+        font-size:1rem;line-height:1.6;opacity:.88;
+        margin:0 0 28px;max-width:440px;
+      }
+      .ete-promo-cta{
+        display:inline-block;align-self:flex-start;
+        background:#FBF6EC;color:#2F4F4F;
+        font-family:'Montserrat',sans-serif;
+        font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+        text-decoration:none;
+        padding:16px 32px;border-radius:999px;
+        transition:transform .25s ease, background .25s ease;
+      }
+      .ete-promo-cta:hover{transform:translateY(-3px);background:#fff;}
+
+      /* Grille de 3 mini-vidéos en mosaïque */
+      .ete-promo-mosaic{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:1fr 1fr;
+        gap:4px;
+        min-height:280px;
+      }
+      @media (min-width:880px){
+        .ete-promo-mosaic{min-height:auto;}
+      }
+      .ete-promo-tile{position:relative;overflow:hidden;background:#1d3838;}
+      .ete-promo-tile:nth-child(1){grid-column:1/2;grid-row:1/3;}
+      .ete-promo-tile:nth-child(2){grid-column:2/3;grid-row:1/2;}
+      .ete-promo-tile:nth-child(3){grid-column:2/3;grid-row:2/3;}
+      .ete-promo-tile video,
+      .ete-promo-tile img{
+        position:absolute;inset:0;width:100%;height:100%;
+        object-fit:cover;object-position:center 30%;
+        transition:transform .8s ease;
+      }
+      .ete-promo:hover .ete-promo-tile video,
+      .ete-promo:hover .ete-promo-tile img{transform:scale(1.04);}
+      .ete-promo-tile-label{
+        position:absolute;bottom:10px;left:12px;
+        font-family:'Montserrat',sans-serif;
+        font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+        color:#FBF6EC;text-shadow:0 1px 4px rgba(0,0,0,.6);
+        z-index:2;
+      }
+      .ete-promo-tile::after{
+        content:"";position:absolute;inset:0;z-index:1;
+        background:linear-gradient(180deg, transparent 60%, rgba(0,0,0,.5) 100%);
+        pointer-events:none;
+      }
+    </style>
+
+    <div class="ete-promo">
+      <div class="ete-promo-inner">
+
+        <div class="ete-promo-content">
+          <p class="ete-promo-eyebrow">Été 2026 · Programme</p>
+          <h2 id="ete-2026-promo" class="ete-promo-title">L'été approche.<br><em>Et tout change un peu.</em></h2>
+          <p class="ete-promo-text">3 mois pour bâtir ta routine — Pilates Reformer, Crossformer, Cross, Yoga, Boxe. En petit comité, à Saint-Ouen.</p>
+          <a href="/ete-2026" class="ete-promo-cta svb-magnetic">Voir le programme →</a>
+        </div>
+
+        <div class="ete-promo-mosaic" aria-hidden="true">
+          <div class="ete-promo-tile">
+            <video autoplay muted loop playsinline preload="metadata" poster="/videos/pilates-reformer-immersion-poster.jpg">
+              <source src="/videos/pilates-reformer-immersion.mp4" type="video/mp4">
+            </video>
+            <span class="ete-promo-tile-label">Reformer</span>
+          </div>
+          <div class="ete-promo-tile">
+            <video autoplay muted loop playsinline preload="metadata" poster="/videos/crossformer-immersion-poster.jpg">
+              <source src="/videos/crossformer-immersion.mp4" type="video/mp4">
+            </video>
+            <span class="ete-promo-tile-label">Crossformer</span>
+          </div>
+          <div class="ete-promo-tile">
+            <video autoplay muted loop playsinline preload="metadata" poster="/videos/cross-training-immersion-poster.jpg">
+              <source src="/videos/cross-training-immersion.mp4" type="video/mp4">
+            </video>
+            <span class="ete-promo-tile-label">Cross Training</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- OFFRE ESSAI 30€ -->
 
