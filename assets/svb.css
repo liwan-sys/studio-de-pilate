@@ -447,7 +447,12 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
 /* Brand column */
 .svb-footer-brand .svb-footer-logo{
   height:56px;width:auto;margin:0 0 18px;
-  filter:drop-shadow(0 2px 8px rgba(0,0,0,.25));
+  /* Stacked drop-shadows thicken the thin white outlines into a solid cream mark */
+  filter:
+    drop-shadow(0 0 .6px #FBF6EC) drop-shadow(0 0 .6px #FBF6EC)
+    drop-shadow(0 0 .6px #FBF6EC) drop-shadow(0 0 .6px #FBF6EC)
+    drop-shadow(0 0 .6px #FBF6EC) drop-shadow(0 0 .6px #FBF6EC)
+    drop-shadow(0 2px 8px rgba(0,0,0,.35));
 }
 .svb-footer-sig{
   font-family:'Dancing Script',cursive;font-weight:600;
