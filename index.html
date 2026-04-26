@@ -183,7 +183,7 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426u" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260426v" />
 
   <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
   <script>
@@ -519,14 +519,14 @@
     <style>
       .ete-promo-section-wrap{
         position:relative;
-        padding:200px 0;
+        padding:300px 0;
       }
       /* Ambilight halos : copies floues des vidéos qui débordent au-dessus et en dessous */
       .ete-promo-ambilight-top,
       .ete-promo-ambilight-bottom{
         position:absolute;
         left:0;right:0;
-        height:360px;
+        height:560px;
         display:grid;
         grid-template-columns:1fr;
         pointer-events:none;
@@ -542,22 +542,22 @@
         position:relative;overflow:hidden;
       }
       .ete-promo-ambilight-tile video{
-        position:absolute;inset:-50%;
-        width:200%;height:200%;
+        position:absolute;inset:-60%;
+        width:220%;height:220%;
         object-fit:cover;
-        filter:blur(45px) saturate(2.6) brightness(1.15) contrast(1.15);
+        filter:blur(55px) saturate(3.6) brightness(1.35) contrast(1.35);
         opacity:1;
       }
-      /* Top halo : on voit la moitié supérieure de la vidéo, fade en haut vers transparent */
+      /* Top halo : on voit la moitié supérieure de la vidéo, fade plus tardif pour plus de couleur visible */
       .ete-promo-ambilight-top .ete-promo-ambilight-tile{
-        mask-image:linear-gradient(to bottom, transparent 0%, black 100%);
-        -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 100%);
+        mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.7) 50%, black 100%);
+        -webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.7) 50%, black 100%);
       }
       .ete-promo-ambilight-top .ete-promo-ambilight-tile video{transform:translateY(50%);}
-      /* Bottom halo : fade vers transparent en bas */
+      /* Bottom halo : fade tardif aussi */
       .ete-promo-ambilight-bottom .ete-promo-ambilight-tile{
-        mask-image:linear-gradient(to top, transparent 0%, black 100%);
-        -webkit-mask-image:linear-gradient(to top, transparent 0%, black 100%);
+        mask-image:linear-gradient(to top, transparent 0%, rgba(0,0,0,.7) 50%, black 100%);
+        -webkit-mask-image:linear-gradient(to top, transparent 0%, rgba(0,0,0,.7) 50%, black 100%);
       }
       .ete-promo-ambilight-bottom .ete-promo-ambilight-tile video{transform:translateY(-50%);}
 
