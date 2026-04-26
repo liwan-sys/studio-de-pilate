@@ -183,7 +183,7 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426w" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260426x" />
 
   <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
   <script>
@@ -519,27 +519,24 @@
     <style>
       .ete-promo-section-wrap{
         position:relative;
-        padding:90px 0;
+        padding:0;
       }
       @media (min-width:760px){
         .ete-promo-section-wrap{padding:300px 0;}
       }
-      /* Ambilight halos : copies floues des vidéos qui débordent au-dessus et en dessous */
+      /* Ambilight halos : désactivés sur mobile (vidéos empilées, halo isolé inutile) */
       .ete-promo-ambilight-top,
-      .ete-promo-ambilight-bottom{
-        position:absolute;
-        left:0;right:0;
-        height:220px;
-        display:grid;
-        grid-template-columns:1fr;
-        pointer-events:none;
-        z-index:1;
-      }
+      .ete-promo-ambilight-bottom{display:none;}
       @media (min-width:760px){
         .ete-promo-ambilight-top,
         .ete-promo-ambilight-bottom{
+          display:grid;
+          position:absolute;
+          left:0;right:0;
           height:560px;
           grid-template-columns:repeat(3, 1fr);
+          pointer-events:none;
+          z-index:1;
         }
       }
       .ete-promo-ambilight-top{top:0;}
