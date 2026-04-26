@@ -183,7 +183,7 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426m" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260426n" />
 
   <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
   <script>
@@ -290,40 +290,47 @@
     </div>
 </section>
 
-<!-- === ANNULATION 1H — animation phone tap === -->
-  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" aria-label="Annulation 1 heure">
+<!-- === ANNULATION 1H — 2 téléphones (SVB | texte | Ailleurs) === -->
+  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" aria-label="Annulation 1 heure SVB vs Ailleurs">
     <style>
       .svb-cancel-anim-wrap{
-        max-width:1100px;margin:0 auto;
+        max-width:1300px;margin:0 auto;
         padding:0 clamp(20px,4vw,40px);
         display:grid;
         grid-template-columns:1fr;
-        gap:clamp(32px,5vw,56px);
+        gap:clamp(40px,6vw,64px);
         align-items:center;
+        justify-items:center;
         text-align:center;
       }
-      @media (min-width:760px){
-        .svb-cancel-anim-wrap{grid-template-columns:auto 1fr;text-align:left;}
+      @media (min-width:980px){
+        .svb-cancel-anim-wrap{
+          grid-template-columns:auto 1fr auto;
+          text-align:center;
+          gap:clamp(32px,4vw,56px);
+        }
       }
 
       /* Phone scene */
       .svb-phone{
-        width:clamp(180px,28vw,260px);
-        margin:0 auto;
+        width:clamp(180px,22vw,240px);
         position:relative;
         animation:phoneFloat 6s ease-in-out infinite;
       }
+      .svb-phone--ailleurs{animation-delay:.15s;}
       @keyframes phoneFloat{
         0%,100%{transform:translateY(0)}
         50%{transform:translateY(-6px)}
       }
 
-      /* Animation séquencée — 6s loop */
+      /* Animation séquencée — 6s loop, identique sur les 2 téléphones */
       .svb-phone .screen-before{animation:screenBefore 6s infinite ease-in-out;}
       .svb-phone .screen-after{animation:screenAfter 6s infinite ease-in-out;opacity:0;}
       .svb-phone .tap-finger{animation:tapFinger 6s infinite cubic-bezier(.34,1.56,.64,1);opacity:0;transform-origin:center;}
       .svb-phone .tap-ring{animation:tapRing 6s infinite ease-out;opacity:0;transform-origin:100px 240px;transform-box:fill-box;}
       .svb-phone .cancel-btn{animation:btnPress 6s infinite ease;transform-origin:100px 240px;transform-box:fill-box;}
+      /* Téléphone "Ailleurs" : le bouton vibre au lieu de presser proprement */
+      .svb-phone--ailleurs .cancel-btn{animation:btnShake 6s infinite ease;}
 
       @keyframes screenBefore{
         0%,38%{opacity:1}
@@ -352,15 +359,44 @@
         37%{transform:scale(.95)}
         45%,100%{transform:scale(1)}
       }
+      @keyframes btnShake{
+        0%,32%{transform:translateX(0)}
+        35%{transform:translateX(-3px)}
+        38%{transform:translateX(3px)}
+        41%{transform:translateX(-3px)}
+        44%,100%{transform:translateX(0)}
+      }
 
-      /* Texte côté droit */
+      /* Label discret sous chaque téléphone */
+      .svb-cancel-side-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;}
+      .svb-cancel-side-label{
+        font-family:'Montserrat',sans-serif;
+        font-size:.7rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
+        margin:0;
+      }
+      .svb-cancel-side-wrap--svb .svb-cancel-side-label{color:#4A8D84;}
+      .svb-cancel-side-wrap--ailleurs .svb-cancel-side-label{color:#2F4F4F;opacity:.55;}
+
+      /* Texte central */
       .svb-cancel-text{
+        max-width:420px;
         opacity:0;transform:translateY(24px);
         transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
       }
       .svb-cancel-section.is-visible .svb-cancel-text{
-        opacity:1;transform:translateY(0);transition-delay:.2s;
+        opacity:1;transform:translateY(0);transition-delay:.1s;
       }
+      .svb-cancel-section.is-visible .svb-cancel-side-wrap--svb{transition-delay:.3s;}
+      .svb-cancel-section.is-visible .svb-cancel-side-wrap--ailleurs{transition-delay:.5s;}
+      .svb-cancel-side-wrap{
+        opacity:0;transform:translateY(28px);
+        transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+      }
+      .svb-cancel-section.is-visible .svb-cancel-side-wrap{
+        opacity:1;transform:translateY(0);
+      }
+      .svb-cancel-section.is-visible .svb-cancel-side-wrap--ailleurs{opacity:.85;}
+
       .svb-cancel-eyebrow{
         font-family:'Montserrat',sans-serif;
         font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
@@ -368,21 +404,16 @@
       }
       .svb-cancel-headline{
         font-family:'Dancing Script',cursive;
-        font-size:clamp(2.4rem,5vw,3.6rem);
+        font-size:clamp(2.2rem,4.6vw,3.4rem);
         font-weight:600;line-height:1.05;
         color:#2F4F4F;margin:0 0 18px;
       }
-      .svb-cancel-headline em{
-        font-style:normal;color:#E8B496;
-      }
+      .svb-cancel-headline em{font-style:normal;color:#E8B496;}
       .svb-cancel-body{
         font-family:'Montserrat',sans-serif;
-        font-size:1rem;line-height:1.55;
+        font-size:.98rem;line-height:1.55;
         color:#2F4F4F;opacity:.78;
-        margin:0;max-width:440px;
-      }
-      @media (max-width:759px){
-        .svb-cancel-body{margin-left:auto;margin-right:auto;}
+        margin:0 auto;max-width:380px;
       }
 
       @media (prefers-reduced-motion: reduce){
@@ -396,45 +427,67 @@
     <div class="svb-cancel-section">
       <div class="svb-cancel-anim-wrap">
 
-        <!-- Phone SVG anim -->
-        <svg class="svb-phone" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- Phone body -->
-          <rect x="14" y="14" width="172" height="292" rx="26" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5"/>
-          <!-- Speaker -->
-          <rect x="80" y="28" width="40" height="4" rx="2" fill="#2F4F4F" opacity=".25"/>
+        <!-- Phone SVB (gauche) — annulation acceptée -->
+        <div class="svb-cancel-side-wrap svb-cancel-side-wrap--svb">
+          <p class="svb-cancel-side-label">Chez SVB</p>
+          <svg class="svb-phone svb-phone--svb" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="14" y="14" width="172" height="292" rx="26" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5"/>
+            <rect x="80" y="28" width="40" height="4" rx="2" fill="#2F4F4F" opacity=".25"/>
 
-          <!-- Screen BEFORE (avant annulation) -->
-          <g class="screen-before">
-            <text x="100" y="90" text-anchor="middle" font-family="Montserrat" font-size="9" font-weight="700" fill="#4A8D84" letter-spacing="2">COURS DU SOIR</text>
-            <text x="100" y="135" text-anchor="middle" font-family="Montserrat" font-size="38" font-weight="200" fill="#2F4F4F" letter-spacing="-1">19:00</text>
-            <text x="100" y="160" text-anchor="middle" font-family="Montserrat" font-size="11" font-weight="500" fill="#2F4F4F" opacity=".7">Pilates Reformer</text>
-
-            <!-- Cancel button -->
-            <g class="cancel-btn">
-              <rect x="44" y="220" width="112" height="40" rx="20" fill="#2F4F4F"/>
-              <text x="100" y="245" text-anchor="middle" font-family="Montserrat" font-size="11" font-weight="800" fill="#FBF6EC" letter-spacing="2">ANNULER</text>
+            <g class="screen-before">
+              <text x="100" y="90" text-anchor="middle" font-family="Montserrat" font-size="9" font-weight="700" fill="#4A8D84" letter-spacing="2">COURS DU SOIR</text>
+              <text x="100" y="135" text-anchor="middle" font-family="Montserrat" font-size="38" font-weight="200" fill="#2F4F4F" letter-spacing="-1">19:00</text>
+              <text x="100" y="160" text-anchor="middle" font-family="Montserrat" font-size="11" font-weight="500" fill="#2F4F4F" opacity=".7">Pilates Reformer</text>
+              <g class="cancel-btn">
+                <rect x="44" y="220" width="112" height="40" rx="20" fill="#2F4F4F"/>
+                <text x="100" y="245" text-anchor="middle" font-family="Montserrat" font-size="11" font-weight="800" fill="#FBF6EC" letter-spacing="2">ANNULER</text>
+              </g>
+              <circle class="tap-ring" cx="100" cy="240" r="20" fill="none" stroke="#E8B496" stroke-width="2"/>
+              <circle class="tap-finger" cx="100" cy="240" r="14" fill="#E8B496" opacity=".75"/>
             </g>
 
-            <!-- Tap ripple -->
-            <circle class="tap-ring" cx="100" cy="240" r="20" fill="none" stroke="#E8B496" stroke-width="2"/>
-            <!-- Finger (cercle peach) -->
-            <circle class="tap-finger" cx="100" cy="240" r="14" fill="#E8B496" opacity=".75"/>
-          </g>
+            <g class="screen-after">
+              <circle cx="100" cy="135" r="46" fill="#E8B496"/>
+              <path d="M78 138 L94 154 L124 118" stroke="#FBF6EC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <text x="100" y="210" text-anchor="middle" font-family="Montserrat" font-size="14" font-weight="700" fill="#2F4F4F">Cours annulé</text>
+              <text x="100" y="232" text-anchor="middle" font-family="Montserrat" font-size="10" font-weight="500" fill="#4A8D84" letter-spacing="1">CRÉDIT CONSERVÉ</text>
+            </g>
+          </svg>
+        </div>
 
-          <!-- Screen AFTER (après annulation) -->
-          <g class="screen-after">
-            <circle cx="100" cy="135" r="46" fill="#E8B496"/>
-            <path d="M78 138 L94 154 L124 118" stroke="#FBF6EC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <text x="100" y="210" text-anchor="middle" font-family="Montserrat" font-size="14" font-weight="700" fill="#2F4F4F">Cours annulé</text>
-            <text x="100" y="232" text-anchor="middle" font-family="Montserrat" font-size="10" font-weight="500" fill="#4A8D84" letter-spacing="1">CRÉDIT CONSERVÉ</text>
-          </g>
-        </svg>
-
-        <!-- Texte -->
+        <!-- Texte central -->
         <div class="svb-cancel-text">
           <p class="svb-cancel-eyebrow">Annulation 1 h avant</p>
           <h2 class="svb-cancel-headline">Un imprévu&nbsp;?<br><em>Tu annules. C'est tout.</em></h2>
-          <p class="svb-cancel-body">Jusqu'à 1 h avant le cours, depuis l'appli SVB. Aucune pénalité, ton crédit reste sur ton compte. Ailleurs, c'est 24 h minimum.</p>
+          <p class="svb-cancel-body">Jusqu'à 1 h avant le cours, depuis l'appli. Ailleurs, la règle c'est 24 h minimum — tu aurais déjà perdu ta séance.</p>
+        </div>
+
+        <!-- Phone Ailleurs (droite) — annulation refusée -->
+        <div class="svb-cancel-side-wrap svb-cancel-side-wrap--ailleurs">
+          <p class="svb-cancel-side-label">Ailleurs</p>
+          <svg class="svb-phone svb-phone--ailleurs" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="14" y="14" width="172" height="292" rx="26" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5"/>
+            <rect x="80" y="28" width="40" height="4" rx="2" fill="#2F4F4F" opacity=".25"/>
+
+            <g class="screen-before">
+              <text x="100" y="90" text-anchor="middle" font-family="Montserrat" font-size="9" font-weight="700" fill="#2F4F4F" letter-spacing="2" opacity=".5">COURS DU SOIR</text>
+              <text x="100" y="135" text-anchor="middle" font-family="Montserrat" font-size="38" font-weight="200" fill="#2F4F4F" letter-spacing="-1">19:00</text>
+              <text x="100" y="160" text-anchor="middle" font-family="Montserrat" font-size="11" font-weight="500" fill="#2F4F4F" opacity=".5">Pilates Reformer</text>
+              <g class="cancel-btn">
+                <rect x="44" y="220" width="112" height="40" rx="20" fill="#2F4F4F" opacity=".5"/>
+                <text x="100" y="245" text-anchor="middle" font-family="Montserrat" font-size="11" font-weight="800" fill="#FBF6EC" letter-spacing="2">ANNULER</text>
+              </g>
+              <circle class="tap-ring" cx="100" cy="240" r="20" fill="none" stroke="#c95252" stroke-width="2"/>
+              <circle class="tap-finger" cx="100" cy="240" r="14" fill="#c95252" opacity=".55"/>
+            </g>
+
+            <g class="screen-after">
+              <circle cx="100" cy="135" r="46" fill="none" stroke="#c95252" stroke-width="3"/>
+              <path d="M82 117 L118 153 M118 117 L82 153" stroke="#c95252" stroke-width="5" stroke-linecap="round" fill="none"/>
+              <text x="100" y="210" text-anchor="middle" font-family="Montserrat" font-size="14" font-weight="700" fill="#2F4F4F">Trop tard</text>
+              <text x="100" y="232" text-anchor="middle" font-family="Montserrat" font-size="9" font-weight="500" fill="#2F4F4F" opacity=".55" letter-spacing="1">24 H MINIMUM · CRÉDIT PERDU</text>
+            </g>
+          </svg>
         </div>
 
       </div>
@@ -452,7 +505,7 @@
                 io.disconnect();
               }
             });
-          }, { threshold: 0.3 });
+          }, { threshold: 0.2 });
           io.observe(section);
         } else {
           section.classList.add('is-visible');
