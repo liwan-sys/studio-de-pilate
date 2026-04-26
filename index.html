@@ -183,7 +183,7 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426i" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260426j" />
 
   <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
   <script>
@@ -316,18 +316,19 @@
     </div>
   </div>
 
-  <!-- === BANDEAU PROMO ÉTÉ 2026 — 3 vidéos alignées === -->
-  <section class="relative py-12 md:py-16 reveal-load d-2 z-10" aria-label="Programme Été 2026">
+  <!-- === BANDEAU PROMO ÉTÉ 2026 — 3 vidéos full-bleed, angles carrés === -->
+  <section class="relative py-0 reveal-load d-2 z-10" aria-label="Programme Été 2026">
     <style>
       .ete-promo-grid{
-        max-width:1400px;margin:0 auto;
-        padding:0 clamp(16px,3vw,32px);
+        width:100vw;
+        position:relative;
+        left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
         display:grid;
         grid-template-columns:1fr;
-        gap:14px;
+        gap:0;
       }
       @media (min-width:760px){
-        .ete-promo-grid{grid-template-columns:repeat(3, 1fr);gap:16px;}
+        .ete-promo-grid{grid-template-columns:repeat(3, 1fr);}
       }
       .ete-promo-tile{
         position:relative;
@@ -335,17 +336,11 @@
         aspect-ratio:9/13;
         overflow:hidden;
         background:#1d3838;
-        border-radius:24px;
         text-decoration:none;
-        transition:transform .35s ease, box-shadow .35s ease;
-        box-shadow:0 14px 40px -10px rgba(47,79,79,.25);
+        border-radius:0;
       }
       @media (min-width:760px){
-        .ete-promo-tile{aspect-ratio:4/5;}
-      }
-      .ete-promo-tile:hover{
-        transform:translateY(-4px);
-        box-shadow:0 24px 60px -12px rgba(47,79,79,.35);
+        .ete-promo-tile{aspect-ratio:3/4;}
       }
       .ete-promo-tile video,
       .ete-promo-tile img{
@@ -354,7 +349,7 @@
         transition:transform .8s ease;
       }
       .ete-promo-tile:hover video,
-      .ete-promo-tile:hover img{transform:scale(1.04);}
+      .ete-promo-tile:hover img{transform:scale(1.03);}
     </style>
 
     <div class="ete-promo-grid">
