@@ -678,7 +678,8 @@ body:has(.svb-video-hero) > nav[role="navigation"]:not(.svb-mobile-drawer) a[ari
   border-color:rgba(47,79,79,.2) !important;
 }
 body:has(.svb-video-hero) > nav[role="navigation"]:not(.svb-mobile-drawer) img{
-  filter:none;
+  /* Le fichier logo.webp est blanc → brightness(0) le passe en noir pour le fond cream */
+  filter:brightness(0) !important;
   height:48px !important;
 }
 /* Pousse le contenu sous la nav fixed */
