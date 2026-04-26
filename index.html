@@ -62,7 +62,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c" />
 
-  <link rel="stylesheet" href="/assets/index.css?v=20260426a" />
+  <link rel="stylesheet" href="/assets/index.css?v=20260426b" />
 
 
   <!-- Schema.org LocalBusiness -->
@@ -183,7 +183,7 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426q" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260426r" />
 
   <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
   <script>
@@ -219,9 +219,6 @@
   <div class="ambient-bg">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    <div class="blob blob-4"></div>
-    <div class="blob blob-5"></div>
   </div>
   <div class="noise-overlay"></div>
 
@@ -292,10 +289,6 @@
       </div>
     </div>
 </section>
-
-<!-- Transition douce dark → body mint -->
-<div aria-hidden="true" style="height:140px;background:linear-gradient(to bottom, #1a3532 0%, rgba(152,208,179,0) 100%);margin-top:-140px;position:relative;z-index:8;pointer-events:none;"></div>
-
 <!-- === ANNULATION 1H — 2 téléphones (SVB | texte | Ailleurs) === -->
   <section class="relative py-20 md:py-28 reveal-load d-2 z-10" aria-label="Annulation 1 heure SVB vs Ailleurs">
     <style>
@@ -520,12 +513,54 @@
     </script>
   </section>
 
-  <!-- Transition douce body mint → dark (avant les 3 vidéos) -->
-  <div aria-hidden="true" style="height:120px;background:linear-gradient(to bottom, rgba(152,208,179,0) 0%, #1d3838 100%);margin-bottom:-1px;position:relative;z-index:1;pointer-events:none;"></div>
-
-  <!-- === BANDEAU PROMO ÉTÉ 2026 — 3 vidéos full-bleed, angles carrés === -->
-  <section class="relative py-0 reveal-load d-2 z-10" aria-label="Programme Été 2026">
+  
+  <!-- === BANDEAU PROMO ÉTÉ 2026 — 3 vidéos full-bleed avec halo Ambilight === -->
+  <section class="relative reveal-load d-2 z-10" aria-label="Programme Été 2026" style="overflow:hidden;">
     <style>
+      .ete-promo-section-wrap{
+        position:relative;
+        padding:120px 0;
+      }
+      /* Ambilight halos : copies floues des vidéos qui débordent au-dessus et en dessous */
+      .ete-promo-ambilight-top,
+      .ete-promo-ambilight-bottom{
+        position:absolute;
+        left:0;right:0;
+        height:200px;
+        display:grid;
+        grid-template-columns:1fr;
+        pointer-events:none;
+        z-index:1;
+      }
+      @media (min-width:760px){
+        .ete-promo-ambilight-top,
+        .ete-promo-ambilight-bottom{grid-template-columns:repeat(3, 1fr);}
+      }
+      .ete-promo-ambilight-top{top:0;}
+      .ete-promo-ambilight-bottom{bottom:0;}
+      .ete-promo-ambilight-tile{
+        position:relative;overflow:hidden;
+      }
+      .ete-promo-ambilight-tile video{
+        position:absolute;inset:-50%;
+        width:200%;height:200%;
+        object-fit:cover;
+        filter:blur(60px) saturate(1.6) brightness(.9);
+        opacity:.85;
+      }
+      /* Top halo : on voit la moitié supérieure de la vidéo, fade en haut vers transparent */
+      .ete-promo-ambilight-top .ete-promo-ambilight-tile{
+        mask-image:linear-gradient(to bottom, transparent 0%, black 100%);
+        -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 100%);
+      }
+      .ete-promo-ambilight-top .ete-promo-ambilight-tile video{transform:translateY(50%);}
+      /* Bottom halo : fade vers transparent en bas */
+      .ete-promo-ambilight-bottom .ete-promo-ambilight-tile{
+        mask-image:linear-gradient(to top, transparent 0%, black 100%);
+        -webkit-mask-image:linear-gradient(to top, transparent 0%, black 100%);
+      }
+      .ete-promo-ambilight-bottom .ete-promo-ambilight-tile video{transform:translateY(-50%);}
+
       .ete-promo-grid{
         width:100vw;
         position:relative;
@@ -533,6 +568,7 @@
         display:grid;
         grid-template-columns:1fr;
         gap:0;
+        z-index:2;
       }
       @media (min-width:760px){
         .ete-promo-grid{grid-template-columns:repeat(3, 1fr);}
@@ -557,30 +593,75 @@
       }
       .ete-promo-tile:hover video,
       .ete-promo-tile:hover img{transform:scale(1.03);}
+
+      @media (prefers-reduced-motion: reduce){
+        .ete-promo-ambilight-tile video{animation:none !important;}
+      }
     </style>
 
-    <div class="ete-promo-grid">
-      <a href="/pilates-reformer-saint-ouen" class="ete-promo-tile" aria-label="Pilates Reformer">
-        <video autoplay muted loop playsinline preload="metadata" poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true">
-          <source src="/videos/pilates-reformer-immersion.mp4" type="video/mp4">
-        </video>
-      </a>
-      <a href="/crossformer-saint-ouen" class="ete-promo-tile" aria-label="Crossformer">
-        <video autoplay muted loop playsinline preload="metadata" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true">
-          <source src="/videos/crossformer-immersion.mp4" type="video/mp4">
-        </video>
-      </a>
-      <a href="/cross-training-saint-ouen" class="ete-promo-tile" aria-label="Cross Training">
-        <video autoplay muted loop playsinline preload="metadata" poster="/videos/cross-training-immersion-poster.jpg" aria-hidden="true">
-          <source src="/videos/cross-training-immersion.mp4" type="video/mp4">
-        </video>
-      </a>
+    <div class="ete-promo-section-wrap">
+
+      <!-- Halo Ambilight haut (vidéos floues qui débordent vers la section précédente) -->
+      <div class="ete-promo-ambilight-top" aria-hidden="true">
+        <div class="ete-promo-ambilight-tile">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="/videos/pilates-reformer-immersion.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="ete-promo-ambilight-tile">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="/videos/crossformer-immersion.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="ete-promo-ambilight-tile">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="/videos/cross-training-immersion.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Bandeau 3 vidéos -->
+      <div class="ete-promo-grid">
+        <a href="/pilates-reformer-saint-ouen" class="ete-promo-tile" aria-label="Pilates Reformer">
+          <video autoplay muted loop playsinline preload="metadata" poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true">
+            <source src="/videos/pilates-reformer-immersion.mp4" type="video/mp4">
+          </video>
+        </a>
+        <a href="/crossformer-saint-ouen" class="ete-promo-tile" aria-label="Crossformer">
+          <video autoplay muted loop playsinline preload="metadata" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true">
+            <source src="/videos/crossformer-immersion.mp4" type="video/mp4">
+          </video>
+        </a>
+        <a href="/cross-training-saint-ouen" class="ete-promo-tile" aria-label="Cross Training">
+          <video autoplay muted loop playsinline preload="metadata" poster="/videos/cross-training-immersion-poster.jpg" aria-hidden="true">
+            <source src="/videos/cross-training-immersion.mp4" type="video/mp4">
+          </video>
+        </a>
+      </div>
+
+      <!-- Halo Ambilight bas (vidéos floues qui débordent vers la section suivante) -->
+      <div class="ete-promo-ambilight-bottom" aria-hidden="true">
+        <div class="ete-promo-ambilight-tile">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="/videos/pilates-reformer-immersion.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="ete-promo-ambilight-tile">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="/videos/crossformer-immersion.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="ete-promo-ambilight-tile">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="/videos/cross-training-immersion.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Transition douce dark → body mint (après les 3 vidéos) -->
-  <div aria-hidden="true" style="height:120px;background:linear-gradient(to bottom, #1d3838 0%, rgba(152,208,179,0) 100%);margin-top:-1px;position:relative;z-index:1;pointer-events:none;"></div>
-
+  
   <!-- OFFRE ESSAI 30€ -->
 
   <!-- === LA COMMUNAUTÉ SVB — PREUVE SOCIALE (remontée avant l'offre) === -->
