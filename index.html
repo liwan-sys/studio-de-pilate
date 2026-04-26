@@ -183,7 +183,7 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426j" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260426k" />
 
   <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
   <script>
@@ -290,31 +290,80 @@
     </div>
 </section>
 
-  <!-- === BARRE DE CONFIANCE — DIFFÉRENCIATEURS SVB === -->
-  <!-- Bloc 1 : VEDETTE — comparaison annulation 1h vs 24h ailleurs -->
-  <div class="relative max-w-4xl mx-auto px-4 mb-6 reveal-load d-2 z-10">
-    <div class="bg-white/90 backdrop-blur-md rounded-3xl border-2 border-[#4A8D84] shadow-2xl px-6 py-6 md:px-10 md:py-7 relative overflow-hidden">
-      <!-- Badge exclusif -->
-      <div class="absolute top-3 right-3 bg-[#E8B496] text-[#2F4F4F] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
-        Exclusif SVB
+<!-- === ANNULATION 1H vs 24H — comparaison éditoriale === -->
+  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" aria-label="Annulation 1 heure">
+    <style>
+      .svb-cancel-compare{
+        max-width:1100px;margin:0 auto;
+        padding:0 clamp(20px,4vw,40px);
+        display:grid;
+        grid-template-columns:1fr;
+        gap:clamp(28px,5vw,48px);
+        align-items:end;
+      }
+      @media (min-width:760px){
+        .svb-cancel-compare{grid-template-columns:1fr auto 1fr;align-items:end;}
+      }
+      .svb-cancel-side{display:flex;flex-direction:column;gap:8px;}
+      .svb-cancel-side--svb{text-align:left;}
+      .svb-cancel-side--others{text-align:right;opacity:.45;}
+      @media (max-width:759px){
+        .svb-cancel-side--others{text-align:left;}
+      }
+      .svb-cancel-eyebrow{
+        font-family:'Montserrat',sans-serif;
+        font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+        color:#4A8D84;margin:0;
+      }
+      .svb-cancel-side--others .svb-cancel-eyebrow{color:#2F4F4F;}
+      .svb-cancel-num{
+        font-family:'Montserrat',sans-serif;
+        font-size:clamp(5.5rem,15vw,11rem);
+        font-weight:200;letter-spacing:-.05em;line-height:.85;
+        color:#2F4F4F;margin:0;
+      }
+      .svb-cancel-side--others .svb-cancel-num{
+        text-decoration:line-through;
+        text-decoration-thickness:2px;
+      }
+      .svb-cancel-caption{
+        font-family:'Montserrat',sans-serif;
+        font-size:.92rem;font-weight:500;line-height:1.4;
+        color:#2F4F4F;opacity:.75;
+        margin:0;max-width:240px;
+      }
+      .svb-cancel-side--others .svb-cancel-caption{margin-left:auto;}
+      @media (max-width:759px){
+        .svb-cancel-side--others .svb-cancel-caption{margin-left:0;}
+      }
+      .svb-cancel-vs{
+        font-family:'Dancing Script',cursive;
+        font-size:clamp(2rem,5vw,3rem);
+        font-weight:600;color:#E8B496;
+        align-self:center;text-align:center;
+        padding:0 8px;
+      }
+      @media (max-width:759px){
+        .svb-cancel-vs{display:none;}
+      }
+    </style>
+
+    <div class="svb-cancel-compare">
+      <div class="svb-cancel-side svb-cancel-side--svb">
+        <p class="svb-cancel-eyebrow">Chez SVB</p>
+        <p class="svb-cancel-num">1<span style="font-size:.55em;font-weight:300;letter-spacing:0;margin-left:.1em;">h</span></p>
+        <p class="svb-cancel-caption">Annulation jusqu'à 1 h avant le cours, depuis l'appli.</p>
       </div>
 
-      <div class="flex flex-col md:flex-row items-center gap-5 md:gap-8">
-        <div class="text-5xl md:text-6xl flex-shrink-0">⏱️</div>
-        <div class="text-center md:text-left flex-1">
-          <h3 class="text-lg md:text-xl font-bold text-[#2F4F4F] mb-2 leading-snug" style="font-family:'Montserrat',sans-serif;text-transform:none;letter-spacing:0;">
-            Chez SVB, tu annules ton cours <span class="text-[#4A8D84] font-extrabold">jusqu'à 1 h avant</span>.<br class="hidden md:block"/>
-            Dans les autres studios à créneau, c'est <span class="text-[#e74c3c] line-through font-bold">24 h minimum</span>.
-          </h3>
-          <p class="text-sm text-gray-700 font-medium leading-relaxed">
-            <strong>Un imprévu à 18 h 05 pour ton cours de 19 h&nbsp;?</strong> Tu annules en un clic, tu ne perds pas ton crédit.
-            Dans la plupart des studios de Pilates, Yoga, Cycling ou Boxing qui fonctionnent sur réservation, la règle c'est 24 h — tu aurais déjà perdu ta séance la veille.
-            <span class="block mt-1 text-xs text-[#4A8D84] font-semibold">La flexibilité qui fait la différence sur 6 mois d'abonnement.</span>
-          </p>
-        </div>
+      <div class="svb-cancel-vs">vs</div>
+
+      <div class="svb-cancel-side svb-cancel-side--others">
+        <p class="svb-cancel-eyebrow">Ailleurs</p>
+        <p class="svb-cancel-num">24<span style="font-size:.55em;font-weight:300;letter-spacing:0;margin-left:.1em;">h</span></p>
+        <p class="svb-cancel-caption">La règle dans la plupart des studios à créneau.</p>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- === BANDEAU PROMO ÉTÉ 2026 — 3 vidéos full-bleed, angles carrés === -->
   <section class="relative py-0 reveal-load d-2 z-10" aria-label="Programme Été 2026">
