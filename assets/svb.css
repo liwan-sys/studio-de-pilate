@@ -653,33 +653,36 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
 /* On déjoue max-w-7xl + mx-auto de Tailwind pour que le dégradé de la nav couvre TOUT le viewport */
 body:has(.svb-video-hero) > .svb-nav,
 body:has(.svb-video-hero) > nav[role="navigation"]{
-  position:absolute;
+  position:fixed;
   top:0;left:0;right:0;
   max-width:none !important;
   margin:0 !important;
-  padding:18px clamp(16px,4vw,40px) !important;
+  padding:14px clamp(16px,4vw,40px) !important;
   z-index:60;
-  background:linear-gradient(to bottom,rgba(29,56,56,.55) 0%,rgba(29,56,56,.2) 60%,transparent 100%);
-  backdrop-filter:blur(2px);
-  -webkit-backdrop-filter:blur(2px);
+  background:rgba(251,246,236,.92);
+  backdrop-filter:blur(8px) saturate(1.05);
+  -webkit-backdrop-filter:blur(8px) saturate(1.05);
+  border-bottom:1px solid rgba(15,16,16,.08);
   transition:background .3s ease;
 }
 body:has(.svb-video-hero) > nav[role="navigation"] a,
 body:has(.svb-video-hero) > nav[role="navigation"] button{
-  color:#FBF6EC !important;
-  text-shadow:0 1px 2px rgba(0,0,0,.28);
+  color:#2F4F4F !important;
+  text-shadow:none;
 }
-/* Le pill FR|EN garde son encadré mais passe en clair */
+/* Le pill FR|EN garde son encadré subtil */
 body:has(.svb-video-hero) > nav[role="navigation"] a[aria-label="English version"]{
-  background:rgba(255,255,255,.14) !important;
-  border-color:rgba(255,255,255,.35) !important;
+  background:rgba(47,79,79,.06) !important;
+  border-color:rgba(47,79,79,.2) !important;
 }
 body:has(.svb-video-hero) > nav[role="navigation"] img{
-  filter:brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,.3));
+  filter:none;
+  height:48px !important;
 }
-/* Pousse la section hero pour qu'elle démarre vraiment à y=0 (la nav est sortie du flow) */
+/* Pousse le contenu sous la nav fixed */
 body:has(.svb-video-hero) .svb-video-hero{
   margin-top:0;
+  padding-top:80px;
   position:relative;
 }
 /* Décale la nav du haut juste sur les pages sans vidéo-hero — laisser tel quel */
