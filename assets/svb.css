@@ -650,9 +650,11 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
   }
 }
 /* ---- Nav en overlay sur les pages vidéo-hero ---- */
-/* On déjoue max-w-7xl + mx-auto de Tailwind pour que le dégradé de la nav couvre TOUT le viewport */
+/* On déjoue max-w-7xl + mx-auto de Tailwind pour que le dégradé de la nav couvre TOUT le viewport.
+   IMPORTANT: :not(.svb-mobile-drawer) pour ne PAS appliquer ces règles
+   au drawer mobile qui est aussi un <nav role="navigation"> direct child du body. */
 body:has(.svb-video-hero) > .svb-nav,
-body:has(.svb-video-hero) > nav[role="navigation"]{
+body:has(.svb-video-hero) > nav[role="navigation"]:not(.svb-mobile-drawer){
   position:fixed;
   top:0;left:0;right:0;
   max-width:none !important;
@@ -665,17 +667,17 @@ body:has(.svb-video-hero) > nav[role="navigation"]{
   border-bottom:1px solid rgba(15,16,16,.08);
   transition:background .3s ease;
 }
-body:has(.svb-video-hero) > nav[role="navigation"] a,
-body:has(.svb-video-hero) > nav[role="navigation"] button{
+body:has(.svb-video-hero) > nav[role="navigation"]:not(.svb-mobile-drawer) a,
+body:has(.svb-video-hero) > nav[role="navigation"]:not(.svb-mobile-drawer) button{
   color:#2F4F4F !important;
   text-shadow:none;
 }
 /* Le pill FR|EN garde son encadré subtil */
-body:has(.svb-video-hero) > nav[role="navigation"] a[aria-label="English version"]{
+body:has(.svb-video-hero) > nav[role="navigation"]:not(.svb-mobile-drawer) a[aria-label="English version"]{
   background:rgba(47,79,79,.06) !important;
   border-color:rgba(47,79,79,.2) !important;
 }
-body:has(.svb-video-hero) > nav[role="navigation"] img{
+body:has(.svb-video-hero) > nav[role="navigation"]:not(.svb-mobile-drawer) img{
   filter:none;
   height:48px !important;
 }
