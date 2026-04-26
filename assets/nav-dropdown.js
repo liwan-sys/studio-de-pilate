@@ -477,3 +477,59 @@
 
     window.SvbMobileNav = { open: open, close: close, toggle: toggle };
 })();
+
+/* ================================================================
+ * Studio SVB — Nav scrolled state on video-hero pages
+ * Ajoute .nav-scrolled à la nav quand le hero vidéo sort du viewport.
+ * Permet de switcher de "transparente sur hero" à "cream sur cream".
+ * ================================================================ */
+(function () {
+    'use strict';
+
+    function initScrollNav() {
+        var hero = document.querySelector('.svb-video-hero');
+        if (!hero) return;
+        // On cible la nav directe enfant du body, EXCLUE le drawer mobile.
+        var navs = document.querySelectorAll('body > nav[role="navigation"]');
+        var nav = null;
+        for (var i = 0; i < navs.length; i++) {
+            if (!navs[i].classList.contains('svb-mobile-drawer')) {
+                nav = navs[i];
+                break;
+            }
+        }
+        if (!nav) return;
+
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        nav.classList.remove('nav-scrolled');
+                    } else {
+                        nav.classList.add('nav-scrolled');
+                    }
+                });
+            }, {
+                threshold: 0,
+                rootMargin: '-80px 0px 0px 0px'
+            });
+            observer.observe(hero);
+        } else {
+            // Fallback simple sur scroll listener
+            var heroBottom = hero.getBoundingClientRect().bottom + window.scrollY;
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > heroBottom - 80) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            }, { passive: true });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollNav);
+    } else {
+        initScrollNav();
+    }
+})();
