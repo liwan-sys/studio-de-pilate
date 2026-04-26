@@ -7,8 +7,11 @@
 /* ================================================================
    TITRES — Dancing Script partout, sans exception (règle de marque)
    Bat tous les inline styles + classes via !important.
+   On inclut les descendants des h-tags (spans .svb-split-word /
+   .svb-split-char) pour que la cascade JS ne casse pas la police.
    ================================================================ */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
   font-family: 'Dancing Script', cursive !important;
   font-weight: 700 !important;
   letter-spacing: 0 !important;
