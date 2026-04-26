@@ -45,18 +45,91 @@
     @keyframes logoIntro { 0% { opacity: 0; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
     .splash-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
+    /* === EFFET PHILLIPS HUE — éclairage ambiant 5 blobs colorés ===
+       Chaque blob a sa propre keyframe et son propre délai, ce qui donne
+       un mouvement organique non-synchronisé (effet "lampes connectées"). */
     .ambient-bg {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
       background: linear-gradient(180deg, #98D0B3 0%, #F2E6CF 100%);
       overflow: hidden;
+      will-change: transform;
     }
     .blob {
-      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6;
-      animation: moveBlob 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+      position: absolute; border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.55;
+      will-change: transform, opacity;
+      mix-blend-mode: multiply;
     }
-    .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--svb-green-dark); }
-    .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: var(--svb-peach); animation-delay: -5s; }
-    @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -50px) scale(1.1); } }
+    /* Blob 1 — peach top-left */
+    .blob-1 {
+      top: -15%; left: -10%;
+      width: 60vw; height: 60vw;
+      background: #E8B496;
+      animation: hueBlob1 32s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    /* Blob 2 — mint top-right */
+    .blob-2 {
+      top: -10%; right: -15%;
+      width: 55vw; height: 55vw;
+      background: #98D0B3;
+      animation: hueBlob2 28s infinite alternate cubic-bezier(0.4, 0, 0.2, 1) -7s;
+    }
+    /* Blob 3 — sand center-left */
+    .blob-3 {
+      top: 35%; left: -5%;
+      width: 50vw; height: 50vw;
+      background: #F2E6CF;
+      animation: hueBlob3 36s infinite alternate cubic-bezier(0.4, 0, 0.2, 1) -14s;
+    }
+    /* Blob 4 — peach bottom-right */
+    .blob-4 {
+      bottom: -20%; right: -10%;
+      width: 55vw; height: 55vw;
+      background: #E8B496;
+      animation: hueBlob4 30s infinite alternate cubic-bezier(0.4, 0, 0.2, 1) -3s;
+    }
+    /* Blob 5 — mint bottom-left */
+    .blob-5 {
+      bottom: -10%; left: -20%;
+      width: 50vw; height: 50vw;
+      background: #B8D8C0;
+      animation: hueBlob5 34s infinite alternate cubic-bezier(0.4, 0, 0.2, 1) -10s;
+    }
+
+    @keyframes hueBlob1 {
+      0%   { transform: translate(0, 0) scale(1); opacity: 0.55; }
+      33%  { transform: translate(15vw, 8vh) scale(1.15); opacity: 0.65; }
+      66%  { transform: translate(-5vw, 22vh) scale(0.95); opacity: 0.5; }
+      100% { transform: translate(8vw, 35vh) scale(1.05); opacity: 0.6; }
+    }
+    @keyframes hueBlob2 {
+      0%   { transform: translate(0, 0) scale(1); opacity: 0.5; }
+      40%  { transform: translate(-12vw, 18vh) scale(1.1); opacity: 0.6; }
+      80%  { transform: translate(10vw, 28vh) scale(0.9); opacity: 0.55; }
+      100% { transform: translate(-15vw, 40vh) scale(1.05); opacity: 0.5; }
+    }
+    @keyframes hueBlob3 {
+      0%   { transform: translate(0, 0) scale(1); opacity: 0.45; }
+      50%  { transform: translate(20vw, -15vh) scale(1.2); opacity: 0.55; }
+      100% { transform: translate(-15vw, 10vh) scale(1); opacity: 0.5; }
+    }
+    @keyframes hueBlob4 {
+      0%   { transform: translate(0, 0) scale(1); opacity: 0.55; }
+      30%  { transform: translate(-20vw, -12vh) scale(1.1); opacity: 0.65; }
+      70%  { transform: translate(12vw, -25vh) scale(0.95); opacity: 0.5; }
+      100% { transform: translate(-8vw, -35vh) scale(1.1); opacity: 0.6; }
+    }
+    @keyframes hueBlob5 {
+      0%   { transform: translate(0, 0) scale(1); opacity: 0.5; }
+      45%  { transform: translate(18vw, -10vh) scale(1.15); opacity: 0.6; }
+      100% { transform: translate(28vw, -30vh) scale(0.95); opacity: 0.5; }
+    }
+
+    /* Reduced-motion : on freeze les blobs */
+    @media (prefers-reduced-motion: reduce) {
+      .blob { animation: none !important; }
+    }
 
     .noise-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.05;
