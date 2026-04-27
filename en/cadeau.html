@@ -78,7 +78,7 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260427b" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260427c" />
 
   
 </head>
@@ -219,17 +219,24 @@
         // Init Widget Sportigo
         initComponent("GiftCard", "sportigo-container-giftcard", "0d08fb87-0984-4f6d-950d-19e96f51a71a");
 
-        // Logic Splash Screen
-        window.addEventListener('load', () => {
-            const splash = document.getElementById('splash-screen');
-            const logo = document.getElementById('splash-logo');
-            const body = document.body;
-            // Démarrer les animations après le chargement
-            setTimeout(() => {
-                splash.style.display = 'none';
-                body.classList.remove('overflow-hidden');
-            }, 1200);
-        });
+        // Logic Splash Screen — DOMContentLoaded au lieu de load
+        (function hideSplash(){
+            function run() {
+                const splash = document.getElementById('splash-screen');
+                const body = document.body;
+                if (!splash) { body.classList.remove('overflow-hidden'); return; }
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    body.classList.remove('overflow-hidden');
+                }, 1200);
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', run);
+                setTimeout(run, 2000);
+            } else {
+                run();
+            }
+        })();
     </script>
 </body>
 </html>

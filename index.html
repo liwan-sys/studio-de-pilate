@@ -170,7 +170,7 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260427b" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260427c" />
 
   
   <script src="/assets/nav-dropdown.js?v=20260426a" defer></script>
@@ -1012,25 +1012,37 @@
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
   <script>
-    window.addEventListener('load', () => {
-      const splash = document.getElementById('splash-screen');
-      const logo = document.getElementById('splash-logo');
-      const body = document.body;
+    /* Splash hide : DOMContentLoaded (HTML prêt) au lieu de load (toutes resources chargées).
+       Avec ~25 MB de vidéos le load event mettait 5-10s : splash bloquait inutilement. */
+    (function hideSplash(){
+      function run() {
+        const splash = document.getElementById('splash-screen');
+        const logo = document.getElementById('splash-logo');
+        const body = document.body;
+        if (!splash) return;
 
-      if (sessionStorage.getItem('svb-splash-seen')) {
-        splash.style.display = 'none';
-        body.classList.remove('overflow-hidden');
-        body.classList.add('content-visible');
-      } else {
-        logo.classList.add('animate-logo');
-        setTimeout(() => {
-          splash.classList.add('splash-hidden');
+        if (sessionStorage.getItem('svb-splash-seen')) {
+          splash.style.display = 'none';
           body.classList.remove('overflow-hidden');
           body.classList.add('content-visible');
-          sessionStorage.setItem('svb-splash-seen', 'true');
-        }, 800);
+        } else {
+          if (logo) logo.classList.add('animate-logo');
+          setTimeout(() => {
+            splash.classList.add('splash-hidden');
+            body.classList.remove('overflow-hidden');
+            body.classList.add('content-visible');
+            sessionStorage.setItem('svb-splash-seen', 'true');
+          }, 800);
+        }
       }
-    });
+      // Filet de sécurité : si DOMContentLoaded ne fire pas, on hide le splash après 2s max
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run);
+        setTimeout(run, 2000);
+      } else {
+        run();
+      }
+    })();
 
     const ctaSticky = document.getElementById('cta-sticky');
     const offreSection = document.getElementById('offre-premium');
