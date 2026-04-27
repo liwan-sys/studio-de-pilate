@@ -34,14 +34,15 @@
   Cache-Control: public, max-age=31536000, immutable
 
 # Videos : Content-Type explicite + accepte Range pour streaming mobile
+# Cache long car URLs versionnées avec ?v=YYYYMMDD côté HTML
 /*.mp4
   Content-Type: video/mp4
   Accept-Ranges: bytes
-  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Cache-Control: public, max-age=31536000, immutable
 /*.webm
   Content-Type: video/webm
   Accept-Ranges: bytes
-  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Cache-Control: public, max-age=31536000, immutable
 
 # HTML : charset explicite (sinon certains navigateurs decodent en Latin-1
 # malgre <meta charset> — surtout Safari mobile avec X-Content-Type-Options: nosniff)
