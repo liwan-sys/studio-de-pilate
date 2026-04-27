@@ -45,39 +45,10 @@
 
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c" />
   <link rel="stylesheet" href="/assets/index.css?v=20260426b" />
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426z" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260427b" />
 
   <!-- GTM (RGPD-gated, same consent flag as the FR site) -->
-  <script>
-    (function(){
-      var granted = false;
-      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
-      if (!granted) { window.dataLayer = window.dataLayer || []; return; }
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-5RW8LB7B');
-    })();
-  </script>
-
-  <!-- Google Analytics 4 (RGPD-gated) -->
-  <script>
-    (function(){
-      var granted = false;
-      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
-      if (!granted) return;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DHS707Y6XJ';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-DHS707Y6XJ', { anonymize_ip: true });
-    })();
-  </script>
+  
 
   <script type="application/ld+json">
   {
@@ -105,6 +76,7 @@
     "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "bestRating": "5", "ratingCount": "146"}
   }
   </script>
+  <script src="/assets/analytics.js?v=20260427a" defer></script>
 </head>
 <body class="content-visible overflow-hidden">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
@@ -255,7 +227,7 @@
 
       <figure class="relative bg-white/60 backdrop-blur-md p-3 rounded-3xl border border-white/50 shadow-lg">
         <video class="w-full h-auto rounded-2xl aspect-[9/16] object-cover bg-black"
-               controls playsinline preload="metadata"
+               controls playsinline preload="none"
                poster="/videos/temoignage-jm-poster.jpg"
                aria-label="Video testimonial from Hélène and Jean-Rémi, SVB clients">
           <source src="/videos/temoignage-jm.mp4?v=20260423d" type="video/mp4">
@@ -268,7 +240,7 @@
 
       <figure class="relative bg-white/60 backdrop-blur-md p-3 rounded-3xl border border-white/50 shadow-lg">
         <video class="w-full h-auto rounded-2xl aspect-[9/16] object-cover bg-black"
-               controls playsinline preload="metadata"
+               controls playsinline preload="none"
                poster="/videos/temoignage-delphine-deborah-poster.jpg"
                aria-label="Video testimonial from Delphine and Déborah, SVB clients">
           <source src="/videos/temoignage-delphine-deborah.mp4?v=20260423d" type="video/mp4">

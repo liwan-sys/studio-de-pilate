@@ -189,18 +189,7 @@
 
     <!-- GTM -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5RW8LB7B"></script>
-    <script>
-    /* GTM gated by RGPD consent (svb.js handles banner + reload) */
-    (function(){
-      window.dataLayer = window.dataLayer || [];
-      var granted = false;
-      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
-      if (!granted) return;
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GTM-5RW8LB7B');
-    })();
-  </script>
+    <script src="/assets/analytics.js?v=20260427a" defer></script>
 
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c" />
@@ -212,27 +201,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/crossformer.css?v=20260423a" />
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426z" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260427b" />
   <link rel="stylesheet" href="/assets/simulator.css?v=20260424a" />
   <script src="/assets/simulator.js?v=20260424c" defer></script>
 
-  <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
-  <script>
-    (function(){
-      var granted = false;
-      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
-      if (!granted) return;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DHS707Y6XJ';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-DHS707Y6XJ', { anonymize_ip: true });
-    })();
-  </script>
+  
   <script src="/assets/nav-dropdown.js?v=20260426a" defer></script>
     <link rel="stylesheet" href="/assets/discipline-brand.css?v=20260424a" />
   </head>
@@ -268,9 +241,9 @@
     <section class="svb-video-hero reveal-load" id="main-content" aria-labelledby="immersion-title">
       <div class="svb-video-hero-media">
         <video
-          src="/videos/crossformer-immersion.mp4"
+          src="/videos/crossformer-immersion.mp4?v=20260427a"
           poster="/videos/crossformer-immersion-poster.jpg"
-          preload="metadata"
+          preload="none"
           playsinline
           muted
           loop

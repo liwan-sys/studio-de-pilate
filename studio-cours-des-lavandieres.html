@@ -103,18 +103,7 @@
 
     <!-- GTM -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5RW8LB7B"></script>
-    <script>
-    /* GTM gated by RGPD consent (svb.js handles banner + reload) */
-    (function(){
-      window.dataLayer = window.dataLayer || [];
-      var granted = false;
-      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
-      if (!granted) return;
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GTM-5RW8LB7B');
-    })();
-  </script>
+    <script src="/assets/analytics.js?v=20260427a" defer></script>
 
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c" />
@@ -234,25 +223,9 @@
             transform: translateY(-2px);
         }
     </style>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426z" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260427b" />
 
-  <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
-  <script>
-    (function(){
-      var granted = false;
-      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
-      if (!granted) return;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DHS707Y6XJ';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-DHS707Y6XJ', { anonymize_ip: true });
-    })();
-  </script>
+  
   <script src="/assets/nav-dropdown.js?v=20260426a" defer></script>
     <link rel="stylesheet" href="/assets/discipline-brand.css?v=20260424a" />
   </head>

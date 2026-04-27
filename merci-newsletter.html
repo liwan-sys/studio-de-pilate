@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426z" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260427b" />
   <style>
     body{
       margin:0;min-height:100svh;
@@ -39,23 +39,8 @@
     .btn:hover{background:#4A8D84;transform:translateY(-2px)}
   </style>
 
-  <!-- Google Analytics 4 (G-DHS707Y6XJ) — RGPD-gated, same consent as GTM -->
-  <script>
-    (function(){
-      var granted = false;
-      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
-      if (!granted) return;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DHS707Y6XJ';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-DHS707Y6XJ', { anonymize_ip: true });
-    })();
-  </script>
+  
+  <script src="/assets/analytics.js?v=20260427a" defer></script>
 </head>
 <body>
     <a href="#main-content" class="svb-skip">Aller au contenu principal</a>

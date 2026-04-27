@@ -35,7 +35,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
-  <link rel="stylesheet" href="/assets/svb.css?v=20260426z">
+  <link rel="stylesheet" href="/assets/svb.css?v=20260427b">
 
   <script type="application/ld+json">
   {
@@ -51,18 +51,7 @@
   }
   </script>
 
-  <script>
-    (function(){
-      var granted = false;
-      try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
-      if (!granted) { window.dataLayer = window.dataLayer || []; return; }
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-5RW8LB7B');
-    })();
-  </script>
+  <script src="/assets/analytics.js?v=20260427a" defer></script>
 
   <script src="/assets/nav-dropdown.js?v=20260426a" defer></script>
 
@@ -484,7 +473,7 @@
   <!-- HERO -->
   <section class="ete-hero" id="main-content" aria-labelledby="ete-title">
     <div class="ete-hero-media" aria-hidden="true">
-      <video autoplay muted loop playsinline preload="metadata" poster="/videos/hero-poster.jpg">
+      <video autoplay muted loop playsinline preload="none" poster="/videos/hero-poster.jpg">
         <source src="/videos/hero.mp4" type="video/mp4">
       </video>
     </div>
