@@ -365,7 +365,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/pilates-reformer.css?v=20260423a" />
-  <link rel="stylesheet" href="/assets/svb.css?v=20260428c" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260428d" />
   <link rel="stylesheet" href="/assets/simulator.css?v=20260424a" />
   <script src="/assets/simulator.js?v=20260424c" defer></script>
 
@@ -405,7 +405,7 @@
     <section class="svb-video-hero reveal-load" id="main-content" aria-labelledby="immersion-title">
       <div class="svb-video-hero-media">
         <video
-          src="/videos/pilates-reformer-immersion.mp4?v=20260428c"
+          src="/videos/pilates-reformer-immersion.mp4?v=20260428d"
           poster="/videos/pilates-reformer-immersion-poster.jpg"
           preload="none"
           playsinline
@@ -459,42 +459,15 @@
       </div>
     </section>
 
-    <!-- Aperçu vidéo Reformer (2e angle, lead-in vers l'abonnement, son activable au clic) -->
+    <!-- Aperçu vidéo Reformer (2e angle, lead-in vers l'abonnement) — unmute géré par /assets/video-unmute.js -->
     <section class="max-w-3xl mx-auto px-4 pt-8 pb-4 reveal-load" aria-label="Aperçu d'une séance Pilates Reformer">
       <div style="position:relative;border-radius:24px;overflow:hidden;aspect-ratio:9/16;max-height:620px;max-width:380px;margin:0 auto;background:#1d3838;box-shadow:0 20px 60px rgba(0,0,0,0.15);">
-        <video id="reformerHQVideo" autoplay muted loop playsinline preload="none"
-               style="display:block;width:100%;height:100%;object-fit:cover;cursor:pointer;">
-          <source src="/videos/reformer-card-v2.mp4?v=20260428c" type="video/mp4">
+        <video autoplay muted loop playsinline preload="none" data-id="reformer-card-v2"
+               style="display:block;width:100%;height:100%;object-fit:cover;">
+          <source src="/videos/reformer-card-v2.mp4?v=20260428d" type="video/mp4">
         </video>
-        <span style="position:absolute;top:18px;left:50%;transform:translateX(-50%);font-family:'Dancing Script',cursive;font-weight:700;font-size:2rem;color:white;text-shadow:0 2px 14px rgba(0,0,0,0.55);letter-spacing:.01em;white-space:nowrap;pointer-events:none;">Reformer</span>
-        <button type="button" id="reformerHQUnmute" aria-label="Activer le son" style="position:absolute;bottom:14px;right:14px;width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.25);color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;padding:0;">
-          <svg id="reformerHQIcon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM3 9v6h4l5 5V4L7 9H3zm16.59-3l-1.41 1.41L20 9l-2 2 1.41 1.41L21 11l1.59 1.41L24 11l-2-2 2-2-1.41-1.41L21 7l-1.41-1.41z"/>
-          </svg>
-        </button>
-        <span id="reformerHQHint" aria-hidden="true" style="position:absolute;bottom:22px;right:70px;background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:white;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:7px 12px;border-radius:20px;pointer-events:none;opacity:.95;animation:hqHintFade 5s ease-in-out 1s forwards;">Son&nbsp;:&nbsp;cliquez</span>
+        <span style="position:absolute;top:18px;left:50%;transform:translateX(-50%);font-family:'Dancing Script',cursive;font-weight:700;font-size:2rem;color:white;text-shadow:0 2px 14px rgba(0,0,0,0.55);letter-spacing:.01em;white-space:nowrap;pointer-events:none;z-index:4;">Reformer</span>
       </div>
-      <style>
-        @keyframes hqHintFade { 0%{opacity:.95;transform:translateX(0)} 80%{opacity:.95} 100%{opacity:0;transform:translateX(8px);visibility:hidden} }
-        #reformerHQUnmute:hover{background:rgba(0,0,0,0.75);transform:scale(1.06)}
-      </style>
-      <script>
-        (function(){
-          var v=document.getElementById('reformerHQVideo'), btn=document.getElementById('reformerHQUnmute'), icon=document.getElementById('reformerHQIcon'), hint=document.getElementById('reformerHQHint');
-          if(!v||!btn) return;
-          var ICON_MUTED='<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM3 9v6h4l5 5V4L7 9H3zm16.59-3l-1.41 1.41L20 9l-2 2 1.41 1.41L21 11l1.59 1.41L24 11l-2-2 2-2-1.41-1.41L21 7l-1.41-1.41z"/>';
-          var ICON_UNMUTED='<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
-          function toggle(){
-            v.muted=!v.muted;
-            icon.innerHTML=v.muted?ICON_MUTED:ICON_UNMUTED;
-            btn.setAttribute('aria-label', v.muted?'Activer le son':'Couper le son');
-            if(hint){hint.style.display='none'}
-            if(window.gtag){gtag('event','video_unmute',{video_id:'reformer-card-v2'})}
-          }
-          btn.addEventListener('click', function(e){e.stopPropagation();toggle();});
-          v.addEventListener('click', toggle);
-        })();
-      </script>
     </section>
 
     <!-- price -->
@@ -628,5 +601,6 @@
     <script src="/assets/svb.js?v=20260423a" defer></script>
     <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
     <script src="/assets/svb-motion.js?v=20260424a" defer></script>
-</body>
+  <script src="/assets/video-unmute.js?v=20260428d" defer></script>
+  </body>
 </html>
