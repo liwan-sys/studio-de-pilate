@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Persépolis · Restaurant Persan à Paris</title>
+<meta name="description" content="Persépolis — Cuisine persane d'auteur. Saveurs ancestrales du grill, héritage de l'empire d'Iran. Réservez votre table à Paris." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">✦</span>Persépolis
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#histoire">Histoire</a></li>
+        <li><a href="#signatures">Signatures</a></li>
+        <li><a href="menu.html">Carte</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#reserver" class="nav-cta">Réserver</a>
+    <button class="nav-burger" aria-label="Menu" id="burger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-eyebrow">Cuisine de Perse · Depuis 1979</div>
+    <h1 class="hero-title">
+      <span class="hero-title-mark">پرسپولیس</span>
+      Persépolis
+    </h1>
+    <p class="hero-sub">
+      Le souffle des braises, la mémoire de l'empire.
+      Une table où la Perse ancienne se raconte en safran, en grenade et en feu de bois.
+    </p>
+    <div class="hero-actions">
+      <a href="#reserver" class="btn btn-primary">
+        Réserver une table
+        <svg class="btn-arrow" width="16" height="10" viewBox="0 0 16 10" fill="none">
+          <path d="M1 5h13m0 0L10 1m4 4l-4 4" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </a>
+      <a href="menu.html" class="btn btn-ghost">Découvrir la carte</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============== STRIP ============== -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>
+      Safran d'Ispahan
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+      Charbon de hêtre
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+      Grenade fraîche
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+      Riz basmati au beurre
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+      Sangak au four
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+    </span>
+    <span aria-hidden="true">
+      Safran d'Ispahan
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+      Charbon de hêtre
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+      Grenade fraîche
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+      Riz basmati au beurre
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+      Sangak au four
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+    </span>
+  </div>
+</div>
+
+<!-- ============== HISTOIRE ============== -->
+<section class="story" id="histoire">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img reveal">
+        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=80" alt="Mur de pierre éclairé d'une lumière chaude" />
+      </div>
+      <div class="story-text reveal">
+        <div class="eyebrow">Notre Maison</div>
+        <h2 class="section-title">
+          <em>Chapitre I</em>
+          Une cuisine née du feu
+        </h2>
+        <p class="first">
+          Trois générations gardent ici les recettes
+          rapportées de Téhéran, transmises de mère en fils,
+          écrites au feu et au safran.
+        </p>
+        <p>
+          Persépolis ouvre ses portes en 1979, dans le silence d'une rue
+          parisienne. Quarante-cinq ans plus tard, nos braises ne se sont
+          jamais éteintes. Chaque jour, le maître-grilleur réveille le
+          charbon de hêtre avant l'aube, et le sangak — pain plat aux
+          galets — sort encore du four à minuit pour les derniers convives.
+        </p>
+        <p>
+          Notre table est un voyage. Des palais d'Ispahan aux jardins
+          d'Achaemenid, nous servons une cuisine d'auteur, fidèle à
+          l'âme persane mais ouverte au geste contemporain.
+        </p>
+        <div class="story-sign">
+          <span class="story-sign-line"></span>
+          <span>Famille Bahrami, depuis 1979</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SIGNATURES ============== -->
+<section class="signature" id="signatures">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Spécialités</div>
+      <h2 class="section-title">
+        <em>Trois plats, trois mémoires</em>
+        Les signatures
+      </h2>
+      <div class="ornament" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+      </div>
+      <p class="lead">
+        Chaque plat raconte une dynastie : le brasier sassanide,
+        la noblesse safavide, la finesse qajare.
+      </p>
+    </div>
+
+    <div class="signature-grid">
+      <article class="dish-card reveal">
+        <div class="dish-img">
+          <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=900&q=80" alt="Brochette de chelo kebab koobideh" />
+        </div>
+        <div class="dish-body">
+          <div class="dish-fa">Chelo Kebab</div>
+          <h3>Koobideh à la flamme</h3>
+          <p>Agneau haché à la main, oignon doux, grillé sur charbon de hêtre. Riz safrané, beurre noisette.</p>
+        </div>
+      </article>
+
+      <article class="dish-card reveal">
+        <div class="dish-img">
+          <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=900&q=80" alt="Plat de fesenjan à la grenade" />
+        </div>
+        <div class="dish-body">
+          <div class="dish-fa">Fesenjan</div>
+          <h3>Volaille à la grenade</h3>
+          <p>Mijoté lent au sirop de grenade et noix concassées. Une recette du nord, douce-amère, taillée pour l'hiver.</p>
+        </div>
+      </article>
+
+      <article class="dish-card reveal">
+        <div class="dish-img">
+          <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=80" alt="Plat de tahdig croustillant" />
+        </div>
+        <div class="dish-body">
+          <div class="dish-fa">Tahdig</div>
+          <h3>Croûte royale</h3>
+          <p>La couche de riz dorée du fond du chaudron — disputée à chaque table de Téhéran. Servie avec ragoût d'aubergines fumées.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== MENU PREVIEW ============== -->
+<section class="menu" id="carte">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">À table</div>
+      <h2 class="section-title">
+        <em>Carte du soir</em>
+        Sélection
+      </h2>
+      <div class="ornament" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5.5L5 24l2.5-9.5L0 9h9z"/></svg>
+      </div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-col reveal">
+        <h3>
+          <span>Mezzé &amp; Entrées</span>
+          <span class="menu-col-num">I</span>
+        </h3>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Mast-o-Khiar</div>
+            <p class="menu-item-desc">Yaourt de brebis, concombre, menthe sauvage, pétales de rose.</p>
+          </div>
+          <div class="menu-item-price">12</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Kashk-e-Bademjan</div>
+            <p class="menu-item-desc">Caviar d'aubergines fumées, kashk, oignons confits, noix.</p>
+          </div>
+          <div class="menu-item-price">14</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Salade Shirazi</div>
+            <p class="menu-item-desc">Concombre, tomate, oignon doux, citron vert, sumac de Tabriz.</p>
+          </div>
+          <div class="menu-item-price">11</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Sangak du four</div>
+            <p class="menu-item-desc">Pain plat aux galets, sortie du four à 19h pétantes. Beurre clarifié.</p>
+          </div>
+          <div class="menu-item-price">6</div>
+        </div>
+      </div>
+
+      <div class="menu-col reveal">
+        <h3>
+          <span>Du grill</span>
+          <span class="menu-col-num">II</span>
+        </h3>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Chelo Koobideh</div>
+            <p class="menu-item-desc">Deux brochettes d'agneau haché, riz safrané, tomate braisée, beurre noisette.</p>
+          </div>
+          <div class="menu-item-price">28</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Joojeh Kebab</div>
+            <p class="menu-item-desc">Poulet mariné citron-safran 24 h, charbon de hêtre, oignon perlé.</p>
+          </div>
+          <div class="menu-item-price">26</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Shishlik d'agneau</div>
+            <p class="menu-item-desc">Côtelettes d'agneau de lait, romarin, ail noir, jus à la grenade.</p>
+          </div>
+          <div class="menu-item-price">36</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Mahi Sefid</div>
+            <p class="menu-item-desc">Poisson blanc de la Caspienne, herbes du nord, citron vert.</p>
+          </div>
+          <div class="menu-item-price">32</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-cta reveal">
+      <a href="menu.html" class="btn btn-ghost">
+        Voir la carte complète
+        <svg class="btn-arrow" width="16" height="10" viewBox="0 0 16 10" fill="none">
+          <path d="M1 5h13m0 0L10 1m4 4l-4 4" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== GALERIE ============== -->
+<section class="gallery" id="galerie">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Maison</div>
+      <h2 class="section-title">
+        <em>L'atmosphère</em>
+        Notre lieu
+      </h2>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-cell tall reveal">
+        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=800&q=80" alt="Brochettes sur braise" />
+      </div>
+      <div class="gallery-cell wide reveal">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" alt="Salle du restaurant" />
+      </div>
+      <div class="gallery-cell reveal">
+        <img src="https://images.unsplash.com/photo-1604908554027-0a78b3c1cda3?auto=format&fit=crop&w=600&q=80" alt="Grenade ouverte" />
+      </div>
+      <div class="gallery-cell reveal">
+        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Bougies et carafe" />
+      </div>
+      <div class="gallery-cell wide reveal">
+        <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1200&q=80" alt="Mur de bouteilles" />
+      </div>
+      <div class="gallery-cell tall reveal">
+        <img src="https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=800&q=80" alt="Pâtisseries persanes" />
+      </div>
+      <div class="gallery-cell reveal">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Plats sur la table" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TÉMOIGNAGES ============== -->
+<section class="quotes">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Presse &amp; clients</div>
+      <h2 class="section-title">
+        <em>On en parle</em>
+        Échos
+      </h2>
+    </div>
+    <div class="quotes-grid">
+      <article class="quote reveal">
+        <p>« Une table qui rappelle pourquoi la cuisine persane est l'une des plus raffinées du monde. Le tahdig est anthologique. »</p>
+        <div class="quote-author">
+          <span class="quote-stars">★★★★★</span>
+          <span class="quote-name">Le Figaro Gastronomie</span>
+        </div>
+      </article>
+      <article class="quote reveal">
+        <p>« On entre pour un dîner, on en sort avec un voyage. Le service est d'une élégance discrète, le grill, magistral. »</p>
+        <div class="quote-author">
+          <span class="quote-stars">★★★★★</span>
+          <span class="quote-name">Léa M. — Paris</span>
+        </div>
+      </article>
+      <article class="quote reveal">
+        <p>« Le pain sangak sort encore du four à 23 h. Détail rare. Détail qui dit tout. »</p>
+        <div class="quote-author">
+          <span class="quote-stars">★★★★★</span>
+          <span class="quote-name">Time Out Paris</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== RÉSERVATION ============== -->
+<section class="reserve" id="reserver">
+  <div class="container">
+    <div class="reserve-grid">
+      <div class="reserve-info reveal" id="contact">
+        <div class="eyebrow">Réservation</div>
+        <h2 class="section-title">
+          <em>Notre table vous attend</em>
+          À bientôt
+        </h2>
+        <p>
+          Service du soir uniquement. Pour les groupes de plus de huit
+          personnes ou les privatisations, contactez-nous directement par téléphone.
+        </p>
+
+        <div class="reserve-meta">
+          <div class="reserve-meta-item">
+            <h4>Adresse</h4>
+            <p>14 rue des Saules · 75018 Paris</p>
+          </div>
+          <div class="reserve-meta-item">
+            <h4>Horaires</h4>
+            <p>Mardi — Samedi · 19 h — 23 h 30</p>
+          </div>
+          <div class="reserve-meta-item">
+            <h4>Téléphone</h4>
+            <p>+33 1 42 00 00 00</p>
+          </div>
+          <div class="reserve-meta-item">
+            <h4>Écrire</h4>
+            <p>contact@persepolis-paris.fr</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="reserve-form reveal" onsubmit="event.preventDefault(); document.getElementById('formNote').textContent = 'Merci. Nous vous contactons sous 2 heures pour confirmer.';">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="firstname">Prénom</label>
+            <input id="firstname" type="text" required />
+          </div>
+          <div class="form-field">
+            <label for="lastname">Nom</label>
+            <input id="lastname" type="text" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="phone">Téléphone</label>
+            <input id="phone" type="tel" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="date">Date</label>
+            <input id="date" type="date" required />
+          </div>
+          <div class="form-field">
+            <label for="time">Heure</label>
+            <select id="time" required>
+              <option>19:00</option><option>19:30</option><option>20:00</option>
+              <option>20:30</option><option>21:00</option><option>21:30</option>
+              <option>22:00</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full">
+            <label for="guests">Nombre de couverts</label>
+            <select id="guests" required>
+              <option>2 personnes</option><option>3 personnes</option>
+              <option>4 personnes</option><option>5 personnes</option>
+              <option>6 personnes</option><option>7 personnes</option>
+              <option>8 personnes</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full">
+            <label for="message">Message (allergies, occasion…)</label>
+            <textarea id="message"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">
+          Demander une table
+          <svg class="btn-arrow" width="16" height="10" viewBox="0 0 16 10" fill="none">
+            <path d="M1 5h13m0 0L10 1m4 4l-4 4" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </button>
+        <p class="form-note" id="formNote">Confirmation envoyée par email sous 2 heures.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span class="brand-mark">✦</span>Persépolis</div>
+        <p>Cuisine de Perse, à la flamme de Paris. Ouvert depuis 1979.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="#histoire">Notre histoire</a></li>
+          <li><a href="#signatures">Signatures</a></li>
+          <li><a href="menu.html">Carte</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visiter</h4>
+        <p>14 rue des Saules</p>
+        <p>75018 Paris</p>
+        <p>+33 1 42 00 00 00</p>
+      </div>
+      <div class="footer-col">
+        <h4>Suivre</h4>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="3" y="3" width="18" height="18" rx="4"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7c0-1 .5-2 2-2h2V1h-3c-3 0-5 2-5 5v4H6v4h3v8h4z"/></svg>
+          </a>
+          <a href="#" aria-label="Tripadvisor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="7" cy="14" r="3"/><circle cx="17" cy="14" r="3"/>
+              <path d="M4 14l-2-2c4-4 16-4 20 0l-2 2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Persépolis · Tous droits réservés</span>
+      <span>Mentions légales · Confidentialité</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============== SCRIPTS ============== -->
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile burger
+  document.getElementById('burger').addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => nav.classList.remove('open'))
+  );
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
