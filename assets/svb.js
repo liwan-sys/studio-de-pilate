@@ -302,6 +302,10 @@
       }
       // Forward high-value events vers /api/notify (Telegram push)
       svbNotify(event, props);
+       // Forward to GA4 for conversion tracking
+       if (typeof window.gtag === 'function') {
+          window.gtag('event', String(event).slice(0, 40), props || {});
+       }
     } catch(e) {/* silent */}
   };
   window.svbTrack = svbTrack;
