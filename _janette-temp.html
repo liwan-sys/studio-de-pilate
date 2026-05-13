@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janette Boudoir | Cake Design Premium — Gâteaux personnalisés sur-mesure</title>
+    <meta name="description" content="Janette Boudoir, cake designer à Montmagny (95) : gâteaux personnalisés, number cakes, letter cakes, cupcakes et coffrets pour anniversaires, baby showers et EVJF.">
+    <meta name="theme-color" content="#F2A7B5">
+    <link rel="canonical" href="https://janetteboudoir.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="Janette Boudoir | Cake Design Premium">
+    <meta property="og:description" content="Gâteaux personnalisés et sur-mesure pour vos événements : anniversaires, baby showers, EVJF.">
+    <meta property="og:url" content="https://janetteboudoir.com/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1557308536-ee471ef2c390?q=80&w=1200">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Janette Boudoir | Cake Design Premium">
+    <meta name="twitter:description" content="Gâteaux personnalisés et sur-mesure pour tous vos événements.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --pink-bg: #FFF7F9;
+            --pink-brand: #F2A7B5;
+            --pink-brand-dark: #E48A9C;
+            --pink-light: #FCEEF1;
+            --text-dark: #333333;
+            --text-grey: #666666;
+            --white: #FFFFFF;
+            --gold: #D4AF37;
+            --mint-footer: #D9F5F1;
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.08);
+            --shadow-brand: 0 10px 20px rgba(242, 167, 181, 0.3);
+            --radius-card: 12px;
+            --radius-pill: 30px;
+            --transition: 0.3s ease;
+            --max-width: 1400px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--pink-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        img { max-width: 100%; display: block; }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition), background-color var(--transition), transform var(--transition);
+        }
+        ul { list-style: none; }
+
+        :focus-visible {
+            outline: 3px solid var(--pink-brand);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            background: var(--pink-brand);
+            color: var(--white);
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            z-index: 2000;
+            font-weight: 500;
+            transition: top 0.2s;
+        }
+        .skip-link:focus { top: 1rem; }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+        .cursive-title {
+            font-family: 'Great Vibes', cursive;
+            color: var(--pink-brand);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            line-height: 1.2;
+        }
+        .premium-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            line-height: 1.3;
+        }
+        .text-left { text-align: left; }
+
+        header {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            transition: padding var(--transition);
+        }
+        header.scrolled { padding: 0.5rem 5%; }
+
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-img {
+            width: 50px; height: 50px;
+            background: var(--pink-brand);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 24px;
+        }
+        .logo-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+        }
+
+        .nav-icons { display: flex; gap: 12px; align-items: center; }
+        .icon-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            color: var(--pink-brand);
+            transition: background-color var(--transition);
+        }
+        .icon-btn:hover { background-color: var(--pink-light); }
+        .icon-btn svg { width: 22px; height: 22px; }
+
+        .mobile-nav {
+            position: fixed;
+            inset: 80px 0 0 0;
+            background: var(--white);
+            transform: translateX(100%);
+            transition: transform 0.35s ease;
+            padding: 2rem 5%;
+            z-index: 999;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+        }
+        .mobile-nav.open { transform: translateX(0); }
+        .mobile-nav ul { display: flex; flex-direction: column; gap: 1.25rem; }
+        .mobile-nav a {
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: block;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--pink-light);
+        }
+        .mobile-nav a:hover { color: var(--pink-brand); }
+
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 5%;
+            text-align: center;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.9)),
+                url('https://images.unsplash.com/photo-1557308536-ee471ef2c390?q=80&w=2000') center/cover;
+        }
+        .hero p {
+            max-width: 600px;
+            margin: 1.5rem auto 2.5rem;
+            color: var(--text-grey);
+            font-size: 1.1rem;
+        }
+
+        .btn-premium {
+            display: inline-block;
+            background-color: var(--pink-brand);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: var(--radius-pill);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-brand);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        .btn-premium:hover,
+        .btn-premium:focus-visible {
+            background-color: var(--white);
+            color: var(--pink-brand);
+            border-color: var(--pink-brand);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(242, 167, 181, 0.4);
+        }
+        .btn-premium--sm { padding: 10px 25px; font-size: 0.8rem; letter-spacing: 1.5px; }
+
+        .section-padding { padding: 5rem 5%; max-width: var(--max-width); margin: 0 auto; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .product-img {
+            width: 100%; height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--pink-light);
+        }
+        .product-info { padding: 2rem 1.5rem; text-align: center; }
+        .product-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--pink-brand);
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .product-price { font-weight: 600; font-size: 1.2rem; margin-bottom: 1.5rem; }
+
+        .highlight-section {
+            display: flex;
+            align-items: center;
+            background-color: var(--white);
+            margin: 4rem auto;
+            max-width: var(--max-width);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .highlight-img {
+            flex: 1;
+            min-height: 400px;
+            background: url('https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=800') center/cover;
+        }
+        .highlight-content { flex: 1; padding: 4rem; }
+        .highlight-content p { color: var(--text-grey); margin-bottom: 2rem; }
+
+        .reviews { text-align: center; padding: 4rem 5%; background-color: var(--white); }
+        .review-card {
+            background: var(--pink-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            border: 1px solid var(--pink-light);
+        }
+        .review-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .review-card p { color: var(--text-grey); }
+        .stars { color: var(--gold); font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; }
+        .reviews-meta { font-size: 0.9rem; color: var(--text-grey); }
+
+        footer { background-color: var(--mint-footer); padding: 4rem 5% 1rem; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: var(--max-width);
+            margin: 0 auto 3rem;
+        }
+        .footer-col h4 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--pink-brand);
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+        }
+        .footer-col ul li { margin-bottom: 0.8rem; font-size: 0.9rem; }
+        .footer-col ul li a:hover { color: var(--pink-brand); padding-left: 5px; }
+        .footer-col address { font-style: normal; font-size: 0.9rem; }
+        .footer-col address strong { display: block; margin-top: 0.5rem; }
+
+        .social-icons { display: flex; gap: 15px; margin-top: 1rem; }
+        .social-circle {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: var(--pink-brand);
+            color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 600;
+            transition: background-color var(--transition), transform var(--transition);
+        }
+        .social-circle:hover { background: var(--pink-brand-dark); transform: translateY(-3px); }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.8rem;
+            color: var(--text-grey);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.is-visible { opacity: 1; transform: none; }
+
+        @media (max-width: 768px) {
+            .highlight-section { flex-direction: column; margin: 2rem 5%; }
+            .highlight-content { padding: 2rem; text-align: center; }
+            .highlight-content .cursive-title,
+            .highlight-content .premium-title { text-align: center; }
+            .cursive-title { font-size: 2.5rem; }
+            .premium-title { font-size: 1.8rem; }
+            .hero { padding: 4rem 5%; }
+            .section-padding { padding: 3rem 5%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Bakery",
+        "name": "Janette Boudoir",
+        "description": "Cake designer spécialisée dans les gâteaux personnalisés et sur-mesure pour événements.",
+        "image": "https://images.unsplash.com/photo-1557308536-ee471ef2c390?q=80&w=1200",
+        "telephone": "+33635783163",
+        "email": "contact@janetteboudoir.com",
+        "url": "https://janetteboudoir.com/",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "5 BIS Route de Saint Leu",
+            "postalCode": "95360",
+            "addressLocality": "Montmagny",
+            "addressCountry": "FR"
+        },
+        "priceRange": "€€",
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "51" }
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+    <header id="navbar">
+        <div class="logo-container">
+            <div class="logo-img" aria-hidden="true">🧁</div>
+            <a href="#" class="logo-text">Janette Boudoir</a>
+        </div>
+        <nav class="nav-icons" aria-label="Navigation principale">
+            <button type="button" class="icon-btn" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <a href="#panier" class="icon-btn" aria-label="Voir mon panier">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </a>
+        </nav>
+    </header>
+
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+        <ul>
+            <li><a href="#produits">Nos créations</a></li>
+            <li><a href="#highlight">Number &amp; Letter cakes</a></li>
+            <li><a href="#avis">Avis clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <main id="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title" class="cursive-title">Commandez vos gâteaux</h1>
+            <p class="premium-title">Personnalisés et sur-mesure&nbsp;!</p>
+            <p>N'hésitez pas à faire appel à Janette, cake designer, pour tous vos événements&nbsp;: baby shower, EVJF, anniversaire. Elle répondra à toutes vos demandes.</p>
+            <a href="#contact" class="btn-premium">Contactez-moi</a>
+        </section>
+
+        <section id="produits" class="section-padding" aria-labelledby="produits-title">
+            <h2 id="produits-title" class="premium-title">Nos créations gourmandes</h2>
+            <div class="product-grid">
+                <article class="product-card reveal">
+                    <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?q=80&w=600" alt="Assortiment de mini cupcakes décorés" class="product-img" loading="lazy" decoding="async" width="600" height="400">
+                    <div class="product-info">
+                        <h3 class="product-title">Mini Cupcakes</h3>
+                        <p class="product-desc">Assortiment de 50 (Personnalisables)</p>
+                        <p class="product-price">À partir de 125,00&nbsp;€</p>
+                        <a href="#contact" class="btn-premium btn-premium--sm">Découvrir</a>
+                    </div>
+                </article>
+                <article class="product-card reveal">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600" alt="Coffret de pâtisseries édition fêtes" class="product-img" loading="lazy" decoding="async" width="600" height="400">
+                    <div class="product-info">
+                        <h3 class="product-title">Mini Coffret</h3>
+                        <p class="product-desc">Édition spéciale fêtes</p>
+                        <p class="product-price">À partir de 13,00&nbsp;€</p>
+                        <a href="#contact" class="btn-premium btn-premium--sm">Découvrir</a>
+                    </div>
+                </article>
+                <article class="product-card reveal">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=600" alt="Naked cake décoré de fruits frais" class="product-img" loading="lazy" decoding="async" width="600" height="400">
+                    <div class="product-info">
+                        <h3 class="product-title">Naked Cake</h3>
+                        <p class="product-desc">Création personnalisée</p>
+                        <p class="product-price">De 90,00&nbsp;€ à 225,00&nbsp;€</p>
+                        <a href="#contact" class="btn-premium btn-premium--sm">Découvrir</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="highlight" class="highlight-section reveal" aria-labelledby="highlight-title">
+            <div class="highlight-img" role="img" aria-label="Number cake décoré de fruits"></div>
+            <div class="highlight-content">
+                <h2 id="highlight-title" class="cursive-title text-left">Nos Number cake</h2>
+                <p class="premium-title text-left">et Letter cake</p>
+                <p>Pour changer des traditionnels gâteaux d'anniversaire, n'hésitez pas à commander nos Number cake &amp; Letter cake, aux fruits ou au chocolat. Ils ont toujours un succès fou lors de vos événements, et peuvent bien sûr être personnalisés.</p>
+                <a href="#contact" class="btn-premium">Commander le mien</a>
+            </div>
+        </section>
+
+        <section id="avis" class="reviews" aria-labelledby="avis-title">
+            <h2 id="avis-title" class="premium-title">Ce que disent nos clients</h2>
+            <article class="review-card">
+                <div class="stars" aria-label="Note 5 étoiles sur 5">★★★★★</div>
+                <h3>Zak Hadad</h3>
+                <p>« Excellent ❤️ »</p>
+            </article>
+            <p class="reviews-meta">Janette Boudoir — 51 avis Google</p>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <address>
+                    <p><a href="tel:+33635783163">📞 06 35 78 31 63</a></p>
+                    <p><a href="mailto:contact@janetteboudoir.com">✉️ contact@janetteboudoir.com</a></p>
+                    <p>📍 <strong>Adresse LABORATOIRE :</strong>5 BIS Route de Saint Leu<br>95360 Montmagny</p>
+                </address>
+            </div>
+            <div class="footer-col">
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="#">Connexion</a></li>
+                    <li><a href="#">Commandes</a></li>
+                    <li><a href="#">Adresses</a></li>
+                    <li><a href="#">Détails du compte</a></li>
+                    <li><a href="#">Composition et conservation</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Accès rapide</h4>
+                <ul>
+                    <li><a href="#">Qui se cache derrière Janette&nbsp;?</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Conditions générales de vente</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Suivez-moi</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-circle" aria-label="Facebook" rel="noopener">F</a>
+                    <a href="#" class="social-circle" aria-label="Instagram" rel="noopener">I</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Janette Boudoir 2026 — Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const navbar = document.getElementById('navbar');
+            const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            const toggle = document.getElementById('menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+            toggle.addEventListener('click', () => {
+                const isOpen = mobileNav.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                mobileNav.setAttribute('aria-hidden', String(!isOpen));
+                toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+            });
+            mobileNav.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileNav.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    mobileNav.setAttribute('aria-hidden', 'true');
+                    toggle.setAttribute('aria-label', 'Ouvrir le menu');
+                }
+            });
+
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!prefersReduced && 'IntersectionObserver' in window) {
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+            } else {
+                document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+            }
+        })();
+    </script>
+</body>
+</html>
