@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>La Carte · Persépolis</title>
+<meta name="description" content="Carte complète du restaurant Persépolis : mezzés, grill au charbon de hêtre, ragoûts mijotés, riz safranés, vins d'Iran, douceurs persanes." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  .menu-hero {
+    padding: 12rem 0 6rem;
+    text-align: center;
+    background:
+      linear-gradient(180deg, rgba(21,17,14,.85), rgba(21,17,14,.95)),
+      url("https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=2000&q=80") center/cover no-repeat;
+  }
+  .menu-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-style: italic; color: var(--color-creme);
+    margin: .5rem 0;
+  }
+  .menu-page { padding: 5rem 0; }
+  .menu-section {
+    margin-bottom: 5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(201,162,74,.15);
+  }
+  .menu-section:last-child { border-bottom: none; }
+  .menu-section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .menu-section-head h2 {
+    font-family: var(--font-display); font-style: italic;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-creme);
+  }
+  .menu-section-head .num {
+    font-family: var(--font-title);
+    font-size: .8rem; letter-spacing: .35em; text-transform: uppercase;
+    color: var(--color-or);
+  }
+  .menu-section-head .desc {
+    flex-basis: 100%;
+    font-family: var(--font-display); font-style: italic;
+    color: var(--color-text-mute);
+    font-size: 1.1rem;
+  }
+  .menu-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 4rem;
+  }
+  @media (max-width: 800px) { .menu-section-grid { grid-template-columns: 1fr; gap: 0; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">✦</span>Persépolis</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#histoire">Histoire</a></li>
+        <li><a href="index.html#signatures">Signatures</a></li>
+        <li><a href="menu.html">Carte</a></li>
+        <li><a href="index.html#galerie">Galerie</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="index.html#reserver" class="nav-cta">Réserver</a>
+    <button class="nav-burger" aria-label="Menu" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="menu-hero">
+  <div class="container">
+    <div class="eyebrow">پرسپولیس · La Carte</div>
+    <h1>Notre Carte</h1>
+    <p class="lead" style="max-width: 620px; margin: 1rem auto 0;">
+      Tout ce qui sort de nos cuisines, du mezzé au safran de l'aube
+      jusqu'à la dernière douceur à l'eau de rose.
+    </p>
+  </div>
+</section>
+
+<section class="menu-page">
+  <div class="container">
+
+    <!-- I. Mezzés -->
+    <div class="menu-section">
+      <div class="menu-section-head">
+        <h2>Mezzés &amp; Entrées</h2>
+        <span class="num">I</span>
+        <p class="desc">Petites assiettes à partager, à arroser de pain sangak chaud.</p>
+      </div>
+      <div class="menu-section-grid">
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Mast-o-Khiar</div>
+            <p class="menu-item-desc">Yaourt de brebis, concombre, menthe sauvage, pétales de rose.</p>
+          </div><div class="menu-item-price">12</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Kashk-e-Bademjan</div>
+            <p class="menu-item-desc">Aubergines fumées, kashk fermenté, oignons confits, noix.</p>
+          </div><div class="menu-item-price">14</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Salade Shirazi</div>
+            <p class="menu-item-desc">Concombre, tomate, oignon doux, citron vert, sumac de Tabriz.</p>
+          </div><div class="menu-item-price">11</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Mirza Ghasemi</div>
+            <p class="menu-item-desc">Aubergines grillées du Guilan, ail, tomate, œuf.</p>
+          </div><div class="menu-item-price">13</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Borani Esfenaj</div>
+            <p class="menu-item-desc">Épinards à l'ail, yaourt, crème, herbes du jardin.</p>
+          </div><div class="menu-item-price">12</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Sangak du four</div>
+            <p class="menu-item-desc">Pain plat aux galets brûlants, sortie 19 h pétantes.</p>
+          </div><div class="menu-item-price">6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- II. Du grill -->
+    <div class="menu-section">
+      <div class="menu-section-head">
+        <h2>Du Grill</h2>
+        <span class="num">II</span>
+        <p class="desc">Charbon de hêtre, marinades 24 heures, brochettes au geste précis.</p>
+      </div>
+      <div class="menu-section-grid">
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Chelo Koobideh</div>
+            <p class="menu-item-desc">Deux brochettes d'agneau haché, riz safrané, tomate braisée.</p>
+          </div><div class="menu-item-price">28</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Joojeh Kebab</div>
+            <p class="menu-item-desc">Poulet fermier mariné citron-safran, oignon perlé.</p>
+          </div><div class="menu-item-price">26</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Shishlik d'agneau</div>
+            <p class="menu-item-desc">Côtelettes d'agneau de lait, ail noir, jus à la grenade.</p>
+          </div><div class="menu-item-price">36</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Barg de bœuf</div>
+            <p class="menu-item-desc">Filet émincé mariné, oignon, safran, à la flamme vive.</p>
+          </div><div class="menu-item-price">34</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Soltani</div>
+            <p class="menu-item-desc">Une brochette koobideh + une brochette barg. Le grand jeu.</p>
+          </div><div class="menu-item-price">38</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Mahi Sefid</div>
+            <p class="menu-item-desc">Poisson blanc de la Caspienne, herbes du nord, citron vert.</p>
+          </div><div class="menu-item-price">32</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- III. Mijotés -->
+    <div class="menu-section">
+      <div class="menu-section-head">
+        <h2>Mijotés &amp; Khoresh</h2>
+        <span class="num">III</span>
+        <p class="desc">Cuissons longues, recettes de famille, rien ne se précipite.</p>
+      </div>
+      <div class="menu-section-grid">
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Fesenjan</div>
+            <p class="menu-item-desc">Volaille au sirop de grenade, noix concassées, riz safrané.</p>
+          </div><div class="menu-item-price">28</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Ghormeh Sabzi</div>
+            <p class="menu-item-desc">Agneau, herbes vertes, haricots, citron noir d'Oman.</p>
+          </div><div class="menu-item-price">26</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Bademjan</div>
+            <p class="menu-item-desc">Aubergines confites, agneau, tomate, jus de citron vert.</p>
+          </div><div class="menu-item-price">24</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Gheymeh</div>
+            <p class="menu-item-desc">Bœuf, pois cassés, citron noir, frites maison sur le dessus.</p>
+          </div><div class="menu-item-price">25</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IV. Riz -->
+    <div class="menu-section">
+      <div class="menu-section-head">
+        <h2>Riz &amp; Tahdig</h2>
+        <span class="num">IV</span>
+        <p class="desc">Le cœur de la table persane. Vapeur, beurre, patience.</p>
+      </div>
+      <div class="menu-section-grid">
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Chelo</div>
+            <p class="menu-item-desc">Riz basmati à la vapeur, beurre clarifié, safran.</p>
+          </div><div class="menu-item-price">9</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Tahdig de pomme de terre</div>
+            <p class="menu-item-desc">La croûte royale du fond du chaudron — disputée à chaque tablée.</p>
+          </div><div class="menu-item-price">12</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Zereshk Polo</div>
+            <p class="menu-item-desc">Riz aux baies d'épine-vinette, amandes, safran.</p>
+          </div><div class="menu-item-price">14</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Baghali Polo</div>
+            <p class="menu-item-desc">Riz aux fèves, aneth, agneau confit en option (+8).</p>
+          </div><div class="menu-item-price">14</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V. Douceurs -->
+    <div class="menu-section">
+      <div class="menu-section-head">
+        <h2>Douceurs</h2>
+        <span class="num">V</span>
+        <p class="desc">Eau de rose, pistache, safran. Le repas se ferme comme une page enluminée.</p>
+      </div>
+      <div class="menu-section-grid">
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Bastani</div>
+            <p class="menu-item-desc">Glace au safran, eau de rose, pistache, éclats de crème glacée.</p>
+          </div><div class="menu-item-price">10</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Faloodeh Shirazi</div>
+            <p class="menu-item-desc">Vermicelles glacés, citron vert, sirop de rose.</p>
+          </div><div class="menu-item-price">10</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Sholeh Zard</div>
+            <p class="menu-item-desc">Riz au lait au safran, cannelle, amande effilée.</p>
+          </div><div class="menu-item-price">9</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Baklava de Yazd</div>
+            <p class="menu-item-desc">Pâte filo, pistache, sirop d'eau de rose tiède.</p>
+          </div><div class="menu-item-price">9</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VI. Cave -->
+    <div class="menu-section">
+      <div class="menu-section-head">
+        <h2>Cave &amp; Boissons</h2>
+        <span class="num">VI</span>
+        <p class="desc">Une carte courte, choisie pour épouser le grill et le safran.</p>
+      </div>
+      <div class="menu-section-grid">
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Shiraz · Domaine Bahmani</div>
+            <p class="menu-item-desc">Rouge sec, fruits noirs, finale poivrée. Bouteille 75 cl.</p>
+          </div><div class="menu-item-price">42</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Côtes du Rhône · Sélection maison</div>
+            <p class="menu-item-desc">Verre 16 cl.</p>
+          </div><div class="menu-item-price">9</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Doogh maison</div>
+            <p class="menu-item-desc">Yaourt battu, menthe séchée, sel, eau pétillante.</p>
+          </div><div class="menu-item-price">5</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Thé persan</div>
+            <p class="menu-item-desc">Thé noir infusé long, sucre cristallisé, eau de rose en option.</p>
+          </div><div class="menu-item-price">5</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Sharbat de safran</div>
+            <p class="menu-item-desc">Sirop maison, citron vert, glace pilée.</p>
+          </div><div class="menu-item-price">7</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Café d'Ispahan</div>
+            <p class="menu-item-desc">Espresso, cardamome, eau de fleur d'oranger.</p>
+          </div><div class="menu-item-price">5</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 4rem;">
+      <a href="index.html#reserver" class="btn btn-primary">
+        Réserver une table
+        <svg class="btn-arrow" width="16" height="10" viewBox="0 0 16 10" fill="none">
+          <path d="M1 5h13m0 0L10 1m4 4l-4 4" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span class="brand-mark">✦</span>Persépolis</div>
+        <p>Cuisine de Perse, à la flamme de Paris. Ouvert depuis 1979.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="index.html#histoire">Notre histoire</a></li>
+          <li><a href="index.html#signatures">Signatures</a></li>
+          <li><a href="menu.html">Carte</a></li>
+          <li><a href="index.html#galerie">Galerie</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visiter</h4>
+        <p>14 rue des Saules</p>
+        <p>75018 Paris</p>
+        <p>+33 1 42 00 00 00</p>
+      </div>
+      <div class="footer-col">
+        <h4>Suivre</h4>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="3" y="3" width="18" height="18" rx="4"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7c0-1 .5-2 2-2h2V1h-3c-3 0-5 2-5 5v4H6v4h3v8h4z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Persépolis · Tous droits réservés</span>
+      <span>Mentions légales · Confidentialité</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('nav').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

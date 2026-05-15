@@ -8,15 +8,15 @@
     <link rel="dns-prefetch" href="https://calendly.com">
     <link rel="dns-prefetch" href="https://api.sportigo.fr">
     <link rel="dns-prefetch" href="https://wa.me">
-<title>Parrainage Studio SVB — Offre 1 mois offert pour toi et ton parrain</title>
-  <meta name="description" content="Programme de parrainage Studio SVB : ton parrain t'offre 30% sur ton premier mois, tu lui offres 1 mois gratuit dès que tu t'abonnes. Saint-Ouen." />
+<title>Parrainage Studio SVB — Viens nous voir au studio</title>
+  <meta name="description" content="Le programme de parrainage Studio SVB se découvre au studio. Passe au Parc des Docks ou Cours des Lavandières, on t'explique tout en personne." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://studiosvb.com/parrainage" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://studiosvb.com/parrainage" />
   <meta property="og:title" content="Parrainage Studio SVB" />
-  <meta property="og:description" content="1 mois offert pour toi et ton parrain. Saint-Ouen." />
+  <meta property="og:description" content="Découvre notre programme de parrainage directement au studio, à Saint-Ouen." />
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg" />
 
   <meta name="theme-color" content="#4A8D84" />
@@ -62,54 +62,104 @@
 
   <header class="hero">
     <p class="eyebrow">Programme de parrainage</p>
-    <h1>Partage le sport, <em>offrez-vous un mois.</em></h1>
-    <p class="sub">1 mois offert pour toi · 30% sur le 1er mois pour ta filleule</p>
-    <p class="lead">
-      Chaque membre SVB reçoit un code unique.
-      Quand ton filleul s'abonne avec ton code, il paie <strong>−30%</strong> son 1er mois
-      et <strong>tu reçois 1 mois gratuit</strong> sur ton prochain prélèvement.
-      Aucune limite, parraine autant de monde que tu veux.
-    </p>
+    <h1>Le parrainage, <em>ça se passe au studio.</em></h1>
+    <p class="sub">Viens nous voir, on t'explique tout en personne.</p>
   </header>
 
-  <!-- Dynamic referral box (affiche le code si ?member=XXX dans l'URL, sinon une explication) -->
-  <div class="referral-box" id="refBox">
-    <p class="welcome">Bienvenue</p>
-    <h2>Tu as un code de parrain ?</h2>
-    <p style="color:#2F4F4F;opacity:.75;margin:0 0 1rem">
-      Colle-le ou partage le lien qu'un·e ami·e t'a envoyé et ton code sera automatiquement appliqué à ta réservation.
-    </p>
-    <p id="refCodeBox" style="margin:0"></p>
-    <a href="/reserver" class="ref-box-btn svb-magnetic" data-track="cta_ref_to_booking">Réserver mon essai</a>
-  </div>
+  <section id="main-content" class="ref-cta-section" aria-label="Informations parrainage">
+    <div class="ref-cta-card">
+      <p class="ref-cta-lead">
+        Pour découvrir notre programme de parrainage et profiter
+        d'avantages exclusifs pour toi et tes proches,
+        <strong>passe directement au studio</strong>.
+        On t'accueille et on t'explique tout autour d'un café.
+      </p>
 
-  <section id="main-content" aria-label="Comment ça marche">
-    <ol class="steps" aria-label="Les 3 étapes du parrainage">
-      <li class="step svb-reveal">
-        <span class="num">1</span>
-        <h3>Demande ton code</h3>
-        <p>Dès que tu es membre SVB, on te donne un code unique (exemple : SHANAEL-7X42). Il est affiché dans ton espace membre.</p>
-      </li>
-      <li class="step svb-reveal">
-        <span class="num">2</span>
-        <h3>Partage-le</h3>
-        <p>Par SMS, WhatsApp, Instagram, email. Ta filleule reçoit automatiquement 30% sur son 1er mois avec ton code.</p>
-      </li>
-      <li class="step svb-reveal">
-        <span class="num">3</span>
-        <h3>Ton mois offert</h3>
-        <p>Dès que l'inscription de ta filleule est confirmée, tu reçois 1 mois gratuit crédité sur ton prochain prélèvement. Automatiquement.</p>
-      </li>
-    </ol>
-  </section>
+      <div class="ref-cta-actions">
+        <a href="/studio.html" class="ref-cta-btn ref-cta-btn-primary" data-track="ref_to_studio">Voir nos studios</a>
+        <a href="tel:+33744919155" class="ref-cta-btn ref-cta-btn-ghost" data-track="ref_to_phone">07 44 91 91 55</a>
+      </div>
 
-  <section class="share">
-    <h2>Partage le lien en 1 clic</h2>
-    <p style="color:#2F4F4F;opacity:.75;max-width:50ch;margin:0 auto">Pour les membres actuels : partage ton lien personnel ci-dessous, il contient ton code automatiquement.</p>
-    <div class="share-btns" id="shareBtns">
-      <!-- remplis en JS si un code est détecté -->
+      <div class="ref-cta-addresses">
+        <p><strong>Parc des Docks</strong> — 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine</p>
+        <p><strong>Cours des Lavandières</strong> — 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine</p>
+      </div>
     </div>
   </section>
+
+  <style>
+    /* Section parrainage simplifiée */
+    .ref-cta-section {
+      padding: 2rem 1.5rem 5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .ref-cta-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: clamp(1.8rem, 4vw, 3rem);
+      box-shadow: 0 18px 50px -20px rgba(74,141,132,.25);
+      text-align: center;
+    }
+    .ref-cta-lead {
+      font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+      line-height: 1.7;
+      color: #2F4F4F;
+      margin: 0 0 2rem;
+    }
+    .ref-cta-lead strong {
+      color: #4A8D84;
+    }
+    .ref-cta-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .ref-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .95rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .95rem;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+    .ref-cta-btn-primary {
+      background: #4A8D84;
+      color: #fff;
+      box-shadow: 0 10px 25px -10px rgba(74,141,132,.6);
+    }
+    .ref-cta-btn-primary:hover {
+      background: #3d756d;
+      transform: translateY(-2px);
+    }
+    .ref-cta-btn-ghost {
+      background: transparent;
+      color: #4A8D84;
+      border: 1.5px solid #4A8D84;
+    }
+    .ref-cta-btn-ghost:hover {
+      background: #4A8D84;
+      color: #fff;
+    }
+    .ref-cta-addresses {
+      border-top: 1px solid rgba(74,141,132,.15);
+      padding-top: 1.5rem;
+      color: #2F4F4F;
+      font-size: .92rem;
+      line-height: 1.7;
+    }
+    .ref-cta-addresses p {
+      margin: .35rem 0;
+    }
+    .ref-cta-addresses strong {
+      color: #4A8D84;
+    }
+  </style>
 
   <footer class="svb-footer" role="contentinfo">
       <div class="svb-footer-accent" aria-hidden="true"></div>
@@ -164,77 +214,13 @@
       </div>
     </footer>
 
-  <div id="refToast" role="status" aria-live="polite">Code copié ✓</div>
-
   <script src="/assets/svb.js?v=20260423a" defer></script>
   <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
   <script src="/assets/svb-motion.js?v=20260424a" defer></script>
   <script>
     (function(){
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Récupère le code depuis l'URL (?ref=ABC123 ou ?member=PRENOM-1234 pour membre)
-      var params = new URLSearchParams(location.search);
-      var ref = (params.get('ref') || '').toUpperCase().trim();
-      var member = (params.get('member') || '').toUpperCase().trim();
-
-      // Persistence du code filleul pendant 60 jours (cookie)
-      var DAYS = 60;
-      var persistRef = function(code){
-        try {
-          var exp = new Date(Date.now() + DAYS * 86400000).toUTCString();
-          document.cookie = 'svb_ref=' + encodeURIComponent(code) + '; expires=' + exp + '; path=/; SameSite=Lax';
-          localStorage.setItem('svb-ref', code);
-          localStorage.setItem('svb-ref-ts', Date.now().toString());
-        } catch(e){}
-      };
-      var readRef = function(){
-        try {
-          var m = document.cookie.match(/(?:^|;\s*)svb_ref=([^;]+)/);
-          if (m) return decodeURIComponent(m[1]);
-          return localStorage.getItem('svb-ref') || '';
-        } catch(e){ return ''; }
-      };
-
-      if (ref) persistRef(ref);
-
-      var code = ref || readRef();
-      var refBox = document.getElementById('refCodeBox');
-      var refTitle = refBox && refBox.parentNode.querySelector('h2');
-
-      if (code) {
-        refTitle.innerHTML = 'Ton bonus est actif&nbsp;: <span style="color:#4A8D84">−30%</span>';
-        refBox.innerHTML = '<span class="ref-code">' + code.replace(/[^A-Z0-9-]/g,'') + '</span>' +
-          '<br/><small style="color:#2F4F4F;opacity:.7;font-size:.82rem">Valable sur ton 1er mois si tu t\'abonnes dans les ' + DAYS + ' jours.</small>';
-        if (window.svbTrack) window.svbTrack('ref_applied', { code: code });
-      } else {
-        refBox.innerHTML = '<em style="color:#2F4F4F;opacity:.6">Aucun code détecté. Demande à ton parrain de te partager son lien personnel.</em>';
-      }
-
-      // Vue membre : affiche les boutons de partage avec son code unique
-      if (member) {
-        persistRef(member); // pas nécessaire mais pratique pour tests
-        var url = encodeURIComponent('https://studiosvb.com/parrainage?ref=' + encodeURIComponent(member));
-        var txt = encodeURIComponent('Viens tester le Studio SVB à Saint-Ouen 💪 Avec mon code "' + member + '" tu as 30% sur ton 1er mois : ');
-        document.getElementById('shareBtns').innerHTML = '\
-<a class="share-btn share-wa" href="https://wa.me/?text=' + txt + url + '" target="_blank" rel="noopener noreferrer" data-track="ref_share_whatsapp">💬 WhatsApp</a>\
-<a class="share-btn share-fb" href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener noreferrer" data-track="ref_share_fb">📘 Facebook</a>\
-<a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=' + txt + '&url=' + url + '" target="_blank" rel="noopener noreferrer" data-track="ref_share_twitter">🐦 X / Twitter</a>\
-<a class="share-btn share-mail" href="mailto:?subject=Un%20bon%20plan%20sport%20%C3%A0%20Saint-Ouen&body=' + txt + url + '" data-track="ref_share_email">✉️ Email</a>\
-<button class="share-btn share-copy" id="copyRef">📋 Copier le lien</button>';
-
-        document.getElementById('copyRef').addEventListener('click', function(){
-          var link = 'https://studiosvb.com/parrainage?ref=' + encodeURIComponent(member);
-          navigator.clipboard.writeText(link).then(function(){
-            var t = document.getElementById('refToast');
-            t.classList.add('show');
-            setTimeout(function(){ t.classList.remove('show'); }, 2000);
-            if (window.svbTrack) window.svbTrack('ref_copy_link', { member: member });
-          });
-        });
-      } else {
-        document.getElementById('shareBtns').innerHTML = '<a class="share-btn share-mail" href="/contact?sujet=Mon%20code%20parrain" data-track="ref_request_code">Demander mon code parrain</a>';
-      }
+      var yEl = document.getElementById('svb-year');
+      if (yEl) yEl.textContent = new Date().getFullYear();
     })();
   </script>
 </body>
