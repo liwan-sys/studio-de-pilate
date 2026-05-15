@@ -261,8 +261,8 @@
     </div>
 </section>
 
-<!-- === GROUP SIZE — 9 réformeurs SVB vs 20 ailleurs === -->
-  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" aria-label="9 réformeurs chez SVB vs 20 ailleurs">
+<!-- === GROUP SIZE — 9 reformer SVB vs 20 ailleurs === -->
+  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" aria-label="9 reformer chez SVB vs 20 ailleurs">
     <style>
       .svb-group-anim-wrap{
         max-width:1300px;margin:0 auto;
@@ -291,8 +291,8 @@
         50%{transform:translateY(-6px)}
       }
 
-      /* SVB side — chaque réformeur "s'allume" tour à tour quand le coach passe.
-         9 réformeurs × 1s chacun = boucle de 9s. */
+      /* SVB side — chaque reformer "s'allume" tour à tour quand le coach passe.
+         9 reformers × 1s chacun = boucle de 9s. */
       .svb-studio-svg--svb .reformer{transition:fill .3s ease;}
       .svb-studio-svg--svb .reformer-1{animation:reformerActive 9s infinite ease-in-out;animation-delay:0s;}
       .svb-studio-svg--svb .reformer-2{animation:reformerActive 9s infinite ease-in-out;animation-delay:-8s;}
@@ -310,7 +310,7 @@
         100% {fill:#FBF6EC;}
       }
 
-      /* Coach qui circule entre les 9 réformeurs (snake : top row L→R, mid row R→L, bot row L→R). */
+      /* Coach qui circule entre les 9 reformers (snake : top row L→R, mid row R→L, bot row L→R). */
       .svb-studio-svg--svb .coach{
         animation:coachWalk 9s infinite ease-in-out;
       }
@@ -327,7 +327,7 @@
         96%,100%{transform:translate(106px,192px)} /* r9 — bas droite */
       }
 
-      /* Ailleurs — coach figé au micro, ondes sonores en boucle, aucun réformeur ne s'allume. */
+      /* Ailleurs — coach figé au micro, ondes sonores en boucle, aucun reformer ne s'allume. */
       .svb-studio-svg--ailleurs .wave{transform-box:fill-box;transform-origin:center;}
       .svb-studio-svg--ailleurs .wave-1{animation:sonarWave 2.4s infinite ease-out;}
       .svb-studio-svg--ailleurs .wave-2{animation:sonarWave 2.4s infinite ease-out;animation-delay:.8s;}
@@ -409,14 +409,14 @@
     <div class="svb-group-section">
       <div class="svb-group-anim-wrap">
 
-        <!-- Studio SVB (gauche) — 9 réformeurs espacés, coach qui circule -->
+        <!-- Studio SVB (gauche) — 9 reformers espacés, coach qui circule -->
         <div class="svb-group-side-wrap svb-group-side-wrap--svb">
           <p class="svb-group-side-label">Chez SVB</p>
           <svg class="svb-studio-svg svb-studio-svg--svb" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <!-- Sol du studio -->
             <rect x="14" y="14" width="172" height="292" rx="20" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5"/>
 
-            <!-- 9 réformeurs en 3×3, bien espacés (38×50, gaps 15h / 46v) -->
+            <!-- 9 reformers en 3×3, bien espacés (38×50, gaps 15h / 46v) -->
             <!-- Row 1 -->
             <g>
               <rect class="reformer reformer-1" x="28" y="39" width="38" height="50" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.8"/>
@@ -445,25 +445,26 @@
               <line x1="138" y1="256" x2="168" y2="256" stroke="#4A8D84" stroke-width="1" opacity=".4"/>
             </g>
 
-            <!-- Coach (point pêche) qui circule -->
+            <!-- Coach (silhouette tête + corps) qui circule -->
             <g class="coach">
-              <circle cx="47" cy="64" r="6" fill="#E8B496" stroke="#2F4F4F" stroke-width="1.5"/>
+              <ellipse cx="47" cy="68" rx="4.8" ry="5.2" fill="#2F4F4F"/>
+              <circle cx="47" cy="59" r="3.6" fill="#2F4F4F"/>
             </g>
           </svg>
           <div>
             <p class="svb-group-side-count">9</p>
-            <p class="svb-group-side-sub">réformeurs · 1 coach pour toi</p>
+            <p class="svb-group-side-sub">reformer · 1 coach qui circule</p>
           </div>
         </div>
 
         <!-- Texte central -->
         <div class="svb-group-text">
-          <p class="svb-group-eyebrow">Avant de comparer les prix</p>
-          <h2 class="svb-group-headline">9 réformeurs.<br/><em>Pas 20.</em></h2>
-          <p class="svb-group-body">Dans la plupart des studios de Pilates Reformer à Paris, vous êtes <strong>20 par cours, parfois 25</strong>. Le coach donne les consignes au micro — pas le temps de te corriger. Chez SVB, <strong>9 max</strong>. Le coach ajuste tes ressorts, repère ta posture, te reprend en direct. Ce n'est pas le même produit — donc pas le même prix.</p>
+          <p class="svb-group-eyebrow">Pilates Reformer</p>
+          <h2 class="svb-group-headline">9 reformer.<br/><em>Pas 20.</em></h2>
+          <p class="svb-group-body">Le coach passe à chaque machine. Il ajuste tes ressorts, te corrige, repère ta posture. Ailleurs, c'est 20 par cours — parfois 25 — un coach au micro.</p>
         </div>
 
-        <!-- Studio Ailleurs (droite) — 20 réformeurs entassés, coach au micro -->
+        <!-- Studio Ailleurs (droite) — 20 reformers entassés, coach au micro -->
         <div class="svb-group-side-wrap svb-group-side-wrap--ailleurs">
           <p class="svb-group-side-label">Ailleurs</p>
           <svg class="svb-studio-svg svb-studio-svg--ailleurs" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -478,7 +479,7 @@
             <!-- micro -->
             <rect x="98" y="40" width="4" height="9" rx="1" fill="#2F4F4F" opacity=".55"/>
 
-            <!-- 20 réformeurs en 4×5, tightly packed (30×40, gaps 8) -->
+            <!-- 20 reformers en 4×5, tightly packed (30×40, gaps 8) -->
             <!-- Row 1 -->
             <g>
               <rect x="28"  y="64"  width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.2" opacity=".75"/>
@@ -517,7 +518,7 @@
           </svg>
           <div>
             <p class="svb-group-side-count">20</p>
-            <p class="svb-group-side-sub">à 25 · 1 coach au micro</p>
+            <p class="svb-group-side-sub">reformer · 1 coach au micro</p>
           </div>
         </div>
 
