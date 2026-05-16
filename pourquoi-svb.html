@@ -10,8 +10,8 @@
   <link rel="dns-prefetch" href="https://wa.me">
   <link rel="icon" type="image/png" href="images/favicon.jpg" />
   <title>Pas plus de 12 personnes par cours — Studio SVB Saint-Ouen</title>
-  <meta name="description" content="Reformer 9 max, Crossformer 8, Cross Training 12, Yoga 12, Boxe 12, Pilates au sol 10. Toutes nos disciplines en petit groupe, là où d'autres studios entassent à 30. À lire avant de comparer les prix.">
-  <meta name="keywords" content="petit groupe paris, small group training, reformer pilates 9 max, cours collectif limite, studio svb saint-ouen">
+  <meta name="description" content="Reformer 9 max, Crossformer 8, Cross Training 12, Yoga 12, Boxe 12, Pilates au sol 10. Toutes nos disciplines en small group, là où d'autres studios entassent à 30.">
+  <meta name="keywords" content="small group paris, small group training, reformer pilates 9 max, cours collectif limite, studio svb saint-ouen">
   <meta name="robots" content="index, follow">
   <meta name="author" content="SVB SantezVousBien">
   <link rel="canonical" href="https://studiosvb.com/pourquoi-svb">
@@ -19,14 +19,14 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://studiosvb.com/pourquoi-svb">
   <meta property="og:title" content="Pas plus de 12 personnes par cours | Studio SVB">
-  <meta property="og:description" content="Reformer 9, Crossformer 8, Cross 12, Yoga 12, Boxe 12, Pilates 10. Toutes nos disciplines en petit groupe. À lire avant de comparer les prix.">
+  <meta property="og:description" content="Reformer 9, Crossformer 8, Cross 12, Yoga 12, Boxe 12, Pilates 10. Toutes nos disciplines en small group. Pas comparable aux gros studios collectifs.">
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="SVB SantezVousBien">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Pas plus de 12 personnes par cours | Studio SVB">
-  <meta name="twitter:description" content="Reformer 9, Crossformer 8, Cross 12, Yoga 12, Boxe 12, Pilates 10. Pourquoi nos cours ne sont pas comparables aux gros studios.">
+  <meta name="twitter:description" content="Reformer 9, Crossformer 8, Cross 12, Yoga 12, Boxe 12, Pilates 10. Pourquoi nos cours en small group ne sont pas comparables aux gros studios.">
   <meta name="twitter:image" content="https://studiosvb.com/images/og-image.jpg">
 
   <meta name="theme-color" content="#4A8D84">
@@ -284,6 +284,65 @@
       font-size:1.05rem;line-height:1.6;color:#2F4F4F;opacity:.85;
       max-width:540px;margin:0 auto 32px;
     }
+
+    /* === POURQUOI CE CHOIX (rationale) === */
+    .pq-rationale-section{
+      background:linear-gradient(180deg,#FBF6EC 0%,#F3EBD4 100%);
+      padding:64px 20px;
+    }
+    .pq-rationale-inner{max-width:740px;margin:0 auto;text-align:center;}
+    .pq-rationale-body{
+      font-size:clamp(1.05rem,2vw,1.2rem);line-height:1.65;
+      color:#2F4F4F;opacity:.88;
+      margin:0 0 18px;
+    }
+    .pq-rationale-body strong{color:#2F4F4F;opacity:1;}
+    .pq-rationale-quote{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(1.8rem,3.8vw,2.6rem);
+      font-weight:600;line-height:1.3;color:#E8B496;
+      text-align:center;margin:32px auto 0;max-width:520px;
+    }
+
+    /* === TABLEAU COMPARATIF === */
+    .pq-table-section{background:#FBF6EC;}
+    .pq-table-header{text-align:center;margin-bottom:36px;}
+    .pq-table-wrap{
+      background:white;border-radius:20px;overflow:hidden;
+      box-shadow:0 8px 30px rgba(47,79,79,.08);
+      max-width:920px;margin:0 auto;
+    }
+    .pq-table{width:100%;border-collapse:collapse;}
+    .pq-table thead th{
+      background:#2F4F4F;color:#FBF6EC;
+      font-family:'Montserrat',sans-serif;
+      font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+      padding:16px 18px;text-align:left;
+    }
+    .pq-table thead th.pq-table-th-svb{color:#88C0A6;}
+    .pq-table tbody td{
+      padding:16px 18px;
+      font-size:.93rem;line-height:1.45;
+      border-bottom:1px solid rgba(47,79,79,.08);
+      vertical-align:middle;
+    }
+    .pq-table tbody tr:last-child td{border-bottom:none;}
+    .pq-table-criterion{
+      font-weight:700;color:#2F4F4F;width:32%;
+      background:rgba(47,79,79,.03);
+    }
+    .pq-table-svb{
+      background:rgba(74,141,132,.07);
+      color:#2F4F4F;font-weight:600;
+    }
+    .pq-table-ailleurs{
+      color:#2F4F4F;opacity:.62;
+    }
+    @media (max-width:680px){
+      .pq-table thead th{font-size:.6rem;padding:12px 10px;letter-spacing:.1em;}
+      .pq-table tbody td{padding:12px 10px;font-size:.82rem;}
+      .pq-table-criterion{width:36%;}
+    }
   </style>
 
   <!-- Schema.org -->
@@ -291,8 +350,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Pas plus de 12 personnes par cours — pourquoi le Studio SVB plafonne toutes ses disciplines en petit groupe",
-    "description": "Pilates Reformer 9 max, Crossformer 8, Cross Training 12, Yoga 12, Boxe 12, Pilates au sol 10. À SVB, toutes les disciplines plafonnent en small group. Pourquoi ce choix change tout — et pourquoi les prix ne sont pas comparables avec ceux des grands studios collectifs.",
+    "headline": "Pas plus de 12 personnes par cours — pourquoi le Studio SVB plafonne toutes ses disciplines en small group",
+    "description": "Pilates Reformer 9 max, Crossformer 8, Cross Training 12, Yoga 12, Boxe 12, Pilates au sol 10. À SVB, toutes les disciplines plafonnent en small group. Pourquoi ce choix change tout dans la salle, et ce que ça donne concrètement par rapport aux grands studios collectifs.",
     "image": "https://studiosvb.com/images/og-image.jpg",
     "author": {"@type": "Organization", "name": "Studio SVB"},
     "publisher": {
@@ -334,7 +393,7 @@
       </div>
     </nav>
 
-    <p class="pq-hero-eyebrow">Petit groupe, toutes nos disciplines</p>
+    <p class="pq-hero-eyebrow">Small group, toutes nos disciplines</p>
 
     <div class="pq-hero-numbers">
       <div class="pq-hero-num-block pq-hero-num-block--svb">
@@ -348,13 +407,24 @@
       </div>
     </div>
 
-    <h1>Pas le même produit.<br/><em>Pas le même prix.</em></h1>
-    <p class="pq-hero-sub">Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe, Pilates au sol — <strong>toutes nos disciplines plafonnent en petit groupe</strong>. Ailleurs, on entasse à 20, 25, parfois 30.</p>
+    <h1>Pas le même produit.<br/><em>Pas le même coaching.</em></h1>
+    <p class="pq-hero-sub">Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe, Pilates au sol — <strong>toutes nos disciplines plafonnent en small group</strong>. Ailleurs, on entasse à 20, 25, parfois 30.</p>
     <div class="pq-cta-row">
-      <a href="#exemple" class="pq-cta-primary">Voir comment c'est dans la salle</a>
-      <a href="/tarifs" class="pq-cta-secondary">Aller aux tarifs</a>
+      <a href="#pourquoi" class="pq-cta-primary">Pourquoi ce choix</a>
+      <a href="#comparatif" class="pq-cta-secondary">Le comparatif</a>
     </div>
   </header>
+
+  <!-- === SECTION : POURQUOI CE CHOIX === -->
+  <section id="pourquoi" class="pq-rationale-section pq-reveal">
+    <div class="pq-rationale-inner">
+      <p class="pq-eyebrow">Pourquoi ce choix</p>
+      <h2 class="pq-title">Le sport, <em>c'est technique.</em></h2>
+      <p class="pq-rationale-body">Chaque mouvement — au Reformer, en Yoga, en Boxe, en Cross — a un alignement précis. <strong>Bien fait, il construit ton corps. Mal fait, il l'use.</strong></p>
+      <p class="pq-rationale-body">À 30 dans la salle, le coach ne peut pas voir ce que tu fais. À 12, il te voit. À 9, il te coache.</p>
+      <p class="pq-rationale-quote">On a refusé le modèle volume.</p>
+    </div>
+  </section>
 
   <!-- === SECTION 1 : L'EXEMPLE REFORMER === -->
   <section id="exemple" class="pq-section pq-anim-section pq-reveal">
@@ -643,12 +713,75 @@
     </div>
   </section>
 
+  <!-- === SECTION : TABLEAU COMPARATIF === -->
+  <section id="comparatif" class="pq-section pq-table-section pq-reveal">
+    <div class="pq-inner">
+      <div class="pq-table-header">
+        <p class="pq-eyebrow">Le comparatif, point par point</p>
+        <h2 class="pq-title">Ce qui change<br/><em>dans la salle.</em></h2>
+      </div>
+      <div class="pq-table-wrap">
+        <table class="pq-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="pq-table-th-svb">Chez SVB</th>
+              <th>Ailleurs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="pq-table-criterion">Taille du cours</td>
+              <td class="pq-table-svb">9 à 12 personnes</td>
+              <td class="pq-table-ailleurs">20 à 30+</td>
+            </tr>
+            <tr>
+              <td class="pq-table-criterion">Attention du coach</td>
+              <td class="pq-table-svb">À ta machine, à toi</td>
+              <td class="pq-table-ailleurs">Au micro, à la salle</td>
+            </tr>
+            <tr>
+              <td class="pq-table-criterion">Corrections de posture</td>
+              <td class="pq-table-svb">En direct, à voix basse</td>
+              <td class="pq-table-ailleurs">Si le coach a le temps</td>
+            </tr>
+            <tr>
+              <td class="pq-table-criterion">Réglage du matériel</td>
+              <td class="pq-table-svb">Ajusté pour toi par le coach</td>
+              <td class="pq-table-ailleurs">À toi de te débrouiller</td>
+            </tr>
+            <tr>
+              <td class="pq-table-criterion">Blessure ou contrainte</td>
+              <td class="pq-table-svb">L'exercice est modifié</td>
+              <td class="pq-table-ailleurs">L'exercice reste le même</td>
+            </tr>
+            <tr>
+              <td class="pq-table-criterion">Niveaux différents</td>
+              <td class="pq-table-svb">Adaptation à chacun</td>
+              <td class="pq-table-ailleurs">Une seule séance pour tous</td>
+            </tr>
+            <tr>
+              <td class="pq-table-criterion">Connaissance du prénom</td>
+              <td class="pq-table-svb">Dès le 1er cours</td>
+              <td class="pq-table-ailleurs">Rarement</td>
+            </tr>
+            <tr>
+              <td class="pq-table-criterion">Ambiance</td>
+              <td class="pq-table-svb">Studio · coach · toi</td>
+              <td class="pq-table-ailleurs">DJ · lumières · show</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- === SECTION 3 : CE QUE TU OBTIENS (positif, sans bashing) === -->
   <section class="pq-section pq-value-section pq-reveal">
     <div class="pq-inner">
       <div class="pq-value-header">
         <p class="pq-eyebrow">Ce que tu obtiens, concrètement</p>
-        <h2 class="pq-title">Petit groupe.<br/><em>Tout le reste suit.</em></h2>
+        <h2 class="pq-title">Small group.<br/><em>Tout le reste suit.</em></h2>
         <p class="pq-lead" style="max-width:560px;margin:0 auto;">Avec 12 personnes en face au lieu de 30, c'est tout le cours qui change.</p>
       </div>
 
@@ -697,9 +830,9 @@
   <!-- === CTA === -->
   <section class="pq-section pq-cta-section pq-reveal">
     <h2 class="pq-cta-title">Une séance, et tu sauras.</h2>
-    <p class="pq-cta-sub">Essai à 30 €, intégralement déduits si tu t'inscris ensuite. Tu vois si la différence est pour toi, ou pas. Pas de discours.</p>
+    <p class="pq-cta-sub">Viens essayer. Tu vois si la différence est pour toi, ou pas. Pas de discours.</p>
     <div class="pq-cta-row">
-      <a href="/reserver" class="pq-cta-primary">Réserver mon essai · 30 €</a>
+      <a href="/reserver" class="pq-cta-primary">Réserver mon essai</a>
       <a href="/tarifs" class="pq-cta-secondary">Voir les abonnements</a>
     </div>
   </section>
