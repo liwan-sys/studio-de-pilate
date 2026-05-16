@@ -220,54 +220,35 @@
       margin:14px 0 0;font-style:italic;
     }
 
-    /* === COACH ACTIONS === */
-    .pq-coach-section{background:#FBF6EC;}
-    .pq-coach-header{text-align:center;margin-bottom:48px;}
-    .pq-coach-grid{
-      display:grid;grid-template-columns:1fr;gap:24px;
+    /* === VALUE PROPS (positif, transforme chaque limite du modèle XXL en avantage) === */
+    .pq-value-section{background:#FBF6EC;}
+    .pq-value-header{text-align:center;margin-bottom:48px;}
+    .pq-value-grid{
+      display:grid;grid-template-columns:1fr;gap:18px;
     }
-    @media (min-width:780px){.pq-coach-grid{grid-template-columns:1fr 1fr;gap:28px;}}
-    .pq-coach-card{
-      background:white;border-radius:24px;padding:32px 28px;
-      box-shadow:0 8px 30px rgba(47,79,79,.08);
+    @media (min-width:680px){.pq-value-grid{grid-template-columns:1fr 1fr;gap:20px;}}
+    @media (min-width:1024px){.pq-value-grid{grid-template-columns:1fr 1fr 1fr;gap:22px;}}
+    .pq-value-card{
+      background:white;border-radius:20px;padding:30px 26px 26px;
+      box-shadow:0 6px 24px rgba(47,79,79,.07);
+      position:relative;
+      border-top:3px solid #4A8D84;
+      transition:transform .25s,box-shadow .25s;
     }
-    .pq-coach-card--ailleurs{background:rgba(255,255,255,.6);}
-    .pq-coach-card-head{
-      display:flex;align-items:center;gap:14px;margin-bottom:24px;
-      padding-bottom:18px;border-bottom:1px solid rgba(47,79,79,.12);
+    .pq-value-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(47,79,79,.11);}
+    .pq-value-num{
+      position:absolute;top:18px;right:24px;
+      font-family:'Dancing Script',cursive;
+      font-size:1.9rem;font-weight:700;color:#E8B496;line-height:1;
     }
-    .pq-coach-pill{
-      display:inline-block;padding:5px 14px;border-radius:50px;
-      font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:white;
+    .pq-value-title{
+      font-family:'Montserrat',sans-serif;
+      font-size:1.05rem;font-weight:800;line-height:1.3;color:#2F4F4F;
+      margin:0 0 12px;padding-right:42px;letter-spacing:-.01em;
     }
-    .pq-coach-card--svb .pq-coach-pill{background:#4A8D84;}
-    .pq-coach-card--ailleurs .pq-coach-pill{background:#2F4F4F;opacity:.85;}
-    .pq-coach-card-name{
-      font-family:'Dancing Script',cursive;font-size:1.8rem;font-weight:700;
-      color:#2F4F4F;margin:0;line-height:1;
+    .pq-value-body{
+      font-size:.92rem;line-height:1.55;color:#2F4F4F;opacity:.78;margin:0;
     }
-    .pq-coach-list{list-style:none;padding:0;margin:0;}
-    .pq-coach-list li{
-      padding:12px 0 12px 32px;position:relative;
-      font-size:.95rem;line-height:1.5;
-      border-bottom:1px solid rgba(47,79,79,.08);
-    }
-    .pq-coach-list li:last-child{border-bottom:none;}
-    .pq-coach-card--svb .pq-coach-list li::before{
-      content:'✓';position:absolute;left:0;top:11px;
-      width:22px;height:22px;border-radius:50%;
-      background:#88C0A6;color:white;
-      display:flex;align-items:center;justify-content:center;
-      font-size:.78rem;font-weight:800;
-    }
-    .pq-coach-card--ailleurs .pq-coach-list li::before{
-      content:'—';position:absolute;left:0;top:11px;
-      width:22px;height:22px;border-radius:50%;
-      background:rgba(47,79,79,.12);color:#2F4F4F;
-      display:flex;align-items:center;justify-content:center;
-      font-size:.95rem;font-weight:800;opacity:.6;
-    }
-    .pq-coach-card--ailleurs li{opacity:.78;}
 
     /* === WHY === */
     .pq-why-section{background:linear-gradient(180deg,#FBF6EC 0%,#F3EBD4 100%);}
@@ -645,44 +626,52 @@
     </div>
   </section>
 
-  <!-- === SECTION 3 : CE QUE LE COACH FAIT === -->
-  <section class="pq-section pq-coach-section pq-reveal">
+  <!-- === SECTION 3 : CE QUE TU OBTIENS (positif, sans bashing) === -->
+  <section class="pq-section pq-value-section pq-reveal">
     <div class="pq-inner">
-      <div class="pq-coach-header">
-        <p class="pq-eyebrow">Ce qui change dans la pratique</p>
-        <h2 class="pq-title">Ce que le coach fait,<br/><em>concrètement.</em></h2>
-        <p class="pq-lead" style="max-width:680px;margin:0 auto;">Sur 55 minutes, ce qui se passe pour toi n'a rien à voir selon le format.</p>
+      <div class="pq-value-header">
+        <p class="pq-eyebrow">Ce que tu obtiens, concrètement</p>
+        <h2 class="pq-title">Petit groupe.<br/><em>Tout le reste suit.</em></h2>
+        <p class="pq-lead" style="max-width:680px;margin:0 auto;">Quand le coach a 9 ou 12 personnes en face, ce ne sont pas juste les chiffres qui changent. C'est tout ce qui se passe pendant les 55 minutes. Voilà ce que tu achètes vraiment.</p>
       </div>
 
-      <div class="pq-coach-grid">
+      <div class="pq-value-grid">
 
-        <div class="pq-coach-card pq-coach-card--svb">
-          <div class="pq-coach-card-head">
-            <span class="pq-coach-pill">Chez SVB</span>
-            <h3 class="pq-coach-card-name">Petit groupe coaché</h3>
-          </div>
-          <ul class="pq-coach-list">
-            <li>Il te corrige en direct, à voix basse, à ta machine ou ton tapis.</li>
-            <li>Il ajuste le matériel pour toi (ressorts, charge, position).</li>
-            <li>Il vérifie ton alignement et tes appuis à chaque transition.</li>
-            <li>Il adapte l'exercice si tu as une douleur ou une limitation.</li>
-            <li>Il retient ton prénom dès le premier cours.</li>
-          </ul>
-        </div>
+        <article class="pq-value-card">
+          <span class="pq-value-num">01</span>
+          <h3 class="pq-value-title">Chaque mouvement est vu.</h3>
+          <p class="pq-value-body">Tu fais mal, tu es repris en direct, à voix basse, à ta machine. Pas de mauvais geste répété pendant 6 mois sans que personne ne le voie.</p>
+        </article>
 
-        <div class="pq-coach-card pq-coach-card--ailleurs">
-          <div class="pq-coach-card-head">
-            <span class="pq-coach-pill">Ailleurs</span>
-            <h3 class="pq-coach-card-name">Cours collectif XXL</h3>
-          </div>
-          <ul class="pq-coach-list">
-            <li>Les consignes sont données au micro depuis l'avant de la salle.</li>
-            <li>Tu règles ton matériel toi-même — et tu te demandes si c'est bon.</li>
-            <li>Pas le temps pour des corrections individuelles.</li>
-            <li>L'exercice proposé est le même pour tout le monde.</li>
-            <li>Tu es un parmi vingt-cinq.</li>
-          </ul>
-        </div>
+        <article class="pq-value-card">
+          <span class="pq-value-num">02</span>
+          <h3 class="pq-value-title">Ta progression se construit dans la durée.</h3>
+          <p class="pq-value-body">Ce que tu as fait la semaine dernière, ce que tu peux pousser cette semaine. Le coach connaît ton niveau, pas juste un programme générique balancé à tout le monde.</p>
+        </article>
+
+        <article class="pq-value-card">
+          <span class="pq-value-num">03</span>
+          <h3 class="pq-value-title">L'exercice s'adapte à toi.</h3>
+          <p class="pq-value-body">Mal de dos, grossesse, retour de blessure, débutant complet, niveau avancé. Le mouvement est modifié pour ton corps, pas l'inverse.</p>
+        </article>
+
+        <article class="pq-value-card">
+          <span class="pq-value-num">04</span>
+          <h3 class="pq-value-title">Le coach connaît ton prénom.</h3>
+          <p class="pq-value-body">Et tes objectifs, et tes seuils, et la blessure dont tu reviens. Tu n'es pas un dossard parmi 30. Tu es là, on te voit, on construit avec toi.</p>
+        </article>
+
+        <article class="pq-value-card">
+          <span class="pq-value-num">05</span>
+          <h3 class="pq-value-title">L'ambiance sert le coaching.</h3>
+          <p class="pq-value-body">Pas de DJ, pas de lumières disco, pas de mise en scène. Juste un studio, un coach, et toi. La motivation vient de tes résultats, pas du show.</p>
+        </article>
+
+        <article class="pq-value-card">
+          <span class="pq-value-num">06</span>
+          <h3 class="pq-value-title">On mesure la progression, pas la sueur.</h3>
+          <p class="pq-value-body">Transpirer, c'est facile. Bouger juste, c'est rare. La technique d'abord, le débit ensuite. Souffrir n'est pas progresser.</p>
+        </article>
 
       </div>
     </div>
