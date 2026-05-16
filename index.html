@@ -262,46 +262,257 @@
     </div>
 </section>
 
-  <!-- === PASS STARTER — juste après le hero, premier point de conversion === -->
-  <section class="relative py-16 md:py-20 reveal-load d-2 z-10" style="background:linear-gradient(180deg,#FBF6EC 0%,#F3EBD4 50%,#FBF6EC 100%);">
+  <!-- === PASS STARTER — design premium, juste après le hero === -->
+  <section class="relative py-16 md:py-24 reveal-load d-2 z-10" style="background:linear-gradient(180deg,#FBF6EC 0%,#F3EBD4 100%);overflow:hidden;">
+    <style>
+      .ps-card{
+        position:relative;
+        max-width:440px;margin:0 auto;
+        background:linear-gradient(165deg,#FFFFFF 0%,#FFFBF3 100%);
+        border-radius:32px;
+        padding:48px 32px 36px;
+        text-align:center;
+        box-shadow:
+          0 30px 80px -20px rgba(47,79,79,.25),
+          0 0 0 1px rgba(232,180,150,.18) inset,
+          0 0 0 8px rgba(255,255,255,.6);
+        overflow:hidden;
+      }
+      /* Halo décoratif top-right */
+      .ps-card::before{
+        content:'';position:absolute;top:-80px;right:-80px;
+        width:220px;height:220px;border-radius:50%;
+        background:radial-gradient(circle,rgba(232,180,150,.35) 0%,rgba(232,180,150,0) 70%);
+        pointer-events:none;
+      }
+      /* Halo décoratif bottom-left */
+      .ps-card::after{
+        content:'';position:absolute;bottom:-100px;left:-60px;
+        width:200px;height:200px;border-radius:50%;
+        background:radial-gradient(circle,rgba(74,141,132,.18) 0%,rgba(74,141,132,0) 70%);
+        pointer-events:none;
+      }
+      .ps-card > *{position:relative;z-index:1;}
+
+      .ps-ribbon{
+        display:inline-flex;align-items:center;gap:6px;
+        background:linear-gradient(90deg,#4A8D84,#3A6B63);
+        color:#FFFFFF;
+        font-family:'Montserrat',sans-serif;
+        font-size:.62rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+        padding:7px 16px;border-radius:50px;
+        margin-bottom:24px;
+        box-shadow:0 6px 16px rgba(74,141,132,.3);
+      }
+      .ps-ribbon svg{width:11px;height:11px;}
+
+      .ps-title-wrap{
+        display:flex;align-items:center;justify-content:center;gap:14px;
+        margin-bottom:6px;
+      }
+      .ps-title-flourish{
+        flex:1;max-width:50px;height:1px;
+        background:linear-gradient(90deg,transparent,#E8B496,transparent);
+      }
+      .ps-title{
+        font-family:'Dancing Script',cursive;
+        font-size:clamp(2.4rem,7vw,3.2rem);
+        font-weight:700;line-height:1;color:#2F4F4F;
+        margin:0;
+      }
+
+      .ps-subtitle{
+        font-family:'Montserrat',sans-serif;
+        font-size:.66rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
+        color:#4A8D84;margin:0 0 28px;
+      }
+
+      .ps-price{
+        display:inline-flex;align-items:flex-start;gap:4px;
+        margin:0 0 8px;
+      }
+      .ps-price-num{
+        font-family:'Montserrat',sans-serif;
+        font-size:clamp(4.6rem,15vw,6.4rem);
+        font-weight:900;line-height:.85;color:#2F4F4F;
+        letter-spacing:-.04em;
+      }
+      .ps-price-cur{
+        font-family:'Montserrat',sans-serif;
+        font-size:clamp(1.8rem,5vw,2.4rem);
+        font-weight:700;color:#4A8D84;
+        margin-top:8px;
+      }
+      .ps-price-cents{
+        font-family:'Montserrat',sans-serif;
+        font-size:clamp(1.4rem,4vw,1.8rem);
+        font-weight:700;color:#2F4F4F;opacity:.55;
+        margin-top:14px;
+      }
+      .ps-meta{
+        font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+        color:#2F4F4F;opacity:.6;margin:8px 0 32px;
+      }
+      .ps-meta strong{color:#4A8D84;opacity:1;}
+
+      .ps-benefits{
+        list-style:none;padding:0;margin:0 0 28px;
+        text-align:left;
+      }
+      .ps-benefits li{
+        display:flex;align-items:flex-start;gap:12px;
+        padding:11px 0;
+        border-top:1px dashed rgba(47,79,79,.13);
+        font-size:.92rem;line-height:1.45;color:#2F4F4F;
+      }
+      .ps-benefits li:first-child{border-top:none;}
+      .ps-benefits .ic{
+        flex-shrink:0;
+        display:flex;align-items:center;justify-content:center;
+        width:24px;height:24px;border-radius:50%;
+        background:linear-gradient(135deg,#88C0A6,#4A8D84);
+        color:white;
+        font-size:.7rem;font-weight:800;
+        box-shadow:0 3px 8px rgba(74,141,132,.3);
+      }
+      .ps-benefits .ic svg{width:12px;height:12px;}
+      .ps-benefits strong{color:#2F4F4F;font-weight:800;}
+
+      /* Stat 100% — design "médaillon" */
+      .ps-stat{
+        position:relative;
+        background:linear-gradient(135deg,#F3EBD4 0%,#EBC6A6 100%);
+        border-radius:20px;padding:22px 18px 20px;
+        margin:0 0 28px;
+        border:1px solid rgba(232,180,150,.5);
+        box-shadow:0 4px 16px rgba(232,180,150,.18) inset;
+      }
+      .ps-stat-num{
+        font-family:'Montserrat',sans-serif;
+        font-size:2.8rem;font-weight:900;color:#2F4F4F;
+        line-height:.9;letter-spacing:-.02em;
+        margin:0 0 6px;
+      }
+      .ps-stat-num span{
+        font-size:1.8rem;color:#4A8D84;margin-left:2px;
+      }
+      .ps-stat-label{
+        font-size:.65rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+        color:#2F4F4F;opacity:.85;line-height:1.4;margin:0;
+      }
+      .ps-stat-label em{font-style:normal;color:#4A8D84;}
+
+      .ps-cta{
+        display:flex;align-items:center;justify-content:center;gap:10px;
+        width:100%;
+        background:linear-gradient(135deg,#2F4F4F 0%,#4A8D84 100%);
+        color:white;
+        font-family:'Montserrat',sans-serif;
+        font-size:.82rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+        padding:18px 24px;border-radius:50px;text-decoration:none;
+        box-shadow:0 12px 30px rgba(47,79,79,.3),0 0 0 1px rgba(255,255,255,.4) inset;
+        transition:transform .25s,box-shadow .25s;
+      }
+      .ps-cta:hover{
+        transform:translateY(-2px);
+        box-shadow:0 18px 40px rgba(47,79,79,.4),0 0 0 1px rgba(255,255,255,.5) inset;
+      }
+      .ps-cta-arrow{
+        display:inline-flex;align-items:center;justify-content:center;
+        width:22px;height:22px;border-radius:50%;
+        background:rgba(255,255,255,.18);
+        transition:transform .25s;
+      }
+      .ps-cta:hover .ps-cta-arrow{transform:translateX(4px);}
+
+      .ps-trust{
+        display:flex;align-items:center;justify-content:center;gap:8px;
+        margin-top:14px;
+        font-size:.72rem;font-weight:600;color:#2F4F4F;opacity:.6;
+      }
+      .ps-trust svg{width:13px;height:13px;color:#4A8D84;opacity:.85;}
+
+      .ps-fallback{
+        text-align:center;margin-top:24px;
+        font-size:.78rem;color:#2F4F4F;opacity:.65;font-style:italic;
+      }
+      .ps-fallback a{
+        color:#4A8D84;font-weight:700;text-decoration:underline;
+        text-underline-offset:3px;
+      }
+      .ps-fallback a:hover{color:#2F4F4F;}
+    </style>
+
     <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-7">
-        <span class="inline-block bg-[#E8B496] text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-md">Pour commencer sans s'engager</span>
+      <div class="text-center mb-9">
+        <span class="inline-block bg-gradient-to-r from-[#E8B496] to-[#D49C7D] text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-lg">Pour commencer sans s'engager</span>
         <h2 class="text-5xl md:text-7xl text-[#2F4F4F] font-hand mb-3 drop-shadow-md leading-none">Pass Starter</h2>
         <p class="text-[#2F4F4F] text-base md:text-lg max-w-2xl mx-auto opacity-85 leading-relaxed">
-          <strong>5 sessions pour tester 5 disciplines différentes.</strong> Valable 1 mois. Sans engagement, sans tacite reconduction.
+          <strong>5 sessions pour tester 5 disciplines différentes.</strong><br/>Valable 1 mois. Sans engagement, sans tacite reconduction.
         </p>
       </div>
 
-      <div class="max-w-md mx-auto bg-white rounded-3xl p-8 md:p-10 border border-white text-center" style="box-shadow:0 20px 60px rgba(47,79,79,0.18);">
-        <div class="inline-block bg-[#4A8D84] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-4">Le plus testé chez les nouveaux</div>
-        <h3 class="text-2xl md:text-3xl font-extrabold text-[#4A8D84] uppercase mb-2 tracking-wide">New Pass Starter</h3>
-        <p class="text-6xl md:text-7xl font-extrabold text-[#2F4F4F] mb-3" style="font-family:'Montserrat',sans-serif;">99,90€</p>
-        <p class="text-xs text-[#2F4F4F]/70 uppercase tracking-wide font-bold mb-6">5 sessions · Valable 1 mois · Sans engagement</p>
+      <div class="ps-card">
+        <div class="ps-ribbon">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.09 4.26L14.8 6l-3.4 3.32.8 4.68L8 11.77 3.8 14l.8-4.68L1.2 6l4.71-.74L8 1z"/></svg>
+          Le plus testé chez les nouveaux
+        </div>
 
-        <ul class="text-left text-sm text-[#2F4F4F] space-y-2.5 mb-7 max-w-xs mx-auto">
-          <li class="flex items-start gap-2"><span class="text-[#4A8D84] font-extrabold mt-0.5">✓</span><span><strong>5 sessions</strong> à utiliser sur 1 mois</span></li>
-          <li class="flex items-start gap-2"><span class="text-[#4A8D84] font-extrabold mt-0.5">✓</span><span>Toutes les disciplines : Reformer, Cross, Yoga, Boxe, Pilates sol</span></li>
-          <li class="flex items-start gap-2"><span class="text-[#4A8D84] font-extrabold mt-0.5">✓</span><span><strong>Aucun engagement</strong> — pas de reconduction automatique</span></li>
-          <li class="flex items-start gap-2"><span class="text-[#4A8D84] font-extrabold mt-0.5">✓</span><span>Idéal pour tester avant de choisir ton abonnement</span></li>
+        <div class="ps-title-wrap">
+          <span class="ps-title-flourish"></span>
+          <h3 class="ps-title">New Pass Starter</h3>
+          <span class="ps-title-flourish"></span>
+        </div>
+        <p class="ps-subtitle">Pack découverte</p>
+
+        <div class="ps-price">
+          <span class="ps-price-num">99</span>
+          <span class="ps-price-cents">,90</span>
+          <span class="ps-price-cur">€</span>
+        </div>
+        <p class="ps-meta"><strong>5 sessions</strong> · Valable 1 mois · Sans engagement</p>
+
+        <ul class="ps-benefits">
+          <li>
+            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+            <span><strong>5 sessions</strong> à utiliser sur 1 mois</span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+            <span>Toutes les disciplines : <strong>Reformer, Cross, Yoga, Boxe, Pilates sol</strong></span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+            <span><strong>Aucun engagement</strong> — pas de reconduction automatique</span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+            <span>Idéal pour tester avant de choisir ton abonnement</span>
+          </li>
         </ul>
 
-        <!-- SOCIAL PROOF : 100% inscrits apres le Pass Starter -->
-        <div class="bg-[#F3EBD4] rounded-2xl px-5 py-4 mb-6 border border-[#E8B496]/40">
-          <p class="text-3xl md:text-4xl font-extrabold text-[#4A8D84] leading-none mb-1" style="font-family:'Montserrat',sans-serif;">100&nbsp;%</p>
-          <p class="text-xs text-[#2F4F4F] font-bold uppercase tracking-wide leading-tight">se sont inscrit·es à un abonnement<br/>après avoir pris le Pass Starter</p>
+        <div class="ps-stat">
+          <p class="ps-stat-num">100<span>%</span></p>
+          <p class="ps-stat-label">se sont inscrit·es à un <em>abonnement</em><br/>après avoir pris le Pass Starter</p>
         </div>
 
         <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab"
            target="_blank" rel="noopener noreferrer"
-           class="svb-magnetic inline-block bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-10 py-5 rounded-full font-extrabold text-sm uppercase tracking-widest shadow-xl transform hover:scale-105 transition duration-300 w-full md:w-auto">
-          Prendre le Pass Starter → 99,90€
+           class="ps-cta svb-magnetic">
+          <span>Prendre le Pass Starter</span>
+          <span class="ps-cta-arrow">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
+          </span>
         </a>
-        <p class="text-xs text-[#2F4F4F]/60 mt-4 font-medium">Paiement sécurisé · Confirmation immédiate</p>
+
+        <div class="ps-trust">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1l5 2v5c0 3.5-2.2 6.4-5 7-2.8-.6-5-3.5-5-7V3l5-2z"/><polyline points="6 8 7.5 9.5 10.5 6.5"/></svg>
+          <span>Paiement sécurisé · Confirmation immédiate</span>
+        </div>
       </div>
 
-      <p class="text-center text-xs text-[#2F4F4F]/60 mt-6 italic">
-        Tu préfères juste tester une séance avant ? <a href="#offre-premium" class="text-[#4A8D84] font-bold underline hover:text-[#2F4F4F]">Essai à 30&nbsp;€ ↓</a>
+      <p class="ps-fallback">
+        Tu préfères juste tester une séance avant ? <a href="#offre-premium">Essai à 30&nbsp;€ ↓</a>
       </p>
     </div>
   </section>
