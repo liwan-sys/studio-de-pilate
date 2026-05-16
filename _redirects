@@ -48,7 +48,7 @@
 /pilates-ile-saint-denis          /pilates-ile-saint-denis.html           200
 
 # Réservation (Netlify Forms)
-/reserver                         /reserver.html                          200
+/reserver                         /#offre-premium                         301
 /merci-reservation                /Merci.html                             200
 
 # Phase 7 — Parrainage, CMS, API

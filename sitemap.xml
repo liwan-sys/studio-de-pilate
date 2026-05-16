@@ -20,12 +20,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://studiosvb.com/" />
   </url>
   <url>
-    <loc>https://studiosvb.com/reserver</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
     <loc>https://studiosvb.com/parrainage</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
