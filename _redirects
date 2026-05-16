@@ -13,8 +13,9 @@
 /faq                              /faq.html                               200
 /contact                          /contact.html                           200
 /cadeau                           /cadeau.html                            200
-/pas-plus-de-12                   /pas-plus-de-12.html                    200
-/pourquoi-9-max                   /pas-plus-de-12                         301
+/pourquoi-svb                     /pourquoi-svb.html                      200
+/pas-plus-de-12                   /pourquoi-svb                           301
+/pourquoi-9-max                   /pourquoi-svb                           301
 
 # Studios
 /studio-parc-des-docks            /studio-parc-des-docks.html             200
