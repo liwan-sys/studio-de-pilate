@@ -244,10 +244,9 @@
     .pq-value-section{background:#FBF6EC;}
     .pq-value-header{text-align:center;margin-bottom:48px;}
     .pq-value-grid{
-      display:grid;grid-template-columns:1fr;gap:18px;
+      display:grid;grid-template-columns:1fr;gap:20px;
     }
-    @media (min-width:680px){.pq-value-grid{grid-template-columns:1fr 1fr;gap:20px;}}
-    @media (min-width:1024px){.pq-value-grid{grid-template-columns:1fr 1fr 1fr;gap:22px;}}
+    @media (min-width:780px){.pq-value-grid{grid-template-columns:repeat(3,1fr);gap:22px;}}
     .pq-value-card{
       background:white;border-radius:20px;padding:30px 26px 26px;
       box-shadow:0 6px 24px rgba(47,79,79,.07);
@@ -963,7 +962,7 @@
         <div class="pq-timeline-step">
           <div class="pq-timeline-time">0:15 — 0:45</div>
           <h3>Cœur du cours · corrections actives</h3>
-          <p>Le coach circule, repère, corrige à voix basse. Chaque exercice est précisé, chaque erreur reprise. Si tu galères, il s'arrête. Si tu cartonnes, il intensifie pour toi sans casser le rythme des autres.</p>
+          <p>Le coach circule, repère, corrige en direct sur ta machine ou ton tapis. Chaque exercice est précisé, chaque erreur reprise. Si tu galères, il s'arrête. Si tu cartonnes, il intensifie pour toi sans casser le rythme des autres.</p>
         </div>
 
         <div class="pq-timeline-step">
@@ -1039,51 +1038,32 @@
     </div>
   </section>
 
-  <!-- === SECTION 3 : CE QUE TU OBTIENS (positif, sans bashing) === -->
+  <!-- === SECTION : CE QUE ÇA TE FAIT (3 outcomes, distinct du tableau factuel) === -->
   <section class="pq-section pq-value-section pq-reveal">
     <div class="pq-inner">
       <div class="pq-value-header">
-        <p class="pq-eyebrow">Ce que tu obtiens, concrètement</p>
-        <h2 class="pq-title">Small group.<br/><em>Tout le reste suit.</em></h2>
-        <p class="pq-lead" style="max-width:560px;margin:0 auto;">Avec 12 personnes en face au lieu de 30, c'est tout le cours qui change.</p>
+        <p class="pq-eyebrow">Ce que ça te fait, vraiment</p>
+        <h2 class="pq-title">Le tableau dit le quoi.<br/><em>Voilà le résultat.</em></h2>
       </div>
 
       <div class="pq-value-grid">
 
         <article class="pq-value-card">
           <span class="pq-value-num">01</span>
-          <h3 class="pq-value-title">Chaque mouvement est vu.</h3>
-          <p class="pq-value-body">Tu fais mal, tu es repris en direct, à voix basse, à ta machine. Pas de mauvais geste répété pendant 6 mois sans que personne ne le voie.</p>
+          <h3 class="pq-value-title">Tu progresses parce que tu progresses juste.</h3>
+          <p class="pq-value-body">Pas juste de la sueur. De la technique qui construit. C'est ce qui fait la différence à 3, 6, 12 mois — pas l'intensité du jour J. Souffrir n'est pas progresser.</p>
         </article>
 
         <article class="pq-value-card">
           <span class="pq-value-num">02</span>
-          <h3 class="pq-value-title">Ta progression se construit dans la durée.</h3>
-          <p class="pq-value-body">Ce que tu as fait la semaine dernière, ce que tu peux pousser cette semaine. Le coach connaît ton niveau, pas juste un programme générique balancé à tout le monde.</p>
+          <h3 class="pq-value-title">Tu te sens vu, donc tu reviens.</h3>
+          <p class="pq-value-body">Une personne qu'on connaît, qu'on attend la semaine prochaine, qu'on remarque quand elle revient — et quand elle disparaît. La régularité ne se force pas, elle vient de là.</p>
         </article>
 
         <article class="pq-value-card">
           <span class="pq-value-num">03</span>
-          <h3 class="pq-value-title">L'exercice s'adapte à toi.</h3>
-          <p class="pq-value-body">Mal de dos, grossesse, retour de blessure, débutant complet, niveau avancé. Le mouvement est modifié pour ton corps, pas l'inverse.</p>
-        </article>
-
-        <article class="pq-value-card">
-          <span class="pq-value-num">04</span>
-          <h3 class="pq-value-title">Le coach connaît ton prénom.</h3>
-          <p class="pq-value-body">Et tes objectifs, et tes seuils, et la blessure dont tu reviens. Tu n'es pas un dossard parmi 30. Tu es là, on te voit, on construit avec toi.</p>
-        </article>
-
-        <article class="pq-value-card">
-          <span class="pq-value-num">05</span>
-          <h3 class="pq-value-title">L'ambiance sert le coaching.</h3>
-          <p class="pq-value-body">Pas de DJ, pas de lumières disco, pas de mise en scène. Juste un studio, un coach, et toi. La motivation vient de tes résultats, pas du show.</p>
-        </article>
-
-        <article class="pq-value-card">
-          <span class="pq-value-num">06</span>
-          <h3 class="pq-value-title">On mesure la progression, pas la sueur.</h3>
-          <p class="pq-value-body">Transpirer, c'est facile. Bouger juste, c'est rare. La technique d'abord, le débit ensuite. Souffrir n'est pas progresser.</p>
+          <h3 class="pq-value-title">Tu sors avec quelque chose à travailler.</h3>
+          <p class="pq-value-body">Un point précis noté par le coach pour la prochaine fois. La séance ne finit pas à 55 min — elle prépare la suivante. C'est de l'accompagnement, pas un événement.</p>
         </article>
 
       </div>
@@ -1100,12 +1080,12 @@
       <div class="pq-quotes-grid">
 
         <blockquote class="pq-quote">
-          <p class="pq-quote-body">L'erreur que je vois le plus en Reformer, c'est les épaules qui montent dans le footwork. Tu pousses la barre, et instinctivement tu remontes les trapèzes. Sans correction, tu termines le cours avec mal au cou — et tu crois que c'est normal.</p>
+          <p class="pq-quote-body">Ce qui me marque, c'est quand quelqu'un revient au bout de deux mois et que sa douleur lombaire a disparu. Pas parce qu'on a fait un miracle — parce qu'on a vu, qu'on a corrigé, qu'on a adapté. Trente fois en deux mois. C'est ça qui change un corps.</p>
           <cite class="pq-quote-cite">Coach Pilates Reformer · <span>BASI Certified · 7 ans à SVB</span></cite>
         </blockquote>
 
         <blockquote class="pq-quote">
-          <p class="pq-quote-body">À 30 dans la salle, c'est physiquement impossible de voir 30 dos en même temps. On donne les consignes, on espère que ça passe. Ici à 9, je vois chaque personne. Je sais qui a triché sur l'exo, je sais qui a progressé. C'est ça le coaching.</p>
+          <p class="pq-quote-body">Au bout de quelques semaines, tu connais le prénom, le boulot, pourquoi ils sont là, ce qu'ils ont essayé avant. Tu deviens leur coach, pas leur prof. C'est ça l'effet small group — la relation prend la place de l'animation.</p>
           <cite class="pq-quote-cite">Coach Crossformer · <span>STOTT Certified · 5 ans à SVB</span></cite>
         </blockquote>
 
