@@ -79,11 +79,40 @@
     }
     .pq-hero h1{
       font-family:'Dancing Script',cursive;
-      font-size:clamp(3.2rem,10vw,7rem);
-      font-weight:700;line-height:.95;
-      color:#2F4F4F;margin:0 0 22px;
+      font-size:clamp(2.2rem,5.4vw,3.8rem);
+      font-weight:700;line-height:1;
+      color:#2F4F4F;margin:24px 0 18px;
     }
     .pq-hero h1 em{font-style:normal;color:#E8B496;}
+
+    /* Grosse paire de chiffres "12 vs 30+" — lecture instantanée */
+    .pq-hero-numbers{
+      display:flex;justify-content:center;align-items:flex-start;
+      gap:clamp(24px,7vw,80px);
+      margin:34px 0 20px;
+    }
+    .pq-hero-num-block{text-align:center;display:flex;flex-direction:column;align-items:center;}
+    .pq-hero-num{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(5.5rem,20vw,12rem);
+      font-weight:700;line-height:.82;margin:0;
+    }
+    .pq-hero-num-block--svb .pq-hero-num{color:#4A8D84;}
+    .pq-hero-num-block--ailleurs .pq-hero-num{color:rgba(47,79,79,.3);}
+    .pq-hero-num-label{
+      display:block;
+      font-family:'Montserrat',sans-serif;
+      font-size:.66rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
+      color:#2F4F4F;opacity:.7;margin-top:14px;
+    }
+    .pq-hero-num-block--ailleurs .pq-hero-num-label{opacity:.45;}
+    .pq-hero-vs{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(1.6rem,4vw,2.6rem);
+      color:#E8B496;font-weight:700;line-height:1;
+      align-self:center;
+      margin-top:clamp(28px,6vw,70px);
+    }
     .pq-hero-sub{
       font-size:clamp(1rem,2vw,1.2rem);line-height:1.55;
       max-width:720px;margin:0 auto 32px;opacity:.85;
@@ -106,15 +135,6 @@
       transition:background .2s;
     }
     .pq-cta-secondary:hover{background:rgba(47,79,79,.06);}
-
-    /* === BANDEAU RÈGLE (juste sous le hero) === */
-    .pq-rule-strip{
-      background:#2F4F4F;color:#FBF6EC;
-      padding:18px 20px;text-align:center;
-      font-family:'Montserrat',sans-serif;
-      font-size:.85rem;font-weight:600;letter-spacing:.05em;
-    }
-    .pq-rule-strip strong{color:#E8B496;font-weight:800;}
 
     /* === ANIMATION REFORMER === */
     .pq-anim-section{background:#FBF6EC;}
@@ -250,17 +270,6 @@
       font-size:.92rem;line-height:1.55;color:#2F4F4F;opacity:.78;margin:0;
     }
 
-    /* === WHY === */
-    .pq-why-section{background:linear-gradient(180deg,#FBF6EC 0%,#F3EBD4 100%);}
-    .pq-why-body{font-size:1.05rem;line-height:1.7;color:#2F4F4F;opacity:.88;margin:0 0 18px;text-align:center;}
-    .pq-why-body strong{color:#2F4F4F;opacity:1;}
-    .pq-why-quote{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(1.7rem,3.6vw,2.4rem);
-      font-weight:600;line-height:1.3;color:#E8B496;
-      text-align:center;margin:40px auto 0;max-width:560px;
-    }
-
     /* === CTA === */
     .pq-cta-section{
       background:linear-gradient(180deg,#F3EBD4 0%,#EBC6A6 100%);
@@ -325,19 +334,27 @@
       </div>
     </nav>
 
-    <p class="pq-hero-eyebrow">Notre règle d'or, toutes disciplines</p>
-    <h1>Pas plus de 12.<br/><em>Jamais.</em></h1>
-    <p class="pq-hero-sub">Reformer, Crossformer, Cross Training, Yoga, Boxe, Pilates au sol — <strong>tous nos cours sont plafonnés en petit groupe</strong>. À l'opposé des grands studios collectifs qui en mettent 20, 25, parfois 30. À lire avant de comparer les prix : ce ne sont pas les mêmes produits.</p>
+    <p class="pq-hero-eyebrow">Petit groupe, toutes nos disciplines</p>
+
+    <div class="pq-hero-numbers">
+      <div class="pq-hero-num-block pq-hero-num-block--svb">
+        <p class="pq-hero-num">12</p>
+        <span class="pq-hero-num-label">Chez SVB · max</span>
+      </div>
+      <div class="pq-hero-vs">vs</div>
+      <div class="pq-hero-num-block pq-hero-num-block--ailleurs">
+        <p class="pq-hero-num">30+</p>
+        <span class="pq-hero-num-label">Ailleurs</span>
+      </div>
+    </div>
+
+    <h1>Pas le même produit.<br/><em>Pas le même prix.</em></h1>
+    <p class="pq-hero-sub">Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe, Pilates au sol — <strong>toutes nos disciplines plafonnent en petit groupe</strong>. Ailleurs, on entasse à 20, 25, parfois 30.</p>
     <div class="pq-cta-row">
-      <a href="#exemple" class="pq-cta-primary">Voir l'exemple le plus parlant</a>
+      <a href="#exemple" class="pq-cta-primary">Voir comment c'est dans la salle</a>
       <a href="/tarifs" class="pq-cta-secondary">Aller aux tarifs</a>
     </div>
   </header>
-
-  <!-- Bandeau récap des chiffres SVB -->
-  <div class="pq-rule-strip">
-    <strong>9</strong> Reformer · <strong>8</strong> Crossformer · <strong>10</strong> Pilates sol · <strong>12</strong> Cross / Yoga / Boxe — par cours, max.
-  </div>
 
   <!-- === SECTION 1 : L'EXEMPLE REFORMER === -->
   <section id="exemple" class="pq-section pq-anim-section pq-reveal">
@@ -345,7 +362,7 @@
       <div class="pq-anim-header">
         <p class="pq-eyebrow">L'exemple le plus visible</p>
         <h2 class="pq-title">Prends le Pilates Reformer.</h2>
-        <p class="pq-lead" style="max-width:680px;margin:0 auto;">Le même mot. Deux produits totalement différents. Chez nous, un coach passe à chaque machine. Ailleurs, un coach parle au micro depuis l'avant de la salle.</p>
+        <p class="pq-lead" style="max-width:560px;margin:0 auto;">Le même mot. Deux produits. Regarde.</p>
       </div>
 
       <div class="pq-anim-wrap">
@@ -507,9 +524,9 @@
   <section class="pq-section pq-disciplines-section pq-reveal">
     <div class="pq-inner">
       <div class="pq-disciplines-header">
-        <p class="pq-eyebrow">Et ce n'est pas que le Reformer</p>
+        <p class="pq-eyebrow">Et c'est pareil partout</p>
         <h2 class="pq-title">Toutes nos disciplines,<br/><em>sans exception.</em></h2>
-        <p class="pq-lead" style="max-width:680px;margin:0 auto;">On applique la même règle partout. Voici, pour chaque format, combien on est chez nous — et combien on serait ailleurs.</p>
+        <p class="pq-lead" style="max-width:560px;margin:0 auto;">Combien on est chez nous. Combien on serait ailleurs.</p>
       </div>
 
       <div class="pq-discipline-grid">
@@ -632,7 +649,7 @@
       <div class="pq-value-header">
         <p class="pq-eyebrow">Ce que tu obtiens, concrètement</p>
         <h2 class="pq-title">Petit groupe.<br/><em>Tout le reste suit.</em></h2>
-        <p class="pq-lead" style="max-width:680px;margin:0 auto;">Quand le coach a 9 ou 12 personnes en face, ce ne sont pas juste les chiffres qui changent. C'est tout ce qui se passe pendant les 55 minutes. Voilà ce que tu achètes vraiment.</p>
+        <p class="pq-lead" style="max-width:560px;margin:0 auto;">Avec 12 personnes en face au lieu de 30, c'est tout le cours qui change.</p>
       </div>
 
       <div class="pq-value-grid">
@@ -674,17 +691,6 @@
         </article>
 
       </div>
-    </div>
-  </section>
-
-  <!-- === SECTION 4 : POURQUOI === -->
-  <section class="pq-section pq-why-section pq-reveal">
-    <div class="pq-inner pq-inner--narrow" style="text-align:center;">
-      <p class="pq-eyebrow">Pourquoi on tient à ça</p>
-      <h2 class="pq-title">Pourquoi ça change tout.</h2>
-      <p class="pq-why-body"><strong>Mauvais réglage</strong> = mauvais muscle activé. <strong>Mauvais alignement</strong> = risque de blessure. <strong>Aucune correction</strong> = tu répètes la même erreur pendant 6 mois. Le sport, ce n'est pas juste bouger. C'est bouger juste.</p>
-      <p class="pq-why-body">Les deux modèles existent. Les deux sont valides. Ils n'ont juste pas le même prix, parce qu'ils ne te donnent pas la même chose.</p>
-      <p class="pq-why-quote">À toi de choisir ce que tu veux acheter.</p>
     </div>
   </section>
 
