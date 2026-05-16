@@ -343,6 +343,161 @@
       .pq-table tbody td{padding:12px 10px;font-size:.82rem;}
       .pq-table-criterion{width:36%;}
     }
+
+    /* === LES CHIFFRES QUI COMPTENT === */
+    .pq-stats-section{background:#FBF6EC;}
+    .pq-stats-header{text-align:center;margin-bottom:40px;}
+    .pq-stats-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:24px;
+      max-width:1000px;margin:0 auto;
+    }
+    @media (min-width:780px){.pq-stats-grid{grid-template-columns:repeat(4,1fr);gap:22px;}}
+    .pq-stat{
+      background:white;border-radius:18px;padding:28px 22px;
+      box-shadow:0 6px 24px rgba(47,79,79,.07);
+      text-align:center;
+      border-top:3px solid #4A8D84;
+    }
+    .pq-stat-num{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(3.4rem,7vw,4.6rem);
+      font-weight:700;line-height:.9;color:#4A8D84;margin:0;
+    }
+    .pq-stat-label{
+      font-family:'Montserrat',sans-serif;
+      font-size:.66rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+      color:#2F4F4F;margin:8px 0 14px;opacity:.75;
+    }
+    .pq-stat-explainer{
+      font-size:.82rem;line-height:1.5;color:#2F4F4F;opacity:.78;
+      margin:0;
+    }
+
+    /* === LES ERREURS COURANTES === */
+    .pq-mistakes-section{background:linear-gradient(180deg,#FBF6EC 0%,#F3EBD4 100%);}
+    .pq-mistakes-header{text-align:center;margin-bottom:40px;}
+    .pq-mistakes-grid{
+      display:grid;grid-template-columns:1fr;gap:22px;
+    }
+    @media (min-width:880px){.pq-mistakes-grid{grid-template-columns:repeat(3,1fr);}}
+    .pq-mistake-card{
+      background:white;border-radius:18px;padding:26px 24px 22px;
+      box-shadow:0 6px 24px rgba(47,79,79,.08);
+      border-left:4px solid #E8B496;
+    }
+    .pq-mistake-badge{
+      display:inline-block;background:#E8B496;color:white;
+      font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+      padding:5px 12px;border-radius:50px;margin-bottom:14px;
+    }
+    .pq-mistake-title{
+      font-family:'Montserrat',sans-serif;
+      font-size:1.02rem;font-weight:800;color:#2F4F4F;line-height:1.3;
+      margin:0 0 16px;
+    }
+    .pq-mistake-line{
+      font-size:.86rem;line-height:1.5;color:#2F4F4F;margin:0 0 10px;opacity:.82;
+    }
+    .pq-mistake-fix{
+      background:rgba(74,141,132,.08);
+      padding:11px 14px;border-radius:10px;
+      font-size:.86rem;line-height:1.5;color:#2F4F4F;margin:14px 0 0;
+    }
+    .pq-mistake-fix strong{color:#4A8D84;font-weight:800;}
+
+    /* === UNE SÉANCE MINUTE PAR MINUTE === */
+    .pq-timeline-section{background:#FBF6EC;}
+    .pq-timeline-header{text-align:center;margin-bottom:40px;}
+    .pq-timeline{
+      max-width:780px;margin:0 auto;
+      position:relative;padding-left:42px;
+    }
+    .pq-timeline::before{
+      content:'';position:absolute;left:13px;top:8px;bottom:8px;
+      width:3px;background:linear-gradient(180deg,#4A8D84 0%,#E8B496 100%);
+      border-radius:2px;
+    }
+    .pq-timeline-step{
+      position:relative;margin-bottom:28px;
+    }
+    .pq-timeline-step::before{
+      content:'';position:absolute;left:-35px;top:8px;
+      width:18px;height:18px;border-radius:50%;
+      background:white;border:3px solid #4A8D84;
+      box-shadow:0 0 0 4px #FBF6EC;
+    }
+    .pq-timeline-time{
+      font-family:'Montserrat',sans-serif;
+      font-size:.66rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+      color:#4A8D84;margin-bottom:6px;
+    }
+    .pq-timeline-step h3{
+      font-family:'Montserrat',sans-serif;
+      font-size:1.05rem;font-weight:800;color:#2F4F4F;line-height:1.3;
+      margin:0 0 8px;
+    }
+    .pq-timeline-step p{
+      font-size:.92rem;line-height:1.55;color:#2F4F4F;opacity:.78;margin:0;
+    }
+
+    /* === CITATIONS COACHS === */
+    .pq-quotes-section{background:linear-gradient(180deg,#FBF6EC 0%,#F3EBD4 100%);}
+    .pq-quotes-header{text-align:center;margin-bottom:40px;}
+    .pq-quotes-grid{
+      display:grid;grid-template-columns:1fr;gap:22px;
+      max-width:1000px;margin:0 auto;
+    }
+    @media (min-width:780px){.pq-quotes-grid{grid-template-columns:1fr 1fr;}}
+    .pq-quote{
+      background:white;border-radius:18px;padding:32px 28px 26px;
+      box-shadow:0 6px 24px rgba(47,79,79,.07);
+      position:relative;margin:0;
+    }
+    .pq-quote::before{
+      content:'"';position:absolute;top:6px;left:22px;
+      font-family:'Dancing Script',cursive;font-weight:700;
+      font-size:5rem;line-height:1;color:#E8B496;opacity:.55;
+    }
+    .pq-quote-body{
+      font-size:1rem;line-height:1.6;color:#2F4F4F;
+      margin:18px 0 18px;font-style:italic;
+    }
+    .pq-quote-cite{
+      font-family:'Montserrat',sans-serif;
+      font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      color:#4A8D84;font-style:normal;display:block;
+    }
+    .pq-quote-cite span{color:#2F4F4F;opacity:.55;font-weight:500;}
+
+    /* === FAQ "ET SI..." === */
+    .pq-faq-section{background:#FBF6EC;}
+    .pq-faq-header{text-align:center;margin-bottom:40px;}
+    .pq-faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+    .pq-faq-item{
+      background:white;border-radius:14px;
+      box-shadow:0 4px 16px rgba(47,79,79,.06);
+      overflow:hidden;
+    }
+    .pq-faq-item summary{
+      list-style:none;cursor:pointer;
+      padding:18px 22px;
+      font-family:'Montserrat',sans-serif;
+      font-size:1rem;font-weight:700;color:#2F4F4F;
+      display:flex;justify-content:space-between;align-items:center;gap:14px;
+      transition:background .2s;
+    }
+    .pq-faq-item summary::-webkit-details-marker{display:none;}
+    .pq-faq-item summary::after{
+      content:'+';font-family:'Montserrat',sans-serif;
+      font-size:1.4rem;font-weight:300;color:#4A8D84;
+      transition:transform .25s;flex-shrink:0;
+    }
+    .pq-faq-item[open] summary::after{transform:rotate(45deg);}
+    .pq-faq-item summary:hover{background:rgba(74,141,132,.04);}
+    .pq-faq-body{
+      padding:0 22px 20px;
+      font-size:.93rem;line-height:1.6;color:#2F4F4F;opacity:.82;margin:0;
+    }
   </style>
 
   <!-- Schema.org -->
@@ -423,6 +578,76 @@
       <p class="pq-rationale-body">Chaque mouvement — au Reformer, en Yoga, en Boxe, en Cross — a un alignement précis. <strong>Bien fait, il construit ton corps. Mal fait, il l'use.</strong></p>
       <p class="pq-rationale-body">À 30 dans la salle, le coach ne peut pas voir ce que tu fais. À 12, il te voit. À 9, il te coache.</p>
       <p class="pq-rationale-quote">On a refusé le modèle volume.</p>
+    </div>
+  </section>
+
+  <!-- === SECTION : LES CHIFFRES QUI COMPTENT === -->
+  <section class="pq-section pq-stats-section pq-reveal">
+    <div class="pq-inner">
+      <div class="pq-stats-header">
+        <p class="pq-eyebrow">Les chiffres qui comptent</p>
+        <h2 class="pq-title">Ce qu'il y a <em>derrière le studio.</em></h2>
+      </div>
+      <div class="pq-stats-grid">
+        <div class="pq-stat">
+          <p class="pq-stat-num">146</p>
+          <p class="pq-stat-label">Avis 5★ Google</p>
+          <p class="pq-stat-explainer">Pas un studio qui vient d'ouvrir. 146 personnes ont pris le temps de raconter publiquement.</p>
+        </div>
+        <div class="pq-stat">
+          <p class="pq-stat-num">16</p>
+          <p class="pq-stat-label">Coachs certifiés</p>
+          <p class="pq-stat-explainer">BASI Pilates, STOTT, BPJEPS, FFBA. Une vraie certification, pas une formation week-end.</p>
+        </div>
+        <div class="pq-stat">
+          <p class="pq-stat-num">9</p>
+          <p class="pq-stat-label">Reformer max</p>
+          <p class="pq-stat-explainer">Notre plafond Reformer. Pas 20, pas 25. Neuf — le max qu'un coach peut suivre vraiment.</p>
+        </div>
+        <div class="pq-stat">
+          <p class="pq-stat-num">2</p>
+          <p class="pq-stat-label">Studios à Saint-Ouen</p>
+          <p class="pq-stat-explainer">Parc des Docks et Cours des Lavandières. À 10 min de Paris en métro 13 ou 14.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SECTION : LES ERREURS QUE PERSONNE CORRIGE === -->
+  <section class="pq-section pq-mistakes-section pq-reveal">
+    <div class="pq-inner">
+      <div class="pq-mistakes-header">
+        <p class="pq-eyebrow">Les erreurs qu'on voit tout le temps</p>
+        <h2 class="pq-title">Ce que personne te corrige<br/><em>quand on est 30.</em></h2>
+        <p class="pq-lead" style="max-width:600px;margin:0 auto;">Trois exemples concrets. Ce qui passe inaperçu en grand groupe — et que tu paies en blessure 6 mois plus tard.</p>
+      </div>
+      <div class="pq-mistakes-grid">
+
+        <article class="pq-mistake-card">
+          <span class="pq-mistake-badge">Reformer</span>
+          <h3 class="pq-mistake-title">Les genoux qui s'effondrent en footwork</h3>
+          <p class="pq-mistake-line"><strong>Ce qui se passe :</strong> Tes genoux rentrent vers l'intérieur à chaque poussée.</p>
+          <p class="pq-mistake-line"><strong>La conséquence :</strong> Les fessiers ne travaillent pas, le bassin compense, les genoux s'usent.</p>
+          <p class="pq-mistake-fix"><strong>Chez SVB :</strong> Le coach repositionne ton pied à chaque rep tant que ce n'est pas verrouillé.</p>
+        </article>
+
+        <article class="pq-mistake-card">
+          <span class="pq-mistake-badge">Yoga</span>
+          <h3 class="pq-mistake-title">Le genou en hyperextension dans le triangle</h3>
+          <p class="pq-mistake-line"><strong>Ce qui se passe :</strong> Tu pousses le genou loin en arrière pour "tendre" la jambe.</p>
+          <p class="pq-mistake-line"><strong>La conséquence :</strong> Le ligament croisé prend toute la charge. Blessure à moyen terme.</p>
+          <p class="pq-mistake-fix"><strong>Chez SVB :</strong> Le prof met ton genou en micro-flexion et active ton quadriceps.</p>
+        </article>
+
+        <article class="pq-mistake-card">
+          <span class="pq-mistake-badge">Cross / Boxe</span>
+          <h3 class="pq-mistake-title">Les talons qui décollent en squat</h3>
+          <p class="pq-mistake-line"><strong>Ce qui se passe :</strong> En descendant en squat, tes talons quittent le sol.</p>
+          <p class="pq-mistake-line"><strong>La conséquence :</strong> Charge sur les genoux à la place des hanches. Mal au bas du dos en sortant.</p>
+          <p class="pq-mistake-fix"><strong>Chez SVB :</strong> Le coach adapte la profondeur ou te fait travailler la mobilité de cheville.</p>
+        </article>
+
+      </div>
     </div>
   </section>
 
@@ -713,6 +938,44 @@
     </div>
   </section>
 
+  <!-- === SECTION : UNE SÉANCE MINUTE PAR MINUTE === -->
+  <section class="pq-section pq-timeline-section pq-reveal">
+    <div class="pq-inner">
+      <div class="pq-timeline-header">
+        <p class="pq-eyebrow">Le déroulé d'un cours</p>
+        <h2 class="pq-title">Une séance, <em>minute par minute.</em></h2>
+        <p class="pq-lead" style="max-width:580px;margin:0 auto;">Voilà ce qui se passe pendant tes 55 minutes chez SVB.</p>
+      </div>
+      <div class="pq-timeline">
+
+        <div class="pq-timeline-step">
+          <div class="pq-timeline-time">0:00 — 0:05</div>
+          <h3>Accueil + échauffement guidé</h3>
+          <p>Le coach te connaît. Il sait où tu en étais la semaine dernière, ce que tu travailles en ce moment, ce que tu as ressenti à la dernière séance. L'échauffement est calibré pour toi, pas générique.</p>
+        </div>
+
+        <div class="pq-timeline-step">
+          <div class="pq-timeline-time">0:05 — 0:15</div>
+          <h3>Installation et réglages</h3>
+          <p>Ressorts ajustés pour ton niveau et l'exercice du jour. Position vérifiée à ta machine. Le coach passe te voir avant qu'on démarre — pas après, quand c'est déjà trop tard.</p>
+        </div>
+
+        <div class="pq-timeline-step">
+          <div class="pq-timeline-time">0:15 — 0:45</div>
+          <h3>Cœur du cours · corrections actives</h3>
+          <p>Le coach circule, repère, corrige à voix basse. Chaque exercice est précisé, chaque erreur reprise. Si tu galères, il s'arrête. Si tu cartonnes, il intensifie pour toi sans casser le rythme des autres.</p>
+        </div>
+
+        <div class="pq-timeline-step">
+          <div class="pq-timeline-time">0:45 — 0:55</div>
+          <h3>Étirements + check sortie</h3>
+          <p>On finit en douceur. Le coach note tes points forts du jour et un axe pour la prochaine séance. Tu repars avec quelque chose de concret à travailler.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- === SECTION : TABLEAU COMPARATIF === -->
   <section id="comparatif" class="pq-section pq-table-section pq-reveal">
     <div class="pq-inner">
@@ -822,6 +1085,72 @@
           <h3 class="pq-value-title">On mesure la progression, pas la sueur.</h3>
           <p class="pq-value-body">Transpirer, c'est facile. Bouger juste, c'est rare. La technique d'abord, le débit ensuite. Souffrir n'est pas progresser.</p>
         </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- === SECTION : CITATIONS DE COACHS === -->
+  <section class="pq-section pq-quotes-section pq-reveal">
+    <div class="pq-inner">
+      <div class="pq-quotes-header">
+        <p class="pq-eyebrow">Ce que nos coachs voient</p>
+        <h2 class="pq-title">La voix de ceux <em>qui sont sur le tapis.</em></h2>
+      </div>
+      <div class="pq-quotes-grid">
+
+        <blockquote class="pq-quote">
+          <p class="pq-quote-body">L'erreur que je vois le plus en Reformer, c'est les épaules qui montent dans le footwork. Tu pousses la barre, et instinctivement tu remontes les trapèzes. Sans correction, tu termines le cours avec mal au cou — et tu crois que c'est normal.</p>
+          <cite class="pq-quote-cite">Coach Pilates Reformer · <span>BASI Certified · 7 ans à SVB</span></cite>
+        </blockquote>
+
+        <blockquote class="pq-quote">
+          <p class="pq-quote-body">À 30 dans la salle, c'est physiquement impossible de voir 30 dos en même temps. On donne les consignes, on espère que ça passe. Ici à 9, je vois chaque personne. Je sais qui a triché sur l'exo, je sais qui a progressé. C'est ça le coaching.</p>
+          <cite class="pq-quote-cite">Coach Crossformer · <span>STOTT Certified · 5 ans à SVB</span></cite>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- === SECTION : FAQ "ET SI..." === -->
+  <section class="pq-section pq-faq-section pq-reveal">
+    <div class="pq-inner">
+      <div class="pq-faq-header">
+        <p class="pq-eyebrow">Les questions qu'on entend tous les jours</p>
+        <h2 class="pq-title">Et si...?</h2>
+      </div>
+      <div class="pq-faq-list">
+
+        <details class="pq-faq-item">
+          <summary>Et si j'ai mal au dos&nbsp;?</summary>
+          <p class="pq-faq-body">Beaucoup de nos membres sont arrivés avec une douleur lombaire ou cervicale. Le coach connaît ta condition dès le 1er cours et adapte chaque exercice. Le Reformer (en suspension, soutenu, sans impact) est souvent l'un des meilleurs outils pour récupérer.</p>
+        </details>
+
+        <details class="pq-faq-item">
+          <summary>Et si je débute complètement&nbsp;?</summary>
+          <p class="pq-faq-body">Le format small group est idéal pour débuter. Le coach démarre avec toi, t'apprend les bases, et progresse à ton rythme. Pas de "mécanique du groupe" à suivre — tu construis ta technique sans pression.</p>
+        </details>
+
+        <details class="pq-faq-item">
+          <summary>Et si je suis enceinte ou en post-partum&nbsp;?</summary>
+          <p class="pq-faq-body">On a un programme prénatal et postnatal dédié, encadré par des coachs spécialisés. Le Reformer est particulièrement adapté à la grossesse : soutien, mobilité, gainage profond, zéro impact.</p>
+        </details>
+
+        <details class="pq-faq-item">
+          <summary>Et si j'ai plus de 60 ans&nbsp;?</summary>
+          <p class="pq-faq-body">On a un programme Pilates Senior. Le Reformer permet de travailler mobilité, posture et équilibre sans charge sur les articulations. Beaucoup de nos membres ont commencé après 65 ans.</p>
+        </details>
+
+        <details class="pq-faq-item">
+          <summary>Et si je reviens d'une blessure&nbsp;?</summary>
+          <p class="pq-faq-body">Dis-le au coach. Il adapte l'exercice : modification du mouvement, charge réduite, ou alternative. Le format small group permet ce niveau d'individualisation. On travaille avec plusieurs kinés du quartier.</p>
+        </details>
+
+        <details class="pq-faq-item">
+          <summary>Et si je suis déjà très en forme&nbsp;?</summary>
+          <p class="pq-faq-body">Le Reformer est l'outil de force fonctionnelle préféré des sportifs. On peut intensifier (ressorts plus durs, tempos lents, charges asymétriques) jusqu'à transformer ton plateau. Crossformer si tu veux du cardio en plus.</p>
+        </details>
 
       </div>
     </div>
