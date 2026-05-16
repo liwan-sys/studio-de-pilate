@@ -319,7 +319,24 @@
       }
       .ps-meta{
         font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-        color:#2F4F4F;opacity:.55;margin:6px 0 32px;
+        color:#2F4F4F;opacity:.55;margin:6px 0 16px;
+      }
+      /* Ancrage de prix : 19,98 EUR/seance vs 50 EUR hors abo */
+      .ps-anchor{
+        display:inline-flex;align-items:center;gap:8px;
+        background:#F3EBD4;
+        padding:8px 16px;border-radius:50px;
+        margin:0 0 32px;
+        border:1px solid rgba(232,180,150,.55);
+      }
+      .ps-anchor-strong{
+        font-family:'Montserrat',sans-serif;
+        font-size:.78rem;font-weight:800;color:#2F4F4F;
+      }
+      .ps-anchor-strike{
+        font-size:.7rem;font-weight:600;color:#2F4F4F;opacity:.55;
+        text-decoration:line-through;
+        text-decoration-thickness:1.5px;
       }
 
       .ps-benefits{
@@ -418,7 +435,7 @@
       <div class="ps-card">
         <div class="ps-ribbon">
           <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.09 4.26L14.8 6l-3.4 3.32.8 4.68L8 11.77 3.8 14l.8-4.68L1.2 6l4.71-.74L8 1z"/></svg>
-          Le plus testé chez les nouveaux
+          Le plus pris par les nouveaux
         </div>
 
         <h3 class="ps-title">New Pass Starter</h3>
@@ -430,22 +447,32 @@
         </div>
         <p class="ps-meta">5 sessions · Valable 1 mois · Sans engagement</p>
 
+        <!-- ANCRAGE PRIX : seulement 19,98 EUR la seance vs 50 EUR hors abo -->
+        <div class="ps-anchor">
+          <span class="ps-anchor-strong">Soit 19,98&nbsp;€ la séance</span>
+          <span class="ps-anchor-strike">vs 50 € hors abo</span>
+        </div>
+
         <ul class="ps-benefits">
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>5 sessions</strong> à utiliser sur 1 mois</span>
+            <span><strong>5 sessions</strong> à utiliser comme tu veux sur 1 mois</span>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span>Toutes les disciplines : <strong>Reformer, Cross, Yoga, Boxe, Pilates sol</strong></span>
+            <span><strong>Toutes les disciplines</strong> : Reformer, Crossformer, Cross, Yoga, Boxe, Pilates sol</span>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Aucun engagement</strong> — pas de reconduction automatique</span>
+            <span><strong>16 coachs certifiés</strong> à disposition (BASI, STOTT, BPJEPS, FFBA)</span>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span>Idéal pour tester avant de choisir ton abonnement</span>
+            <span><strong>Réservation 24h/24</strong> dans l'appli SVB, annulation flexible 1h avant</span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+            <span><strong>Zéro engagement</strong> · pas de CB stockée · pas de reconduction</span>
           </li>
         </ul>
 
@@ -457,7 +484,7 @@
         <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab"
            target="_blank" rel="noopener noreferrer"
            class="ps-cta svb-magnetic">
-          <span>Prendre le Pass Starter</span>
+          <span>Je prends mon Pass · 99,90&nbsp;€</span>
           <span class="ps-cta-arrow">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
           </span>
@@ -465,7 +492,7 @@
 
         <div class="ps-trust">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1l5 2v5c0 3.5-2.2 6.4-5 7-2.8-.6-5-3.5-5-7V3l5-2z"/><polyline points="6 8 7.5 9.5 10.5 6.5"/></svg>
-          <span>Paiement sécurisé · Confirmation immédiate</span>
+          <span>Confirmation immédiate · Pas de carte bleue stockée</span>
         </div>
       </div>
 
