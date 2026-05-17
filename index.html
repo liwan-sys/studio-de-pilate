@@ -508,25 +508,36 @@
         max-width:1300px;margin:0 auto;
         padding:0 clamp(20px,4vw,40px);
         display:grid;
-        grid-template-columns:1fr;
-        gap:clamp(40px,6vw,64px);
+        grid-template-columns:1fr 1fr;
+        grid-template-areas:
+          "text text"
+          "svb  ail";
+        gap:24px clamp(16px,4vw,32px);
         align-items:center;
         justify-items:center;
         text-align:center;
       }
+      .svb-cancel-text{grid-area:text;margin-bottom:8px;}
+      .svb-cancel-side-wrap--svb{grid-area:svb;}
+      .svb-cancel-side-wrap--ailleurs{grid-area:ail;}
       @media (min-width:980px){
         .svb-cancel-anim-wrap{
           grid-template-columns:auto 1fr auto;
+          grid-template-areas:"svb text ail";
           text-align:center;
           gap:clamp(32px,4vw,56px);
         }
+        .svb-cancel-text{margin-bottom:0;}
       }
 
-      /* Phone scene */
+      /* Phone scene — plus petit sur mobile pour cote-a-cote, plus grand sur desktop */
       .svb-phone{
-        width:clamp(180px,22vw,240px);
+        width:clamp(130px,38vw,200px);
         position:relative;
         animation:phoneFloat 6s ease-in-out infinite;
+      }
+      @media (min-width:980px){
+        .svb-phone{width:clamp(200px,22vw,240px);}
       }
       .svb-phone--ailleurs{animation-delay:.15s;}
       @keyframes phoneFloat{
