@@ -49,6 +49,7 @@
 
 # Réservation (Netlify Forms)
 /reserver                         /#offre-premium                         301
+/ete-2026                         /                                       301
 /merci-reservation                /Merci.html                             200
 
 # Phase 7 — Parrainage, CMS, API
