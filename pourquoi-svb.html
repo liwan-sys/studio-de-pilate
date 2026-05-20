@@ -735,12 +735,12 @@
     <script>
     (function(){
       var DISCIPLINES = [
-        { id:'reformer', name:'Pilates Reformer', svbN:9, ailN:20, svbCols:3, svbRows:3, ailCols:4, ailRows:5, itemLabel:'reformer', copy:'Le coach passe à chaque machine. Il ajuste tes ressorts, te corrige, repère ta posture.' },
-        { id:'crossformer', name:'Crossformer', svbN:8, ailN:20, svbCols:4, svbRows:2, ailCols:4, ailRows:5, itemLabel:'reformer', copy:'Reformer + cardio dynamique. Encore plus serré (8 max) pour gérer l’intensité et la sécurité des transitions.' },
-        { id:'cross', name:'Cross Training', svbN:12, ailN:30, svbCols:4, svbRows:3, ailCols:5, ailRows:6, itemLabel:'tapis', copy:'4 formats (Body, Core, Rox, Yoga). À 12, le coach voit ta technique, ta posture, ton équilibre.' },
-        { id:'yoga', name:'Yoga', svbN:12, ailN:30, svbCols:4, svbRows:3, ailCols:5, ailRows:6, itemLabel:'tapis', copy:'Vinyasa, Hatha Flow, Yin, Cross Yoga. À 12, le prof ajuste tes postures physiquement (hands-on).' },
-        { id:'boxe', name:'Boxe Anglaise', svbN:12, ailN:25, svbCols:4, svbRows:3, ailCols:5, ailRows:5, itemLabel:'personnes', copy:'Sac, shadow, pieds, gardes, combinaisons. À 12, le coach reprend ta garde, tes appuis, à voix basse.' },
-        { id:'pilates-sol', name:'Pilates au sol', svbN:10, ailN:30, svbCols:5, svbRows:2, ailCols:5, ailRows:6, itemLabel:'tapis', copy:'Classic & Power Pilates. Le coach surveille ton bassin, ta respiration, l’activation de ton powerhouse.' }
+        { id:'reformer', name:'Pilates Reformer', svbN:9, ailN:20, svbCols:3, svbRows:3, ailCols:4, ailRows:5, itemLabel:'reformer', style:'machine', copy:'Le coach passe à chaque machine. Il ajuste tes ressorts, te corrige, repère ta posture.' },
+        { id:'crossformer', name:'Crossformer', svbN:8, ailN:20, svbCols:4, svbRows:2, ailCols:4, ailRows:5, itemLabel:'reformer', style:'machine', copy:'Reformer + cardio dynamique. Encore plus serré (8 max) pour gérer l’intensité et la sécurité des transitions.' },
+        { id:'cross', name:'Cross Training', svbN:12, ailN:30, svbCols:4, svbRows:3, ailCols:5, ailRows:6, itemLabel:'tapis', style:'mat', copy:'4 formats (Body, Core, Rox, Yoga). À 12, le coach voit ta technique, ta posture, ton équilibre.' },
+        { id:'yoga', name:'Yoga', svbN:12, ailN:30, svbCols:4, svbRows:3, ailCols:5, ailRows:6, itemLabel:'tapis', style:'mat', copy:'Vinyasa, Hatha Flow, Yin, Cross Yoga. À 12, le prof ajuste tes postures physiquement (hands-on).' },
+        { id:'boxe', name:'Boxe Anglaise', svbN:12, ailN:25, svbCols:4, svbRows:3, ailCols:5, ailRows:5, itemLabel:'sacs', style:'bag', copy:'Sac, shadow, pieds, gardes, combinaisons. À 12, le coach reprend ta garde, tes appuis, à voix basse.' },
+        { id:'pilates-sol', name:'Pilates au sol', svbN:10, ailN:30, svbCols:5, svbRows:2, ailCols:5, ailRows:6, itemLabel:'tapis', style:'mat', copy:'Classic & Power Pilates. Le coach surveille ton bassin, ta respiration, l’activation de ton powerhouse.' }
       ];
 
       function svbLayout(cols, rows){
@@ -775,21 +775,48 @@
         return { positions: pos, itemW: itemW, itemH: itemH };
       }
 
-      function svbItem(p, W, H){
-        var cx = p.x + W/2;
-        var headCy = p.y + H*0.22;
-        var bodyCy = p.y + H*0.62;
-        return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>' +
-               '<ellipse cx="'+cx+'" cy="'+bodyCy+'" rx="'+(W*0.115)+'" ry="'+(H*0.26)+'" fill="#2F4F4F" opacity=".5"/>' +
-               '<circle cx="'+cx+'" cy="'+headCy+'" r="'+(W*0.09)+'" fill="#2F4F4F" opacity=".6"/>';
+      function person(cx, cy, headCy, headR, bodyRX, bodyRY, opa){
+        return '<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+bodyRX+'" ry="'+bodyRY+'" fill="#2F4F4F" opacity="'+(opa-0.1)+'"/>' +
+               '<circle cx="'+cx+'" cy="'+headCy+'" r="'+headR+'" fill="#2F4F4F" opacity="'+opa+'"/>';
       }
-      function ailItem(p, W, H){
+
+      function svbItem(p, W, H, style){
         var cx = p.x + W/2;
-        var headCy = p.y + H*0.22;
-        var bodyCy = p.y + H*0.62;
+        if (style === 'bag'){
+          // Boxe — sac suspendu (cercle vu du dessus) + boxeur a cote
+          var bagCy = p.y + H*0.32;
+          var bagR = Math.min(W*0.32, H*0.22);
+          return '<circle cx="'+cx+'" cy="'+bagCy+'" r="'+bagR+'" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.8"/>' +
+                 '<circle cx="'+cx+'" cy="'+bagCy+'" r="'+(bagR*0.4)+'" fill="#4A8D84" opacity=".3"/>' +
+                 person(cx, p.y + H*0.78, p.y + H*0.6, W*0.075, W*0.1, H*0.14, 0.55);
+        }
+        if (style === 'mat'){
+          // Tapis — rectangle plus arrondi, motif pointille, fill sable
+          return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="8" fill="#F3EBD4" stroke="#4A8D84" stroke-width="1.1" stroke-dasharray="2.5,2.5" opacity=".85"/>' +
+                 person(cx, p.y + H*0.62, p.y + H*0.22, W*0.09, W*0.115, H*0.26, 0.6);
+        }
+        // machine — Reformer/Crossformer : rectangle avec rail vertical (chariot)
+        return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>' +
+               '<line x1="'+cx+'" y1="'+(p.y+H*0.08)+'" x2="'+cx+'" y2="'+(p.y+H*0.92)+'" stroke="#4A8D84" stroke-width="0.7" opacity=".3"/>' +
+               '<line x1="'+(p.x+W*0.15)+'" y1="'+(p.y+H*0.5)+'" x2="'+(p.x+W*0.85)+'" y2="'+(p.y+H*0.5)+'" stroke="#4A8D84" stroke-width="0.7" opacity=".25"/>' +
+               person(cx, p.y + H*0.62, p.y + H*0.22, W*0.09, W*0.115, H*0.26, 0.6);
+      }
+      function ailItem(p, W, H, style){
+        var cx = p.x + W/2;
+        if (style === 'bag'){
+          var bagCy = p.y + H*0.4;
+          var bagR = Math.min(W*0.32, H*0.24);
+          return '<circle cx="'+cx+'" cy="'+bagCy+'" r="'+bagR+'" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>' +
+                 person(cx, p.y + H*0.82, p.y + H*0.66, W*0.07, W*0.09, H*0.12, 0.45);
+        }
+        if (style === 'mat'){
+          return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="5" fill="#F3EBD4" stroke="#2F4F4F" stroke-width="0.8" stroke-dasharray="2,2" opacity=".7"/>' +
+                 person(cx, p.y + H*0.62, p.y + H*0.22, W*0.085, W*0.11, H*0.27, 0.5);
+        }
+        // machine
         return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>' +
-               '<ellipse cx="'+cx+'" cy="'+bodyCy+'" rx="'+(W*0.11)+'" ry="'+(H*0.27)+'" fill="#2F4F4F" opacity=".4"/>' +
-               '<circle cx="'+cx+'" cy="'+headCy+'" r="'+(W*0.085)+'" fill="#2F4F4F" opacity=".5"/>';
+               '<line x1="'+cx+'" y1="'+(p.y+H*0.1)+'" x2="'+cx+'" y2="'+(p.y+H*0.9)+'" stroke="#2F4F4F" stroke-width="0.5" opacity=".4"/>' +
+               person(cx, p.y + H*0.62, p.y + H*0.22, W*0.085, W*0.11, H*0.27, 0.5);
       }
       function svbCoach(cy){
         var pillY = cy - 7;
@@ -812,7 +839,7 @@
       function svbSvg(d){
         var L = svbLayout(d.svbCols, d.svbRows);
         var items = '';
-        L.positions.forEach(function(p){ items += svbItem(p, L.itemW, L.itemH); });
+        L.positions.forEach(function(p){ items += svbItem(p, L.itemW, L.itemH, d.style); });
         return '<svg class="pq-studio-svg pq-studio-svg--svb" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
                '<rect x="14" y="14" width="172" height="292" rx="20" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5"/>' +
                items + svbCoach(L.coachY) + '</svg>';
@@ -820,7 +847,7 @@
       function ailSvg(d){
         var L = ailLayout(d.ailCols, d.ailRows);
         var items = '';
-        L.positions.forEach(function(p){ items += ailItem(p, L.itemW, L.itemH); });
+        L.positions.forEach(function(p){ items += ailItem(p, L.itemW, L.itemH, d.style); });
         return '<svg class="pq-studio-svg pq-studio-svg--ailleurs" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
                '<rect x="14" y="14" width="172" height="292" rx="20" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5" opacity=".9"/>' +
                ailCoach() + items + '</svg>';
