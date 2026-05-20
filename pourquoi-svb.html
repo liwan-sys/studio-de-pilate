@@ -168,6 +168,23 @@
       transition:opacity .35s ease;
     }
     .pq-disc-slide.active{display:block;opacity:1;}
+
+    /* Stacking animation : chaque bonhomme (item) pop l'un apres l'autre */
+    .pq-disc-item{
+      opacity:0;
+      transform-box:fill-box;transform-origin:center;
+    }
+    .pq-disc-slide.is-revealed .pq-disc-item{
+      animation:pqPopIn .42s cubic-bezier(.34,1.56,.64,1) forwards;
+    }
+    @keyframes pqPopIn{
+      0%   {opacity:0;transform:scale(.45);}
+      60%  {opacity:1;transform:scale(1.08);}
+      100% {opacity:1;transform:scale(1);}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .pq-disc-item{opacity:1;animation:none !important;}
+    }
     .pq-disc-tag{text-align:center;margin-bottom:22px;}
     .pq-disc-tag span{
       display:inline-block;
@@ -1026,7 +1043,11 @@
       function svbSvg(d){
         var L = svbLayout(d.svbCols, d.svbRows);
         var items = '';
-        L.positions.forEach(function(p){ items += svbItem(p, L.itemW, L.itemH, d.style); });
+        L.positions.forEach(function(p, i){
+          items += '<g class="pq-disc-item" style="animation-delay:'+(i*110)+'ms;">' +
+                   svbItem(p, L.itemW, L.itemH, d.style) +
+                   '</g>';
+        });
         return '<svg class="pq-studio-svg pq-studio-svg--svb" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
                '<rect x="14" y="14" width="172" height="292" rx="20" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5"/>' +
                items + svbCoach(L.coachY, d.accent) + '</svg>';
@@ -1034,7 +1055,11 @@
       function ailSvg(d){
         var L = ailLayout(d.ailCols, d.ailRows);
         var items = '';
-        L.positions.forEach(function(p){ items += ailItem(p, L.itemW, L.itemH, d.style); });
+        L.positions.forEach(function(p, i){
+          items += '<g class="pq-disc-item" style="animation-delay:'+(i*110)+'ms;">' +
+                   ailItem(p, L.itemW, L.itemH, d.style) +
+                   '</g>';
+        });
         return '<svg class="pq-studio-svg pq-studio-svg--ailleurs" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
                '<rect x="14" y="14" width="172" height="292" rx="20" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5" opacity=".9"/>' +
                ailCoach() + items + '</svg>';
@@ -1072,16 +1097,68 @@
       var slides = track.querySelectorAll('.pq-disc-slide');
       var dotEls = dots.querySelectorAll('.pq-disc-dot');
       var current = 0;
+      // Anime un compteur 0 -> target avec ease-out cubic
+      function animateCount(el, duration){
+        if (!el) return;
+        var target = parseInt(el.getAttribute('data-target') || el.textContent, 10);
+        if (isNaN(target)) return;
+        el.setAttribute('data-target', target);
+        var start = performance.now();
+        el.textContent = '0';
+        function step(now){
+          var t = Math.min(1, (now - start) / duration);
+          var eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(target * eased);
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      function revealSlide(slide){
+        if (!slide) return;
+        // Reset puis re-apply (forcer re-trigger des animations CSS)
+        slide.classList.remove('is-revealed');
+        // Reflow trick : force le navigateur a recalculer avant d'ajouter la classe
+        void slide.offsetWidth;
+        slide.classList.add('is-revealed');
+        // Anime les 2 compteurs
+        var counts = slide.querySelectorAll('.pq-side-count');
+        var counts_arr = Array.prototype.slice.call(counts);
+        if (counts_arr[0]) animateCount(counts_arr[0], 1100);   // SVB
+        if (counts_arr[1]) animateCount(counts_arr[1], 1800);   // Ailleurs (plus long, comme le stacking)
+      }
+
       function show(idx){
         if (idx < 0) idx = slides.length - 1;
         if (idx >= slides.length) idx = 0;
-        slides.forEach(function(s, i){ s.classList.toggle('active', i === idx); });
+        slides.forEach(function(s, i){
+          s.classList.toggle('active', i === idx);
+          if (i !== idx) s.classList.remove('is-revealed');
+        });
         dotEls.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
         current = idx;
+        // Reveal apres le swap (laisse le display:block s'appliquer)
+        setTimeout(function(){ revealSlide(slides[idx]); }, 60);
       }
       document.querySelector('.pq-disc-arrow--prev').addEventListener('click', function(){ show(current - 1); });
       document.querySelector('.pq-disc-arrow--next').addEventListener('click', function(){ show(current + 1); });
       dotEls.forEach(function(d, i){ d.addEventListener('click', function(){ show(i); }); });
+
+      // 1ere visite : ne reveler que quand la section entre dans le viewport
+      var section = document.getElementById('exemple');
+      if (section && 'IntersectionObserver' in window){
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if (e.isIntersecting){
+              revealSlide(slides[current]);
+              io.disconnect();
+            }
+          });
+        }, { threshold: 0.2 });
+        io.observe(section);
+      } else {
+        revealSlide(slides[0]);
+      }
     })();
     </script>
   </section>
