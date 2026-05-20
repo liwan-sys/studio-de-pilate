@@ -139,6 +139,65 @@
     /* === ANIMATION REFORMER === */
     .pq-anim-section{background:#FBF6EC;}
     .pq-anim-header{text-align:center;margin-bottom:32px;}
+
+    /* Carousel des disciplines */
+    .pq-disc-carousel{
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:clamp(8px,2vw,18px);
+      margin:0 auto;
+      max-width:1200px;
+    }
+    .pq-disc-arrow{
+      flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+      width:48px;height:48px;border-radius:50%;
+      background:#FFFFFF;border:1px solid rgba(47,79,79,.15);
+      color:#2F4F4F;cursor:pointer;
+      box-shadow:0 4px 16px rgba(47,79,79,.1);
+      transition:transform .2s,box-shadow .2s,background .2s;
+      z-index:5;
+    }
+    .pq-disc-arrow:hover{transform:scale(1.06);background:#2F4F4F;color:#FBF6EC;}
+    .pq-disc-arrow svg{width:22px;height:22px;}
+    .pq-disc-track{position:relative;width:100%;}
+    .pq-disc-slide{
+      display:none;
+      opacity:0;
+      transition:opacity .35s ease;
+    }
+    .pq-disc-slide.active{display:block;opacity:1;}
+    .pq-disc-tag{text-align:center;margin-bottom:22px;}
+    .pq-disc-tag span{
+      display:inline-block;
+      background:#2F4F4F;color:#FBF6EC;
+      padding:7px 18px;border-radius:50px;
+      font-family:'Montserrat',sans-serif;
+      font-size:.68rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
+    }
+    .pq-disc-dots{
+      display:flex;justify-content:center;flex-wrap:wrap;gap:6px;
+      margin:32px auto 0;max-width:900px;
+    }
+    .pq-disc-dot{
+      background:transparent;border:1px solid rgba(47,79,79,.15);
+      font-family:'Montserrat',sans-serif;
+      font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+      color:#2F4F4F;opacity:.55;cursor:pointer;
+      padding:7px 12px;border-radius:50px;
+      transition:opacity .2s,background .2s,border-color .2s,color .2s;
+    }
+    .pq-disc-dot:hover{opacity:.9;border-color:rgba(74,141,132,.4);}
+    .pq-disc-dot.active{
+      opacity:1;background:#4A8D84;color:#FBF6EC;border-color:#4A8D84;
+    }
+    @media (max-width:780px){
+      .pq-disc-arrow{width:40px;height:40px;}
+      .pq-disc-arrow svg{width:18px;height:18px;}
+      .pq-disc-tag span{font-size:.6rem;padding:6px 14px;letter-spacing:.18em;}
+    }
+
     .pq-anim-wrap{
       display:grid;
       grid-template-columns:1fr;
@@ -650,169 +709,169 @@
     </div>
   </section>
 
-  <!-- === SECTION 1 : L'EXEMPLE REFORMER === -->
+
+  <!-- === SECTION 1 : CAROUSEL D'EXEMPLES PAR DISCIPLINE === -->
   <section id="exemple" class="pq-section pq-anim-section pq-reveal">
     <div class="pq-inner">
       <div class="pq-anim-header">
         <p class="pq-eyebrow">L'exemple le plus visible</p>
-        <h2 class="pq-title">Prends le Pilates Reformer.</h2>
-        <p class="pq-lead" style="max-width:560px;margin:0 auto;">Voici à quoi ressemble un cours Reformer chez nous.</p>
+        <h2 class="pq-title">Voici à quoi ressemblent <em>nos cours.</em></h2>
+        <p class="pq-lead" style="max-width:600px;margin:0 auto;">Compare chez nous vs ailleurs, discipline par discipline. Utilise les flèches pour changer.</p>
       </div>
 
-      <div class="pq-anim-wrap">
-
-        <!-- Studio SVB (gauche) -->
-        <div class="pq-side-wrap pq-side-wrap--svb">
-          <p class="pq-side-label">Chez SVB</p>
-          <svg class="pq-studio-svg pq-studio-svg--svb" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="14" y="14" width="172" height="292" rx="20" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5"/>
-            <g>
-              <rect x="28"  y="39" width="38" height="50" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>
-              <ellipse cx="47"  cy="69" rx="4" ry="12" fill="#2F4F4F" opacity=".5"/>
-              <circle  cx="47"  cy="51" r="3.2"        fill="#2F4F4F" opacity=".6"/>
-              <rect x="81"  y="39" width="38" height="50" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>
-              <ellipse cx="100" cy="69" rx="4" ry="12" fill="#2F4F4F" opacity=".5"/>
-              <circle  cx="100" cy="51" r="3.2"        fill="#2F4F4F" opacity=".6"/>
-              <rect x="134" y="39" width="38" height="50" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>
-              <ellipse cx="153" cy="69" rx="4" ry="12" fill="#2F4F4F" opacity=".5"/>
-              <circle  cx="153" cy="51" r="3.2"        fill="#2F4F4F" opacity=".6"/>
-            </g>
-            <g>
-              <rect x="28"  y="135" width="38" height="50" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>
-              <ellipse cx="47"  cy="165" rx="4" ry="12" fill="#2F4F4F" opacity=".5"/>
-              <circle  cx="47"  cy="147" r="3.2"        fill="#2F4F4F" opacity=".6"/>
-              <rect x="81"  y="135" width="38" height="50" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>
-              <ellipse cx="100" cy="165" rx="4" ry="12" fill="#2F4F4F" opacity=".5"/>
-              <circle  cx="100" cy="147" r="3.2"        fill="#2F4F4F" opacity=".6"/>
-              <rect x="134" y="135" width="38" height="50" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>
-              <ellipse cx="153" cy="165" rx="4" ry="12" fill="#2F4F4F" opacity=".5"/>
-              <circle  cx="153" cy="147" r="3.2"        fill="#2F4F4F" opacity=".6"/>
-            </g>
-            <g>
-              <rect x="28"  y="231" width="38" height="50" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>
-              <ellipse cx="47"  cy="261" rx="4" ry="12" fill="#2F4F4F" opacity=".5"/>
-              <circle  cx="47"  cy="243" r="3.2"        fill="#2F4F4F" opacity=".6"/>
-              <rect x="81"  y="231" width="38" height="50" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>
-              <ellipse cx="100" cy="261" rx="4" ry="12" fill="#2F4F4F" opacity=".5"/>
-              <circle  cx="100" cy="243" r="3.2"        fill="#2F4F4F" opacity=".6"/>
-              <rect x="134" y="231" width="38" height="50" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>
-              <ellipse cx="153" cy="261" rx="4" ry="12" fill="#2F4F4F" opacity=".5"/>
-              <circle  cx="153" cy="243" r="3.2"        fill="#2F4F4F" opacity=".6"/>
-            </g>
-            <g>
-              <rect x="76" y="95" width="48" height="14" rx="7" fill="#4A8D84"/>
-              <text x="100" y="105" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8" font-weight="800" letter-spacing="1.5" fill="#FBF6EC">COACH</text>
-              <circle  cx="100" cy="118" r="4"            fill="#4A8D84"/>
-              <ellipse cx="100" cy="127" rx="5" ry="5"    fill="#4A8D84"/>
-            </g>
-          </svg>
-          <div>
-            <p class="pq-side-count">9</p>
-            <p class="pq-side-sub">reformer · 1 coach présent</p>
-          </div>
-        </div>
-
-        <!-- Texte central -->
-        <div class="pq-anim-text">
-          <h3 class="pq-anim-headline">9 reformer.<br/><em>Pas 20.</em></h3>
-          <p class="pq-anim-body">Le coach passe à chaque machine. Il ajuste tes ressorts, te corrige, repère ta posture. Ailleurs, c'est 20 par cours — parfois 25 — un coach au micro.</p>
-        </div>
-
-        <!-- Studio Ailleurs (droite) -->
-        <div class="pq-side-wrap pq-side-wrap--ailleurs">
-          <p class="pq-side-label">Ailleurs</p>
-          <svg class="pq-studio-svg pq-studio-svg--ailleurs" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="14" y="14" width="172" height="292" rx="20" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5" opacity=".9"/>
-            <g>
-              <rect x="78" y="22" width="44" height="13" rx="6.5" fill="#2F4F4F" opacity=".85"/>
-              <text x="100" y="31.5" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="7.5" font-weight="800" letter-spacing="1.5" fill="#FBF6EC">COACH</text>
-              <circle  cx="100" cy="44" r="3.4" fill="#2F4F4F" opacity=".8"/>
-              <ellipse cx="100" cy="52" rx="4.5" ry="4.5" fill="#2F4F4F" opacity=".8"/>
-              <rect x="98" y="50" width="4" height="8" rx="1" fill="#2F4F4F" opacity=".75"/>
-              <circle class="wave wave-1" cx="100" cy="56" r="10" fill="none" stroke="#2F4F4F" stroke-width="1.3" opacity=".5"/>
-              <circle class="wave wave-2" cx="100" cy="56" r="10" fill="none" stroke="#2F4F4F" stroke-width="1.3" opacity=".5"/>
-              <circle class="wave wave-3" cx="100" cy="56" r="10" fill="none" stroke="#2F4F4F" stroke-width="1.3" opacity=".5"/>
-            </g>
-            <g>
-              <rect x="28"  y="80"  width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="43"  cy="105" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="43"  cy="90"  r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="66"  y="80"  width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="81"  cy="105" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="81"  cy="90"  r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="104" y="80"  width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="119" cy="105" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="119" cy="90"  r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="142" y="80"  width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="157" cy="105" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="157" cy="90"  r="2.3"        fill="#2F4F4F" opacity=".5"/>
-            </g>
-            <g>
-              <rect x="28"  y="125" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="43"  cy="150" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="43"  cy="135" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="66"  y="125" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="81"  cy="150" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="81"  cy="135" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="104" y="125" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="119" cy="150" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="119" cy="135" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="142" y="125" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="157" cy="150" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="157" cy="135" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-            </g>
-            <g>
-              <rect x="28"  y="170" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="43"  cy="195" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="43"  cy="180" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="66"  y="170" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="81"  cy="195" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="81"  cy="180" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="104" y="170" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="119" cy="195" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="119" cy="180" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="142" y="170" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="157" cy="195" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="157" cy="180" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-            </g>
-            <g>
-              <rect x="28"  y="215" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="43"  cy="240" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="43"  cy="225" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="66"  y="215" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="81"  cy="240" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="81"  cy="225" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="104" y="215" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="119" cy="240" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="119" cy="225" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="142" y="215" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="157" cy="240" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="157" cy="225" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-            </g>
-            <g>
-              <rect x="28"  y="260" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="43"  cy="285" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="43"  cy="270" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="66"  y="260" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="81"  cy="285" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="81"  cy="270" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="104" y="260" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="119" cy="285" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="119" cy="270" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-              <rect x="142" y="260" width="30" height="40" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>
-              <ellipse cx="157" cy="285" rx="3" ry="9" fill="#2F4F4F" opacity=".4"/>
-              <circle  cx="157" cy="270" r="2.3"        fill="#2F4F4F" opacity=".5"/>
-            </g>
-          </svg>
-          <div>
-            <p class="pq-side-count">20</p>
-            <p class="pq-side-sub">reformer · 1 coach au micro</p>
-          </div>
-        </div>
-
+      <div class="pq-disc-carousel">
+        <button class="pq-disc-arrow pq-disc-arrow--prev" aria-label="Discipline précédente" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div id="pq-disc-track" class="pq-disc-track"></div>
+        <button class="pq-disc-arrow pq-disc-arrow--next" aria-label="Discipline suivante" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
+
+      <div id="pq-disc-dots" class="pq-disc-dots"></div>
     </div>
+
+    <script>
+    (function(){
+      var DISCIPLINES = [
+        { id:'reformer', name:'Pilates Reformer', svbN:9, ailN:20, svbCols:3, svbRows:3, ailCols:4, ailRows:5, itemLabel:'reformer', copy:'Le coach passe à chaque machine. Il ajuste tes ressorts, te corrige, repère ta posture.' },
+        { id:'crossformer', name:'Crossformer', svbN:8, ailN:20, svbCols:4, svbRows:2, ailCols:4, ailRows:5, itemLabel:'reformer', copy:'Reformer + cardio dynamique. Encore plus serré (8 max) pour gérer l’intensité et la sécurité des transitions.' },
+        { id:'cross', name:'Cross Training', svbN:12, ailN:30, svbCols:4, svbRows:3, ailCols:5, ailRows:6, itemLabel:'tapis', copy:'4 formats (Body, Core, Rox, Yoga). À 12, le coach voit ta technique, ta posture, ton équilibre.' },
+        { id:'yoga', name:'Yoga', svbN:12, ailN:30, svbCols:4, svbRows:3, ailCols:5, ailRows:6, itemLabel:'tapis', copy:'Vinyasa, Hatha Flow, Yin, Cross Yoga. À 12, le prof ajuste tes postures physiquement (hands-on).' },
+        { id:'boxe', name:'Boxe Anglaise', svbN:12, ailN:25, svbCols:4, svbRows:3, ailCols:5, ailRows:5, itemLabel:'personnes', copy:'Sac, shadow, pieds, gardes, combinaisons. À 12, le coach reprend ta garde, tes appuis, à voix basse.' },
+        { id:'pilates-sol', name:'Pilates au sol', svbN:10, ailN:30, svbCols:5, svbRows:2, ailCols:5, ailRows:6, itemLabel:'tapis', copy:'Classic & Power Pilates. Le coach surveille ton bassin, ta respiration, l’activation de ton powerhouse.' }
+      ];
+
+      function svbLayout(cols, rows){
+        var itemW = cols <= 3 ? 38 : (cols === 4 ? 32 : 28);
+        var itemH = rows <= 2 ? 64 : 50;
+        var sx = 172 - cols*itemW, gx = sx / (cols + 1);
+        var sy = 292 - rows*itemH, gy = sy / (rows + 1);
+        var pos = [];
+        for (var r=0; r<rows; r++) for (var c=0; c<cols; c++){
+          pos.push({ x: 14 + gx + c*(itemW+gx), y: 14 + gy + r*(itemH+gy) });
+        }
+        var coachY;
+        if (rows < 2) coachY = 14 + gy + itemH/2;
+        else {
+          var r1Bot = pos[cols-1].y + itemH;
+          var r2Top = pos[cols].y;
+          coachY = (r1Bot + r2Top) / 2;
+        }
+        return { positions: pos, itemW: itemW, itemH: itemH, coachY: coachY };
+      }
+
+      function ailLayout(cols, rows){
+        var itemW = cols <= 4 ? 32 : (cols === 5 ? 26 : 22);
+        var itemH = rows <= 4 ? 36 : (rows === 5 ? 32 : 30);
+        var top = 56;
+        var sx = 172 - cols*itemW, gx = sx / (cols + 1);
+        var availH = 292 - top, sy = availH - rows*itemH, gy = sy / (rows + 1);
+        var pos = [];
+        for (var r=0; r<rows; r++) for (var c=0; c<cols; c++){
+          pos.push({ x: 14 + gx + c*(itemW+gx), y: 14 + top + gy + r*(itemH+gy) });
+        }
+        return { positions: pos, itemW: itemW, itemH: itemH };
+      }
+
+      function svbItem(p, W, H){
+        var cx = p.x + W/2;
+        var headCy = p.y + H*0.22;
+        var bodyCy = p.y + H*0.62;
+        return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>' +
+               '<ellipse cx="'+cx+'" cy="'+bodyCy+'" rx="'+(W*0.115)+'" ry="'+(H*0.26)+'" fill="#2F4F4F" opacity=".5"/>' +
+               '<circle cx="'+cx+'" cy="'+headCy+'" r="'+(W*0.09)+'" fill="#2F4F4F" opacity=".6"/>';
+      }
+      function ailItem(p, W, H){
+        var cx = p.x + W/2;
+        var headCy = p.y + H*0.22;
+        var bodyCy = p.y + H*0.62;
+        return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>' +
+               '<ellipse cx="'+cx+'" cy="'+bodyCy+'" rx="'+(W*0.11)+'" ry="'+(H*0.27)+'" fill="#2F4F4F" opacity=".4"/>' +
+               '<circle cx="'+cx+'" cy="'+headCy+'" r="'+(W*0.085)+'" fill="#2F4F4F" opacity=".5"/>';
+      }
+      function svbCoach(cy){
+        var pillY = cy - 7;
+        return '<rect x="76" y="'+pillY+'" width="48" height="14" rx="7" fill="#4A8D84"/>' +
+               '<text x="100" y="'+(pillY+10)+'" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8" font-weight="800" letter-spacing="1.5" fill="#FBF6EC">COACH</text>' +
+               '<circle cx="100" cy="'+(cy+10)+'" r="4" fill="#4A8D84"/>' +
+               '<ellipse cx="100" cy="'+(cy+19)+'" rx="5" ry="5" fill="#4A8D84"/>';
+      }
+      function ailCoach(){
+        return '<rect x="78" y="22" width="44" height="13" rx="6.5" fill="#2F4F4F" opacity=".85"/>' +
+               '<text x="100" y="31.5" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="7.5" font-weight="800" letter-spacing="1.5" fill="#FBF6EC">COACH</text>' +
+               '<circle cx="100" cy="44" r="3.4" fill="#2F4F4F" opacity=".8"/>' +
+               '<ellipse cx="100" cy="52" rx="4.5" ry="4.5" fill="#2F4F4F" opacity=".8"/>' +
+               '<rect x="98" y="50" width="4" height="8" rx="1" fill="#2F4F4F" opacity=".75"/>' +
+               '<circle class="wave wave-1" cx="100" cy="56" r="10" fill="none" stroke="#2F4F4F" stroke-width="1.3" opacity=".5"/>' +
+               '<circle class="wave wave-2" cx="100" cy="56" r="10" fill="none" stroke="#2F4F4F" stroke-width="1.3" opacity=".5"/>' +
+               '<circle class="wave wave-3" cx="100" cy="56" r="10" fill="none" stroke="#2F4F4F" stroke-width="1.3" opacity=".5"/>';
+      }
+
+      function svbSvg(d){
+        var L = svbLayout(d.svbCols, d.svbRows);
+        var items = '';
+        L.positions.forEach(function(p){ items += svbItem(p, L.itemW, L.itemH); });
+        return '<svg class="pq-studio-svg pq-studio-svg--svb" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+               '<rect x="14" y="14" width="172" height="292" rx="20" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5"/>' +
+               items + svbCoach(L.coachY) + '</svg>';
+      }
+      function ailSvg(d){
+        var L = ailLayout(d.ailCols, d.ailRows);
+        var items = '';
+        L.positions.forEach(function(p){ items += ailItem(p, L.itemW, L.itemH); });
+        return '<svg class="pq-studio-svg pq-studio-svg--ailleurs" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+               '<rect x="14" y="14" width="172" height="292" rx="20" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="2.5" opacity=".9"/>' +
+               ailCoach() + items + '</svg>';
+      }
+
+      function slideHtml(d, i){
+        return '<div class="pq-disc-slide' + (i===0 ? ' active' : '') + '" data-disc="' + d.id + '">' +
+          '<div class="pq-disc-tag"><span>' + d.name + '</span></div>' +
+          '<div class="pq-anim-wrap">' +
+            '<div class="pq-side-wrap pq-side-wrap--svb">' +
+              '<p class="pq-side-label">Chez SVB</p>' + svbSvg(d) +
+              '<div><p class="pq-side-count">' + d.svbN + '</p><p class="pq-side-sub">' + d.itemLabel + ' · 1 coach présent</p></div>' +
+            '</div>' +
+            '<div class="pq-anim-text">' +
+              '<h3 class="pq-anim-headline">' + d.svbN + ' ' + d.itemLabel + '.<br/><em>Pas ' + d.ailN + '.</em></h3>' +
+              '<p class="pq-anim-body">' + d.copy + '</p>' +
+            '</div>' +
+            '<div class="pq-side-wrap pq-side-wrap--ailleurs">' +
+              '<p class="pq-side-label">Ailleurs</p>' + ailSvg(d) +
+              '<div><p class="pq-side-count">' + d.ailN + '</p><p class="pq-side-sub">' + d.itemLabel + ' · 1 coach au micro</p></div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }
+
+      var track = document.getElementById('pq-disc-track');
+      var dots = document.getElementById('pq-disc-dots');
+      if (!track || !dots) return;
+
+      track.innerHTML = DISCIPLINES.map(slideHtml).join('');
+      dots.innerHTML = DISCIPLINES.map(function(d, i){
+        return '<button class="pq-disc-dot' + (i===0 ? ' active' : '') + '" data-index="' + i + '" type="button">' + d.name + '</button>';
+      }).join('');
+
+      var slides = track.querySelectorAll('.pq-disc-slide');
+      var dotEls = dots.querySelectorAll('.pq-disc-dot');
+      var current = 0;
+      function show(idx){
+        if (idx < 0) idx = slides.length - 1;
+        if (idx >= slides.length) idx = 0;
+        slides.forEach(function(s, i){ s.classList.toggle('active', i === idx); });
+        dotEls.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
+        current = idx;
+      }
+      document.querySelector('.pq-disc-arrow--prev').addEventListener('click', function(){ show(current - 1); });
+      document.querySelector('.pq-disc-arrow--next').addEventListener('click', function(){ show(current + 1); });
+      dotEls.forEach(function(d, i){ d.addEventListener('click', function(){ show(i); }); });
+    })();
+    </script>
   </section>
+
 
   <!-- === SECTION 2 : TOUTES NOS DISCIPLINES === -->
   <section class="pq-section pq-disciplines-section pq-reveal">
