@@ -779,108 +779,166 @@
       // SVB color: machine = teal solid, mat = sand dashed, bag = teal outline
       // Person color: dark teal #2F4F4F always
 
-      function machineItem(p, W, H, withCardio, strokeCol, strokeWidth, fill, opa){
-        // Reformer/Crossformer : rectangle HORIZONTAL (machine vue du dessus) + rail + poulies
+      // ========= STICK-FIGURE POSES PAR DISCIPLINE =========
+      // Chaque "item" est un petit bonhomme dans la pose signature de la
+      // discipline, avec l'equipement specifique (tapis, sac, machine).
+      // Pas de rectangle/bounding-box generique : c'est le pose + materiel
+      // qui distingue immediatement chaque discipline.
+
+      function poseReformer(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp){
+        // Pilates Reformer : machine horizontale + personne lying avec genoux plies
         var cx = p.x + W/2, cy = p.y + H/2;
-        var mw = W * 0.88;
-        var mh = Math.min(H * 0.5, 22);
-        var mx = cx - mw/2;
-        var my = cy - mh/2;
-        var s = '<rect x="'+mx+'" y="'+my+'" width="'+mw+'" height="'+mh+'" rx="3" fill="'+fill+'" stroke="'+strokeCol+'" stroke-width="'+strokeWidth+'" opacity="'+opa+'"/>' +
-                // Rail horizontal
-                '<line x1="'+(mx+mh*0.4)+'" y1="'+cy+'" x2="'+(mx+mw-mh*0.4)+'" y2="'+cy+'" stroke="'+strokeCol+'" stroke-width="0.7" opacity="'+(opa*0.5)+'"/>' +
-                // Poulies aux 2 bouts
-                '<circle cx="'+(mx+mh*0.4)+'" cy="'+cy+'" r="1.6" fill="'+strokeCol+'" opacity="'+(opa*0.5)+'"/>' +
-                '<circle cx="'+(mx+mw-mh*0.4)+'" cy="'+cy+'" r="1.6" fill="'+strokeCol+'" opacity="'+(opa*0.5)+'"/>';
-        if (withCardio){
-          // Roue cardio en haut (peche) — distingue Crossformer
-          s += '<circle cx="'+(mx+mw-mh*0.4)+'" cy="'+(my-3.5)+'" r="2.6" fill="none" stroke="#E8B496" stroke-width="1.3"/>';
-          s += '<circle cx="'+(mx+mw-mh*0.4)+'" cy="'+(my-3.5)+'" r="0.9" fill="#E8B496"/>';
-        }
-        // Personne couchee horizontale
-        s += '<ellipse cx="'+(cx+1)+'" cy="'+cy+'" rx="'+(mw*0.3)+'" ry="2.4" fill="#2F4F4F" opacity="'+(opa*0.5)+'"/>' +
-             '<circle cx="'+(mx+mw*0.18)+'" cy="'+cy+'" r="2.6" fill="#2F4F4F" opacity="'+(opa*0.65)+'"/>';
-        return s;
+        var mw = W * 0.9, mh = H * 0.4;
+        var mx = cx - mw/2, my = cy - mh/2 + H*0.05;
+        var headR = Math.min(W*0.09, 3.2);
+        return '<rect x="'+mx+'" y="'+my+'" width="'+mw+'" height="'+mh+'" rx="3" fill="'+eqFill+'" stroke="'+eqCol+'" stroke-width="'+sw+'" opacity="'+eqOp+'"/>' +
+               // Ressorts (zigzag a un bout)
+               '<path d="M '+(mx+mw-1)+' '+(my+mh*0.3)+' l 2 1.5 l -2 1 l 2 1 l -2 1.5" fill="none" stroke="#E8B496" stroke-width="'+(sw*0.55)+'" opacity="'+(eqOp*0.95)+'"/>' +
+               // Footbar (a l'autre bout)
+               '<line x1="'+(mx-0.5)+'" y1="'+my+'" x2="'+(mx-0.5)+'" y2="'+(my+mh)+'" stroke="'+eqCol+'" stroke-width="'+sw+'" opacity="'+eqOp+'"/>' +
+               // Personne couchee : tete a gauche, corps horizontal, genoux plies a droite
+               '<circle cx="'+(mx+mw*0.16)+'" cy="'+cy+'" r="'+headR+'" fill="'+pCol+'" opacity="'+pOp+'"/>' +
+               '<line x1="'+(mx+mw*0.16+headR)+'" y1="'+cy+'" x2="'+(mx+mw*0.58)+'" y2="'+cy+'" stroke="'+pCol+'" stroke-width="'+(headR*0.85)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Cuisse remontee
+               '<line x1="'+(mx+mw*0.58)+'" y1="'+cy+'" x2="'+(mx+mw*0.7)+'" y2="'+(cy-mh*0.32)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.75)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Tibia (pied vers le footbar opposé)
+               '<line x1="'+(mx+mw*0.7)+'" y1="'+(cy-mh*0.32)+'" x2="'+(mx+mw*0.78)+'" y2="'+cy+'" stroke="'+pCol+'" stroke-width="'+(headR*0.75)+'" stroke-linecap="round" opacity="'+pOp+'"/>';
       }
 
-      function crossItem(p, W, H, strokeCol, strokeWidth, dashed, opa){
-        // Cross Training : carre + personne DEBOUT (silhouette verticale) + petit haltere
+      function poseCrossformer(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp){
+        // Crossformer = Reformer + roue cardio peche au-dessus
         var cx = p.x + W/2, cy = p.y + H/2;
-        var sz = Math.min(W, H) * 0.78;
-        var sx = cx - sz/2;
-        var sy = cy - sz/2;
-        var dash = dashed ? ' stroke-dasharray="2.5,2.5"' : '';
-        var s = '<rect x="'+sx+'" y="'+sy+'" width="'+sz+'" height="'+sz+'" rx="4" fill="#F3EBD4" stroke="'+strokeCol+'" stroke-width="'+strokeWidth+'"'+dash+' opacity="'+opa+'"/>';
-        // Petit haltere/kettlebell a cote de la personne (peche)
-        s += '<circle cx="'+(cx-sz*0.28)+'" cy="'+(cy+sz*0.18)+'" r="'+(sz*0.07)+'" fill="#E8B496" opacity="'+(opa*0.85)+'"/>';
-        // Personne debout : tete + corps vertical
-        s += '<circle cx="'+(cx+sz*0.05)+'" cy="'+(cy-sz*0.18)+'" r="'+(sz*0.11)+'" fill="#2F4F4F" opacity="'+(opa*0.7)+'"/>' +
-             '<ellipse cx="'+(cx+sz*0.05)+'" cy="'+(cy+sz*0.13)+'" rx="'+(sz*0.1)+'" ry="'+(sz*0.22)+'" fill="#2F4F4F" opacity="'+(opa*0.55)+'"/>';
-        return s;
+        var mw = W * 0.9, mh = H * 0.4;
+        var mx = cx - mw/2, my = cy - mh/2 + H*0.05;
+        return poseReformer(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp) +
+               // Roue cardio au-dessus a un bout
+               '<circle cx="'+(mx+mw*0.85)+'" cy="'+(my-mh*0.35)+'" r="'+(mh*0.25)+'" fill="none" stroke="#E8B496" stroke-width="'+(sw*0.85)+'"/>' +
+               '<circle cx="'+(mx+mw*0.85)+'" cy="'+(my-mh*0.35)+'" r="'+(mh*0.08)+'" fill="#E8B496"/>';
       }
 
-      function yogaItem(p, W, H, strokeCol, strokeWidth, dashed, opa){
-        // Yoga : tapis ROND + personne ASSISE (lotus)
-        var cx = p.x + W/2, cy = p.y + H/2;
-        var r = Math.min(W, H) * 0.42;
-        var dash = dashed ? ' stroke-dasharray="2.5,2.5"' : '';
-        return '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="#F3EBD4" stroke="'+strokeCol+'" stroke-width="'+strokeWidth+'"'+dash+' opacity="'+opa+'"/>' +
-               // Lotus : tete + base triangulaire arrondie (jambes croisees)
-               '<circle cx="'+cx+'" cy="'+(cy-r*0.22)+'" r="'+(r*0.22)+'" fill="#2F4F4F" opacity="'+(opa*0.7)+'"/>' +
-               '<ellipse cx="'+cx+'" cy="'+(cy+r*0.22)+'" rx="'+(r*0.45)+'" ry="'+(r*0.22)+'" fill="#2F4F4F" opacity="'+(opa*0.55)+'"/>';
-      }
-
-      function boxeItem(p, W, H, strokeCol, strokeWidth, opa){
-        // Boxe : sac VERTICAL suspendu + boxeur en bas
+      function poseYoga(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp){
+        // Yoga lotus : tapis rond + personne assise jambes croisees
         var cx = p.x + W/2;
-        var topAttach = p.y + H * 0.08;
-        var bagTop = p.y + H * 0.18;
-        var bagBot = p.y + H * 0.68;
-        var bagCy = (bagTop + bagBot) / 2;
-        var bagRX = W * 0.18;
-        var bagRY = (bagBot - bagTop) / 2;
-        return '<line x1="'+cx+'" y1="'+topAttach+'" x2="'+cx+'" y2="'+bagTop+'" stroke="'+strokeCol+'" stroke-width="0.8" opacity="'+(opa*0.6)+'"/>' +
-               // Attaches en haut
-               '<circle cx="'+cx+'" cy="'+topAttach+'" r="1.5" fill="'+strokeCol+'" opacity="'+(opa*0.7)+'"/>' +
-               // Sac vertical
-               '<ellipse cx="'+cx+'" cy="'+bagCy+'" rx="'+bagRX+'" ry="'+bagRY+'" fill="#FBF6EC" stroke="'+strokeCol+'" stroke-width="'+strokeWidth+'" opacity="'+opa+'"/>' +
-               // Rayures sur le sac
-               '<line x1="'+(cx-bagRX*0.7)+'" y1="'+(bagCy-2)+'" x2="'+(cx+bagRX*0.7)+'" y2="'+(bagCy-2)+'" stroke="'+strokeCol+'" stroke-width="0.5" opacity="'+(opa*0.4)+'"/>' +
-               '<line x1="'+(cx-bagRX*0.7)+'" y1="'+(bagCy+2)+'" x2="'+(cx+bagRX*0.7)+'" y2="'+(bagCy+2)+'" stroke="'+strokeCol+'" stroke-width="0.5" opacity="'+(opa*0.4)+'"/>' +
-               // Boxeur en bas
-               '<circle cx="'+cx+'" cy="'+(p.y + H*0.85)+'" r="'+(W*0.08)+'" fill="#2F4F4F" opacity="'+(opa*0.6)+'"/>';
+        var matCy = p.y + H * 0.78;
+        var matRX = W * 0.42;
+        var matRY = H * 0.1;
+        var headR = Math.min(W*0.11, 3.4);
+        var headCy = p.y + H * 0.22;
+        var bodyBot = p.y + H * 0.62;
+        return '<ellipse cx="'+cx+'" cy="'+matCy+'" rx="'+matRX+'" ry="'+matRY+'" fill="'+eqFill+'" stroke="'+eqCol+'" stroke-width="'+sw+'" stroke-dasharray="1.8,1.5" opacity="'+eqOp+'"/>' +
+               // Tete
+               '<circle cx="'+cx+'" cy="'+headCy+'" r="'+headR+'" fill="'+pCol+'" opacity="'+pOp+'"/>' +
+               // Corps (vertical)
+               '<line x1="'+cx+'" y1="'+(headCy+headR)+'" x2="'+cx+'" y2="'+bodyBot+'" stroke="'+pCol+'" stroke-width="'+(headR*0.85)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Bras vers les genoux (V vers le bas)
+               '<line x1="'+cx+'" y1="'+(headCy+headR+H*0.05)+'" x2="'+(cx-W*0.26)+'" y2="'+(p.y+H*0.7)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.7)+'" stroke-linecap="round" opacity="'+(pOp*0.95)+'"/>' +
+               '<line x1="'+cx+'" y1="'+(headCy+headR+H*0.05)+'" x2="'+(cx+W*0.26)+'" y2="'+(p.y+H*0.7)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.7)+'" stroke-linecap="round" opacity="'+(pOp*0.95)+'"/>' +
+               // Jambes croisees (triangle plein)
+               '<path d="M '+cx+' '+bodyBot+' L '+(cx-W*0.32)+' '+(matCy-matRY*0.3)+' L '+(cx+W*0.32)+' '+(matCy-matRY*0.3)+' Z" fill="'+pCol+'" opacity="'+(pOp*0.85)+'"/>';
       }
 
-      function matLongItem(p, W, H, strokeCol, strokeWidth, dashed, opa){
-        // Pilates au sol : tapis horizontal LONG + personne couchee
+      function poseBoxe(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp){
+        // Boxe : sac vertical suspendu + boxeur a cote avec gants peche leves
+        var cxBag = p.x + W * 0.68;
+        var bagTop = p.y + H * 0.18;
+        var bagBot = p.y + H * 0.72;
+        var bagRX = W * 0.13;
+        var bagCy = (bagTop + bagBot) / 2;
+        var bagRY = (bagBot - bagTop) / 2;
+        // Boxeur
+        var bCx = p.x + W * 0.28;
+        var headR = Math.min(W*0.1, 3);
+        var headCy = p.y + H * 0.28;
+        var armEndY = p.y + H * 0.35;
+        var torsoBot = p.y + H * 0.7;
+        var feetY = p.y + H * 0.9;
+        return '<line x1="'+cxBag+'" y1="'+(p.y+H*0.08)+'" x2="'+cxBag+'" y2="'+bagTop+'" stroke="'+eqCol+'" stroke-width="'+sw+'" opacity="'+(eqOp*0.7)+'"/>' +
+               '<ellipse cx="'+cxBag+'" cy="'+bagCy+'" rx="'+bagRX+'" ry="'+bagRY+'" fill="'+eqFill+'" stroke="'+eqCol+'" stroke-width="'+sw+'" opacity="'+eqOp+'"/>' +
+               // Rayures sur sac
+               '<line x1="'+(cxBag-bagRX*0.7)+'" y1="'+bagCy+'" x2="'+(cxBag+bagRX*0.7)+'" y2="'+bagCy+'" stroke="'+eqCol+'" stroke-width="'+(sw*0.5)+'" opacity="'+(eqOp*0.5)+'"/>' +
+               // Boxeur
+               '<circle cx="'+bCx+'" cy="'+headCy+'" r="'+headR+'" fill="'+pCol+'" opacity="'+pOp+'"/>' +
+               // Corps
+               '<line x1="'+bCx+'" y1="'+(headCy+headR)+'" x2="'+bCx+'" y2="'+torsoBot+'" stroke="'+pCol+'" stroke-width="'+(headR*0.85)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Bras vers le sac (poing devant en haut)
+               '<line x1="'+bCx+'" y1="'+(headCy+headR+H*0.04)+'" x2="'+(cxBag-bagRX-0.5)+'" y2="'+armEndY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.7)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Gant peche
+               '<circle cx="'+(cxBag-bagRX-0.5)+'" cy="'+armEndY+'" r="'+(headR*0.7)+'" fill="#E8B496" opacity="'+(eqOp*0.95)+'"/>' +
+               // Bras garde
+               '<line x1="'+bCx+'" y1="'+(headCy+headR+H*0.03)+'" x2="'+(bCx-W*0.13)+'" y2="'+(headCy+H*0.02)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.65)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               '<circle cx="'+(bCx-W*0.13)+'" cy="'+(headCy+H*0.02)+'" r="'+(headR*0.55)+'" fill="#E8B496" opacity="'+(eqOp*0.95)+'"/>' +
+               // Jambes (stance ecarte)
+               '<line x1="'+bCx+'" y1="'+torsoBot+'" x2="'+(bCx-W*0.1)+'" y2="'+feetY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.75)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               '<line x1="'+bCx+'" y1="'+torsoBot+'" x2="'+(bCx+W*0.1)+'" y2="'+feetY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.75)+'" stroke-linecap="round" opacity="'+pOp+'"/>';
+      }
+
+      function poseCrossTraining(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp){
+        // Cross Training : personne debout en mi-squat + kettlebell peche au sol
+        var cx = p.x + W/2;
+        var headR = Math.min(W*0.11, 3.3);
+        var headCy = p.y + H * 0.16;
+        var torsoBot = p.y + H * 0.5;
+        var kneesY = p.y + H * 0.7;
+        var feetY = p.y + H * 0.9;
+        var kbX = cx + W*0.28;
+        var kbY = p.y + H * 0.85;
+        return // Kettlebell
+               '<rect x="'+(kbX-W*0.06)+'" y="'+(kbY-H*0.025)+'" width="'+(W*0.12)+'" height="'+(H*0.05)+'" rx="1" fill="none" stroke="#E8B496" stroke-width="'+(sw*0.85)+'"/>' +
+               '<circle cx="'+kbX+'" cy="'+(kbY+H*0.04)+'" r="'+(W*0.11)+'" fill="#E8B496" opacity="'+(eqOp*0.9)+'"/>' +
+               // Personne
+               '<circle cx="'+cx+'" cy="'+headCy+'" r="'+headR+'" fill="'+pCol+'" opacity="'+pOp+'"/>' +
+               // Torse
+               '<line x1="'+cx+'" y1="'+(headCy+headR)+'" x2="'+cx+'" y2="'+torsoBot+'" stroke="'+pCol+'" stroke-width="'+(headR*0.9)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Bras (un vers la kettlebell)
+               '<line x1="'+cx+'" y1="'+(headCy+headR+H*0.03)+'" x2="'+(cx+W*0.2)+'" y2="'+(p.y+H*0.5)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.7)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               '<line x1="'+cx+'" y1="'+(headCy+headR+H*0.03)+'" x2="'+(cx-W*0.18)+'" y2="'+(p.y+H*0.42)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.7)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Jambes en mi-squat (genoux pliés)
+               '<line x1="'+cx+'" y1="'+torsoBot+'" x2="'+(cx-W*0.12)+'" y2="'+kneesY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.8)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               '<line x1="'+(cx-W*0.12)+'" y1="'+kneesY+'" x2="'+(cx-W*0.16)+'" y2="'+feetY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.8)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               '<line x1="'+cx+'" y1="'+torsoBot+'" x2="'+(cx+W*0.12)+'" y2="'+kneesY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.8)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               '<line x1="'+(cx+W*0.12)+'" y1="'+kneesY+'" x2="'+(cx+W*0.16)+'" y2="'+feetY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.8)+'" stroke-linecap="round" opacity="'+pOp+'"/>';
+      }
+
+      function posePilatesSol(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp){
+        // Pilates au sol : tapis long horizontal + personne lying en "The Hundred"
+        // (couchee dos au sol, jambes en tabletop, bras leves le long du corps)
         var cx = p.x + W/2, cy = p.y + H/2;
-        var mw = W * 0.92;
-        var mh = H * 0.55;
-        var mx = cx - mw/2;
-        var my = cy - mh/2;
-        var dash = dashed ? ' stroke-dasharray="2.5,2.5"' : '';
-        return '<rect x="'+mx+'" y="'+my+'" width="'+mw+'" height="'+mh+'" rx="6" fill="#F3EBD4" stroke="'+strokeCol+'" stroke-width="'+strokeWidth+'"'+dash+' opacity="'+opa+'"/>' +
-               // Personne couchee horizontale
-               '<ellipse cx="'+(cx+1)+'" cy="'+cy+'" rx="'+(mw*0.28)+'" ry="3.2" fill="#2F4F4F" opacity="'+(opa*0.55)+'"/>' +
-               '<circle cx="'+(mx+mw*0.15)+'" cy="'+cy+'" r="2.8" fill="#2F4F4F" opacity="'+(opa*0.7)+'"/>';
+        var mw = W * 0.94, mh = H * 0.55;
+        var mx = cx - mw/2, my = cy - mh/2 + H*0.06;
+        var headR = Math.min(W*0.085, 3);
+        return '<rect x="'+mx+'" y="'+my+'" width="'+mw+'" height="'+mh+'" rx="5" fill="'+eqFill+'" stroke="'+eqCol+'" stroke-width="'+sw+'" stroke-dasharray="1.8,1.5" opacity="'+eqOp+'"/>' +
+               // Tete a gauche
+               '<circle cx="'+(mx+mw*0.13)+'" cy="'+cy+'" r="'+headR+'" fill="'+pCol+'" opacity="'+pOp+'"/>' +
+               // Corps horizontal
+               '<line x1="'+(mx+mw*0.13+headR)+'" y1="'+cy+'" x2="'+(mx+mw*0.55)+'" y2="'+cy+'" stroke="'+pCol+'" stroke-width="'+(headR*0.85)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Cuisses remontees (tabletop)
+               '<line x1="'+(mx+mw*0.55)+'" y1="'+cy+'" x2="'+(mx+mw*0.62)+'" y2="'+(cy-mh*0.35)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.75)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Tibias paralleles au sol
+               '<line x1="'+(mx+mw*0.62)+'" y1="'+(cy-mh*0.35)+'" x2="'+(mx+mw*0.85)+'" y2="'+(cy-mh*0.35)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.75)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Bras leves le long du corps (the Hundred)
+               '<line x1="'+(mx+mw*0.22)+'" y1="'+cy+'" x2="'+(mx+mw*0.34)+'" y2="'+(cy-mh*0.25)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.7)+'" stroke-linecap="round" opacity="'+pOp+'"/>';
       }
 
       function svbItem(p, W, H, style){
-        if (style === 'reformer')    return machineItem(p, W, H, false, '#4A8D84', 1.6, '#FBF6EC', 1);
-        if (style === 'crossformer') return machineItem(p, W, H, true,  '#4A8D84', 1.6, '#FBF6EC', 1);
-        if (style === 'cross')       return crossItem(p, W, H, '#4A8D84', 1.1, true, 0.95);
-        if (style === 'yoga')        return yogaItem(p, W, H, '#4A8D84', 1.1, true, 0.95);
-        if (style === 'boxe')        return boxeItem(p, W, H, '#4A8D84', 1.6, 1);
-        if (style === 'pilates-sol') return matLongItem(p, W, H, '#4A8D84', 1.1, true, 0.95);
+        var sw = 1.4, eqCol = '#4A8D84', eqFill = '#FBF6EC', eqOp = 1;
+        var matFill = '#F3EBD4', pCol = '#2F4F4F', pOp = 0.85;
+        if (style === 'reformer')    return poseReformer(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp);
+        if (style === 'crossformer') return poseCrossformer(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp);
+        if (style === 'cross')       return poseCrossTraining(p, W, H, sw, eqCol, matFill, eqOp, pCol, pOp);
+        if (style === 'yoga')        return poseYoga(p, W, H, sw, eqCol, matFill, eqOp, pCol, pOp);
+        if (style === 'boxe')        return poseBoxe(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp);
+        if (style === 'pilates-sol') return posePilatesSol(p, W, H, sw, eqCol, matFill, eqOp, pCol, pOp);
         return '';
       }
       function ailItem(p, W, H, style){
-        if (style === 'reformer')    return machineItem(p, W, H, false, '#2F4F4F', 1.1, '#FBF6EC', 0.75);
-        if (style === 'crossformer') return machineItem(p, W, H, true,  '#2F4F4F', 1.1, '#FBF6EC', 0.75);
-        if (style === 'cross')       return crossItem(p, W, H, '#2F4F4F', 0.9, true, 0.7);
-        if (style === 'yoga')        return yogaItem(p, W, H, '#2F4F4F', 0.9, true, 0.7);
-        if (style === 'boxe')        return boxeItem(p, W, H, '#2F4F4F', 1.1, 0.75);
-        if (style === 'pilates-sol') return matLongItem(p, W, H, '#2F4F4F', 0.9, true, 0.7);
+        var sw = 0.9, eqCol = '#2F4F4F', eqFill = '#FBF6EC', eqOp = 0.7;
+        var matFill = '#F3EBD4', pCol = '#2F4F4F', pOp = 0.6;
+        if (style === 'reformer')    return poseReformer(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp);
+        if (style === 'crossformer') return poseCrossformer(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp);
+        if (style === 'cross')       return poseCrossTraining(p, W, H, sw, eqCol, matFill, eqOp, pCol, pOp);
+        if (style === 'yoga')        return poseYoga(p, W, H, sw, eqCol, matFill, eqOp, pCol, pOp);
+        if (style === 'boxe')        return poseBoxe(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp);
+        if (style === 'pilates-sol') return posePilatesSol(p, W, H, sw, eqCol, matFill, eqOp, pCol, pOp);
         return '';
       }
       function svbCoach(cy){
