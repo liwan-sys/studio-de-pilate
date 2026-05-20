@@ -735,12 +735,12 @@
     <script>
     (function(){
       var DISCIPLINES = [
-        { id:'reformer', name:'Pilates Reformer', svbN:9, ailN:20, svbCols:3, svbRows:3, ailCols:4, ailRows:5, itemLabel:'reformer', style:'machine', copy:'Le coach passe à chaque machine. Il ajuste tes ressorts, te corrige, repère ta posture.' },
-        { id:'crossformer', name:'Crossformer', svbN:8, ailN:20, svbCols:4, svbRows:2, ailCols:4, ailRows:5, itemLabel:'reformer', style:'machine', copy:'Reformer + cardio dynamique. Encore plus serré (8 max) pour gérer l’intensité et la sécurité des transitions.' },
-        { id:'cross', name:'Cross Training', svbN:12, ailN:30, svbCols:4, svbRows:3, ailCols:5, ailRows:6, itemLabel:'tapis', style:'mat', copy:'4 formats (Body, Core, Rox, Yoga). À 12, le coach voit ta technique, ta posture, ton équilibre.' },
-        { id:'yoga', name:'Yoga', svbN:12, ailN:30, svbCols:4, svbRows:3, ailCols:5, ailRows:6, itemLabel:'tapis', style:'mat', copy:'Vinyasa, Hatha Flow, Yin, Cross Yoga. À 12, le prof ajuste tes postures physiquement (hands-on).' },
-        { id:'boxe', name:'Boxe Anglaise', svbN:12, ailN:25, svbCols:4, svbRows:3, ailCols:5, ailRows:5, itemLabel:'sacs', style:'bag', copy:'Sac, shadow, pieds, gardes, combinaisons. À 12, le coach reprend ta garde, tes appuis, à voix basse.' },
-        { id:'pilates-sol', name:'Pilates au sol', svbN:10, ailN:30, svbCols:5, svbRows:2, ailCols:5, ailRows:6, itemLabel:'tapis', style:'mat', copy:'Classic & Power Pilates. Le coach surveille ton bassin, ta respiration, l’activation de ton powerhouse.' }
+        { id:'reformer', name:'Pilates Reformer', svbN:9, ailN:20, svbCols:3, svbRows:3, ailCols:4, ailRows:5, itemLabel:'reformer', style:'reformer', copy:'Le coach passe à chaque machine. Il ajuste tes ressorts, te corrige, repère ta posture.' },
+        { id:'crossformer', name:'Crossformer', svbN:8, ailN:20, svbCols:4, svbRows:2, ailCols:4, ailRows:5, itemLabel:'reformer', style:'crossformer', copy:'Reformer + cardio dynamique. Encore plus serré (8 max) pour gérer l’intensité et la sécurité des transitions.' },
+        { id:'cross', name:'Cross Training', svbN:12, ailN:30, svbCols:4, svbRows:3, ailCols:5, ailRows:6, itemLabel:'spots', style:'cross', copy:'4 formats (Body, Core, Rox, Yoga). À 12, le coach voit ta technique, ta posture, ton équilibre.' },
+        { id:'yoga', name:'Yoga', svbN:12, ailN:30, svbCols:4, svbRows:3, ailCols:5, ailRows:6, itemLabel:'tapis', style:'yoga', copy:'Vinyasa, Hatha Flow, Yin, Cross Yoga. À 12, le prof ajuste tes postures physiquement (hands-on).' },
+        { id:'boxe', name:'Boxe Anglaise', svbN:12, ailN:25, svbCols:4, svbRows:3, ailCols:5, ailRows:5, itemLabel:'sacs', style:'boxe', copy:'Sac, shadow, pieds, gardes, combinaisons. À 12, le coach reprend ta garde, tes appuis, à voix basse.' },
+        { id:'pilates-sol', name:'Pilates au sol', svbN:10, ailN:30, svbCols:5, svbRows:2, ailCols:5, ailRows:6, itemLabel:'tapis', style:'pilates-sol', copy:'Classic & Power Pilates. Le coach surveille ton bassin, ta respiration, l’activation de ton powerhouse.' }
       ];
 
       function svbLayout(cols, rows){
@@ -775,48 +775,113 @@
         return { positions: pos, itemW: itemW, itemH: itemH };
       }
 
-      function person(cx, cy, headCy, headR, bodyRX, bodyRY, opa){
-        return '<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+bodyRX+'" ry="'+bodyRY+'" fill="#2F4F4F" opacity="'+(opa-0.1)+'"/>' +
-               '<circle cx="'+cx+'" cy="'+headCy+'" r="'+headR+'" fill="#2F4F4F" opacity="'+opa+'"/>';
+      // ========= ITEMS PAR DISCIPLINE — SHAPES DISTINCTES =========
+      // SVB color: machine = teal solid, mat = sand dashed, bag = teal outline
+      // Person color: dark teal #2F4F4F always
+
+      function machineItem(p, W, H, withCardio, strokeCol, strokeWidth, fill, opa){
+        // Reformer/Crossformer : rectangle HORIZONTAL (machine vue du dessus) + rail + poulies
+        var cx = p.x + W/2, cy = p.y + H/2;
+        var mw = W * 0.88;
+        var mh = Math.min(H * 0.5, 22);
+        var mx = cx - mw/2;
+        var my = cy - mh/2;
+        var s = '<rect x="'+mx+'" y="'+my+'" width="'+mw+'" height="'+mh+'" rx="3" fill="'+fill+'" stroke="'+strokeCol+'" stroke-width="'+strokeWidth+'" opacity="'+opa+'"/>' +
+                // Rail horizontal
+                '<line x1="'+(mx+mh*0.4)+'" y1="'+cy+'" x2="'+(mx+mw-mh*0.4)+'" y2="'+cy+'" stroke="'+strokeCol+'" stroke-width="0.7" opacity="'+(opa*0.5)+'"/>' +
+                // Poulies aux 2 bouts
+                '<circle cx="'+(mx+mh*0.4)+'" cy="'+cy+'" r="1.6" fill="'+strokeCol+'" opacity="'+(opa*0.5)+'"/>' +
+                '<circle cx="'+(mx+mw-mh*0.4)+'" cy="'+cy+'" r="1.6" fill="'+strokeCol+'" opacity="'+(opa*0.5)+'"/>';
+        if (withCardio){
+          // Roue cardio en haut (peche) — distingue Crossformer
+          s += '<circle cx="'+(mx+mw-mh*0.4)+'" cy="'+(my-3.5)+'" r="2.6" fill="none" stroke="#E8B496" stroke-width="1.3"/>';
+          s += '<circle cx="'+(mx+mw-mh*0.4)+'" cy="'+(my-3.5)+'" r="0.9" fill="#E8B496"/>';
+        }
+        // Personne couchee horizontale
+        s += '<ellipse cx="'+(cx+1)+'" cy="'+cy+'" rx="'+(mw*0.3)+'" ry="2.4" fill="#2F4F4F" opacity="'+(opa*0.5)+'"/>' +
+             '<circle cx="'+(mx+mw*0.18)+'" cy="'+cy+'" r="2.6" fill="#2F4F4F" opacity="'+(opa*0.65)+'"/>';
+        return s;
+      }
+
+      function crossItem(p, W, H, strokeCol, strokeWidth, dashed, opa){
+        // Cross Training : carre + personne DEBOUT (silhouette verticale) + petit haltere
+        var cx = p.x + W/2, cy = p.y + H/2;
+        var sz = Math.min(W, H) * 0.78;
+        var sx = cx - sz/2;
+        var sy = cy - sz/2;
+        var dash = dashed ? ' stroke-dasharray="2.5,2.5"' : '';
+        var s = '<rect x="'+sx+'" y="'+sy+'" width="'+sz+'" height="'+sz+'" rx="4" fill="#F3EBD4" stroke="'+strokeCol+'" stroke-width="'+strokeWidth+'"'+dash+' opacity="'+opa+'"/>';
+        // Petit haltere/kettlebell a cote de la personne (peche)
+        s += '<circle cx="'+(cx-sz*0.28)+'" cy="'+(cy+sz*0.18)+'" r="'+(sz*0.07)+'" fill="#E8B496" opacity="'+(opa*0.85)+'"/>';
+        // Personne debout : tete + corps vertical
+        s += '<circle cx="'+(cx+sz*0.05)+'" cy="'+(cy-sz*0.18)+'" r="'+(sz*0.11)+'" fill="#2F4F4F" opacity="'+(opa*0.7)+'"/>' +
+             '<ellipse cx="'+(cx+sz*0.05)+'" cy="'+(cy+sz*0.13)+'" rx="'+(sz*0.1)+'" ry="'+(sz*0.22)+'" fill="#2F4F4F" opacity="'+(opa*0.55)+'"/>';
+        return s;
+      }
+
+      function yogaItem(p, W, H, strokeCol, strokeWidth, dashed, opa){
+        // Yoga : tapis ROND + personne ASSISE (lotus)
+        var cx = p.x + W/2, cy = p.y + H/2;
+        var r = Math.min(W, H) * 0.42;
+        var dash = dashed ? ' stroke-dasharray="2.5,2.5"' : '';
+        return '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="#F3EBD4" stroke="'+strokeCol+'" stroke-width="'+strokeWidth+'"'+dash+' opacity="'+opa+'"/>' +
+               // Lotus : tete + base triangulaire arrondie (jambes croisees)
+               '<circle cx="'+cx+'" cy="'+(cy-r*0.22)+'" r="'+(r*0.22)+'" fill="#2F4F4F" opacity="'+(opa*0.7)+'"/>' +
+               '<ellipse cx="'+cx+'" cy="'+(cy+r*0.22)+'" rx="'+(r*0.45)+'" ry="'+(r*0.22)+'" fill="#2F4F4F" opacity="'+(opa*0.55)+'"/>';
+      }
+
+      function boxeItem(p, W, H, strokeCol, strokeWidth, opa){
+        // Boxe : sac VERTICAL suspendu + boxeur en bas
+        var cx = p.x + W/2;
+        var topAttach = p.y + H * 0.08;
+        var bagTop = p.y + H * 0.18;
+        var bagBot = p.y + H * 0.68;
+        var bagCy = (bagTop + bagBot) / 2;
+        var bagRX = W * 0.18;
+        var bagRY = (bagBot - bagTop) / 2;
+        return '<line x1="'+cx+'" y1="'+topAttach+'" x2="'+cx+'" y2="'+bagTop+'" stroke="'+strokeCol+'" stroke-width="0.8" opacity="'+(opa*0.6)+'"/>' +
+               // Attaches en haut
+               '<circle cx="'+cx+'" cy="'+topAttach+'" r="1.5" fill="'+strokeCol+'" opacity="'+(opa*0.7)+'"/>' +
+               // Sac vertical
+               '<ellipse cx="'+cx+'" cy="'+bagCy+'" rx="'+bagRX+'" ry="'+bagRY+'" fill="#FBF6EC" stroke="'+strokeCol+'" stroke-width="'+strokeWidth+'" opacity="'+opa+'"/>' +
+               // Rayures sur le sac
+               '<line x1="'+(cx-bagRX*0.7)+'" y1="'+(bagCy-2)+'" x2="'+(cx+bagRX*0.7)+'" y2="'+(bagCy-2)+'" stroke="'+strokeCol+'" stroke-width="0.5" opacity="'+(opa*0.4)+'"/>' +
+               '<line x1="'+(cx-bagRX*0.7)+'" y1="'+(bagCy+2)+'" x2="'+(cx+bagRX*0.7)+'" y2="'+(bagCy+2)+'" stroke="'+strokeCol+'" stroke-width="0.5" opacity="'+(opa*0.4)+'"/>' +
+               // Boxeur en bas
+               '<circle cx="'+cx+'" cy="'+(p.y + H*0.85)+'" r="'+(W*0.08)+'" fill="#2F4F4F" opacity="'+(opa*0.6)+'"/>';
+      }
+
+      function matLongItem(p, W, H, strokeCol, strokeWidth, dashed, opa){
+        // Pilates au sol : tapis horizontal LONG + personne couchee
+        var cx = p.x + W/2, cy = p.y + H/2;
+        var mw = W * 0.92;
+        var mh = H * 0.55;
+        var mx = cx - mw/2;
+        var my = cy - mh/2;
+        var dash = dashed ? ' stroke-dasharray="2.5,2.5"' : '';
+        return '<rect x="'+mx+'" y="'+my+'" width="'+mw+'" height="'+mh+'" rx="6" fill="#F3EBD4" stroke="'+strokeCol+'" stroke-width="'+strokeWidth+'"'+dash+' opacity="'+opa+'"/>' +
+               // Personne couchee horizontale
+               '<ellipse cx="'+(cx+1)+'" cy="'+cy+'" rx="'+(mw*0.28)+'" ry="3.2" fill="#2F4F4F" opacity="'+(opa*0.55)+'"/>' +
+               '<circle cx="'+(mx+mw*0.15)+'" cy="'+cy+'" r="2.8" fill="#2F4F4F" opacity="'+(opa*0.7)+'"/>';
       }
 
       function svbItem(p, W, H, style){
-        var cx = p.x + W/2;
-        if (style === 'bag'){
-          // Boxe — sac suspendu (cercle vu du dessus) + boxeur a cote
-          var bagCy = p.y + H*0.32;
-          var bagR = Math.min(W*0.32, H*0.22);
-          return '<circle cx="'+cx+'" cy="'+bagCy+'" r="'+bagR+'" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.8"/>' +
-                 '<circle cx="'+cx+'" cy="'+bagCy+'" r="'+(bagR*0.4)+'" fill="#4A8D84" opacity=".3"/>' +
-                 person(cx, p.y + H*0.78, p.y + H*0.6, W*0.075, W*0.1, H*0.14, 0.55);
-        }
-        if (style === 'mat'){
-          // Tapis — rectangle plus arrondi, motif pointille, fill sable
-          return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="8" fill="#F3EBD4" stroke="#4A8D84" stroke-width="1.1" stroke-dasharray="2.5,2.5" opacity=".85"/>' +
-                 person(cx, p.y + H*0.62, p.y + H*0.22, W*0.09, W*0.115, H*0.26, 0.6);
-        }
-        // machine — Reformer/Crossformer : rectangle avec rail vertical (chariot)
-        return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="4" fill="#FBF6EC" stroke="#4A8D84" stroke-width="1.6"/>' +
-               '<line x1="'+cx+'" y1="'+(p.y+H*0.08)+'" x2="'+cx+'" y2="'+(p.y+H*0.92)+'" stroke="#4A8D84" stroke-width="0.7" opacity=".3"/>' +
-               '<line x1="'+(p.x+W*0.15)+'" y1="'+(p.y+H*0.5)+'" x2="'+(p.x+W*0.85)+'" y2="'+(p.y+H*0.5)+'" stroke="#4A8D84" stroke-width="0.7" opacity=".25"/>' +
-               person(cx, p.y + H*0.62, p.y + H*0.22, W*0.09, W*0.115, H*0.26, 0.6);
+        if (style === 'reformer')    return machineItem(p, W, H, false, '#4A8D84', 1.6, '#FBF6EC', 1);
+        if (style === 'crossformer') return machineItem(p, W, H, true,  '#4A8D84', 1.6, '#FBF6EC', 1);
+        if (style === 'cross')       return crossItem(p, W, H, '#4A8D84', 1.1, true, 0.95);
+        if (style === 'yoga')        return yogaItem(p, W, H, '#4A8D84', 1.1, true, 0.95);
+        if (style === 'boxe')        return boxeItem(p, W, H, '#4A8D84', 1.6, 1);
+        if (style === 'pilates-sol') return matLongItem(p, W, H, '#4A8D84', 1.1, true, 0.95);
+        return '';
       }
       function ailItem(p, W, H, style){
-        var cx = p.x + W/2;
-        if (style === 'bag'){
-          var bagCy = p.y + H*0.4;
-          var bagR = Math.min(W*0.32, H*0.24);
-          return '<circle cx="'+cx+'" cy="'+bagCy+'" r="'+bagR+'" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>' +
-                 person(cx, p.y + H*0.82, p.y + H*0.66, W*0.07, W*0.09, H*0.12, 0.45);
-        }
-        if (style === 'mat'){
-          return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="5" fill="#F3EBD4" stroke="#2F4F4F" stroke-width="0.8" stroke-dasharray="2,2" opacity=".7"/>' +
-                 person(cx, p.y + H*0.62, p.y + H*0.22, W*0.085, W*0.11, H*0.27, 0.5);
-        }
-        // machine
-        return '<rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="3" fill="#FBF6EC" stroke="#2F4F4F" stroke-width="1.1" opacity=".75"/>' +
-               '<line x1="'+cx+'" y1="'+(p.y+H*0.1)+'" x2="'+cx+'" y2="'+(p.y+H*0.9)+'" stroke="#2F4F4F" stroke-width="0.5" opacity=".4"/>' +
-               person(cx, p.y + H*0.62, p.y + H*0.22, W*0.085, W*0.11, H*0.27, 0.5);
+        if (style === 'reformer')    return machineItem(p, W, H, false, '#2F4F4F', 1.1, '#FBF6EC', 0.75);
+        if (style === 'crossformer') return machineItem(p, W, H, true,  '#2F4F4F', 1.1, '#FBF6EC', 0.75);
+        if (style === 'cross')       return crossItem(p, W, H, '#2F4F4F', 0.9, true, 0.7);
+        if (style === 'yoga')        return yogaItem(p, W, H, '#2F4F4F', 0.9, true, 0.7);
+        if (style === 'boxe')        return boxeItem(p, W, H, '#2F4F4F', 1.1, 0.75);
+        if (style === 'pilates-sol') return matLongItem(p, W, H, '#2F4F4F', 0.9, true, 0.7);
+        return '';
       }
       function svbCoach(cy){
         var pillY = cy - 7;
