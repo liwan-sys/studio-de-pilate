@@ -915,9 +915,8 @@
         var kbR = Math.min(W*0.16, 5.5);  // plus grosse pour etre visible
         var kbCx = handX;
         var kbCy = handY + kbR;
-        return // Personne debout
-               // Tete
-               '<circle cx="'+cx+'" cy="'+headCy+'" r="'+headR+'" fill="'+pCol+'" opacity="'+pOp+'"/>' +
+        // Personne debout
+        return '<circle cx="'+cx+'" cy="'+headCy+'" r="'+headR+'" fill="'+pCol+'" opacity="'+pOp+'"/>' +
                // Torse (vertical)
                '<line x1="'+cx+'" y1="'+(headCy+headR)+'" x2="'+cx+'" y2="'+torsoBot+'" stroke="'+pCol+'" stroke-width="'+(headR*0.95)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
                // Bras gauche le long du corps (au repos)
