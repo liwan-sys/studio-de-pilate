@@ -830,19 +830,17 @@
       }
 
       function poseCrossformer(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp){
-        // Crossformer = Reformer + roue cardio peche au-dessus
+        // Crossformer = Reformer + lignes de vitesse + goutte de sueur (intensite cardio)
         var cx = p.x + W/2, cy = p.y + H/2;
         var mw = W * 0.9, mh = H * 0.4;
         var mx = cx - mw/2, my = cy - mh/2 + H*0.05;
-        // Roue cardio anime + 3 rayons pour effet "spin"
-        var rcx = mx+mw*0.85, rcy = my-mh*0.35, rr = mh*0.25;
         return poseReformer(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp) +
-               '<g class="pq-anim-spin" style="transform-origin:'+rcx+'px '+rcy+'px;">' +
-                 '<circle cx="'+rcx+'" cy="'+rcy+'" r="'+rr+'" fill="none" stroke="#E8B496" stroke-width="'+(sw*0.85)+'"/>' +
-                 '<line x1="'+(rcx-rr*0.7)+'" y1="'+rcy+'" x2="'+(rcx+rr*0.7)+'" y2="'+rcy+'" stroke="#E8B496" stroke-width="'+(sw*0.5)+'" opacity=".6"/>' +
-                 '<line x1="'+rcx+'" y1="'+(rcy-rr*0.7)+'" x2="'+rcx+'" y2="'+(rcy+rr*0.7)+'" stroke="#E8B496" stroke-width="'+(sw*0.5)+'" opacity=".6"/>' +
-               '</g>' +
-               '<circle cx="'+rcx+'" cy="'+rcy+'" r="'+(rr*0.18)+'" fill="#E8B496"/>';
+               // Lignes de vitesse (speed lines) sortant du bout droit du chariot
+               '<line class="pq-anim-pulse" x1="'+(mx+mw+1)+'" y1="'+(my+mh*0.25)+'" x2="'+(mx+mw+6)+'" y2="'+(my+mh*0.25)+'" stroke="#E8B496" stroke-width="'+(sw*0.7)+'" stroke-linecap="round"/>' +
+               '<line class="pq-anim-pulse" x1="'+(mx+mw+1)+'" y1="'+(my+mh*0.5)+'" x2="'+(mx+mw+9)+'" y2="'+(my+mh*0.5)+'" stroke="#E8B496" stroke-width="'+(sw*0.7)+'" stroke-linecap="round" style="animation-delay:.15s;"/>' +
+               '<line class="pq-anim-pulse" x1="'+(mx+mw+1)+'" y1="'+(my+mh*0.75)+'" x2="'+(mx+mw+6)+'" y2="'+(my+mh*0.75)+'" stroke="#E8B496" stroke-width="'+(sw*0.7)+'" stroke-linecap="round" style="animation-delay:.3s;"/>' +
+               // Goutte de sueur au-dessus du bonhomme
+               '<path d="M '+(mx+mw*0.18)+' '+(my-3)+' q -1.5 -2.5 0 -4.5 q 1.5 2 0 4.5 z" fill="#88C0A6" opacity="'+(eqOp*0.85)+'"/>';
       }
 
       function poseYoga(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp){
@@ -904,32 +902,40 @@
       }
 
       function poseCrossTraining(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp){
-        // Cross Training : personne debout en mi-squat + kettlebell peche au sol
+        // Cross Training : bonhomme DEBOUT avec une grosse KETTLEBELL TENUE
+        // dans une main qui pend a hauteur de hanche (visible, pas au sol).
         var cx = p.x + W/2;
-        var headR = Math.min(W*0.11, 3.3);
-        var headCy = p.y + H * 0.16;
-        var torsoBot = p.y + H * 0.5;
-        var kneesY = p.y + H * 0.7;
-        var feetY = p.y + H * 0.9;
-        var kbX = cx + W*0.28;
-        var kbY = p.y + H * 0.85;
-        return // Kettlebell (anim bounce subtil)
-               '<g class="pq-anim-bounce">' +
-                 '<rect x="'+(kbX-W*0.06)+'" y="'+(kbY-H*0.025)+'" width="'+(W*0.12)+'" height="'+(H*0.05)+'" rx="1" fill="none" stroke="#E8B496" stroke-width="'+(sw*0.85)+'"/>' +
-                 '<circle cx="'+kbX+'" cy="'+(kbY+H*0.04)+'" r="'+(W*0.11)+'" fill="#E8B496" opacity="'+(eqOp*0.9)+'"/>' +
-               '</g>' +
-               // Personne
+        var headR = Math.min(W*0.13, 4);
+        var headCy = p.y + H * 0.17;
+        var torsoBot = p.y + H * 0.58;
+        var feetY = p.y + H * 0.94;
+        // Kettlebell tenue dans la main droite, niveau hanche
+        var handX = cx + W*0.22;
+        var handY = p.y + H * 0.55;
+        var kbR = Math.min(W*0.16, 5.5);  // plus grosse pour etre visible
+        var kbCx = handX;
+        var kbCy = handY + kbR;
+        return // Personne debout
+               // Tete
                '<circle cx="'+cx+'" cy="'+headCy+'" r="'+headR+'" fill="'+pCol+'" opacity="'+pOp+'"/>' +
-               // Torse
-               '<line x1="'+cx+'" y1="'+(headCy+headR)+'" x2="'+cx+'" y2="'+torsoBot+'" stroke="'+pCol+'" stroke-width="'+(headR*0.9)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
-               // Bras (un vers la kettlebell)
-               '<line x1="'+cx+'" y1="'+(headCy+headR+H*0.03)+'" x2="'+(cx+W*0.2)+'" y2="'+(p.y+H*0.5)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.7)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
-               '<line x1="'+cx+'" y1="'+(headCy+headR+H*0.03)+'" x2="'+(cx-W*0.18)+'" y2="'+(p.y+H*0.42)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.7)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
-               // Jambes en mi-squat (genoux pliés)
-               '<line x1="'+cx+'" y1="'+torsoBot+'" x2="'+(cx-W*0.12)+'" y2="'+kneesY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.8)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
-               '<line x1="'+(cx-W*0.12)+'" y1="'+kneesY+'" x2="'+(cx-W*0.16)+'" y2="'+feetY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.8)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
-               '<line x1="'+cx+'" y1="'+torsoBot+'" x2="'+(cx+W*0.12)+'" y2="'+kneesY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.8)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
-               '<line x1="'+(cx+W*0.12)+'" y1="'+kneesY+'" x2="'+(cx+W*0.16)+'" y2="'+feetY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.8)+'" stroke-linecap="round" opacity="'+pOp+'"/>';
+               // Torse (vertical)
+               '<line x1="'+cx+'" y1="'+(headCy+headR)+'" x2="'+cx+'" y2="'+torsoBot+'" stroke="'+pCol+'" stroke-width="'+(headR*0.95)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Bras gauche le long du corps (au repos)
+               '<line x1="'+cx+'" y1="'+(headCy+headR+H*0.04)+'" x2="'+(cx-W*0.18)+'" y2="'+(p.y+H*0.5)+'" stroke="'+pCol+'" stroke-width="'+(headR*0.75)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Bras droit qui tient la kettlebell (descend vers la main)
+               '<line x1="'+cx+'" y1="'+(headCy+headR+H*0.04)+'" x2="'+handX+'" y2="'+handY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.75)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // Jambes legerement ecartees (stance fonctionnel)
+               '<line x1="'+cx+'" y1="'+torsoBot+'" x2="'+(cx-W*0.11)+'" y2="'+feetY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.85)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               '<line x1="'+cx+'" y1="'+torsoBot+'" x2="'+(cx+W*0.11)+'" y2="'+feetY+'" stroke="'+pCol+'" stroke-width="'+(headR*0.85)+'" stroke-linecap="round" opacity="'+pOp+'"/>' +
+               // KETTLEBELL tenue, anim bounce subtil
+               '<g class="pq-anim-bounce">' +
+                 // Anse (rect haut)
+                 '<rect x="'+(kbCx-kbR*0.45)+'" y="'+(kbCy-kbR*0.95)+'" width="'+(kbR*0.9)+'" height="'+(kbR*0.5)+'" rx="'+(kbR*0.15)+'" fill="none" stroke="#E8B496" stroke-width="'+(sw*1.1)+'"/>' +
+                 // Cloche (cercle plein peche)
+                 '<circle cx="'+kbCx+'" cy="'+kbCy+'" r="'+kbR+'" fill="#E8B496" opacity="'+(eqOp*0.95)+'"/>' +
+                 // Reflet sur la cloche
+                 '<circle cx="'+(kbCx-kbR*0.3)+'" cy="'+(kbCy-kbR*0.3)+'" r="'+(kbR*0.2)+'" fill="#FBF6EC" opacity=".4"/>' +
+               '</g>';
       }
 
       function posePilatesSol(p, W, H, sw, eqCol, eqFill, eqOp, pCol, pOp){
