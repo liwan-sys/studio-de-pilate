@@ -245,84 +245,19 @@
     <div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none;z-index:5;">
       <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(3rem,14vw,7rem);color:white;margin:0 0 10px;line-height:1;text-shadow:0 4px 20px rgba(0,0,0,0.4);">Santez Vous Bien<span class="sr-only"> — Studio SVB Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Yoga et Boxe Anglaise. Petits groupes, 9 places max, 16 coachs diplômés, 146 avis 5 étoiles.</span></h1>
       <p style="color:rgba(255,255,255,0.92);font-family:'Montserrat',sans-serif;font-size:clamp(15px,3.2vw,20px);font-weight:500;letter-spacing:.01em;margin:0 auto 34px;max-width:640px;text-shadow:0 2px 10px rgba(0,0,0,0.5);line-height:1.4;">Un studio pour bouger&nbsp;juste,<br>en petit comité.</p>
-      <!-- SELECTEUR D'HUMEUR — Premier point de contact, segmente l'intention -->
-      <style>
-        .mood-q{
-          color:#fff;font-family:'Dancing Script',cursive;
-          font-size:clamp(22px,4.6vw,36px);font-weight:600;line-height:1.1;
-          margin:0 0 22px;text-shadow:0 2px 12px rgba(0,0,0,.55);
-        }
-        .mood-grid{
-          display:grid;grid-template-columns:1fr;gap:10px;
-          width:100%;max-width:760px;
-        }
-        @media (min-width:720px){
-          .mood-grid{grid-template-columns:1fr 1fr 1fr;gap:14px;}
-        }
-        .mood-btn{
-          background:rgba(255,255,255,.12);
-          -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-          border:1.5px solid rgba(255,255,255,.32);
-          border-radius:18px;
-          padding:18px 16px 14px;
-          cursor:pointer;color:#fff;
-          font-family:'Montserrat',sans-serif;text-align:center;
-          display:flex;flex-direction:column;align-items:center;gap:6px;
-          transition:background .25s,border-color .25s,transform .2s;
-        }
-        .mood-btn:hover{
-          background:rgba(255,255,255,.22);
-          border-color:rgba(255,255,255,.8);
-          transform:translateY(-2px);
-        }
-        .mood-emoji{font-size:30px;line-height:1;margin-bottom:2px;}
-        .mood-title{font-size:13px;font-weight:800;letter-spacing:.02em;}
-        .mood-sub{font-size:10px;opacity:.78;font-weight:500;letter-spacing:.05em;line-height:1.3;}
-        .mood-foot{
-          margin-top:18px;
-          color:rgba(255,255,255,.7);font-family:'Montserrat',sans-serif;
-          font-size:11px;font-weight:500;letter-spacing:.04em;
-          text-shadow:0 1px 6px rgba(0,0,0,.5);
-        }
-        .mood-foot a{
-          color:#fff;text-decoration:underline;text-underline-offset:3px;
-          text-decoration-color:rgba(232,180,150,.7);
-        }
-      </style>
-
-      <div style="pointer-events:all;width:100%;max-width:760px;display:flex;flex-direction:column;align-items:center;">
-        <p class="mood-q">Qu'est-ce que ton corps réclame&nbsp;?</p>
-        <div class="mood-grid">
-          <button class="mood-btn" type="button" onclick="svbMood('aligner')">
-            <span class="mood-emoji">🧘</span>
-            <span class="mood-title">M'aligner, respirer</span>
-            <span class="mood-sub">Reformer · Yoga · Pilates sol</span>
-          </button>
-          <button class="mood-btn" type="button" onclick="svbMood('lacher')">
-            <span class="mood-emoji">🥊</span>
-            <span class="mood-title">Tout lâcher, transpirer</span>
-            <span class="mood-sub">Cross Training · Boxe</span>
-          </button>
-          <button class="mood-btn" type="button" onclick="svbMood('sculpter')">
-            <span class="mood-emoji">🎯</span>
-            <span class="mood-title">Sculpter en profondeur</span>
-            <span class="mood-sub">Reformer · Crossformer</span>
-          </button>
-        </div>
-        <p class="mood-foot">Pas pressé&nbsp;? <a href="/studio">Découvrir le studio</a></p>
+      <div class="hero-cta-stack" style="display:flex;flex-direction:column;gap:12px;align-items:center;pointer-events:all;">
+        <a href="#offre-premium"
+           class="svb-magnetic"
+           style="background:white;color:#2F4F4F;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-decoration:none;padding:16px 36px;border-radius:50px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 30px rgba(0,0,0,0.35);transition:transform .2s,background .2s;"
+           onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+          Réserver mon essai · 30&nbsp;€
+        </a>
+        <a href="/studio"
+           style="color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:50px;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,0.55);background:rgba(255,255,255,0.08);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .25s, border-color .25s;"
+           onmouseover="this.style.background='rgba(255,255,255,0.18)';this.style.borderColor='rgba(255,255,255,0.9)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.55)'">
+          Découvrir le studio
+        </a>
       </div>
-
-      <script>
-        function svbMood(intent){
-          // Tracking (GA4 / Telegram via svbTrack si dispo)
-          try{ if(window.svbTrack){ window.svbTrack('mood_click', { intent: intent }); } }catch(e){}
-          // Scroll smooth vers la section Pass Starter / offre essai
-          var target = document.querySelector('.ps-card') || document.getElementById('offre-premium');
-          if (target){
-            target.scrollIntoView({ behavior:'smooth', block:'start' });
-          }
-        }
-      </script>
     </div>
 </section>
 
