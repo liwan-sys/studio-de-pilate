@@ -310,6 +310,121 @@
     footer a{color:#2F4F4F;text-decoration:underline;font-weight:600;}
     footer a:hover{color:#4A8D84;}
     footer .sep{margin:0 8px;opacity:.5;}
+
+    /* === ANIMATIONS === */
+
+    /* Urgency banner sticky en tete */
+    .urgency{
+      position:relative;z-index:6;
+      background:linear-gradient(90deg,#E8B496 0%,#D49C7D 100%);
+      color:#2F4F4F;
+      padding:9px 16px;text-align:center;
+      font-size:.7rem;font-weight:800;letter-spacing:.08em;
+      display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
+    }
+    .urgency span{display:inline-flex;align-items:center;gap:6px;}
+    .urgency-sep{opacity:.4;font-weight:300;}
+    .urgency-flame{
+      display:inline-block;font-size:.85rem;
+      animation:flicker 1.8s ease-in-out infinite;
+    }
+    @keyframes flicker{
+      0%,100%{transform:scale(1) rotate(-2deg);}
+      50%{transform:scale(1.12) rotate(2deg);}
+    }
+
+    /* Hero entrance staggered fade-in */
+    .stars,.hero h1,.hero-sub,.pick,.chips,.reassure,.scroll-hint{
+      opacity:0;
+      animation:heroIn .7s cubic-bezier(.2,.8,.2,1) forwards;
+    }
+    .stars{animation-delay:.1s;}
+    .hero h1{animation-delay:.2s;}
+    .hero-sub{animation-delay:.35s;}
+    .pick{animation-delay:.5s;}
+    .chips{animation-delay:.6s;}
+    .reassure{animation-delay:.85s;}
+    .scroll-hint{animation-delay:1.1s;}
+    @keyframes heroIn{
+      from{opacity:0;transform:translateY(14px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    /* Glow autour du "30 €" dans le H1 */
+    .hero h1 em{
+      position:relative;
+    }
+    .hero h1 em::after{
+      content:'';position:absolute;inset:-12px;
+      background:radial-gradient(circle,rgba(232,180,150,.4) 0%,transparent 60%);
+      z-index:-1;pointer-events:none;
+      animation:priceGlow 3.5s ease-in-out infinite;
+    }
+    @keyframes priceGlow{
+      0%,100%{opacity:.6;transform:scale(1);}
+      50%{opacity:1;transform:scale(1.08);}
+    }
+
+    /* Chips hover shine effect */
+    .chip{position:relative;overflow:hidden;}
+    .chip::before{
+      content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);
+      transition:left .6s;
+    }
+    .chip:hover::before{left:100%;}
+
+    /* Badge Bestseller sur la card Pass Starter */
+    .pass-badge{
+      position:absolute;top:-14px;right:-14px;z-index:3;
+      background:linear-gradient(135deg,#E8B496,#D49C7D);
+      color:#2F4F4F;
+      font-size:.6rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+      padding:9px 12px;border-radius:50px;
+      box-shadow:0 10px 24px -6px rgba(212,156,125,.6),0 0 0 3px #FBF6EC;
+      transform:rotate(7deg);
+      animation:badgePop 2.6s ease-in-out infinite;
+    }
+    @keyframes badgePop{
+      0%,100%{transform:rotate(7deg) scale(1);}
+      50%{transform:rotate(7deg) scale(1.06);}
+    }
+
+    /* Ancrage pricing avec shimmer subtil */
+    .pass-anchor-eco{position:relative;overflow:hidden;}
+    .pass-anchor-eco::after{
+      content:'';position:absolute;top:0;left:-150%;width:60%;height:100%;
+      background:linear-gradient(90deg,transparent,rgba(74,141,132,.25),transparent);
+      animation:shimmer 3.5s linear infinite;
+    }
+    @keyframes shimmer{
+      0%{left:-150%;}
+      40%,100%{left:150%;}
+    }
+
+    /* CTA Pass Starter avec halo qui pulse */
+    .pass-cta{position:relative;}
+    .pass-cta::before{
+      content:'';position:absolute;inset:-6px;border-radius:50px;
+      background:linear-gradient(135deg,rgba(74,141,132,.4),rgba(47,79,79,.4));
+      z-index:-1;filter:blur(14px);
+      animation:ctaPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes ctaPulse{
+      0%,100%{opacity:.5;transform:scale(1);}
+      50%{opacity:.9;transform:scale(1.04);}
+    }
+
+    /* Counter 100% — invisible initially, JS reveal */
+    .pass-stat-n{transition:opacity .3s;}
+
+    @media (prefers-reduced-motion: reduce){
+      .stars,.hero h1,.hero-sub,.pick,.chips,.reassure,.scroll-hint{
+        opacity:1;animation:none;
+      }
+      .urgency-flame,.hero h1 em::after,.chip::before,.pass-badge,
+      .pass-anchor-eco::after,.pass-cta::before,.scroll-hint svg{animation:none !important;}
+    }
   </style>
 
   <script type="application/ld+json">
@@ -329,6 +444,14 @@
   </script>
 </head>
 <body>
+
+  <div class="urgency">
+    <span><span class="urgency-flame" aria-hidden="true">🔥</span> Offre nouveaux membres</span>
+    <span class="urgency-sep">·</span>
+    <span>Sans engagement</span>
+    <span class="urgency-sep">·</span>
+    <span>Confirmation immédiate</span>
+  </div>
 
   <section class="hero">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata"
@@ -396,6 +519,7 @@
     <h2 class="pass-h">5 sessions, toutes <em>les disciplines.</em></h2>
 
     <div class="pass">
+      <div class="pass-badge" aria-hidden="true">🔥 Bestseller</div>
       <div class="pass-rib">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.09 4.26L14.8 6l-3.4 3.32.8 4.68L8 11.77 3.8 14l.8-4.68L1.2 6l4.71-.74L8 1z"/></svg>
         Le plus pris par les nouveaux
@@ -459,6 +583,7 @@
   </footer>
 
   <script>
+    // UTM tracking
     (function(){
       try{
         var p = new URLSearchParams(window.location.search);
@@ -471,6 +596,40 @@
           });
         }
       }catch(e){}
+    })();
+
+    // Count-up animation sur le 100% du Pass Starter
+    (function(){
+      var el = document.querySelector('.pass-stat-n');
+      if (!el || !('IntersectionObserver' in window)) return;
+      var target = 100;
+      // sauvegarde le innerHTML d'origine (avec le span %)
+      var orig = el.innerHTML;
+      el.textContent = '0';
+      el.style.opacity = '.6';
+      var triggered = false;
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (!e.isIntersecting || triggered) return;
+          triggered = true;
+          var start = performance.now();
+          el.style.opacity = '1';
+          function step(now){
+            var t = Math.min(1, (now - start) / 1400);
+            var eased = 1 - Math.pow(1 - t, 3);
+            var val = Math.round(target * eased);
+            if (t < 1){
+              el.textContent = val;
+              requestAnimationFrame(step);
+            } else {
+              el.innerHTML = orig;
+            }
+          }
+          requestAnimationFrame(step);
+          io.disconnect();
+        });
+      }, { threshold: 0.5 });
+      io.observe(el);
     })();
   </script>
 </body>
