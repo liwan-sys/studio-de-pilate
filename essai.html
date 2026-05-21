@@ -17,10 +17,10 @@
   <meta property="og:url" content="https://studiosvb.com/essai">
   <meta property="og:title" content="Une heure avec un vrai coach · 30 €">
   <meta property="og:description" content="Pas un cours collectif. Un small group avec un coach qui te corrige.">
-  <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
+  <meta property="og:image" content="https://studiosvb.com/videos/pilates-reformer-immersion-poster.jpg">
   <meta property="og:locale" content="fr_FR">
 
-  <meta name="theme-color" content="#FBF6EC">
+  <meta name="theme-color" content="#1a2826">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,100 +36,141 @@
       -webkit-font-smoothing:antialiased;
     }
 
-    /* === HEADER === */
-    .hd{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:14px 22px;
-      max-width:1100px;margin:0 auto;
+    /* === HERO FULL-BLEED VIDEO === */
+    .hero{
+      position:relative;
+      min-height:100vh;
+      overflow:hidden;
+      background:#1a2826;
+      color:#FBF6EC;
+      display:flex;flex-direction:column;
     }
-    .hd img{height:34px;width:auto;}
-    .hd a{
-      color:#2F4F4F;text-decoration:none;
+    .hero-video{
+      position:absolute;inset:0;
+      width:100%;height:100%;
+      object-fit:cover;
+      z-index:0;
+      filter:brightness(.7) saturate(1.05);
+    }
+    .hero-overlay{
+      position:absolute;inset:0;z-index:1;
+      background:linear-gradient(180deg,rgba(26,40,38,.55) 0%,rgba(26,40,38,.4) 40%,rgba(26,40,38,.85) 100%);
+    }
+
+    /* Header par-dessus la video */
+    .hd{
+      position:relative;z-index:5;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:16px 22px;
+      max-width:1100px;margin:0 auto;width:100%;
+    }
+    .hd-logo img{height:34px;width:auto;filter:brightness(0) invert(1);}
+    .hd-tel{
+      color:#FBF6EC;text-decoration:none;
       font-size:.78rem;font-weight:700;
       display:flex;align-items:center;gap:6px;
+      padding:7px 14px;border-radius:50px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.2);
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
     }
-    .hd a:hover{color:#4A8D84;}
-    .hd svg{width:14px;height:14px;}
+    .hd-tel:hover{background:rgba(255,255,255,.2);}
+    .hd-tel svg{width:13px;height:13px;}
 
-    /* === HERO === */
-    .hero{
-      max-width:580px;margin:0 auto;
-      padding:20px 22px 50px;
+    /* Contenu hero */
+    .hero-content{
+      position:relative;z-index:5;
+      flex:1;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:24px 22px 48px;
       text-align:center;
+      max-width:680px;margin:0 auto;width:100%;
     }
 
     .stars{
       display:inline-flex;align-items:center;gap:8px;
       padding:7px 16px;border-radius:50px;
-      background:#FFFFFF;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
       margin-bottom:28px;
-      font-size:.72rem;font-weight:700;
-      box-shadow:0 3px 12px rgba(47,79,79,.06);
+      font-size:.72rem;font-weight:700;color:#FBF6EC;
     }
     .stars i{color:#E8B496;letter-spacing:1.2px;line-height:1;font-style:normal;}
-    .stars b{color:#4A8D84;font-weight:800;}
-    .stars span{color:#2F4F4F;opacity:.65;}
+    .stars b{color:#FBF6EC;font-weight:800;}
+    .stars span{opacity:.78;}
 
-    h1{
+    .hero h1{
       font-family:'Montserrat',sans-serif;
-      font-size:clamp(2.4rem,8vw,3.6rem);
+      font-size:clamp(2.4rem,8vw,4rem);
       font-weight:900;line-height:1;letter-spacing:-.03em;
-      color:#2F4F4F;margin:0 0 14px;
+      color:#FBF6EC;margin:0 0 14px;
+      text-shadow:0 4px 24px rgba(0,0,0,.4);
     }
-    h1 em{
-      font-style:normal;color:#4A8D84;
+    .hero h1 em{
+      font-style:normal;color:#E8B496;
       font-family:'Dancing Script',cursive;
       font-size:1.15em;font-weight:700;line-height:.9;
       display:inline-block;
     }
-    .sub{
-      font-size:clamp(1rem,2.2vw,1.15rem);font-weight:500;
-      color:#2F4F4F;opacity:.78;margin:0 0 36px;
-      max-width:440px;margin-left:auto;margin-right:auto;
+    .hero-sub{
+      font-size:clamp(1rem,2.2vw,1.18rem);font-weight:500;
+      color:#FBF6EC;opacity:.88;
+      margin:0 0 36px;max-width:480px;
+      text-shadow:0 2px 12px rgba(0,0,0,.45);
     }
-    .sub b{color:#2F4F4F;opacity:1;font-weight:800;}
+    .hero-sub b{font-weight:800;}
 
-    /* === CTAs === */
-    .cta-grp{display:flex;flex-direction:column;gap:10px;}
-    .cta{
-      display:flex;justify-content:space-between;align-items:center;gap:14px;
-      background:#FFFFFF;color:#2F4F4F;
-      padding:18px 22px;border-radius:16px;
-      text-decoration:none;
-      border:1.5px solid transparent;
-      box-shadow:0 4px 16px rgba(47,79,79,.06);
+    .pick{
+      font-size:.62rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
+      color:#FBF6EC;opacity:.75;margin:0 0 14px;
+    }
+    .chips{
+      display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
+      max-width:560px;width:100%;
+    }
+    .chip{
+      flex:1 1 auto;min-width:140px;
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:14px 20px;border-radius:50px;
+      background:rgba(255,255,255,.96);
+      color:#2F4F4F;text-decoration:none;
+      font-size:.88rem;font-weight:800;letter-spacing:-.01em;
+      box-shadow:0 8px 24px rgba(0,0,0,.2);
       transition:all .2s;
-      text-align:left;
     }
-    .cta:hover{
-      border-color:#4A8D84;
+    .chip:hover{
       transform:translateY(-2px);
-      box-shadow:0 10px 24px rgba(47,79,79,.13);
+      box-shadow:0 12px 28px rgba(0,0,0,.28);
     }
-    .cta-l{display:flex;flex-direction:column;flex:1;min-width:0;}
-    .cta-disc{font-size:1rem;font-weight:800;line-height:1.2;}
-    .cta-time{
-      font-size:.7rem;font-weight:600;opacity:.5;letter-spacing:.04em;
-      margin-top:2px;
-    }
-    .cta-r{
-      display:flex;align-items:center;gap:8px;
-      font-size:1.1rem;font-weight:900;color:#4A8D84;
-      flex-shrink:0;white-space:nowrap;
-      letter-spacing:-.01em;
-    }
-    .cta-r svg{width:15px;height:15px;}
+    .chip svg{width:13px;height:13px;color:#4A8D84;}
 
     .reassure{
-      margin-top:20px;
-      font-size:.72rem;color:#2F4F4F;opacity:.55;
+      margin-top:28px;
+      font-size:.72rem;color:#FBF6EC;opacity:.7;
       display:flex;flex-wrap:wrap;justify-content:center;gap:14px;
     }
 
-    /* === PASS STARTER card vendeuse === */
+    .scroll-hint{
+      margin-top:36px;
+      display:inline-flex;flex-direction:column;align-items:center;gap:8px;
+      color:#FBF6EC;opacity:.55;
+      font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+      text-decoration:none;
+    }
+    .scroll-hint svg{
+      width:18px;height:18px;
+      animation:scrollPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes scrollPulse{
+      0%,100%{transform:translateY(0);opacity:.5;}
+      50%{transform:translateY(4px);opacity:1;}
+    }
+
+    /* === PASS STARTER === */
     .pass-wrap{
       background:linear-gradient(180deg,#FBF6EC 0%,#F3EBD4 100%);
-      padding:48px 22px 56px;
+      padding:56px 22px 64px;
     }
     .pass-eye{
       text-align:center;
@@ -139,18 +180,17 @@
     .pass-h{
       text-align:center;
       font-family:'Dancing Script',cursive;
-      font-size:clamp(1.8rem,5vw,2.4rem);font-weight:700;line-height:1.1;
-      color:#2F4F4F;margin:0 0 32px;
+      font-size:clamp(1.9rem,5vw,2.6rem);font-weight:700;line-height:1.05;
+      color:#2F4F4F;margin:0 0 36px;
     }
     .pass-h em{font-style:normal;color:#4A8D84;}
-
     .pass{
       max-width:440px;margin:0 auto;
       background:#FFFFFF;
-      border-radius:22px;
-      padding:32px 28px 26px;
+      border-radius:24px;
+      padding:34px 28px 26px;
       text-align:center;
-      box-shadow:0 24px 56px -22px rgba(47,79,79,.28);
+      box-shadow:0 28px 60px -22px rgba(47,79,79,.3);
       border:1px solid rgba(47,79,79,.05);
     }
     .pass-rib{
@@ -170,34 +210,24 @@
       display:inline-flex;align-items:baseline;gap:2px;margin:0 0 4px;
     }
     .pass-price-n{
-      font-size:4.4rem;font-weight:900;line-height:.85;color:#2F4F4F;
-      letter-spacing:-.04em;
+      font-size:4.4rem;font-weight:900;line-height:.85;color:#2F4F4F;letter-spacing:-.04em;
     }
     .pass-price-c{font-size:1.5rem;font-weight:800;color:#2F4F4F;opacity:.4;}
     .pass-price-e{font-size:1.6rem;font-weight:700;color:#2F4F4F;opacity:.55;margin-left:3px;}
     .pass-meta{
       font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-      color:#2F4F4F;opacity:.55;margin:6px 0 18px;
+      color:#2F4F4F;opacity:.55;margin:6px 0 22px;
     }
-    .pass-anchor{
-      display:inline-flex;align-items:center;gap:8px;
-      background:#F3EBD4;
-      padding:7px 14px;border-radius:50px;
-      margin:0 0 22px;
-      border:1px solid rgba(232,180,150,.55);
-    }
-    .pass-anchor b{font-size:.72rem;font-weight:800;color:#2F4F4F;}
-    .pass-anchor s{font-size:.66rem;font-weight:600;color:#2F4F4F;opacity:.55;text-decoration:line-through;text-decoration-thickness:1.5px;}
     .pass-stat{
       background:linear-gradient(135deg,#F3EBD4 0%,#EBC6A6 100%);
-      border-radius:14px;padding:18px 16px 16px;
-      margin:0 0 22px;border:1px solid rgba(232,180,150,.5);
+      border-radius:14px;padding:20px 16px 16px;
+      margin:0 0 24px;border:1px solid rgba(232,180,150,.5);
     }
     .pass-stat-n{
-      font-size:2.4rem;font-weight:900;color:#2F4F4F;
+      font-size:2.6rem;font-weight:900;color:#2F4F4F;
       line-height:.9;letter-spacing:-.02em;margin:0 0 6px;
     }
-    .pass-stat-n span{font-size:1.6rem;color:#4A8D84;margin-left:2px;}
+    .pass-stat-n span{font-size:1.7rem;color:#4A8D84;margin-left:2px;}
     .pass-stat-l{
       font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
       color:#2F4F4F;opacity:.78;line-height:1.4;margin:0;
@@ -249,71 +279,70 @@
 </head>
 <body>
 
-  <header class="hd">
-    <a href="/" aria-label="Studio SVB"><img src="/images/logo.webp" alt="Studio SVB" width="120" height="85"></a>
-    <a href="tel:+33744919155">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 1.8a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7L6 6.7c1 2 2.3 3.3 4.3 4.3l1.3-1.3a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7l-.9.9c-1 1-2.6 1-4.3.4-3.2-1-6-3.8-7-7-.6-1.7-.6-3.3.4-4.3l.2-.5z"/></svg>
-      <span>07 44 91 91 55</span>
-    </a>
-  </header>
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+           poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true">
+      <source src="/videos/pilates-reformer-immersion.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-  <main class="hero">
-    <div class="stars">
-      <i>★★★★★</i><b>5,0</b><span>· 146 avis Google</span>
+    <header class="hd">
+      <a href="/" class="hd-logo" aria-label="Studio SVB"><img src="/images/logo.webp" alt="Studio SVB" width="120" height="85"></a>
+      <a href="tel:+33744919155" class="hd-tel">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 1.8a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7L6 6.7c1 2 2.3 3.3 4.3 4.3l1.3-1.3a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7l-.9.9c-1 1-2.6 1-4.3.4-3.2-1-6-3.8-7-7-.6-1.7-.6-3.3.4-4.3l.2-.5z"/></svg>
+        <span>07 44 91 91 55</span>
+      </a>
+    </header>
+
+    <div class="hero-content">
+      <div class="stars">
+        <i>★★★★★</i><b>5,0</b><span>· 146 avis Google</span>
+      </div>
+
+      <h1>Une heure avec un vrai coach.<br/><em>30 €.</em></h1>
+      <p class="hero-sub">Pas un cours collectif XXL. <b>Un small group</b> où le coach te voit, te corrige, retient ton prénom.</p>
+
+      <p class="pick">Choisis ta discipline</p>
+      <div class="chips">
+        <a class="chip"
+           href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90"
+           target="_blank" rel="noopener noreferrer"
+           onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'reformer'});}catch(e){}">
+          <span>Pilates Reformer</span>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
+        </a>
+        <a class="chip"
+           href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74"
+           target="_blank" rel="noopener noreferrer"
+           onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'crossformer'});}catch(e){}">
+          <span>Crossformer</span>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
+        </a>
+        <a class="chip"
+           href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e"
+           target="_blank" rel="noopener noreferrer"
+           onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'cross_yoga_pilates'});}catch(e){}">
+          <span>Cross · Yoga · Boxe · Pilates sol</span>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
+        </a>
+      </div>
+
+      <p class="reassure">
+        <span>✓ Confirmation immédiate</span>
+        <span>✓ Sans CB stockée</span>
+        <span>✓ Sans engagement</span>
+      </p>
+
+      <a href="#pass" class="scroll-hint">
+        <span>Ou 5 sessions</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 8 11 12 7"/></svg>
+      </a>
     </div>
+  </section>
 
-    <h1>Une heure avec un vrai coach.<br/><em>30 €.</em></h1>
-    <p class="sub">Pas un cours collectif XXL. <b>Un small group</b> où le coach te voit, te corrige, retient ton prénom.</p>
-
-    <div class="cta-grp">
-      <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90"
-         target="_blank" rel="noopener noreferrer"
-         onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'reformer'});}catch(e){}"
-         class="cta">
-        <span class="cta-l">
-          <span class="cta-disc">Pilates Reformer</span>
-          <span class="cta-time">50 min · 9 max</span>
-        </span>
-        <span class="cta-r">30 €
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
-        </span>
-      </a>
-      <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74"
-         target="_blank" rel="noopener noreferrer"
-         onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'crossformer'});}catch(e){}"
-         class="cta">
-        <span class="cta-l">
-          <span class="cta-disc">Crossformer</span>
-          <span class="cta-time">50 min · 8 max</span>
-        </span>
-        <span class="cta-r">30 €
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
-        </span>
-      </a>
-      <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e"
-         target="_blank" rel="noopener noreferrer"
-         onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'cross_yoga_pilates'});}catch(e){}"
-         class="cta">
-        <span class="cta-l">
-          <span class="cta-disc">Cross · Yoga · Boxe · Pilates sol</span>
-          <span class="cta-time">55-60 min · 12 max</span>
-        </span>
-        <span class="cta-r">30 €
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
-        </span>
-      </a>
-    </div>
-
-    <p class="reassure">
-      <span>✓ Confirmation immédiate</span>
-      <span>✓ Sans CB stockée</span>
-      <span>✓ Sans engagement</span>
-    </p>
-  </main>
-
-  <section class="pass-wrap">
-    <p class="pass-eye">Ou vas direct au but</p>
-    <h2 class="pass-h">Pas 1 séance.<br/><em>5 sessions.</em></h2>
+  <section class="pass-wrap" id="pass">
+    <p class="pass-eye">Tu veux aller plus loin</p>
+    <h2 class="pass-h">Prends 5 sessions <em>d'un coup.</em></h2>
 
     <div class="pass">
       <div class="pass-rib">
@@ -327,11 +356,6 @@
         <span class="pass-price-e">€</span>
       </div>
       <p class="pass-meta">5 sessions · 1 mois · Sans engagement</p>
-
-      <div class="pass-anchor">
-        <b>Soit 19,98 € la séance</b>
-        <s>vs 50 € hors abo</s>
-      </div>
 
       <div class="pass-stat">
         <p class="pass-stat-n">100<span>%</span></p>
