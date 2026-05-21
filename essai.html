@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/analytics.js?v=20260427a" defer></script>
+  <link rel="dns-prefetch" href="https://svb.sportigo.fr">
+  <link rel="preconnect" href="https://svb.sportigo.fr" crossorigin>
+  <link rel="icon" type="image/png" href="/images/favicon.jpg" />
+
+  <title>Réserve ton essai SVB · 30 € · Saint-Ouen</title>
+  <meta name="description" content="Une séance d'essai à 30 € au Studio SVB Saint-Ouen. Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe, Pilates au sol. Sans engagement. Réservation en 30 sec.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://studiosvb.com/essai">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://studiosvb.com/essai">
+  <meta property="og:title" content="Découvre SVB · Essai 30 €">
+  <meta property="og:description" content="Une séance d'essai dans la discipline de ton choix. Sans engagement. Réserve en 30 sec.">
+  <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="theme-color" content="#2F4F4F">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:#FBF6EC;color:#2F4F4F;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      padding-bottom:80px; /* room pour la sticky CTA mobile */
+    }
+
+    /* === HEADER MINIMAL === */
+    .e-header{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:16px 20px;
+      background:#FFFFFF;
+      border-bottom:1px solid rgba(47,79,79,.08);
+    }
+    .e-header img{height:36px;width:auto;}
+    .e-header-phone{
+      color:#2F4F4F;text-decoration:none;
+      font-size:.78rem;font-weight:700;
+      display:flex;align-items:center;gap:6px;
+    }
+    .e-header-phone:hover{color:#4A8D84;}
+
+    /* === HERO === */
+    .e-hero{
+      padding:48px 20px 32px;
+      text-align:center;
+      background:linear-gradient(180deg,#FBF6EC 0%,#F3EBD4 100%);
+    }
+    .e-eyebrow{
+      display:inline-block;
+      background:#E8B496;color:#2F4F4F;
+      font-size:.65rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+      padding:6px 14px;border-radius:50px;
+      margin-bottom:18px;
+    }
+    .e-hero h1{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(2.6rem,9vw,4.5rem);
+      font-weight:700;line-height:.95;
+      color:#2F4F4F;
+      margin:0 0 14px;
+    }
+    .e-hero h1 em{font-style:normal;color:#E8B496;}
+    .e-hero-sub{
+      font-size:clamp(.95rem,2vw,1.1rem);
+      max-width:560px;margin:0 auto 30px;
+      opacity:.82;
+    }
+
+    /* === CTAs grid === */
+    .e-cta-label{
+      font-size:.7rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+      color:#4A8D84;margin:8px 0 14px;
+    }
+    .e-cta-grid{
+      display:grid;grid-template-columns:1fr;gap:10px;
+      max-width:760px;margin:0 auto;
+    }
+    @media (min-width:640px){.e-cta-grid{grid-template-columns:1fr 1fr 1fr;gap:12px;}}
+    .e-cta{
+      display:block;text-decoration:none;
+      background:#FFFFFF;
+      border:2px solid rgba(47,79,79,.1);
+      border-radius:18px;
+      padding:18px 18px 16px;
+      text-align:center;
+      transition:all .2s;
+      box-shadow:0 4px 16px rgba(47,79,79,.06);
+    }
+    .e-cta:hover{
+      border-color:#4A8D84;
+      transform:translateY(-2px);
+      box-shadow:0 8px 24px rgba(47,79,79,.12);
+    }
+    .e-cta-disc{
+      display:block;
+      font-size:.95rem;font-weight:800;color:#2F4F4F;
+      margin-bottom:4px;
+    }
+    .e-cta-meta{
+      display:block;
+      font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+      color:#2F4F4F;opacity:.55;
+    }
+    .e-cta-meta strong{color:#4A8D84;opacity:1;font-weight:800;}
+
+    .e-reassure{
+      margin-top:22px;
+      font-size:.74rem;font-weight:600;color:#2F4F4F;opacity:.55;
+      display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+    }
+    .e-reassure svg{width:14px;height:14px;color:#4A8D84;}
+
+    /* === TRUST STRIP === */
+    .e-trust{
+      background:#2F4F4F;color:#FBF6EC;
+      padding:22px 16px;
+    }
+    .e-trust-grid{
+      max-width:760px;margin:0 auto;
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;
+      text-align:center;
+    }
+    @media (min-width:640px){.e-trust-grid{grid-template-columns:repeat(4,1fr);}}
+    .e-trust-num{
+      font-family:'Dancing Script',cursive;
+      font-size:2.2rem;font-weight:700;line-height:1;
+      color:#E8B496;
+    }
+    .e-trust-label{
+      font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+      color:#FBF6EC;opacity:.7;margin-top:4px;
+    }
+
+    /* === INCLUDED === */
+    .e-section{padding:42px 20px;}
+    .e-section h2{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(1.8rem,5vw,2.6rem);font-weight:700;line-height:1.1;
+      color:#2F4F4F;text-align:center;margin:0 0 24px;
+    }
+    .e-list{
+      list-style:none;padding:0;max-width:520px;margin:0 auto;
+      background:#FFFFFF;border-radius:16px;padding:8px 22px;
+      box-shadow:0 4px 16px rgba(47,79,79,.06);
+    }
+    .e-list li{
+      display:flex;align-items:flex-start;gap:12px;
+      padding:14px 0;
+      border-top:1px solid rgba(47,79,79,.08);
+      font-size:.95rem;
+    }
+    .e-list li:first-child{border-top:none;}
+    .e-list .ic{
+      flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+      width:22px;height:22px;border-radius:50%;
+      background:#4A8D84;color:#FBF6EC;
+      font-weight:800;
+    }
+    .e-list .ic svg{width:11px;height:11px;}
+    .e-list strong{font-weight:800;}
+
+    /* === POURQUOI bloc === */
+    .e-pourquoi{
+      background:#F3EBD4;
+      padding:42px 20px;
+      text-align:center;
+    }
+    .e-pourquoi-quote{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(1.6rem,4vw,2.3rem);font-weight:700;line-height:1.25;
+      color:#2F4F4F;margin:0 0 16px;
+    }
+    .e-pourquoi-quote em{font-style:normal;color:#E8B496;}
+    .e-pourquoi-quote strong{font-style:normal;color:#4A8D84;}
+    .e-pourquoi-link{
+      display:inline-block;
+      color:#2F4F4F;text-decoration:none;
+      font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+      border-bottom:2px solid #E8B496;padding-bottom:2px;
+      transition:border-color .2s;
+    }
+    .e-pourquoi-link:hover{border-color:#2F4F4F;}
+
+    /* === FINAL CTA === */
+    .e-final{
+      padding:42px 20px 56px;
+      text-align:center;
+      background:linear-gradient(180deg,#F3EBD4 0%,#EBC6A6 100%);
+    }
+    .e-final h2{margin:0 0 28px;}
+
+    /* === FOOTER MINI === */
+    .e-foot{
+      background:#2F4F4F;color:#FBF6EC;
+      padding:28px 20px;text-align:center;
+      font-size:.78rem;
+    }
+    .e-foot p{margin:6px 0;opacity:.78;}
+    .e-foot a{color:#E8B496;text-decoration:none;font-weight:700;}
+    .e-foot a:hover{text-decoration:underline;}
+    .e-foot-divider{
+      height:1px;background:rgba(255,255,255,.15);
+      margin:18px auto;max-width:200px;
+    }
+
+    /* === STICKY CTA mobile === */
+    .e-sticky{
+      position:fixed;bottom:0;left:0;right:0;z-index:50;
+      padding:10px 14px;
+      background:#FFFBF3;
+      box-shadow:0 -8px 24px rgba(47,79,79,.18);
+      border-top:1px solid rgba(47,79,79,.1);
+    }
+    .e-sticky a{
+      display:block;text-align:center;
+      background:#2F4F4F;color:#FBF6EC;
+      text-decoration:none;
+      font-size:.85rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+      padding:14px;border-radius:50px;
+      box-shadow:0 6px 18px rgba(47,79,79,.3);
+    }
+    @media (min-width:780px){
+      .e-sticky{display:none;}
+      body{padding-bottom:0;}
+    }
+  </style>
+
+  <!-- Schema.org Offer -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Offer",
+    "name":"Séance d'essai Studio SVB",
+    "description":"Une séance d'essai à 30 € au Studio SVB Saint-Ouen, dans la discipline de ton choix.",
+    "price":"30",
+    "priceCurrency":"EUR",
+    "availability":"https://schema.org/InStock",
+    "url":"https://studiosvb.com/essai",
+    "seller":{
+      "@type":"SportsActivityLocation",
+      "name":"Studio SVB",
+      "address":{
+        "@type":"PostalAddress",
+        "addressLocality":"Saint-Ouen-sur-Seine",
+        "postalCode":"93400",
+        "addressCountry":"FR"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="e-header">
+    <a href="/" aria-label="Studio SVB"><img src="/images/logo.webp" alt="Studio SVB Saint-Ouen" width="120" height="85"></a>
+    <a href="tel:+33744919155" class="e-header-phone">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 1.8a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7L6 6.7c1 2 2.3 3.3 4.3 4.3l1.3-1.3a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7l-.9.9c-1 1-2.6 1-4.3.4-3.2-1-6-3.8-7-7-.6-1.7-.6-3.3.4-4.3l.2-.5z"/></svg>
+      <span>07 44 91 91 55</span>
+    </a>
+  </header>
+
+  <section class="e-hero" id="cta">
+    <p class="e-eyebrow">Offre nouveaux membres</p>
+    <h1>Découvre SVB · <em>30 €</em></h1>
+    <p class="e-hero-sub">Une séance d'essai dans la discipline de ton choix. Sans engagement, sans CB stockée, réservation en 30 secondes.</p>
+
+    <p class="e-cta-label">Choisis ta discipline</p>
+    <div class="e-cta-grid">
+      <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90"
+         target="_blank" rel="noopener noreferrer"
+         onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'reformer',source:'ads_top'});}catch(e){}"
+         class="e-cta">
+        <span class="e-cta-disc">Pilates Reformer</span>
+        <span class="e-cta-meta">50 min · <strong>30 €</strong></span>
+      </a>
+      <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74"
+         target="_blank" rel="noopener noreferrer"
+         onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'crossformer',source:'ads_top'});}catch(e){}"
+         class="e-cta">
+        <span class="e-cta-disc">Crossformer</span>
+        <span class="e-cta-meta">50 min · <strong>30 €</strong></span>
+      </a>
+      <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e"
+         target="_blank" rel="noopener noreferrer"
+         onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'cross_yoga_pilates',source:'ads_top'});}catch(e){}"
+         class="e-cta">
+        <span class="e-cta-disc">Cross · Yoga · Pilates sol · Boxe</span>
+        <span class="e-cta-meta">55-60 min · <strong>30 €</strong></span>
+      </a>
+    </div>
+
+    <p class="e-reassure">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1l5 2v5c0 3.5-2.2 6.4-5 7-2.8-.6-5-3.5-5-7V3l5-2z"/><polyline points="6 8 7.5 9.5 10.5 6.5"/></svg>
+      <span>Confirmation immédiate · Aucune CB stockée · Pas de spam</span>
+    </p>
+  </section>
+
+  <section class="e-trust">
+    <div class="e-trust-grid">
+      <div>
+        <p class="e-trust-num">146</p>
+        <p class="e-trust-label">Avis Google</p>
+      </div>
+      <div>
+        <p class="e-trust-num">5,0</p>
+        <p class="e-trust-label">Note moyenne</p>
+      </div>
+      <div>
+        <p class="e-trust-num">16</p>
+        <p class="e-trust-label">Coachs certifiés</p>
+      </div>
+      <div>
+        <p class="e-trust-num">2</p>
+        <p class="e-trust-label">Studios à St-Ouen</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="e-section">
+    <h2>Ce que tu obtiens pour 30 €</h2>
+    <ul class="e-list">
+      <li>
+        <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+        <span><strong>Séance complète</strong> (50 à 60 min selon la discipline)</span>
+      </li>
+      <li>
+        <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+        <span><strong>Toutes les disciplines au choix</strong> : Reformer, Crossformer, Cross, Yoga, Boxe, Pilates sol</span>
+      </li>
+      <li>
+        <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+        <span><strong>Coach certifié</strong> (BASI, STOTT, BPJEPS, FFBA) sur place</span>
+      </li>
+      <li>
+        <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+        <span><strong>Small group</strong> : 9 à 12 personnes max, jamais plus</span>
+      </li>
+      <li>
+        <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+        <span><strong>Tout le matériel</strong> est sur place — tu viens en tenue, c'est tout</span>
+      </li>
+      <li>
+        <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
+        <span><strong>Aucun engagement</strong> après ta séance — tu décides la suite</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="e-pourquoi">
+    <p class="e-pourquoi-quote">Pas un cours collectif XXL.<br/><strong>Un small group</strong> avec un coach <em>qui te corrige.</em></p>
+    <a href="/pourquoi-svb" class="e-pourquoi-link">Pourquoi SVB →</a>
+  </section>
+
+  <section class="e-final">
+    <h2>Prêt·e à essayer&nbsp;?</h2>
+    <div class="e-cta-grid" style="max-width:760px;margin:0 auto;">
+      <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90"
+         target="_blank" rel="noopener noreferrer"
+         onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'reformer',source:'ads_bot'});}catch(e){}"
+         class="e-cta">
+        <span class="e-cta-disc">Pilates Reformer</span>
+        <span class="e-cta-meta">50 min · <strong>30 €</strong></span>
+      </a>
+      <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74"
+         target="_blank" rel="noopener noreferrer"
+         onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'crossformer',source:'ads_bot'});}catch(e){}"
+         class="e-cta">
+        <span class="e-cta-disc">Crossformer</span>
+        <span class="e-cta-meta">50 min · <strong>30 €</strong></span>
+      </a>
+      <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e"
+         target="_blank" rel="noopener noreferrer"
+         onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'cross_yoga_pilates',source:'ads_bot'});}catch(e){}"
+         class="e-cta">
+        <span class="e-cta-disc">Cross · Yoga · Pilates sol · Boxe</span>
+        <span class="e-cta-meta">55-60 min · <strong>30 €</strong></span>
+      </a>
+    </div>
+    <p class="e-reassure" style="margin-top:22px;">
+      Une question&nbsp;? <a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer" style="color:#4A8D84;font-weight:700;text-decoration:underline;">WhatsApp 💬</a> ou <a href="tel:+33744919155" style="color:#4A8D84;font-weight:700;text-decoration:underline;">07 44 91 91 55</a>
+    </p>
+  </section>
+
+  <footer class="e-foot">
+    <p><strong style="color:#FBF6EC;">Studio SVB</strong> · 2 studios à Saint-Ouen-sur-Seine</p>
+    <p>Parc des Docks · 6 Mail André Breton — Cours des Lavandières · 40 Cours des Lavandières</p>
+    <div class="e-foot-divider" aria-hidden="true"></div>
+    <p><a href="tel:+33744919155">07 44 91 91 55</a> · <a href="mailto:hello@studiosvb.fr">hello@studiosvb.fr</a></p>
+    <p style="margin-top:14px;"><a href="/">Voir le site complet →</a></p>
+  </footer>
+
+  <div class="e-sticky">
+    <a href="#cta">Réserver mon essai · 30 €</a>
+  </div>
+
+  <script>
+    // Page view tracking + UTM capture
+    (function(){
+      try{
+        var params = new URLSearchParams(window.location.search);
+        var utm = {
+          source: params.get('utm_source') || null,
+          medium: params.get('utm_medium') || null,
+          campaign: params.get('utm_campaign') || null,
+          content: params.get('utm_content') || null
+        };
+        if (window.svbTrack){
+          window.svbTrack('ads_landing_view', utm);
+        }
+      }catch(e){}
+    })();
+  </script>
+</body>
+</html>
