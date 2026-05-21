@@ -170,17 +170,17 @@
     /* === PASS STARTER === */
     .pass-wrap{
       background:linear-gradient(180deg,#FBF6EC 0%,#F3EBD4 100%);
-      padding:56px 22px 64px;
+      padding:60px 22px 72px;
     }
     .pass-eye{
       text-align:center;
       font-size:.64rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
-      color:#2F4F4F;opacity:.55;margin:0 0 12px;
+      color:#4A8D84;opacity:.85;margin:0 0 12px;
     }
     .pass-h{
       text-align:center;
       font-family:'Dancing Script',cursive;
-      font-size:clamp(1.9rem,5vw,2.6rem);font-weight:700;line-height:1.05;
+      font-size:clamp(2rem,5.5vw,2.8rem);font-weight:700;line-height:1.05;
       color:#2F4F4F;margin:0 0 36px;
     }
     .pass-h em{font-style:normal;color:#4A8D84;}
@@ -190,8 +190,17 @@
       border-radius:24px;
       padding:34px 28px 26px;
       text-align:center;
-      box-shadow:0 28px 60px -22px rgba(47,79,79,.3);
-      border:1px solid rgba(47,79,79,.05);
+      box-shadow:
+        0 32px 64px -20px rgba(47,79,79,.32),
+        0 0 0 1px rgba(232,180,150,.4) inset;
+      position:relative;
+    }
+    /* Halo decoratif behind card */
+    .pass::before{
+      content:'';position:absolute;inset:-30px;z-index:-1;
+      background:radial-gradient(ellipse at 50% 50%,rgba(232,180,150,.35) 0%,transparent 65%);
+      border-radius:50%;
+      pointer-events:none;
     }
     .pass-rib{
       display:inline-flex;align-items:center;gap:6px;
@@ -199,29 +208,70 @@
       font-size:.6rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
       padding:6px 14px;border-radius:50px;
       margin-bottom:18px;
+      box-shadow:0 6px 16px rgba(47,79,79,.3);
     }
     .pass-rib svg{width:11px;height:11px;color:#E8B496;}
     .pass-name{
       font-family:'Dancing Script',cursive;
       font-size:2.4rem;font-weight:700;line-height:1;
-      color:#2F4F4F;margin:0 0 16px;
+      color:#2F4F4F;margin:0 0 18px;
     }
     .pass-price{
       display:inline-flex;align-items:baseline;gap:2px;margin:0 0 4px;
     }
     .pass-price-n{
-      font-size:4.4rem;font-weight:900;line-height:.85;color:#2F4F4F;letter-spacing:-.04em;
+      font-size:5rem;font-weight:900;line-height:.82;color:#2F4F4F;letter-spacing:-.04em;
     }
-    .pass-price-c{font-size:1.5rem;font-weight:800;color:#2F4F4F;opacity:.4;}
-    .pass-price-e{font-size:1.6rem;font-weight:700;color:#2F4F4F;opacity:.55;margin-left:3px;}
+    .pass-price-c{font-size:1.6rem;font-weight:800;color:#2F4F4F;opacity:.4;}
+    .pass-price-e{font-size:1.8rem;font-weight:700;color:#2F4F4F;opacity:.55;margin-left:3px;}
     .pass-meta{
       font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-      color:#2F4F4F;opacity:.55;margin:6px 0 22px;
+      color:#2F4F4F;opacity:.55;margin:6px 0 18px;
     }
+
+    /* ANCRAGE PRICING — pill vendeur */
+    .pass-anchor{
+      display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0;
+      background:#FFFBF3;
+      padding:10px 18px;border-radius:14px;
+      margin:0 0 24px;
+      border:1.5px dashed rgba(232,180,150,.7);
+    }
+    .pass-anchor-perseance{
+      font-size:.85rem;font-weight:800;color:#2F4F4F;
+      padding:0 10px;
+    }
+    .pass-anchor-sep{
+      color:#2F4F4F;opacity:.3;font-weight:300;font-size:.9rem;
+    }
+    .pass-anchor-eco{
+      font-size:.78rem;font-weight:800;color:#4A8D84;
+      padding:0 10px;display:inline-flex;align-items:center;gap:5px;
+    }
+    .pass-anchor-eco-strike{
+      font-size:.62rem;font-weight:600;color:#2F4F4F;opacity:.5;
+      text-decoration:line-through;text-decoration-thickness:1.5px;
+      margin-right:4px;
+    }
+
+    /* Benefits courts */
+    .pass-bens{
+      list-style:none;padding:0;margin:0 0 20px;text-align:left;
+      display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;
+    }
+    .pass-bens li{
+      display:flex;align-items:center;gap:7px;
+      font-size:.78rem;color:#2F4F4F;line-height:1.3;
+    }
+    .pass-bens .ic{
+      flex-shrink:0;color:#4A8D84;
+      width:13px;height:13px;
+    }
+
     .pass-stat{
       background:linear-gradient(135deg,#F3EBD4 0%,#EBC6A6 100%);
-      border-radius:14px;padding:20px 16px 16px;
-      margin:0 0 24px;border:1px solid rgba(232,180,150,.5);
+      border-radius:14px;padding:18px 16px 16px;
+      margin:0 0 22px;border:1px solid rgba(232,180,150,.6);
     }
     .pass-stat-n{
       font-size:2.6rem;font-weight:900;color:#2F4F4F;
@@ -235,15 +285,16 @@
     .pass-cta{
       display:flex;align-items:center;justify-content:center;gap:10px;
       width:100%;
-      background:#2F4F4F;color:#FBF6EC;
+      background:linear-gradient(135deg,#2F4F4F 0%,#3A6B63 100%);
+      color:#FBF6EC;
       font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
       padding:18px 22px;border-radius:50px;text-decoration:none;
-      box-shadow:0 12px 28px -8px rgba(47,79,79,.45);
+      box-shadow:0 14px 32px -8px rgba(47,79,79,.5);
       transition:all .2s;
     }
     .pass-cta:hover{
-      background:#3A6B63;transform:translateY(-2px);
-      box-shadow:0 16px 32px -8px rgba(47,79,79,.55);
+      transform:translateY(-2px);
+      box-shadow:0 18px 38px -8px rgba(47,79,79,.6);
     }
     .pass-cta svg{width:14px;height:14px;}
     .pass-trust{
@@ -341,8 +392,8 @@
   </section>
 
   <section class="pass-wrap" id="pass">
-    <p class="pass-eye">Tu veux aller plus loin</p>
-    <h2 class="pass-h">Prends 5 sessions <em>d'un coup.</em></h2>
+    <p class="pass-eye">Pour les décidé·es</p>
+    <h2 class="pass-h">5 sessions, toutes <em>les disciplines.</em></h2>
 
     <div class="pass">
       <div class="pass-rib">
@@ -357,6 +408,36 @@
       </div>
       <p class="pass-meta">5 sessions · 1 mois · Sans engagement</p>
 
+      <!-- ANCRAGE PRICING : prix par seance + economie vs hors abo -->
+      <div class="pass-anchor">
+        <span class="pass-anchor-perseance">19,98 € / séance</span>
+        <span class="pass-anchor-sep">|</span>
+        <span class="pass-anchor-eco">
+          <span class="pass-anchor-eco-strike">250 €</span>
+          Économise 150 €
+        </span>
+      </div>
+
+      <!-- Benefits courts en 2x2 -->
+      <ul class="pass-bens">
+        <li>
+          <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 8 7 12 13 4"/></svg>
+          <span><strong>5 sessions</strong> flex</span>
+        </li>
+        <li>
+          <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 8 7 12 13 4"/></svg>
+          <span>Toutes disciplines</span>
+        </li>
+        <li>
+          <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 8 7 12 13 4"/></svg>
+          <span>16 coachs certifiés</span>
+        </li>
+        <li>
+          <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 8 7 12 13 4"/></svg>
+          <span>Sans engagement</span>
+        </li>
+      </ul>
+
       <div class="pass-stat">
         <p class="pass-stat-n">100<span>%</span></p>
         <p class="pass-stat-l">se sont inscrit·es à un abonnement<br/>après avoir pris le Pass Starter</p>
@@ -369,7 +450,7 @@
         <span>Je prends mon Pass · 99,90 €</span>
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
       </a>
-      <p class="pass-trust">Paiement sécurisé · Pas de CB stockée</p>
+      <p class="pass-trust">Paiement sécurisé · Pas de CB stockée · Confirmation immédiate</p>
     </div>
   </section>
 
