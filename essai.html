@@ -209,17 +209,6 @@
       .offers-grid{grid-template-columns:1fr 1fr;gap:28px;align-items:stretch;}
     }
 
-    /* Video en tete de chaque card */
-    .card-vid{
-      display:block;width:100%;
-      aspect-ratio:16/9;
-      object-fit:cover;
-      border-radius:16px;
-      margin-bottom:20px;
-      background:#1a2826;
-      box-shadow:0 12px 28px -8px rgba(47,79,79,.35);
-    }
-
     /* === CARD ESSAI (cool tones — mint/teal) === */
     .essai{
       max-width:440px;margin:0 auto;width:100%;
@@ -753,10 +742,6 @@
 
       <!-- CARD GAUCHE : 1 séance d'essai (cool tones mint/teal) -->
       <div class="essai">
-        <video class="card-vid" autoplay muted loop playsinline preload="metadata"
-               poster="/videos/cross-training-immersion-poster.jpg" aria-hidden="true">
-          <source src="/videos/cross-training-immersion.mp4" type="video/mp4">
-        </video>
         <div class="essai-rib">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="8 1 12 5 8 9"/><line x1="3" y1="5" x2="12" y2="5"/></svg>
           Première visite
@@ -834,9 +819,6 @@
 
       <!-- CARD DROITE : Pass Starter (warm tones peach/or) -->
       <div class="pass">
-        <video class="card-vid" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-          <source src="/videos/short-teaser.mp4" type="video/mp4">
-        </video>
         <div class="pass-badge" aria-hidden="true">🔥 Bestseller</div>
         <div class="pass-rib">
           <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.09 4.26L14.8 6l-3.4 3.32.8 4.68L8 11.77 3.8 14l.8-4.68L1.2 6l4.71-.74L8 1z"/></svg>
