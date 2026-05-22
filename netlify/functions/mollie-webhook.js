@@ -239,6 +239,102 @@ async function sendMetaPurchase(payment, eventSourceUrl) {
   }
 }
 
+// ---- GA4 Measurement Protocol (Purchase server-side) ------------------
+// Permet de tracker le purchase dans GA4 meme si le client a ferme la
+// page de retour /merci-essai (cas frequent : mobile -> desktop, onglet
+// ferme, refus de cookies au retour Mollie, etc.). Source de verite =
+// le webhook Mollie (statut paid), independante du browser.
+//
+// Variables d'env requises :
+//   GA4_MEASUREMENT_ID = G-DHS707Y6XJ  (defaut hardcode si manquant)
+//   GA4_API_SECRET     = xxx  (cree dans GA4 Admin > Flux > Measurement Protocol)
+//
+// Dedup : transaction_id = payment.id. GA4 dedup natif les purchases avec
+// le meme transaction_id, donc OK meme si le client-side firePurchaseEvents()
+// envoie aussi le meme event (cas rare ou les 2 fonctionnent).
+async function sendGA4Purchase(payment) {
+  const measurementId = process.env.GA4_MEASUREMENT_ID || "G-DHS707Y6XJ";
+  const apiSecret = process.env.GA4_API_SECRET;
+  if (!apiSecret) {
+    console.warn("[ga4-mp] GA4_API_SECRET not configured, skipping");
+    return { sent: false, reason: "not_configured" };
+  }
+
+  const meta = payment.metadata || {};
+  const amount = parseFloat(payment.amount?.value || "0");
+  const currency = payment.amount?.currency || "EUR";
+  const disciplineKey = meta.discipline || "essai";
+  const disciplineLabel =
+    meta.offer_label ||
+    DISCIPLINE_LABEL[disciplineKey] ||
+    "Seance d'essai SVB";
+
+  // client_id : on prend celui capture au create-essai-payment (cookie _ga
+  // cote browser), sinon on fabrique un id stable base sur le payment.id
+  // pour ne pas creer un nouveau "user" si le webhook est rejoue.
+  const clientId = meta.ga_client_id || `svb.${payment.id}`;
+
+  const params = {
+    transaction_id: payment.id,
+    value: amount,
+    currency,
+    items: [
+      {
+        item_id: disciplineKey,
+        item_name: disciplineLabel,
+        item_category: "essai",
+        price: amount,
+        quantity: 1,
+      },
+    ],
+  };
+
+  // Attribution : on forward les UTM dans les params (GA4 les utilise pour
+  // l'attribution Source/Medium/Campaign meme en server-side)
+  if (meta.utm_source) params.source = meta.utm_source;
+  if (meta.utm_medium) params.medium = meta.utm_medium;
+  if (meta.utm_campaign) params.campaign = meta.utm_campaign;
+
+  const payload = {
+    client_id: clientId,
+    non_personalized_ads: false,
+    events: [
+      {
+        name: "purchase",
+        params,
+      },
+    ],
+  };
+
+  const url = `https://www.google-analytics.com/mp/collect?measurement_id=${encodeURIComponent(
+    measurementId
+  )}&api_secret=${encodeURIComponent(apiSecret)}`;
+
+  try {
+    const resp = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    // GA4 MP retourne 2xx no-body si OK. En cas d'erreur, body texte.
+    if (!resp.ok) {
+      const body = await resp.text();
+      console.error("[ga4-mp] error:", resp.status, body);
+      return { sent: false, status: resp.status, body };
+    }
+    console.log(
+      "[ga4-mp] purchase sent",
+      payment.id,
+      "value=" + amount,
+      "client_id=" + clientId
+    );
+    return { sent: true };
+  } catch (e) {
+    console.error("[ga4-mp] fetch threw:", e);
+    return { sent: false, error: String(e) };
+  }
+}
+
 // ---- Email client de bienvenue (post-paiement) -------------------------
 
 function buildCustomerWelcomeEmail(payment) {
@@ -603,17 +699,19 @@ export default async (req) => {
     const adminContent = buildEmailContent(payment);
     const customerContent = buildCustomerWelcomeEmail(payment);
 
-    const [adminEmail, customerEmailSent, capi] = await Promise.all([
+    const [adminEmail, customerEmailSent, capi, ga4mp] = await Promise.all([
       sendEmail({ to: adminTo, from, ...adminContent }),
       customerEmail
         ? sendEmail({ to: customerEmail, from, replyTo: customerReplyTo, ...customerContent })
         : Promise.resolve({ sent: false, reason: "no_customer_email" }),
       sendMetaPurchase(payment, eventSourceUrl),
+      sendGA4Purchase(payment),
     ]);
 
     console.log("[mollie-webhook] paid → admin:", JSON.stringify(adminEmail));
     console.log("[mollie-webhook] paid → customer:", JSON.stringify(customerEmailSent));
     console.log("[mollie-webhook] paid → capi:", JSON.stringify(capi));
+    console.log("[mollie-webhook] paid → ga4mp:", JSON.stringify(ga4mp));
 
     return new Response("OK", { status: 200 });
   }

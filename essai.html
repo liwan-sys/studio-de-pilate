@@ -1293,6 +1293,19 @@
         submit.disabled = true;
 
         var utms = getUTMs();
+        // GA4 client_id : extrait du cookie _ga (format "GA1.X.<client_id>"),
+        // envoye au backend pour que le webhook Mollie puisse firer un purchase
+        // server-side via GA4 Measurement Protocol attribue au meme user.
+        function getGAClientId(){
+          try {
+            var m = document.cookie.match(/(?:^|;)\s*_ga=([^;]+)/);
+            if (!m) return null;
+            var parts = decodeURIComponent(m[1]).split('.');
+            // _ga value = "GA1.1.123456789.012345678" -> client_id = "123456789.012345678"
+            if (parts.length >= 4) return parts.slice(-2).join('.');
+            return null;
+          } catch(e) { return null; }
+        }
         var payload = {
           discipline: current.discipline,
           firstname: firstname,
@@ -1302,6 +1315,7 @@
           utm_source: utms.utm_source,
           utm_medium: utms.utm_medium,
           utm_campaign: utms.utm_campaign,
+          ga_client_id: getGAClientId(),
           'website-url': form.querySelector('[name="website-url"]').value
         };
 

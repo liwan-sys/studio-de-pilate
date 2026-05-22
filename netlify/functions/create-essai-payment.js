@@ -217,6 +217,11 @@ export default async (req) => {
       utm_source: clean(body.utm_source, 80),
       utm_medium: clean(body.utm_medium, 80),
       utm_campaign: clean(body.utm_campaign, 120),
+      // GA4 client_id (extrait du cookie _ga cote browser) : permet au
+      // webhook Mollie d'envoyer un purchase server-side via GA4
+      // Measurement Protocol, attribue au meme user GA4 que la session
+      // qui a clique sur "Reserver" (cross-session/cross-device safe).
+      ga_client_id: clean(body.ga_client_id, 100),
       submitted_at: new Date().toISOString(),
     },
   };
