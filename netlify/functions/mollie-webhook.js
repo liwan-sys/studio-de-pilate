@@ -25,7 +25,7 @@
 
 const DEFAULT_TO = "hello@studiosvb.fr";
 const DEFAULT_FROM = "Studio SVB <onboarding@resend.dev>";
-// v1.0 — initial deploy with Resend integration
+// v1.1 — utilise NOTIFICATION_EMAIL_FROM (domaine verifie studiosvb.com)
 
 const DISCIPLINE_LABEL = {
   reformer: "Pilates Reformer",
