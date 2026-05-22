@@ -137,10 +137,10 @@
       setTimeout(function () {
         fName.focus();
       }, 100);
+      var checkoutValue =
+        opts.amount && opts.amount.indexOf("99") > -1 ? 99.9 : 30.0;
       try {
         if (window.fbq) {
-          var checkoutValue =
-            opts.amount && opts.amount.indexOf("99") > -1 ? 99.9 : 30.0;
           window.fbq("track", "InitiateCheckout", {
             content_category: "essai",
             content_name: opts.label,
@@ -150,6 +150,27 @@
             currency: "EUR",
           });
         }
+      } catch (e) {}
+      // GA4 standard event : begin_checkout (Enhanced Ecommerce)
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ ecommerce: null }); // clear precedent
+        window.dataLayer.push({
+          event: "begin_checkout",
+          ecommerce: {
+            currency: "EUR",
+            value: checkoutValue,
+            items: [
+              {
+                item_id: opts.discipline,
+                item_name: opts.label,
+                item_category: "essai",
+                price: checkoutValue,
+                quantity: 1,
+              },
+            ],
+          },
+        });
       } catch (e) {}
       try {
         if (window.svbTrack)

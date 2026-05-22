@@ -9,6 +9,7 @@
   })(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
+  <meta name="facebook-domain-verification" content="ivgwdh3702t7twxczeskz6m149zuah" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,follow">
   <title>Paiement confirmé — On t'appelle ! | SVB</title>
@@ -207,6 +208,27 @@
         content_type: 'product',
         num_items: 1
       }, fbqOpts);
+      // GA4 standard event : purchase (Enhanced Ecommerce)
+      // transaction_id = paymentId Mollie → dedup si rechargement
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ ecommerce: null });
+        window.dataLayer.push({
+          event: 'purchase',
+          ecommerce: {
+            transaction_id: details.paymentId || ('svb_' + Date.now()),
+            value: amount,
+            currency: 'EUR',
+            items: [{
+              item_id: discipline,
+              item_name: label,
+              item_category: 'essai',
+              price: amount,
+              quantity: 1
+            }]
+          }
+        });
+      } catch(e) {}
       sessionStorage.removeItem('svb_last_essai');
     } catch(e) {
       // Fallback minimal si pas de donnees

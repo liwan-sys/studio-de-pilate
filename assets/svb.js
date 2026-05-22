@@ -281,9 +281,23 @@
   var svbTrack = function(event, props){
     try {
       if (!event) return;
+
+      // Push to dataLayer ALWAYS — GTM/GA4 voient tous nos events custom
+      // (independamment du consent, qui ne gere que les autres canaux).
+      try {
+        window.dataLayer = window.dataLayer || [];
+        var dlEvent = { event: String(event).slice(0, 60) };
+        if (props && typeof props === 'object') {
+          for (var k in props) {
+            if (Object.prototype.hasOwnProperty.call(props, k)) dlEvent[k] = props[k];
+          }
+        }
+        window.dataLayer.push(dlEvent);
+      } catch(e) {}
+
       var consented = false;
       try { consented = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
-      if (!consented) return; // respect RGPD
+      if (!consented) return; // respect RGPD pour les autres canaux
       var payload = JSON.stringify({
         event: String(event).slice(0,60),
         props: props || null,
