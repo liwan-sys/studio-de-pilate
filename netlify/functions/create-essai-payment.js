@@ -15,7 +15,7 @@
 //      → l'admin sait QUI a payé QUOI sans aucune correlation manuelle
 //
 // Variable d'env requise :
-//   MOLLIE_API_KEY = live_... (scope Functions uniquement, marquée Secret)
+//   MOLLIE_API_KEY = live_... (scopes: functions, runtime, builds)
 // =========================================================================
 
 const OFFERS = {
