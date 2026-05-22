@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,follow">
+  <title>Paiement confirmé — On t'appelle ! | SVB</title>
+  <meta name="description" content="Ton paiement est confirmé. L'équipe SVB te contacte sous 1h pour planifier ta séance d'essai.">
+
+  <link rel="icon" href="/images/logo.webp">
+  <link rel="apple-touch-icon" href="/images/logo.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/svb.css?v=20260428e" />
+
+  <style>
+    :root{
+      --teal:#2F4F4F; --teal-mid:#4A8D84; --mint:#88C0A6;
+      --peach:#E8B496; --gold:#F5C76D;
+      --cream:#FBF6EC; --cream-2:#F3EBD4;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:'Montserrat',system-ui,sans-serif;
+      color:var(--teal);
+      background:linear-gradient(160deg,#E7F2EC 0%,#F3EBD4 55%,#FBE4D2 100%);
+      min-height:100vh;
+      display:flex; align-items:center; justify-content:center;
+      padding:24px;
+    }
+    .wrap{
+      max-width:560px; width:100%;
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border:1px solid rgba(255,255,255,.9);
+      border-radius:28px;
+      padding:48px 32px 36px;
+      box-shadow:0 20px 60px rgba(47,79,79,.12);
+      text-align:center;
+      animation:fadeUp .7s cubic-bezier(.22,.61,.36,1) both;
+    }
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:none}
+    }
+
+    .check{
+      width:84px;height:84px; margin:0 auto 18px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#88C0A6,#4A8D84);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 12px 30px rgba(74,141,132,.35);
+      animation:pop .6s .2s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes pop{
+      from{transform:scale(.3);opacity:0}
+      to{transform:scale(1);opacity:1}
+    }
+    .check svg{width:44px;height:44px;color:#fff}
+    .check svg path{
+      stroke-dasharray:30;stroke-dashoffset:30;
+      animation:draw .5s .55s ease-out forwards;
+    }
+    @keyframes draw{to{stroke-dashoffset:0}}
+
+    .eyebrow{
+      font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--teal-mid); font-weight:700;
+      margin:0 0 6px;
+    }
+    h1{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(2.2rem,7vw,3rem);
+      color:var(--teal-mid);
+      margin:0 0 6px; line-height:1.1;
+    }
+    .lead{
+      font-size:1.05rem; line-height:1.55;
+      color:var(--teal); opacity:.85;
+      margin:0 0 26px;
+    }
+    .lead strong{color:var(--teal)}
+
+    .next{
+      background:linear-gradient(180deg,#FBF6EC,#F3EBD4);
+      border:1px solid rgba(74,141,132,.18);
+      border-radius:18px;
+      padding:20px 18px;
+      margin:0 0 24px;
+      text-align:left;
+    }
+    .next-h{
+      font-size:.78rem; letter-spacing:.16em; text-transform:uppercase;
+      color:var(--teal-mid); font-weight:700;
+      margin:0 0 10px; text-align:center;
+    }
+    .next ol{
+      list-style:none; padding:0; margin:0;
+      counter-reset:step;
+      display:grid; gap:12px;
+    }
+    .next li{
+      counter-increment:step;
+      display:flex; gap:12px; align-items:flex-start;
+      font-size:.95rem; line-height:1.5;
+    }
+    .next li::before{
+      content:counter(step);
+      flex:0 0 26px; height:26px;
+      border-radius:50%;
+      background:var(--teal-mid); color:#fff;
+      font-weight:700; font-size:.85rem;
+      display:flex; align-items:center; justify-content:center;
+      margin-top:1px;
+    }
+    .next li strong{color:var(--teal-mid)}
+
+    .ctas{
+      display:grid; gap:10px;
+      margin-bottom:22px;
+    }
+    .btn{
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 22px;
+      border-radius:50px;
+      font-weight:700; font-size:.95rem;
+      text-decoration:none;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .btn-wa{
+      background:#25D366; color:#fff;
+      box-shadow:0 10px 24px rgba(37,211,102,.35);
+    }
+    .btn-wa:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(37,211,102,.45)}
+    .btn-call{
+      background:#fff; color:var(--teal);
+      border:2px solid var(--teal-mid);
+    }
+    .btn-call:hover{transform:translateY(-2px);background:var(--teal-mid);color:#fff}
+    .btn svg{width:18px;height:18px;flex:0 0 18px}
+
+    .meta{
+      font-size:.82rem; color:var(--teal); opacity:.65;
+      margin:0;
+    }
+    .meta a{color:var(--teal-mid);font-weight:600;text-decoration:none}
+    .meta a:hover{text-decoration:underline}
+
+    .home-link{
+      display:inline-block;
+      margin-top:18px;
+      font-size:.78rem; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--teal); opacity:.6;
+      text-decoration:none;
+    }
+    .home-link:hover{opacity:1}
+
+    @media (prefers-reduced-motion: reduce){
+      .wrap,.check,.check svg path{animation:none}
+    }
+  </style>
+</head>
+<body>
+
+  <main class="wrap" id="main-content">
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12.5l5 5L19 7"/>
+      </svg>
+    </div>
+
+    <p class="eyebrow">Paiement confirmé</p>
+    <h1>Merci, on s'occupe de tout&nbsp;!</h1>
+    <p class="lead">Ta séance d'essai est <strong>réservée</strong>. L'équipe SVB te contacte <strong>sous 1h</strong> (jours ouvrés) pour choisir ton créneau et te briefer.</p>
+
+    <div class="next">
+      <p class="next-h">Et ensuite&nbsp;?</p>
+      <ol>
+        <li><span>On t'appelle au <strong>numéro de ta carte</strong> ou on t'envoie un WhatsApp pour <strong>fixer le jour et l'heure</strong> de ta séance.</span></li>
+        <li><span>Tu reçois un <strong>SMS de confirmation</strong> avec l'adresse exacte et le nom de ton coach.</span></li>
+        <li><span>Tu viens <strong>10 min avant</strong>, en tenue de sport. On te prête tout le reste (tapis, chaussettes antidérapantes…).</span></li>
+      </ol>
+    </div>
+
+    <div class="ctas">
+      <a href="https://wa.me/33744919155?text=Bonjour%20SVB%2C%20je%20viens%20de%20payer%20ma%20s%C3%A9ance%20d%27essai%20%E2%9C%85"
+         class="btn btn-wa"
+         onclick="try{if(window.svbTrack)window.svbTrack('merci_essai_wa_click');}catch(e){}">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.93.5 3.78 1.46 5.42L2 22l4.79-1.57a9.9 9.9 0 0 0 5.24 1.43h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.95-9.91-9.95zm5.81 14.18c-.25.69-1.43 1.32-1.99 1.4-.51.08-1.15.11-1.85-.11-.43-.13-.98-.31-1.69-.62-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37s.4 0 .57.01c.18.01.43-.07.67.51.25.59.85 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.32.4-.45.54-.15.15-.31.31-.13.62.18.3.79 1.31 1.7 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.2.77-.9.97-1.21.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.34.08.13.08.74-.17 1.43z"/></svg>
+        Écris-nous sur WhatsApp
+      </a>
+      <a href="tel:+33744919155"
+         class="btn btn-call"
+         onclick="try{if(window.svbTrack)window.svbTrack('merci_essai_call_click');}catch(e){}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Ou appelle 07 44 91 91 55
+      </a>
+    </div>
+
+    <p class="meta">Un reçu Mollie t'a été envoyé par email · Question&nbsp;? <a href="mailto:hello@studiosvb.fr">hello@studiosvb.fr</a></p>
+
+    <a href="/" class="home-link">← Retour à l'accueil</a>
+  </main>
+
+  <script src="/assets/analytics.js?v=20260427a" defer></script>
+  <script>
+    // Track payment success (Meta Ads conversion attribution)
+    document.addEventListener('DOMContentLoaded', function(){
+      try{
+        if(window.svbTrack){
+          window.svbTrack('essai_payment_success', {
+            provider:'mollie',
+            page:'merci-essai'
+          });
+        }
+      }catch(e){}
+    });
+  </script>
+</body>
+</html>

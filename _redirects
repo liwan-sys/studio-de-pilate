@@ -52,6 +52,7 @@
 /reserver                         /#offre-premium                         301
 /ete-2026                         /                                       301
 /merci-reservation                /Merci.html                             200
+/merci-essai                      /merci-essai.html                       200
 
 # Phase 7 — Parrainage, CMS, API
 /parrainage                       /parrainage.html                        200
