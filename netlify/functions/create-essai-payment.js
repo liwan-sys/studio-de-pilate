@@ -125,6 +125,7 @@ export default async (req) => {
     amount: { value: offer.amount, currency: "EUR" },
     description,
     redirectUrl: `${siteUrl}/merci-essai`,
+    webhookUrl: `${siteUrl}/api/mollie-webhook`,
     locale: "fr_FR",
     billingEmail: email.toLowerCase(),
     metadata: {
