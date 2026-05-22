@@ -188,6 +188,9 @@
       var amount = details.amount || 30.00;
       var discipline = details.discipline || 'essai';
       var label = details.label || "Seance d'essai SVB";
+      // eventID = paymentId Mollie : permet a Meta de dedup avec
+      // l'event Purchase envoye en parallele par mollie-webhook (CAPI)
+      var fbqOpts = details.paymentId ? { eventID: details.paymentId } : {};
       fbq('track', 'Purchase', {
         value: amount,
         currency: 'EUR',
@@ -196,7 +199,7 @@
         content_ids: [discipline],
         content_type: 'product',
         num_items: 1
-      });
+      }, fbqOpts);
       sessionStorage.removeItem('svb_last_essai');
     } catch(e) {
       // Fallback minimal si pas de donnees

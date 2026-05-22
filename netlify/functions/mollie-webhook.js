@@ -23,9 +23,11 @@
 //                             verification de domaine)
 // =========================================================================
 
+import crypto from "node:crypto";
+
 const DEFAULT_TO = "hello@studiosvb.fr";
 const DEFAULT_FROM = "Studio SVB <onboarding@resend.dev>";
-// v1.1 — utilise NOTIFICATION_EMAIL_FROM (domaine verifie studiosvb.com)
+// v1.2 — Meta Conversions API (Purchase event server-side)
 
 const DISCIPLINE_LABEL = {
   reformer: "Pilates Reformer",
@@ -127,6 +129,111 @@ function buildEmailContent(payment) {
 
   return { subject, text, html };
 }
+
+// ---- Meta Conversions API ----------------------------------------------
+
+function sha256Hex(input) {
+  return crypto
+    .createHash("sha256")
+    .update(String(input).trim().toLowerCase())
+    .digest("hex");
+}
+
+// Normalise un numero FR vers E.164 sans le "+", digits uniquement
+// 0766506042 -> 33766506042
+// +33766506042 -> 33766506042
+// 06 66 50 60 42 -> 33766506042
+function normalizePhoneFR(phone) {
+  if (!phone) return null;
+  let d = String(phone).replace(/\D/g, "");
+  if (d.startsWith("0033")) d = d.slice(2);
+  else if (d.startsWith("33")) {
+    // OK
+  } else if (d.startsWith("0")) d = "33" + d.slice(1);
+  return d;
+}
+
+async function sendMetaPurchase(payment, eventSourceUrl) {
+  const pixelId = process.env.META_PIXEL_ID;
+  const accessToken = process.env.META_CAPI_ACCESS_TOKEN;
+  if (!pixelId || !accessToken) {
+    console.warn(
+      "[mollie-webhook] Meta CAPI not configured (missing PIXEL_ID or ACCESS_TOKEN)"
+    );
+    return { sent: false, reason: "capi_not_configured" };
+  }
+
+  const meta = payment.metadata || {};
+  const amountValue = parseFloat(payment.amount?.value || "0");
+  const currency = payment.amount?.currency || "EUR";
+  const eventTime = payment.paidAt
+    ? Math.floor(new Date(payment.paidAt).getTime() / 1000)
+    : Math.floor(Date.now() / 1000);
+
+  // event_id = payment.id pour deduplication avec le client-side Pixel
+  // (merci-essai.html peut firer fbq('track','Purchase',...,{eventID:...}))
+  const eventId = payment.id;
+
+  // user_data : email + phone hashes SHA-256, plus fbc/fbp si dispo
+  const user_data = {};
+  const email = meta.email || payment.billingEmail;
+  if (email) user_data.em = [sha256Hex(email)];
+  const phoneNorm = normalizePhoneFR(meta.phone);
+  if (phoneNorm) user_data.ph = [sha256Hex(phoneNorm)];
+  if (meta.firstname) user_data.fn = [sha256Hex(meta.firstname)];
+  if (meta.fbclid) {
+    // Format fbc : fb.1.{creation_time_ms}.{fbclid}
+    // On ne connait pas exactement le moment du clic, on prend une approx
+    // basee sur submitted_at, sinon paidAt
+    const sub = meta.submitted_at
+      ? new Date(meta.submitted_at).getTime()
+      : Date.now();
+    user_data.fbc = `fb.1.${sub}.${meta.fbclid}`;
+  }
+  user_data.country = [sha256Hex("fr")];
+
+  const event = {
+    event_name: "Purchase",
+    event_time: eventTime,
+    event_id: eventId,
+    action_source: "website",
+    event_source_url: eventSourceUrl,
+    user_data,
+    custom_data: {
+      value: amountValue,
+      currency,
+      content_category: "essai",
+      content_name: meta.offer_label || "Seance d'essai SVB",
+      content_ids: meta.discipline ? [meta.discipline] : undefined,
+      content_type: "product",
+      num_items: 1,
+    },
+  };
+
+  const url = `https://graph.facebook.com/v18.0/${pixelId}/events?access_token=${encodeURIComponent(
+    accessToken
+  )}`;
+
+  try {
+    const resp = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data: [event] }),
+    });
+    const body = await resp.text();
+    if (!resp.ok) {
+      console.error("[meta-capi] error:", resp.status, body);
+      return { sent: false, reason: "capi_error", status: resp.status, body };
+    }
+    console.log("[meta-capi] Purchase sent for", payment.id, body);
+    return { sent: true, response: body };
+  } catch (e) {
+    console.error("[meta-capi] fetch threw:", e);
+    return { sent: false, reason: "fetch_error", error: String(e) };
+  }
+}
+
+// ---- Resend email -------------------------------------------------------
 
 async function sendEmail({ to, from, subject, html, text }) {
   const apiKey = process.env.RESEND_API_KEY;
@@ -274,8 +381,17 @@ export default async (req) => {
   const from = process.env.NOTIFICATION_EMAIL_FROM || DEFAULT_FROM;
   const { subject, html, text } = buildEmailContent(payment);
 
-  const result = await sendEmail({ to, from, subject, html, text });
-  console.log("[mollie-webhook] email result:", JSON.stringify(result));
+  const siteUrl = process.env.URL || "https://studiosvb.com";
+  const eventSourceUrl = `${siteUrl}/merci-essai`;
+
+  // Email + Meta CAPI Purchase event en parallele
+  const [emailResult, capiResult] = await Promise.all([
+    sendEmail({ to, from, subject, html, text }),
+    sendMetaPurchase(payment, eventSourceUrl),
+  ]);
+
+  console.log("[mollie-webhook] email:", JSON.stringify(emailResult));
+  console.log("[mollie-webhook] capi:", JSON.stringify(capiResult));
 
   return new Response("OK", { status: 200 });
 };
