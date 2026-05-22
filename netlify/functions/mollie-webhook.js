@@ -442,13 +442,16 @@ async function sendMetaAbandonedCart(payment, eventSourceUrl) {
 
 // ---- Resend email -------------------------------------------------------
 
-async function sendEmail({ to, from, subject, html, text, scheduledAt }) {
+async function sendEmail({ to, from, subject, html, text, scheduledAt, replyTo }) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.warn("[mollie-webhook] RESEND_API_KEY not set, skipping email");
     return { sent: false, reason: "no_api_key" };
   }
   const payload = { from, to: [to], subject, html, text };
+  // Reply-To : permet d'envoyer DEPUIS le domaine verifie noreply@studiosvb.com
+  // mais que les reponses partent vers hello@studiosvb.fr (boite reelle).
+  if (replyTo) payload.reply_to = replyTo;
   // Resend Scheduled Send : supporte natural language ("in 2 minutes",
   // "in 1 hour") ou ISO 8601 timestamp. Resend retient l'email et
   // l'envoie a l'heure prevue, on n'a pas a gerer de file d'attente.
@@ -582,6 +585,8 @@ export default async (req) => {
 
   const adminTo = process.env.NOTIFICATION_EMAIL_TO || DEFAULT_TO;
   const from = process.env.NOTIFICATION_EMAIL_FROM || DEFAULT_FROM;
+  // Reply-To pour les mails clients : repond a hello@studiosvb.fr
+  const customerReplyTo = process.env.NOTIFICATION_EMAIL_REPLY_TO || "hello@studiosvb.fr";
   const siteUrl = process.env.URL || "https://studiosvb.com";
   const eventSourceUrl = `${siteUrl}/merci-essai`;
   const meta = payment.metadata || {};
@@ -595,7 +600,7 @@ export default async (req) => {
     const [adminEmail, customerEmailSent, capi] = await Promise.all([
       sendEmail({ to: adminTo, from, ...adminContent }),
       customerEmail
-        ? sendEmail({ to: customerEmail, from, ...customerContent })
+        ? sendEmail({ to: customerEmail, from, replyTo: customerReplyTo, ...customerContent })
         : Promise.resolve({ sent: false, reason: "no_customer_email" }),
       sendMetaPurchase(payment, eventSourceUrl),
     ]);
@@ -624,6 +629,7 @@ export default async (req) => {
       sendEmail({
         to: customerEmail,
         from,
+        replyTo: customerReplyTo,
         ...retargetContent,
         scheduledAt: delay,
       }),
