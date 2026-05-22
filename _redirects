@@ -72,6 +72,7 @@
 /api/newsletter                   /.netlify/functions/newsletter          200!
 /api/newsletter/confirm           /.netlify/functions/newsletter          200!
 /api/notify                       /.netlify/functions/notify              200!
+/api/create-essai-payment         /.netlify/functions/create-essai-payment 200!
 
 # Légal
 /mentions-legales                 /mentions-legales.html                  200

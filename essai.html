@@ -791,28 +791,34 @@
 
         <p class="essai-pick">Choisis ta discipline</p>
         <div class="essai-discs">
-          <a class="essai-disc"
+          <a class="essai-disc js-buy"
              href="https://payment-links.mollie.com/payment/HHhAgySncFYsyz84i6ytA"
-             target="_blank" rel="noopener noreferrer"
-             onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'reformer',provider:'mollie'});}catch(e){}">
+             data-discipline="reformer"
+             data-label="Pilates Reformer"
+             data-amount="30 €"
+             rel="noopener noreferrer">
             <span>Pilates Reformer</span>
             <span class="essai-disc-r">30&nbsp;€
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
             </span>
           </a>
-          <a class="essai-disc"
+          <a class="essai-disc js-buy"
              href="https://payment-links.mollie.com/payment/Y6HEPBZLjFsy5zgVYPWYN"
-             target="_blank" rel="noopener noreferrer"
-             onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'crossformer',provider:'mollie'});}catch(e){}">
+             data-discipline="crossformer"
+             data-label="Crossformer"
+             data-amount="30 €"
+             rel="noopener noreferrer">
             <span>Crossformer</span>
             <span class="essai-disc-r">30&nbsp;€
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
             </span>
           </a>
-          <a class="essai-disc"
+          <a class="essai-disc js-buy"
              href="https://payment-links.mollie.com/payment/ciK265VBM3SHV2AnZhhU2"
-             target="_blank" rel="noopener noreferrer"
-             onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'cross_yoga_pilates',provider:'mollie'});}catch(e){}">
+             data-discipline="cross_yoga_pilates"
+             data-label="Cross · Yoga · Boxe · Pilates sol"
+             data-amount="30 €"
+             rel="noopener noreferrer">
             <span>Cross · Yoga · Boxe · Pilates sol</span>
             <span class="essai-disc-r">30&nbsp;€
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
@@ -872,9 +878,11 @@
         </div>
 
         <a href="https://payment-links.mollie.com/payment/UfNLNU8M2tNkHBhrV53yq"
-           target="_blank" rel="noopener noreferrer"
-           onclick="try{if(window.svbTrack)window.svbTrack('essai_cta_click',{discipline:'pass_starter',provider:'mollie'});}catch(e){}"
-           class="pass-cta">
+           data-discipline="pass_starter"
+           data-label="Pass Starter"
+           data-amount="99,90 €"
+           rel="noopener noreferrer"
+           class="pass-cta js-buy">
           <span>Je prends mon Pass · 99,90 €</span>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
         </a>
@@ -936,6 +944,329 @@
         });
       }, { threshold: 0.5 });
       io.observe(el);
+    })();
+  </script>
+
+  <!-- ============================================================
+       MODAL : capture prénom/email/tel AVANT redirection Mollie
+       Permet d'attacher le contact à chaque paiement (API Mollie + metadata)
+       ============================================================ -->
+  <style>
+    .mol-modal{
+      position:fixed; inset:0; z-index:9999;
+      display:none; align-items:center; justify-content:center;
+      background:rgba(26,40,38,.72);
+      backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+      padding:18px;
+      animation:molFade .25s ease-out;
+    }
+    .mol-modal.is-open{display:flex;}
+    @keyframes molFade{from{opacity:0}to{opacity:1}}
+
+    .mol-card{
+      background:#FBF6EC; color:#2F4F4F;
+      border-radius:24px;
+      max-width:440px; width:100%;
+      padding:32px 26px 26px;
+      box-shadow:0 30px 80px rgba(0,0,0,.4);
+      position:relative;
+      animation:molSlide .35s cubic-bezier(.22,.61,.36,1);
+      max-height:92vh; overflow-y:auto;
+    }
+    @keyframes molSlide{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+
+    .mol-close{
+      position:absolute; top:12px; right:12px;
+      width:34px; height:34px; border:none;
+      background:rgba(47,79,79,.08); color:#2F4F4F;
+      border-radius:50%; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition:.2s;
+    }
+    .mol-close:hover{background:rgba(47,79,79,.18); transform:rotate(90deg);}
+    .mol-close svg{width:16px;height:16px;}
+
+    .mol-eye{
+      font-size:.66rem; font-weight:800; letter-spacing:.22em;
+      text-transform:uppercase; color:#4A8D84;
+      margin:0 0 6px;
+    }
+    .mol-title{
+      font-family:'Dancing Script',cursive;
+      font-size:1.85rem; color:#2F4F4F;
+      margin:0 0 4px; line-height:1.1;
+    }
+    .mol-sub{
+      font-size:.86rem; opacity:.78; margin:0 0 6px;
+    }
+    .mol-offer{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 14px; border-radius:50px;
+      background:linear-gradient(135deg,#F5C76D,#E8B496);
+      color:#2F4F4F; font-weight:800; font-size:.82rem;
+      margin:10px 0 18px;
+    }
+    .mol-offer b{font-weight:900;}
+
+    .mol-field{margin:0 0 12px;}
+    .mol-field label{
+      display:block; font-size:.74rem; font-weight:700;
+      color:#2F4F4F; opacity:.75; margin:0 0 5px;
+      letter-spacing:.02em;
+    }
+    .mol-field input{
+      width:100%; padding:13px 15px;
+      font-size:.98rem; font-family:inherit; color:#2F4F4F;
+      background:#fff;
+      border:1.5px solid rgba(74,141,132,.25);
+      border-radius:12px;
+      transition:border-color .2s, box-shadow .2s;
+      -webkit-appearance:none;
+    }
+    .mol-field input:focus{
+      outline:none;
+      border-color:#4A8D84;
+      box-shadow:0 0 0 3px rgba(74,141,132,.15);
+    }
+    .mol-field input.err{
+      border-color:#d97a5a;
+      box-shadow:0 0 0 3px rgba(217,122,90,.15);
+    }
+
+    .mol-hp{
+      position:absolute; left:-9999px; top:-9999px;
+      width:1px; height:1px; opacity:0; pointer-events:none;
+    }
+
+    .mol-submit{
+      width:100%; padding:15px 20px;
+      background:linear-gradient(135deg,#4A8D84,#2F4F4F);
+      color:#fff; font-weight:800; font-size:.95rem;
+      border:none; border-radius:50px;
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      transition:.2s;
+      letter-spacing:.02em;
+      margin-top:6px;
+    }
+    .mol-submit:hover:not(:disabled){
+      transform:translateY(-2px);
+      box-shadow:0 12px 28px rgba(74,141,132,.4);
+    }
+    .mol-submit:disabled{opacity:.6; cursor:wait;}
+    .mol-submit svg{width:16px;height:16px;}
+    .mol-submit .spin{
+      width:16px; height:16px;
+      border:2px solid rgba(255,255,255,.3);
+      border-top-color:#fff;
+      border-radius:50%;
+      animation:molSpin .7s linear infinite;
+      display:none;
+    }
+    .mol-submit.loading .arrow{display:none;}
+    .mol-submit.loading .spin{display:inline-block;}
+    @keyframes molSpin{to{transform:rotate(360deg)}}
+
+    .mol-trust{
+      text-align:center; font-size:.74rem; opacity:.65;
+      margin:14px 0 0;
+    }
+    .mol-error{
+      display:none;
+      background:rgba(217,122,90,.12);
+      border:1px solid rgba(217,122,90,.35);
+      color:#a8533a;
+      padding:10px 14px; border-radius:10px;
+      font-size:.84rem; margin:0 0 12px;
+    }
+    .mol-error.show{display:block;}
+
+    @media (prefers-reduced-motion: reduce){
+      .mol-modal,.mol-card{animation:none}
+    }
+  </style>
+
+  <div class="mol-modal" id="molModal" role="dialog" aria-modal="true" aria-labelledby="molTitle">
+    <div class="mol-card">
+      <button type="button" class="mol-close" id="molClose" aria-label="Fermer">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></svg>
+      </button>
+
+      <p class="mol-eye">Plus qu'une étape</p>
+      <h3 class="mol-title" id="molTitle">On t'envoie tout par SMS</h3>
+      <p class="mol-sub">Pour te rappeler et caler ton créneau juste après le paiement.</p>
+
+      <div class="mol-offer">
+        <span>🎯</span><span><b id="molOfferLabel">—</b> · <span id="molOfferAmount">—</span></span>
+      </div>
+
+      <div class="mol-error" id="molError"></div>
+
+      <form id="molForm" novalidate>
+        <div class="mol-field">
+          <label for="molFirstname">Prénom</label>
+          <input type="text" id="molFirstname" name="firstname" autocomplete="given-name" required>
+        </div>
+        <div class="mol-field">
+          <label for="molEmail">Email</label>
+          <input type="email" id="molEmail" name="email" autocomplete="email" required>
+        </div>
+        <div class="mol-field">
+          <label for="molPhone">Téléphone</label>
+          <input type="tel" id="molPhone" name="phone" autocomplete="tel" inputmode="tel" required>
+        </div>
+
+        <input type="text" class="mol-hp" name="website-url" tabindex="-1" autocomplete="off">
+
+        <button type="submit" class="mol-submit" id="molSubmit">
+          <span class="arrow">Continuer vers le paiement</span>
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
+          <span class="spin" aria-hidden="true"></span>
+        </button>
+
+        <p class="mol-trust">Paiement sécurisé via Mollie · Tu seras redirigé pour payer</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var modal = document.getElementById('molModal');
+      var closeBtn = document.getElementById('molClose');
+      var form = document.getElementById('molForm');
+      var submit = document.getElementById('molSubmit');
+      var errBox = document.getElementById('molError');
+      var labelEl = document.getElementById('molOfferLabel');
+      var amountEl = document.getElementById('molOfferAmount');
+      var fName = document.getElementById('molFirstname');
+      var fEmail = document.getElementById('molEmail');
+      var fPhone = document.getElementById('molPhone');
+
+      var current = { discipline:null, fallback:null };
+
+      function getUTMs(){
+        try{
+          var p = new URLSearchParams(window.location.search);
+          return {
+            fbclid: p.get('fbclid'),
+            utm_source: p.get('utm_source'),
+            utm_medium: p.get('utm_medium'),
+            utm_campaign: p.get('utm_campaign')
+          };
+        }catch(e){return {};}
+      }
+
+      function showError(msg){
+        errBox.textContent = msg;
+        errBox.classList.add('show');
+      }
+      function clearError(){
+        errBox.classList.remove('show');
+        errBox.textContent = '';
+        [fName,fEmail,fPhone].forEach(function(i){i.classList.remove('err');});
+      }
+      function open(opts){
+        current.discipline = opts.discipline;
+        current.fallback = opts.fallback;
+        labelEl.textContent = opts.label;
+        amountEl.textContent = opts.amount;
+        clearError();
+        form.reset();
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function(){fName.focus();}, 100);
+        try{if(window.svbTrack)window.svbTrack('essai_modal_open',{discipline:opts.discipline});}catch(e){}
+      }
+      function close(){
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+        submit.classList.remove('loading');
+        submit.disabled = false;
+      }
+
+      // Intercept click on every .js-buy CTA
+      document.querySelectorAll('.js-buy').forEach(function(a){
+        a.addEventListener('click', function(ev){
+          ev.preventDefault();
+          open({
+            discipline: a.dataset.discipline,
+            label: a.dataset.label,
+            amount: a.dataset.amount,
+            fallback: a.getAttribute('href')
+          });
+        });
+      });
+
+      // Close handlers
+      closeBtn.addEventListener('click', close);
+      modal.addEventListener('click', function(e){if(e.target===modal)close();});
+      document.addEventListener('keydown', function(e){
+        if(e.key==='Escape' && modal.classList.contains('is-open'))close();
+      });
+
+      // Submit handler — call Netlify Function then redirect
+      form.addEventListener('submit', async function(ev){
+        ev.preventDefault();
+        clearError();
+
+        var firstname = fName.value.trim();
+        var email = fEmail.value.trim();
+        var phone = fPhone.value.trim();
+
+        var bad = false;
+        if (!firstname){ fName.classList.add('err'); bad = true; }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ fEmail.classList.add('err'); bad = true; }
+        if (!phone || phone.replace(/\D/g,'').length < 8){ fPhone.classList.add('err'); bad = true; }
+        if (bad){
+          showError('Tous les champs sont obligatoires (email valide, téléphone à 8+ chiffres).');
+          return;
+        }
+
+        submit.classList.add('loading');
+        submit.disabled = true;
+
+        var utms = getUTMs();
+        var payload = {
+          discipline: current.discipline,
+          firstname: firstname,
+          email: email,
+          phone: phone,
+          fbclid: utms.fbclid,
+          utm_source: utms.utm_source,
+          utm_medium: utms.utm_medium,
+          utm_campaign: utms.utm_campaign,
+          'website-url': form.querySelector('[name="website-url"]').value
+        };
+
+        try{
+          if(window.svbTrack)window.svbTrack('essai_form_submit',{discipline:current.discipline});
+        }catch(e){}
+
+        try{
+          var res = await fetch('/api/create-essai-payment', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(payload)
+          });
+          var data = await res.json();
+          if (!data || !data.ok || !data.checkoutUrl){
+            throw new Error(data && data.error || 'unknown_error');
+          }
+          window.location.href = data.checkoutUrl;
+        } catch(err){
+          // Fallback : si l'API plante, on redirige vers le lien Mollie statique
+          // pour que le client puisse quand même payer (perte de tracking mais
+          // payement préservé).
+          console.error('[mol] API error, falling back to static link:', err);
+          if (current.fallback){
+            window.location.href = current.fallback;
+          } else {
+            submit.classList.remove('loading');
+            submit.disabled = false;
+            showError('Erreur de connexion. Réessaie ou appelle-nous au 07 44 91 91 55.');
+          }
+        }
+      });
     })();
   </script>
 </body>
