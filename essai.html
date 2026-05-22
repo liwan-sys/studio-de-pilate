@@ -73,7 +73,9 @@
     /* Header par-dessus la video */
     .hd{
       position:relative;z-index:5;
-      display:flex;justify-content:space-between;align-items:center;
+      display:flex;flex-wrap:wrap;
+      justify-content:space-between;align-items:center;
+      gap:10px;
       padding:16px 22px;
       max-width:1100px;margin:0 auto;width:100%;
     }
@@ -89,6 +91,26 @@
     }
     .hd-tel:hover{background:rgba(255,255,255,.2);}
     .hd-tel svg{width:13px;height:13px;}
+
+    /* Nav principale du header (rattache /essai au reste du site = signaux de confiance) */
+    .hd-nav{
+      display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:center;
+    }
+    .hd-nav a{
+      color:#FBF6EC;text-decoration:none;
+      font-size:.82rem;font-weight:600;letter-spacing:.02em;
+      padding:6px 4px;transition:color .2s;white-space:nowrap;
+      text-shadow:0 1px 2px rgba(0,0,0,.3);
+    }
+    .hd-nav a:hover{color:#E8B496;}
+    @media (max-width:720px){
+      .hd-nav{
+        order:3;width:100%;gap:14px;
+        padding-top:8px;margin-top:4px;
+        border-top:1px solid rgba(255,255,255,.14);
+      }
+      .hd-nav a{font-size:.74rem;padding:4px 2px;}
+    }
 
     /* Contenu hero */
     .hero-content{
@@ -563,13 +585,26 @@
 
     /* === FOOTER === */
     footer{
-      padding:24px 22px 28px;text-align:center;
+      padding:32px 22px 28px;text-align:center;
       font-size:.74rem;color:#2F4F4F;
       background:#EBC6A6;
     }
     footer a{color:#2F4F4F;text-decoration:underline;font-weight:700;}
     footer a:hover{color:#4A8D84;}
     footer .sep{margin:0 8px;opacity:.45;}
+    .ft-links{
+      display:flex;flex-wrap:wrap;justify-content:center;gap:14px 22px;
+      margin-bottom:18px;font-size:.82rem;
+    }
+    .ft-links a{text-decoration:none;}
+    .ft-links a:hover{text-decoration:underline;}
+    .ft-meta{margin-bottom:14px;font-size:.78rem;}
+    .ft-legal{
+      font-size:.7rem;color:#2F4F4F;opacity:.7;
+      margin-top:14px;padding-top:14px;
+      border-top:1px solid rgba(47,79,79,.18);
+    }
+    .ft-legal a{font-weight:600;}
 
     /* === ANIMATIONS === */
 
@@ -749,6 +784,13 @@
 
     <header class="hd">
       <a href="/" class="hd-logo" aria-label="Studio SVB"><img src="/images/logo.webp" alt="Studio SVB" width="120" height="85"></a>
+      <nav class="hd-nav" aria-label="Navigation principale">
+        <a href="/studio">Le studio</a>
+        <a href="/equipe">L'équipe</a>
+        <a href="/temoignages">Avis</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/faq">FAQ</a>
+      </nav>
       <a href="tel:+33744919155" class="hd-tel">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 1.8a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7L6 6.7c1 2 2.3 3.3 4.3 4.3l1.3-1.3a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7l-.9.9c-1 1-2.6 1-4.3.4-3.2-1-6-3.8-7-7-.6-1.7-.6-3.3.4-4.3l.2-.5z"/></svg>
         <span>07 44 91 91 55</span>
@@ -930,7 +972,22 @@
   </section>
 
   <footer>
-    <a href="/">studiosvb.com</a><span class="sep">·</span><a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer">WhatsApp</a><span class="sep">·</span>Saint-Ouen-sur-Seine
+    <nav class="ft-links" aria-label="Plan du site">
+      <a href="/">Accueil</a>
+      <a href="/studio">Le studio</a>
+      <a href="/equipe">L'équipe</a>
+      <a href="/sessions">Cours</a>
+      <a href="/temoignages">Avis clients</a>
+      <a href="/tarifs">Tarifs</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="ft-meta">
+      <a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer">WhatsApp</a><span class="sep">·</span><a href="tel:+33744919155">07 44 91 91 55</a><span class="sep">·</span>Saint-Ouen-sur-Seine
+    </div>
+    <div class="ft-legal">
+      <a href="/mentions-legales">Mentions légales</a><span class="sep">·</span><a href="/cgv">CGV</a><span class="sep">·</span>© Studio SVB · Santez Vous Bien
+    </div>
   </footer>
 
   <script>
