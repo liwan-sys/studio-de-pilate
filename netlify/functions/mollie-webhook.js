@@ -257,7 +257,7 @@ function buildCustomerWelcomeEmail(payment) {
     `Ce qui se passe maintenant :`,
     `1. On t'appelle ou on t'envoie un WhatsApp dans l'heure pour caler ton créneau`,
     `2. Tu reçois un SMS de confirmation avec l'adresse et le nom de ton coach`,
-    `3. Tu viens 10 min avant, en tenue de sport. On te prête tout le reste.`,
+    `3. Tu viens 10 min avant, en tenue de sport. On te prête le tapis. Chaussettes anti-dérapantes obligatoires (apporte les tiennes ou achète sur place : 10,30 €).`,
     ``,
     `📞 Besoin de nous joindre avant ? 07 44 91 91 55`,
     `💬 WhatsApp : https://wa.me/33744919155`,
@@ -291,7 +291,7 @@ function buildCustomerWelcomeEmail(payment) {
         <table cellpadding="0" cellspacing="0" border="0" style="width:100%;font-size:14.5px;line-height:1.5;">
           <tr><td style="vertical-align:top;width:30px;padding:6px 0;"><span style="display:inline-block;width:24px;height:24px;border-radius:50%;background:#4A8D84;color:#fff;font-weight:700;text-align:center;line-height:24px;font-size:13px;">1</span></td><td style="padding:6px 0;">On t'appelle ou on t'envoie un <strong>WhatsApp dans l'heure</strong> pour caler ton créneau.</td></tr>
           <tr><td style="vertical-align:top;padding:6px 0;"><span style="display:inline-block;width:24px;height:24px;border-radius:50%;background:#4A8D84;color:#fff;font-weight:700;text-align:center;line-height:24px;font-size:13px;">2</span></td><td style="padding:6px 0;">Tu reçois un <strong>SMS de confirmation</strong> avec l'adresse exacte et le nom de ton coach.</td></tr>
-          <tr><td style="vertical-align:top;padding:6px 0;"><span style="display:inline-block;width:24px;height:24px;border-radius:50%;background:#4A8D84;color:#fff;font-weight:700;text-align:center;line-height:24px;font-size:13px;">3</span></td><td style="padding:6px 0;">Tu viens <strong>10 min avant</strong>, en tenue de sport. On te prête tout le reste (tapis, chaussettes anti-dérapantes).</td></tr>
+          <tr><td style="vertical-align:top;padding:6px 0;"><span style="display:inline-block;width:24px;height:24px;border-radius:50%;background:#4A8D84;color:#fff;font-weight:700;text-align:center;line-height:24px;font-size:13px;">3</span></td><td style="padding:6px 0;">Tu viens <strong>10 min avant</strong>, en tenue de sport. On te prête le tapis. <strong>Chaussettes anti-dérapantes</strong> obligatoires — apporte les tiennes ou achète-les sur place (<strong>10,30 €</strong>).</td></tr>
         </table>
       </div>
 
