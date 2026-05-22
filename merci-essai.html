@@ -171,12 +171,33 @@
     @media (prefers-reduced-motion: reduce){
       .wrap,.check,.check svg path{animation:none}
     }
+
+    /* Spinner verification + croix echec */
+    .spinner{
+      width:64px;height:64px;margin:0 auto 18px;
+      border:5px solid rgba(74,141,132,.18);
+      border-top-color:#4A8D84;
+      border-radius:50%;
+      animation:spin .8s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .cross{
+      width:84px;height:84px;margin:0 auto 18px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#E8B496,#D97A5A);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 12px 30px rgba(217,122,90,.35);
+    }
+    .cross svg{width:44px;height:44px;color:#fff}
+    @media (prefers-reduced-motion: reduce){
+      .spinner{animation:none;border-top-color:rgba(74,141,132,.18)}
+    }
   </style>
 
   <!-- ============================================================
-       Meta Pixel — Page de confirmation paiement
-       Event: Purchase (client-side, complement de la CAPI server-side)
-       L'event_id genere ici est repris cote server pour dedup Meta
+       Meta Pixel — PageView seulement.
+       L'event Purchase est fire conditionnellement par checkPayment()
+       APRES verification du statut reel via /api/check-payment-status.
        ============================================================ -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -186,61 +207,7 @@
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1392481118699006');
     fbq('track', 'PageView');
-
-    // Purchase event : on essaye de recuperer les details du dernier
-    // paiement via sessionStorage (set par essai.html avant redirect Mollie)
-    // ou via URL params si Mollie les renvoie. Sinon : event generique.
-    try {
-      var lastEssai = sessionStorage.getItem('svb_last_essai');
-      var details = lastEssai ? JSON.parse(lastEssai) : {};
-      var amount = details.amount || 30.00;
-      var discipline = details.discipline || 'essai';
-      var label = details.label || "Seance d'essai SVB";
-      // ⭐ LTV optimization : la valeur envoyee a Meta Pixel est la
-      // predicted LTV (defaut 200€) — meme valeur que cote CAPI server-side
-      // pour que la dedup Meta marche correctement.
-      var META_LTV = 200; // doit matcher META_PURCHASE_LTV_VALUE cote serveur
-      // eventID = paymentId Mollie : permet a Meta de dedup avec
-      // l'event Purchase envoye en parallele par mollie-webhook (CAPI)
-      var fbqOpts = details.paymentId ? { eventID: details.paymentId } : {};
-      fbq('track', 'Purchase', {
-        value: META_LTV,
-        currency: 'EUR',
-        content_category: 'essai',
-        content_name: label,
-        content_ids: [discipline],
-        content_type: 'product',
-        num_items: 1
-      }, fbqOpts);
-      // GA4 standard event : purchase (Enhanced Ecommerce)
-      // transaction_id = paymentId Mollie → dedup si rechargement
-      try {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ ecommerce: null });
-        window.dataLayer.push({
-          event: 'purchase',
-          ecommerce: {
-            transaction_id: details.paymentId || ('svb_' + Date.now()),
-            value: amount,
-            currency: 'EUR',
-            items: [{
-              item_id: discipline,
-              item_name: label,
-              item_category: 'essai',
-              price: amount,
-              quantity: 1
-            }]
-          }
-        });
-      } catch(e) {}
-      sessionStorage.removeItem('svb_last_essai');
-    } catch(e) {
-      // Fallback minimal si pas de donnees
-      fbq('track', 'Purchase', { value: 30.00, currency: 'EUR' });
-    }
   </script>
-  <noscript><img height="1" width="1" style="display:none" alt="" decoding="async"
-    src="https://www.facebook.com/tr?id=1392481118699006&ev=Purchase&cd[value]=30.00&cd[currency]=EUR&noscript=1"/></noscript>
   <script src="/assets/js/svb-checkout.js" defer></script>
 </head>
 <body>
@@ -249,7 +216,16 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <main class="wrap" id="main-content">
+  <!-- État "Verification en cours" — visible par defaut -->
+  <main class="wrap" id="state-pending">
+    <div class="spinner" aria-hidden="true"></div>
+    <p class="eyebrow">Un instant</p>
+    <h1>On vérifie ton paiement…</h1>
+    <p class="lead">Ça prend généralement quelques secondes. Merci de patienter.</p>
+  </main>
+
+  <!-- État "Paiement reussi" — montre apres verification du statut Mollie -->
+  <main class="wrap" id="state-paid" hidden>
     <div class="check" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 12.5l5 5L19 7"/>
@@ -289,19 +265,176 @@
     <a href="/" class="home-link">← Retour à l'accueil</a>
   </main>
 
+  <!-- État "Paiement non abouti" — annule / expire / echec -->
+  <main class="wrap" id="state-failed" hidden>
+    <div class="cross" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="6" y1="6" x2="18" y2="18"/>
+        <line x1="18" y1="6" x2="6" y2="18"/>
+      </svg>
+    </div>
+    <p class="eyebrow" id="failed-eyebrow">Paiement non abouti</p>
+    <h1 id="failed-title">Le paiement n'a pas pu être finalisé</h1>
+    <p class="lead" id="failed-lead">Pas de souci&nbsp;! Ta carte n'a pas été débitée. Tu peux réessayer ou nous écrire si tu as une question.</p>
+
+    <div class="ctas">
+      <a href="/essai" class="btn btn-wa" style="background:#4A8D84">
+        🎯&nbsp;&nbsp;Réessayer ma réservation
+      </a>
+      <a href="https://wa.me/33744919155?text=Bonjour%20SVB%2C%20j%27ai%20eu%20un%20souci%20au%20paiement%20de%20ma%20s%C3%A9ance%20d%27essai"
+         class="btn btn-call">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color:#25D366"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.93.5 3.78 1.46 5.42L2 22l4.79-1.57a9.9 9.9 0 0 0 5.24 1.43h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.95-9.91-9.95z"/></svg>
+        Nous écrire sur WhatsApp
+      </a>
+    </div>
+
+    <a href="/" class="home-link">← Retour à l'accueil</a>
+  </main>
+
   <script src="/assets/analytics.js?v=20260427a" defer></script>
   <script>
-    // Track payment success (Meta Ads conversion attribution)
-    document.addEventListener('DOMContentLoaded', function(){
-      try{
-        if(window.svbTrack){
-          window.svbTrack('essai_payment_success', {
-            provider:'mollie',
-            page:'merci-essai'
+    (function(){
+      // Doit correspondre a META_PURCHASE_LTV_VALUE cote serveur
+      var META_LTV = 200;
+      var MAX_POLL_ATTEMPTS = 10;   // ~30 sec a 3s/intervalle
+      var POLL_INTERVAL_MS = 3000;
+
+      var elPending = document.getElementById('state-pending');
+      var elPaid    = document.getElementById('state-paid');
+      var elFailed  = document.getElementById('state-failed');
+      var failedTitle = document.getElementById('failed-title');
+      var failedLead  = document.getElementById('failed-lead');
+      var failedEyebrow = document.getElementById('failed-eyebrow');
+
+      function show(state){
+        elPending.hidden = (state !== 'pending');
+        elPaid.hidden    = (state !== 'paid');
+        elFailed.hidden  = (state !== 'failed');
+      }
+
+      function showFailed(status){
+        var copy = {
+          canceled: { eyebrow:'Paiement annulé', title:"Tu as annulé le paiement", lead:"Pas de souci ! Ta carte n'a pas été débitée. Tu peux réessayer quand tu veux." },
+          expired:  { eyebrow:'Paiement expiré', title:"Le paiement a expiré", lead:"La session de paiement a expiré (15 min max). Tu peux relancer une nouvelle réservation, ta carte n'a pas été débitée." },
+          failed:   { eyebrow:'Paiement refusé', title:"Le paiement a été refusé", lead:"Ta banque a refusé la transaction. Ça arrive — réessaye avec une autre carte ou écris-nous." },
+          unknown:  { eyebrow:'Paiement non abouti', title:"On n'a pas pu finaliser ton paiement", lead:"Pas de souci, ta carte n'a pas été débitée. Tu peux réessayer ou nous écrire." }
+        };
+        var c = copy[status] || copy.unknown;
+        failedEyebrow.textContent = c.eyebrow;
+        failedTitle.textContent = c.title;
+        failedLead.textContent = c.lead;
+        show('failed');
+        try { if(window.svbTrack) window.svbTrack('essai_payment_failed', { status: status }); } catch(e){}
+      }
+
+      function firePurchaseEvents(details){
+        var amount = details.amount || 30.00;
+        var discipline = details.discipline || 'essai';
+        var label = details.label || "Seance d'essai SVB";
+        var paymentId = details.paymentId;
+        // Meta Pixel Purchase (LTV value pour optim ads)
+        try {
+          if(window.fbq){
+            var fbqOpts = paymentId ? { eventID: paymentId } : {};
+            window.fbq('track', 'Purchase', {
+              value: META_LTV,
+              currency: 'EUR',
+              content_category: 'essai',
+              content_name: label,
+              content_ids: [discipline],
+              content_type: 'product',
+              num_items: 1
+            }, fbqOpts);
+          }
+        } catch(e){}
+        // GA4 ecommerce purchase (vraie valeur 30/99.90€ pour reporting)
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ ecommerce: null });
+          window.dataLayer.push({
+            event: 'purchase',
+            ecommerce: {
+              transaction_id: paymentId || ('svb_' + Date.now()),
+              value: amount,
+              currency: 'EUR',
+              items: [{
+                item_id: discipline,
+                item_name: label,
+                item_category: 'essai',
+                price: amount,
+                quantity: 1
+              }]
+            }
           });
+        } catch(e){}
+        try { if(window.svbTrack) window.svbTrack('essai_payment_success', { provider:'mollie', page:'merci-essai' }); } catch(e){}
+      }
+
+      function getStoredDetails(){
+        try {
+          var raw = sessionStorage.getItem('svb_last_essai');
+          return raw ? JSON.parse(raw) : {};
+        } catch(e) { return {}; }
+      }
+
+      function clearStored(){
+        try { sessionStorage.removeItem('svb_last_essai'); } catch(e){}
+      }
+
+      async function checkStatus(paymentId, attempt){
+        attempt = attempt || 1;
+        try {
+          var res = await fetch('/api/check-payment-status?id=' + encodeURIComponent(paymentId), { cache: 'no-store' });
+          var data = await res.json();
+          if (!data || !data.ok) throw new Error('api_error');
+          var st = data.status;
+          if (st === 'paid') {
+            var details = getStoredDetails();
+            details.paymentId = data.payment_id;
+            details.amount = parseFloat(data.amount) || details.amount || 30.00;
+            details.discipline = data.discipline || details.discipline;
+            details.label = data.offer_label || details.label;
+            firePurchaseEvents(details);
+            clearStored();
+            show('paid');
+            return;
+          }
+          if (st === 'canceled' || st === 'failed' || st === 'expired') {
+            clearStored();
+            showFailed(st);
+            return;
+          }
+          // open / pending / authorized : on poll a nouveau
+          if (attempt >= MAX_POLL_ATTEMPTS) {
+            // Timeout : on affiche un message d'attente "soft"
+            showFailed('unknown');
+            return;
+          }
+          setTimeout(function(){ checkStatus(paymentId, attempt + 1); }, POLL_INTERVAL_MS);
+        } catch(e) {
+          // Erreur reseau : on retry quelques fois, sinon failed
+          if (attempt >= MAX_POLL_ATTEMPTS) { showFailed('unknown'); return; }
+          setTimeout(function(){ checkStatus(paymentId, attempt + 1); }, POLL_INTERVAL_MS);
         }
-      }catch(e){}
-    });
+      }
+
+      // ENTRY POINT
+      document.addEventListener('DOMContentLoaded', function(){
+        var details = getStoredDetails();
+        var paymentId = details.paymentId;
+        if (!paymentId) {
+          // Pas de payment ID : utilisateur arrive ici sans contexte
+          // (lien direct, refresh apres clear). On suppose qu'il a paye
+          // (best effort) — on ne fire PAS les events Purchase pour eviter
+          // les doublons mais on montre la page de confirmation.
+          show('paid');
+          return;
+        }
+        // On a un paymentId : on verifie cote Mollie avant tout
+        show('pending');
+        checkStatus(paymentId, 1);
+      });
+    })();
   </script>
 </body>
 </html>
