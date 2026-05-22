@@ -264,6 +264,7 @@ async function sendGA4Purchase(payment) {
   const amount = parseFloat(payment.amount?.value || "0");
   const currency = payment.amount?.currency || "EUR";
   const disciplineKey = meta.discipline || "essai";
+  const sessionId = meta.ga_session_id || String(Date.now());
   const disciplineLabel =
     meta.offer_label ||
     DISCIPLINE_LABEL[disciplineKey] ||
@@ -278,6 +279,8 @@ async function sendGA4Purchase(payment) {
     transaction_id: payment.id,
     value: amount,
     currency,
+    session_id: sessionId,
+    engagement_time_msec: 100,
     items: [
       {
         item_id: disciplineKey,
@@ -624,6 +627,8 @@ export default async (req) => {
         version: "1.1",
         has_mollie_key: !!process.env.MOLLIE_API_KEY,
         has_resend_key: !!process.env.RESEND_API_KEY,
+        has_ga4_secret: !!process.env.GA4_API_SECRET,
+        ga4_measurement_id: process.env.GA4_MEASUREMENT_ID || "G-DHS707Y6XJ",
         email_to: process.env.NOTIFICATION_EMAIL_TO || DEFAULT_TO,
         email_from: process.env.NOTIFICATION_EMAIL_FROM || DEFAULT_FROM,
         hint: "Add ?test=1 to send a test email immediately",

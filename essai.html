@@ -1306,6 +1306,20 @@
             return null;
           } catch(e) { return null; }
         }
+        function getGASessionId(){
+          try {
+            var m = document.cookie.match(/(?:^|;)\s*_ga_DHS707Y6XJ=([^;]+)/);
+            if (!m) return String(Date.now());
+            var value = decodeURIComponent(m[1]);
+            var gs2Session = value.split('$').find(function(part){
+              return /^s\d+$/.test(part);
+            });
+            if (gs2Session) return gs2Session.slice(1);
+            var parts = value.split('.');
+            if (parts.length >= 3 && /^\d+$/.test(parts[2])) return parts[2];
+            return String(Date.now());
+          } catch(e) { return String(Date.now()); }
+        }
         var payload = {
           discipline: current.discipline,
           firstname: firstname,
@@ -1316,6 +1330,7 @@
           utm_medium: utms.utm_medium,
           utm_campaign: utms.utm_campaign,
           ga_client_id: getGAClientId(),
+          ga_session_id: getGASessionId(),
           'website-url': form.querySelector('[name="website-url"]').value
         };
 

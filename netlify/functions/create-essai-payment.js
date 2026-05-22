@@ -222,6 +222,7 @@ export default async (req) => {
       // Measurement Protocol, attribue au meme user GA4 que la session
       // qui a clique sur "Reserver" (cross-session/cross-device safe).
       ga_client_id: clean(body.ga_client_id, 100),
+      ga_session_id: clean(body.ga_session_id, 50),
       submitted_at: new Date().toISOString(),
     },
   };
