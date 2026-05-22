@@ -692,6 +692,29 @@
     }
   }
   </script>
+
+  <!-- ============================================================
+       Meta Pixel — Studio SVB · ID 1392481118699006
+       Track: PageView (auto), ViewContent (page essai),
+              InitiateCheckout (clic CTA → modal),
+              Purchase = server-side via Conversions API (mollie-webhook)
+       ============================================================ -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1392481118699006');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_category: 'essai',
+      content_name: "Page essai — choix discipline",
+      content_type: 'product'
+    });
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt="" decoding="async"
+    src="https://www.facebook.com/tr?id=1392481118699006&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -1176,6 +1199,19 @@
         document.body.style.overflow = 'hidden';
         setTimeout(function(){fName.focus();}, 100);
         try{if(window.svbTrack)window.svbTrack('essai_modal_open',{discipline:opts.discipline});}catch(e){}
+        try{
+          if(window.fbq){
+            var checkoutValue = opts.amount && opts.amount.indexOf('99') > -1 ? 99.90 : 30.00;
+            window.fbq('track', 'InitiateCheckout', {
+              content_category: 'essai',
+              content_name: opts.label,
+              content_ids: [opts.discipline],
+              content_type: 'product',
+              value: checkoutValue,
+              currency: 'EUR'
+            });
+          }
+        }catch(e){}
       }
       function close(){
         modal.classList.remove('is-open');
@@ -1252,6 +1288,16 @@
           try { data = await res.json(); } catch(e){}
 
           if (res.ok && data && data.ok && data.checkoutUrl){
+            // Stocke les details pour que /merci-essai puisse firer Purchase
+            try {
+              var checkoutValue = current.discipline === 'pass_starter' ? 99.90 : 30.00;
+              sessionStorage.setItem('svb_last_essai', JSON.stringify({
+                amount: checkoutValue,
+                discipline: current.discipline,
+                label: labelEl.textContent,
+                paymentId: data.paymentId
+              }));
+            } catch(e){}
             window.location.href = data.checkoutUrl;
             return;
           }
