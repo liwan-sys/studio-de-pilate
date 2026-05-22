@@ -196,11 +196,15 @@
       var amount = details.amount || 30.00;
       var discipline = details.discipline || 'essai';
       var label = details.label || "Seance d'essai SVB";
+      // ⭐ LTV optimization : la valeur envoyee a Meta Pixel est la
+      // predicted LTV (defaut 200€) — meme valeur que cote CAPI server-side
+      // pour que la dedup Meta marche correctement.
+      var META_LTV = 200; // doit matcher META_PURCHASE_LTV_VALUE cote serveur
       // eventID = paymentId Mollie : permet a Meta de dedup avec
       // l'event Purchase envoye en parallele par mollie-webhook (CAPI)
       var fbqOpts = details.paymentId ? { eventID: details.paymentId } : {};
       fbq('track', 'Purchase', {
-        value: amount,
+        value: META_LTV,
         currency: 'EUR',
         content_category: 'essai',
         content_name: label,
