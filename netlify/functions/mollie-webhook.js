@@ -624,7 +624,7 @@ export default async (req) => {
       JSON.stringify({
         ok: true,
         service: "mollie-webhook",
-        version: "1.1",
+        version: "1.2",
         has_mollie_key: !!process.env.MOLLIE_API_KEY,
         has_resend_key: !!process.env.RESEND_API_KEY,
         has_ga4_secret: !!process.env.GA4_API_SECRET,
@@ -690,6 +690,8 @@ export default async (req) => {
     return new Response("Temporary error", { status: 503 }); // retry
   }
 
+  console.log(`[mollie-webhook] received ${paymentId} status=${payment.status}`);
+
   const adminTo = process.env.NOTIFICATION_EMAIL_TO || DEFAULT_TO;
   const from = process.env.NOTIFICATION_EMAIL_FROM || DEFAULT_FROM;
   // Reply-To pour les mails clients : repond a hello@studiosvb.fr
@@ -753,6 +755,13 @@ export default async (req) => {
   }
 
   // === BRANCHE 3 : Statuts intermediaires (open, pending, authorized) ===
+  // Mollie peut appeler le webhook avant que le statut soit finalise cote API.
+  // On renvoie 503 pour forcer une nouvelle tentative au lieu de perdre l'achat.
+  if (["open", "pending", "authorized"].includes(payment.status)) {
+    console.log(`[mollie-webhook] ${paymentId} status=${payment.status}, retry later`);
+    return new Response("Retry later", { status: 503 });
+  }
+
   console.log(`[mollie-webhook] payment ${paymentId} status=${payment.status}, no-op`);
   return new Response("OK", { status: 200 });
 };
