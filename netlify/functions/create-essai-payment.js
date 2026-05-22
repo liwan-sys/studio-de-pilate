@@ -63,9 +63,21 @@ export default async (req) => {
       status: 204,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
+    });
+  }
+  // Health-check GET (pour verifier que la function est joignable)
+  if (req.method === "GET") {
+    return jsonRes({
+      ok: true,
+      service: "create-essai-payment",
+      version: 3,
+      has_api_key: !!process.env.MOLLIE_API_KEY,
+      api_key_prefix: process.env.MOLLIE_API_KEY
+        ? process.env.MOLLIE_API_KEY.slice(0, 5)
+        : null,
     });
   }
   if (req.method !== "POST") {

@@ -72,7 +72,7 @@
 /api/newsletter                   /.netlify/functions/newsletter          200!
 /api/newsletter/confirm           /.netlify/functions/newsletter          200!
 /api/notify                       /.netlify/functions/notify              200!
-/api/create-essai-payment         /.netlify/functions/create-essai-payment 200!
+# /api/create-essai-payment est expose via config.path dans la function v2
 
 # Légal
 /mentions-legales                 /mentions-legales.html                  200
