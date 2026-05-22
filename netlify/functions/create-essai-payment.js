@@ -3,6 +3,9 @@
 //
 // Endpoint: POST /api/create-essai-payment  (cf. _redirects)
 //
+
+import crypto from "node:crypto";
+
 // Flow :
 //   1) Visiteur remplit le mini-form sur /essai (prénom/email/tel + discipline)
 //   2) JS POST vers cette fonction
@@ -50,6 +53,82 @@ function jsonRes(body, status = 200) {
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim());
+}
+
+// ---- Meta CAPI Lead event (CRM / system_generated) -------------------
+// Cf. doc Meta "Prospects convertis" : Lead event en action_source
+// system_generated, dataset_id = pixel_id, custom_data.event_source = "crm"
+function sha256Hex(input) {
+  return crypto
+    .createHash("sha256")
+    .update(String(input).trim().toLowerCase())
+    .digest("hex");
+}
+
+function normalizePhoneFR(phone) {
+  if (!phone) return null;
+  let d = String(phone).replace(/\D/g, "");
+  if (d.startsWith("0033")) d = d.slice(2);
+  else if (d.startsWith("33")) {
+    // OK
+  } else if (d.startsWith("0")) d = "33" + d.slice(1);
+  return d;
+}
+
+async function sendMetaLead(opts) {
+  const pixelId = process.env.META_PIXEL_ID;
+  const accessToken = process.env.META_CAPI_ACCESS_TOKEN;
+  if (!pixelId || !accessToken) {
+    return { sent: false, reason: "capi_not_configured" };
+  }
+
+  const user_data = {};
+  if (opts.email) user_data.em = [sha256Hex(opts.email)];
+  const ph = normalizePhoneFR(opts.phone);
+  if (ph) user_data.ph = [sha256Hex(ph)];
+  if (opts.firstname) user_data.fn = [sha256Hex(opts.firstname)];
+  if (opts.fbclid) {
+    user_data.fbc = `fb.1.${Date.now()}.${opts.fbclid}`;
+  }
+  user_data.country = [sha256Hex("fr")];
+
+  const event = {
+    event_name: "Lead",
+    event_time: Math.floor(Date.now() / 1000),
+    event_id: opts.leadId,
+    action_source: "system_generated",
+    user_data,
+    custom_data: {
+      event_source: "crm",
+      lead_event_source: "Studio SVB Site",
+      content_category: "essai",
+      content_name: opts.disciplineLabel || opts.discipline || "essai",
+      value: opts.value,
+      currency: "EUR",
+    },
+  };
+
+  const url = `https://graph.facebook.com/v25.0/${pixelId}/events?access_token=${encodeURIComponent(
+    accessToken
+  )}`;
+
+  try {
+    const resp = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data: [event] }),
+    });
+    const body = await resp.text();
+    if (!resp.ok) {
+      console.error("[meta-lead] error:", resp.status, body);
+      return { sent: false, status: resp.status, body };
+    }
+    console.log("[meta-lead] Lead sent for", opts.leadId);
+    return { sent: true };
+  } catch (e) {
+    console.error("[meta-lead] fetch threw:", e);
+    return { sent: false, error: String(e) };
+  }
 }
 
 function clean(s, max = 200) {
@@ -173,6 +252,21 @@ export default async (req) => {
       console.error("[mollie] No checkout URL:", JSON.stringify(payment));
       return jsonRes({ ok: false, error: "no_checkout_url" }, 502);
     }
+
+    // Fire Meta CAPI Lead event (CRM/system_generated)
+    // event_id = payment.id pour dedup avec d'eventuels autres canaux.
+    // Async non-bloquant : on attend pas la reponse Meta pour rendre la
+    // redirection Mollie au client (perf), mais on log si erreur.
+    sendMetaLead({
+      email: email.toLowerCase(),
+      phone,
+      firstname,
+      discipline,
+      disciplineLabel: offer.label,
+      fbclid: clean(body.fbclid, 200),
+      leadId: payment.id,
+      value: parseFloat(offer.amount),
+    }).catch((e) => console.error("[meta-lead] uncaught:", e));
 
     return jsonRes({
       ok: true,
