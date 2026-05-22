@@ -331,6 +331,12 @@ function buildRetargetingEmail(payment) {
     meta.offer_label || DISCIPLINE_LABEL[disciplineKey] || "ta séance d'essai";
   const subject = `${firstname}, t'as oublié ta séance d'essai SVB ?`;
 
+  // UTM tracking pour mesurer la conversion de la campagne retargeting email dans GA4
+  // (Source/Medium/Campaign/Content visibles dans GA4 > Acquisition > Trafic d'acquisition)
+  const utm = "utm_source=email&utm_medium=retargeting&utm_campaign=abandoned_essai" +
+    (disciplineKey ? "&utm_content=" + encodeURIComponent(disciplineKey) : "");
+  const retargetUrl = "https://studiosvb.com/essai?" + utm;
+
   const text = [
     `Hello ${firstname},`,
     ``,
@@ -340,7 +346,7 @@ function buildRetargetingEmail(payment) {
     ``,
     `📞 Appelle-nous : 07 44 91 91 55`,
     `💬 WhatsApp : https://wa.me/33744919155`,
-    `🎯 Ou reprends ta réservation : https://studiosvb.com/essai`,
+    `🎯 Ou reprends ta réservation : ${retargetUrl}`,
     ``,
     `On a 146 avis 5★ et des coachs en or. Viens voir.`,
     ``,
@@ -364,7 +370,7 @@ function buildRetargetingEmail(payment) {
         Petit souci technique ? Hésitation ? Tu veux qu'on en parle ?
       </p>
       <div style="text-align:center;margin:24px 0;">
-        <a href="https://studiosvb.com/essai" style="display:inline-block;background:#4A8D84;color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-weight:700;font-size:15px;margin:6px;">🎯 Reprendre ma réservation</a>
+        <a href="${retargetUrl}" style="display:inline-block;background:#4A8D84;color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-weight:700;font-size:15px;margin:6px;">🎯 Reprendre ma réservation</a>
         <br>
         <a href="https://wa.me/33744919155" style="display:inline-block;background:#25D366;color:#fff;text-decoration:none;padding:12px 24px;border-radius:50px;font-weight:700;font-size:14px;margin:6px;">💬 WhatsApp</a>
         <a href="tel:+33744919155" style="display:inline-block;background:#fff;color:#2F4F4F;border:2px solid #4A8D84;text-decoration:none;padding:10px 22px;border-radius:50px;font-weight:700;font-size:14px;margin:6px;">📞 07 44 91 91 55</a>

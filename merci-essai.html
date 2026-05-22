@@ -333,6 +333,16 @@
         var discipline = details.discipline || 'essai';
         var label = details.label || "Seance d'essai SVB";
         var paymentId = details.paymentId;
+        // Guard contre les double-fires (reload de /merci-essai?id=tr_xxx
+        // re-trigger checkStatus -> firePurchaseEvents pour le meme paymentId).
+        // Sans ce guard, GA4 compte 2 purchases pour 1 acheteur (vu en prod le 22 mai 2026).
+        var firedKey = 'svb_purchase_fired_' + (paymentId || 'no_id');
+        try {
+          if (sessionStorage.getItem(firedKey) === '1') {
+            return; // deja fire dans cette session, skip
+          }
+          sessionStorage.setItem(firedKey, '1');
+        } catch(e){}
         // Meta Pixel Purchase (LTV value pour optim ads)
         try {
           if(window.fbq){
