@@ -60,11 +60,12 @@
         }
     };
 
-    // URLs Sportigo pour les séances d'essai par discipline
+    // URLs des seances d'essai par discipline (toutes vers /essai = tunnel Mollie + tracking GA4/Meta)
+    // Le param ?d= permet a essai.html de pre-selectionner la discipline si voulu plus tard.
     var TRIAL_URL = {
-        reformer:    "https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90",
-        crossformer: "https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74",
-        other:       "https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e"
+        reformer:    "/essai?d=reformer",
+        crossformer: "/essai?d=crossformer",
+        other:       "/essai?d=cross_yoga_pilates"
     };
 
     // Discipline → passes pertinents (ordre = priorité d'affichage)
