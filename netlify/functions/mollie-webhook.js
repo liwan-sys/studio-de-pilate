@@ -442,19 +442,24 @@ async function sendMetaAbandonedCart(payment, eventSourceUrl) {
 
 // ---- Resend email -------------------------------------------------------
 
-async function sendEmail({ to, from, subject, html, text }) {
+async function sendEmail({ to, from, subject, html, text, scheduledAt }) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.warn("[mollie-webhook] RESEND_API_KEY not set, skipping email");
     return { sent: false, reason: "no_api_key" };
   }
+  const payload = { from, to: [to], subject, html, text };
+  // Resend Scheduled Send : supporte natural language ("in 2 minutes",
+  // "in 1 hour") ou ISO 8601 timestamp. Resend retient l'email et
+  // l'envoie a l'heure prevue, on n'a pas a gerer de file d'attente.
+  if (scheduledAt) payload.scheduled_at = scheduledAt;
   const resp = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       authorization: `Bearer ${apiKey}`,
       "content-type": "application/json",
     },
-    body: JSON.stringify({ from, to: [to], subject, html, text }),
+    body: JSON.stringify(payload),
   });
   if (!resp.ok) {
     const t = await resp.text();
@@ -611,11 +616,20 @@ export default async (req) => {
     }
 
     const retargetContent = buildRetargetingEmail(payment);
+    // Delai configurable via env (defaut "in 2 minutes" pour test,
+    // a passer "in 1 hour" en prod une fois valide)
+    const delay = process.env.RETARGETING_EMAIL_DELAY || "in 2 minutes";
 
     const [retargetEmail, capi] = await Promise.all([
-      sendEmail({ to: customerEmail, from, ...retargetContent }),
+      sendEmail({
+        to: customerEmail,
+        from,
+        ...retargetContent,
+        scheduledAt: delay,
+      }),
       sendMetaAbandonedCart(payment, eventSourceUrl),
     ]);
+    console.log(`[mollie-webhook] retarget scheduled for "${delay}"`);
 
     console.log(`[mollie-webhook] ${payment.status} → retarget email:`, JSON.stringify(retargetEmail));
     console.log(`[mollie-webhook] ${payment.status} → capi abandoned:`, JSON.stringify(capi));
