@@ -21,7 +21,6 @@
   <!-- ── Perf : LCP + dns-prefetch services externes ── -->
   <link rel="preload" as="image" href="/videos/hero-poster.jpg" fetchpriority="high">
   <link rel="dns-prefetch" href="https://calendly.com">
-  <link rel="dns-prefetch" href="https://api.sportigo.fr">
   <link rel="dns-prefetch" href="https://wa.me">
 
   <!-- Open Graph / Facebook -->
@@ -175,6 +174,7 @@
   
   <script src="/assets/nav-dropdown.js?v=20260426a" defer></script>
     <script src="/assets/js/meta-pixel.js" defer></script>
+  <script src="/assets/js/svb-checkout.js" defer></script>
 </head>
 
 <body class="content-visible overflow-hidden">
@@ -481,9 +481,8 @@
           <p class="ps-stat-label">se sont inscrit·es à un abonnement<br/>après avoir pris le Pass Starter</p>
         </div>
 
-        <a href="https://svb.sportigo.fr/buy/offer-proposition/c89f1432-6b38-411c-8da4-41938ddc66ab"
-           target="_blank" rel="noopener noreferrer"
-           class="ps-cta svb-magnetic">
+        <a href="#" data-discipline="pass_starter" data-label="Pass Starter" data-amount="99,90 €"  rel="noopener noreferrer"
+           class="js-buy ps-cta svb-magnetic">
           <span>Je prends mon Pass · 99,90&nbsp;€</span>
           <span class="ps-cta-arrow">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
@@ -1046,19 +1045,16 @@
           <!-- CTA — réservation directe Sportigo par discipline -->
           <p style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#4A8D84;margin:30px 0 14px;">Choisis ta discipline</p>
           <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:10px;">
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90"
-               target="_blank" rel="noopener noreferrer"
-               class="cta-mega svb-magnetic inline-block" style="font-size:0.9rem;padding:16px 28px;">
+            <a href="#" data-discipline="reformer" data-label="Pilates Reformer" data-amount="30 €"  rel="noopener noreferrer"
+               class="js-buy cta-mega svb-magnetic inline-block" style="font-size:0.9rem;padding:16px 28px;">
               Pilates Reformer · 30&nbsp;€
             </a>
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74"
-               target="_blank" rel="noopener noreferrer"
-               class="cta-mega svb-magnetic inline-block" style="font-size:0.9rem;padding:16px 28px;">
+            <a href="#" data-discipline="crossformer" data-label="Crossformer" data-amount="30 €"  rel="noopener noreferrer"
+               class="js-buy cta-mega svb-magnetic inline-block" style="font-size:0.9rem;padding:16px 28px;">
               Crossformer · 30&nbsp;€
             </a>
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e"
-               target="_blank" rel="noopener noreferrer"
-               class="cta-mega svb-magnetic inline-block" style="font-size:0.9rem;padding:16px 28px;">
+            <a href="#" data-discipline="cross_yoga_pilates" data-label="Cross · Yoga · Boxe · Pilates sol" data-amount="30 €"  rel="noopener noreferrer"
+               class="js-buy cta-mega svb-magnetic inline-block" style="font-size:0.9rem;padding:16px 28px;">
               Cross / Yoga / Pilates · 30&nbsp;€
             </a>
           </div>
