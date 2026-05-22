@@ -152,6 +152,65 @@ async function sendEmail({ to, from, subject, html, text }) {
 }
 
 export default async (req) => {
+  // Health check + test manuel
+  if (req.method === "GET") {
+    const url = new URL(req.url);
+    const isTest = url.searchParams.get("test") === "1";
+
+    if (isTest) {
+      // Envoie un email de test pour valider Resend de bout en bout
+      const fakePayment = {
+        id: "tr_TEST_" + Date.now(),
+        status: "paid",
+        amount: { value: "30.00", currency: "EUR" },
+        billingEmail: "test@example.com",
+        paidAt: new Date().toISOString(),
+        metadata: {
+          firstname: "Sophie",
+          email: "sophie.test@example.com",
+          phone: "0612345678",
+          discipline: "reformer",
+          offer_label: "Séance d'essai Pilates Reformer",
+          fbclid: "TEST_fbclid_abc123",
+        },
+      };
+      const to = process.env.NOTIFICATION_EMAIL_TO || DEFAULT_TO;
+      const from = process.env.NOTIFICATION_EMAIL_FROM || DEFAULT_FROM;
+      const { subject, html, text } = buildEmailContent(fakePayment);
+      const result = await sendEmail({ to, from, subject, html, text });
+      return new Response(
+        JSON.stringify({
+          ok: result.sent,
+          test: true,
+          to,
+          from,
+          resend_result: result,
+        }),
+        {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    return new Response(
+      JSON.stringify({
+        ok: true,
+        service: "mollie-webhook",
+        version: "1.1",
+        has_mollie_key: !!process.env.MOLLIE_API_KEY,
+        has_resend_key: !!process.env.RESEND_API_KEY,
+        email_to: process.env.NOTIFICATION_EMAIL_TO || DEFAULT_TO,
+        email_from: process.env.NOTIFICATION_EMAIL_FROM || DEFAULT_FROM,
+        hint: "Add ?test=1 to send a test email immediately",
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  }
+
   // Mollie envoie en POST avec body URL-encoded { id: "tr_xxx" } ou JSON.
   if (req.method !== "POST") {
     return new Response("Method not allowed", { status: 405 });
