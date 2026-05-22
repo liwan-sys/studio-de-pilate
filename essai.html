@@ -1248,23 +1248,27 @@
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify(payload)
           });
-          var data = await res.json();
-          if (!data || !data.ok || !data.checkoutUrl){
-            throw new Error(data && data.error || 'unknown_error');
+          var data = null;
+          try { data = await res.json(); } catch(e){}
+
+          if (res.ok && data && data.ok && data.checkoutUrl){
+            window.location.href = data.checkoutUrl;
+            return;
           }
-          window.location.href = data.checkoutUrl;
+
+          // Erreur côté API : on l'affiche au lieu de fallback silencieux
+          submit.classList.remove('loading');
+          submit.disabled = false;
+          var msg = 'Erreur (HTTP ' + res.status + ')';
+          if (data && data.error) msg += ' — ' + data.error;
+          if (data && data.details) msg += ' — ' + data.details;
+          showError(msg + '. Réessaie ou appelle 07 44 91 91 55.');
+          console.error('[mol] API failed:', res.status, data);
         } catch(err){
-          // Fallback : si l'API plante, on redirige vers le lien Mollie statique
-          // pour que le client puisse quand même payer (perte de tracking mais
-          // payement préservé).
-          console.error('[mol] API error, falling back to static link:', err);
-          if (current.fallback){
-            window.location.href = current.fallback;
-          } else {
-            submit.classList.remove('loading');
-            submit.disabled = false;
-            showError('Erreur de connexion. Réessaie ou appelle-nous au 07 44 91 91 55.');
-          }
+          submit.classList.remove('loading');
+          submit.disabled = false;
+          showError('Erreur réseau : ' + err.message + '. Réessaie ou appelle 07 44 91 91 55.');
+          console.error('[mol] fetch threw:', err);
         }
       });
     })();

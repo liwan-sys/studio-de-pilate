@@ -142,7 +142,15 @@ export default async (req) => {
     if (!mollieRes.ok) {
       const errText = await mollieRes.text();
       console.error("[mollie] API error:", mollieRes.status, errText);
-      return jsonRes({ ok: false, error: "mollie_api_error" }, 502);
+      return jsonRes(
+        {
+          ok: false,
+          error: "mollie_api_error",
+          status: mollieRes.status,
+          details: errText.slice(0, 500),
+        },
+        502
+      );
     }
 
     const payment = await mollieRes.json();
