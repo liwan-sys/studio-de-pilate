@@ -3,6 +3,44 @@
 # Permet des URLs propres sans extension .html (matching sitemap.xml)
 # ================================================================
 
+# URLs .html → URLs propres (301 SEO canonical)
+/sessions.html                          /sessions                         301
+/tarifs.html                            /tarifs                           301
+/studio.html                            /studio                           301
+/temoignages.html                       /temoignages                      301
+/equipe.html                            /equipe                           301
+/bien-etre.html                         /bien-etre                        301
+/faq.html                               /faq                              301
+/contact.html                           /contact                          301
+/cadeau.html                            /cadeau                           301
+/pourquoi-svb.html                      /pourquoi-svb                     301
+/essai.html                             /essai                            301
+/studio-parc-des-docks.html             /studio-parc-des-docks            301
+/studio-cours-des-lavandieres.html      /studio-cours-des-lavandieres     301
+/pilates-reformer-saint-ouen.html       /pilates-reformer-saint-ouen      301
+/pilates-reformer-paris.html            /pilates-reformer-paris           301
+/pilates-reformer-paris-17.html         /pilates-reformer-paris-17        301
+/pilates-reformer-paris-18.html         /pilates-reformer-paris-18        301
+/pilates-reformer-clichy.html           /pilates-reformer-clichy          301
+/pilates-reformer-levallois.html        /pilates-reformer-levallois       301
+/pilates-reformer-asnieres.html         /pilates-reformer-asnieres        301
+/crossformer-saint-ouen.html            /crossformer-saint-ouen           301
+/salle-de-sport-saint-ouen.html         /salle-de-sport-saint-ouen        301
+/yoga-saint-ouen.html                   /yoga-saint-ouen                  301
+/boxe-anglaise-saint-ouen.html          /boxe-anglaise-saint-ouen         301
+/cross-training-saint-ouen.html         /cross-training-saint-ouen        301
+/pilates-saint-ouen.html                /pilates-saint-ouen               301
+/coaching-sportif-saint-ouen.html       /coaching-sportif-saint-ouen      301
+/pilates-prenatal-postnatal.html        /pilates-prenatal-postnatal       301
+/pilates-senior.html                    /pilates-senior                   301
+/pilates-clichy.html                    /pilates-clichy                   301
+/pilates-paris-18.html                  /pilates-paris-18                 301
+/pilates-epinay-sur-seine.html          /pilates-epinay-sur-seine         301
+/pilates-ile-saint-denis.html           /pilates-ile-saint-denis          301
+/parrainage.html                        /parrainage                       301
+/mentions-legales.html                  /mentions-legales                 301
+/cgv.html                               /cgv                              301
+
 # URLs propres (sans .html) → page HTML correspondante, statut 200 (rewrite)
 /sessions                         /sessions.html                          200
 /tarifs                           /tarifs.html                            200
@@ -79,6 +117,27 @@
 /cgv                              /cgv.html                               200
 
 # Blog — rewrite individuel
+/blog/crossformer-guide-complet.html          /blog/crossformer-guide-complet          301
+/blog/bienfaits-pilates-reformer.html         /blog/bienfaits-pilates-reformer         301
+/blog/pilates-reformer-debutant.html          /blog/pilates-reformer-debutant          301
+/blog/reformer-vs-mat-pilates.html            /blog/reformer-vs-mat-pilates            301
+/blog/pilates-mal-de-dos.html                 /blog/pilates-mal-de-dos                 301
+/blog/yoga-vinyasa-bienfaits.html             /blog/yoga-vinyasa-bienfaits             301
+/blog/pilates-prenatal-guide.html             /blog/pilates-prenatal-guide             301
+/blog/pilates-reformer-perte-de-poids.html    /blog/pilates-reformer-perte-de-poids    301
+/blog/crossformer-vs-hiit.html                /blog/crossformer-vs-hiit                301
+/blog/ameliorer-posture-pilates.html          /blog/ameliorer-posture-pilates          301
+/blog/cross-training-bienfaits.html           /blog/cross-training-bienfaits           301
+/blog/boxe-anglaise-bienfaits.html            /blog/boxe-anglaise-bienfaits            301
+/blog/afrodance-cours-danse.html              /blog/afrodance-cours-danse              301
+/blog/training-kids-sport-enfants.html        /blog/training-kids-sport-enfants        301
+/blog/cross-body-cross-core-cross-rox.html    /blog/cross-body-cross-core-cross-rox    301
+/blog/studio-coaching-vs-salle-de-sport.html  /blog/studio-coaching-vs-salle-de-sport  301
+/blog/pilates-reformer-prix-paris.html        /blog/pilates-reformer-prix-paris        301
+/blog/pilates-reformer-vs-yoga.html           /blog/pilates-reformer-vs-yoga           301
+/blog/pilates-reformer-femme-enceinte.html    /blog/pilates-reformer-femme-enceinte    301
+/blog/pilates-reformer-seniors.html           /blog/pilates-reformer-seniors           301
+/blog/pilates-reformer-apres-accouchement.html /blog/pilates-reformer-apres-accouchement 301
 /blog/crossformer-guide-complet          /blog/crossformer-guide-complet.html          200
 /blog/bienfaits-pilates-reformer         /blog/bienfaits-pilates-reformer.html         200
 /blog/pilates-reformer-debutant          /blog/pilates-reformer-debutant.html          200

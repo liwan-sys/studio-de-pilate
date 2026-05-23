@@ -26,12 +26,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://studiosvb.com/blog/rss.xml</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://studiosvb.com/sessions</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -51,7 +45,7 @@
   </url>
   <url>
     <loc>https://studiosvb.com/essai</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -115,13 +109,13 @@
   <!-- Pages disciplines -->
   <url>
     <loc>https://studiosvb.com/pilates-reformer-saint-ouen</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://studiosvb.com/pilates-reformer-paris</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -133,7 +127,7 @@
   </url>
   <url>
     <loc>https://studiosvb.com/pilates-reformer-paris-18</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -239,7 +233,7 @@
   <!-- Blog -->
   <url>
     <loc>https://studiosvb.com/blog/</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

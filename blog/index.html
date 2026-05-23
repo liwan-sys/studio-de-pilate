@@ -8,7 +8,7 @@
     <link rel="dns-prefetch" href="https://calendly.com">
     <link rel="dns-prefetch" href="https://api.sportigo.fr">
     <link rel="dns-prefetch" href="https://wa.me">
-<title>Blog Studio SVB — Conseils Pilates, Cross, Yoga, Boxe à Saint-Ouen</title>
+<title>Blog Studio SVB | Conseils Pilates à Saint-Ouen</title>
   <meta name="description" content="Tous nos articles pour bouger mieux : Pilates Reformer, Crossformer, Yoga Vinyasa, Boxe, Afrodance, Training Kids. 16 coachs vous conseillent." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="SVB Santez Vous Bien" />
@@ -22,6 +22,39 @@
   <meta property="og:description" content="Pilates, Cross, Yoga, Boxe : conseils et guides signés par l'équipe du Studio SVB Saint-Ouen." />
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg" />
   <meta property="og:locale" content="fr_FR" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://studiosvb.com/blog/#blog",
+        "name": "Blog Studio SVB",
+        "description": "Conseils Pilates Reformer, Crossformer, Yoga, Boxe et sport en petit groupe à Saint-Ouen.",
+        "url": "https://studiosvb.com/blog/",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Studio SVB",
+          "url": "https://studiosvb.com/",
+          "logo": "https://studiosvb.com/images/logo.webp"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://studiosvb.com/blog/#guides",
+        "name": "Guides Studio SVB",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "url": "https://studiosvb.com/blog/bienfaits-pilates-reformer", "name": "10 bienfaits du Pilates Reformer"},
+          {"@type": "ListItem", "position": 2, "url": "https://studiosvb.com/blog/pilates-reformer-debutant", "name": "Pilates Reformer débutant"},
+          {"@type": "ListItem", "position": 3, "url": "https://studiosvb.com/blog/pilates-reformer-prix-paris", "name": "Prix Pilates Reformer Paris"},
+          {"@type": "ListItem", "position": 4, "url": "https://studiosvb.com/blog/ameliorer-posture-pilates", "name": "Améliorer sa posture avec le Pilates"},
+          {"@type": "ListItem", "position": 5, "url": "https://studiosvb.com/blog/crossformer-guide-complet", "name": "Guide complet Crossformer"}
+        ]
+      }
+    ]
+  }
+  </script>
 
   <meta name="theme-color" content="#4A8D84" />
   <link rel="icon" type="image/png" href="/images/favicon-32.png" />
@@ -80,6 +113,25 @@
     <h1>Bouge mieux, lis mieux.</h1>
     <p class="lead">Conseils, guides et inspirations signés par nos 16 coachs certifiés à Saint-Ouen — Pilates Reformer, Crossformer, Yoga, Boxe, Afrodance, Bien-être.</p>
   </header>
+
+  <section class="max-w-5xl mx-auto px-4 pb-8 reveal-load d-2" aria-label="Guides sport et Pilates Studio SVB">
+    <div class="flex flex-col md:flex-row gap-6 items-start">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-[#2F4F4F] mb-4">Des guides concrets pour choisir le bon cours à Saint-Ouen.</h2>
+        <p class="text-[#2F4F4F]/80 leading-relaxed mb-4">Le blog Studio SVB aide à comprendre les disciplines du studio avant de réserver : Pilates Reformer, Crossformer, Yoga Vinyasa, Cross Training, Boxe anglaise, Afrodance et Training Kids. Chaque article répond à une question simple : quel cours choisir, pour quel objectif, avec quel niveau et quels résultats attendre.</p>
+        <p class="text-[#2F4F4F]/80 leading-relaxed">Si tu découvres le studio, commence par les guides Pilates Reformer, puis compare les <a href="/tarifs" class="underline font-semibold text-[#4A8D84]">tarifs</a> ou réserve directement une <a href="/essai" class="underline font-semibold text-[#4A8D84]">séance d'essai à Saint-Ouen</a>.</p>
+      </div>
+      <div class="bg-white/70 border border-white/70 rounded-2xl p-5 shadow-sm md:max-w-xs md:shrink-0">
+        <h3 class="text-sm font-extrabold text-[#2F4F4F] uppercase tracking-[.14em] mb-4">À lire en premier</h3>
+        <ul class="space-y-3 text-sm text-[#2F4F4F]/85">
+          <li><a class="hover:text-[#4A8D84] font-semibold" href="/blog/bienfaits-pilates-reformer">Bienfaits du Pilates Reformer</a></li>
+          <li><a class="hover:text-[#4A8D84] font-semibold" href="/blog/pilates-reformer-debutant">Pilates Reformer débutant</a></li>
+          <li><a class="hover:text-[#4A8D84] font-semibold" href="/blog/pilates-reformer-prix-paris">Prix Pilates Reformer à Paris</a></li>
+          <li><a class="hover:text-[#4A8D84] font-semibold" href="/blog/crossformer-guide-complet">Guide Crossformer</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <nav class="filters" role="tablist" aria-label="Filtrer par catégorie">
     <button class="filter-btn active" data-cat="all" role="tab" aria-selected="true">Tout</button>
@@ -150,7 +202,7 @@
     fetch('/assets/blog-index.json', { cache: 'force-cache' })
       .then(function(r){ return r.json(); })
       .then(function(articles){
-        var grid = document.querySelector('.grid');
+        var grid = document.querySelector('#content');
         var filters = document.querySelector('.filters');
         var cats = Array.from(new Set(articles.map(function(a){ return a.category; }))).sort();
 
