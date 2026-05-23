@@ -1,11 +1,12 @@
 // =========================================================================
-// Studio SVB — Limitation "une séance d'essai par personne"
+// Studio SVB — Limitation "une offre decouverte par personne"
 //
-// Stocke chaque email/téléphone ayant deja paye une seance d'essai (offres
-// reformer / crossformer / cross_yoga_pilates). Bloque toute nouvelle
-// tentative depuis la meme personne.
-//
-// Le Pass Starter n'est pas concerne par cette limite.
+// Stocke chaque email/téléphone ayant deja paye une offre decouverte :
+//   - Séance d'essai (reformer / crossformer / cross_yoga_pilates)
+//   - Pass Starter (5 séances découverte)
+// Bloque toute nouvelle tentative depuis la meme personne sur l'une de ces
+// offres (cumul interdit aussi : si essai paye -> Pass Starter bloque, et
+// inversement).
 //
 // Si NETLIFY_DATABASE_URL / DATABASE_URL ne sont pas configures, la
 // verification est skip (allow-list par defaut) avec un warning console.
@@ -17,6 +18,7 @@ const TRIAL_DISCIPLINES = new Set([
   "reformer",
   "crossformer",
   "cross_yoga_pilates",
+  "pass_starter",
 ]);
 
 let sqlClient = null;

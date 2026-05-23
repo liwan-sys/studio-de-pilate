@@ -193,8 +193,8 @@ export default async (req) => {
     return jsonRes({ ok: false, error: "invalid_email" }, 400);
   }
 
-  // Une seule seance d'essai par personne (offres trial uniquement,
-  // pass_starter exclu). Check sur email + telephone normalises.
+  // Une seule offre decouverte par personne (essai + Pass Starter).
+  // Check sur email + telephone normalises.
   if (isTrialDiscipline(discipline)) {
     try {
       const trial = await hasUsedTrial({ email, phone });
@@ -204,7 +204,7 @@ export default async (req) => {
             ok: false,
             error: "trial_already_used",
             message:
-              "Tu as déjà bénéficié de la séance d'essai. Découvre notre Pass Starter (5 séances pour 99,90 €) ou appelle-nous au 07 44 91 91 55.",
+              "Tu as déjà bénéficié d'une offre découverte chez SVB (séance d'essai ou Pass Starter). Pour la suite, découvre nos abonnements ou appelle-nous au 07 44 91 91 55.",
           },
           409
         );

@@ -1430,9 +1430,9 @@
           // Erreur côté API : on l'affiche au lieu de fallback silencieux
           submit.classList.remove('loading');
           submit.disabled = false;
-          // Cas particulier : essai deja utilise -> message dedie
+          // Cas particulier : offre decouverte deja utilisee -> message dedie
           if (res.status === 409 && data && data.error === 'trial_already_used'){
-            showError(data.message || 'Tu as déjà bénéficié de la séance d\'essai. Découvre notre Pass Starter ou appelle 07 44 91 91 55.');
+            showError(data.message || 'Tu as déjà bénéficié d\'une offre découverte chez SVB. Découvre nos abonnements ou appelle 07 44 91 91 55.');
             console.warn('[mol] trial already used:', data);
             return;
           }
