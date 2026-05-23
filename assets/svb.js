@@ -179,6 +179,45 @@
     });
   })();
 
+  // 3ter) CTA mobile permanent — 98% du trafic est mobile.
+  //       Injecte un bouton bas d'ecran sur les pages sans sticky dedie.
+  (function initMobileStickyCta(){
+    try {
+      if (!window.matchMedia || !window.matchMedia('(max-width: 767px)').matches) return;
+      if (document.querySelector('.svb-mobile-sticky-cta')) return;
+      if (document.getElementById('cta-sticky')) return; // accueil : sticky dedie deja present
+
+      var path = location.pathname.replace(/\/+$/, '') || '/';
+      if (/\/(merci|Merci|mentions-legales|cgv|admin|questionnaire-abonnement-svb|404)(\.html)?$/i.test(path)) return;
+
+      var isEssai = path === '/essai' || path === '/essai.html';
+      var cta = document.createElement('a');
+      cta.className = 'svb-mobile-sticky-cta';
+      cta.href = isEssai ? '#essai-offres' : '/essai';
+      cta.setAttribute('data-track', 'mobile_sticky_cta');
+      cta.setAttribute('aria-label', isEssai ? "Choisir une séance d'essai" : "Réserver une séance d'essai à 30 euros");
+      cta.innerHTML = '\
+        <span class="svb-mobile-sticky-cta__text">\
+          <span class="svb-mobile-sticky-cta__label">' + (isEssai ? "Choisir mon essai" : "Réserver mon essai") + '</span>\
+          <span class="svb-mobile-sticky-cta__sub">' + (isEssai ? "Paiement sécurisé · confirmation immédiate" : "Studio Reformer Saint-Ouen") + '</span>\
+        </span>\
+        <span class="svb-mobile-sticky-cta__pill">30 €</span>';
+      document.body.appendChild(cta);
+
+      cta.addEventListener('click', function(e){
+        if (cta.getAttribute('href').charAt(0) !== '#') return;
+        var target = document.querySelector(cta.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+      });
+
+      var reveal = function(){ cta.classList.add('is-visible'); };
+      if (document.readyState === 'complete') setTimeout(reveal, 450);
+      else window.addEventListener('load', function(){ setTimeout(reveal, 450); });
+    } catch(e) {/* silent */}
+  })();
+
   // 4) Service Worker registration (PWA, offline-first, uniquement en HTTPS/localhost)
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
     window.addEventListener('load', function(){
@@ -192,6 +231,10 @@
     var videos = document.querySelectorAll('video[data-svb-lazy-video]');
     if (!videos.length) return;
     var loadVideo = function(v){
+      if (v.dataset.src) {
+        v.src = v.dataset.src;
+        v.removeAttribute('data-src');
+      }
       v.querySelectorAll('source[data-src]').forEach(function(src){
         src.src = src.dataset.src;
         src.removeAttribute('data-src');
@@ -401,7 +444,7 @@
       b.setAttribute('aria-label','Bannière de consentement cookies');
       b.innerHTML = '\
         <div class="svb-consent-inner">\
-          <p><strong>Cookies &amp; mesure d\'audience.</strong> Nous utilisons Google Tag Manager pour comprendre comment le site est utilisé. Votre choix est respecté à tout moment.</p>\
+          <p><strong>Cookies.</strong> Mesure d\'audience et amélioration des publicités. Tu peux accepter ou refuser.</p>\
           <div class="svb-consent-btns">\
             <button type="button" class="svb-consent-deny">Refuser</button>\
             <button type="button" class="svb-consent-allow">Accepter</button>\

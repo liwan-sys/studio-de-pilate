@@ -911,3 +911,361 @@ body:has(.svb-video-hero) .svb-video-hero{
   font-weight:700;color:#F2E6CF;
   text-shadow:0 2px 10px rgba(47,79,79,.5);
 }
+
+/* =================================================================
+   Mobile-first conversion layer
+   98% du trafic est mobile : priorite aux CTA visibles, a la vitesse
+   percue et a la lisibilite sur 360-430px.
+   ================================================================= */
+.svb-mobile-sticky-cta{display:none}
+
+@media (max-width:767px){
+  :root{--svb-mobile-cta-h:74px}
+
+  body{
+    padding-bottom:calc(var(--svb-mobile-cta-h) + env(safe-area-inset-bottom, 0px));
+    font-size:16px;
+  }
+
+  p,li{line-height:1.58}
+
+  /* Header mobile : plus dense, bouton menu toujours tappable. */
+  body > nav[role="navigation"]:not(.svb-mobile-drawer),
+  #hero-video .hero-nav{
+    min-height:64px;
+    padding:10px 16px !important;
+    align-items:center !important;
+  }
+  body > nav[role="navigation"]:not(.svb-mobile-drawer) img,
+  #hero-video .hero-nav img{
+    height:48px !important;
+    max-height:48px !important;
+    width:auto;
+  }
+  body:has(.svb-video-hero) > nav[role="navigation"]:not(.svb-mobile-drawer) img{
+    height:44px !important;
+    max-height:44px !important;
+  }
+  #nav-toggle{
+    min-width:44px;
+    min-height:44px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    background:rgba(255,255,255,.9);
+    color:#2F4F4F !important;
+    box-shadow:0 8px 24px rgba(47,79,79,.18);
+    -webkit-tap-highlight-color:transparent;
+  }
+  #nav-toggle svg{width:24px;height:24px}
+  body.svb-nav-open #nav-toggle{background:#F2E6CF}
+
+  /* Discipline pages : ne pas bloquer le premier ecran avec une video seule. */
+  .svb-video-hero{
+    padding-bottom:34px;
+  }
+  .svb-video-hero-media{
+    height:58svh;
+    min-height:350px;
+    max-height:500px;
+  }
+  .svb-video-hero-media video,
+  .svb-video-hero-media img{
+    object-position:center 28%;
+  }
+  .svb-video-hero-body{
+    padding:28px 18px 0;
+    text-align:left;
+  }
+  .svb-video-hero-eyebrow{
+    font-size:.64rem;
+    letter-spacing:.16em;
+    margin-bottom:.55rem;
+  }
+  .svb-video-hero-title{
+    font-size:clamp(2.55rem,13vw,3.45rem);
+    line-height:.98;
+    margin-bottom:.75rem;
+    text-align:left;
+  }
+  .svb-video-hero-lead{
+    font-size:.98rem;
+    line-height:1.45;
+    margin:0 0 1rem;
+    max-width:none;
+    text-align:left;
+  }
+  .svb-video-hero-cta{
+    display:flex;
+    width:100%;
+    min-height:52px;
+    align-items:center;
+    justify-content:center;
+    padding:14px 18px;
+    text-align:center;
+  }
+  .svb-video-hero-badge{
+    left:12px;
+    right:12px;
+    bottom:12px;
+    justify-content:center;
+    font-size:.64rem;
+  }
+
+  /* Cartes et sections : largeur utile maximale, moins de scroll mort. */
+  .glass-card,
+  .premium-offer-card,
+  .starter-card,
+  .text-card{
+    border-radius:18px !important;
+    padding:22px 18px !important;
+  }
+  .max-w-5xl,
+  .max-w-4xl,
+  .max-w-3xl,
+  .max-w-7xl{
+    max-width:100% !important;
+  }
+  section[class*="py-12"],
+  section[class*="py-16"],
+  section[class*="py-20"]{
+    padding-top:34px !important;
+    padding-bottom:34px !important;
+  }
+  .svb-photo-triptych{padding:26px 0 34px}
+  .svb-photo-triptych-body{padding:20px 18px 0}
+  .svb-photo-split-body{padding:30px 20px}
+  .svb-photo-hero-quote{padding:26px 18px}
+  .svb-photo-hero-quote-text{font-size:clamp(2.4rem,14vw,4rem)}
+
+  /* Page essai : la decision doit etre visible vite. */
+  .hero{
+    min-height:auto !important;
+  }
+  .hero-content{
+    min-height:clamp(430px, calc(74svh - 64px), 540px);
+    padding:18px 18px 24px !important;
+    justify-content:center;
+  }
+  .stars{
+    margin-bottom:16px !important;
+    padding:7px 13px !important;
+    font-size:.66rem !important;
+  }
+  .hero h1{
+    font-size:clamp(2.55rem,13vw,3.5rem) !important;
+    line-height:.98 !important;
+  }
+  .hero-sub{
+    font-size:.98rem !important;
+    margin-bottom:18px !important;
+  }
+  .reassure{
+    margin-top:16px !important;
+    gap:8px 12px !important;
+    font-size:.68rem !important;
+  }
+  .scroll-hint{
+    margin-top:18px !important;
+  }
+  .offers-wrap{
+    padding:34px 16px 86px !important;
+  }
+  .offers-eye{
+    margin-bottom:8px !important;
+    font-size:.58rem !important;
+    letter-spacing:.2em !important;
+  }
+  .offers-h{
+    margin-bottom:24px !important;
+    font-size:clamp(1.9rem,10vw,2.35rem) !important;
+  }
+  .hd{
+    padding:10px 16px !important;
+    gap:8px !important;
+  }
+  .hd-logo img{height:30px !important}
+  .hd-nav{display:none !important}
+  .hd-tel{
+    min-height:40px;
+    padding:7px 12px !important;
+    font-size:.72rem !important;
+  }
+  .offers-grid{
+    gap:20px !important;
+  }
+  .essai,
+  .pass{
+    max-width:100% !important;
+    padding:28px 18px 22px !important;
+    border-radius:20px !important;
+  }
+  .essai-price-n,
+  .pass-price-n{
+    font-size:clamp(4rem,21vw,5rem) !important;
+  }
+  .essai-bens,
+  .pass-bens{
+    grid-template-columns:1fr !important;
+  }
+  .essai-disc,
+  .pass-cta{
+    min-height:52px;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  /* CTA mobile global injecte par svb.js. */
+  .svb-mobile-sticky-cta{
+    position:fixed;
+    left:12px;
+    right:12px;
+    bottom:calc(10px + env(safe-area-inset-bottom, 0px));
+    z-index:9994;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    min-height:62px;
+    padding:10px 12px 10px 16px;
+    border-radius:18px;
+    background:rgba(47,79,79,.96);
+    color:#FBF6EC;
+    text-decoration:none;
+    box-shadow:0 14px 40px rgba(29,56,56,.32);
+    border:1px solid rgba(242,230,207,.18);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    transform:translateY(110%);
+    opacity:0;
+    pointer-events:none;
+    transition:transform .28s cubic-bezier(.16,1,.3,1), opacity .2s ease;
+  }
+  .svb-mobile-sticky-cta.is-visible{
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+  .svb-mobile-sticky-cta__text{
+    display:flex;
+    flex-direction:column;
+    gap:1px;
+    min-width:0;
+  }
+  .svb-mobile-sticky-cta__label{
+    font-family:"Montserrat",sans-serif;
+    font-size:.88rem;
+    line-height:1.15;
+    font-weight:850;
+    color:#FBF6EC;
+  }
+  .svb-mobile-sticky-cta__sub{
+    font-family:"Montserrat",sans-serif;
+    font-size:.68rem;
+    line-height:1.2;
+    color:#F2E6CF;
+    opacity:.82;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .svb-mobile-sticky-cta__pill{
+    flex:0 0 auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:42px;
+    padding:0 14px;
+    border-radius:999px;
+    background:#E8B496;
+    color:#2F4F4F;
+    font-family:"Montserrat",sans-serif;
+    font-size:.76rem;
+    font-weight:900;
+    white-space:nowrap;
+  }
+  body.svb-nav-open .svb-mobile-sticky-cta,
+  body.svb-checkout-open .svb-mobile-sticky-cta{
+    display:none;
+  }
+
+  /* Accueil : le sticky existant devient une barre mobile compacte. */
+  #cta-sticky.cta-sticky{
+    left:12px;
+    right:12px;
+    bottom:calc(10px + env(safe-area-inset-bottom, 0px));
+    padding:10px 12px;
+    border-radius:18px;
+    border:1px solid rgba(242,230,207,.18);
+    box-shadow:0 14px 40px rgba(29,56,56,.32);
+  }
+  #cta-sticky .cta-sticky-content{
+    flex-direction:row !important;
+    gap:12px !important;
+    align-items:center !important;
+  }
+  #cta-sticky .cta-sticky-info{min-width:0}
+  #cta-sticky .cta-sticky-text{
+    font-size:.76rem !important;
+    line-height:1.2;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:52vw;
+  }
+  #cta-sticky .cta-sticky-price{
+    font-size:.96rem !important;
+    line-height:1.1;
+  }
+  #cta-sticky .cta-sticky-btn{
+    min-height:42px;
+    padding:0 14px !important;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:.72rem !important;
+    white-space:nowrap;
+  }
+
+  /* Le consentement et WhatsApp ne doivent pas cacher le bouton d'achat. */
+  .svb-consent{
+    left:10px;
+    right:10px;
+    bottom:calc(var(--svb-mobile-cta-h) + 20px + env(safe-area-inset-bottom, 0px));
+    max-height:calc(100svh - var(--svb-mobile-cta-h) - 38px);
+    overflow:auto;
+    padding:14px 16px;
+    font-size:.84rem;
+  }
+  .svb-consent-inner{gap:8px}
+  .svb-consent p{
+    margin:0 0 6px;
+    line-height:1.35;
+  }
+  .svb-consent-btns{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    width:100%;
+  }
+  .svb-consent button{
+    min-height:40px;
+    padding:.5rem .7rem;
+    font-size:.78rem;
+  }
+  .whatsapp-btn{
+    width:52px;
+    height:52px;
+    right:14px;
+    bottom:calc(var(--svb-mobile-cta-h) + 18px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width:380px){
+  .svb-mobile-sticky-cta{
+    left:8px;
+    right:8px;
+    padding-left:12px;
+  }
+  .svb-mobile-sticky-cta__label{font-size:.82rem}
+  .svb-mobile-sticky-cta__pill{padding:0 10px;font-size:.72rem}
+}

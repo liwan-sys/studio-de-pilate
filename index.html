@@ -194,7 +194,7 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260428e" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260523m" />
 
   
   <script src="/assets/nav-dropdown.js?v=20260426a" defer></script>
@@ -223,8 +223,8 @@
   <section id="hero-video">
 
     <!-- VIDÉO DE FOND (lazy, chargée après interaction/FCP) -->
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="none" poster="videos/hero-poster.jpg" aria-hidden="true">
-      <source src="videos/hero.mp4" type="video/mp4">
+    <video id="hero-vid" class="hero-bg-video" autoplay muted loop playsinline preload="none" poster="videos/hero-poster.jpg" aria-hidden="true" data-svb-lazy-video>
+      <source data-src="videos/hero.mp4" type="video/mp4">
     </video>
     <script>
       (function(){
@@ -855,18 +855,18 @@
       <!-- Halo Ambilight haut (vidéos floues qui débordent vers la section précédente) -->
       <div class="ete-promo-ambilight-top" aria-hidden="true">
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
-            <source src="/videos/pilates-reformer-immersion.mp4?v=20260428d" type="video/mp4">
+          <video autoplay muted loop playsinline preload="none" data-svb-lazy-video>
+            <source data-src="/videos/pilates-reformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
-            <source src="/videos/crossformer-immersion.mp4?v=20260428d" type="video/mp4">
+          <video autoplay muted loop playsinline preload="none" data-svb-lazy-video>
+            <source data-src="/videos/crossformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
-            <source src="/videos/cross-training-immersion.mp4?v=20260428d" type="video/mp4">
+          <video autoplay muted loop playsinline preload="none" data-svb-lazy-video>
+            <source data-src="/videos/cross-training-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
       </div>
@@ -874,18 +874,18 @@
       <!-- Bandeau 3 vidéos -->
       <div class="ete-promo-grid">
         <a href="/pilates-reformer-saint-ouen" class="ete-promo-tile" aria-label="Pilates Reformer">
-          <video autoplay muted loop playsinline preload="none" poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true">
-            <source src="/videos/pilates-reformer-immersion.mp4?v=20260428d" type="video/mp4">
+          <video autoplay muted loop playsinline preload="none" poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true" data-svb-lazy-video>
+            <source data-src="/videos/pilates-reformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </a>
         <a href="/crossformer-saint-ouen" class="ete-promo-tile" aria-label="Crossformer">
-          <video autoplay muted loop playsinline preload="none" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true">
-            <source src="/videos/crossformer-immersion.mp4?v=20260428d" type="video/mp4">
+          <video autoplay muted loop playsinline preload="none" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true" data-svb-lazy-video>
+            <source data-src="/videos/crossformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </a>
         <a href="/cross-training-saint-ouen" class="ete-promo-tile" aria-label="Cross Training">
-          <video autoplay muted loop playsinline preload="none" poster="/videos/cross-training-immersion-poster.jpg" aria-hidden="true">
-            <source src="/videos/cross-training-immersion.mp4?v=20260428d" type="video/mp4">
+          <video autoplay muted loop playsinline preload="none" poster="/videos/cross-training-immersion-poster.jpg" aria-hidden="true" data-svb-lazy-video>
+            <source data-src="/videos/cross-training-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </a>
       </div>
@@ -893,18 +893,18 @@
       <!-- Halo Ambilight bas (vidéos floues qui débordent vers la section suivante) -->
       <div class="ete-promo-ambilight-bottom" aria-hidden="true">
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
-            <source src="/videos/pilates-reformer-immersion.mp4?v=20260428d" type="video/mp4">
+          <video autoplay muted loop playsinline preload="none" data-svb-lazy-video>
+            <source data-src="/videos/pilates-reformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
-            <source src="/videos/crossformer-immersion.mp4?v=20260428d" type="video/mp4">
+          <video autoplay muted loop playsinline preload="none" data-svb-lazy-video>
+            <source data-src="/videos/crossformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
-            <source src="/videos/cross-training-immersion.mp4?v=20260428d" type="video/mp4">
+          <video autoplay muted loop playsinline preload="none" data-svb-lazy-video>
+            <source data-src="/videos/cross-training-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
       </div>
@@ -1208,10 +1208,10 @@
   <div id="cta-sticky" class="cta-sticky">
     <div class="cta-sticky-content">
       <div class="cta-sticky-info">
-        <div class="cta-sticky-text">Essai à 30€ • 100% remboursé si inscription</div>
+        <div class="cta-sticky-text">Essai Reformer à Saint-Ouen • paiement direct</div>
         <div class="cta-sticky-price">ESSAI 30€</div>
       </div>
-      <a href="https://calendly.com/Santez Vous Bien-svb/presentation-et-visite-guidee-du-studio" target="_blank" rel="noopener noreferrer" class="cta-sticky-btn svb-magnetic">
+      <a href="/essai" class="cta-sticky-btn svb-magnetic">
         Réserver mon essai
       </a>
     </div>
@@ -1317,7 +1317,7 @@
 
     window.addEventListener('scroll', () => {
       if (offreSection) {
-        ctaSticky.classList.toggle('visible', offreSection.getBoundingClientRect().top < -200);
+        ctaSticky.classList.toggle('visible', window.scrollY > 260);
       }
     });
 
@@ -1330,7 +1330,7 @@
     });
   </script>
 
-  <script src="/assets/svb.js?v=20260523a" defer></script>
+  <script src="/assets/svb.js?v=20260523m" defer></script>
   <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
   <script src="/assets/svb-motion.js?v=20260424a" defer></script>
 

@@ -28,8 +28,8 @@
   <meta name="facebook-domain-verification" content="ivgwdh3702t7twxczeskz6m149zuah" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/assets/analytics.js?v=20260523a" defer></script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260428e" />
-  <script src="/assets/svb.js?v=20260523a" defer></script>
+  <link rel="stylesheet" href="/assets/svb.css?v=20260523m" />
+  <script src="/assets/svb.js?v=20260523m" defer></script>
   <link rel="dns-prefetch" href="https://svb.sportigo.fr">
   <link rel="preconnect" href="https://svb.sportigo.fr" crossorigin>
   <link rel="icon" type="image/png" href="/images/favicon.jpg" />
@@ -815,9 +815,9 @@
   </div>
 
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+    <video class="hero-video" autoplay muted loop playsinline preload="none" data-svb-lazy-video
            poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true">
-      <source src="/videos/pilates-reformer-immersion.mp4" type="video/mp4">
+      <source data-src="/videos/pilates-reformer-immersion.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -861,7 +861,7 @@
     <p class="offers-eye">2 façons de commencer</p>
     <h2 class="offers-h">Tu démarres comment&nbsp;<em>?</em></h2>
 
-    <div class="offers-grid">
+    <div class="offers-grid" id="essai-offres">
 
       <!-- CARD GAUCHE : 1 séance d'essai (cool tones mint/teal) -->
       <div class="essai">
@@ -1458,6 +1458,7 @@
         clearError();
         form.reset();
         modal.classList.add('is-open');
+        document.body.classList.add('svb-checkout-open');
         document.body.style.overflow = 'hidden';
         setTimeout(function(){fName.focus();}, 100);
         try{if(window.svbTrack)window.svbTrack('essai_modal_open',{discipline:opts.discipline});}catch(e){}
@@ -1478,6 +1479,7 @@
       }
       function close(){
         modal.classList.remove('is-open');
+        document.body.classList.remove('svb-checkout-open');
         document.body.style.overflow = '';
         submit.classList.remove('loading');
         submit.disabled = false;
