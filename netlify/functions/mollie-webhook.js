@@ -28,6 +28,7 @@ import {
   hasGA4SyncDatabase,
   syncGA4Purchase,
 } from "./lib/ga4-purchase-sync.js";
+import { recordTrial } from "./lib/trial-limits.js";
 
 const DEFAULT_TO = "hello@studiosvb.fr";
 const DEFAULT_FROM = "Studio SVB <onboarding@resend.dev>";
@@ -55,6 +56,8 @@ function buildEmailContent(payment) {
     ? `${payment.amount.value} ${payment.amount.currency}`
     : "—";
   const firstname = meta.firstname || "Client";
+  const lastname = meta.lastname || "";
+  const fullname = lastname ? `${firstname} ${lastname}` : firstname;
   const email = meta.email || payment.billingEmail || "—";
   const phone = meta.phone || "—";
   const disciplineKey = meta.discipline || "";
@@ -77,12 +80,12 @@ function buildEmailContent(payment) {
     : "—";
   const mollieDashUrl = `https://my.mollie.com/dashboard/sales/${payment.id}`;
 
-  const subject = `💸 Nouveau paiement ${amount} — ${firstname} (${disciplineLabel})`;
+  const subject = `💸 Nouveau paiement ${amount} — ${fullname} (${disciplineLabel})`;
 
   const text = [
     `Nouveau paiement reçu : ${amount}`,
     ``,
-    `Cliente : ${firstname}`,
+    `Cliente : ${fullname}`,
     `Email   : ${email}`,
     `Tél     : ${phone}`,
     `Offre   : ${disciplineLabel}`,
@@ -109,6 +112,7 @@ function buildEmailContent(payment) {
     <div style="padding:24px;">
       <table cellpadding="0" cellspacing="0" border="0" style="width:100%;font-size:15px;">
         <tr><td style="padding:8px 0;color:#7a8c8a;width:90px;">👤 Prénom</td><td style="padding:8px 0;font-weight:700;">${escapeHtml(firstname)}</td></tr>
+        <tr><td style="padding:8px 0;color:#7a8c8a;">👥 Nom</td><td style="padding:8px 0;font-weight:700;">${escapeHtml(lastname || "—")}</td></tr>
         <tr><td style="padding:8px 0;color:#7a8c8a;">📧 Email</td><td style="padding:8px 0;"><a href="mailto:${escapeHtml(email)}" style="color:#4A8D84;text-decoration:none;font-weight:700;">${escapeHtml(email)}</a></td></tr>
         <tr><td style="padding:8px 0;color:#7a8c8a;">📞 Tél</td><td style="padding:8px 0;"><a href="tel:${escapeHtml(phone)}" style="color:#4A8D84;text-decoration:none;font-weight:700;">${escapeHtml(phone)}</a></td></tr>
         <tr><td style="padding:8px 0;color:#7a8c8a;">🎯 Offre</td><td style="padding:8px 0;font-weight:700;">${escapeHtml(disciplineLabel)}</td></tr>
@@ -191,6 +195,7 @@ async function sendMetaPurchase(payment, eventSourceUrl) {
   const phoneNorm = normalizePhoneFR(meta.phone);
   if (phoneNorm) user_data.ph = [sha256Hex(phoneNorm)];
   if (meta.firstname) user_data.fn = [sha256Hex(meta.firstname)];
+  if (meta.lastname) user_data.ln = [sha256Hex(meta.lastname)];
   if (meta.fbclid) {
     // Format fbc : fb.1.{creation_time_ms}.{fbclid}
     // On ne connait pas exactement le moment du clic, on prend une approx
@@ -406,6 +411,7 @@ async function sendMetaAbandonedCart(payment, eventSourceUrl) {
   const phoneNorm = normalizePhoneFR(meta.phone);
   if (phoneNorm) user_data.ph = [sha256Hex(phoneNorm)];
   if (meta.firstname) user_data.fn = [sha256Hex(meta.firstname)];
+  if (meta.lastname) user_data.ln = [sha256Hex(meta.lastname)];
   if (meta.fbclid) {
     const sub = meta.submitted_at ? new Date(meta.submitted_at).getTime() : Date.now();
     user_data.fbc = `fb.1.${sub}.${meta.fbclid}`;
@@ -612,19 +618,21 @@ export default async (req) => {
     const adminContent = buildEmailContent(payment);
     const customerContent = buildCustomerWelcomeEmail(payment);
 
-    const [adminEmail, customerEmailSent, capi, ga4mp] = await Promise.all([
+    const [adminEmail, customerEmailSent, capi, ga4mp, trialRecord] = await Promise.all([
       sendEmail({ to: adminTo, from, ...adminContent }),
       customerEmail
         ? sendEmail({ to: customerEmail, from, replyTo: customerReplyTo, ...customerContent })
         : Promise.resolve({ sent: false, reason: "no_customer_email" }),
       sendMetaPurchase(payment, eventSourceUrl),
       syncGA4Purchase(payment, { source: "webhook" }),
+      recordTrial(payment),
     ]);
 
     console.log("[mollie-webhook] paid → admin:", JSON.stringify(adminEmail));
     console.log("[mollie-webhook] paid → customer:", JSON.stringify(customerEmailSent));
     console.log("[mollie-webhook] paid → capi:", JSON.stringify(capi));
     console.log("[mollie-webhook] paid → ga4mp:", JSON.stringify(ga4mp));
+    console.log("[mollie-webhook] paid → trial-record:", JSON.stringify(trialRecord));
 
     return new Response("OK", { status: 200 });
   }

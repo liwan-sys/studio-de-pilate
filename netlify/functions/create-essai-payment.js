@@ -5,14 +5,15 @@
 //
 
 import crypto from "node:crypto";
+import { hasUsedTrial, isTrialDiscipline } from "./lib/trial-limits.js";
 
 // Flow :
-//   1) Visiteur remplit le mini-form sur /essai (prénom/email/tel + discipline)
+//   1) Visiteur remplit le mini-form sur /essai (prénom/nom/email/tel + discipline)
 //   2) JS POST vers cette fonction
 //   3) Fonction appelle l'API Mollie pour créer un paiement avec :
 //        - billingEmail = email du client
-//        - description = "Séance d'essai X — Prénom" (visible app/dashboard)
-//        - metadata = {firstname, email, phone, discipline, fbclid, utm_*}
+//        - description = "Séance d'essai X — Prénom Nom" (visible app/dashboard)
+//        - metadata = {firstname, lastname, email, phone, discipline, fbclid, utm_*}
 //   4) Retourne checkout URL → le JS redirige le client dessus
 //   5) Mollie envoie une push native dans l'app SVB avec tous les détails
 //      → l'admin sait QUI a payé QUOI sans aucune correlation manuelle
@@ -87,6 +88,7 @@ async function sendMetaLead(opts) {
   const ph = normalizePhoneFR(opts.phone);
   if (ph) user_data.ph = [sha256Hex(ph)];
   if (opts.firstname) user_data.fn = [sha256Hex(opts.firstname)];
+  if (opts.lastname) user_data.ln = [sha256Hex(opts.lastname)];
   if (opts.fbclid) {
     user_data.fbc = `fb.1.${Date.now()}.${opts.fbclid}`;
   }
@@ -177,17 +179,41 @@ export default async (req) => {
 
   const discipline = clean(body.discipline, 50);
   const firstname = clean(body.firstname, 80);
+  const lastname = clean(body.lastname, 80);
   const email = clean(body.email, 200);
   const phone = clean(body.phone, 40);
 
   if (!discipline || !OFFERS[discipline]) {
     return jsonRes({ ok: false, error: "invalid_discipline" }, 400);
   }
-  if (!firstname || !email) {
+  if (!firstname || !lastname || !email) {
     return jsonRes({ ok: false, error: "missing_fields" }, 400);
   }
   if (!isValidEmail(email)) {
     return jsonRes({ ok: false, error: "invalid_email" }, 400);
+  }
+
+  // Une seule offre decouverte par personne (essai + Pass Starter).
+  // Check sur email + telephone normalises.
+  if (isTrialDiscipline(discipline)) {
+    try {
+      const trial = await hasUsedTrial({ email, phone });
+      if (trial.used) {
+        return jsonRes(
+          {
+            ok: false,
+            error: "trial_already_used",
+            message:
+              "Tu as déjà bénéficié d'une offre découverte chez SVB (séance d'essai ou Pass Starter). Pour la suite, découvre nos abonnements ou appelle-nous au 07 44 91 91 55.",
+          },
+          409
+        );
+      }
+    } catch (e) {
+      console.error("[create-essai-payment] trial-limit check failed:", e);
+      // En cas d'erreur DB on laisse passer (fail-open) pour ne pas
+      // bloquer un client legitime
+    }
   }
 
   const apiKey = process.env.MOLLIE_API_KEY;
@@ -198,7 +224,7 @@ export default async (req) => {
 
   const offer = OFFERS[discipline];
   const siteUrl = process.env.URL || "https://studiosvb.com";
-  const description = `${offer.label} — ${firstname}`;
+  const description = `${offer.label} — ${firstname} ${lastname}`;
 
   const payload = {
     amount: { value: offer.amount, currency: "EUR" },
@@ -209,6 +235,7 @@ export default async (req) => {
     billingEmail: email.toLowerCase(),
     metadata: {
       firstname,
+      lastname,
       email: email.toLowerCase(),
       phone,
       discipline,
@@ -267,6 +294,7 @@ export default async (req) => {
       email: email.toLowerCase(),
       phone,
       firstname,
+      lastname,
       discipline,
       disciplineLabel: offer.label,
       fbclid: clean(body.fbclid, 200),
