@@ -28,7 +28,7 @@
   <meta name="facebook-domain-verification" content="ivgwdh3702t7twxczeskz6m149zuah" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/assets/analytics.js?v=20260523a" defer></script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260523m" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260524a" />
   <script src="/assets/svb.js?v=20260523m" defer></script>
   <link rel="dns-prefetch" href="https://svb.sportigo.fr">
   <link rel="preconnect" href="https://svb.sportigo.fr" crossorigin>
@@ -178,6 +178,75 @@
       text-shadow:0 2px 12px rgba(0,0,0,.45);
     }
     .hero-sub b{font-weight:800;}
+
+    .hero-kicker{
+      margin:0 0 12px;
+      color:#F5C76D;
+      font-size:.72rem;
+      font-weight:900;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      text-shadow:0 2px 12px rgba(0,0,0,.45);
+    }
+    .hero-proof{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+      margin:0 0 22px;
+    }
+    .hero-proof span{
+      display:inline-flex;
+      align-items:center;
+      min-height:34px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.22);
+      color:#FBF6EC;
+      font-size:.72rem;
+      font-weight:800;
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      box-shadow:0 8px 20px rgba(0,0,0,.14);
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      max-width:520px;
+      margin:0 auto;
+    }
+    .hero-action{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      padding:14px 20px;
+      border-radius:999px;
+      text-decoration:none;
+      font-size:.82rem;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .hero-action:hover{transform:translateY(-2px);}
+    .hero-action.primary{
+      flex:1 1 260px;
+      color:#2F4F4F;
+      background:linear-gradient(135deg,#F5C76D 0%,#E8B496 100%);
+      box-shadow:0 16px 36px rgba(232,180,150,.42);
+    }
+    .hero-action.secondary{
+      flex:0 1 auto;
+      color:#FBF6EC;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.26);
+      box-shadow:0 12px 28px rgba(0,0,0,.14);
+    }
 
     .pick{
       font-size:.62rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
@@ -398,6 +467,26 @@
     }
     .essai-disc:hover .essai-disc-r{color:#FBF6EC;}
     .essai-disc-r svg{width:13px;height:13px;}
+    .essai-disc.primary{
+      min-height:58px;
+      background:linear-gradient(135deg,#2F4F4F 0%,#4A8D84 100%);
+      color:#FBF6EC;
+      border-color:transparent;
+      box-shadow:0 14px 30px rgba(47,79,79,.28);
+    }
+    .essai-disc.primary .essai-disc-r{color:#F5C76D;}
+    .essai-disc.primary:hover{
+      background:linear-gradient(135deg,#234343 0%,#2F4F4F 100%);
+    }
+    .essai-alt-note{
+      margin:6px 0 0;
+      color:#4A8D84;
+      font-size:.58rem;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.72;
+    }
     .essai-trust{
       margin-top:auto;padding-top:10px;
       font-size:.68rem;font-weight:600;color:#2F4F4F;opacity:.55;
@@ -645,17 +734,20 @@
     }
 
     /* Hero entrance staggered fade-in */
-    .stars,.hero h1,.hero-sub,.pick,.chips,.reassure,.scroll-hint{
+    .stars,.hero-kicker,.hero h1,.hero-sub,.hero-proof,.hero-actions,.pick,.chips,.reassure,.scroll-hint{
       opacity:0;
       animation:heroIn .7s cubic-bezier(.2,.8,.2,1) forwards;
     }
     .stars{animation-delay:.1s;}
-    .hero h1{animation-delay:.2s;}
-    .hero-sub{animation-delay:.35s;}
-    .pick{animation-delay:.5s;}
-    .chips{animation-delay:.6s;}
-    .reassure{animation-delay:.85s;}
-    .scroll-hint{animation-delay:1.1s;}
+    .hero-kicker{animation-delay:.16s;}
+    .hero h1{animation-delay:.24s;}
+    .hero-sub{animation-delay:.36s;}
+    .hero-proof{animation-delay:.46s;}
+    .hero-actions{animation-delay:.56s;}
+    .pick{animation-delay:.62s;}
+    .chips{animation-delay:.7s;}
+    .reassure{animation-delay:.82s;}
+    .scroll-hint{animation-delay:1s;}
     @keyframes heroIn{
       from{opacity:0;transform:translateY(14px);}
       to{opacity:1;transform:translateY(0);}
@@ -730,7 +822,7 @@
     .pass-stat-n{transition:opacity .3s;}
 
     @media (prefers-reduced-motion: reduce){
-      .stars,.hero h1,.hero-sub,.pick,.chips,.reassure,.scroll-hint{
+      .stars,.hero-kicker,.hero h1,.hero-sub,.hero-proof,.hero-actions,.pick,.chips,.reassure,.scroll-hint{
         opacity:1;animation:none;
       }
       .urgency-flame,.hero h1 em::after,.chip::before,.pass-badge,
@@ -806,6 +898,20 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+  <a class="svb-mobile-sticky-cta is-visible js-buy"
+     href="https://payment-links.mollie.com/payment/HHhAgySncFYsyz84i6ytA"
+     data-discipline="reformer"
+     data-label="Pilates Reformer"
+     data-amount="30 €"
+     rel="noopener noreferrer"
+     aria-label="Réserver une séance d'essai Pilates Reformer à 30 euros">
+    <span class="svb-mobile-sticky-cta__text">
+      <span class="svb-mobile-sticky-cta__label">Réserver Reformer</span>
+      <span class="svb-mobile-sticky-cta__sub">Saint-Ouen · confirmation immédiate</span>
+    </span>
+    <span class="svb-mobile-sticky-cta__pill">30 €</span>
+  </a>
+
   <div class="urgency">
     <span><span class="urgency-flame" aria-hidden="true">🔥</span> Offre nouveaux membres</span>
     <span class="urgency-sep">·</span>
@@ -841,8 +947,25 @@
         <i>★★★★★</i><b>5,0</b><span>· 146 avis Google</span>
       </div>
 
-      <h1>Découvre SVB.<br/><em>Choisis ton offre.</em></h1>
-      <p class="hero-sub">Pas un cours collectif XXL. <b>Un small group</b> où le coach te voit, te corrige, retient ton prénom.</p>
+      <p class="hero-kicker">Pilates Reformer · Saint-Ouen</p>
+      <h1>Réserve ton essai<br/><em>Reformer à 30 €.</em></h1>
+      <p class="hero-sub">50 min, 9 places max, <b>coach qui corrige tes placements</b>. Paiement sécurisé, confirmation immédiate.</p>
+
+      <div class="hero-proof" aria-label="Points forts de l'essai Reformer">
+        <span>9 places max</span>
+        <span>5,0/5 Google</span>
+        <span>Mairie de Saint-Ouen</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="hero-action primary js-buy"
+           href="https://payment-links.mollie.com/payment/HHhAgySncFYsyz84i6ytA"
+           data-discipline="reformer"
+           data-label="Pilates Reformer"
+           data-amount="30 €"
+           rel="noopener noreferrer">Réserver mon essai · 30 €</a>
+        <a class="hero-action secondary" href="#offres">Voir les offres</a>
+      </div>
 
       <p class="reassure">
         <span>✓ Confirmation immédiate</span>
@@ -851,15 +974,15 @@
       </p>
 
       <a href="#offres" class="scroll-hint">
-        <span>Voir les offres</span>
+        <span>Comparer les offres</span>
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 8 11 12 7"/></svg>
       </a>
     </div>
   </section>
 
   <section class="offers-wrap" id="offres">
-    <p class="offers-eye">2 façons de commencer</p>
-    <h2 class="offers-h">Tu démarres comment&nbsp;<em>?</em></h2>
+    <p class="offers-eye">Reformer d'abord</p>
+    <h2 class="offers-h">Commence par ton essai <em>à 30 €</em></h2>
 
     <div class="offers-grid" id="essai-offres">
 
@@ -907,9 +1030,9 @@
           <p class="essai-stat-l">sur 146 avis Google</p>
         </div>
 
-        <p class="essai-pick">Choisis ta discipline</p>
+        <p class="essai-pick">Ton essai Reformer</p>
         <div class="essai-discs">
-          <a class="essai-disc js-buy"
+          <a class="essai-disc primary js-buy"
              href="https://payment-links.mollie.com/payment/HHhAgySncFYsyz84i6ytA"
              data-discipline="reformer"
              data-label="Pilates Reformer"
@@ -920,6 +1043,7 @@
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
             </span>
           </a>
+          <p class="essai-alt-note">Autres disciplines</p>
           <a class="essai-disc js-buy"
              href="https://payment-links.mollie.com/payment/Y6HEPBZLjFsy5zgVYPWYN"
              data-discipline="crossformer"

@@ -791,6 +791,50 @@ body:has(.svb-video-hero) .svb-video-hero{
   box-shadow:0 14px 34px -8px rgba(242,230,207,.6);
   outline:none;
 }
+.svb-reformer-hero-proof{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin:-.5rem auto 1.4rem;
+  max-width:620px;
+}
+.svb-reformer-hero-proof span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:36px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:rgba(136,192,166,.16);
+  border:1px solid rgba(74,141,132,.18);
+  color:#2F4F4F;
+  font-family:'Montserrat',sans-serif;
+  font-size:.76rem;
+  font-weight:800;
+}
+.svb-reformer-hero-actions{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.svb-reformer-hero-call{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.56);
+  color:#2F4F4F;
+  border:1px solid rgba(47,79,79,.12);
+  font-family:'Montserrat',sans-serif;
+  font-size:.86rem;
+  font-weight:800;
+  text-decoration:none;
+}
 
 /* --- Photo system (éditorial full-bleed, signature SVB) ------ */
 
@@ -970,6 +1014,11 @@ body:has(.svb-video-hero) .svb-video-hero{
     min-height:350px;
     max-height:500px;
   }
+  body:has(.svb-reformer-hero-proof) .svb-video-hero-media{
+    height:46svh;
+    min-height:300px;
+    max-height:390px;
+  }
   .svb-video-hero-media video,
   .svb-video-hero-media img{
     object-position:center 28%;
@@ -1004,6 +1053,28 @@ body:has(.svb-video-hero) .svb-video-hero{
     justify-content:center;
     padding:14px 18px;
     text-align:center;
+  }
+  .svb-reformer-hero-proof{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:7px;
+    margin:-.25rem 0 1rem;
+    max-width:none;
+  }
+  .svb-reformer-hero-proof span{
+    min-height:36px;
+    padding:8px 10px;
+    font-size:.7rem;
+  }
+  .svb-reformer-hero-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  .svb-reformer-hero-call{
+    min-height:44px;
+    padding:11px 14px;
+    font-size:.78rem;
   }
   .svb-video-hero-badge{
     left:12px;
@@ -1044,30 +1115,72 @@ body:has(.svb-video-hero) .svb-video-hero{
     min-height:auto !important;
   }
   .hero-content{
-    min-height:clamp(430px, calc(74svh - 64px), 540px);
-    padding:18px 18px 24px !important;
+    min-height:clamp(520px, calc(82svh - 48px), 660px);
+    padding:16px 18px 26px !important;
     justify-content:center;
   }
   .stars{
-    margin-bottom:16px !important;
+    margin-bottom:12px !important;
     padding:7px 13px !important;
     font-size:.66rem !important;
   }
+  .hero-kicker{
+    margin-bottom:9px !important;
+    font-size:.6rem !important;
+    letter-spacing:.18em !important;
+  }
   .hero h1{
-    font-size:clamp(2.55rem,13vw,3.5rem) !important;
-    line-height:.98 !important;
+    font-size:clamp(2.12rem,11.3vw,3.15rem) !important;
+    line-height:1 !important;
+    margin-bottom:11px !important;
   }
   .hero-sub{
-    font-size:.98rem !important;
-    margin-bottom:18px !important;
+    font-size:.92rem !important;
+    line-height:1.42 !important;
+    margin-bottom:13px !important;
+    max-width:340px !important;
+  }
+  .hero-proof{
+    display:grid !important;
+    grid-template-columns:1fr 1fr;
+    gap:7px !important;
+    width:100%;
+    max-width:342px;
+    margin-bottom:14px !important;
+  }
+  .hero-proof span{
+    min-height:34px !important;
+    justify-content:center;
+    padding:7px 9px !important;
+    font-size:.66rem !important;
+    text-align:center;
+  }
+  .hero-proof span:first-child{
+    grid-column:1 / -1;
+  }
+  .hero-actions{
+    display:grid !important;
+    grid-template-columns:1fr;
+    gap:8px !important;
+    max-width:342px !important;
+  }
+  .hero-action{
+    min-height:50px !important;
+    padding:13px 16px !important;
+    font-size:.73rem !important;
+    letter-spacing:.03em !important;
+  }
+  .hero-action.secondary{
+    min-height:42px !important;
+    background:rgba(255,255,255,.11) !important;
   }
   .reassure{
-    margin-top:16px !important;
+    margin-top:12px !important;
     gap:8px 12px !important;
-    font-size:.68rem !important;
+    font-size:.64rem !important;
   }
   .scroll-hint{
-    margin-top:18px !important;
+    display:none !important;
   }
   .offers-wrap{
     padding:34px 16px 86px !important;
@@ -1113,6 +1226,14 @@ body:has(.svb-video-hero) .svb-video-hero{
   .pass-cta{
     min-height:52px;
     -webkit-tap-highlight-color:transparent;
+  }
+  .essai-disc.primary{
+    min-height:60px;
+  }
+  .essai-alt-note{
+    margin:4px 0 -2px !important;
+    font-size:.54rem !important;
+    letter-spacing:.16em !important;
   }
 
   /* CTA mobile global injecte par svb.js. */
