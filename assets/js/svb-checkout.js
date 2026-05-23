@@ -199,6 +199,34 @@
       };
     }
 
+    var FUNNEL_STEPS = {
+      view_item: {
+        custom: "svb_offer_view",
+        step: 2,
+        step_name: "Affichage offre",
+      },
+      select_item: {
+        custom: "svb_offer_click",
+        step: 3,
+        step_name: "Clic offre",
+      },
+      add_to_cart: {
+        custom: "svb_checkout_open",
+        step: 4,
+        step_name: "Formulaire ouvert",
+      },
+      begin_checkout: {
+        custom: "svb_payment_form_submit",
+        step: 5,
+        step_name: "Formulaire envoye",
+      },
+      add_payment_info: {
+        custom: "svb_payment_start",
+        step: 6,
+        step_name: "Redirection Mollie",
+      },
+    };
+
     function cleanEventParams(params) {
       Object.keys(params).forEach(function (key) {
         if (params[key] == null || params[key] === "") delete params[key];
@@ -206,36 +234,84 @@
       return params;
     }
 
+    function pushGA4Direct(eventName, params) {
+      try {
+        if (typeof window.gtag !== "function") return;
+        window.gtag("event", eventName, cleanEventParams(Object.assign({}, params)));
+      } catch (e) {}
+    }
+
+    function buildOfferParams(eventName, opts, source) {
+      var value = getOfferValue(opts);
+      var attr = getUTMs();
+      var funnel = FUNNEL_STEPS[eventName] || {};
+      return cleanEventParams({
+        currency: "EUR",
+        value: value,
+        items: [buildItem(opts)],
+        discipline: opts.discipline,
+        offer_label: opts.label,
+        payment_provider: "mollie",
+        payment_source: source,
+        funnel_name: "SVB essai",
+        funnel_step: funnel.step,
+        step_name: funnel.step_name,
+        source_page: window.location.pathname,
+        utm_source: attr.utm_source,
+        utm_medium: attr.utm_medium,
+        utm_campaign: attr.utm_campaign,
+        utm_content: attr.utm_content,
+        utm_term: attr.utm_term,
+        gclid: attr.gclid,
+        gbraid: attr.gbraid,
+        wbraid: attr.wbraid,
+        page_location: window.location.href,
+        page_referrer: document.referrer || null,
+      });
+    }
+
     function pushOfferEvent(eventName, opts, source) {
       try {
-        var value = getOfferValue(opts);
-        var attr = getUTMs();
+        var params = buildOfferParams(eventName, opts, source);
+        var funnel = FUNNEL_STEPS[eventName] || {};
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ ecommerce: null });
         window.dataLayer.push(
           cleanEventParams({
             event: eventName,
-            discipline: opts.discipline,
-            offer_label: opts.label,
-            payment_provider: "mollie",
-            payment_source: source,
-            utm_source: attr.utm_source,
-            utm_medium: attr.utm_medium,
-            utm_campaign: attr.utm_campaign,
-            utm_content: attr.utm_content,
-            utm_term: attr.utm_term,
-            gclid: attr.gclid,
-            gbraid: attr.gbraid,
-            wbraid: attr.wbraid,
-            page_location: window.location.href,
-            page_referrer: document.referrer || null,
+            discipline: params.discipline,
+            offer_label: params.offer_label,
+            payment_provider: params.payment_provider,
+            payment_source: params.payment_source,
+            funnel_name: params.funnel_name,
+            funnel_step: params.funnel_step,
+            step_name: params.step_name,
+            source_page: params.source_page,
+            utm_source: params.utm_source,
+            utm_medium: params.utm_medium,
+            utm_campaign: params.utm_campaign,
+            utm_content: params.utm_content,
+            utm_term: params.utm_term,
+            gclid: params.gclid,
+            gbraid: params.gbraid,
+            wbraid: params.wbraid,
+            page_location: params.page_location,
+            page_referrer: params.page_referrer,
             ecommerce: {
               currency: "EUR",
-              value: value,
-              items: [buildItem(opts)],
+              value: params.value,
+              items: params.items,
             },
           })
         );
+        // Ces events standards ne sont pas toujours tagues dans GTM.
+        // On les envoie donc aussi via Google Tag pour remplir le tunnel GA4.
+        if (eventName === "view_item" || eventName === "select_item" || eventName === "add_to_cart" || eventName === "add_payment_info") {
+          pushGA4Direct(eventName, params);
+        }
+        if (funnel.custom) {
+          pushGA4Direct(funnel.custom, Object.assign({ original_event: eventName }, params));
+        }
       } catch (e) {}
     }
 
@@ -261,6 +337,10 @@
           event: "view_item",
           payment_provider: "mollie",
           payment_source: "site_page",
+          funnel_name: "SVB essai",
+          funnel_step: 2,
+          step_name: "Affichage offre",
+          source_page: window.location.pathname,
           page_location: window.location.href,
           page_referrer: document.referrer || null,
           ecommerce: {
@@ -271,6 +351,23 @@
             items: items,
           },
         });
+        var viewParams = cleanEventParams({
+          currency: "EUR",
+          value: items.reduce(function (sum, item) {
+            return sum + Number(item.price || 0);
+          }, 0),
+          items: items,
+          payment_provider: "mollie",
+          payment_source: "site_page",
+          funnel_name: "SVB essai",
+          funnel_step: 2,
+          step_name: "Affichage offre",
+          source_page: window.location.pathname,
+          page_location: window.location.href,
+          page_referrer: document.referrer || null,
+        });
+        pushGA4Direct("view_item", viewParams);
+        pushGA4Direct("svb_offer_view", Object.assign({ original_event: "view_item" }, viewParams));
       } catch (e) {}
     }
 
@@ -445,6 +542,15 @@
           try {
             var checkoutValue =
               current.discipline === "pass_starter" ? 99.9 : 30.0;
+            pushOfferEvent(
+              "add_payment_info",
+              {
+                discipline: current.discipline,
+                label: current.label,
+                amount: current.amount,
+              },
+              "mollie_redirect_created"
+            );
             sessionStorage.setItem(
               "svb_last_essai",
               JSON.stringify({

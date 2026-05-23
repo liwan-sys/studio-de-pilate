@@ -98,6 +98,9 @@ function getPurchasePayload(payment) {
     affiliation: "Mollie",
     payment_provider: "mollie",
     payment_source: "mollie_webhook",
+    funnel_name: "SVB essai",
+    funnel_step: 7,
+    step_name: "Achat confirme",
     discipline: disciplineKey,
     offer_label: disciplineLabel,
     page_location:
@@ -146,7 +149,13 @@ function getPurchasePayload(payment) {
   const payload = {
     client_id: getGAClientId(payment),
     non_personalized_ads: false,
-    events: [{ name: "purchase", params }],
+    events: [
+      { name: "purchase", params },
+      {
+        name: "svb_purchase_confirmed",
+        params: { ...params, original_event: "purchase" },
+      },
+    ],
   };
 
   const timestampMicros = toTimestampMicros(payment.paidAt);
