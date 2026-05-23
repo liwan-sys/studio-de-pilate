@@ -1202,6 +1202,10 @@
           <input type="text" id="molFirstname" name="firstname" autocomplete="given-name" required>
         </div>
         <div class="mol-field">
+          <label for="molLastname">Nom</label>
+          <input type="text" id="molLastname" name="lastname" autocomplete="family-name" required>
+        </div>
+        <div class="mol-field">
           <label for="molEmail">Email</label>
           <input type="email" id="molEmail" name="email" autocomplete="email" required>
         </div>
@@ -1233,6 +1237,7 @@
       var labelEl = document.getElementById('molOfferLabel');
       var amountEl = document.getElementById('molOfferAmount');
       var fName = document.getElementById('molFirstname');
+      var fLastname = document.getElementById('molLastname');
       var fEmail = document.getElementById('molEmail');
       var fPhone = document.getElementById('molPhone');
 
@@ -1257,7 +1262,7 @@
       function clearError(){
         errBox.classList.remove('show');
         errBox.textContent = '';
-        [fName,fEmail,fPhone].forEach(function(i){i.classList.remove('err');});
+        [fName,fLastname,fEmail,fPhone].forEach(function(i){i.classList.remove('err');});
       }
       function open(opts){
         current.discipline = opts.discipline;
@@ -1334,11 +1339,13 @@
         clearError();
 
         var firstname = fName.value.trim();
+        var lastname = fLastname.value.trim();
         var email = fEmail.value.trim();
         var phone = fPhone.value.trim();
 
         var bad = false;
         if (!firstname){ fName.classList.add('err'); bad = true; }
+        if (!lastname){ fLastname.classList.add('err'); bad = true; }
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ fEmail.classList.add('err'); bad = true; }
         if (!phone || phone.replace(/\D/g,'').length < 8){ fPhone.classList.add('err'); bad = true; }
         if (bad){
@@ -1380,6 +1387,7 @@
         var payload = {
           discipline: current.discipline,
           firstname: firstname,
+          lastname: lastname,
           email: email,
           phone: phone,
           fbclid: utms.fbclid,
@@ -1422,6 +1430,12 @@
           // Erreur côté API : on l'affiche au lieu de fallback silencieux
           submit.classList.remove('loading');
           submit.disabled = false;
+          // Cas particulier : essai deja utilise -> message dedie
+          if (res.status === 409 && data && data.error === 'trial_already_used'){
+            showError(data.message || 'Tu as déjà bénéficié de la séance d\'essai. Découvre notre Pass Starter ou appelle 07 44 91 91 55.');
+            console.warn('[mol] trial already used:', data);
+            return;
+          }
           var msg = 'Erreur (HTTP ' + res.status + ')';
           if (data && data.error) msg += ' — ' + data.error;
           if (data && data.details) msg += ' — ' + data.details;
