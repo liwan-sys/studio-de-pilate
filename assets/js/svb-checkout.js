@@ -34,6 +34,7 @@
     '<div class="mol-error" id="molError"></div>' +
     '<form id="molForm" novalidate>' +
     '<div class="mol-field"><label for="molFirstname">Pr&eacute;nom</label><input type="text" id="molFirstname" name="firstname" autocomplete="given-name" required></div>' +
+    '<div class="mol-field"><label for="molLastname">Nom</label><input type="text" id="molLastname" name="lastname" autocomplete="family-name" required></div>' +
     '<div class="mol-field"><label for="molEmail">Email</label><input type="email" id="molEmail" name="email" autocomplete="email" required></div>' +
     '<div class="mol-field"><label for="molPhone">T&eacute;l&eacute;phone</label><input type="tel" id="molPhone" name="phone" autocomplete="tel" inputmode="tel" required></div>' +
     '<input type="text" class="mol-hp" name="website-url" tabindex="-1" autocomplete="off">' +
@@ -95,6 +96,7 @@
     var labelEl = document.getElementById("molOfferLabel");
     var amountEl = document.getElementById("molOfferAmount");
     var fName = document.getElementById("molFirstname");
+    var fLastname = document.getElementById("molLastname");
     var fEmail = document.getElementById("molEmail");
     var fPhone = document.getElementById("molPhone");
 
@@ -121,7 +123,7 @@
     function clearError() {
       errBox.classList.remove("show");
       errBox.textContent = "";
-      [fName, fEmail, fPhone].forEach(function (i) {
+      [fName, fLastname, fEmail, fPhone].forEach(function (i) {
         i.classList.remove("err");
       });
     }
@@ -213,12 +215,17 @@
       clearError();
 
       var firstname = fName.value.trim();
+      var lastname = fLastname.value.trim();
       var email = fEmail.value.trim();
       var phone = fPhone.value.trim();
 
       var bad = false;
       if (!firstname) {
         fName.classList.add("err");
+        bad = true;
+      }
+      if (!lastname) {
+        fLastname.classList.add("err");
         bad = true;
       }
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -243,6 +250,7 @@
       var payload = {
         discipline: current.discipline,
         firstname: firstname,
+        lastname: lastname,
         email: email,
         phone: phone,
         fbclid: utms.fbclid,
@@ -290,6 +298,14 @@
 
         submit.classList.remove("loading");
         submit.disabled = false;
+        // Cas particulier : offre decouverte deja utilisee -> message dedie
+        if (res.status === 409 && data && data.error === "trial_already_used") {
+          showError(
+            data.message ||
+              "Tu as déjà bénéficié d'une offre découverte chez SVB. Découvre nos abonnements ou appelle 07 44 91 91 55."
+          );
+          return;
+        }
         var msg = "Erreur (HTTP " + res.status + ")";
         if (data && data.error) msg += " — " + data.error;
         showError(msg + ". Réessaie ou appelle 07 44 91 91 55.");
