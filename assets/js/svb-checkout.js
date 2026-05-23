@@ -115,6 +115,20 @@
         return {};
       }
     }
+    function getCookie(name) {
+      try {
+        var m = document.cookie.match(
+          new RegExp(
+            "(?:^|; )" +
+              name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") +
+              "=([^;]*)"
+          )
+        );
+        return m ? decodeURIComponent(m[1]) : null;
+      } catch (e) {
+        return null;
+      }
+    }
 
     function showError(msg) {
       errBox.textContent = msg;
@@ -254,6 +268,8 @@
         email: email,
         phone: phone,
         fbclid: utms.fbclid,
+        fbp: getCookie("_fbp"),
+        fbc: getCookie("_fbc"),
         utm_source: utms.utm_source,
         utm_medium: utms.utm_medium,
         utm_campaign: utms.utm_campaign,

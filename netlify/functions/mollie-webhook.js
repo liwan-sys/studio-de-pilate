@@ -32,7 +32,7 @@ import { recordTrial } from "./lib/trial-limits.js";
 
 const DEFAULT_TO = "hello@studiosvb.fr";
 const DEFAULT_FROM = "Studio SVB <onboarding@resend.dev>";
-// v1.3 - Meta CAPI + GA4 server-side sync/reconcile
+// v1.4 - Meta CAPI + GA4 server-side sync/reconcile
 
 const DISCIPLINE_LABEL = {
   reformer: "Pilates Reformer",
@@ -196,7 +196,10 @@ async function sendMetaPurchase(payment, eventSourceUrl) {
   if (phoneNorm) user_data.ph = [sha256Hex(phoneNorm)];
   if (meta.firstname) user_data.fn = [sha256Hex(meta.firstname)];
   if (meta.lastname) user_data.ln = [sha256Hex(meta.lastname)];
-  if (meta.fbclid) {
+  if (meta.fbp) user_data.fbp = meta.fbp;
+  if (meta.fbc) {
+    user_data.fbc = meta.fbc;
+  } else if (meta.fbclid) {
     // Format fbc : fb.1.{creation_time_ms}.{fbclid}
     // On ne connait pas exactement le moment du clic, on prend une approx
     // basee sur submitted_at, sinon paidAt
@@ -225,7 +228,7 @@ async function sendMetaPurchase(payment, eventSourceUrl) {
     },
   };
 
-  const url = `https://graph.facebook.com/v18.0/${pixelId}/events?access_token=${encodeURIComponent(
+  const url = `https://graph.facebook.com/v25.0/${pixelId}/events?access_token=${encodeURIComponent(
     accessToken
   )}`;
 
@@ -412,7 +415,10 @@ async function sendMetaAbandonedCart(payment, eventSourceUrl) {
   if (phoneNorm) user_data.ph = [sha256Hex(phoneNorm)];
   if (meta.firstname) user_data.fn = [sha256Hex(meta.firstname)];
   if (meta.lastname) user_data.ln = [sha256Hex(meta.lastname)];
-  if (meta.fbclid) {
+  if (meta.fbp) user_data.fbp = meta.fbp;
+  if (meta.fbc) {
+    user_data.fbc = meta.fbc;
+  } else if (meta.fbclid) {
     const sub = meta.submitted_at ? new Date(meta.submitted_at).getTime() : Date.now();
     user_data.fbc = `fb.1.${sub}.${meta.fbclid}`;
   }
@@ -535,9 +541,13 @@ export default async (req) => {
       JSON.stringify({
         ok: true,
         service: "mollie-webhook",
-        version: "1.3",
+        version: "1.4",
         has_mollie_key: !!process.env.MOLLIE_API_KEY,
         has_resend_key: !!process.env.RESEND_API_KEY,
+        has_meta_pixel_id: !!process.env.META_PIXEL_ID,
+        meta_pixel_id: process.env.META_PIXEL_ID || null,
+        has_meta_capi_access_token: !!process.env.META_CAPI_ACCESS_TOKEN,
+        meta_purchase_ltv_value: process.env.META_PURCHASE_LTV_VALUE || "200",
         has_ga4_secret: !!process.env.GA4_API_SECRET,
         has_ga4_sync_database: hasGA4SyncDatabase(),
         ga4_measurement_id: process.env.GA4_MEASUREMENT_ID || "G-DHS707Y6XJ",

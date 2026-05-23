@@ -89,7 +89,10 @@ async function sendMetaLead(opts) {
   if (ph) user_data.ph = [sha256Hex(ph)];
   if (opts.firstname) user_data.fn = [sha256Hex(opts.firstname)];
   if (opts.lastname) user_data.ln = [sha256Hex(opts.lastname)];
-  if (opts.fbclid) {
+  if (opts.fbp) user_data.fbp = opts.fbp;
+  if (opts.fbc) {
+    user_data.fbc = opts.fbc;
+  } else if (opts.fbclid) {
     user_data.fbc = `fb.1.${Date.now()}.${opts.fbclid}`;
   }
   user_data.country = [sha256Hex("fr")];
@@ -159,6 +162,9 @@ export default async (req) => {
       api_key_prefix: process.env.MOLLIE_API_KEY
         ? process.env.MOLLIE_API_KEY.slice(0, 5)
         : null,
+      has_meta_pixel_id: !!process.env.META_PIXEL_ID,
+      meta_pixel_id: process.env.META_PIXEL_ID || null,
+      has_meta_capi_access_token: !!process.env.META_CAPI_ACCESS_TOKEN,
     });
   }
   if (req.method !== "POST") {
@@ -241,6 +247,8 @@ export default async (req) => {
       discipline,
       offer_label: offer.label,
       fbclid: clean(body.fbclid, 200),
+      fbp: clean(body.fbp, 200),
+      fbc: clean(body.fbc, 200),
       utm_source: clean(body.utm_source, 80),
       utm_medium: clean(body.utm_medium, 80),
       utm_campaign: clean(body.utm_campaign, 120),
@@ -298,6 +306,8 @@ export default async (req) => {
       discipline,
       disciplineLabel: offer.label,
       fbclid: clean(body.fbclid, 200),
+      fbp: clean(body.fbp, 200),
+      fbc: clean(body.fbc, 200),
       leadId: payment.id,
       value: parseFloat(offer.amount),
     }).catch((e) => console.error("[meta-lead] uncaught:", e));
