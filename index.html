@@ -2,6 +2,22 @@
 
 <html lang="fr">
 <head>
+  <!-- Google Consent Mode v2 -->
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+  (function(){
+    var granted = false;
+    try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+    window.gtag('consent', 'default', {
+      ad_storage: granted ? 'granted' : 'denied',
+      analytics_storage: granted ? 'granted' : 'denied',
+      ad_user_data: granted ? 'granted' : 'denied',
+      ad_personalization: granted ? 'granted' : 'denied',
+      wait_for_update: 500
+    });
+  })();
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -13,7 +29,7 @@
   <meta name="facebook-domain-verification" content="ivgwdh3702t7twxczeskz6m149zuah" />
   <meta name="google-site-verification" content="T5MdNHyMbEHGOQ8c80Y3zeTPC1zhWufCfmK20JrIEYQ" />
   <meta name="facebook-domain-verification" content="ivgwdh3702t7twxczeskz6m149zuah" />
-  <script src="/assets/analytics.js?v=20260427a" defer></script>
+  <script src="/assets/analytics.js?v=20260523a" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,7 +199,7 @@
   
   <script src="/assets/nav-dropdown.js?v=20260426a" defer></script>
     <script src="/assets/js/meta-pixel.js" defer></script>
-  <script src="/assets/js/svb-checkout.js?v=20260523a" defer></script>
+  <script src="/assets/js/svb-checkout.js?v=20260523b" defer></script>
 </head>
 
 <body class="content-visible overflow-hidden">
@@ -1314,7 +1330,7 @@
     });
   </script>
 
-  <script src="/assets/svb.js?v=20260423a" defer></script>
+  <script src="/assets/svb.js?v=20260523a" defer></script>
   <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
   <script src="/assets/svb-motion.js?v=20260424a" defer></script>
 

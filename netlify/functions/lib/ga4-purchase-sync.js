@@ -62,6 +62,12 @@ function toNumber(value, fallback = 0) {
   return Number.isFinite(n) ? n : fallback;
 }
 
+function cleanParam(value) {
+  if (value == null) return null;
+  const s = String(value).trim();
+  return s || null;
+}
+
 function toTimestampMicros(value) {
   if (!value) return null;
   const ms = new Date(value).getTime();
@@ -89,20 +95,53 @@ function getPurchasePayload(payment) {
     currency,
     session_id: meta.ga_session_id || String(Date.now()),
     engagement_time_msec: 100,
+    affiliation: "Mollie",
+    payment_provider: "mollie",
+    payment_source: "mollie_webhook",
+    discipline: disciplineKey,
+    offer_label: disciplineLabel,
+    page_location:
+      cleanParam(meta.page_location) || "https://studiosvb.com/merci-essai",
+    page_referrer: cleanParam(meta.page_referrer),
     items: [
       {
         item_id: disciplineKey,
         item_name: disciplineLabel,
         item_category: "essai",
+        item_category2: disciplineKey,
         price: amount,
         quantity: 1,
       },
     ],
   };
 
-  if (meta.utm_source) params.source = meta.utm_source;
-  if (meta.utm_medium) params.medium = meta.utm_medium;
-  if (meta.utm_campaign) params.campaign = meta.utm_campaign;
+  if (meta.utm_source) {
+    params.source = meta.utm_source;
+    params.utm_source = meta.utm_source;
+  }
+  if (meta.utm_medium) {
+    params.medium = meta.utm_medium;
+    params.utm_medium = meta.utm_medium;
+  }
+  if (meta.utm_campaign) {
+    params.campaign = meta.utm_campaign;
+    params.utm_campaign = meta.utm_campaign;
+  }
+  if (meta.utm_content) {
+    params.content = meta.utm_content;
+    params.utm_content = meta.utm_content;
+  }
+  if (meta.utm_term) {
+    params.term = meta.utm_term;
+    params.utm_term = meta.utm_term;
+  }
+  if (meta.gclid) params.gclid = meta.gclid;
+  if (meta.gbraid) params.gbraid = meta.gbraid;
+  if (meta.wbraid) params.wbraid = meta.wbraid;
+
+  Object.keys(params).forEach((key) => {
+    if (params[key] == null || params[key] === "") delete params[key];
+  });
 
   const payload = {
     client_id: getGAClientId(payment),

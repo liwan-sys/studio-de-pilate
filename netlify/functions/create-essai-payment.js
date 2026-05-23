@@ -13,7 +13,7 @@ import { hasUsedTrial, isTrialDiscipline } from "./lib/trial-limits.js";
 //   3) Fonction appelle l'API Mollie pour créer un paiement avec :
 //        - billingEmail = email du client
 //        - description = "Séance d'essai X — Prénom Nom" (visible app/dashboard)
-//        - metadata = {firstname, lastname, email, phone, discipline, fbclid, utm_*}
+//        - metadata = {firstname, lastname, email, phone, discipline, fbclid, utm_*, ga_*}
 //   4) Retourne checkout URL → le JS redirige le client dessus
 //   5) Mollie envoie une push native dans l'app SVB avec tous les détails
 //      → l'admin sait QUI a payé QUOI sans aucune correlation manuelle
@@ -157,7 +157,7 @@ export default async (req) => {
     return jsonRes({
       ok: true,
       service: "create-essai-payment",
-      version: 3,
+      version: 4,
       has_api_key: !!process.env.MOLLIE_API_KEY,
       api_key_prefix: process.env.MOLLIE_API_KEY
         ? process.env.MOLLIE_API_KEY.slice(0, 5)
@@ -252,12 +252,19 @@ export default async (req) => {
       utm_source: clean(body.utm_source, 80),
       utm_medium: clean(body.utm_medium, 80),
       utm_campaign: clean(body.utm_campaign, 120),
+      utm_content: clean(body.utm_content, 120),
+      utm_term: clean(body.utm_term, 120),
+      gclid: clean(body.gclid, 200),
+      gbraid: clean(body.gbraid, 200),
+      wbraid: clean(body.wbraid, 200),
       // GA4 client_id (extrait du cookie _ga cote browser) : permet au
       // webhook Mollie d'envoyer un purchase server-side via GA4
       // Measurement Protocol, attribue au meme user GA4 que la session
       // qui a clique sur "Reserver" (cross-session/cross-device safe).
       ga_client_id: clean(body.ga_client_id, 100),
       ga_session_id: clean(body.ga_session_id, 50),
+      page_location: clean(body.page_location, 500),
+      page_referrer: clean(body.page_referrer, 500),
       submitted_at: new Date().toISOString(),
     },
   };

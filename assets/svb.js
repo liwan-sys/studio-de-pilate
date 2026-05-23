@@ -367,14 +367,29 @@
   //    - Persiste dans localStorage
   (function initConsent(){
     var KEY = 'svb-consent-v1';
+    var updateGoogleConsent = function(choice){
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+        var granted = choice === 'granted';
+        window.gtag('consent', 'update', {
+          ad_storage: granted ? 'granted' : 'denied',
+          analytics_storage: granted ? 'granted' : 'denied',
+          ad_user_data: granted ? 'granted' : 'denied',
+          ad_personalization: granted ? 'granted' : 'denied'
+        });
+      } catch(e) {}
+    };
     var saved = null;
     try { saved = localStorage.getItem(KEY); } catch(e) {}
     if (saved === 'granted') {
+      updateGoogleConsent('granted');
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'consent_granted_stored' });
       return; // déjà accepté, pas de banner
     }
     if (saved === 'denied') {
+      updateGoogleConsent('denied');
       return; // a refusé, on respecte
     }
     // Affiche le banner après FCP (non-bloquant)
@@ -395,6 +410,7 @@
       document.body.appendChild(b);
       var close = function(choice){
         try { localStorage.setItem(KEY, choice); } catch(e) {}
+        updateGoogleConsent(choice);
         b.classList.add('svb-consent-hide');
         setTimeout(function(){ b.remove(); }, 400);
         if (choice === 'granted') {

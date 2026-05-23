@@ -101,20 +101,44 @@
     var fPhone = document.getElementById("molPhone");
 
     var current = { discipline: null };
+    var ATTRIBUTION_STORAGE_KEY = "svb_attribution_v1";
 
     function getUTMs() {
       try {
         var p = new URLSearchParams(window.location.search);
-        return {
+        var currentParams = {
           fbclid: p.get("fbclid"),
           utm_source: p.get("utm_source"),
           utm_medium: p.get("utm_medium"),
           utm_campaign: p.get("utm_campaign"),
+          utm_content: p.get("utm_content"),
+          utm_term: p.get("utm_term"),
+          gclid: p.get("gclid"),
+          gbraid: p.get("gbraid"),
+          wbraid: p.get("wbraid"),
         };
+        var stored = {};
+        try {
+          stored = JSON.parse(localStorage.getItem(ATTRIBUTION_STORAGE_KEY) || "{}");
+        } catch (e) {}
+        var hasFreshParams = Object.keys(currentParams).some(function (key) {
+          return currentParams[key];
+        });
+        var merged = Object.assign({}, stored, currentParams);
+        Object.keys(merged).forEach(function (key) {
+          if (merged[key] == null || merged[key] === "") delete merged[key];
+        });
+        if (hasFreshParams) {
+          try {
+            localStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(merged));
+          } catch (e) {}
+        }
+        return merged;
       } catch (e) {
         return {};
       }
     }
+
     function getCookie(name) {
       try {
         var m = document.cookie.match(
@@ -128,6 +152,126 @@
       } catch (e) {
         return null;
       }
+    }
+
+    function getGAClientId() {
+      try {
+        var m = document.cookie.match(/(?:^|;)\s*_ga=([^;]+)/);
+        if (!m) return null;
+        var parts = decodeURIComponent(m[1]).split(".");
+        if (parts.length >= 4) return parts.slice(-2).join(".");
+        return null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function getGASessionId() {
+      try {
+        var m = document.cookie.match(/(?:^|;)\s*_ga_DHS707Y6XJ=([^;]+)/);
+        if (!m) return String(Date.now());
+        var value = decodeURIComponent(m[1]);
+        var gs2Session = value.split("$").find(function (part) {
+          return /^s\d+$/.test(part);
+        });
+        if (gs2Session) return gs2Session.slice(1);
+        var parts = value.split(".");
+        if (parts.length >= 3 && /^\d+$/.test(parts[2])) return parts[2];
+        return String(Date.now());
+      } catch (e) {
+        return String(Date.now());
+      }
+    }
+
+    function getOfferValue(opts) {
+      return opts && opts.amount && opts.amount.indexOf("99") > -1 ? 99.9 : 30.0;
+    }
+
+    function buildItem(opts) {
+      var value = getOfferValue(opts);
+      return {
+        item_id: opts.discipline || "essai",
+        item_name: opts.label || "Seance d'essai SVB",
+        item_category: "essai",
+        item_category2: opts.discipline || "essai",
+        price: value,
+        quantity: 1,
+      };
+    }
+
+    function cleanEventParams(params) {
+      Object.keys(params).forEach(function (key) {
+        if (params[key] == null || params[key] === "") delete params[key];
+      });
+      return params;
+    }
+
+    function pushOfferEvent(eventName, opts, source) {
+      try {
+        var value = getOfferValue(opts);
+        var attr = getUTMs();
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ ecommerce: null });
+        window.dataLayer.push(
+          cleanEventParams({
+            event: eventName,
+            discipline: opts.discipline,
+            offer_label: opts.label,
+            payment_provider: "mollie",
+            payment_source: source,
+            utm_source: attr.utm_source,
+            utm_medium: attr.utm_medium,
+            utm_campaign: attr.utm_campaign,
+            utm_content: attr.utm_content,
+            utm_term: attr.utm_term,
+            gclid: attr.gclid,
+            gbraid: attr.gbraid,
+            wbraid: attr.wbraid,
+            page_location: window.location.href,
+            page_referrer: document.referrer || null,
+            ecommerce: {
+              currency: "EUR",
+              value: value,
+              items: [buildItem(opts)],
+            },
+          })
+        );
+      } catch (e) {}
+    }
+
+    function pushVisibleOfferView(buttons) {
+      try {
+        var seen = {};
+        var items = [];
+        buttons.forEach(function (a) {
+          if (!a.dataset.discipline || seen[a.dataset.discipline]) return;
+          seen[a.dataset.discipline] = true;
+          items.push(
+            buildItem({
+              discipline: a.dataset.discipline,
+              label: a.dataset.label || a.textContent.trim(),
+              amount: a.dataset.amount || "30 €",
+            })
+          );
+        });
+        if (!items.length) return;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ ecommerce: null });
+        window.dataLayer.push({
+          event: "view_item",
+          payment_provider: "mollie",
+          payment_source: "site_page",
+          page_location: window.location.href,
+          page_referrer: document.referrer || null,
+          ecommerce: {
+            currency: "EUR",
+            value: items.reduce(function (sum, item) {
+              return sum + Number(item.price || 0);
+            }, 0),
+            items: items,
+          },
+        });
+      } catch (e) {}
     }
 
     function showError(msg) {
@@ -144,6 +288,7 @@
     function open(opts) {
       current.discipline = opts.discipline;
       current.label = opts.label;
+      current.amount = opts.amount;
       labelEl.textContent = opts.label;
       amountEl.textContent = opts.amount;
       clearError();
@@ -167,27 +312,7 @@
           });
         }
       } catch (e) {}
-      // GA4 standard event : begin_checkout (Enhanced Ecommerce)
-      try {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ ecommerce: null }); // clear precedent
-        window.dataLayer.push({
-          event: "begin_checkout",
-          ecommerce: {
-            currency: "EUR",
-            value: checkoutValue,
-            items: [
-              {
-                item_id: opts.discipline,
-                item_name: opts.label,
-                item_category: "essai",
-                price: checkoutValue,
-                quantity: 1,
-              },
-            ],
-          },
-        });
-      } catch (e) {}
+      pushOfferEvent("add_to_cart", opts, "modal_open");
       try {
         if (window.svbTrack)
           window.svbTrack("essai_modal_open", {
@@ -204,15 +329,19 @@
     }
 
     // Intercept clic sur tous les .js-buy de la page
-    document.querySelectorAll(".js-buy").forEach(function (a) {
+    var buyButtons = document.querySelectorAll(".js-buy");
+    pushVisibleOfferView(buyButtons);
+    buyButtons.forEach(function (a) {
       a.addEventListener("click", function (ev) {
         if (!a.dataset.discipline) return; // pas de discipline -> on laisse passer
         ev.preventDefault();
-        open({
+        var opts = {
           discipline: a.dataset.discipline,
           label: a.dataset.label || a.textContent.trim(),
           amount: a.dataset.amount || "30 €",
-        });
+        };
+        pushOfferEvent("select_item", opts, "site_cta");
+        open(opts);
       });
     });
 
@@ -261,6 +390,15 @@
       submit.disabled = true;
 
       var utms = getUTMs();
+      pushOfferEvent(
+        "begin_checkout",
+        {
+          discipline: current.discipline,
+          label: current.label,
+          amount: current.amount,
+        },
+        "form_submit"
+      );
       var payload = {
         discipline: current.discipline,
         firstname: firstname,
@@ -273,6 +411,15 @@
         utm_source: utms.utm_source,
         utm_medium: utms.utm_medium,
         utm_campaign: utms.utm_campaign,
+        utm_content: utms.utm_content,
+        utm_term: utms.utm_term,
+        gclid: utms.gclid,
+        gbraid: utms.gbraid,
+        wbraid: utms.wbraid,
+        ga_client_id: getGAClientId(),
+        ga_session_id: getGASessionId(),
+        page_location: window.location.href,
+        page_referrer: document.referrer || null,
         "website-url": form.querySelector('[name="website-url"]').value,
       };
 
@@ -305,6 +452,14 @@
                 discipline: current.discipline,
                 label: current.label,
                 paymentId: data.paymentId,
+                utm_source: utms.utm_source,
+                utm_medium: utms.utm_medium,
+                utm_campaign: utms.utm_campaign,
+                utm_content: utms.utm_content,
+                utm_term: utms.utm_term,
+                gclid: utms.gclid,
+                gbraid: utms.gbraid,
+                wbraid: utms.wbraid,
               })
             );
           } catch (e) {}
