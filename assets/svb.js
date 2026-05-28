@@ -444,7 +444,7 @@
       b.setAttribute('aria-label','Bannière de consentement cookies');
       b.innerHTML = '\
         <div class="svb-consent-inner">\
-          <p><strong>Cookies.</strong> Mesure d\'audience et amélioration des publicités. Tu peux accepter ou refuser.</p>\
+          <p><strong>Cookies.</strong> Nous utilisons des cookies pour mesurer la fréquentation du site et améliorer nos publicités. Vous pouvez accepter ou refuser.</p>\
           <div class="svb-consent-btns">\
             <button type="button" class="svb-consent-deny">Refuser</button>\
             <button type="button" class="svb-consent-allow">Accepter</button>\
