@@ -5,7 +5,12 @@
 //
 
 import crypto from "node:crypto";
-import { hasUsedTrial, isTrialDiscipline } from "./lib/trial-limits.js";
+import {
+  hasTrialLimitDatabase,
+  hasUsedTrial,
+  isTrialDiscipline,
+  reserveTrial,
+} from "./lib/trial-limits.js";
 
 // Flow :
 //   1) Visiteur remplit le mini-form sur /essai (prénom/nom/email/tel + discipline)
@@ -157,7 +162,7 @@ export default async (req) => {
     return jsonRes({
       ok: true,
       service: "create-essai-payment",
-      version: 4,
+      version: 5,
       has_api_key: !!process.env.MOLLIE_API_KEY,
       api_key_prefix: process.env.MOLLIE_API_KEY
         ? process.env.MOLLIE_API_KEY.slice(0, 5)
@@ -165,6 +170,7 @@ export default async (req) => {
       has_meta_pixel_id: !!process.env.META_PIXEL_ID,
       meta_pixel_id: process.env.META_PIXEL_ID || null,
       has_meta_capi_access_token: !!process.env.META_CAPI_ACCESS_TOKEN,
+      has_trial_limit_database: hasTrialLimitDatabase(),
     });
   }
   if (req.method !== "POST") {
@@ -299,6 +305,48 @@ export default async (req) => {
     if (!checkoutUrl) {
       console.error("[mollie] No checkout URL:", JSON.stringify(payment));
       return jsonRes({ ok: false, error: "no_checkout_url" }, 502);
+    }
+
+    if (isTrialDiscipline(discipline)) {
+      const reservation = await reserveTrial({
+        email,
+        phone,
+        firstname,
+        lastname,
+        discipline,
+        paymentId: payment.id,
+      });
+
+      if (!reservation.reserved) {
+        if (reservation.used) {
+          console.warn(
+            "[create-essai-payment] trial reservation blocked:",
+            JSON.stringify(reservation)
+          );
+          return jsonRes(
+            {
+              ok: false,
+              error: "trial_already_used",
+              message:
+                "Tu as déjà bénéficié d'une offre découverte chez SVB (séance d'essai ou Pass Starter). Pour la suite, découvre nos abonnements ou appelle-nous au 07 44 91 91 55.",
+            },
+            409
+          );
+        }
+        console.error(
+          "[create-essai-payment] trial reservation failed:",
+          JSON.stringify(reservation)
+        );
+        return jsonRes(
+          {
+            ok: false,
+            error: "trial_lock_unavailable",
+            message:
+              "La réservation de ton offre découverte est momentanément indisponible. Réessaie dans quelques minutes ou appelle-nous au 07 44 91 91 55.",
+          },
+          503
+        );
+      }
     }
 
     // Fire Meta CAPI Lead event (CRM/system_generated)

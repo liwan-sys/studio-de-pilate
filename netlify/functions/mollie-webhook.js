@@ -28,7 +28,7 @@ import {
   hasGA4SyncDatabase,
   syncGA4Purchase,
 } from "./lib/ga4-purchase-sync.js";
-import { recordTrial } from "./lib/trial-limits.js";
+import { recordTrial, releaseTrialReservation } from "./lib/trial-limits.js";
 
 const DEFAULT_TO = "hello@studiosvb.fr";
 const DEFAULT_FROM = "Studio SVB <onboarding@resend.dev>";
@@ -660,7 +660,7 @@ export default async (req) => {
     // a passer "in 1 hour" en prod une fois valide)
     const delay = process.env.RETARGETING_EMAIL_DELAY || "in 2 minutes";
 
-    const [retargetEmail, capi] = await Promise.all([
+    const [retargetEmail, capi, trialRelease] = await Promise.all([
       sendEmail({
         to: customerEmail,
         from,
@@ -669,11 +669,13 @@ export default async (req) => {
         scheduledAt: delay,
       }),
       sendMetaAbandonedCart(payment, eventSourceUrl),
+      releaseTrialReservation(payment),
     ]);
     console.log(`[mollie-webhook] retarget scheduled for "${delay}"`);
 
     console.log(`[mollie-webhook] ${payment.status} → retarget email:`, JSON.stringify(retargetEmail));
     console.log(`[mollie-webhook] ${payment.status} → capi abandoned:`, JSON.stringify(capi));
+    console.log(`[mollie-webhook] ${payment.status} → trial-release:`, JSON.stringify(trialRelease));
 
     return new Response("OK", { status: 200 });
   }
