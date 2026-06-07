@@ -9,6 +9,7 @@ import {
   hasTrialLimitDatabase,
   hasUsedTrial,
   isTrialDiscipline,
+  releaseTrialReservation,
   reserveTrial,
 } from "./lib/trial-limits.js";
 
@@ -141,6 +142,19 @@ async function sendMetaLead(opts) {
   }
 }
 
+async function releasePendingTrialReservation({ email, discipline }) {
+  if (!isTrialDiscipline(discipline)) return;
+  try {
+    await releaseTrialReservation({
+      id: null,
+      billingEmail: email,
+      metadata: { email, discipline },
+    });
+  } catch (e) {
+    console.error("[create-essai-payment] trial reservation release failed:", e);
+  }
+}
+
 function clean(s, max = 200) {
   if (s == null) return null;
   return String(s).trim().slice(0, max) || null;
@@ -162,7 +176,7 @@ export default async (req) => {
     return jsonRes({
       ok: true,
       service: "create-essai-payment",
-      version: 5,
+      version: 6,
       has_api_key: !!process.env.MOLLIE_API_KEY,
       api_key_prefix: process.env.MOLLIE_API_KEY
         ? process.env.MOLLIE_API_KEY.slice(0, 5)
@@ -238,6 +252,50 @@ export default async (req) => {
   const siteUrl = process.env.URL || "https://studiosvb.com";
   const description = `${offer.label} — ${firstname} ${lastname}`;
 
+  let trialReserved = false;
+  if (isTrialDiscipline(discipline)) {
+    const reservation = await reserveTrial({
+      email,
+      phone,
+      firstname,
+      lastname,
+      discipline,
+      paymentId: null,
+    });
+
+    if (!reservation.reserved) {
+      if (reservation.used) {
+        console.warn(
+          "[create-essai-payment] trial reservation blocked:",
+          JSON.stringify(reservation)
+        );
+        return jsonRes(
+          {
+            ok: false,
+            error: "trial_already_used",
+            message:
+              "Tu as déjà bénéficié d'une offre découverte chez SVB (séance d'essai ou Pass Starter). Pour la suite, découvre nos abonnements ou appelle-nous au 07 44 91 91 55.",
+          },
+          409
+        );
+      }
+      console.error(
+        "[create-essai-payment] trial reservation failed:",
+        JSON.stringify(reservation)
+      );
+      return jsonRes(
+        {
+          ok: false,
+          error: "trial_lock_unavailable",
+          message:
+            "La réservation de ton offre découverte est momentanément indisponible. Réessaie dans quelques minutes ou appelle-nous au 07 44 91 91 55.",
+        },
+        503
+      );
+    }
+    trialReserved = true;
+  }
+
   const payload = {
     amount: { value: offer.amount, currency: "EUR" },
     description,
@@ -288,6 +346,9 @@ export default async (req) => {
     if (!mollieRes.ok) {
       const errText = await mollieRes.text();
       console.error("[mollie] API error:", mollieRes.status, errText);
+      if (trialReserved) {
+        await releasePendingTrialReservation({ email, discipline });
+      }
       return jsonRes(
         {
           ok: false,
@@ -304,49 +365,10 @@ export default async (req) => {
 
     if (!checkoutUrl) {
       console.error("[mollie] No checkout URL:", JSON.stringify(payment));
-      return jsonRes({ ok: false, error: "no_checkout_url" }, 502);
-    }
-
-    if (isTrialDiscipline(discipline)) {
-      const reservation = await reserveTrial({
-        email,
-        phone,
-        firstname,
-        lastname,
-        discipline,
-        paymentId: payment.id,
-      });
-
-      if (!reservation.reserved) {
-        if (reservation.used) {
-          console.warn(
-            "[create-essai-payment] trial reservation blocked:",
-            JSON.stringify(reservation)
-          );
-          return jsonRes(
-            {
-              ok: false,
-              error: "trial_already_used",
-              message:
-                "Tu as déjà bénéficié d'une offre découverte chez SVB (séance d'essai ou Pass Starter). Pour la suite, découvre nos abonnements ou appelle-nous au 07 44 91 91 55.",
-            },
-            409
-          );
-        }
-        console.error(
-          "[create-essai-payment] trial reservation failed:",
-          JSON.stringify(reservation)
-        );
-        return jsonRes(
-          {
-            ok: false,
-            error: "trial_lock_unavailable",
-            message:
-              "La réservation de ton offre découverte est momentanément indisponible. Réessaie dans quelques minutes ou appelle-nous au 07 44 91 91 55.",
-          },
-          503
-        );
+      if (trialReserved) {
+        await releasePendingTrialReservation({ email, discipline });
       }
+      return jsonRes({ ok: false, error: "no_checkout_url" }, 502);
     }
 
     // Fire Meta CAPI Lead event (CRM/system_generated)
@@ -374,6 +396,9 @@ export default async (req) => {
     });
   } catch (e) {
     console.error("[mollie] Fetch error:", e);
+    if (trialReserved) {
+      await releasePendingTrialReservation({ email, discipline });
+    }
     return jsonRes({ ok: false, error: "fetch_error" }, 500);
   }
 };
