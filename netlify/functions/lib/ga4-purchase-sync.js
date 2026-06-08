@@ -1,4 +1,4 @@
-import { neon } from "@neondatabase/serverless";
+import { getDatabase } from "@netlify/database";
 
 const DEFAULT_MEASUREMENT_ID = "G-DHS707Y6XJ";
 
@@ -12,23 +12,12 @@ const DISCIPLINE_LABEL = {
 let sqlClient = null;
 let syncTableReady = false;
 
-function getDatabaseUrl() {
-  return (
-    process.env.NETLIFY_DATABASE_URL ||
-    process.env.NETLIFY_DATABASE_URL_UNPOOLED ||
-    process.env.DATABASE_URL ||
-    ""
-  );
-}
-
 export function hasGA4SyncDatabase() {
-  return Boolean(getDatabaseUrl());
+  return true;
 }
 
 function getSqlClient() {
-  const databaseUrl = getDatabaseUrl();
-  if (!databaseUrl) return null;
-  if (!sqlClient) sqlClient = neon(databaseUrl);
+  if (!sqlClient) sqlClient = getDatabase().sql;
   return sqlClient;
 }
 

@@ -180,7 +180,7 @@ export default async (req) => {
     return jsonRes({
       ok: true,
       service: "create-essai-payment",
-      version: 11,
+      version: 12,
       has_api_key: !!process.env.MOLLIE_API_KEY,
       api_key_prefix: process.env.MOLLIE_API_KEY
         ? process.env.MOLLIE_API_KEY.slice(0, 5)

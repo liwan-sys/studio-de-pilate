@@ -8,11 +8,11 @@
 // offres (cumul interdit aussi : si essai paye -> Pass Starter bloque, et
 // inversement).
 //
-// Si NETLIFY_DATABASE_URL / DATABASE_URL ne sont pas configures, hasUsedTrial
-// retourne non-bloquant, mais reserveTrial refuse de creer un checkout valide.
+// Utilise Netlify Database pour eviter de dependre d'un mot de passe Neon
+// manuel dans les variables d'environnement.
 // =========================================================================
 
-import { neon } from "@neondatabase/serverless";
+import { getDatabase } from "@netlify/database";
 
 const TRIAL_DISCIPLINES = new Set([
   "reformer",
@@ -26,17 +26,8 @@ let tableReady = false;
 let legacyMigrationDone = false;
 const PENDING_LOCK_MINUTES = 120;
 
-function getDatabaseUrl() {
-  return (
-    process.env.NETLIFY_DATABASE_URL ||
-    process.env.NETLIFY_DATABASE_URL_UNPOOLED ||
-    process.env.DATABASE_URL ||
-    ""
-  );
-}
-
 export function hasTrialLimitDatabase() {
-  return Boolean(getDatabaseUrl());
+  return true;
 }
 
 export async function getTrialLimitHealth() {
@@ -77,9 +68,7 @@ export function isTrialDiscipline(discipline) {
 }
 
 function getSqlClient() {
-  const databaseUrl = getDatabaseUrl();
-  if (!databaseUrl) return null;
-  if (!sqlClient) sqlClient = neon(databaseUrl);
+  if (!sqlClient) sqlClient = getDatabase().sql;
   return sqlClient;
 }
 
