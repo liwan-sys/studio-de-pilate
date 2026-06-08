@@ -28,11 +28,19 @@ import {
   hasGA4SyncDatabase,
   syncGA4Purchase,
 } from "./lib/ga4-purchase-sync.js";
+import {
+  claimPaymentNotification,
+  markPaymentNotificationSent,
+} from "./lib/payment-notifications.js";
 import { recordTrial, releaseTrialReservation } from "./lib/trial-limits.js";
 
 const DEFAULT_TO = "hello@studiosvb.fr";
 const DEFAULT_FROM = "Studio SVB <onboarding@resend.dev>";
 // v1.4 - Meta CAPI + GA4 server-side sync/reconcile
+const PAID_EMAIL_STALE_SKIP_MINUTES = parseInt(
+  process.env.PAID_EMAIL_STALE_SKIP_MINUTES || "30",
+  10
+);
 
 const DISCIPLINE_LABEL = {
   reformer: "Pilates Reformer",
@@ -464,7 +472,16 @@ async function sendMetaAbandonedCart(payment, eventSourceUrl) {
 
 // ---- Resend email -------------------------------------------------------
 
-async function sendEmail({ to, from, subject, html, text, scheduledAt, replyTo }) {
+async function sendEmail({
+  to,
+  from,
+  subject,
+  html,
+  text,
+  scheduledAt,
+  replyTo,
+  idempotencyKey,
+}) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.warn("[mollie-webhook] RESEND_API_KEY not set, skipping email");
@@ -483,6 +500,7 @@ async function sendEmail({ to, from, subject, html, text, scheduledAt, replyTo }
     headers: {
       authorization: `Bearer ${apiKey}`,
       "content-type": "application/json",
+      ...(idempotencyKey ? { "Idempotency-Key": idempotencyKey } : {}),
     },
     body: JSON.stringify(payload),
   });
@@ -493,6 +511,65 @@ async function sendEmail({ to, from, subject, html, text, scheduledAt, replyTo }
   }
   const j = await resp.json();
   return { sent: true, id: j.id };
+}
+
+async function sendPaymentEmailOnce({
+  paymentId,
+  notificationType,
+  email,
+  idempotencyKey,
+}) {
+  let claim;
+  try {
+    claim = await claimPaymentNotification(paymentId, notificationType);
+  } catch (e) {
+    console.error("[mollie-webhook] notification claim failed:", e);
+    return {
+      sent: false,
+      skipped: true,
+      reason: "notification_claim_failed",
+    };
+  }
+
+  if (!claim.claimed) {
+    return {
+      sent: false,
+      skipped: true,
+      reason: claim.reason || "already_claimed",
+    };
+  }
+
+  let result;
+  try {
+    result = await sendEmail({ ...email, idempotencyKey });
+  } catch (e) {
+    console.error("[mollie-webhook] notification send threw:", e);
+    result = { sent: false, reason: "email_send_threw", error: String(e) };
+  }
+
+  try {
+    await markPaymentNotificationSent(paymentId, notificationType, result);
+  } catch (e) {
+    console.error("[mollie-webhook] notification mark failed:", e);
+  }
+  return result;
+}
+
+function isStalePaidWebhook(payment) {
+  if (!payment?.paidAt || !Number.isFinite(PAID_EMAIL_STALE_SKIP_MINUTES)) {
+    return false;
+  }
+  const paidAtMs = new Date(payment.paidAt).getTime();
+  if (!Number.isFinite(paidAtMs)) return false;
+  return Date.now() - paidAtMs > PAID_EMAIL_STALE_SKIP_MINUTES * 60 * 1000;
+}
+
+function hasRefundActivity(payment) {
+  const refundedValue = Number.parseFloat(payment?.amountRefunded?.value || "0");
+  if (Number.isFinite(refundedValue) && refundedValue > 0) return true;
+  const refunds = payment?._embedded?.refunds || payment?.refunds?._embedded?.refunds;
+  if (Array.isArray(refunds) && refunds.length > 0) return true;
+  return Boolean(payment?._links?.refunds);
 }
 
 export default async (req) => {
@@ -541,7 +618,7 @@ export default async (req) => {
       JSON.stringify({
         ok: true,
         service: "mollie-webhook",
-        version: "1.4",
+        version: "1.6",
         has_mollie_key: !!process.env.MOLLIE_API_KEY,
         has_resend_key: !!process.env.RESEND_API_KEY,
         has_meta_pixel_id: !!process.env.META_PIXEL_ID,
@@ -553,6 +630,7 @@ export default async (req) => {
         ga4_measurement_id: process.env.GA4_MEASUREMENT_ID || "G-DHS707Y6XJ",
         email_to: process.env.NOTIFICATION_EMAIL_TO || DEFAULT_TO,
         email_from: process.env.NOTIFICATION_EMAIL_FROM || DEFAULT_FROM,
+        paid_email_stale_skip_minutes: PAID_EMAIL_STALE_SKIP_MINUTES,
         hint: "Add ?test=1 to send a test email immediately",
       }),
       {
@@ -627,11 +705,45 @@ export default async (req) => {
   if (payment.status === "paid") {
     const adminContent = buildEmailContent(payment);
     const customerContent = buildCustomerWelcomeEmail(payment);
+    const skipPaidEmails =
+      isStalePaidWebhook(payment) || hasRefundActivity(payment);
+    if (skipPaidEmails) {
+      console.warn(
+        `[mollie-webhook] paid webhook ${payment.id} is stale/refund-related, skipping emails`
+      );
+    }
 
     const [adminEmail, customerEmailSent, capi, ga4mp, trialRecord] = await Promise.all([
-      sendEmail({ to: adminTo, from, ...adminContent }),
-      customerEmail
-        ? sendEmail({ to: customerEmail, from, replyTo: customerReplyTo, ...customerContent })
+      skipPaidEmails
+        ? Promise.resolve({
+            sent: false,
+            skipped: true,
+            reason: "stale_or_refund_related_paid_webhook",
+          })
+        : sendPaymentEmailOnce({
+            paymentId: payment.id,
+            notificationType: "paid_admin",
+            idempotencyKey: `svb-paid-admin-${payment.id}`,
+            email: { to: adminTo, from, ...adminContent },
+          }),
+      skipPaidEmails
+        ? Promise.resolve({
+            sent: false,
+            skipped: true,
+            reason: "stale_or_refund_related_paid_webhook",
+          })
+        : customerEmail
+        ? sendPaymentEmailOnce({
+            paymentId: payment.id,
+            notificationType: "paid_customer",
+            idempotencyKey: `svb-paid-customer-${payment.id}`,
+            email: {
+              to: customerEmail,
+              from,
+              replyTo: customerReplyTo,
+              ...customerContent,
+            },
+          })
         : Promise.resolve({ sent: false, reason: "no_customer_email" }),
       sendMetaPurchase(payment, eventSourceUrl),
       syncGA4Purchase(payment, { source: "webhook" }),
@@ -661,12 +773,17 @@ export default async (req) => {
     const delay = process.env.RETARGETING_EMAIL_DELAY || "in 2 minutes";
 
     const [retargetEmail, capi, trialRelease] = await Promise.all([
-      sendEmail({
-        to: customerEmail,
-        from,
-        replyTo: customerReplyTo,
-        ...retargetContent,
-        scheduledAt: delay,
+      sendPaymentEmailOnce({
+        paymentId: payment.id,
+        notificationType: `retarget_${payment.status}`,
+        idempotencyKey: `svb-retarget-${payment.status}-${payment.id}`,
+        email: {
+          to: customerEmail,
+          from,
+          replyTo: customerReplyTo,
+          ...retargetContent,
+          scheduledAt: delay,
+        },
       }),
       sendMetaAbandonedCart(payment, eventSourceUrl),
       releaseTrialReservation(payment),
