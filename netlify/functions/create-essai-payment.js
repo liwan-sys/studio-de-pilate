@@ -180,7 +180,7 @@ export default async (req) => {
     return jsonRes({
       ok: true,
       service: "create-essai-payment",
-      version: 9,
+      version: 10,
       has_api_key: !!process.env.MOLLIE_API_KEY,
       api_key_prefix: process.env.MOLLIE_API_KEY
         ? process.env.MOLLIE_API_KEY.slice(0, 5)
@@ -191,6 +191,9 @@ export default async (req) => {
       has_trial_limit_database: hasTrialLimitDatabase(),
       trial_limit_ready: trialLimitHealth.ready,
       trial_limit_reason: trialLimitHealth.reason || null,
+      trial_limit_step: trialLimitHealth.step || null,
+      trial_limit_code: trialLimitHealth.code || null,
+      trial_limit_message: trialLimitHealth.message || null,
       trial_limit_strict: TRIAL_LIMIT_STRICT,
     });
   }

@@ -61,7 +61,14 @@ export async function getTrialLimitHealth() {
     return { configured: true, ready: true };
   } catch (e) {
     console.error("[trial-limits] health check failed:", e);
-    return { configured: true, ready: false, reason: "database_error" };
+    return {
+      configured: true,
+      ready: false,
+      reason: "database_error",
+      step: e?.svbStep || null,
+      code: e?.code || null,
+      message: e?.message ? String(e.message).slice(0, 220) : null,
+    };
   }
 }
 
@@ -80,7 +87,7 @@ async function ensureTable() {
   const sql = getSqlClient();
   if (!sql) return null;
   if (tableReady) return sql;
-  await sql`
+  await schemaStep("create_trial_customers_v2", sql`
     CREATE TABLE IF NOT EXISTS trial_customers_v2 (
       email TEXT PRIMARY KEY,
       phone TEXT,
@@ -93,21 +100,30 @@ async function ensureTable() {
       updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
       first_paid_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
-  `;
+  `);
   // Index pour permettre le check par telephone (cas ou la personne
   // utilise un email different mais le meme numero)
-  await sql`
+  await schemaStep("create_trial_customers_v2_phone_idx", sql`
     CREATE INDEX IF NOT EXISTS trial_customers_v2_phone_idx
       ON trial_customers_v2 (phone)
-  `;
-  await sql`
+  `);
+  await schemaStep("create_trial_customers_v2_phone_unique_idx", sql`
     CREATE UNIQUE INDEX IF NOT EXISTS trial_customers_v2_phone_unique_idx
       ON trial_customers_v2 (phone)
       WHERE phone IS NOT NULL
-  `;
+  `);
   await migrateLegacyRows(sql);
   tableReady = true;
   return sql;
+}
+
+async function schemaStep(step, promise) {
+  try {
+    return await promise;
+  } catch (e) {
+    e.svbStep = step;
+    throw e;
+  }
 }
 
 async function migrateLegacyRows(sql) {
