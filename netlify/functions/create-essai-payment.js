@@ -47,6 +47,8 @@ const OFFERS = {
   },
 };
 
+const TRIAL_LIMIT_STRICT = process.env.TRIAL_LIMIT_STRICT === "1";
+
 function jsonRes(body, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
@@ -176,7 +178,7 @@ export default async (req) => {
     return jsonRes({
       ok: true,
       service: "create-essai-payment",
-      version: 6,
+      version: 7,
       has_api_key: !!process.env.MOLLIE_API_KEY,
       api_key_prefix: process.env.MOLLIE_API_KEY
         ? process.env.MOLLIE_API_KEY.slice(0, 5)
@@ -185,6 +187,7 @@ export default async (req) => {
       meta_pixel_id: process.env.META_PIXEL_ID || null,
       has_meta_capi_access_token: !!process.env.META_CAPI_ACCESS_TOKEN,
       has_trial_limit_database: hasTrialLimitDatabase(),
+      trial_limit_strict: TRIAL_LIMIT_STRICT,
     });
   }
   if (req.method !== "POST") {
@@ -283,17 +286,23 @@ export default async (req) => {
         "[create-essai-payment] trial reservation failed:",
         JSON.stringify(reservation)
       );
-      return jsonRes(
-        {
-          ok: false,
-          error: "trial_lock_unavailable",
-          message:
-            "La réservation de ton offre découverte est momentanément indisponible. Réessaie dans quelques minutes ou appelle-nous au 07 44 91 91 55.",
-        },
-        503
+      if (TRIAL_LIMIT_STRICT) {
+        return jsonRes(
+          {
+            ok: false,
+            error: "trial_lock_unavailable",
+            message:
+              "La réservation de ton offre découverte est momentanément indisponible. Réessaie dans quelques minutes ou appelle-nous au 07 44 91 91 55.",
+          },
+          503
+        );
+      }
+      console.warn(
+        "[create-essai-payment] trial reservation failed open to avoid blocking checkout"
       );
+    } else {
+      trialReserved = true;
     }
-    trialReserved = true;
   }
 
   const payload = {
