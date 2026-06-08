@@ -23,6 +23,7 @@ const TRIAL_DISCIPLINES = new Set([
 
 let sqlClient = null;
 let tableReady = false;
+let legacyMigrationDone = false;
 const PENDING_LOCK_MINUTES = 120;
 
 function getDatabaseUrl() {
@@ -80,7 +81,7 @@ async function ensureTable() {
   if (!sql) return null;
   if (tableReady) return sql;
   await sql`
-    CREATE TABLE IF NOT EXISTS trial_customers (
+    CREATE TABLE IF NOT EXISTS trial_customers_v2 (
       email TEXT PRIMARY KEY,
       phone TEXT,
       firstname TEXT,
@@ -93,28 +94,71 @@ async function ensureTable() {
       first_paid_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
   `;
-  await sql`ALTER TABLE trial_customers ADD COLUMN IF NOT EXISTS status TEXT NOT NULL DEFAULT 'paid'`;
-  await sql`ALTER TABLE trial_customers ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()`;
-  await sql`ALTER TABLE trial_customers ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()`;
   // Index pour permettre le check par telephone (cas ou la personne
   // utilise un email different mais le meme numero)
   await sql`
-    CREATE INDEX IF NOT EXISTS trial_customers_phone_idx
-      ON trial_customers (phone)
+    CREATE INDEX IF NOT EXISTS trial_customers_v2_phone_idx
+      ON trial_customers_v2 (phone)
   `;
-  try {
-    await sql`
-      CREATE UNIQUE INDEX IF NOT EXISTS trial_customers_phone_unique_idx
-        ON trial_customers (phone)
-        WHERE phone IS NOT NULL
-    `;
-  } catch (e) {
-    // Si des doublons historiques existent deja, on garde l'ancien index
-    // non-unique et le check applicatif continue de bloquer les nouveaux cas.
-    console.error("[trial-limits] unique phone index skipped:", e);
-  }
+  await sql`
+    CREATE UNIQUE INDEX IF NOT EXISTS trial_customers_v2_phone_unique_idx
+      ON trial_customers_v2 (phone)
+      WHERE phone IS NOT NULL
+  `;
+  await migrateLegacyRows(sql);
   tableReady = true;
   return sql;
+}
+
+async function migrateLegacyRows(sql) {
+  if (legacyMigrationDone) return;
+  try {
+    await sql`
+      INSERT INTO trial_customers_v2 (
+        email,
+        phone,
+        firstname,
+        lastname,
+        discipline,
+        payment_id,
+        status,
+        created_at,
+        updated_at,
+        first_paid_at
+      )
+      SELECT
+        email,
+        NULLIF(phone, ''),
+        firstname,
+        lastname,
+        discipline,
+        payment_id,
+        'paid',
+        COALESCE(first_paid_at, NOW()),
+        NOW(),
+        COALESCE(first_paid_at, NOW())
+      FROM (
+        SELECT DISTINCT ON (COALESCE(NULLIF(phone, ''), email))
+          LOWER(TRIM(email)) AS email,
+          phone,
+          firstname,
+          lastname,
+          discipline,
+          payment_id,
+          first_paid_at
+        FROM trial_customers
+        WHERE email IS NOT NULL AND TRIM(email) <> ''
+        ORDER BY COALESCE(NULLIF(phone, ''), LOWER(TRIM(email))), first_paid_at ASC NULLS LAST
+      ) legacy
+      ON CONFLICT (email) DO NOTHING
+    `;
+  } catch (e) {
+    // L'ancienne table peut ne pas exister ou avoir un schema casse.
+    // La nouvelle table reste la source fiable pour les prochains paiements.
+    console.warn("[trial-limits] legacy migration skipped:", e);
+  } finally {
+    legacyMigrationDone = true;
+  }
 }
 
 function normalizeEmail(email) {
@@ -159,7 +203,7 @@ export async function hasUsedTrial({ email, phone }) {
     let rows;
     if (normalizedEmail && normalizedPhone) {
       rows = await sql`
-        SELECT email, first_paid_at, status, created_at FROM trial_customers
+        SELECT email, first_paid_at, status, created_at FROM trial_customers_v2
         WHERE (email = ${normalizedEmail} OR phone = ${normalizedPhone})
           AND (
             status = 'paid'
@@ -169,7 +213,7 @@ export async function hasUsedTrial({ email, phone }) {
       `;
     } else if (normalizedEmail) {
       rows = await sql`
-        SELECT email, first_paid_at, status, created_at FROM trial_customers
+        SELECT email, first_paid_at, status, created_at FROM trial_customers_v2
         WHERE email = ${normalizedEmail}
           AND (
             status = 'paid'
@@ -179,7 +223,7 @@ export async function hasUsedTrial({ email, phone }) {
       `;
     } else {
       rows = await sql`
-        SELECT email, first_paid_at, status, created_at FROM trial_customers
+        SELECT email, first_paid_at, status, created_at FROM trial_customers_v2
         WHERE phone = ${normalizedPhone}
           AND (
             status = 'paid'
@@ -228,7 +272,7 @@ export async function reserveTrial({ email, phone, firstname, lastname, discipli
 
   try {
     const rows = await sql`
-      INSERT INTO trial_customers (
+      INSERT INTO trial_customers_v2 (
         email, phone, firstname, lastname, discipline, payment_id, status, created_at, updated_at, first_paid_at
       ) VALUES (
         ${normalizedEmail},
@@ -283,7 +327,7 @@ export async function recordTrial(payment) {
       : new Date().toISOString();
 
     await sql`
-      INSERT INTO trial_customers (
+      INSERT INTO trial_customers_v2 (
         email, phone, firstname, lastname, discipline, payment_id, status, created_at, updated_at, first_paid_at
       ) VALUES (
         ${email},
@@ -298,14 +342,14 @@ export async function recordTrial(payment) {
         ${paidAt}
       )
       ON CONFLICT (email) DO UPDATE SET
-        phone = COALESCE(trial_customers.phone, EXCLUDED.phone),
-        firstname = COALESCE(EXCLUDED.firstname, trial_customers.firstname),
-        lastname = COALESCE(EXCLUDED.lastname, trial_customers.lastname),
-        discipline = COALESCE(EXCLUDED.discipline, trial_customers.discipline),
+        phone = COALESCE(trial_customers_v2.phone, EXCLUDED.phone),
+        firstname = COALESCE(EXCLUDED.firstname, trial_customers_v2.firstname),
+        lastname = COALESCE(EXCLUDED.lastname, trial_customers_v2.lastname),
+        discipline = COALESCE(EXCLUDED.discipline, trial_customers_v2.discipline),
         payment_id = EXCLUDED.payment_id,
         status = 'paid',
         updated_at = NOW(),
-        first_paid_at = LEAST(trial_customers.first_paid_at, EXCLUDED.first_paid_at)
+        first_paid_at = LEAST(trial_customers_v2.first_paid_at, EXCLUDED.first_paid_at)
     `;
     return { recorded: true };
   } catch (e) {
@@ -334,7 +378,7 @@ export async function releaseTrialReservation(payment) {
 
   try {
     await sql`
-      DELETE FROM trial_customers
+      DELETE FROM trial_customers_v2
       WHERE email = ${email}
         AND status = 'pending'
         AND (payment_id IS NULL OR payment_id = ${payment.id})
