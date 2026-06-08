@@ -38,6 +38,32 @@ export function hasTrialLimitDatabase() {
   return Boolean(getDatabaseUrl());
 }
 
+export async function getTrialLimitHealth() {
+  if (!hasTrialLimitDatabase()) {
+    return {
+      configured: false,
+      ready: false,
+      reason: "database_not_configured",
+    };
+  }
+
+  try {
+    const sql = await ensureTable();
+    if (!sql) {
+      return {
+        configured: false,
+        ready: false,
+        reason: "database_not_configured",
+      };
+    }
+    await sql`SELECT 1`;
+    return { configured: true, ready: true };
+  } catch (e) {
+    console.error("[trial-limits] health check failed:", e);
+    return { configured: true, ready: false, reason: "database_error" };
+  }
+}
+
 export function isTrialDiscipline(discipline) {
   return TRIAL_DISCIPLINES.has(discipline);
 }

@@ -6,6 +6,7 @@
 
 import crypto from "node:crypto";
 import {
+  getTrialLimitHealth,
   hasTrialLimitDatabase,
   hasUsedTrial,
   isTrialDiscipline,
@@ -175,10 +176,11 @@ export default async (req) => {
   }
   // Health-check GET (pour verifier que la function est joignable)
   if (req.method === "GET") {
+    const trialLimitHealth = await getTrialLimitHealth();
     return jsonRes({
       ok: true,
       service: "create-essai-payment",
-      version: 7,
+      version: 8,
       has_api_key: !!process.env.MOLLIE_API_KEY,
       api_key_prefix: process.env.MOLLIE_API_KEY
         ? process.env.MOLLIE_API_KEY.slice(0, 5)
@@ -187,6 +189,8 @@ export default async (req) => {
       meta_pixel_id: process.env.META_PIXEL_ID || null,
       has_meta_capi_access_token: !!process.env.META_CAPI_ACCESS_TOKEN,
       has_trial_limit_database: hasTrialLimitDatabase(),
+      trial_limit_ready: trialLimitHealth.ready,
+      trial_limit_reason: trialLimitHealth.reason || null,
       trial_limit_strict: TRIAL_LIMIT_STRICT,
     });
   }
