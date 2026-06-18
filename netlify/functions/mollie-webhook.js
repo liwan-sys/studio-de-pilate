@@ -277,7 +277,7 @@ function buildCustomerWelcomeEmail(payment) {
     `Ce qui se passe maintenant :`,
     `1. On t'appelle ou on t'envoie un WhatsApp dans l'heure pour caler ton créneau`,
     `2. Tu reçois un SMS de confirmation avec l'adresse et le nom de ton coach`,
-    `3. Tu viens 10 min avant, en tenue de sport. On met tout en place pour toi (équipement, machines, etc.). Seules les chaussettes anti-dérapantes sont à apporter ou à acheter sur place (10,30 €).`,
+    `3. Tu viens 10 min avant, en tenue de sport. On met tout en place pour toi (équipement, machines, etc.). Pour le Reformer/Crossformer, les chaussettes anti-dérapantes sont à apporter ou à acheter sur place (10 €), avec prêt possible à 3 €.`,
     ``,
     `📞 Besoin de nous joindre avant ? 07 44 91 91 55`,
     `💬 WhatsApp : https://wa.me/33744919155`,
@@ -311,7 +311,7 @@ function buildCustomerWelcomeEmail(payment) {
         <table cellpadding="0" cellspacing="0" border="0" style="width:100%;font-size:14.5px;line-height:1.5;">
           <tr><td style="vertical-align:top;width:30px;padding:6px 0;"><span style="display:inline-block;width:24px;height:24px;border-radius:50%;background:#4A8D84;color:#fff;font-weight:700;text-align:center;line-height:24px;font-size:13px;">1</span></td><td style="padding:6px 0;">On t'appelle ou on t'envoie un <strong>WhatsApp dans l'heure</strong> pour caler ton créneau.</td></tr>
           <tr><td style="vertical-align:top;padding:6px 0;"><span style="display:inline-block;width:24px;height:24px;border-radius:50%;background:#4A8D84;color:#fff;font-weight:700;text-align:center;line-height:24px;font-size:13px;">2</span></td><td style="padding:6px 0;">Tu reçois un <strong>SMS de confirmation</strong> avec l'adresse exacte et le nom de ton coach.</td></tr>
-          <tr><td style="vertical-align:top;padding:6px 0;"><span style="display:inline-block;width:24px;height:24px;border-radius:50%;background:#4A8D84;color:#fff;font-weight:700;text-align:center;line-height:24px;font-size:13px;">3</span></td><td style="padding:6px 0;">Tu viens <strong>10 min avant</strong>, en tenue de sport. <strong>On met tout en place pour toi</strong> (équipement, machines, etc.). Seules les <strong>chaussettes anti-dérapantes</strong> sont à apporter — ou à acheter sur place (<strong>10,30 €</strong>).</td></tr>
+          <tr><td style="vertical-align:top;padding:6px 0;"><span style="display:inline-block;width:24px;height:24px;border-radius:50%;background:#4A8D84;color:#fff;font-weight:700;text-align:center;line-height:24px;font-size:13px;">3</span></td><td style="padding:6px 0;">Tu viens <strong>10 min avant</strong>, en tenue de sport. <strong>On met tout en place pour toi</strong> (équipement, machines, etc.). Pour le Reformer/Crossformer, les <strong>chaussettes anti-dérapantes</strong> sont à apporter — ou à acheter sur place (<strong>10 €</strong>), avec prêt possible à <strong>3 €</strong>.</td></tr>
         </table>
       </div>
 
@@ -332,7 +332,7 @@ function buildCustomerWelcomeEmail(payment) {
     </div>
 
     <div style="background:#FBF6EC;padding:16px;text-align:center;font-size:11px;color:#7a8c8a;">
-      Studio SVB · 18 rue des Bateliers, 93400 Saint-Ouen-sur-Seine<br>
+      Studio SVB · 40 Cours des Lavandières et 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine<br>
       <a href="https://studiosvb.com" style="color:#4A8D84;text-decoration:none;">studiosvb.com</a>
     </div>
   </div>
