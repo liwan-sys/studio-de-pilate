@@ -231,15 +231,10 @@
           <label>Formule souhaitée <span class="required">*</span></label>
           <select name="Formule" required>
             <option value="">— Choisis ta formule —</option>
-            <optgroup label="Small Group Machines (50 min) — Engagement 6 mois">
-              <option>Pass Reformer</option>
-              <option>Pass Crossformer</option>
-              <option>Pass Full Former (Reformer + Crossformer)</option>
-            </optgroup>
-            <optgroup label="Small Group Training (55 min) — Engagement 6 mois">
-              <option>Pass Cross</option>
-              <option>Pass Focus</option>
+            <optgroup label="Formules SVB — Engagement 6 mois">
               <option>Pass Full (Cross + Focus)</option>
+              <option>Pass Full Former (Reformer + Crossformer)</option>
+              <option>Pass SVB All Access</option>
             </optgroup>
             <optgroup label="Coaching Individuel & Duo — Engagement 3 mois">
               <option>Coaching Pass Good Vibes (individuel)</option>
@@ -262,12 +257,10 @@
             <label>Nombre de séances par mois <span class="required">*</span></label>
             <select name="Séances par mois" required>
               <option value="">— Choisis —</option>
-              <option>2 séances / mois</option>
               <option>4 séances / mois</option>
-              <option>6 séances / mois</option>
               <option>8 séances / mois</option>
               <option>10 séances / mois</option>
-              <option>12 séances / mois</option>
+              <option>All Access — accès mensuel</option>
               <option>Non applicable (Pass Starter / Pass Kids)</option>
             </select>
           </div>
@@ -460,14 +453,11 @@
   </div>
 
 <script>
-  // ====== PRICING DATA (d'après la brochure Studio SVB) ======
+  // ====== PRICING DATA (grille SVB simplifiée) ======
   const PRICES = {
-    "Pass Reformer":                                { 2: 70.30, 4: 136.30, 6: 198.30, 8: 256.30, 10: 310.30, 12: 360.30 },
-    "Pass Crossformer":                             { 2: 78.30, 4: 152.30, 6: 222.30, 8: 288.30, 10: 350.30, 12: 408.30 },
-    "Pass Full Former (Reformer + Crossformer)":    { 2: 74.30, 4: 144.30, 6: 210.30, 8: 272.30, 10: 330.30, 12: 384.30 },
-    "Pass Cross":                                   { 2: 30.30, 4: 60.30,  6: 90.30,  8: 116.30, 10: 145.30, 12: 168.30 },
-    "Pass Focus":                                   { 2: 36.30, 4: 72.30,  6: 105.30, 8: 136.30, 10: 165.30, 12: 192.30 },
-    "Pass Full (Cross + Focus)":                    { 2: 40.30, 4: 80.30,  6: 115.30, 8: 150.30, 10: 180.30, 12: 210.30 },
+    "Pass Full (Cross + Focus)":                    { 4: 100, 8: 200, 10: 250 },
+    "Pass Full Former (Reformer + Crossformer)":    { 4: 150, 8: 290, 10: 360 },
+    "Pass SVB All Access":                          { 1: 320 },
     "Coaching Pass Good Vibes (individuel)":        { 4: 300.30, 8: 560.30 },
     "Coaching Pass Duo":                            { 4: 400.60, 8: 720.60 },
     "Pass Kids (1 activité au choix)":              { 2: 35.30, 4: 65.30 },
@@ -484,6 +474,7 @@
   const euro = (n) => (Math.round(n * 100) / 100).toFixed(2).replace('.', ',') + ' €';
   const parseSeances = (s) => {
     if (!s) return null;
+    if (/all access|accès mensuel/i.test(s)) return 1;
     const m = s.match(/(\d+)/);
     return m ? parseInt(m[1], 10) : null;
   };
@@ -517,6 +508,7 @@
   function calculate() {
     const formule = formuleEl.value;
     const seances = parseSeances(seancesEl.value);
+    const isAllAccess = formule === 'Pass SVB All Access';
 
     // Hide calculator if no formule picked
     if (!formule || !PRICES[formule]) {
@@ -543,7 +535,7 @@
     calcEl.style.display = 'block';
 
     // Per-session price
-    const perSession = monthlyPrice / priceKey;
+    const perSession = isAllAccess ? null : monthlyPrice / priceKey;
 
     // Filing fees
     let fees;
@@ -563,7 +555,7 @@
     let isProrata = proCheckEl.checked;
     let proSess = parseInt(proSessEl.value, 10);
 
-    if (isProrata && proSess && proSess > 0 && proSess <= priceKey) {
+    if (!isAllAccess && isProrata && proSess && proSess > 0 && proSess <= priceKey) {
       firstMonth = perSession * proSess;
       badgeEl.style.display = 'inline-block';
     } else {
@@ -575,9 +567,9 @@
     const monthlyTotal = monthlyPrice;
 
     // ====== UPDATE DOM ======
-    formuleLbl.textContent = formule + ' — ' + priceKey + ' séances/mois';
+    formuleLbl.textContent = isAllAccess ? formule + ' — accès mensuel' : formule + ' — ' + priceKey + ' séances/mois';
     monthlyEl.textContent  = euro(monthlyPrice) + ' /mois';
-    perSessEl.textContent  = euro(perSession);
+    perSessEl.textContent  = isAllAccess ? 'Selon disponibilités' : euro(perSession);
     firstMoEl.textContent  = euro(firstMonth);
     feesEl.textContent     = euro(fees);
     todayEl.textContent    = euro(todayTotal);
@@ -585,7 +577,7 @@
 
     // Hidden fields (envoyés par mail)
     h_monthly.value       = euro(monthlyPrice);
-    h_first.value         = euro(firstMonth) + (isProrata ? ' (prorata ' + proSess + ' séances)' : '');
+    h_first.value         = euro(firstMonth) + (!isAllAccess && isProrata ? ' (prorata ' + proSess + ' séances)' : '');
     h_fees.value          = euro(fees);
     h_today.value         = euro(todayTotal);
     h_monthly_total.value = euro(monthlyTotal);
@@ -601,13 +593,11 @@
       const sessKey = (params.get('sessions') || '').trim();
 
       const passMap = {
-        'reformer': 'Pass Reformer',
-        'crossformer': 'Pass Crossformer',
         'fullformer': 'Pass Full Former (Reformer + Crossformer)',
         'full-former': 'Pass Full Former (Reformer + Crossformer)',
-        'cross': 'Pass Cross',
-        'focus': 'Pass Focus',
         'full': 'Pass Full (Cross + Focus)',
+        'allaccess': 'Pass SVB All Access',
+        'all-access': 'Pass SVB All Access',
         'coaching': 'Coaching Pass Good Vibes (individuel)',
         'coaching-solo': 'Coaching Pass Good Vibes (individuel)',
         'coaching-duo': 'Coaching Pass Duo',
@@ -623,7 +613,10 @@
           if (section3) section3.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 400);
       }
-      if (sessKey && /^\d+$/.test(sessKey)) {
+      if (sessKey === 'all') {
+        const targetOption = Array.from(seancesEl.options).find(o => /all access/i.test(o.textContent));
+        if (targetOption) seancesEl.value = targetOption.value;
+      } else if (sessKey && /^\d+$/.test(sessKey)) {
         const targetOption = Array.from(seancesEl.options).find(o => o.value.startsWith(sessKey + ' '));
         if (targetOption) seancesEl.value = targetOption.value;
       }

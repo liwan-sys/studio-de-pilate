@@ -14,49 +14,30 @@
     // Grille tarifaire officielle — miroir de /tarifs.html
     // `includes` = disciplines réellement accessibles avec ce pass (miroir /sessions.html)
     var PASSES = {
-        reformer: {
-            label: "Pass Reformer",
-            duration: "50 min",
-            url: "reformer",
-            prices: { 2: 70.30, 4: 136.30, 6: 198.30, 8: 256.30, 10: 310.30, 12: 360.30 },
-            includes: ["Pilates Reformer"]
-        },
-        crossformer: {
-            label: "Pass Crossformer",
-            duration: "50 min",
-            url: "crossformer",
-            prices: { 2: 78.30, 4: 152.30, 6: 222.30, 8: 288.30, 10: 350.30, 12: 408.30 },
-            includes: ["Crossformer"]
-        },
         fullformer: {
             label: "Pass Full Former",
             duration: "50 min",
             url: "fullformer",
-            prices: { 2: 74.30, 4: 144.30, 6: 210.30, 8: 272.30, 10: 330.30, 12: 384.30 },
+            prices: { 4: 150, 8: 290, 10: 360 },
             includes: ["Pilates Reformer", "Crossformer"],
             comboOf: "Reformer + Crossformer"
         },
-        cross: {
-            label: "Pass Cross",
-            duration: "55 min",
-            url: "cross",
-            prices: { 2: 30.30, 4: 60.30, 6: 90.30, 8: 116.30, 10: 145.30, 12: 168.30 },
-            includes: ["Cross Training", "Cross Rox", "Cross Core", "Cross Body", "Cross Yoga"]
-        },
-        focus: {
-            label: "Pass Focus",
-            duration: "55-60 min",
-            url: "focus",
-            prices: { 2: 36.30, 4: 72.30, 6: 105.30, 8: 136.30, 10: 165.30, 12: 192.30 },
-            includes: ["Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Afrodance'All", "Core & Stretch"]
-        },
         full: {
             label: "Pass Full",
-            duration: "55-60 min",
+            duration: "55 min",
             url: "full",
-            prices: { 2: 40.30, 4: 80.30, 6: 115.30, 8: 150.30, 10: 180.30, 12: 210.30 },
+            prices: { 4: 100, 8: 200, 10: 250 },
             includes: ["Cross Training", "Cross Rox", "Cross Core", "Cross Body", "Cross Yoga", "Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Afrodance'All", "Core & Stretch"],
             comboOf: "Cross + Focus"
+        },
+        allaccess: {
+            label: "SVB All Access",
+            duration: "50-55 min selon discipline",
+            url: "allaccess",
+            prices: { 1: 320 },
+            includes: ["Pilates Reformer", "Crossformer", "Cross Training", "Cross Rox", "Cross Core", "Cross Body", "Cross Yoga", "Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Afrodance'All", "Core & Stretch"],
+            comboOf: "Tout le studio",
+            unlimited: true
         }
     };
 
@@ -75,49 +56,49 @@
         "pilates-reformer": {
             label: "Pilates Reformer",
             highlight: "Pilates Reformer",
-            passes: ["reformer", "fullformer"],
+            passes: ["fullformer", "allaccess"],
             trial: "reformer"
         },
         "crossformer": {
             label: "Crossformer",
             highlight: "Crossformer",
-            passes: ["crossformer", "fullformer"],
+            passes: ["fullformer", "allaccess"],
             trial: "crossformer"
         },
         "cross-training": {
             label: "Cross Training",
             highlight: "Cross Training",
-            passes: ["cross", "full"],
+            passes: ["full", "allaccess"],
             trial: "other"
         },
         "yoga": {
             label: "Yoga",
             highlight: "Yoga Vinyasa",
-            passes: ["focus", "full"],
+            passes: ["full", "allaccess"],
             trial: "other"
         },
         "boxe": {
             label: "Boxe Anglaise",
             highlight: "Boxe Anglaise",
-            passes: ["focus", "full"],
+            passes: ["full", "allaccess"],
             trial: "other"
         },
         "pilates": {
             label: "Pilates",
             highlight: "Classic Pilates",
-            passes: ["focus", "full"],
+            passes: ["full", "allaccess"],
             trial: "other"
         },
         "afrodance": {
             label: "Afrodance",
             highlight: "Afrodance'All",
-            passes: ["focus", "full"],
+            passes: ["full", "allaccess"],
             trial: "other"
         }
     };
 
-    var SESSIONS_OPTS = [2, 4, 6, 8, 10, 12];
-    var DEFAULT_SESSIONS = 4;
+    var SESSIONS_OPTS = [4, 8, 10];
+    var DEFAULT_SESSIONS = 8;
 
     function fmtEuro(n) {
         return n.toFixed(2).replace('.', ',') + ' €';
@@ -228,17 +209,21 @@
 
         function update() {
             var pass = PASSES[state.pass];
-            var price = pass.prices[state.sessions];
-            var perS = price / state.sessions;
+            var price = pass.unlimited ? pass.prices[1] : pass.prices[state.sessions];
+            var perS = pass.unlimited ? null : price / state.sessions;
             $monthly.textContent = fmtEuro(price);
-            $unit.textContent = fmtEuroInt(perS) + ' / séance';
-            $details.innerHTML =
-                '<strong>' + pass.label + '</strong> — ' +
-                state.sessions + ' séance' + (state.sessions > 1 ? 's' : '') +
-                ' par mois, au choix parmi les disciplines ci-dessous.<br>' +
-                'Durée de chaque séance : ' + pass.duration;
-            $week.textContent = rhythmText(state.sessions);
+            $unit.textContent = pass.unlimited ? 'Selon planning' : fmtEuroInt(perS) + ' / séance';
+            $details.innerHTML = pass.unlimited
+                ? '<strong>' + pass.label + '</strong> — accès à tous les cours SVB selon disponibilités du planning.<br>Réservation obligatoire, sans garantie de place sur un cours ou horaire spécifique.'
+                : '<strong>' + pass.label + '</strong> — ' +
+                    state.sessions + ' séance' + (state.sessions > 1 ? 's' : '') +
+                    ' par mois, au choix parmi les disciplines ci-dessous.<br>' +
+                    'Durée de chaque séance : ' + pass.duration;
+            $week.textContent = pass.unlimited ? 'Accès complet · places selon disponibilité' : rhythmText(state.sessions);
             $includes.innerHTML = buildIncludesHtml(pass, cfg.highlight);
+            Array.prototype.forEach.call(el.querySelectorAll('.svb-sim-session-btn'), function (btn) {
+                btn.style.display = pass.unlimited ? 'none' : '';
+            });
             // Le CTA est fixe : lien Sportigo vers la séance d'essai. On ne change pas l'href selon le pass.
         }
 
