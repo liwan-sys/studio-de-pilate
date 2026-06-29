@@ -55,17 +55,17 @@
         .price-card:hover { transform: translateY(-8px) scale(1.02); background: rgba(255, 255, 255, 0.85); box-shadow: 0 30px 60px rgba(74, 141, 132, 0.25); z-index: 10; }
 
         /* COULEURS — alignées sur la brochure SVB 2026 (p. 5 & p. 6-7 des plannings).
-           Full Former / Crossformer = teal sombre (#24454d).
-           Reformer = beige sable chaud (#E2DAC6).
-           Cross = vert sauge (#88C0A6).
-           Focus = crème (#F3EBD4).
-           Pass Full = sauge + crème.
+           Pass Crossformer / Full Former = teal sombre (#24454d).
+           Pass Reformer = beige sable chaud (#E2DAC6).
+           Pass Cross = vert sauge (#88C0A6).
+           Pass Focus = crème (#F3EBD4).
+           Pass Full = sauge + crème (mélange des deux pass qu'il combine).
            Pass Kids = pêche/corail (#E8B496).
            Coaching Good Vibes = teal foncé #3A6B63. */
-        .header-peach { background: #24454d; color: white; }                                   /* Crossformer — teal sombre */
-        .header-sand { background: #E2DAC6; color: var(--svb-text); }                          /* Reformer — beige sable chaud */
-        .header-green { background: var(--col-green); color: white; }                          /* Cross — sauge */
-        .header-cream { background: var(--col-cream); color: var(--svb-text); }                /* Focus — crème */
+        .header-peach { background: #24454d; color: white; }                                   /* Pass Crossformer — teal sombre */
+        .header-sand { background: #E2DAC6; color: var(--svb-text); }                          /* Pass Reformer — beige sable chaud */
+        .header-green { background: var(--col-green); color: white; }                          /* Pass Cross — sauge */
+        .header-cream { background: var(--col-cream); color: var(--svb-text); }                /* Pass Focus — crème */
         .header-dark { background: var(--col-dark); color: white; }                            /* Coaching Good Vibes — teal */
         /* Pass Full Former & Pass Full = combo passes. La brochure les affiche en BICOLOR
            (split diagonal 50/50) pour signaler qu'ils combinent 2 pass parents :
