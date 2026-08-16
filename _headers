@@ -54,14 +54,9 @@
   Content-Type: text/html; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate
 
-# API JSON feeds (reviews, blog index, etc.) : charset explicite aussi
+# API JSON : charset explicite aussi
 /assets/*.json
   Content-Type: application/json; charset=utf-8
-  Cache-Control: public, max-age=3600
-
-# RSS
-/blog/rss.xml
-  Content-Type: application/rss+xml; charset=utf-8
   Cache-Control: public, max-age=3600
 
 # Service worker doit toujours etre revalide (sinon MAJ bloquees)

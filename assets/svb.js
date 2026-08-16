@@ -179,8 +179,7 @@
     });
   })();
 
-  // 3ter) CTA mobile permanent — 98% du trafic est mobile.
-  //       Injecte un bouton bas d'ecran sur les pages sans sticky dedie.
+  // 3ter) CTA mobile sur les pages sans sticky dedie.
   (function initMobileStickyCta(){
     try {
       if (!window.matchMedia || !window.matchMedia('(max-width: 767px)').matches) return;
@@ -212,9 +211,11 @@
         target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
       });
 
-      var reveal = function(){ cta.classList.add('is-visible'); };
-      if (document.readyState === 'complete') setTimeout(reveal, 450);
-      else window.addEventListener('load', function(){ setTimeout(reveal, 450); });
+      var updateVisibility = function(){
+        cta.classList.toggle('is-visible', window.scrollY > 320);
+      };
+      window.addEventListener('scroll', updateVisibility, { passive: true });
+      updateVisibility();
     } catch(e) {/* silent */}
   })();
 

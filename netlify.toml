@@ -10,13 +10,8 @@
   edge_functions = "netlify/edge-functions"
   environment = { TAILWIND_VERSION = "v3.4.17" }
 
-# Identity & Git-Gateway (nécessaires pour Decap CMS)
-#   → À activer via Netlify UI : Site settings > Identity > Enable
-#   → Puis : Services > Git Gateway > Enable
-#   → Puis inviter un premier utilisateur (roles: admin ou editor)
-
 # ---- Plugins Netlify ----
-# On active seulement les plugins vraiment utiles (Lighthouse CI, sitemap auto).
+# Contrôle Lighthouse à chaque déploiement.
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
@@ -31,14 +26,7 @@
   [plugins.inputs.audits]
     output_path = "reports/lighthouse.html"
 
-# ---- Edge Functions ----
-# path relatif à publish. Elles s'exécutent à la frontière (CDN) en V8.
-# Utilisées pour A/B testing et analytics first-party.
-
-[[edge_functions]]
-  path = "/"
-  function = "ab-test-hero"
-
+# ---- Analytics first-party ----
 [[edge_functions]]
   path = "/api/track"
   function = "track"
@@ -55,6 +43,5 @@
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
 
 # ---- Environment ----
-# Variables d'env pour les Edge Functions (set via Netlify UI aussi) :
-#   AB_TEST_ROLLOUT=0.5                 ← % de users en variante B
-#   ANALYTICS_ENABLED=true              ← toggle analytics first-party
+# Les variables secrètes des formulaires et paiements restent configurées
+# directement dans l'interface Netlify.

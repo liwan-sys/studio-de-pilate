@@ -1,187 +1,189 @@
-# ================================================================
-# Studio SVB · Redirects Netlify
-# Permet des URLs propres sans extension .html (matching sitemap.xml)
-# ================================================================
+# Studio SVB - routes Netlify
+# Les redirections permanentes sont placees avant les rewrites.
 
-# Ancienne offre bien-etre : redirection vers les cours actuels
-/bien-etre                        /sessions                               301
-/bien-etre.html                   /sessions                               301
-/en/bien-etre                    /en/sessions.html                       301
-/en/bien-etre.html               /en/sessions.html                       301
+# Domaine canonique et anciennes pages d'accueil
+/index.html                              / 301!
+/index-old                              / 301!
+/index-old.html                         / 301!
+/blog                                  /sessions 301!
+/blog/                                 /sessions 301!
+/blog/index.html                       /sessions 301!
+/blog/rss.xml                          /sessions 301!
 
-# URLs .html → URLs propres (301 SEO canonical)
-/sessions.html                          /sessions                         301
-/tarifs.html                            /tarifs                           301
-/studio.html                            /studio                           301
-/temoignages.html                       /temoignages                      301
-/equipe.html                            /equipe                           301
-/faq.html                               /faq                              301
-/contact.html                           /contact                          301
-/cadeau.html                            /cadeau                           301
-/pourquoi-svb.html                      /pourquoi-svb                     301
-/essai.html                             /essai                            301
-/studio-parc-des-docks.html             /studio-parc-des-docks            301
-/studio-cours-des-lavandieres.html      /studio-cours-des-lavandieres     301
-/pilates-reformer-saint-ouen.html       /pilates-reformer-saint-ouen      301
-/pilates-reformer-paris.html            /pilates-reformer-paris           301
-/pilates-reformer-paris-17.html         /pilates-reformer-paris-17        301
-/pilates-reformer-paris-18.html         /pilates-reformer-paris-18        301
-/pilates-reformer-clichy.html           /pilates-reformer-clichy          301
-/pilates-reformer-levallois.html        /pilates-reformer-levallois       301
-/pilates-reformer-asnieres.html         /pilates-reformer-asnieres        301
-/crossformer-saint-ouen.html            /crossformer-saint-ouen           301
-/salle-de-sport-saint-ouen.html         /salle-de-sport-saint-ouen        301
-/yoga-saint-ouen.html                   /yoga-saint-ouen                  301
-/boxe-anglaise-saint-ouen.html          /boxe-anglaise-saint-ouen         301
-/cross-training-saint-ouen.html         /cross-training-saint-ouen        301
-/bootcamp-saint-ouen.html               /bootcamp-saint-ouen              301
-/pilates-saint-ouen.html                /pilates-saint-ouen               301
-/studio-pilates-saint-ouen.html         /pilates-saint-ouen               301
-/coaching-sportif-saint-ouen.html       /coaching-sportif-saint-ouen      301
-/afrodance-saint-ouen.html              /afrodance-saint-ouen             301
-/sport-enfant-saint-ouen.html           /sport-enfant-saint-ouen          301
-/meilleur-studio-sport-saint-ouen.html  /meilleur-studio-sport-saint-ouen 301
-/cours-collectifs-saint-ouen.html       /cours-collectifs-saint-ouen      301
-/sport-femme-saint-ouen.html            /sport-femme-saint-ouen           301
-/sport-debutant-saint-ouen.html         /sport-debutant-saint-ouen        301
-/pilates-prenatal-postnatal.html        /pilates-prenatal-postnatal       301
-/pilates-senior.html                    /pilates-senior                   301
-/pilates-clichy.html                    /pilates-clichy                   301
-/pilates-paris-18.html                  /pilates-paris-18                 301
-/pilates-epinay-sur-seine.html          /pilates-epinay-sur-seine         301
-/pilates-ile-saint-denis.html           /pilates-ile-saint-denis          301
-/parrainage.html                        /parrainage                       301
-/mentions-legales.html                  /mentions-legales                 301
-/cgv.html                               /cgv                              301
+# Services retires ou pages fusionnees
+/bien-etre                              /sessions 301!
+/bien-etre.html                         /sessions 301!
+/en/bien-etre                           /en/sessions 301!
+/en/bien-etre.html                      /en/sessions 301!
+/meilleur-studio-sport-saint-ouen       /pourquoi-svb 301!
+/meilleur-studio-sport-saint-ouen.html  /pourquoi-svb 301!
+/cours-collectifs-saint-ouen            /sessions 301!
+/cours-collectifs-saint-ouen.html       /sessions 301!
+/studio-pilates-saint-ouen              /pilates-saint-ouen 301!
+/studio-pilates-saint-ouen.html         /pilates-saint-ouen 301!
+/pilates-reformer-paris                 /pilates-reformer-saint-ouen 301!
+/pilates-reformer-paris.html            /pilates-reformer-saint-ouen 301!
+/pilates-clichy                         /pilates-reformer-saint-ouen 301!
+/pilates-clichy.html                    /pilates-reformer-saint-ouen 301!
+/pilates-paris-18                       /pilates-reformer-saint-ouen 301!
+/pilates-paris-18.html                  /pilates-reformer-saint-ouen 301!
+/pilates-epinay-sur-seine               /pilates-reformer-saint-ouen 301!
+/pilates-epinay-sur-seine.html          /pilates-reformer-saint-ouen 301!
+/pilates-ile-saint-denis                /pilates-reformer-saint-ouen 301!
+/pilates-ile-saint-denis.html           /pilates-reformer-saint-ouen 301!
+/pilates-prenatal-postnatal             /pilates-saint-ouen 301!
+/pilates-prenatal-postnatal.html        /pilates-saint-ouen 301!
+/pilates-senior                         /pilates-saint-ouen 301!
+/pilates-senior.html                    /pilates-saint-ouen 301!
+/pilates-reformer-paris-17              /pilates-reformer-saint-ouen 301!
+/pilates-reformer-paris-17.html         /pilates-reformer-saint-ouen 301!
+/pilates-reformer-paris-18              /pilates-reformer-saint-ouen 301!
+/pilates-reformer-paris-18.html         /pilates-reformer-saint-ouen 301!
+/pilates-reformer-clichy                /pilates-reformer-saint-ouen 301!
+/pilates-reformer-clichy.html           /pilates-reformer-saint-ouen 301!
+/pilates-reformer-levallois             /pilates-reformer-saint-ouen 301!
+/pilates-reformer-levallois.html        /pilates-reformer-saint-ouen 301!
+/pilates-reformer-asnieres              /pilates-reformer-saint-ouen 301!
+/pilates-reformer-asnieres.html         /pilates-reformer-saint-ouen 301!
+/pas-plus-de-12                         /pourquoi-svb 301!
+/pourquoi-9-max                         /pourquoi-svb 301!
 
-# URLs propres (sans .html) → page HTML correspondante, statut 200 (rewrite)
-/sessions                         /sessions.html                          200
-/tarifs                           /tarifs.html                            200
-/studio                           /studio.html                            200
-/temoignages                      /temoignages.html                       200
-/equipe                           /equipe.html                            200
-/faq                              /faq.html                               200
-/contact                          /contact.html                           200
-/cadeau                           /cadeau.html                            200
-/pourquoi-svb                     /pourquoi-svb.html                      200
-/essai                            /essai.html                             200
-/pas-plus-de-12                   /pourquoi-svb                           301
-/pourquoi-9-max                   /pourquoi-svb                           301
+# Articles fusionnes avec une page de reference plus fiable
+/blog/ameliorer-posture-pilates             /pilates-reformer-saint-ouen 301!
+/blog/ameliorer-posture-pilates.html        /pilates-reformer-saint-ouen 301!
+/blog/bienfaits-pilates-reformer            /pilates-reformer-saint-ouen 301!
+/blog/bienfaits-pilates-reformer.html       /pilates-reformer-saint-ouen 301!
+/blog/pilates-mal-de-dos                    /pilates-reformer-saint-ouen 301!
+/blog/pilates-mal-de-dos.html               /pilates-reformer-saint-ouen 301!
+/blog/pilates-reformer-perte-de-poids       /pilates-reformer-saint-ouen 301!
+/blog/pilates-reformer-perte-de-poids.html  /pilates-reformer-saint-ouen 301!
+/blog/pilates-prenatal-guide                /pilates-saint-ouen 301!
+/blog/pilates-prenatal-guide.html           /pilates-saint-ouen 301!
+/blog/pilates-reformer-femme-enceinte       /pilates-saint-ouen 301!
+/blog/pilates-reformer-femme-enceinte.html  /pilates-saint-ouen 301!
+/blog/pilates-reformer-apres-accouchement   /pilates-saint-ouen 301!
+/blog/pilates-reformer-apres-accouchement.html /pilates-saint-ouen 301!
+/blog/pilates-reformer-seniors              /pilates-saint-ouen 301!
+/blog/pilates-reformer-seniors.html         /pilates-saint-ouen 301!
+/blog/yoga-vinyasa-bienfaits                /yoga-saint-ouen 301!
+/blog/yoga-vinyasa-bienfaits.html           /yoga-saint-ouen 301!
+/blog/cross-training-bienfaits              /cross-training-saint-ouen 301!
+/blog/cross-training-bienfaits.html         /cross-training-saint-ouen 301!
+/blog/boxe-anglaise-bienfaits               /boxe-anglaise-saint-ouen 301!
+/blog/boxe-anglaise-bienfaits.html          /boxe-anglaise-saint-ouen 301!
+/blog/afrodance-cours-danse                 /afrodance-saint-ouen 301!
+/blog/afrodance-cours-danse.html            /afrodance-saint-ouen 301!
+/blog/crossformer-vs-hiit                   /crossformer-saint-ouen 301!
+/blog/crossformer-vs-hiit.html              /crossformer-saint-ouen 301!
+/blog/crossformer-guide-complet             /crossformer-saint-ouen 301!
+/blog/crossformer-guide-complet.html        /crossformer-saint-ouen 301!
+/blog/pilates-reformer-prix-paris           /tarifs 301!
+/blog/pilates-reformer-prix-paris.html      /tarifs 301!
+/blog/studio-coaching-vs-salle-de-sport     /pourquoi-svb 301!
+/blog/studio-coaching-vs-salle-de-sport.html /pourquoi-svb 301!
+/blog/training-kids-sport-enfants           /sport-enfant-saint-ouen 301!
+/blog/training-kids-sport-enfants.html      /sport-enfant-saint-ouen 301!
+/blog/pilates-reformer-debutant             /pilates-reformer-saint-ouen 301!
+/blog/pilates-reformer-debutant.html        /pilates-reformer-saint-ouen 301!
+/blog/reformer-vs-mat-pilates               /pilates-saint-ouen 301!
+/blog/reformer-vs-mat-pilates.html          /pilates-saint-ouen 301!
+/blog/pilates-reformer-vs-yoga              /sessions 301!
+/blog/pilates-reformer-vs-yoga.html         /sessions 301!
+/blog/cross-body-cross-core-cross-rox       /bootcamp-saint-ouen 301!
+/blog/cross-body-cross-core-cross-rox.html  /bootcamp-saint-ouen 301!
 
-# Studios
-/studio-parc-des-docks            /studio-parc-des-docks.html             200
-/studio-cours-des-lavandieres     /studio-cours-des-lavandieres.html      200
+# URLs canoniques francaises
+/sessions.html                          /sessions 301!
+/tarifs.html                            /tarifs 301!
+/studio.html                            /studio 301!
+/temoignages.html                       /temoignages 301!
+/equipe.html                            /equipe 301!
+/faq.html                               /faq 301!
+/contact.html                           /contact 301!
+/cadeau.html                            /cadeau 301!
+/pourquoi-svb.html                      /pourquoi-svb 301!
+/essai.html                             /essai 301!
+/studio-parc-des-docks.html             /studio-parc-des-docks 301!
+/studio-cours-des-lavandieres.html      /studio-cours-des-lavandieres 301!
+/pilates-reformer-saint-ouen.html       /pilates-reformer-saint-ouen 301!
+/crossformer-saint-ouen.html            /crossformer-saint-ouen 301!
+/salle-de-sport-saint-ouen.html         /salle-de-sport-saint-ouen 301!
+/yoga-saint-ouen.html                   /yoga-saint-ouen 301!
+/boxe-anglaise-saint-ouen.html          /boxe-anglaise-saint-ouen 301!
+/cross-training-saint-ouen.html         /cross-training-saint-ouen 301!
+/bootcamp-saint-ouen.html               /bootcamp-saint-ouen 301!
+/pilates-saint-ouen.html                /pilates-saint-ouen 301!
+/coaching-sportif-saint-ouen.html       /coaching-sportif-saint-ouen 301!
+/afrodance-saint-ouen.html              /afrodance-saint-ouen 301!
+/sport-enfant-saint-ouen.html           /sport-enfant-saint-ouen 301!
+/sport-femme-saint-ouen.html            /sport-femme-saint-ouen 301!
+/sport-debutant-saint-ouen.html         /sport-debutant-saint-ouen 301!
+/parrainage.html                        /parrainage 301!
+/mentions-legales.html                  /mentions-legales 301!
+/cgv.html                               /cgv 301!
+/Merci.html                             /Merci 301!
 
-# Disciplines Saint-Ouen
-/pilates-reformer-saint-ouen      /pilates-reformer-saint-ouen.html       200
-/pilates-reformer-paris           /pilates-reformer-paris.html            200
-/pilates-reformer-paris-17        /pilates-reformer-paris-17.html         200
-/pilates-reformer-paris-18        /pilates-reformer-paris-18.html         200
-/pilates-reformer-clichy          /pilates-reformer-clichy.html           200
-/pilates-reformer-levallois       /pilates-reformer-levallois.html        200
-/pilates-reformer-asnieres        /pilates-reformer-asnieres.html         200
-/crossformer-saint-ouen           /crossformer-saint-ouen.html            200
-/salle-de-sport-saint-ouen        /salle-de-sport-saint-ouen.html         200
-/yoga-saint-ouen                  /yoga-saint-ouen.html                   200
-/boxe-anglaise-saint-ouen         /boxe-anglaise-saint-ouen.html          200
-/cross-training-saint-ouen        /cross-training-saint-ouen.html         200
-/bootcamp-saint-ouen              /bootcamp-saint-ouen.html               200
-/pilates-saint-ouen               /pilates-saint-ouen.html                200
-/studio-pilates-saint-ouen        /pilates-saint-ouen                     301
-/coaching-sportif-saint-ouen      /coaching-sportif-saint-ouen.html       200
-/afrodance-saint-ouen             /afrodance-saint-ouen.html              200
-/sport-enfant-saint-ouen          /sport-enfant-saint-ouen.html           200
-/meilleur-studio-sport-saint-ouen /meilleur-studio-sport-saint-ouen.html  200
-/cours-collectifs-saint-ouen      /cours-collectifs-saint-ouen.html       200
-/sport-femme-saint-ouen           /sport-femme-saint-ouen.html            200
-/sport-debutant-saint-ouen        /sport-debutant-saint-ouen.html         200
+# URLs canoniques anglaises
+/en/index.html                          /en/ 301!
+/en/sessions.html                       /en/sessions 301!
+/en/studio.html                         /en/studio 301!
+/en/tarifs.html                         /en/tarifs 301!
+/en/equipe.html                         /en/equipe 301!
+/en/cadeau.html                         /en/cadeau 301!
+/en/faq.html                            /en/faq 301!
+/en/contact.html                        /en/contact 301!
 
-# Pilates thématiques
-/pilates-prenatal-postnatal       /pilates-prenatal-postnatal.html        200
-/pilates-senior                   /pilates-senior.html                    200
+# Pages principales - rewrites internes
+/sessions                         /sessions.html 200
+/tarifs                           /tarifs.html 200
+/studio                           /studio.html 200
+/temoignages                      /temoignages.html 200
+/equipe                           /equipe.html 200
+/faq                              /faq.html 200
+/contact                          /contact.html 200
+/cadeau                           /cadeau.html 200
+/pourquoi-svb                     /pourquoi-svb.html 200
+/essai                            /essai.html 200
+/studio-parc-des-docks            /studio-parc-des-docks.html 200
+/studio-cours-des-lavandieres     /studio-cours-des-lavandieres.html 200
+/pilates-reformer-saint-ouen      /pilates-reformer-saint-ouen.html 200
+/crossformer-saint-ouen           /crossformer-saint-ouen.html 200
+/salle-de-sport-saint-ouen        /salle-de-sport-saint-ouen.html 200
+/yoga-saint-ouen                  /yoga-saint-ouen.html 200
+/boxe-anglaise-saint-ouen         /boxe-anglaise-saint-ouen.html 200
+/cross-training-saint-ouen        /cross-training-saint-ouen.html 200
+/bootcamp-saint-ouen              /bootcamp-saint-ouen.html 200
+/pilates-saint-ouen               /pilates-saint-ouen.html 200
+/coaching-sportif-saint-ouen      /coaching-sportif-saint-ouen.html 200
+/afrodance-saint-ouen             /afrodance-saint-ouen.html 200
+/sport-enfant-saint-ouen          /sport-enfant-saint-ouen.html 200
+/sport-femme-saint-ouen           /sport-femme-saint-ouen.html 200
+/sport-debutant-saint-ouen        /sport-debutant-saint-ouen.html 200
+/parrainage                       /parrainage.html 200
+/mentions-legales                 /mentions-legales.html 200
+/cgv                              /cgv.html 200
+/Merci                            /Merci.html 200
 
-# Pilates quartiers
-/pilates-clichy                   /pilates-clichy.html                    200
-/pilates-paris-18                 /pilates-paris-18.html                  200
-/pilates-epinay-sur-seine         /pilates-epinay-sur-seine.html          200
-/pilates-ile-saint-denis          /pilates-ile-saint-denis.html           200
+# English rewrites
+/en/sessions                      /en/sessions.html 200
+/en/studio                        /en/studio.html 200
+/en/tarifs                        /en/tarifs.html 200
+/en/equipe                        /en/equipe.html 200
+/en/cadeau                        /en/cadeau.html 200
+/en/faq                           /en/faq.html 200
+/en/contact                       /en/contact.html 200
 
-# Réservation (Netlify Forms)
-/reserver                         /#offre-premium                         301
-/ete-2026                         /                                       301
-/merci-reservation                /Merci.html                             200
-/merci-essai                      /merci-essai.html                       200
+# Pages techniques et formulaires
+/reserver                         /#offre-premium 301!
+/ete-2026                         / 301!
+/merci-reservation               /Merci 301!
+/merci-essai                     /merci-essai.html 200
+/merci-newsletter                /merci-newsletter.html 200
+/forms                            / 301!
+/forms.html                       / 301!
 
-# Phase 7 — Parrainage, CMS, API
-/parrainage                       /parrainage.html                        200
-/merci-newsletter                 /merci-newsletter.html                  200
-/admin                            /admin/index.html                       200
-
-# Design system (accessible directement à /design-system)
-/design-system                    /design-system/index.html               200
-
-# Page forms.html : utile pour Netlify au build, jamais servie aux users
-/forms                            /                                       301
-/forms.html                       /                                       301
-
-# API routes (Netlify Functions)
-# /api/track est géré par l'Edge Function (voir netlify.toml)
-/api/calendly                     /.netlify/functions/calendly-webhook    200
-/api/newsletter                   /.netlify/functions/newsletter          200!
-/api/newsletter/confirm           /.netlify/functions/newsletter          200!
-/api/notify                       /.netlify/functions/notify              200!
-# /api/create-essai-payment est expose via config.path dans la function v2
-
-# Légal
-/mentions-legales                 /mentions-legales.html                  200
-/cgv                              /cgv.html                               200
-
-# Blog — rewrite individuel
-/blog/crossformer-guide-complet.html          /blog/crossformer-guide-complet          301
-/blog/bienfaits-pilates-reformer.html         /blog/bienfaits-pilates-reformer         301
-/blog/pilates-reformer-debutant.html          /blog/pilates-reformer-debutant          301
-/blog/reformer-vs-mat-pilates.html            /blog/reformer-vs-mat-pilates            301
-/blog/pilates-mal-de-dos.html                 /blog/pilates-mal-de-dos                 301
-/blog/yoga-vinyasa-bienfaits.html             /blog/yoga-vinyasa-bienfaits             301
-/blog/pilates-prenatal-guide.html             /blog/pilates-prenatal-guide             301
-/blog/pilates-reformer-perte-de-poids.html    /blog/pilates-reformer-perte-de-poids    301
-/blog/crossformer-vs-hiit.html                /blog/crossformer-vs-hiit                301
-/blog/ameliorer-posture-pilates.html          /blog/ameliorer-posture-pilates          301
-/blog/cross-training-bienfaits.html           /blog/cross-training-bienfaits           301
-/blog/boxe-anglaise-bienfaits.html            /blog/boxe-anglaise-bienfaits            301
-/blog/afrodance-cours-danse.html              /blog/afrodance-cours-danse              301
-/blog/training-kids-sport-enfants.html        /blog/training-kids-sport-enfants        301
-/blog/cross-body-cross-core-cross-rox.html    /blog/cross-body-cross-core-cross-rox    301
-/blog/studio-coaching-vs-salle-de-sport.html  /blog/studio-coaching-vs-salle-de-sport  301
-/blog/pilates-reformer-prix-paris.html        /blog/pilates-reformer-prix-paris        301
-/blog/pilates-reformer-vs-yoga.html           /blog/pilates-reformer-vs-yoga           301
-/blog/pilates-reformer-femme-enceinte.html    /blog/pilates-reformer-femme-enceinte    301
-/blog/pilates-reformer-seniors.html           /blog/pilates-reformer-seniors           301
-/blog/pilates-reformer-apres-accouchement.html /blog/pilates-reformer-apres-accouchement 301
-/blog/crossformer-guide-complet          /blog/crossformer-guide-complet.html          200
-/blog/bienfaits-pilates-reformer         /blog/bienfaits-pilates-reformer.html         200
-/blog/pilates-reformer-debutant          /blog/pilates-reformer-debutant.html          200
-/blog/reformer-vs-mat-pilates            /blog/reformer-vs-mat-pilates.html            200
-/blog/pilates-mal-de-dos                 /blog/pilates-mal-de-dos.html                 200
-/blog/yoga-vinyasa-bienfaits             /blog/yoga-vinyasa-bienfaits.html             200
-/blog/pilates-prenatal-guide             /blog/pilates-prenatal-guide.html             200
-/blog/pilates-reformer-perte-de-poids    /blog/pilates-reformer-perte-de-poids.html    200
-/blog/crossformer-vs-hiit                /blog/crossformer-vs-hiit.html                200
-/blog/ameliorer-posture-pilates          /blog/ameliorer-posture-pilates.html          200
-/blog/cross-training-bienfaits           /blog/cross-training-bienfaits.html           200
-/blog/boxe-anglaise-bienfaits            /blog/boxe-anglaise-bienfaits.html            200
-/blog/afrodance-cours-danse              /blog/afrodance-cours-danse.html              200
-/blog/training-kids-sport-enfants        /blog/training-kids-sport-enfants.html        200
-/blog/cross-body-cross-core-cross-rox    /blog/cross-body-cross-core-cross-rox.html    200
-/blog/studio-coaching-vs-salle-de-sport  /blog/studio-coaching-vs-salle-de-sport.html  200
-/blog/pilates-reformer-prix-paris        /blog/pilates-reformer-prix-paris.html        200
-/blog/pilates-reformer-vs-yoga           /blog/pilates-reformer-vs-yoga.html           200
-/blog/pilates-reformer-femme-enceinte    /blog/pilates-reformer-femme-enceinte.html    200
-/blog/pilates-reformer-seniors           /blog/pilates-reformer-seniors.html           200
-/blog/pilates-reformer-apres-accouchement /blog/pilates-reformer-apres-accouchement.html 200
-
-# Anciennes URLs → nouvelles (301 pour le SEO)
-/index-old                        /                                       301
-/index-old.html                   /                                       301
-
-# Fallback 404 géré par Netlify automatiquement
+# API Netlify
+/api/calendly                     /.netlify/functions/calendly-webhook 200
+/api/newsletter                   /.netlify/functions/newsletter 200!
+/api/newsletter/confirm           /.netlify/functions/newsletter 200!
+/api/notify                       /.netlify/functions/notify 200!

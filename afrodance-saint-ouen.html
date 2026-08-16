@@ -29,7 +29,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Afrodance Saint-Ouen | Danse Cardio en Petit Groupe | SVB</title>
   <meta name="description" content="Afrodance à Saint-Ouen chez Studio SVB : danse cardio, groove, coordination et énergie en petit groupe. Studio Parc des Docks, essai 30 €.">
-  <meta name="keywords" content="afrodance saint-ouen, cours danse saint-ouen, danse cardio saint-ouen, afrodance 93, cours collectif danse saint-ouen, studio svb">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://studiosvb.com/afrodance-saint-ouen">
   <link rel="dns-prefetch" href="https://calendly.com">
@@ -48,7 +47,7 @@
   <link rel="icon" type="image/png" href="/images/favicon.jpg">
   <link rel="apple-touch-icon" href="/images/favicon.jpg">
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
-  <link rel="stylesheet" href="/assets/svb.css?v=20260524a">
+  <link rel="stylesheet" href="/assets/svb.css?v=20260816">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&amp;family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -76,27 +75,23 @@
     @media(max-width:860px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:42px}.cards{grid-template-columns:1fr}.visual,.visual video{min-height:420px}}
   </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "SportsActivityLocation"],
-    "name": "SVB - Afrodance Saint-Ouen",
-    "description": "Cours d'Afrodance à Saint-Ouen-sur-Seine : danse cardio, coordination, groove et energie en petit groupe.",
-    "url": "https://studiosvb.com/afrodance-saint-ouen",
-    "telephone": "+33744919155",
-    "email": "hello@studiosvb.fr",
-    "image": "https://studiosvb.com/images/og-image.jpg",
-    "priceRange": "€€",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "6 Mail André Breton",
-      "addressLocality": "Saint-Ouen-sur-Seine",
-      "postalCode": "93400",
-      "addressCountry": "FR"
-    },
-    "sportsActivityName": ["Afrodance", "Danse cardio", "Cours collectif"],
-    "sameAs": ["https://www.instagram.com/studiosvb/","https://www.facebook.com/profile.php?id=61574972498498"]
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://studiosvb.com/afrodance-saint-ouen#service",
+  "name": "Cours d'Afrodance à Saint-Ouen",
+  "serviceType": "Afrodance",
+  "description": "Cours d'Afrodance en petit groupe au studio SVB Parc des Docks à Saint-Ouen-sur-Seine.",
+  "url": "https://studiosvb.com/afrodance-saint-ouen",
+  "provider": {
+    "@id": "https://studiosvb.com/#organization"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Saint-Ouen-sur-Seine"
   }
-  </script>
+}
+</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -127,8 +122,8 @@
         <a href="#" data-discipline="cross_yoga_pilates" data-label="Cross · Yoga · Boxe · Pilates sol" data-amount="30 €" class="js-buy cta">Réserver un essai · 30 €</a>
       </div>
       <div class="visual" aria-label="Aperçu Afrodance SVB">
-        <video autoplay muted loop playsinline preload="metadata">
-          <source src="/videos/afrodance-card.mp4?v=20260428d" type="video/mp4">
+        <video autoplay muted loop playsinline preload="none" poster="/videos/afrodance-card-poster.jpg" data-svb-lazy-video>
+          <source data-src="/videos/afrodance-card.mp4?v=20260816" type="video/mp4">
         </video>
         <span>Danse cardio · groove · coordination · petit groupe à Saint-Ouen.</span>
       </div>
@@ -154,6 +149,6 @@
     <p><strong>Studio SVB · Santez Vous Bien</strong></p>
     <p>6 Mail André Breton · 93400 Saint-Ouen-sur-Seine · <a href="tel:+33744919155">07 44 91 91 55</a></p>
   </footer>
-  <script src="/assets/svb.js?v=20260523m" defer></script>
+  <script src="/assets/svb.js?v=20260816" defer></script>
 </body>
 </html>

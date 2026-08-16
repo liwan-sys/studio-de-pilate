@@ -43,7 +43,7 @@ ensure_config() {
   if [ ! -f "tailwind.config.js" ]; then
     cat > tailwind.config.js <<'EOF'
 module.exports = {
-  content: ['./*.html', './blog/*.html', './assets/*.js'],
+  content: ['./*.html', './assets/*.js'],
   theme: {
     extend: {
       colors: {
@@ -83,7 +83,7 @@ prepare_publish() {
   mkdir -p "$publish_dir"
 
   # Le site est statique : seuls les pages et leurs fichiers publics sont publies.
-  rsync -a --delete \
+  rsync -a --delete --delete-excluded \
     --exclude='/dist/' \
     --include='/*.html' \
     --include='/_headers' \
@@ -92,9 +92,7 @@ prepare_publish() {
     --include='/sitemap.xml' \
     --include='/site.webmanifest' \
     --include='/service-worker.js' \
-    --include='/admin/' --include='/admin/**' \
     --include='/assets/' --include='/assets/**' \
-    --include='/blog/' --include='/blog/**' \
     --include='/en/' --include='/en/**' \
     --include='/images/' --include='/images/**' \
     --include='/videos/' --include='/videos/**' \
@@ -105,14 +103,7 @@ prepare_publish() {
 }
 
 main() {
-  # 1. Build content (CMS markdown → HTML + JSON feeds)
-  if [ -x "scripts/build-content.py" ] && command -v python3 >/dev/null 2>&1; then
-    echo "→ Build content (CMS)…"
-    python3 scripts/build-content.py
-    echo ""
-  fi
-
-  # 2. Tailwind (dépend du contenu car les articles générés contiennent des classes)
+  # Tailwind
   [ -x "$TAILWIND_BIN" ] || install_tailwind
   ensure_config
   ensure_input

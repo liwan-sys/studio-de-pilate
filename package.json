@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "./build.sh",
+    "validate:seo": "node scripts/validate-seo.mjs"
+  },
   "dependencies": {
     "@netlify/database": "^1.0.0",
     "@netlify/functions": "^5.2.2"

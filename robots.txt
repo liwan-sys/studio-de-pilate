@@ -1,18 +1,15 @@
-# SVB SantezVousBien - robots.txt
+# SVB - robots.txt
 User-agent: *
 Allow: /
-
-# Fichiers non indexables
 Disallow: /cdn-cgi/
 Disallow: /admin/
 Disallow: /design-system/
-Disallow: /forms.html
-Disallow: /Merci.html
-Disallow: /merci-newsletter.html
-Disallow: /merci-newsletter
-Disallow: /merci-reservation
-Disallow: /questionnaire-abonnement-svb.html
-Disallow: /404.html
 
-# Sitemap
+# ChatGPT Search peut consulter les pages publiques de SVB.
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
 Sitemap: https://studiosvb.com/sitemap.xml

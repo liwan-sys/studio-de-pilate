@@ -39,11 +39,11 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/questionnaire.css?v=20260423a" />
-  <link rel="stylesheet" href="/assets/svb.css?v=20260524a" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260816" />
 
-  
+
   <script src="/assets/analytics.js?v=20260523a" defer></script>
-  <script src="/assets/svb.js?v=20260523m" defer></script>
+  <script src="/assets/svb.js?v=20260816" defer></script>
   <script src="/assets/js/meta-pixel.js" defer></script>
   <script src="/assets/js/svb-checkout.js?v=20260523c" defer></script>
 </head>
@@ -57,7 +57,7 @@
 
     <div class="header">
       <div class="logo">SVB</div>
-      <div class="tagline">Santezvousbien</div>
+      <div class="tagline">Santez Vous Bien</div>
       <h1>On finalise ton inscription.</h1>
       <p class="subtitle">Moins de <strong>3 minutes</strong>. En cliquant sur Envoyer, <strong>WhatsApp s'ouvre</strong> avec ta demande pré-remplie. On te recontacte sous <strong>1 h</strong> pour finaliser (RIB, photo, signature) directement au studio — zéro paperasse en ligne.</p>
       <div class="steps-bar">
@@ -76,7 +76,7 @@
       <ul class="conditions-list">
         <li>
           <div class="icon">✓</div>
-          <div class="text"><strong>Annulation ultra-flexible</strong>&nbsp;: jusqu'à <strong>1h avant le cours</strong> en small group, sans perdre ton crédit (les autres studios exigent 24h). Coaching privé&nbsp;: 24h avant.</div>
+          <div class="text"><strong>Annulation flexible</strong>&nbsp;: jusqu'à <strong>1h avant le cours</strong> en small group, sans perdre ton crédit. Coaching privé&nbsp;: 24h avant.</div>
         </li>
         <li>
           <div class="icon">✓</div>
@@ -148,13 +148,9 @@
         </div>
 
         <div class="form-row">
-          <div class="form-group">
+          <div class="form-group full">
             <label>Date de naissance <span class="required">*</span></label>
             <input type="date" name="Date de naissance" required>
-          </div>
-          <div class="form-group">
-            <label>Profession</label>
-            <input type="text" name="Profession" placeholder="Ex : Cadre, étudiant(e), infirmier(e)…">
           </div>
         </div>
       </div>
@@ -357,17 +353,16 @@
             <option>Perte de poids / tonification</option>
             <option>Renforcement musculaire</option>
             <option>Souplesse & mobilité</option>
-            <option>Gestion du stress / bien-être</option>
-            <option>Rééducation / récupération post-blessure</option>
+            <option>Mobilité / respiration</option>
+            <option>Reprise progressive après une pause</option>
             <option>Préparation physique (sport, événement)</option>
-            <option>Grossesse / post-partum</option>
             <option>Plaisir & sociabilité</option>
           </select>
         </div>
 
         <div class="form-group full">
           <label>Autres objectifs / précisions <span class="hint">(optionnel)</span></label>
-          <textarea name="Objectifs précisions" placeholder="Ex : retrouver mon niveau d'avant grossesse, travailler mon dos, tenir un trail de 10 km…"></textarea>
+          <textarea name="Objectifs précisions" placeholder="Ex : reprendre une routine, gagner en mobilité, préparer un trail de 10 km…"></textarea>
         </div>
 
         <div class="form-group">
@@ -382,22 +377,17 @@
         </div>
       </div>
 
-      <!-- SECTION 7 : PATHOLOGIES / SANTÉ -->
+      <!-- SECTION 7 : PRATIQUE ET SÉCURITÉ -->
       <div class="card">
-        <h2 class="section-title"><span class="section-number">7</span>Pathologies</h2>
-        <p class="section-subtitle">Merci de nous signaler toute pathologie, blessure, opération récente, grossesse ou traitement médical dont on doit être informés.</p>
+        <h2 class="section-title"><span class="section-number">7</span>Pratique et sécurité</h2>
+        <p class="section-subtitle">Indique simplement s'il faut prévoir un échange avec l'équipe avant ta première séance. Ne saisis aucun diagnostic ni traitement médical dans ce formulaire.</p>
 
         <div class="form-group">
-          <label>As-tu un point de vigilance santé à nous signaler&nbsp;? <span class="required">*</span></label>
+          <label>Faut-il échanger avec l'équipe avant ta première séance&nbsp;? <span class="required">*</span></label>
           <div class="inline-radios">
-            <label><input type="radio" name="Santé — point de vigilance" value="Oui" required> Oui</label>
-            <label><input type="radio" name="Santé — point de vigilance" value="Non" required> Non, tout va bien</label>
+            <label><input type="radio" name="Échange sécurité avant séance" value="Oui" required> Oui</label>
+            <label><input type="radio" name="Échange sécurité avant séance" value="Non" required> Non</label>
           </div>
-        </div>
-
-        <div class="form-group full">
-          <label>Si oui, précise <span class="hint">(dos, genoux, tendinite, grossesse, opération, traitement…)</span></label>
-          <textarea name="Pathologies" placeholder="Ex : lombalgie chronique, post-partum 6 mois, tendinite épaule droite, traitement anti-hypertenseur…"></textarea>
         </div>
       </div>
 
@@ -453,7 +443,7 @@
     </form>
 
     <div class="contact-footer">
-      <strong>Studio SVB</strong> · hello@studiosvb.fr · 07 44 91 91 55 · @svb.officiel<br>
+      <strong>SVB</strong> · hello@studiosvb.fr · 07 44 91 91 55 · @studiosvb<br>
       40 Cours des Lavandières &amp; 6 Mail André Breton — 93400 Saint Ouen
     </div>
 
@@ -730,11 +720,9 @@
     if (objPrec) msg += line('Précisions', objPrec);
     msg += line('Niveau sportif', getFieldValue('Niveau sportif'));
 
-    // === PATHOLOGIES ===
-    msg += section('🏥 PATHOLOGIES');
-    msg += line('Point de vigilance', getFieldValue('Santé — point de vigilance'));
-    const patho = getFieldValue('Pathologies');
-    if (patho) msg += line('Détails', patho);
+    // === PRATIQUE ET SÉCURITÉ ===
+    msg += section('PRATIQUE ET SÉCURITÉ');
+    msg += line('Échange avant séance', getFieldValue('Échange sécurité avant séance'));
 
     // === ORIGINE & DROIT À L'IMAGE ===
     msg += section('📣 ORIGINE & DROIT À L\'IMAGE');

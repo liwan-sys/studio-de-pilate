@@ -167,15 +167,13 @@ html.lenis body{min-height:100vh}
 .svb-split-word{display:inline-block;white-space:nowrap}
 .svb-split-char{
   display:inline-block;
-  opacity:0;
-  transform:translateY(0.6em);
-  transition:
-    opacity .55s cubic-bezier(.2,.8,.2,1),
-    transform .65s cubic-bezier(.2,.8,.2,1);
-  transition-delay:calc(var(--i,0) * 22ms);
-  will-change:opacity,transform;
+  opacity:1;
+  transform:translateY(0.15em);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  transition-delay:calc(var(--i,0) * 8ms);
+  will-change:transform;
 }
-.svb-split-in .svb-split-char{opacity:1;transform:none}
+.svb-split-in .svb-split-char{transform:none}
 @media (prefers-reduced-motion:reduce){
   .svb-split-char{opacity:1!important;transform:none!important;transition:none!important}
 }
@@ -300,11 +298,11 @@ img[loading="lazy"]{
   100%{transform:scale(1.5);opacity:0}
 }
 
-/* --- Reveal-load (scroll entrance utilisé partout) ------------- */
-.reveal-load{opacity:0;transform:translateY(30px);transition:all 1s ease-out}
-.content-visible .reveal-load{opacity:1;transform:translateY(0)}
+/* --- Reveal-load : le contenu reste lisible pendant le mouvement */
+.reveal-load{opacity:1!important;transform:translateY(10px);transition:transform .35s ease-out}
+.content-visible .reveal-load{transform:translateY(0)}
 nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!important}
-.d-1{transition-delay:.2s}.d-2{transition-delay:.4s}.d-3{transition-delay:.6s}
+.d-1{transition-delay:.05s}.d-2{transition-delay:.1s}.d-3{transition-delay:.15s}
 
 /* --- Float gentle (flottements subtils) ------------------------ */
 @keyframes gentle-float{
@@ -958,8 +956,7 @@ body:has(.svb-video-hero) .svb-video-hero{
 
 /* =================================================================
    Mobile-first conversion layer
-   98% du trafic est mobile : priorite aux CTA visibles, a la vitesse
-   percue et a la lisibilite sur 360-430px.
+   Priorite aux CTA utiles, a la vitesse percue et a la lisibilite.
    ================================================================= */
 .svb-mobile-sticky-cta{display:none}
 
