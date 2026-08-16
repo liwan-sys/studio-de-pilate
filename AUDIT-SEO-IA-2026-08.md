@@ -1,6 +1,6 @@
 # Audit SEO et référencement IA - SVB
 
-Date : 16 août 2026  
+Date : 16 août 2026
 Périmètre : studiosvb.com, pages françaises et anglaises, données structurées, indexation, performance, cohérence de marque et compréhension par les moteurs d'IA.
 
 ## Verdict
