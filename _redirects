@@ -3,13 +3,18 @@
 # Permet des URLs propres sans extension .html (matching sitemap.xml)
 # ================================================================
 
+# Ancienne offre bien-être : redirection vers les cours actuels
+/bien-etre                        /sessions                               301
+/bien-etre.html                   /sessions                               301
+/en/bien-etre                    /en/sessions.html                       301
+/en/bien-etre.html               /en/sessions.html                       301
+
 # URLs propres (sans .html) → page HTML correspondante, statut 200 (rewrite)
 /sessions                         /sessions.html                          200
 /tarifs                           /tarifs.html                            200
 /studio                           /studio.html                            200
 /temoignages                      /temoignages.html                       200
 /equipe                           /equipe.html                            200
-/bien-etre                        /bien-etre.html                         200
 /faq                              /faq.html                               200
 /contact                          /contact.html                           200
 /cadeau                           /cadeau.html                            200

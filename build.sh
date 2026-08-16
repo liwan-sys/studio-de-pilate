@@ -78,6 +78,33 @@ EOF
   fi
 }
 
+prepare_publish() {
+  local publish_dir="$ROOT/dist"
+  mkdir -p "$publish_dir"
+
+  # Le site est statique : on publie uniquement les pages et leurs ressources.
+  # Les scripts, exports et fichiers de travail restent hors ligne.
+  rsync -a --delete \
+    --exclude='/dist/' \
+    --include='/*.html' \
+    --include='/_headers' \
+    --include='/_redirects' \
+    --include='/robots.txt' \
+    --include='/sitemap.xml' \
+    --include='/site.webmanifest' \
+    --include='/service-worker.js' \
+    --include='/admin/' --include='/admin/**' \
+    --include='/assets/' --include='/assets/**' \
+    --include='/blog/' --include='/blog/**' \
+    --include='/en/' --include='/en/**' \
+    --include='/images/' --include='/images/**' \
+    --include='/videos/' --include='/videos/**' \
+    --exclude='*' \
+    "$ROOT/" "$publish_dir/"
+
+  echo "✓ Dossier de publication propre : dist/"
+}
+
 main() {
   # 1. Build content (CMS markdown → HTML + JSON feeds)
   if [ -x "scripts/build-content.py" ] && command -v python3 >/dev/null 2>&1; then
@@ -101,6 +128,10 @@ main() {
   echo ""
   echo "✓ assets/tailwind.css construit :"
   ls -lh assets/tailwind.css | awk '{print "  "$5"  "$9}'
+
+  echo ""
+  echo "→ Préparation des fichiers publics…"
+  prepare_publish
 }
 
 main "$@"

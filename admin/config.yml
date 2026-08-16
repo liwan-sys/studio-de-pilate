@@ -55,7 +55,6 @@ collections:
           - { label: "Afrodance", value: "Afrodance" }
           - { label: "Kids", value: "Kids" }
           - { label: "Studio", value: "Studio" }
-          - { label: "Bien-être", value: "Bien-être" }
       - { label: "Image d'illustration", name: "thumb", widget: "image", required: false, hint: "1200×675 idéal. Sera redimensionnée automatiquement." }
       - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, default: "" }
       - { label: "Auteur", name: "author", widget: "string", default: "Équipe SVB" }

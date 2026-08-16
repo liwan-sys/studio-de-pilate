@@ -20,45 +20,117 @@
     <meta property="og:title" content="Coaching Sportif Saint-Ouen | Individuel & Small Group | SVB">
     <meta property="og:description" content="Coaching sportif individuel et small group à Saint-Ouen (93). 16 coachs certifiés, 2 studios. Cross Training, Pilates, Yoga, Boxe. Essai 30€.">
     <meta property="og:image" content="https://studiosvb.com/images/coaching-sportif.webp">
-    <meta property="og:site_name" content="Studio SVB">
+    <meta property="og:site_name" content="SVB">
     <meta property="og:locale" content="fr_FR">
 
     <!-- Twitter Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Coaching Sportif à Saint-Ouen | Individuel & Small Group | Studio SVB">
+    <meta name="twitter:title" content="Coaching Sportif à Saint-Ouen | Individuel & Small Group | SVB">
     <meta name="twitter:description" content="Coach sportif certifié à Saint-Ouen-sur-Seine. Suivi personnalisé, small group intensif, 16 coachs experts, 2 studios équipés.">
     <meta name="twitter:image" content="https://studiosvb.com/images/coaching-sportif.webp">
 
-    <!-- Schema Markup - LocalBusiness & SportsActivityLocation -->
+    <!-- Schema Markup - marque, studios et service de coaching -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": ["SportsActivityLocation", "LocalBusiness"],
-        "name": "Studio SVB - Coaching Sportif",
-        "description": "Coaching sportif individuel et small group à Saint-Ouen-sur-Seine",
-        "url": "https://studiosvb.com/coaching-sportif-saint-ouen",
-        "telephone": "+33744919155",
-        "email": "hello@studiosvb.fr",
-        "sportsActivityName": "Coaching Sportif",
-        "address": [
+        "@graph": [
             {
-                "@type": "PostalAddress",
-                "streetAddress": "6 Mail André Breton",
-                "addressLocality": "Saint-Ouen-sur-Seine",
-                "postalCode": "93400",
-                "addressCountry": "FR"
+                "@type": "Organization",
+                "@id": "https://studiosvb.com/#organization",
+                "name": "SVB",
+                "alternateName": ["Studio SVB", "Santez Vous Bien", "studiosvb.com"],
+                "url": "https://studiosvb.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://studiosvb.com/images/logo.webp"
+                },
+                "image": "https://studiosvb.com/images/og-image.jpg",
+                "telephone": "+33744919155",
+                "email": "hello@studiosvb.fr",
+                "sameAs": [
+                    "https://www.instagram.com/studiosvb/",
+                    "https://www.facebook.com/profile.php?id=61574972498498"
+                ],
+                "department": [
+                    { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+                    { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
+                ]
             },
             {
-                "@type": "PostalAddress",
-                "streetAddress": "40 Cours des Lavandières",
-                "addressLocality": "Saint-Ouen-sur-Seine",
-                "postalCode": "93400",
-                "addressCountry": "FR"
+                "@type": ["SportsActivityLocation", "LocalBusiness"],
+                "@id": "https://studiosvb.com/studio-parc-des-docks#location",
+                "name": "SVB - Parc des Docks",
+                "url": "https://studiosvb.com/studio-parc-des-docks",
+                "image": "https://studiosvb.com/images/studio-parc-des-docks.webp",
+                "telephone": "+33744919155",
+                "email": "hello@studiosvb.fr",
+                "priceRange": "€€",
+                "parentOrganization": { "@id": "https://studiosvb.com/#organization" },
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "6 Mail André Breton",
+                    "addressLocality": "Saint-Ouen-sur-Seine",
+                    "postalCode": "93400",
+                    "addressRegion": "Île-de-France",
+                    "addressCountry": "FR"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 48.9118,
+                    "longitude": 2.3336
+                },
+                "knowsAbout": ["Coaching sportif", "Cross Training", "Boxe anglaise", "Afrodance", "Training Kids"]
+            },
+            {
+                "@type": ["SportsActivityLocation", "LocalBusiness"],
+                "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location",
+                "name": "SVB - Cours des Lavandières",
+                "url": "https://studiosvb.com/studio-cours-des-lavandieres",
+                "image": "https://studiosvb.com/images/studio-cours-des-lavandieres.webp",
+                "telephone": "+33744919155",
+                "email": "hello@studiosvb.fr",
+                "priceRange": "€€",
+                "parentOrganization": { "@id": "https://studiosvb.com/#organization" },
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "40 Cours des Lavandières",
+                    "addressLocality": "Saint-Ouen-sur-Seine",
+                    "postalCode": "93400",
+                    "addressRegion": "Île-de-France",
+                    "addressCountry": "FR"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 48.9108,
+                    "longitude": 2.3345
+                },
+                "knowsAbout": ["Pilates Reformer", "Crossformer", "Pilates au sol", "Yoga Vinyasa"]
+            },
+            {
+                "@type": "Service",
+                "@id": "https://studiosvb.com/coaching-sportif-saint-ouen#service",
+                "name": "Coaching sportif individuel, duo et small group à Saint-Ouen",
+                "serviceType": "Coaching sportif",
+                "description": "Coaching sportif individuel, en duo et en petit groupe à Saint-Ouen-sur-Seine.",
+                "provider": { "@id": "https://studiosvb.com/#organization" },
+                "areaServed": {
+                    "@type": "City",
+                    "name": "Saint-Ouen-sur-Seine"
+                }
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://studiosvb.com/coaching-sportif-saint-ouen#webpage",
+                "url": "https://studiosvb.com/coaching-sportif-saint-ouen",
+                "name": "Coaching Sportif Saint-Ouen | Individuel & Small Group | SVB",
+                "inLanguage": "fr-FR",
+                "about": [
+                    { "@id": "https://studiosvb.com/#organization" },
+                    { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+                    { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
+                ],
+                "mainEntity": { "@id": "https://studiosvb.com/coaching-sportif-saint-ouen#service" }
             }
-        ],
-        "sameAs": [
-            "https://www.instagram.com/studiosvb/",
-            "https://www.facebook.com/profile.php?id=61574972498498"
         ]
     }
     </script>
@@ -118,7 +190,7 @@
                 "name": "Quels sont les tarifs du coaching sportif ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Essai 30€ (remboursé si inscription), Pass Starter 99.90€ pour 5 séances, et abonnements à partir de 15€ par séance. Des tarifs spéciaux existent pour les small group et les engagements long terme."
+                    "text": "La séance d'essai coûte 30€, dont 15€ sont remboursés en cas d'inscription. Le coaching individuel Good Vibes démarre à 300,30€ par mois pour quatre séances, et le small group à partir de 15€ par séance."
                 }
             },
             {
@@ -127,6 +199,14 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Notre équipe compte 16 coachs certifiés, tous formés aux disciplines que nous proposons (Cross Training, Pilates, Yoga, Boxe, etc.). Chaque coach a une spécialité et peut vous aider à atteindre vos objectifs. Décourez toute l'équipe sur notre page dédiée."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Où se déroule le coaching sportif à Saint-Ouen ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le coaching individuel et duo se déroule au Studio SVB Parc des Docks, 6 Mail André Breton à Saint-Ouen-sur-Seine. Les cours en small group sont répartis entre le Parc des Docks et le Studio SVB Cours des Lavandières, au 40 Cours des Lavandières, selon la discipline."
                 }
             },
             {
@@ -154,7 +234,7 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/assets/coaching-sportif.css?v=20260423a" />
+    <link rel="stylesheet" href="/assets/coaching-sportif.css?v=20260811a" />
   <link rel="stylesheet" href="/assets/svb.css?v=20260428e" />
 
   
@@ -182,7 +262,6 @@
         <a href="/tarifs" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Abonnements</a>
         <a href="/equipe" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block" style="color:#E8B496;">La Team</a>
         <a href="/ete-2026" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block" style="color:#E8B496;font-weight:800;">Promo</a>
-        <a href="/bien-etre" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Bien-Être</a>
         <a href="/cadeau" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Cadeau</a>
         <a href="/contact" class="hover:text-[#2F4F4F] transition hover:scale-105 inline-block">Contact</a>
         <a href="/en/" aria-label="English version" class="inline-block transition ml-1" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(74,141,132,0.4);padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.5);white-space:nowrap;color:#4A8D84;"><span style="font-weight:900;color:#E8B496;">FR</span>&nbsp;|&nbsp;<span style="opacity:0.55;">EN</span></a>
@@ -229,10 +308,50 @@
                 <div class="border-l-4" style="border-color: var(--col-green); padding-left: 24px;">
                     <h3 class="text-xl font-bold mb-3" style="color: var(--col-dark);">🏢 2 studios à 200 m l'un de l'autre</h3>
                     <p class="text-gray-700">
-                        Parc des Docks (Reformer, Crossformer, coaching privé) et Cours des Lavandières (Cross, Yoga, Boxe, Kids). 4 min à pied du métro Mairie de Saint-Ouen. Ouverts de 7 h à 21 h en semaine.
+                        Parc des Docks (Cross Training, Boxe, Afrodance, Kids et coaching privé) et Cours des Lavandières (Pilates Reformer, Crossformer, Pilates au sol et Yoga). Les deux studios sont proches du métro Mairie de Saint-Ouen.
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Coachs locaux -->
+    <section class="coach-proof-section reveal-load" aria-labelledby="coach-proof-title">
+        <div class="coach-proof-inner">
+            <p class="coach-proof-eyebrow">L'équipe SVB à Saint-Ouen</p>
+            <h2 id="coach-proof-title">Des coachs identifiés, semaine après semaine.</h2>
+            <p class="coach-proof-intro">Chaque discipline est portée par des spécialistes que tu peux retrouver sur le planning. Voici quatre membres de l'équipe qui accompagnent les séances de coaching et de small group.</p>
+            <div class="coach-proof-grid">
+                <article class="coach-proof-card">
+                    <img src="/images/Shanael.webp" alt="Shanael, fondatrice et coach sportif au Studio SVB" width="750" height="1200" loading="lazy" decoding="async">
+                    <div class="coach-proof-copy">
+                        <h3>Shanael</h3>
+                        <p>Fondatrice · Coach sportif</p>
+                    </div>
+                </article>
+                <article class="coach-proof-card">
+                    <img src="/images/Fatoumata.webp" alt="Fatoumata, coach Pilates et Crossformer au Studio SVB" width="800" height="1200" loading="lazy" decoding="async">
+                    <div class="coach-proof-copy">
+                        <h3>Fatoumata</h3>
+                        <p>Coach Pilates &amp; Crossformer</p>
+                    </div>
+                </article>
+                <article class="coach-proof-card">
+                    <img src="/images/Greg.webp" alt="Greg, coach Cross Training et boxe au Studio SVB" width="800" height="1200" loading="lazy" decoding="async">
+                    <div class="coach-proof-copy">
+                        <h3>Greg</h3>
+                        <p>Coach Cross &amp; Boxe</p>
+                    </div>
+                </article>
+                <article class="coach-proof-card">
+                    <img src="/images/Mehdi.webp" alt="Mehdi, coach Cross Training et Training Kids au Studio SVB" width="750" height="1200" loading="lazy" decoding="async">
+                    <div class="coach-proof-copy">
+                        <h3>Mehdi</h3>
+                        <p>Coach Cross &amp; Training Kids</p>
+                    </div>
+                </article>
+            </div>
+            <a class="coach-proof-link" href="/equipe">Découvrir toute l'équipe SVB</a>
         </div>
     </section>
 
@@ -417,18 +536,20 @@
             <h2 class="text-3xl font-bold mb-6" style="color: var(--col-dark);">Où ça se passe&nbsp;?</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--col-dark);">Parc des Docks</h3>
+                    <h3 class="text-xl font-bold mb-3" style="color: var(--col-dark);"><a href="/studio-parc-des-docks">Studio SVB - Parc des Docks</a></h3>
                     <p class="text-gray-700 mb-2"><strong>6 Mail André Breton, 93400 Saint-Ouen-sur-Seine</strong></p>
                     <p class="text-gray-700 mb-2">Métro Mairie de Saint-Ouen (Ligne 14) - 2 minutes à pied</p>
                     <p class="text-gray-700 text-sm">Parking Parc des Docks à proximité immédiate</p>
-                    <p class="text-gray-700 text-sm mt-2">Studio moderne, équipements Cross Training complets, espace lumineux</p>
+                    <p class="text-gray-700 text-sm mt-2"><strong>Sur place :</strong> coaching individuel et duo, Cross Training, Boxe, Afrodance et Training Kids.</p>
+                    <a href="/studio-parc-des-docks" class="inline-block mt-4 font-semibold underline">Voir ce studio</a>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--col-dark);">Cours des Lavandières</h3>
+                    <h3 class="text-xl font-bold mb-3" style="color: var(--col-dark);"><a href="/studio-cours-des-lavandieres">Studio SVB - Cours des Lavandières</a></h3>
                     <p class="text-gray-700 mb-2"><strong>40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine</strong></p>
                     <p class="text-gray-700 mb-2">Métro Mairie de Saint-Ouen (Ligne 14) - 5 minutes à pied</p>
                     <p class="text-gray-700 text-sm">Parking à proximité et accès Vélib</p>
-                    <p class="text-gray-700 text-sm mt-2">Studio Pilates Reformer, Yoga, Afrodance. Espace zen et accueillant</p>
+                    <p class="text-gray-700 text-sm mt-2"><strong>Sur place :</strong> Pilates Reformer, Crossformer, Pilates au sol et Yoga Vinyasa.</p>
+                    <a href="/studio-cours-des-lavandieres" class="inline-block mt-4 font-semibold underline">Voir ce studio</a>
                 </div>
             </div>
             <div class="mt-8 text-center">

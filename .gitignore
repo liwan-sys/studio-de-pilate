@@ -33,6 +33,14 @@ yarn-error.log*
 
 # Netlify local dev
 .netlify/
+dist/
+
+# Fichiers de travail locaux, jamais publiés
+tmp/
+tmp-*
+exports/
+output/
+generated/
 
 # Logs
 *.log

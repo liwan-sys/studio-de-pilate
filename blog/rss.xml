@@ -1,12 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Blog Studio SVB</title>
+  <title>Blog SVB</title>
   <link>https://studiosvb.com/blog/</link>
-  <description>Conseils sport et bien-être par l'équipe du Studio SVB à Saint-Ouen</description>
+  <description>Conseils sport et mouvement par l'équipe SVB à Saint-Ouen</description>
   <language>fr-FR</language>
-  <lastBuildDate>Fri, 17 Apr 2026 14:27:04 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 16 Aug 2026 09:50:12 +0000</lastBuildDate>
   <atom:link href="https://studiosvb.com/blog/rss.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title><![CDATA[Prix Pilates Reformer Paris — Comparatif 2026]]></title>
+    <link>https://studiosvb.com/blog/pilates-reformer-prix-paris</link>
+    <guid isPermaLink="true">https://studiosvb.com/blog/pilates-reformer-prix-paris</guid>
+    <description><![CDATA[Combien coûte un cours de Pilates Reformer à Paris en 2026 ? Comparatif des studios, chaînes et prix moyens. Le vrai prix.]]></description>
+    <category>Pilates</category>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title><![CDATA[Pilates Reformer vs Yoga : Lequel Choisir ?]]></title>
+    <link>https://studiosvb.com/blog/pilates-reformer-vs-yoga</link>
+    <guid isPermaLink="true">https://studiosvb.com/blog/pilates-reformer-vs-yoga</guid>
+    <description><![CDATA[Pilates Reformer ou Yoga : quelle est vraiment la différence ? Bénéfices, intensité, objectifs. Le comparatif clair pour choisir.]]></description>
+    <category>Pilates</category>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title><![CDATA[Pilates Reformer & Grossesse : Guide Complet]]></title>
+    <link>https://studiosvb.com/blog/pilates-reformer-femme-enceinte</link>
+    <guid isPermaLink="true">https://studiosvb.com/blog/pilates-reformer-femme-enceinte</guid>
+    <description><![CDATA[Peut-on faire du Pilates Reformer enceinte ? Bienfaits, exercices autorisés par trimestre, contre-indications. Guide complet pour pratiquer en sécurité.]]></description>
+    <category>Pilates</category>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title><![CDATA[Pilates Reformer pour Seniors : Guide 50+]]></title>
+    <link>https://studiosvb.com/blog/pilates-reformer-seniors</link>
+    <guid isPermaLink="true">https://studiosvb.com/blog/pilates-reformer-seniors</guid>
+    <description><![CDATA[Pilates Reformer après 50, 60, 70 ans : bienfaits pour les articulations, l'équilibre, l'ostéoporose. Guide complet pour bien démarrer en toute sécurité.]]></description>
+    <category>Pilates</category>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title><![CDATA[Pilates Reformer après Accouchement]]></title>
+    <link>https://studiosvb.com/blog/pilates-reformer-apres-accouchement</link>
+    <guid isPermaLink="true">https://studiosvb.com/blog/pilates-reformer-apres-accouchement</guid>
+    <description><![CDATA[Reprendre le Pilates Reformer après accouchement : quand, comment, précautions. Rééducation périnée, diastase, allaitement. Guide post-partum complet.]]></description>
+    <category>Pilates</category>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
   <item>
     <title><![CDATA[Afrodance à Saint-Ouen : Danse & Cardio]]></title>
     <link>https://studiosvb.com/blog/afrodance-cours-danse</link>

@@ -9,11 +9,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <title>Studio SVB — Bouger juste, en petit comité · Saint-Ouen</title>
-  <meta name="description" content="Studio SVB à Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe. Petits groupes, 16 coachs, 146 avis 5 étoiles. Essai 30 € — déduits si inscription.">
+  <title>SVB — Studio de coaching sportif à Saint-Ouen</title>
+  <meta name="description" content="SVB, studio de coaching sportif à Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Yoga et Boxe en petit comité, avec des coachs qui te suivent.">
   <meta name="keywords" content="studio svb, salle de sport saint-ouen, pilates reformer paris nord, crossformer, cross training, yoga, boxe, coaching sportif 93">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="SVB Santez Vous Bien">
+  <meta name="author" content="SVB">
+  <meta name="application-name" content="SVB">
+  <meta name="apple-mobile-web-app-title" content="SVB">
   <link rel="canonical" href="https://studiosvb.com/">
   <link rel="alternate" hreflang="fr" href="https://studiosvb.com/" />
   <link rel="alternate" hreflang="en" href="https://studiosvb.com/en/" />
@@ -27,65 +29,111 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://studiosvb.com/">
-  <meta property="og:title" content="Studio SVB — Bouger juste, en petit comité · Saint-Ouen">
+  <meta property="og:title" content="SVB — Studio de coaching sportif à Saint-Ouen">
   <meta property="og:description" content="Un studio pour bouger juste, en petit comité. Pilates Reformer, Crossformer, Yoga, Boxe. 2 studios à Saint-Ouen, 16 coachs, 146 avis 5 étoiles.">
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
   <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="SVB Santez Vous Bien">
+  <meta property="og:site_name" content="SVB">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Studio SVB — Bouger juste, en petit comité · Saint-Ouen">
+  <meta name="twitter:title" content="SVB — Studio de coaching sportif à Saint-Ouen">
   <meta name="twitter:description" content="Un studio pour bouger juste, en petit comité. Pilates Reformer, Crossformer, Yoga, Boxe. Saint-Ouen · 146 avis 5 étoiles.">
 
   <meta name="twitter:image" content="https://studiosvb.com/images/og-image.jpg">
 
-  <meta name="theme-color" content="#4A8D84">
+  <meta name="theme-color" content="#252A28">
 
-  <link rel="icon" type="image/png" href="images/favicon.jpg" />
-  <link rel="apple-touch-icon" href="images/favicon.jpg" />
+  <link rel="icon" type="image/jpeg" href="/images/favicon.jpg" />
+  <link rel="apple-touch-icon" href="/images/favicon.jpg" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c" />
 
-  <link rel="stylesheet" href="/assets/index.css?v=20260426b" />
+  <link rel="stylesheet" href="/assets/index.css?v=20260719d" />
 
 
-  <!-- Schema.org LocalBusiness -->
+  <!-- Schema.org Organization and locations -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SportsActivityLocation",
-    "@id": "https://studiosvb.com/#organization",
-    "name": "SVB Santez Vous Bien",
-    "alternateName": "Studio SVB",
-    "description": "Studio de sport et coaching a Saint-Ouen-sur-Seine. Cross Training, Pilates Reformer, Crossformer, Yoga, Boxe. Small group training avec 16 coachs certifies.",
-    "url": "https://studiosvb.com",
-    "telephone": "+33744919155",
-    "email": "contact@studiosvb.fr",
-    "image": "https://studiosvb.com/images/og-image.jpg",
-    "logo": "https://studiosvb.com/images/logo.webp",
-    "priceRange": "€€",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "40 Cours des Lavandieres",
-      "addressLocality": "Saint-Ouen-sur-Seine",
-      "postalCode": "93400",
-      "addressRegion": "Ile-de-France",
-      "addressCountry": "FR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 48.9119,
-      "longitude": 2.3336
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "bestRating": "5",
-      "ratingCount": "146"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://studiosvb.com/#organization",
+        "name": "SVB",
+        "alternateName": ["Studio SVB", "Santez Vous Bien", "studiosvb.com"],
+        "description": "Deux studios de sport et de coaching à Saint-Ouen-sur-Seine, spécialisés dans l'accompagnement en petit groupe.",
+        "url": "https://studiosvb.com/",
+        "telephone": "+33744919155",
+        "email": "hello@studiosvb.fr",
+        "image": "https://studiosvb.com/images/og-image.jpg",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://studiosvb.com/images/logo.webp"
+        },
+        "sameAs": [
+          "https://www.instagram.com/studiosvb/",
+          "https://www.facebook.com/profile.php?id=61574972498498"
+        ],
+        "department": [
+          { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+          { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
+        ]
+      },
+      {
+        "@type": ["SportsActivityLocation", "LocalBusiness"],
+        "@id": "https://studiosvb.com/studio-parc-des-docks#location",
+        "name": "SVB - Parc des Docks",
+        "url": "https://studiosvb.com/studio-parc-des-docks",
+        "telephone": "+33744919155",
+        "email": "hello@studiosvb.fr",
+        "image": "https://studiosvb.com/images/studio-parc-des-docks.webp",
+        "priceRange": "€€",
+        "parentOrganization": { "@id": "https://studiosvb.com/#organization" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "6 Mail André Breton",
+          "addressLocality": "Saint-Ouen-sur-Seine",
+          "postalCode": "93400",
+          "addressRegion": "Île-de-France",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.9118,
+          "longitude": 2.3336
+        },
+        "knowsAbout": ["Coaching sportif", "Cross Training", "Boxe anglaise", "Afrodance", "Training Kids"]
+      },
+      {
+        "@type": ["SportsActivityLocation", "LocalBusiness"],
+        "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location",
+        "name": "SVB - Cours des Lavandières",
+        "url": "https://studiosvb.com/studio-cours-des-lavandieres",
+        "telephone": "+33744919155",
+        "email": "hello@studiosvb.fr",
+        "image": "https://studiosvb.com/images/studio-cours-des-lavandieres.webp",
+        "priceRange": "€€",
+        "parentOrganization": { "@id": "https://studiosvb.com/#organization" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "40 Cours des Lavandières",
+          "addressLocality": "Saint-Ouen-sur-Seine",
+          "postalCode": "93400",
+          "addressRegion": "Île-de-France",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.9108,
+          "longitude": 2.3345
+        },
+        "knowsAbout": ["Pilates Reformer", "Crossformer", "Pilates au sol", "Yoga Vinyasa"]
+      }
+    ]
   }
   </script>
 
@@ -94,7 +142,8 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "SVB Santez Vous Bien",
+      "name": "SVB",
+      "alternateName": ["Studio SVB", "Santez Vous Bien", "studiosvb.com"],
       "url": "https://studiosvb.com",
       "description": "Studio de sport et coaching a Saint-Ouen-sur-Seine. Cross Training, Pilates Reformer, Crossformer, Yoga, Boxe.",
       "publisher": { "@id": "https://studiosvb.com/#organization" },
@@ -121,10 +170,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Comment fonctionne le cours d'essai à 30€ ?",
+          "name": "Comment fonctionne la première séance à 30€ ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Réservez un cours dans la discipline de votre choix. Si vous vous abonnez dans les 7 jours qui suivent, les 30€ sont intégralement déduits de votre premier prélèvement."
+            "text": "Réservez une première séance pour choisir la bonne discipline et poser une fréquence réaliste. Si vous continuez dans les 7 jours qui suivent, les 30€ sont intégralement déduits de votre premier prélèvement."
           }
         },
         {
@@ -170,34 +219,24 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260428e" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260719b" />
 
   
   <script src="/assets/nav-dropdown.js?v=20260426a" defer></script>
   </head>
 
-<body class="content-visible overflow-hidden">
+<body class="content-visible">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu principal</a>
 
   <noscript>
     <iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B" height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 
-  <div id="splash-screen">
-    <img id="splash-logo" src="images/logo.webp" alt="Studio SVB — Pilates, Yoga et Fitness à Saint-Ouen" / width="60" fetchpriority="high" height="42">
-  </div>
-
-  <div class="ambient-bg">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-  </div>
-  <div class="noise-overlay"></div>
-
   <!-- === HERO VIDEO — TON CORPS N'ATTEND QUE TOI === -->
   <section id="hero-video">
 
     <!-- VIDÉO DE FOND (lazy, chargée après interaction/FCP) -->
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="none" poster="videos/hero-poster.jpg" aria-hidden="true">
+    <video id="hero-vid" class="hero-bg-video" autoplay muted loop playsinline preload="none" poster="videos/hero-poster.jpg" aria-hidden="true">
       <source src="videos/hero.mp4" type="video/mp4">
     </video>
     <script>
@@ -217,9 +256,9 @@
 
     <!-- NAV PAR-DESSUS LA VIDÉO -->
     <nav role="navigation" class="hero-nav flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
-      <div class="mb-3 md:mb-0 transform hover:scale-105 transition duration-300">
+      <div class="mb-3 md:mb-0">
         <a href="/">
-          <img src="images/logo.webp" alt="Studio SVB — Pilates Reformer, Cross Training et Yoga à Saint-Ouen" class="h-16 md:h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142">
+          <img src="images/logo.webp" alt="SVB — studio de coaching sportif à Saint-Ouen" class="h-16 md:h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142">
         </a>
       </div>
       <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='center';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}})()">
@@ -228,40 +267,33 @@
         </svg>
       </button>
       <div id="nav-menu" class="hidden md:flex flex-wrap justify-center items-center gap-3 md:gap-6 text-[10px] md:text-xs font-semibold tracking-normal drop-shadow-sm">
-        <a href="/" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Accueil</a>
-        <a href="/sessions" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Cours</a>
-        <a href="/studio" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Planning</a>
-        <a href="/tarifs" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Abonnements</a>
-        <a href="/equipe" class="hover:text-[#E8B496] transition hover:scale-105 inline-block" style="color:#E8B496;">La Team</a>
-        <a href="/ete-2026" class="hover:text-[#E8B496] transition hover:scale-105 inline-block" style="color:#E8B496;font-weight:800;">Promo</a>
-        <a href="/bien-etre" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Bien-Être</a>
-        <a href="/cadeau" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Cadeau</a>
-        <a href="/contact" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Contact</a>
-        <a href="/en/" aria-label="English version" class="transition inline-block" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.15);white-space:nowrap;"><span style="font-weight:900;color:#E8B496;">FR</span>&nbsp;|&nbsp;<span style="opacity:0.55;">EN</span></a>
+        <a href="/sessions" class="hover:text-[#E8B496] transition inline-block">Cours</a>
+        <a href="/tarifs" class="hover:text-[#E8B496] transition inline-block">Tarifs</a>
+        <a href="/studio" class="hover:text-[#E8B496] transition inline-block">Planning</a>
+        <a href="/contact" class="hover:text-[#E8B496] transition inline-block">Contact</a>
+        <a href="/en/" aria-label="English version" class="transition inline-block" style="text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:8px;background:rgba(255,255,255,0.15);white-space:nowrap;"><span style="font-weight:900;color:#E8B496;">FR</span>&nbsp;|&nbsp;<span style="opacity:0.55;">EN</span></a>
       </div>
     </nav>
 
     <!-- CONTENU CENTRÉ HERO -->
     <div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none;z-index:5;">
-      <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(3rem,14vw,7rem);color:white;margin:0 0 10px;line-height:1;text-shadow:0 4px 20px rgba(0,0,0,0.4);">Santez Vous Bien<span class="sr-only"> — Studio SVB Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Yoga et Boxe Anglaise. Petits groupes, 9 places max, 16 coachs diplômés, 146 avis 5 étoiles.</span></h1>
-      <p style="color:rgba(255,255,255,0.92);font-family:'Montserrat',sans-serif;font-size:clamp(15px,3.2vw,20px);font-weight:500;letter-spacing:.01em;margin:0 auto 34px;max-width:640px;text-shadow:0 2px 10px rgba(0,0,0,0.5);line-height:1.4;">Un studio pour bouger&nbsp;juste,<br>en petit comité.</p>
+      <h1 class="svb-hero-title" style="color:white;margin:0 0 10px;line-height:1;text-shadow:0 4px 20px rgba(0,0,0,0.4);"><span class="svb-hero-line">Santez Vous</span> <span class="svb-hero-line">Bien</span><span class="sr-only"> — Studio SVB Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Yoga et Boxe Anglaise. Petits groupes, 9 places max, 16 coachs diplômés, 146 avis 5 étoiles.</span></h1>
+      <p style="color:rgba(255,255,255,0.92);font-family:'Montserrat',sans-serif;font-size:clamp(15px,3.2vw,20px);font-weight:500;letter-spacing:.01em;margin:0 auto 34px;max-width:640px;text-shadow:0 2px 10px rgba(0,0,0,0.5);line-height:1.4;">Une vraie routine,<br>avec un coach qui te suit.</p>
       <div class="hero-cta-stack" style="display:flex;flex-direction:column;gap:12px;align-items:center;pointer-events:all;">
-        <a href="#offre-premium"
-           class="svb-magnetic"
-           style="background:white;color:#2F4F4F;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-decoration:none;padding:16px 36px;border-radius:50px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 30px rgba(0,0,0,0.35);transition:transform .2s,background .2s;"
-           onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-          Réserver mon essai · 30&nbsp;€
+        <a href="/reserver" class="svb-hero-primary-cta"
+           style="background:white;color:#2F4F4F;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-decoration:none;padding:16px 36px;border-radius:8px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 30px rgba(0,0,0,0.28);transition:background .2s;">
+          Faire le point avec un coach
         </a>
-        <a href="/studio"
-           style="color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:50px;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,0.55);background:rgba(255,255,255,0.08);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .25s, border-color .25s;"
+        <a href="/tarifs"
+           style="color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:8px;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,0.55);background:rgba(255,255,255,0.08);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .25s, border-color .25s;"
            onmouseover="this.style.background='rgba(255,255,255,0.18)';this.style.borderColor='rgba(255,255,255,0.9)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.55)'">
-          Découvrir le studio
+          Voir les tarifs
         </a>
       </div>
     </div>
 </section>
 <!-- === ANNULATION 1H — 2 téléphones (SVB | texte | Ailleurs) === -->
-  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" aria-label="Annulation 1 heure SVB vs Ailleurs">
+  <section hidden aria-hidden="true" class="relative py-20 md:py-28 reveal-load d-2 z-10" aria-label="Annulation 1 heure SVB vs Ailleurs">
     <style>
       .svb-cancel-anim-wrap{
         max-width:1300px;margin:0 auto;
@@ -486,7 +518,7 @@
 
   
   <!-- === BANDEAU PROMO ÉTÉ 2026 — 3 vidéos full-bleed avec halo Ambilight === -->
-  <section class="relative reveal-load d-2 z-10" aria-label="Programme Été 2026" style="overflow:hidden;">
+  <section hidden aria-hidden="true" class="relative reveal-load d-2 z-10" aria-label="Programme Été 2026" style="overflow:hidden;">
     <style>
       .ete-promo-section-wrap{
         position:relative;
@@ -578,17 +610,17 @@
       <!-- Halo Ambilight haut (vidéos floues qui débordent vers la section précédente) -->
       <div class="ete-promo-ambilight-top" aria-hidden="true">
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
+          <video muted loop playsinline preload="none">
             <source src="/videos/pilates-reformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
+          <video muted loop playsinline preload="none">
             <source src="/videos/crossformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
+          <video muted loop playsinline preload="none">
             <source src="/videos/cross-training-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
@@ -597,17 +629,17 @@
       <!-- Bandeau 3 vidéos -->
       <div class="ete-promo-grid">
         <a href="/pilates-reformer-saint-ouen" class="ete-promo-tile" aria-label="Pilates Reformer">
-          <video autoplay muted loop playsinline preload="none" poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true">
+          <video muted loop playsinline preload="none" poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true">
             <source src="/videos/pilates-reformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </a>
         <a href="/crossformer-saint-ouen" class="ete-promo-tile" aria-label="Crossformer">
-          <video autoplay muted loop playsinline preload="none" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true">
+          <video muted loop playsinline preload="none" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true">
             <source src="/videos/crossformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </a>
         <a href="/cross-training-saint-ouen" class="ete-promo-tile" aria-label="Cross Training">
-          <video autoplay muted loop playsinline preload="none" poster="/videos/cross-training-immersion-poster.jpg" aria-hidden="true">
+          <video muted loop playsinline preload="none" poster="/videos/cross-training-immersion-poster.jpg" aria-hidden="true">
             <source src="/videos/cross-training-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </a>
@@ -616,17 +648,17 @@
       <!-- Halo Ambilight bas (vidéos floues qui débordent vers la section suivante) -->
       <div class="ete-promo-ambilight-bottom" aria-hidden="true">
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
+          <video muted loop playsinline preload="none">
             <source src="/videos/pilates-reformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
+          <video muted loop playsinline preload="none">
             <source src="/videos/crossformer-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
         <div class="ete-promo-ambilight-tile">
-          <video autoplay muted loop playsinline preload="none">
+          <video muted loop playsinline preload="none">
             <source src="/videos/cross-training-immersion.mp4?v=20260428d" type="video/mp4">
           </video>
         </div>
@@ -636,10 +668,10 @@
   </section>
 
   
-  <!-- OFFRE ESSAI 30€ -->
+  <!-- PREMIÈRE SÉANCE 30€ -->
 
   <!-- === LA COMMUNAUTÉ SVB — PREUVE SOCIALE (remontée avant l'offre) === -->
-  <section id="main-content" class="relative py-20 reveal-load d-3 z-10">
+  <section id="main-content" class="home-reviews relative py-20 reveal-load d-3 z-10">
     <div class="text-center mb-10 px-4">
       <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">Ils ont dit oui, et voilà&nbsp;ce qui s'est passé.</h2>
       <div class="flex justify-center items-center space-x-1 text-[#D4AF37] mb-2 text-2xl">
@@ -655,28 +687,28 @@
   </button>
 
   <div id="reviews-slider" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth no-scrollbar px-4">
-    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-lg border border-white/50 shadow-lg snap-center flex flex-col justify-between">
       <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Un studio de sport au top, une super ambiance aux cours collectifs et des coaches attentives. Et des inscriptions ultra flexibles !"</p>
       <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Marie de Sarnez</p></div>
     </div>
-    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-lg border border-white/50 shadow-lg snap-center flex flex-col justify-between">
       <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Je suis cliente SVB depuis l'ouverture et c'est simple, j'adore cet endroit. Beaucoup de cours proposés, une ambiance toujours au top et douches hyper clean."</p>
       <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">A</div><p class="font-bold text-xs uppercase">Amandine DUPRE</p></div>
     </div>
-    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-lg border border-white/50 shadow-lg snap-center flex flex-col justify-between">
       <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super salle de sport, Shanael et son équipe sont au top ! les coachs sont vraiment super, à l'écoute et savent vous booster sans vous brusquer."</p>
       <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">J</div><p class="font-bold text-xs uppercase">Justine Beck</p></div>
     </div>
-    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-lg border border-white/50 shadow-lg snap-center flex flex-col justify-between">
       <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Après 2 grossesses et avant mon mariage, je devais me reprendre vite en main ! Shanaël m'a accompagnée 12 mois, les résultats ont été bluffants."</p>
       <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">G</div><p class="font-bold text-xs uppercase">Gaëlle HENRIOT</p></div>
     </div>
-    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-lg border border-white/50 shadow-lg snap-center flex flex-col justify-between">
       <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Ancien footeux, j'ai fait ma séance d'essai cross former et j'étais agréablement surpris de cette séance full body bien structurée."</p>
       <div class="flex items-center"><div class="w-8 h-8 bg-[#4A8D84] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">M</div><p class="font-bold text-xs uppercase">Mickael Sautron</p></div>
     </div>
-    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-lg snap-center flex flex-col justify-between">
-      <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super salle de sport/bien être. Les cours sont en petit groupe avec des profs au top et des séances toujours variées."</p>
+    <div class="min-w-[300px] md:min-w-[400px] bg-white/60 backdrop-blur-md p-8 rounded-lg border border-white/50 shadow-lg snap-center flex flex-col justify-between">
+      <p class="text-sm italic text-gray-700 mb-6 leading-relaxed">"Super studio de sport. Les cours sont en petit groupe avec des profs au top et des séances toujours variées."</p>
       <div class="flex items-center"><div class="w-8 h-8 bg-[#E8B496] rounded-full flex items-center justify-center text-white font-bold text-xs mr-3">B</div><p class="font-bold text-xs uppercase">Blandine Hirtz</p></div>
     </div>
   </div>
@@ -688,8 +720,7 @@
 </div>
 
 <div class="text-center mt-8">
-  <a href="https://www.google.fr/maps" target="_blank" rel="noopener noreferrer"
-     class="text-white text-xs font-bold uppercase tracking-widest border-b border-white pb-1 hover:text-[#2F4F4F] hover:border-[#2F4F4F] transition">
+  <a href="https://www.google.fr/maps" target="_blank" rel="noopener noreferrer" class="home-reviews-link text-xs font-bold uppercase tracking-widest border-b pb-1 transition">
     Lire tous nos avis sur Google
   </a>
 </div>
@@ -697,7 +728,7 @@
   </section>
 
   <!-- === TÉMOIGNAGES VIDÉO — clients qui racontent leur expérience === -->
-  <section class="relative py-16 reveal-load d-2 z-10">
+  <section hidden aria-hidden="true" class="relative py-16 reveal-load d-2 z-10">
     <div class="text-center mb-10 px-4">
       <h2 class="text-5xl md:text-6xl text-white font-hand drop-shadow-md">Écoute-les en parler.</h2>
     </div>
@@ -735,14 +766,14 @@
   </section>
 
   <!-- === APERÇU TARIFS — Teaser sobre, détails sur /tarifs === -->
-  <section class="relative py-14 reveal-load d-2 z-10">
+  <section class="home-pricing relative py-14 reveal-load d-2 z-10">
     <div class="max-w-3xl mx-auto px-4 text-center">
       <p class="text-[#4A8D84] font-black text-xs uppercase tracking-widest mb-4">Trouve ton rythme</p>
       <h2 class="text-4xl md:text-5xl text-white font-hand mb-4 drop-shadow-md">Choisis ta formule.</h2>
       <p class="text-[#2F4F4F] text-base md:text-lg font-medium max-w-xl mx-auto mb-8 leading-relaxed">
         Plusieurs abonnements selon la discipline et la fréquence. Prélèvement mensuel, pause vacances incluse — on choisit ensemble ce qui te convient.
       </p>
-      <a href="/tarifs" class="inline-block bg-[#2F4F4F] text-white font-black text-sm uppercase tracking-widest px-10 py-4 rounded-full hover:bg-[#4A8D84] transition hover:scale-105 shadow-lg svb-magnetic">
+      <a href="/tarifs" class="inline-block bg-[#2F4F4F] text-white font-black text-sm uppercase tracking-widest px-10 py-4 rounded-lg hover:bg-[#4A8D84] transition shadow-md">
         Voir les abonnements →
       </a>
     </div>
@@ -764,55 +795,44 @@
     </div>
   </section>
 
-  <div id="offre-premium" class="relative px-4 pb-16 reveal-load d-2 z-10" style="overflow: visible; max-width: 100vw;">
+  <div id="offre-premium" class="home-offer relative px-4 pb-16 reveal-load d-2 z-10" style="overflow: visible; max-width: 100vw;">
     <div class="premium-offer-wrapper" style="overflow: visible; max-width: 100%;">
       <div class="premium-offer-card" style="position:relative;overflow:hidden;">
 
         <!-- EYEBROW SOBRE -->
         <div style="text-align:center;margin:38px 0 4px;">
-          <p style="display:inline-block;font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#4A8D84;margin:0;">La séance d'essai</p>
+          <p class="home-offer-eyebrow" style="display:inline-block;font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#4A8D84;margin:0;">Le point de départ</p>
         </div>
 
 
         <div class="text-center">
 
-          <h2 class="text-4xl md:text-6xl font-hand text-[#4A8D84] mb-2" style="margin-top:10px;">Une séance. Une décision.</h2>
-          <p class="text-base text-gray-600 font-medium mb-6">Reformer ou Crossformer · 50 min · un coach qui t'explique ton corps.</p>
+          <h2 class="home-offer-heading text-4xl md:text-6xl font-hand text-[#4A8D84] mb-2" style="margin-top:10px;">Une séance pour construire la suite.</h2>
+          <p class="text-base text-gray-600 font-medium mb-6">50 min pour comprendre où tu en es, choisir la bonne discipline et poser un rythme réaliste.</p>
 
           <!-- PRIX -->
           <div style="margin:10px 0 25px;">
-            <div style="font-size:clamp(4rem,12vw,7rem);font-weight:900;color:#4A8D84;line-height:1;letter-spacing:-0.04em;animation:priceGlow 2.5s ease infinite;">30<span style="font-size:0.5em;vertical-align:super;">€</span></div>
-            <div style="font-size:1.1rem;font-weight:700;color:#999;margin-top:2px;">votre séance d'essai</div>
+            <div class="home-offer-price" style="font-size:clamp(4rem,12vw,7rem);font-weight:900;color:#4A8D84;line-height:1;letter-spacing:0;animation:priceGlow 2.5s ease infinite;">30<span style="font-size:0.5em;vertical-align:super;">€</span></div>
+            <div style="font-size:1.1rem;font-weight:700;color:#999;margin-top:2px;">votre point de départ</div>
           </div>
 
           <!-- REMBOURSEMENT — formulation unique, accent peach mesuré -->
-          <div style="background:#FBF6EC;color:#2F4F4F;border-radius:20px;padding:22px 35px;margin:25px auto;max-width:540px;border-left:4px solid #E8B496;box-shadow:0 4px 18px rgba(47,79,79,0.06);">
-            <div style="font-size:1.05rem;font-weight:700;line-height:1.5;letter-spacing:.005em;">Si tu t'abonnes dans les 7 jours,<br>les <strong style="color:#4A8D84;">30 € sont déduits</strong> de ton 1<sup>er</sup> prélèvement.</div>
+          <div style="background:#FBF6EC;color:#2F4F4F;border-radius:8px;padding:22px 35px;margin:25px auto;max-width:540px;border-left:4px solid #E8B496;box-shadow:0 4px 18px rgba(47,79,79,0.06);">
+            <div style="font-size:1.05rem;font-weight:700;line-height:1.5;letter-spacing:.005em;">Si tu décides de continuer dans les 7 jours,<br>les <strong style="color:#4A8D84;">30 € sont déduits</strong> de ton 1<sup>er</sup> prélèvement.</div>
           </div>
 
-          <!-- CTA — réservation directe Sportigo par discipline -->
-          <p style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#4A8D84;margin:30px 0 14px;">Choisis ta discipline</p>
-          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:10px;">
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/7f936d4d-2a6e-409f-a995-d7382d0abb90"
-               target="_blank" rel="noopener noreferrer"
-               class="cta-mega svb-magnetic inline-block" style="font-size:0.9rem;padding:16px 28px;">
-              Pilates Reformer · 30&nbsp;€
+          <p style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#4A8D84;margin:30px 0 14px;">Pour démarrer sérieusement</p>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:10px;">
+            <a href="/reserver"
+               class="cta-mega inline-block" style="font-size:0.9rem;padding:16px 30px;">
+              Faire le point · 30&nbsp;€
             </a>
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/21bb692b-3c96-400b-97c3-30a8be19ff74"
-               target="_blank" rel="noopener noreferrer"
-               class="cta-mega svb-magnetic inline-block" style="font-size:0.9rem;padding:16px 28px;">
-              Crossformer · 30&nbsp;€
-            </a>
-            <a href="https://svb.sportigo.fr/buy/offer-proposition/c5b44518-c66d-41c1-882f-2fc04507a10e"
-               target="_blank" rel="noopener noreferrer"
-               class="cta-mega svb-magnetic inline-block" style="font-size:0.9rem;padding:16px 28px;">
-              Cross / Yoga / Pilates · 30&nbsp;€
+            <a href="/tarifs"
+               class="inline-block" style="font-size:0.85rem;padding:15px 24px;border:2px solid #4A8D84;color:#4A8D84;border-radius:8px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;">
+              Voir les tarifs
             </a>
           </div>
-          <div style="font-size:0.78rem;color:#999;font-weight:600;margin-top:8px;">Pas de carte bleue à la réservation · Réponse sous 1 h, 7j/7</div>
-          <div style="margin-top:14px;">
-            <a href="/reserver" style="display:inline-block;font-size:.78rem;color:#4A8D84;text-decoration:underline;font-weight:700;">Tu hésites ? On te rappelle.</a>
-          </div>
+          <div style="font-size:0.78rem;color:#999;font-weight:600;margin-top:8px;">L'équipe te rappelle sous 1 h pour choisir une discipline et une fréquence que tu peux tenir.</div>
 
           <!-- SOCIAL PROOF -->
           <div style="margin-top:32px;padding-top:22px;border-top:1px solid #f0f0f0;">
@@ -821,16 +841,16 @@
           </div>
 
           <p class="text-xs text-gray-400 mt-6" style="font-weight:500;">
-            * Offre nouveaux membres · Sous réserve de disponibilité
+            * Première séance nouveaux membres · Sous réserve de disponibilité
           </p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- === BLOCS REDONDANTS SUPPRIMÉS (Pass Starter + 3 cards tarifs + Double CTA) ===
-       Focus unique = séance d'essai 30€ juste au-dessus. Les autres chemins de conversion
-       (Pass Starter, abonnement direct, cours à l'unité) sont accessibles via /tarifs.
+  <!-- === BLOCS REDONDANTS SUPPRIMÉS (tarifs détaillés + double CTA) ===
+       Focus unique = première séance 30€ juste au-dessus. Les autres chemins de conversion
+       (abonnement direct, cours à l'unité) sont accessibles via /tarifs.
        Retirés pour désencombrer la home et concentrer le visiteur sur UN appel à l'action. -->
 
 
@@ -848,7 +868,7 @@
       margin-right:10px;
     }
   </style>
-  <section class="relative py-16 reveal-load d-3 z-10 mini-faq">
+  <section id="faq-home" class="relative py-16 reveal-load d-3 z-10 mini-faq">
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-10">
         <h2 class="text-4xl md:text-5xl text-white font-hand mb-3 drop-shadow-md">«&nbsp;Mais, et si…&nbsp;?&nbsp;»</h2>
@@ -856,42 +876,42 @@
       </div>
       <div class="grid md:grid-cols-2 gap-4">
         <!-- Q1 — Engagement -->
-        <div class="bg-white/30 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-6">
+        <div class="bg-white/30 backdrop-blur-md rounded-lg border border-white/50 shadow-lg p-6">
           <div class="flex items-start mb-3">
             <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide"><span class="faq-num">01</span>Y a-t-il un engagement ?</h3>
           </div>
-          <p class="text-gray-700 text-sm leading-relaxed">Les abonnements Small Group sont sur <strong>6 mois</strong>, avec pause vacances incluse et préavis d'1 mois pour résilier. Pour découvrir SVB sans t'engager : la <strong>séance d'essai à 30&nbsp;€</strong> ou le <strong>Pass Starter</strong> — pack 5 sessions pour tester plusieurs disciplines.</p>
+          <p class="text-gray-700 text-sm leading-relaxed">Les abonnements Small Group sont sur <strong>6 mois</strong>, avec pause vacances incluse et préavis d'1 mois pour résilier. La première séance sert à vérifier que le studio, la discipline et la fréquence te conviennent avant de construire une vraie routine.</p>
         </div>
         <!-- Q2 — Annulation séance -->
-        <div class="bg-white/30 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-6">
+        <div class="bg-white/30 backdrop-blur-md rounded-lg border border-white/50 shadow-lg p-6">
           <div class="flex items-start mb-3">
             <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide"><span class="faq-num">02</span>Comment annuler une séance ?</h3>
           </div>
           <p class="text-gray-700 text-sm leading-relaxed">Jusqu'à <strong>1 h avant le cours</strong>, depuis <strong>l'appli SVB</strong>. Pas de pénalité, pas de crédit perdu. Les autres studios exigent 24 h — pas nous.</p>
         </div>
         <!-- Q3 — Pause vacances -->
-        <div class="bg-white/30 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-6">
+        <div class="bg-white/30 backdrop-blur-md rounded-lg border border-white/50 shadow-lg p-6">
           <div class="flex items-start mb-3">
             <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide"><span class="faq-num">03</span>Pause pendant les vacances ?</h3>
           </div>
           <p class="text-gray-700 text-sm leading-relaxed">Oui. Ton abonnement se met en pause quand tu pars (vacances, déplacement, blessure). Préavis d'<strong>1 mois</strong>, sauf pour les abonnés sous engagement.</p>
         </div>
         <!-- Q4 — Débutant -->
-        <div class="bg-white/30 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-6">
+        <div class="bg-white/30 backdrop-blur-md rounded-lg border border-white/50 shadow-lg p-6">
           <div class="flex items-start mb-3">
             <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide"><span class="faq-num">04</span>C'est pour moi, même en débutant ?</h3>
           </div>
-          <p class="text-gray-700 text-sm leading-relaxed">Oui. Tous les cours ont des options débutant. Les coachs adaptent les ressorts du Reformer et l'intensité du cardio à ton niveau. Pour démarrer en douceur, le <strong>Pass Starter</strong> (5 sessions, sans engagement) permet de tester plusieurs disciplines avant de choisir ton abonnement.</p>
+          <p class="text-gray-700 text-sm leading-relaxed">Oui. Tous les cours ont des options débutant. Les coachs adaptent les ressorts du Reformer et l'intensité du cardio à ton niveau, puis t'aident à choisir un rythme tenable dans la durée.</p>
         </div>
-        <!-- Q5 — Essai 30€ -->
-        <div class="bg-white/30 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-6">
+        <!-- Q5 — Première séance 30€ -->
+        <div class="bg-white/30 backdrop-blur-md rounded-lg border border-white/50 shadow-lg p-6">
           <div class="flex items-start mb-3">
-            <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide"><span class="faq-num">05</span>Comment fonctionne l'essai à 30&nbsp;€ ?</h3>
+            <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide"><span class="faq-num">05</span>Comment fonctionne la première séance à 30&nbsp;€ ?</h3>
           </div>
-          <p class="text-gray-700 text-sm leading-relaxed">Tu réserves ta séance dans l'un des 2 studios. Si tu t'abonnes dans les 7 jours, les <strong>30 € sont déduits</strong> de ton premier prélèvement. Aucune carte bleue à la réservation.</p>
+          <p class="text-gray-700 text-sm leading-relaxed">Tu réserves une première séance dans l'un des 2 studios. Si tu continues dans les 7 jours, les <strong>30 € sont déduits</strong> de ton premier prélèvement. Aucune carte bleue à la réservation.</p>
         </div>
         <!-- Q6 — Blessure / grossesse -->
-        <div class="bg-white/30 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-6">
+        <div class="bg-white/30 backdrop-blur-md rounded-lg border border-white/50 shadow-lg p-6">
           <div class="flex items-start mb-3">
             <h3 class="text-[#2F4F4F] font-black text-base uppercase tracking-wide"><span class="faq-num">06</span>Blessure ou grossesse : quoi faire ?</h3>
           </div>
@@ -900,8 +920,8 @@
       </div>
       <!-- CTA final de la FAQ — remonte au mega-CTA Sportigo -->
       <div class="text-center mt-10">
-        <a href="#offre-premium" class="inline-block bg-white text-[#4A8D84] px-10 py-4 rounded-full font-black text-sm hover:bg-[#F3EBD4] transition transform hover:scale-105 uppercase tracking-wide shadow-xl svb-magnetic">
-          Réserver mon essai · 30&nbsp;€
+        <a href="/reserver" class="inline-block bg-white text-[#4A8D84] px-10 py-4 rounded-lg font-black text-sm hover:bg-[#F3EBD4] transition uppercase tracking-wide shadow-md">
+          Faire le point avec un coach
         </a>
       </div>
       <p class="text-white/80 text-xs mt-4 font-medium text-center">Réponse sous 1 h, 7j/7 · <a href="/faq" class="underline hover:text-white">Voir toutes les questions</a></p>
@@ -915,14 +935,14 @@
 
   <!-- NOS 2 STUDIOS (simplifié — map + lien accès) -->
 
-  <section class="relative max-w-6xl mx-auto px-4 pb-24 reveal-load d-2 z-10">
+  <section id="studios-home" class="home-locations relative max-w-6xl mx-auto px-4 pb-24 reveal-load d-2 z-10">
     <div class="text-center mb-8">
       <h2 class="text-6xl text-white font-hand mb-4 drop-shadow-md">On se voit cette semaine&nbsp;?</h2>
-      <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
+      <p class="text-[#2F4F4F] font-bold uppercase tracking-widest text-sm bg-white/30 inline-block px-4 py-1 rounded-lg backdrop-blur-sm">
         2 studios à 200&nbsp;m · 4&nbsp;min à pied du métro Mairie de Saint-Ouen · Ouvert 7j/7
       </p>
     </div>
-    <div class="h-[350px] w-full relative rounded-3xl overflow-hidden shadow-lg border-4 border-white/40">
+    <div class="h-[350px] w-full relative rounded-lg overflow-hidden shadow-lg border-2 border-white/40">
       <iframe
         src="https://maps.google.com/maps?q=40+Cours+des+Lavandi%C3%A8res,+93400+Saint-Ouen-sur-Seine&hl=fr&z=16&output=embed"
         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
@@ -935,21 +955,7 @@
     </div>
   </section>
 
-  <!-- CTA STICKY -->
-
-  <div id="cta-sticky" class="cta-sticky">
-    <div class="cta-sticky-content">
-      <div class="cta-sticky-info">
-        <div class="cta-sticky-text">Essai à 30€ • 100% remboursé si inscription</div>
-        <div class="cta-sticky-price">ESSAI 30€</div>
-      </div>
-      <a href="https://calendly.com/Santez Vous Bien-svb/presentation-et-visite-guidee-du-studio" target="_blank" rel="noopener noreferrer" class="cta-sticky-btn svb-magnetic">
-        Réserver mon essai
-      </a>
-    </div>
-  </div>
-
-  <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20réserver%20un%20créneau%20pour%20l'essai%20Reformer%20à%2030€" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contacter Studio SVB sur WhatsApp">
+  <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20faire%20le%20point%20avec%20un%20coach%20pour%20choisir%20la%20bonne%20discipline" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contacter Studio SVB sur WhatsApp">
     <div class="whatsapp-pulse" aria-hidden="true"></div>
     <svg width="35" height="35" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
       <path d="M17.472 14.382C17.119 14.205 15.396 13.359 15.068 13.243C14.739 13.128 14.503 13.072 14.265 13.424C14.032 13.782 13.364 14.569 13.159 14.804C12.956 15.039 12.753 15.067 12.399 14.889C12.043 14.71 10.908 14.336 9.559 13.132C8.502 12.188 7.785 11.022 7.581 10.668C7.375 10.315 7.558 10.126 7.734 9.949C7.893 9.792 8.085 9.539 8.261 9.336C8.441 9.13 8.498 8.983 8.614 8.749C8.733 8.514 8.674 8.309 8.583 8.132C8.496 7.954 7.788 6.22 7.492 5.517C7.206 4.832 6.918 4.922 6.703 4.913C6.495 4.904 6.257 4.904 6.019 4.904C5.782 4.904 5.394 4.994 5.068 5.348C4.742 5.702 3.824 6.564 3.824 8.309C3.824 10.054 5.093 11.739 5.271 11.975C5.452 12.213 7.799 15.839 11.488 17.429C14.018 18.522 14.629 18.286 15.158 18.236C15.938 18.163 17.519 17.319 17.846 16.398C18.174 15.48 18.174 14.685 18.087 14.538C17.994 14.391 17.761 14.323 17.472 14.382ZM11.011 21.996C11.009 21.996 11.006 21.996 11.003 21.996C9.406 21.995 7.842 21.564 6.467 20.748L6.091 20.525L2.613 21.439L3.541 18.046L3.298 17.659C2.421 16.262 1.956 14.646 1.958 12.992C1.961 8.01 6.013 3.961 10.998 3.961C13.411 3.962 15.681 4.9 17.387 6.607C19.094 8.314 20.033 10.584 20.03 12.998C20.026 17.981 15.975 21.996 11.011 21.996Z"/>
@@ -1012,141 +1018,15 @@
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
   <script>
-    /* Splash hide : DOMContentLoaded (HTML prêt) au lieu de load (toutes resources chargées).
-       Avec ~25 MB de vidéos le load event mettait 5-10s : splash bloquait inutilement. */
-    (function hideSplash(){
-      function run() {
-        const splash = document.getElementById('splash-screen');
-        const logo = document.getElementById('splash-logo');
-        const body = document.body;
-        if (!splash) return;
-
-        if (sessionStorage.getItem('svb-splash-seen')) {
-          splash.style.display = 'none';
-          body.classList.remove('overflow-hidden');
-          body.classList.add('content-visible');
-        } else {
-          if (logo) logo.classList.add('animate-logo');
-          setTimeout(() => {
-            splash.classList.add('splash-hidden');
-            body.classList.remove('overflow-hidden');
-            body.classList.add('content-visible');
-            sessionStorage.setItem('svb-splash-seen', 'true');
-          }, 800);
-        }
-      }
-      // Filet de sécurité : si DOMContentLoaded ne fire pas, on hide le splash après 2s max
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', run);
-        setTimeout(run, 2000);
-      } else {
-        run();
-      }
-    })();
-
-    const ctaSticky = document.getElementById('cta-sticky');
-    const offreSection = document.getElementById('offre-premium');
-
-    window.addEventListener('scroll', () => {
-      if (offreSection) {
-        ctaSticky.classList.toggle('visible', offreSection.getBoundingClientRect().top < -200);
-      }
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
+        var target = document.querySelector(anchor.getAttribute('href'));
+        if (!target) return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
-
-  <script src="/assets/svb.js?v=20260423a" defer></script>
-  <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
-  <script src="/assets/svb-motion.js?v=20260424a" defer></script>
-
-    <!-- COUNTDOWN REMOVED -->
-      <!---->
-  <script>
-  // Countdown 32 jours depuis la mise en ligne (28 mars 2026)
-  (function(){
-    var endDate = new Date('2026-04-29T23:59:59');
-    var totalMs = 32*24*60*60*1000;
-    function pad(n){return String(n).padStart(2,'0');}
-    function tick(){
-      var now=new Date(), diff=endDate-now;
-      if(diff<=0){diff=0;}
-      var d=Math.floor(diff/(864e5)),h=Math.floor(diff%864e5/36e5),m=Math.floor(diff%36e5/6e4),s=Math.floor(diff%6e4/1e3);
-      var dd=document.getElementById('cd-days'),hh=document.getElementById('cd-hours'),mm=document.getElementById('cd-mins'),ss=document.getElementById('cd-secs');
-      if(dd){dd.textContent=pad(d);hh.textContent=pad(h);mm.textContent=pad(m);ss.textContent=pad(s);}
-      var el=totalMs-diff,pct=Math.min(el/totalMs*100,100);
-      var bar=document.getElementById('cd-progress-fill');if(bar)bar.style.width=pct+'%';
-      var txt=document.getElementById('cd-progress-text');
-      if(txt){if(d<=3)txt.textContent='Derniers jours !';else if(d<=10)txt.textContent='Plus que '+d+' jours...';}
-    }
-    tick();setInterval(tick,1000);
-  })();
-  </script>
-    -->
-
-    <!-- CONFETTI CONTAINER -->
-    <div id="confetti-container"></div>
-
-    <!-- FAKE VIEWER COUNTER AND SOCIAL PROOF NOTIFICATIONS REMOVED -->
-    <!--
-  <script>
-  // Live viewers counter
-  (function(){
-    var counts=[12,14,15,13,16,11,17,14,15,13,18,12,14,16,15];
-    var idx=0;
-    function upd(){var el=document.getElementById("viewer-count");if(el){el.textContent=counts[idx%counts.length];idx++;}}
-    setInterval(upd, 4000+Math.random()*3000);
-  })();
-
-  // Social proof notifications
-  (function(){
-    var names=[
-      {n:"Marie L.",a:"vient de réserver son essai Reformer",t:"il y a 2 min"},
-      {n:"Sophie D.",a:"a réservé une séance Crossformer",t:"il y a 5 min"},
-      {n:"Camille R.",a:"vient de s'inscrire après son essai !",t:"il y a 8 min"},
-      {n:"Julie M.",a:"a réservé son essai Reformer",t:"il y a 12 min"},
-      {n:"Laura B.",a:"vient de réserver son essai",t:"il y a 15 min"},
-      {n:"Emma P.",a:"s'est inscrite — essai remboursé !",t:"il y a 18 min"},
-      {n:"Sarah K.",a:"a réservé une séance Yoga",t:"il y a 22 min"},
-      {n:"Léa T.",a:"vient de réserver son essai Reformer",t:"il y a 25 min"}
-    ];
-    var initials=["ML","SD","CR","JM","LB","EP","SK","LT"];
-    var colors=["#4A8D84","#E8B496","#e74c3c","#9b59b6","#3498db","#f39c12","#1abc9c","#e67e22"];
-    var nIdx=0;
-    function showNotif(){
-      var c=document.getElementById("social-proof-notif");if(!c)return;
-      var p=names[nIdx%names.length],col=colors[nIdx%colors.length],ini=initials[nIdx%initials.length];
-      var t=document.createElement("div");t.className="notif-toast";
-      t.innerHTML='<div style="width:36px;height:36px;border-radius:50%;background:'+col+';color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:0.7rem;flex-shrink:0;">'+ini+'</div><div><div class="notif-name">'+p.n+'</div><div class="notif-action">'+p.a+'</div><div class="notif-time">'+p.t+'</div></div>';
-      c.innerHTML="";c.appendChild(t);
-      setTimeout(function(){if(c.contains(t))c.removeChild(t);},5500);
-      nIdx++;
-    }
-    setTimeout(showNotif,6000);setInterval(showNotif,12000);
-  })();
-  
-
-  // Confetti on CTA click
-  (function(){
-    var cta=document.querySelector(".cta-mega");if(!cta)return;
-    cta.addEventListener("click",function(){
-      var container=document.getElementById("confetti-container");if(!container)return;
-      var cols=["#4A8D84","#98D0B3","#E8B496","#e74c3c","#f1c40f","#3498db","#9b59b6","#ff6b6b","#2ecc71"];
-      for(var i=0;i<60;i++){
-        var cf=document.createElement("div"),sz=Math.random()*10+5,co=cols[Math.floor(Math.random()*cols.length)],lf=Math.random()*100,dl=Math.random()*0.5,dr=Math.random()*2+2,sh=Math.random()>0.5?"50%":(Math.random()>0.5?"0":"2px");
-        cf.style.cssText="position:fixed;top:-10px;left:"+lf+"%;width:"+sz+"px;height:"+sz+"px;background:"+co+";border-radius:"+sh+";animation:confettiFall "+dr+"s ease "+dl+"s forwards;z-index:99999;";
-        container.appendChild(cf);
-      }
-      setTimeout(function(){container.innerHTML="";},4000);
-    });
-  })();
-  </script>
-  <script src="/assets/video-unmute.js?v=20260428d" defer></script>
+  <script src="/assets/svb.js?v=20260719a" defer></script>
   </body>
 </html>

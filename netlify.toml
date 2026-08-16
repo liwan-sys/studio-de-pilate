@@ -4,7 +4,7 @@
 # ================================================================
 
 [build]
-  publish = "."
+  publish = "dist"
   command = "./build.sh"
   functions = "netlify/functions"
   edge_functions = "netlify/edge-functions"

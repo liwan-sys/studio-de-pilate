@@ -184,7 +184,7 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} — Blog Studio SVB</title>
+  <title>{title} | SVB</title>
   <meta name="description" content="{description_attr}" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="{author_attr}" />
@@ -196,12 +196,13 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
   <meta property="og:url" content="https://studiosvb.com/blog/{slug}" />
   <meta property="og:image" content="https://studiosvb.com{thumb_url}" />
   <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="SVB" />
   <meta property="article:published_time" content="{date}" />
   <meta property="article:author" content="{author_attr}" />
   <meta property="article:section" content="{category}" />
 
   <meta name="theme-color" content="#4A8D84" />
-  <link rel="icon" type="image/png" href="/images/favicon-32.png" />
+  <link rel="icon" type="image/jpeg" href="/images/favicon.jpg" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -237,7 +238,7 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
     "author": {{ "@type": "Organization", "name": {author_json} }},
     "publisher": {{
       "@type": "Organization",
-      "name": "SVB Santez Vous Bien",
+      "name": "SVB",
       "logo": {{ "@type": "ImageObject", "url": "https://studiosvb.com/images/logo.webp" }}
     }},
     "mainEntityOfPage": "https://studiosvb.com/blog/{slug}"
@@ -285,7 +286,7 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
   <nav class="nav" aria-label="Navigation principale">
-    <a href="/" class="nav-brand" aria-label="Accueil Studio SVB">SVB</a>
+    <a href="/" class="nav-brand" aria-label="Accueil SVB">SVB</a>
     <a href="/">Accueil</a>
     <a href="/tarifs">Tarifs</a>
     <a href="/equipe">Équipe</a>
@@ -315,7 +316,7 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
   </article>
 
   <footer>
-    <p>© <span id="year"></span> Studio SVB · Santez Vous Bien · Saint-Ouen-sur-Seine</p>
+    <p>© <span id="year"></span> SVB · Santez Vous Bien · Saint-Ouen-sur-Seine</p>
     <p style="margin-top:8px;opacity:.7"><a href="/mentions-legales">Mentions légales</a> · <a href="/cgv">CGV</a> · <a href="/contact">Contact</a></p>
   </footer>
 
@@ -459,9 +460,9 @@ def build_rss(articles: list[dict]) -> None:
     rss = f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Blog Studio SVB</title>
+  <title>Blog SVB</title>
   <link>https://studiosvb.com/blog/</link>
-  <description>Conseils sport et bien-être par l'équipe du Studio SVB à Saint-Ouen</description>
+  <description>Conseils sport et mouvement par l'équipe SVB à Saint-Ouen</description>
   <language>fr-FR</language>
   <lastBuildDate>{now}</lastBuildDate>
   <atom:link href="https://studiosvb.com/blog/rss.xml" rel="self" type="application/rss+xml" />

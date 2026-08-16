@@ -368,7 +368,7 @@
       b.setAttribute('aria-label','Bannière de consentement cookies');
       b.innerHTML = '\
         <div class="svb-consent-inner">\
-          <p><strong>Cookies &amp; mesure d\'audience.</strong> Nous utilisons Google Tag Manager pour comprendre comment le site est utilisé. Votre choix est respecté à tout moment.</p>\
+          <p><strong>Cookies.</strong> Mesure d\'audience pour améliorer le site. Votre choix est respecté.</p>\
           <div class="svb-consent-btns">\
             <button type="button" class="svb-consent-deny">Refuser</button>\
             <button type="button" class="svb-consent-allow">Accepter</button>\
