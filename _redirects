@@ -100,7 +100,6 @@
 /equipe.html                            /equipe 301!
 /faq.html                               /faq 301!
 /contact.html                           /contact 301!
-/cadeau.html                            /cadeau 301!
 /pourquoi-svb.html                      /pourquoi-svb 301!
 /essai.html                             /essai 301!
 /studio-parc-des-docks.html             /studio-parc-des-docks 301!
@@ -129,7 +128,6 @@
 /en/studio.html                         /en/studio 301!
 /en/tarifs.html                         /en/tarifs 301!
 /en/equipe.html                         /en/equipe 301!
-/en/cadeau.html                         /en/cadeau 301!
 /en/faq.html                            /en/faq 301!
 /en/contact.html                        /en/contact 301!
 
@@ -141,7 +139,6 @@
 /equipe                           /equipe.html 200
 /faq                              /faq.html 200
 /contact                          /contact.html 200
-/cadeau                           /cadeau.html 200
 /pourquoi-svb                     /pourquoi-svb.html 200
 /essai                            /essai.html 200
 /studio-parc-des-docks            /studio-parc-des-docks.html 200
@@ -169,7 +166,6 @@
 /en/studio                        /en/studio.html 200
 /en/tarifs                        /en/tarifs.html 200
 /en/equipe                        /en/equipe.html 200
-/en/cadeau                        /en/cadeau.html 200
 /en/faq                           /en/faq.html 200
 /en/contact                       /en/contact.html 200
 
