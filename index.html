@@ -325,503 +325,120 @@
     </div>
 </section>
 
-  <!-- === PASS STARTER — refonte editoriale, DA SVB (cream + peach + gold) === -->
-  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" style="background:linear-gradient(180deg,#FBF6EC 0%,#F5EFDF 55%,#FBF6EC 100%);overflow:hidden;">
-
-    <!-- Halos decoratifs pour donner de la vie sans etre bruite -->
-    <div aria-hidden="true" style="position:absolute;top:-120px;right:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(232,180,150,.35),transparent 65%);pointer-events:none;filter:blur(20px);"></div>
-    <div aria-hidden="true" style="position:absolute;bottom:-140px;left:-100px;width:380px;height:380px;background:radial-gradient(circle,rgba(152,208,179,.28),transparent 65%);pointer-events:none;filter:blur(20px);"></div>
-
+  <!-- === PASS STARTER — refonte DA brochure (flat blocs sage, zero glass) === -->
+  <section id="offres" class="reveal-load d-2" style="padding:80px 20px 96px;background:linear-gradient(150deg,#B8D4C0 0%,#D6E1CB 45%,#F0E4CE 100%);position:relative;overflow:hidden;">
     <style>
-      /* === Pass Starter — carte editoriale === */
-      @keyframes psFloat {
-        0%,100% { transform: translateY(0); }
-        50% { transform: translateY(-6px); }
-      }
-      @keyframes psShimmer {
-        0% { background-position: -240px 0; }
-        100% { background-position: 240px 0; }
-      }
-      @keyframes psSparkle {
-        0%,100% { opacity: 0; transform: scale(.6) rotate(0deg); }
-        45%,55% { opacity: 1; transform: scale(1.2) rotate(20deg); }
-      }
-      @keyframes psPulse {
-        0%,100% { transform: scale(1); }
-        50% { transform: scale(1.03); }
-      }
-      /* Prix qui tremble subtilement toutes les 6s (attention hook) */
-      @keyframes psPriceWiggle {
-        0%,88%,100% { transform: translate(0,0) rotate(0); }
-        90% { transform: translate(-2px,-1px) rotate(-1.5deg); }
-        91% { transform: translate(2px,1px) rotate(1.5deg); }
-        92% { transform: translate(-1.5px,1px) rotate(-1deg); }
-        93% { transform: translate(1.5px,-1px) rotate(1deg); }
-        94% { transform: translate(-1px,0) rotate(-.5deg); }
-        95% { transform: translate(1px,0) rotate(.5deg); }
-        96% { transform: translate(0,0) rotate(0); }
-      }
-      /* CTA qui respire constamment (breath) */
-      @keyframes psCtaBreath {
-        0%,100% {
-          transform: scale(1);
-          box-shadow:
-            0 4px 10px -4px rgba(47,79,79,.4),
-            0 14px 30px -10px rgba(47,79,79,.6),
-            0 0 0 0 rgba(74,141,132,.5),
-            inset 0 1px 0 rgba(255,255,255,.15);
-        }
-        50% {
-          transform: scale(1.015);
-          box-shadow:
-            0 4px 10px -4px rgba(47,79,79,.4),
-            0 14px 30px -10px rgba(47,79,79,.6),
-            0 0 0 10px rgba(74,141,132,0),
-            inset 0 1px 0 rgba(255,255,255,.15);
-        }
-      }
-      /* Halo autour de la carte qui pulse */
-      @keyframes psCardGlow {
-        0%,100% {
-          box-shadow:
-            inset 0 1px 0 rgba(255,255,255,.9),
-            0 40px 80px -30px rgba(47,79,79,.28),
-            0 2px 6px rgba(47,79,79,.08),
-            0 0 0 0 rgba(232,180,150,.28);
-        }
-        50% {
-          box-shadow:
-            inset 0 1px 0 rgba(255,255,255,.9),
-            0 40px 80px -30px rgba(47,79,79,.28),
-            0 2px 6px rgba(47,79,79,.08),
-            0 0 60px 6px rgba(232,180,150,.22);
-        }
-      }
-      /* Ribbon qui ondule doucement */
-      @keyframes psRibbonBob {
-        0%,100% { transform: translateY(0) rotate(-.5deg); }
-        50% { transform: translateY(-2px) rotate(.5deg); }
-      }
-      /* Badge urgence "En ce moment" qui clignote doux */
-      @keyframes psUrgencyBlink {
-        0%,100% { opacity: 1; }
-        50% { opacity: .55; }
-      }
-      /* Etoile qui rebondit */
-      @keyframes psStarBounce {
-        0%,100% { transform: scale(1); }
-        30% { transform: scale(1.3); }
-        60% { transform: scale(.95); }
-      }
-
-      /* Carte principale */
-      .ps-card{
-        position:relative;
-        max-width:480px;margin:0 auto;
-        background:
-          radial-gradient(circle at 100% 0%, rgba(232,180,150,.14), transparent 55%),
-          linear-gradient(180deg,#FFFFFF 0%,#FBF6EC 100%);
-        border-radius:32px;
-        padding:56px 34px 34px;
-        text-align:center;
-        box-shadow:
-          inset 0 1px 0 rgba(255,255,255,.9),
-          0 40px 80px -30px rgba(47,79,79,.28),
-          0 2px 6px rgba(47,79,79,.08);
-        border:1px solid rgba(232,180,150,.35);
-        overflow:hidden;
-      }
-      .ps-card::before{
-        content:"";position:absolute;inset:0;
-        background:
-          radial-gradient(circle at 0% 100%, rgba(245,199,109,.10), transparent 50%);
-        pointer-events:none;
-      }
-      @media (prefers-reduced-motion: no-preference){
-        .ps-card{
-          animation:
-            psFloat 6s ease-in-out infinite,
-            psCardGlow 4s ease-in-out infinite;
-        }
-      }
-
-      /* Sparkles decoratifs autour du prix */
-      .ps-sparkle{
-        position:absolute; color:#F5C76D;
-        pointer-events:none;
-      }
-      .ps-sparkle svg{ width:100%; height:100%; }
-      .ps-sparkle-1{ top:100px; right:28px; width:22px; height:22px; }
-      .ps-sparkle-2{ top:160px; left:22px; width:14px; height:14px; }
-      .ps-sparkle-3{ bottom:280px; right:40px; width:12px; height:12px; }
-      @media (prefers-reduced-motion: no-preference){
-        .ps-sparkle-1{ animation: psSparkle 4s ease-in-out 0s infinite; }
-        .ps-sparkle-2{ animation: psSparkle 4s ease-in-out 1.2s infinite; }
-        .ps-sparkle-3{ animation: psSparkle 4s ease-in-out 2.4s infinite; }
-      }
-
-      /* Ribbon "Le plus pris" — gold foil avec shimmer */
-      .ps-ribbon{
-        position:relative; z-index:2;
-        display:inline-flex;align-items:center;gap:7px;
-        background:linear-gradient(135deg,#F5C76D 0%,#E8B496 55%,#F5C76D 100%);
-        background-size:240px 100%;
-        color:#2F4F4F;
+      /* Fonts assumees deja chargees : Great Vibes + Montserrat */
+      .starter-brochure-wrap{
+        max-width:520px;margin:0 auto;text-align:center;
         font-family:'Montserrat',sans-serif;
-        font-size:.62rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
-        padding:9px 22px;border-radius:100px;
-        margin-bottom:22px;
-        box-shadow:0 6px 20px -6px rgba(245,199,109,.7);
-        border:1px solid rgba(255,255,255,.4);
       }
-      @media (prefers-reduced-motion: no-preference){
-        .ps-ribbon{
-          animation:
-            psShimmer 4s linear infinite,
-            psRibbonBob 3s ease-in-out infinite;
-        }
-      }
-      .ps-ribbon svg{width:12px;height:12px;color:#2F4F4F;}
-
-      /* Titre "New Pass Starter" en Dancing Script hero */
-      .ps-title{
-        position:relative; z-index:2;
-        font-family:'Dancing Script',cursive;
-        font-size:clamp(2.8rem,8vw,4rem);
-        font-weight:700;line-height:.95;color:#2F4F4F;
-        margin:0 0 8px;
-        text-shadow:0 2px 8px rgba(47,79,79,.05);
-      }
-      .ps-title-flourish{
-        display:block;width:60px;height:6px;margin:6px auto 26px;
-        background:linear-gradient(90deg,transparent,#E8B496 20%,#F5C76D 50%,#E8B496 80%,transparent);
-        border-radius:100px;
-        opacity:.9;
-      }
-
-      /* Prix mega */
-      .ps-price{
-        position:relative; z-index:2;
-        display:inline-flex;align-items:baseline;gap:2px;
-        margin:0 0 4px;
-      }
-      .ps-price-num{
-        display:inline-block;
-        transform-origin:center;
-        font-family:'Montserrat',sans-serif;
-        font-size:clamp(5.2rem,17vw,7rem);
-        font-weight:900;line-height:.88;color:#2F4F4F;
-        letter-spacing:-.05em;
-        text-shadow:0 2px 12px rgba(47,79,79,.08);
-      }
-      @media (prefers-reduced-motion: no-preference){
-        .ps-price-num{ animation: psPriceWiggle 6s ease-in-out infinite; }
-      }
-      .ps-price-cents{
-        font-family:'Montserrat',sans-serif;
-        font-size:clamp(1.6rem,4.5vw,2rem);
-        font-weight:800;color:#4A8D84;
-      }
-      .ps-price-cur{
-        font-family:'Montserrat',sans-serif;
-        font-size:clamp(1.8rem,5vw,2.4rem);
-        font-weight:700;color:#4A8D84;
-        margin-left:6px;
-      }
-      .ps-meta{
-        position:relative; z-index:2;
-        font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-        color:#2F4F4F;opacity:.6;margin:10px 0 18px;
-      }
-
-      /* Ancrage : pastille gold "19,98€/séance" */
-      .ps-anchor{
-        position:relative; z-index:2;
-        display:inline-flex;align-items:center;gap:10px;
-        background:linear-gradient(135deg,#FBF6EC 0%,#F5C76D 100%);
-        padding:10px 20px;border-radius:100px;
-        margin:0 0 34px;
-        border:1.5px solid rgba(245,199,109,.55);
-        box-shadow:0 8px 24px -12px rgba(245,199,109,.6);
-      }
-      .ps-anchor-strong{
-        font-family:'Montserrat',sans-serif;
-        font-size:.82rem;font-weight:800;color:#2F4F4F;
-      }
-      .ps-anchor-strike{
-        font-size:.72rem;font-weight:600;color:#8A6C42;
-        text-decoration:line-through;
-        text-decoration-thickness:1.5px;
-      }
-
-      /* Bloc verbatim client (nouveau — social proof) */
-      .ps-quote{
-        position:relative; z-index:2;
-        background:rgba(255,255,255,.55);
-        border-left:3px solid #E8B496;
-        border-radius:0 12px 12px 0;
-        padding:14px 18px;
-        margin:0 0 26px;
-        text-align:left;
-        font-size:.88rem;line-height:1.5;color:#2F4F4F;
-        font-style:italic;
-      }
-      .ps-quote::before{
-        content:"«"; position:absolute;
-        top:-14px; left:8px;
-        font-family:'Dancing Script',cursive;
-        font-size:3.4rem; color:#E8B496;
-        line-height:1; opacity:.5;
-      }
-      .ps-quote-author{
-        display:block;margin-top:8px;
-        font-size:.7rem;font-weight:700;color:#4A8D84;font-style:normal;
-        letter-spacing:.02em;
-      }
-
-      /* Benefits — icones colorees en alternance */
-      .ps-benefits{
-        position:relative; z-index:2;
-        list-style:none;padding:0;margin:0 0 26px;
-        text-align:left;
-      }
-      .ps-benefits li{
-        display:flex;align-items:flex-start;gap:14px;
-        padding:14px 0;
-        border-top:1px dashed rgba(47,79,79,.12);
-        font-size:.94rem;line-height:1.5;color:#2F4F4F;
-      }
-      .ps-benefits li:first-child{border-top:none;}
-      .ps-benefits .ic{
-        flex-shrink:0;
-        display:flex;align-items:center;justify-content:center;
-        width:28px;height:28px;border-radius:50%;
-        background:linear-gradient(135deg,#4A8D84,#2F4F4F);
-        color:#FBF6EC;
-        box-shadow:0 4px 10px -3px rgba(47,79,79,.35);
-      }
-      .ps-benefits li:nth-child(2) .ic{ background:linear-gradient(135deg,#E8B496,#D49C7D); box-shadow:0 4px 10px -3px rgba(232,180,150,.5); }
-      .ps-benefits li:nth-child(4) .ic{ background:linear-gradient(135deg,#F5C76D,#E8B496); box-shadow:0 4px 10px -3px rgba(245,199,109,.5); }
-      .ps-benefits .ic svg{width:13px;height:13px;}
-      .ps-benefits strong{color:#2F4F4F;font-weight:800;}
-
-      /* Stat 100% — plus dramatique */
-      .ps-stat{
-        position:relative; z-index:2;
-        padding:22px 0 8px;
+      .starter-brochure-eyebrow{
+        font-family:'Great Vibes','Dancing Script',cursive;
+        color:#FFFFFF;
+        font-size:clamp(2.4rem,6vw,3rem);
+        font-weight:400;
+        line-height:1;
         margin:0 0 28px;
-        border-top:1px solid rgba(47,79,79,.08);
+        text-shadow:0 1px 2px rgba(31,62,59,.15);
       }
-      .ps-stat-num{
-        font-family:'Dancing Script',cursive;
-        font-size:4.4rem;font-weight:700;
-        background:linear-gradient(135deg,#4A8D84,#2F4F4F);
-        -webkit-background-clip:text;background-clip:text;
-        color:transparent;
-        line-height:.9;letter-spacing:-.02em;
-        margin:0 0 4px;
-      }
-      .ps-stat-num span{
-        font-family:'Montserrat',sans-serif;
-        font-size:2rem;color:#E8B496;
-        -webkit-text-fill-color:#E8B496;
-        margin-left:2px;font-weight:800;
-      }
-      .ps-stat-label{
-        font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-        color:#2F4F4F;opacity:.7;line-height:1.5;margin:0;
-      }
-
-      /* CTA principal — gradient teal + glow + shimmer au hover */
-      .ps-cta{
-        position:relative; z-index:2;
-        display:flex;align-items:center;justify-content:center;gap:12px;
-        width:100%;
-        background:linear-gradient(135deg,#4A8D84 0%,#2F4F4F 100%);
-        color:#FBF6EC;
-        font-family:'Montserrat',sans-serif;
-        font-size:.85rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
-        padding:20px 26px;border-radius:100px;text-decoration:none;
-        box-shadow:
-          0 4px 10px -4px rgba(47,79,79,.4),
-          0 14px 30px -10px rgba(47,79,79,.6),
-          inset 0 1px 0 rgba(255,255,255,.15);
-        transition:transform .25s,box-shadow .25s,filter .25s;
+      .starter-brochure-card{
+        background:transparent;
+        border-radius:6px;
         overflow:hidden;
+        box-shadow:none;
       }
-      .ps-cta::after{
-        content:"";position:absolute;inset:0;
-        background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);
-        transform:translateX(-100%);
-        transition:transform .6s ease;
+      .starter-brochure-card__top{
+        background:#7FB59A;
+        color:#FFFFFF;
+        padding:20px 24px;
+        font-weight:700;
+        font-size:1.05rem;
+        letter-spacing:.06em;
+        text-transform:uppercase;
+        line-height:1.3;
       }
-      .ps-cta:hover{
-        transform:translateY(-2px) scale(1);
-        box-shadow:
-          0 6px 14px -4px rgba(47,79,79,.45),
-          0 20px 36px -10px rgba(47,79,79,.65),
-          inset 0 1px 0 rgba(255,255,255,.2);
-        filter:brightness(1.05);
+      .starter-brochure-card__top .new{
+        font-weight:900;letter-spacing:.08em;
       }
-      @media (prefers-reduced-motion: no-preference){
-        .ps-cta{ animation: psCtaBreath 2.6s ease-in-out infinite; }
-        .ps-cta:hover{ animation: none; }
+      .starter-brochure-card__body{
+        background:#B8D4C0;
+        color:#FFFFFF;
+        padding:30px 24px 34px;
+        display:flex;flex-direction:column;gap:14px;
+        align-items:center;
       }
-      .ps-cta:hover::after{ transform:translateX(100%); }
-      .ps-cta-arrow{
-        display:inline-flex;align-items:center;justify-content:center;
-        transition:transform .25s;
+      .starter-brochure-card__body ul{
+        list-style:none;padding:0;margin:0;
+        display:flex;flex-direction:column;gap:12px;
+        font-size:.82rem;
+        font-weight:600;
+        letter-spacing:.08em;
+        text-transform:uppercase;
+        line-height:1.4;
       }
-      .ps-cta:hover .ps-cta-arrow{transform:translateX(6px);}
-
-      /* Trust row + rating stars */
-      .ps-trust{
-        position:relative; z-index:2;
-        display:flex;flex-direction:column;align-items:center;gap:6px;
-        margin-top:16px;
+      .starter-brochure-card__body li::before{
+        content:"• ";margin-right:6px;
       }
-      .ps-trust-rating{
-        display:flex;align-items:center;gap:5px;
-        font-size:.78rem;font-weight:700;color:#2F4F4F;
-      }
-      .ps-trust-rating .stars{
-        color:#F5C76D; font-size:.9rem; letter-spacing:1px;
-        display:inline-flex; gap:1px;
-      }
-      .ps-trust-rating .stars span{ display:inline-block; }
-      @media (prefers-reduced-motion: no-preference){
-        .ps-trust-rating .stars span:nth-child(1){ animation: psStarBounce 3s ease-in-out .0s infinite; }
-        .ps-trust-rating .stars span:nth-child(2){ animation: psStarBounce 3s ease-in-out .1s infinite; }
-        .ps-trust-rating .stars span:nth-child(3){ animation: psStarBounce 3s ease-in-out .2s infinite; }
-        .ps-trust-rating .stars span:nth-child(4){ animation: psStarBounce 3s ease-in-out .3s infinite; }
-        .ps-trust-rating .stars span:nth-child(5){ animation: psStarBounce 3s ease-in-out .4s infinite; }
-      }
-
-      /* Badge "En ce moment" — urgence live */
-      .ps-urgency{
-        position:absolute;
-        top:16px; left:16px;
-        display:inline-flex;align-items:center;gap:6px;
-        background:rgba(217,122,90,.14);
-        color:#C25A38;
+      .starter-brochure-card__cta{
+        display:block;
+        margin-top:22px;width:100%;
+        background:#1F3E3B;
+        color:#FFFFFF;
+        padding:18px 20px;
         font-family:'Montserrat',sans-serif;
-        font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-        padding:5px 10px;border-radius:100px;
-        border:1px solid rgba(217,122,90,.28);
-        z-index:3;
+        font-size:.82rem;
+        font-weight:800;
+        letter-spacing:.14em;
+        text-transform:uppercase;
+        text-decoration:none;
+        border-radius:4px;
+        transition:background .2s ease;
       }
-      .ps-urgency-dot{
-        display:inline-block;width:7px;height:7px;border-radius:50%;
-        background:#C25A38;
-        box-shadow:0 0 0 0 rgba(194,90,56,.7);
+      .starter-brochure-card__cta:hover{
+        background:#0F2E2B;
       }
-      @media (prefers-reduced-motion: no-preference){
-        .ps-urgency-dot{ animation: psUrgencyBlink 1.4s ease-in-out infinite; }
+      .starter-brochure-anchor{
+        display:block;
+        margin-top:18px;
+        color:#1F3E3B;
+        font-size:.72rem;
+        font-weight:700;
+        letter-spacing:.12em;
+        text-transform:uppercase;
+        opacity:.75;
       }
-      .ps-trust-meta{
-        font-size:.72rem;font-weight:600;color:#2F4F4F;opacity:.6;
-        display:inline-flex;align-items:center;gap:6px;
-      }
-      .ps-trust-meta svg{width:12px;height:12px;color:#4A8D84;opacity:.85;}
     </style>
 
-    <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-9">
-        <span class="inline-block bg-[#E8B496] text-[#2F4F4F] text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">Pour commencer sans s'engager</span>
-        <h2 class="text-5xl md:text-7xl text-[#2F4F4F] font-hand mb-3 leading-none">Pass Starter</h2>
-        <p class="text-[#2F4F4F] text-base md:text-lg max-w-2xl mx-auto opacity-80 leading-relaxed">
-          <strong>5 sessions pour tester 5 disciplines différentes.</strong><br/>Valable 1 mois. Sans engagement, sans tacite reconduction.
-        </p>
-      </div>
+    <div class="starter-brochure-wrap">
+      <h2 class="starter-brochure-eyebrow">Notre offre découverte</h2>
 
-      <div class="ps-card">
-        <!-- Badge urgence live (clignotement doux du dot) -->
-        <span class="ps-urgency" aria-label="Offre en cours">
-          <span class="ps-urgency-dot" aria-hidden="true"></span>
-          En ce moment
-        </span>
-
-        <!-- Sparkles decoratifs (ambiance premium sans surcharger) -->
-        <span class="ps-sparkle ps-sparkle-1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
-        <span class="ps-sparkle ps-sparkle-2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
-        <span class="ps-sparkle ps-sparkle-3" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
-
-        <div class="ps-ribbon">
-          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.09 4.26L14.8 6l-3.4 3.32.8 4.68L8 11.77 3.8 14l.8-4.68L1.2 6l4.71-.74L8 1z"/></svg>
-          Le plus pris par les nouveaux
+      <div class="starter-brochure-card">
+        <div class="starter-brochure-card__top">
+          <span class="new">NEW</span> PASS STARTER — 99,90&nbsp;€
         </div>
-
-        <h3 class="ps-title">New Pass Starter</h3>
-        <span class="ps-title-flourish" aria-hidden="true"></span>
-
-        <div class="ps-price">
-          <span class="ps-price-num">99</span>
-          <span class="ps-price-cents">,90</span>
-          <span class="ps-price-cur">€</span>
-        </div>
-        <p class="ps-meta">5 sessions · Valable 1 mois · Sans engagement</p>
-
-        <!-- ANCRAGE PRIX : seulement 19,98 EUR la seance vs 50 EUR hors abo -->
-        <div class="ps-anchor">
-          <span class="ps-anchor-strong">Soit 19,98&nbsp;€ la séance</span>
-          <span class="ps-anchor-strike">vs 50 € hors abo</span>
-        </div>
-
-        <!-- Verbatim client — social proof integree -->
-        <blockquote class="ps-quote">
-          Testé pour tester… puis abonnée au bout de 3 séances. Le petit groupe change vraiment tout.
-          <span class="ps-quote-author">— Marie L. · abonnée depuis 2024</span>
-        </blockquote>
-
-        <ul class="ps-benefits">
-          <li>
-            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>5 sessions</strong> à utiliser comme tu veux sur 1 mois</span>
-          </li>
-          <li>
-            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Toutes les disciplines</strong> : Reformer, Crossformer, Cross, Yoga, Boxe, Pilates sol</span>
-          </li>
-          <li>
-            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Une équipe de coachs certifiés</strong> dans chaque discipline</span>
-          </li>
-          <li>
-            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Réservation 24h/24</strong> dans l'appli SVB, annulation flexible 1h avant</span>
-          </li>
-          <li>
-            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Zéro engagement</strong> · pas de CB stockée · pas de reconduction</span>
-          </li>
-        </ul>
-
-        <div class="ps-stat">
-          <p class="ps-stat-num">100<span>%</span></p>
-          <p class="ps-stat-label">se sont inscrit·es à un abonnement<br/>après avoir pris le Pass Starter</p>
-        </div>
-
-        <a href="/essai" data-discipline="pass_starter" data-label="Pass Starter" data-amount="99,90 €" rel="noopener noreferrer"
-           class="js-buy ps-cta svb-magnetic">
-          <span>Je prends mon Pass · 99,90&nbsp;€</span>
-          <span class="ps-cta-arrow">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
-          </span>
-        </a>
-
-        <div class="ps-trust">
-          <div class="ps-trust-rating">
-            <span class="stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
-            <span><strong>5,0/5</strong> · 146 avis Google</span>
-          </div>
-          <div class="ps-trust-meta">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1l5 2v5c0 3.5-2.2 6.4-5 7-2.8-.6-5-3.5-5-7V3l5-2z"/><polyline points="6 8 7.5 9.5 10.5 6.5"/></svg>
-            Confirmation immédiate · Pas de CB stockée
-          </div>
+        <div class="starter-brochure-card__body">
+          <ul>
+            <li>5 sessions différentes au choix</li>
+            <li>Sans engagement</li>
+            <li>Pas de tacite reconduction</li>
+            <li>Valable 1 mois</li>
+          </ul>
+          <a href="/essai"
+             data-discipline="pass_starter"
+             data-label="Pass Starter"
+             data-amount="99,90 &euro;"
+             data-track="home_starter_brochure_cta"
+             class="js-buy starter-brochure-card__cta">
+            Je prends mon pass
+          </a>
         </div>
       </div>
+
+      <p class="starter-brochure-anchor">5,0 &sdot; 146 avis Google &nbsp;•&nbsp; 2 studios à Saint-Ouen</p>
     </div>
   </section>
+
 
   <!-- === BANDEAU PROMO ÉTÉ 2026 — 3 vidéos full-bleed avec halo Ambilight === -->
   <section class="relative reveal-load d-2 z-10" aria-label="Programme Été 2026" style="overflow:hidden;">
