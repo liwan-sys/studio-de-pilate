@@ -60,12 +60,13 @@
         }
     };
 
-    // URLs des seances d'essai par discipline (toutes vers /essai = tunnel Mollie + tracking GA4/Meta)
-    // Le param ?d= permet a essai.html de pre-selectionner la discipline si voulu plus tard.
-    var TRIAL_URL = {
-        reformer:    "/essai?d=reformer",
-        crossformer: "/essai?d=crossformer",
-        other:       "/essai?d=cross_yoga_pilates"
+    // Discipline slug pour data-discipline sur le CTA .js-buy (ouvre le modal
+    // web-customer.studiosvb.com au lieu de naviguer). Le tunnel externe Mollie
+    // n'existe plus, on ouvre directement l'appli de reservation embarquee.
+    var TRIAL_DISCIPLINE = {
+        reformer:    "reformer",
+        crossformer: "crossformer",
+        other:       "cross_yoga_pilates"
     };
 
     // Discipline → passes pertinents (ordre = priorité d'affichage)
@@ -212,7 +213,7 @@
                     '<div class="svb-sim-details" data-details></div>' +
                 '</div>' +
                 '<div class="svb-sim-includes-wrap" data-includes></div>' +
-                '<a class="svb-sim-cta" data-cta href="' + (TRIAL_URL[cfg.trial] || TRIAL_URL.other) + '" target="_blank" rel="noopener noreferrer">' +
+                '<a class="svb-sim-cta js-buy" data-cta href="#" data-discipline="' + (TRIAL_DISCIPLINE[cfg.trial] || TRIAL_DISCIPLINE.other) + '" data-label="Essai ' + cfg.label + '" data-amount="30 €">' +
                     'Faire une séance d\'essai →' +
                 '</a>' +
                 '<p class="svb-sim-foot">Essai à 30 € · 15 € remboursés si inscription · Pas d\'engagement annuel obligatoire · Résiliation flexible</p>' +
@@ -239,7 +240,7 @@
                 'Durée de chaque séance : ' + pass.duration;
             $week.textContent = rhythmText(state.sessions);
             $includes.innerHTML = buildIncludesHtml(pass, cfg.highlight);
-            // Le CTA est fixe : lien Sportigo vers la séance d'essai. On ne change pas l'href selon le pass.
+            // Le CTA est fixe : ouvre le modal de reservation. On ne change pas la cible selon le pass.
         }
 
         Array.prototype.forEach.call(el.querySelectorAll('.svb-sim-pass-btn'), function (btn) {
