@@ -234,12 +234,21 @@
     });
   }
 
-  // 5) Lazy-load des vidéos hero (gagne ~1 MB sur le LCP mobile)
-  //    Active preload=metadata + attache la <source> réelle quand la vidéo entre dans le viewport
-  function initLazyVideos(){
-    var videos = document.querySelectorAll('video[data-svb-lazy-video]');
-    if (!videos.length) return;
-    var loadVideo = function(v){
+  // 5) Chargement + autoplay AGRESSIF de toutes les videos au load de la page.
+  //    Fini le lazy IntersectionObserver : l'utilisateur veut voir toutes
+  //    les videos tourner immediatement, pas de bouton play sur le poster.
+  function initAllVideos(){
+    var videos = document.querySelectorAll('video[data-svb-lazy-video], video[data-src], video source[data-src]');
+    // On selectionne les <video> parentes (au cas ou selecteur matche des <source>)
+    var vidSet = new Set();
+    document.querySelectorAll('video[data-svb-lazy-video]').forEach(function(v){ vidSet.add(v); });
+    document.querySelectorAll('video source[data-src]').forEach(function(s){
+      if (s.parentElement && s.parentElement.tagName === 'VIDEO') vidSet.add(s.parentElement);
+    });
+    if (!vidSet.size) return;
+
+    var loadAndPlay = function(v){
+      // Charger la vraie src si en data-src
       if (v.dataset.src) {
         v.src = v.dataset.src;
         v.removeAttribute('data-src');
@@ -248,28 +257,31 @@
         src.src = src.dataset.src;
         src.removeAttribute('data-src');
       });
+      // Preload auto (au lieu de "none") pour telecharger tout de suite
       v.setAttribute('preload','auto');
+      v.muted = true;      // muted requis pour autoplay policy
+      v.playsInline = true;
       v.load();
-      try { v.play(); } catch(e) {/* autoplay bloqué, pas grave */}
+      var tryPlay = function(){
+        var p = v.play();
+        if (p && typeof p.catch === 'function') p.catch(function(){ /* retente sur interaction */ });
+      };
+      tryPlay();
+      // Re-tenter des que la video est jouable
+      v.addEventListener('canplay', tryPlay, { once: true });
+      v.addEventListener('loadeddata', tryPlay, { once: true });
       v.removeAttribute('data-svb-lazy-video');
     };
-    if ('IntersectionObserver' in window) {
-      var vio = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting) {
-            loadVideo(e.target);
-            vio.unobserve(e.target);
-          }
-        });
-      }, { rootMargin: '200px' });
-      videos.forEach(function(v){ vio.observe(v); });
-    } else {
-      videos.forEach(loadVideo);
-    }
+
+    vidSet.forEach(loadAndPlay);
   }
-  // Attendre le load pour ne pas bloquer FCP/LCP
-  if (document.readyState === 'complete') initLazyVideos();
-  else window.addEventListener('load', initLazyVideos);
+  // Tenter le plus tot possible (DOMContentLoaded) puis re-tenter au load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAllVideos);
+  } else {
+    initAllVideos();
+  }
+  window.addEventListener('load', initAllVideos);
 
   // 5bis) Autoplay safety-net — certains navigateurs (mobile, Low Power Mode,
   //       autoplay policy stricte) bloquent play() au chargement initial.
