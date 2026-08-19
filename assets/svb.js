@@ -191,18 +191,26 @@
 
       var isEssai = path === '/essai' || path === '/essai.html';
       var cta = document.createElement('a');
-      cta.className = 'svb-mobile-sticky-cta';
+      // .js-buy -> ouverture directe de la modale iframe (page Packs).
+      // Sur /essai on garde le scroll interne vers les offres du produit.
+      cta.className = 'svb-mobile-sticky-cta' + (isEssai ? '' : ' js-buy');
       cta.href = isEssai ? '#essai-offres' : '/essai';
+      if (!isEssai) {
+        cta.dataset.discipline = 'reformer';
+        cta.dataset.label = "Séance d'essai Pilates Reformer";
+        cta.dataset.amount = '30 €';
+      }
       cta.setAttribute('data-track', 'mobile_sticky_cta');
       cta.setAttribute('aria-label', isEssai ? "Choisir une séance d'essai" : "Réserver une séance d'essai à 30 euros");
       cta.innerHTML = '\
         <span class="svb-mobile-sticky-cta__text">\
           <span class="svb-mobile-sticky-cta__label">' + (isEssai ? "Choisir mon essai" : "Réserver mon essai") + '</span>\
-          <span class="svb-mobile-sticky-cta__sub">' + (isEssai ? "Paiement sécurisé · confirmation immédiate" : "Studio Reformer Saint-Ouen") + '</span>\
+          <span class="svb-mobile-sticky-cta__sub">' + (isEssai ? "Paiement sécurisé · confirmation immédiate" : "Réservation immédiate · sans engagement") + '</span>\
         </span>\
         <span class="svb-mobile-sticky-cta__pill">30 €</span>';
       document.body.appendChild(cta);
 
+      // Ancre interne : scroll smooth. Sinon svb-booking.js prend la main via .js-buy.
       cta.addEventListener('click', function(e){
         if (cta.getAttribute('href').charAt(0) !== '#') return;
         var target = document.querySelector(cta.getAttribute('href'));
