@@ -445,12 +445,9 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
 /* Brand column */
 .svb-footer-brand .svb-footer-logo{
   height:56px;width:auto;margin:0 0 18px;
-  /* Stacked drop-shadows thicken the thin white outlines into a solid cream mark */
-  filter:
-    drop-shadow(0 0 .6px #FBF6EC) drop-shadow(0 0 .6px #FBF6EC)
-    drop-shadow(0 0 .6px #FBF6EC) drop-shadow(0 0 .6px #FBF6EC)
-    drop-shadow(0 0 .6px #FBF6EC) drop-shadow(0 0 .6px #FBF6EC)
-    drop-shadow(0 2px 8px rgba(0,0,0,.35));
+  /* Force le logo en blanc pur sur fond teal, ombre douce.
+     Retire l'effet "cadre gris" causé par les drop-shadow empiles precedents. */
+  filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0,0,0,.25));
 }
 .svb-footer-sig{
   font-family:'Dancing Script',cursive;font-weight:600;
@@ -509,12 +506,22 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
 }
 .svb-footer-adresses p{margin:0}
 .svb-footer-adresses p + p{margin-top:2px}
-.svb-footer-legal{text-align:right;display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
-.svb-footer-legal a{color:#F2E6CF;text-decoration:none;transition:color .2s}
+/* Layout inline pour que les liens se wrap proprement sans laisser Avis seul */
+.svb-footer-legal{text-align:right;display:block;line-height:1.9}
+.svb-footer-legal a{
+  color:#F2E6CF;text-decoration:none;transition:color .2s;
+  white-space:nowrap;display:inline-block;
+}
+.svb-footer-legal a + a{margin-left:14px;position:relative;}
+.svb-footer-legal a + a::before{
+  content:"·";position:absolute;left:-10px;opacity:.4;color:#F2E6CF;
+}
 .svb-footer-legal a:hover{color:#E8B496}
-.svb-footer-legal span{opacity:.4}
+/* On retire les <span>·</span> du HTML mais on ajoute une regle pour ne pas casser
+   si un ancien HTML en garde encore : les span deviennent invisibles */
+.svb-footer-legal span{display:none}
 @media (max-width:720px){
-  .svb-footer-legal{justify-content:flex-start}
+  .svb-footer-legal{text-align:left}
 }
 
 /* Signoff — Great Vibes signature */
