@@ -306,8 +306,12 @@
       <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(3rem,14vw,7rem);color:white;margin:0 0 10px;line-height:1;text-shadow:0 4px 20px rgba(0,0,0,0.4);">SVB<span class="sr-only"> — Santez Vous Bien, studio de coaching sportif à Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Yoga et Boxe anglaise en petits groupes.</span></h1>
       <p style="color:rgba(255,255,255,0.92);font-family:'Montserrat',sans-serif;font-size:clamp(15px,3.2vw,20px);font-weight:500;letter-spacing:.01em;margin:0 auto 34px;max-width:640px;text-shadow:0 2px 10px rgba(0,0,0,0.5);line-height:1.4;"><strong>Santez Vous Bien.</strong><br>Un studio pour bouger&nbsp;juste, en petit comité.</p>
       <div class="hero-cta-stack" style="display:flex;flex-direction:column;gap:12px;align-items:center;pointer-events:all;">
-        <a href="#offre-premium"
-           class="svb-magnetic"
+        <a href="/essai"
+           class="js-buy svb-magnetic"
+           data-discipline="reformer"
+           data-label="Séance d'essai Pilates Reformer"
+           data-amount="30 €"
+           data-track="home_hero_primary_cta"
            style="background:white;color:#2F4F4F;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-decoration:none;padding:16px 36px;border-radius:50px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 30px rgba(0,0,0,0.35);transition:transform .2s,background .2s;"
            onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
           Réserver mon essai · 30&nbsp;€
@@ -960,9 +964,9 @@
           <p class="text-gray-700 text-sm leading-relaxed">Demande d'abord l'avis d'un professionnel de santé et informe le coach avant la séance. Des options peuvent être proposées lorsque la pratique est autorisée.</p>
         </div>
       </div>
-      <!-- CTA final de la FAQ — remonte au mega-CTA Sportigo -->
+      <!-- CTA final de la FAQ — ouvre la modale iframe (Packs) -->
       <div class="text-center mt-10">
-        <a href="#offre-premium" class="inline-block bg-white text-[#4A8D84] px-10 py-4 rounded-full font-black text-sm hover:bg-[#F3EBD4] transition transform hover:scale-105 uppercase tracking-wide shadow-xl svb-magnetic">
+        <a href="/essai" class="js-buy inline-block bg-white text-[#4A8D84] px-10 py-4 rounded-full font-black text-sm hover:bg-[#F3EBD4] transition transform hover:scale-105 uppercase tracking-wide shadow-xl svb-magnetic" data-discipline="reformer" data-label="Séance d'essai Pilates Reformer" data-amount="30 €" data-track="home_faq_cta">
           Réserver mon essai · 30&nbsp;€
         </a>
       </div>
@@ -1078,7 +1082,7 @@
         <div class="cta-sticky-text">Essai Reformer à Saint-Ouen • paiement direct</div>
         <div class="cta-sticky-price">ESSAI 30€</div>
       </div>
-      <a href="/essai" class="cta-sticky-btn svb-magnetic">
+      <a href="/essai" class="js-buy cta-sticky-btn svb-magnetic" data-discipline="reformer" data-label="Séance d'essai Pilates Reformer" data-amount="30 €" data-track="home_cta_sticky">
         Réserver mon essai
       </a>
     </div>
@@ -1167,7 +1171,7 @@
     });
   </script>
 
-  <script src="/assets/svb.js?v=20260816" defer></script>
+  <script src="/assets/svb.js?v=20260819c" defer></script>
   <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
   <script src="/assets/svb-motion.js?v=20260424a" defer></script>
 
