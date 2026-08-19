@@ -662,6 +662,19 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
     max-height:900px;
   }
 }
+/* ---- Logo nav : shadow renforce pour rester visible sur fond clair ET fond sombre ----
+   Le logo /images/logo.webp est blanc. Avec brightness-0 invert il reste blanc, mais
+   drop-shadow-md (Tailwind) est trop faible (10% opacity) : sur les pages a fond clair
+   (sand gradient), le logo blanc disparait. On ajoute un halo double couche : shadow
+   proche pour l'outline, shadow diffuse pour la separation du fond. */
+body > nav[role="navigation"]:not(.svb-mobile-drawer) img.brightness-0.invert,
+#hero-video .hero-nav img.brightness-0.invert,
+header nav img.brightness-0.invert{
+  filter: brightness(0) invert(1)
+          drop-shadow(0 1px 3px rgba(0,0,0,.35))
+          drop-shadow(0 0 8px rgba(0,0,0,.18)) !important;
+}
+
 /* ---- Nav en overlay sur les pages vidéo-hero ---- */
 /* Nav fixed sur les pages vidéo-hero.
    IMPORTANT: :not(.svb-mobile-drawer) pour ne PAS appliquer ces règles
