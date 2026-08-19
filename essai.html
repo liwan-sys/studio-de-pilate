@@ -30,6 +30,7 @@
   <script src="/assets/analytics.js?v=20260523a" defer></script>
   <link rel="stylesheet" href="/assets/svb.css?v=20260816" />
   <script src="/assets/svb.js?v=20260816" defer></script>
+  <script src="/assets/js/svb-booking.js?v=20260818a" defer></script>
   <link rel="dns-prefetch" href="https://svb.sportigo.fr">
   <link rel="preconnect" href="https://svb.sportigo.fr" crossorigin>
   <link rel="icon" type="image/png" href="/images/favicon.jpg" />
@@ -1693,21 +1694,20 @@
         submit.disabled = false;
       }
 
-      // Intercept click on every .js-buy CTA
+      // Legacy Mollie modal desactive : la reservation passe desormais
+      // par svb-booking.js (iframe web-customer.studiosvb.com).
+      // On garde uniquement le tracking select_item / offer_view pour GA4.
       var buyButtons = document.querySelectorAll('.js-buy');
       pushVisibleOfferView(buyButtons);
       buyButtons.forEach(function(a){
-        a.addEventListener('click', function(ev){
-          ev.preventDefault();
+        a.addEventListener('click', function(){
           var opts = {
             discipline: a.dataset.discipline,
             label: a.dataset.label,
-            amount: a.dataset.amount,
-            fallback: a.getAttribute('href')
+            amount: a.dataset.amount
           };
           pushOfferEvent('select_item', opts, 'site_cta');
-          open(opts);
-        });
+        }, true); // capture -> tourne AVANT svb-booking.js (analytics uniquement)
       });
 
       // Close handlers
