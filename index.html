@@ -441,8 +441,60 @@
         .ps-card{
           animation:
             psFloat 6s ease-in-out infinite,
-            psCardGlow 4s ease-in-out infinite;
+            psShinyShadow 5s ease-in-out infinite;
         }
+      }
+      /* Ombre brillante qui deplace un halo colore autour de la carte
+         (plus visible que le psCardGlow original qui etait tres subtil) */
+      @keyframes psShinyShadow {
+        0%,100% {
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.9),
+            0 40px 80px -30px rgba(47,79,79,.32),
+            0 6px 18px rgba(232,180,150,.15),
+            -15px 15px 60px -20px rgba(245,199,109,.35),
+            15px -15px 60px -20px rgba(232,180,150,.35);
+        }
+        50% {
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.9),
+            0 40px 80px -30px rgba(47,79,79,.32),
+            0 6px 18px rgba(232,180,150,.15),
+            15px -15px 60px -20px rgba(245,199,109,.5),
+            -15px 15px 60px -20px rgba(232,180,150,.5);
+        }
+      }
+
+      /* Bloc rating marquant */
+      .ps-rating-big{
+        position: relative; z-index: 2;
+        display: flex; flex-direction: column; align-items: center; gap: 6px;
+        padding: 18px 20px 16px;
+        margin: 18px 0 10px;
+        background: linear-gradient(180deg, rgba(245,199,109,.16), rgba(245,199,109,.06));
+        border-radius: 14px;
+        border-top: 1px solid rgba(245,199,109,.35);
+      }
+      .ps-rating-big__stars{
+        font-size: 1.6rem; color: #F5C76D; letter-spacing: 3px; line-height: 1;
+        text-shadow: 0 1px 3px rgba(245,199,109,.35);
+      }
+      .ps-rating-big__num{
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.4rem; font-weight: 700; color: #2F4F4F;
+        line-height: 1; margin-top: 2px;
+      }
+      .ps-rating-big__num .on{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem; font-weight: 700; color: #E8B496;
+      }
+      .ps-rating-big__meta{
+        font-size: .78rem; color: #4A5C58; line-height: 1.4; margin-top: 2px;
+      }
+      .ps-rating-big__meta strong{ color: #2F4F4F; font-weight: 700; }
+      .ps-trust-meta--small{
+        margin-top: 12px; text-align: center;
+        font-size: .72rem; color: #7A8C8A; font-weight: 500;
       }
 
       /* Sparkles decoratifs autour du prix */
@@ -735,22 +787,6 @@
       </div>
 
       <div class="ps-card">
-        <!-- Badge urgence live (clignotement doux du dot) -->
-        <span class="ps-urgency" aria-label="Offre en cours">
-          <span class="ps-urgency-dot" aria-hidden="true"></span>
-          En ce moment
-        </span>
-
-        <!-- Sparkles decoratifs (ambiance premium sans surcharger) -->
-        <span class="ps-sparkle ps-sparkle-1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
-        <span class="ps-sparkle ps-sparkle-2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
-        <span class="ps-sparkle ps-sparkle-3" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
-
-        <div class="ps-ribbon">
-          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.09 4.26L14.8 6l-3.4 3.32.8 4.68L8 11.77 3.8 14l.8-4.68L1.2 6l4.71-.74L8 1z"/></svg>
-          Le plus pris par les nouveaux
-        </div>
-
         <h3 class="ps-title">New Pass Starter</h3>
         <span class="ps-title-flourish" aria-hidden="true"></span>
 
@@ -809,16 +845,13 @@
           </span>
         </a>
 
-        <div class="ps-trust">
-          <div class="ps-trust-rating">
-            <span class="stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
-            <span><strong>5,0/5</strong> · 146 avis Google</span>
-          </div>
-          <div class="ps-trust-meta">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1l5 2v5c0 3.5-2.2 6.4-5 7-2.8-.6-5-3.5-5-7V3l5-2z"/><polyline points="6 8 7.5 9.5 10.5 6.5"/></svg>
-            Confirmation immédiate · Pas de CB stockée
-          </div>
+        <!-- Rating marquant : bloc dedie, plus grand, ancre en haut de la trust row -->
+        <div class="ps-rating-big">
+          <div class="ps-rating-big__stars" aria-hidden="true">★★★★★</div>
+          <div class="ps-rating-big__num">5,0<span class="on">/5</span></div>
+          <div class="ps-rating-big__meta">Sur <strong>146 avis Google</strong> — le studio le mieux noté de Saint-Ouen</div>
         </div>
+        <p class="ps-trust-meta ps-trust-meta--small">Paiement sécurisé · Confirmation immédiate</p>
       </div>
     </div>
   </section>
