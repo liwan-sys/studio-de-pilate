@@ -325,165 +325,291 @@
     </div>
 </section>
 
-  <!-- === PASS STARTER — design epure (palette retenue) === -->
-  <section class="relative py-16 md:py-24 reveal-load d-2 z-10" style="background:#FBF6EC;overflow:hidden;">
+  <!-- === PASS STARTER — refonte editoriale, DA SVB (cream + peach + gold) === -->
+  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" style="background:linear-gradient(180deg,#FBF6EC 0%,#F5EFDF 55%,#FBF6EC 100%);overflow:hidden;">
+
+    <!-- Halos decoratifs pour donner de la vie sans etre bruite -->
+    <div aria-hidden="true" style="position:absolute;top:-120px;right:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(232,180,150,.35),transparent 65%);pointer-events:none;filter:blur(20px);"></div>
+    <div aria-hidden="true" style="position:absolute;bottom:-140px;left:-100px;width:380px;height:380px;background:radial-gradient(circle,rgba(152,208,179,.28),transparent 65%);pointer-events:none;filter:blur(20px);"></div>
+
     <style>
+      /* === Pass Starter — carte editoriale === */
+      @keyframes psFloat {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+      @keyframes psShimmer {
+        0% { background-position: -240px 0; }
+        100% { background-position: 240px 0; }
+      }
+      @keyframes psSparkle {
+        0%,100% { opacity: 0; transform: scale(.6) rotate(0deg); }
+        45%,55% { opacity: 1; transform: scale(1) rotate(20deg); }
+      }
+      @keyframes psPulse {
+        0%,100% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+      }
+
+      /* Carte principale */
       .ps-card{
         position:relative;
-        max-width:440px;margin:0 auto;
-        background:#FFFFFF;
-        border-radius:24px;
-        padding:44px 32px 32px;
+        max-width:480px;margin:0 auto;
+        background:
+          radial-gradient(circle at 100% 0%, rgba(232,180,150,.14), transparent 55%),
+          linear-gradient(180deg,#FFFFFF 0%,#FBF6EC 100%);
+        border-radius:32px;
+        padding:56px 34px 34px;
         text-align:center;
         box-shadow:
-          0 1px 0 rgba(47,79,79,.06) inset,
-          0 24px 60px -24px rgba(47,79,79,.25);
-        border:1px solid rgba(47,79,79,.06);
+          inset 0 1px 0 rgba(255,255,255,.9),
+          0 40px 80px -30px rgba(47,79,79,.28),
+          0 2px 6px rgba(47,79,79,.08);
+        border:1px solid rgba(232,180,150,.35);
+        overflow:hidden;
+      }
+      .ps-card::before{
+        content:"";position:absolute;inset:0;
+        background:
+          radial-gradient(circle at 0% 100%, rgba(245,199,109,.10), transparent 50%);
+        pointer-events:none;
+      }
+      @media (prefers-reduced-motion: no-preference){
+        .ps-card{ animation: psFloat 6s ease-in-out infinite; }
       }
 
+      /* Sparkles decoratifs autour du prix */
+      .ps-sparkle{
+        position:absolute; color:#F5C76D;
+        pointer-events:none;
+      }
+      .ps-sparkle svg{ width:100%; height:100%; }
+      .ps-sparkle-1{ top:100px; right:28px; width:22px; height:22px; }
+      .ps-sparkle-2{ top:160px; left:22px; width:14px; height:14px; }
+      .ps-sparkle-3{ bottom:280px; right:40px; width:12px; height:12px; }
+      @media (prefers-reduced-motion: no-preference){
+        .ps-sparkle-1{ animation: psSparkle 4s ease-in-out 0s infinite; }
+        .ps-sparkle-2{ animation: psSparkle 4s ease-in-out 1.2s infinite; }
+        .ps-sparkle-3{ animation: psSparkle 4s ease-in-out 2.4s infinite; }
+      }
+
+      /* Ribbon "Le plus pris" — gold foil avec shimmer */
       .ps-ribbon{
-        display:inline-flex;align-items:center;gap:6px;
-        background:#2F4F4F;
-        color:#FBF6EC;
+        position:relative; z-index:2;
+        display:inline-flex;align-items:center;gap:7px;
+        background:linear-gradient(135deg,#F5C76D 0%,#E8B496 55%,#F5C76D 100%);
+        background-size:240px 100%;
+        color:#2F4F4F;
         font-family:'Montserrat',sans-serif;
-        font-size:.6rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
-        padding:7px 16px;border-radius:50px;
-        margin-bottom:28px;
+        font-size:.62rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+        padding:9px 22px;border-radius:100px;
+        margin-bottom:22px;
+        box-shadow:0 6px 20px -6px rgba(245,199,109,.7);
+        border:1px solid rgba(255,255,255,.4);
       }
-      .ps-ribbon svg{width:11px;height:11px;color:#E8B496;}
+      @media (prefers-reduced-motion: no-preference){
+        .ps-ribbon{ animation: psShimmer 4s linear infinite; }
+      }
+      .ps-ribbon svg{width:12px;height:12px;color:#2F4F4F;}
 
+      /* Titre "New Pass Starter" en Dancing Script hero */
       .ps-title{
+        position:relative; z-index:2;
         font-family:'Dancing Script',cursive;
-        font-size:clamp(2.4rem,7vw,3.2rem);
-        font-weight:700;line-height:1;color:#2F4F4F;
-        margin:0 0 24px;
+        font-size:clamp(2.8rem,8vw,4rem);
+        font-weight:700;line-height:.95;color:#2F4F4F;
+        margin:0 0 8px;
+        text-shadow:0 2px 8px rgba(47,79,79,.05);
+      }
+      .ps-title-flourish{
+        display:block;width:60px;height:6px;margin:6px auto 26px;
+        background:linear-gradient(90deg,transparent,#E8B496 20%,#F5C76D 50%,#E8B496 80%,transparent);
+        border-radius:100px;
+        opacity:.9;
       }
 
+      /* Prix mega */
       .ps-price{
+        position:relative; z-index:2;
         display:inline-flex;align-items:baseline;gap:2px;
-        margin:0 0 6px;
+        margin:0 0 4px;
       }
       .ps-price-num{
         font-family:'Montserrat',sans-serif;
-        font-size:clamp(4.6rem,15vw,6.2rem);
-        font-weight:900;line-height:.9;color:#2F4F4F;
-        letter-spacing:-.04em;
+        font-size:clamp(5.2rem,17vw,7rem);
+        font-weight:900;line-height:.88;color:#2F4F4F;
+        letter-spacing:-.05em;
+        text-shadow:0 2px 12px rgba(47,79,79,.08);
       }
       .ps-price-cents{
         font-family:'Montserrat',sans-serif;
-        font-size:clamp(1.4rem,4vw,1.8rem);
-        font-weight:800;color:#2F4F4F;opacity:.4;
+        font-size:clamp(1.6rem,4.5vw,2rem);
+        font-weight:800;color:#4A8D84;
       }
       .ps-price-cur{
         font-family:'Montserrat',sans-serif;
-        font-size:clamp(1.6rem,4.5vw,2.2rem);
-        font-weight:700;color:#2F4F4F;opacity:.55;
-        margin-left:4px;
+        font-size:clamp(1.8rem,5vw,2.4rem);
+        font-weight:700;color:#4A8D84;
+        margin-left:6px;
       }
       .ps-meta{
-        font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-        color:#2F4F4F;opacity:.55;margin:6px 0 16px;
+        position:relative; z-index:2;
+        font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+        color:#2F4F4F;opacity:.6;margin:10px 0 18px;
       }
-      /* Ancrage de prix : 19,98 EUR/seance vs 50 EUR hors abo */
+
+      /* Ancrage : pastille gold "19,98€/séance" */
       .ps-anchor{
-        display:inline-flex;align-items:center;gap:8px;
-        background:#F3EBD4;
-        padding:8px 16px;border-radius:50px;
-        margin:0 0 32px;
-        border:1px solid rgba(232,180,150,.55);
+        position:relative; z-index:2;
+        display:inline-flex;align-items:center;gap:10px;
+        background:linear-gradient(135deg,#FBF6EC 0%,#F5C76D 100%);
+        padding:10px 20px;border-radius:100px;
+        margin:0 0 34px;
+        border:1.5px solid rgba(245,199,109,.55);
+        box-shadow:0 8px 24px -12px rgba(245,199,109,.6);
       }
       .ps-anchor-strong{
         font-family:'Montserrat',sans-serif;
-        font-size:.78rem;font-weight:800;color:#2F4F4F;
+        font-size:.82rem;font-weight:800;color:#2F4F4F;
       }
       .ps-anchor-strike{
-        font-size:.7rem;font-weight:600;color:#2F4F4F;opacity:.55;
+        font-size:.72rem;font-weight:600;color:#8A6C42;
         text-decoration:line-through;
         text-decoration-thickness:1.5px;
       }
 
+      /* Bloc verbatim client (nouveau — social proof) */
+      .ps-quote{
+        position:relative; z-index:2;
+        background:rgba(255,255,255,.55);
+        border-left:3px solid #E8B496;
+        border-radius:0 12px 12px 0;
+        padding:14px 18px;
+        margin:0 0 26px;
+        text-align:left;
+        font-size:.88rem;line-height:1.5;color:#2F4F4F;
+        font-style:italic;
+      }
+      .ps-quote::before{
+        content:"«"; position:absolute;
+        top:-14px; left:8px;
+        font-family:'Dancing Script',cursive;
+        font-size:3.4rem; color:#E8B496;
+        line-height:1; opacity:.5;
+      }
+      .ps-quote-author{
+        display:block;margin-top:8px;
+        font-size:.7rem;font-weight:700;color:#4A8D84;font-style:normal;
+        letter-spacing:.02em;
+      }
+
+      /* Benefits — icones colorees en alternance */
       .ps-benefits{
-        list-style:none;padding:0;margin:0 0 28px;
+        position:relative; z-index:2;
+        list-style:none;padding:0;margin:0 0 26px;
         text-align:left;
       }
       .ps-benefits li{
-        display:flex;align-items:flex-start;gap:12px;
-        padding:12px 0;
-        border-top:1px solid rgba(47,79,79,.08);
-        font-size:.92rem;line-height:1.45;color:#2F4F4F;
+        display:flex;align-items:flex-start;gap:14px;
+        padding:14px 0;
+        border-top:1px dashed rgba(47,79,79,.12);
+        font-size:.94rem;line-height:1.5;color:#2F4F4F;
       }
       .ps-benefits li:first-child{border-top:none;}
       .ps-benefits .ic{
         flex-shrink:0;
         display:flex;align-items:center;justify-content:center;
-        width:22px;height:22px;border-radius:50%;
-        background:#2F4F4F;color:#FBF6EC;
+        width:28px;height:28px;border-radius:50%;
+        background:linear-gradient(135deg,#4A8D84,#2F4F4F);
+        color:#FBF6EC;
+        box-shadow:0 4px 10px -3px rgba(47,79,79,.35);
       }
-      .ps-benefits .ic svg{width:11px;height:11px;}
+      .ps-benefits li:nth-child(2) .ic{ background:linear-gradient(135deg,#E8B496,#D49C7D); box-shadow:0 4px 10px -3px rgba(232,180,150,.5); }
+      .ps-benefits li:nth-child(4) .ic{ background:linear-gradient(135deg,#F5C76D,#E8B496); box-shadow:0 4px 10px -3px rgba(245,199,109,.5); }
+      .ps-benefits .ic svg{width:13px;height:13px;}
       .ps-benefits strong{color:#2F4F4F;font-weight:800;}
 
-      /* Stat 100% — typographique, pas de bloc colore */
+      /* Stat 100% — plus dramatique */
       .ps-stat{
-        position:relative;
-        padding:24px 0 4px;
+        position:relative; z-index:2;
+        padding:22px 0 8px;
         margin:0 0 28px;
         border-top:1px solid rgba(47,79,79,.08);
       }
       .ps-stat-num{
-        font-family:'Montserrat',sans-serif;
-        font-size:3.2rem;font-weight:900;color:#2F4F4F;
-        line-height:.9;letter-spacing:-.03em;
-        margin:0 0 6px;
+        font-family:'Dancing Script',cursive;
+        font-size:4.4rem;font-weight:700;
+        background:linear-gradient(135deg,#4A8D84,#2F4F4F);
+        -webkit-background-clip:text;background-clip:text;
+        color:transparent;
+        line-height:.9;letter-spacing:-.02em;
+        margin:0 0 4px;
       }
       .ps-stat-num span{
-        font-size:1.8rem;color:#E8B496;margin-left:2px;font-weight:800;
+        font-family:'Montserrat',sans-serif;
+        font-size:2rem;color:#E8B496;
+        -webkit-text-fill-color:#E8B496;
+        margin-left:2px;font-weight:800;
       }
       .ps-stat-label{
-        font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+        font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
         color:#2F4F4F;opacity:.7;line-height:1.5;margin:0;
       }
 
+      /* CTA principal — gradient teal + glow + shimmer au hover */
       .ps-cta{
-        display:flex;align-items:center;justify-content:center;gap:10px;
+        position:relative; z-index:2;
+        display:flex;align-items:center;justify-content:center;gap:12px;
         width:100%;
-        background:#2F4F4F;
+        background:linear-gradient(135deg,#4A8D84 0%,#2F4F4F 100%);
         color:#FBF6EC;
         font-family:'Montserrat',sans-serif;
-        font-size:.82rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
-        padding:18px 24px;border-radius:50px;text-decoration:none;
-        box-shadow:0 8px 20px -8px rgba(47,79,79,.5);
-        transition:background .2s,transform .2s,box-shadow .2s;
+        font-size:.85rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+        padding:20px 26px;border-radius:100px;text-decoration:none;
+        box-shadow:
+          0 4px 10px -4px rgba(47,79,79,.4),
+          0 14px 30px -10px rgba(47,79,79,.6),
+          inset 0 1px 0 rgba(255,255,255,.15);
+        transition:transform .25s,box-shadow .25s,filter .25s;
+        overflow:hidden;
+      }
+      .ps-cta::after{
+        content:"";position:absolute;inset:0;
+        background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);
+        transform:translateX(-100%);
+        transition:transform .6s ease;
       }
       .ps-cta:hover{
-        background:#3A6B63;
-        transform:translateY(-1px);
-        box-shadow:0 12px 24px -8px rgba(47,79,79,.55);
+        transform:translateY(-2px);
+        box-shadow:
+          0 6px 14px -4px rgba(47,79,79,.45),
+          0 20px 36px -10px rgba(47,79,79,.65),
+          inset 0 1px 0 rgba(255,255,255,.2);
+        filter:brightness(1.05);
       }
+      .ps-cta:hover::after{ transform:translateX(100%); }
       .ps-cta-arrow{
         display:inline-flex;align-items:center;justify-content:center;
-        transition:transform .2s;
+        transition:transform .25s;
       }
-      .ps-cta:hover .ps-cta-arrow{transform:translateX(4px);}
+      .ps-cta:hover .ps-cta-arrow{transform:translateX(6px);}
 
+      /* Trust row + rating stars */
       .ps-trust{
-        display:flex;align-items:center;justify-content:center;gap:7px;
-        margin-top:14px;
-        font-size:.7rem;font-weight:600;color:#2F4F4F;opacity:.55;
+        position:relative; z-index:2;
+        display:flex;flex-direction:column;align-items:center;gap:6px;
+        margin-top:16px;
       }
-      .ps-trust svg{width:12px;height:12px;color:#2F4F4F;opacity:.7;}
-
-      .ps-fallback{
-        text-align:center;margin-top:28px;
-        font-size:.78rem;color:#2F4F4F;opacity:.6;
+      .ps-trust-rating{
+        display:flex;align-items:center;gap:5px;
+        font-size:.78rem;font-weight:700;color:#2F4F4F;
       }
-      .ps-fallback a{
-        color:#2F4F4F;font-weight:700;
-        border-bottom:1px solid #E8B496;
-        text-decoration:none;
-        padding-bottom:1px;
-        transition:border-color .2s;
+      .ps-trust-rating .stars{ color:#F5C76D; font-size:.9rem; letter-spacing:1px; }
+      .ps-trust-meta{
+        font-size:.72rem;font-weight:600;color:#2F4F4F;opacity:.6;
+        display:inline-flex;align-items:center;gap:6px;
       }
-      .ps-fallback a:hover{border-color:#2F4F4F;}
+      .ps-trust-meta svg{width:12px;height:12px;color:#4A8D84;opacity:.85;}
     </style>
 
     <div class="max-w-5xl mx-auto px-4">
@@ -496,12 +622,18 @@
       </div>
 
       <div class="ps-card">
+        <!-- Sparkles decoratifs (ambiance premium sans surcharger) -->
+        <span class="ps-sparkle ps-sparkle-1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
+        <span class="ps-sparkle ps-sparkle-2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
+        <span class="ps-sparkle ps-sparkle-3" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
+
         <div class="ps-ribbon">
           <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.09 4.26L14.8 6l-3.4 3.32.8 4.68L8 11.77 3.8 14l.8-4.68L1.2 6l4.71-.74L8 1z"/></svg>
           Le plus pris par les nouveaux
         </div>
 
         <h3 class="ps-title">New Pass Starter</h3>
+        <span class="ps-title-flourish" aria-hidden="true"></span>
 
         <div class="ps-price">
           <span class="ps-price-num">99</span>
@@ -515,6 +647,12 @@
           <span class="ps-anchor-strong">Soit 19,98&nbsp;€ la séance</span>
           <span class="ps-anchor-strike">vs 50 € hors abo</span>
         </div>
+
+        <!-- Verbatim client — social proof integree -->
+        <blockquote class="ps-quote">
+          Testé pour tester… puis abonnée au bout de 3 séances. Le petit groupe change vraiment tout.
+          <span class="ps-quote-author">— Marie L. · abonnée depuis 2024</span>
+        </blockquote>
 
         <ul class="ps-benefits">
           <li>
@@ -544,7 +682,7 @@
           <p class="ps-stat-label">se sont inscrit·es à un abonnement<br/>après avoir pris le Pass Starter</p>
         </div>
 
-        <a href="#" data-discipline="pass_starter" data-label="Pass Starter" data-amount="99,90 €"  rel="noopener noreferrer"
+        <a href="/essai" data-discipline="pass_starter" data-label="Pass Starter" data-amount="99,90 €" rel="noopener noreferrer"
            class="js-buy ps-cta svb-magnetic">
           <span>Je prends mon Pass · 99,90&nbsp;€</span>
           <span class="ps-cta-arrow">
@@ -553,8 +691,14 @@
         </a>
 
         <div class="ps-trust">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1l5 2v5c0 3.5-2.2 6.4-5 7-2.8-.6-5-3.5-5-7V3l5-2z"/><polyline points="6 8 7.5 9.5 10.5 6.5"/></svg>
-          <span>Confirmation immédiate · Pas de carte bleue stockée</span>
+          <div class="ps-trust-rating">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span><strong>5,0/5</strong> · 146 avis Google</span>
+          </div>
+          <div class="ps-trust-meta">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1l5 2v5c0 3.5-2.2 6.4-5 7-2.8-.6-5-3.5-5-7V3l5-2z"/><polyline points="6 8 7.5 9.5 10.5 6.5"/></svg>
+            Confirmation immédiate · Pas de CB stockée
+          </div>
         </div>
       </div>
 
