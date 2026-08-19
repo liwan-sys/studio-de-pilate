@@ -2,7 +2,7 @@
    SVB Studio — Service Worker (PWA offline-first léger)
    Version bumpée à chaque déploiement → invalide le cache.
    ================================================================ */
-const SVB_VERSION = 'svb-v12-2026-08-20-logo-nocadre';
+const SVB_VERSION = 'svb-v12-2026-08-20-logo-png';
 const SVB_PRECACHE = 'svb-precache-' + SVB_VERSION;
 const SVB_RUNTIME  = 'svb-runtime-' + SVB_VERSION;
 
