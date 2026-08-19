@@ -344,11 +344,74 @@
       }
       @keyframes psSparkle {
         0%,100% { opacity: 0; transform: scale(.6) rotate(0deg); }
-        45%,55% { opacity: 1; transform: scale(1) rotate(20deg); }
+        45%,55% { opacity: 1; transform: scale(1.2) rotate(20deg); }
       }
       @keyframes psPulse {
         0%,100% { transform: scale(1); }
         50% { transform: scale(1.03); }
+      }
+      /* Prix qui tremble subtilement toutes les 6s (attention hook) */
+      @keyframes psPriceWiggle {
+        0%,88%,100% { transform: translate(0,0) rotate(0); }
+        90% { transform: translate(-2px,-1px) rotate(-1.5deg); }
+        91% { transform: translate(2px,1px) rotate(1.5deg); }
+        92% { transform: translate(-1.5px,1px) rotate(-1deg); }
+        93% { transform: translate(1.5px,-1px) rotate(1deg); }
+        94% { transform: translate(-1px,0) rotate(-.5deg); }
+        95% { transform: translate(1px,0) rotate(.5deg); }
+        96% { transform: translate(0,0) rotate(0); }
+      }
+      /* CTA qui respire constamment (breath) */
+      @keyframes psCtaBreath {
+        0%,100% {
+          transform: scale(1);
+          box-shadow:
+            0 4px 10px -4px rgba(47,79,79,.4),
+            0 14px 30px -10px rgba(47,79,79,.6),
+            0 0 0 0 rgba(74,141,132,.5),
+            inset 0 1px 0 rgba(255,255,255,.15);
+        }
+        50% {
+          transform: scale(1.015);
+          box-shadow:
+            0 4px 10px -4px rgba(47,79,79,.4),
+            0 14px 30px -10px rgba(47,79,79,.6),
+            0 0 0 10px rgba(74,141,132,0),
+            inset 0 1px 0 rgba(255,255,255,.15);
+        }
+      }
+      /* Halo autour de la carte qui pulse */
+      @keyframes psCardGlow {
+        0%,100% {
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.9),
+            0 40px 80px -30px rgba(47,79,79,.28),
+            0 2px 6px rgba(47,79,79,.08),
+            0 0 0 0 rgba(232,180,150,.28);
+        }
+        50% {
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.9),
+            0 40px 80px -30px rgba(47,79,79,.28),
+            0 2px 6px rgba(47,79,79,.08),
+            0 0 60px 6px rgba(232,180,150,.22);
+        }
+      }
+      /* Ribbon qui ondule doucement */
+      @keyframes psRibbonBob {
+        0%,100% { transform: translateY(0) rotate(-.5deg); }
+        50% { transform: translateY(-2px) rotate(.5deg); }
+      }
+      /* Badge urgence "En ce moment" qui clignote doux */
+      @keyframes psUrgencyBlink {
+        0%,100% { opacity: 1; }
+        50% { opacity: .55; }
+      }
+      /* Etoile qui rebondit */
+      @keyframes psStarBounce {
+        0%,100% { transform: scale(1); }
+        30% { transform: scale(1.3); }
+        60% { transform: scale(.95); }
       }
 
       /* Carte principale */
@@ -375,7 +438,11 @@
         pointer-events:none;
       }
       @media (prefers-reduced-motion: no-preference){
-        .ps-card{ animation: psFloat 6s ease-in-out infinite; }
+        .ps-card{
+          animation:
+            psFloat 6s ease-in-out infinite,
+            psCardGlow 4s ease-in-out infinite;
+        }
       }
 
       /* Sparkles decoratifs autour du prix */
@@ -408,7 +475,11 @@
         border:1px solid rgba(255,255,255,.4);
       }
       @media (prefers-reduced-motion: no-preference){
-        .ps-ribbon{ animation: psShimmer 4s linear infinite; }
+        .ps-ribbon{
+          animation:
+            psShimmer 4s linear infinite,
+            psRibbonBob 3s ease-in-out infinite;
+        }
       }
       .ps-ribbon svg{width:12px;height:12px;color:#2F4F4F;}
 
@@ -435,11 +506,16 @@
         margin:0 0 4px;
       }
       .ps-price-num{
+        display:inline-block;
+        transform-origin:center;
         font-family:'Montserrat',sans-serif;
         font-size:clamp(5.2rem,17vw,7rem);
         font-weight:900;line-height:.88;color:#2F4F4F;
         letter-spacing:-.05em;
         text-shadow:0 2px 12px rgba(47,79,79,.08);
+      }
+      @media (prefers-reduced-motion: no-preference){
+        .ps-price-num{ animation: psPriceWiggle 6s ease-in-out infinite; }
       }
       .ps-price-cents{
         font-family:'Montserrat',sans-serif;
@@ -580,12 +656,16 @@
         transition:transform .6s ease;
       }
       .ps-cta:hover{
-        transform:translateY(-2px);
+        transform:translateY(-2px) scale(1);
         box-shadow:
           0 6px 14px -4px rgba(47,79,79,.45),
           0 20px 36px -10px rgba(47,79,79,.65),
           inset 0 1px 0 rgba(255,255,255,.2);
         filter:brightness(1.05);
+      }
+      @media (prefers-reduced-motion: no-preference){
+        .ps-cta{ animation: psCtaBreath 2.6s ease-in-out infinite; }
+        .ps-cta:hover{ animation: none; }
       }
       .ps-cta:hover::after{ transform:translateX(100%); }
       .ps-cta-arrow{
@@ -604,7 +684,40 @@
         display:flex;align-items:center;gap:5px;
         font-size:.78rem;font-weight:700;color:#2F4F4F;
       }
-      .ps-trust-rating .stars{ color:#F5C76D; font-size:.9rem; letter-spacing:1px; }
+      .ps-trust-rating .stars{
+        color:#F5C76D; font-size:.9rem; letter-spacing:1px;
+        display:inline-flex; gap:1px;
+      }
+      .ps-trust-rating .stars span{ display:inline-block; }
+      @media (prefers-reduced-motion: no-preference){
+        .ps-trust-rating .stars span:nth-child(1){ animation: psStarBounce 3s ease-in-out .0s infinite; }
+        .ps-trust-rating .stars span:nth-child(2){ animation: psStarBounce 3s ease-in-out .1s infinite; }
+        .ps-trust-rating .stars span:nth-child(3){ animation: psStarBounce 3s ease-in-out .2s infinite; }
+        .ps-trust-rating .stars span:nth-child(4){ animation: psStarBounce 3s ease-in-out .3s infinite; }
+        .ps-trust-rating .stars span:nth-child(5){ animation: psStarBounce 3s ease-in-out .4s infinite; }
+      }
+
+      /* Badge "En ce moment" — urgence live */
+      .ps-urgency{
+        position:absolute;
+        top:16px; left:16px;
+        display:inline-flex;align-items:center;gap:6px;
+        background:rgba(217,122,90,.14);
+        color:#C25A38;
+        font-family:'Montserrat',sans-serif;
+        font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+        padding:5px 10px;border-radius:100px;
+        border:1px solid rgba(217,122,90,.28);
+        z-index:3;
+      }
+      .ps-urgency-dot{
+        display:inline-block;width:7px;height:7px;border-radius:50%;
+        background:#C25A38;
+        box-shadow:0 0 0 0 rgba(194,90,56,.7);
+      }
+      @media (prefers-reduced-motion: no-preference){
+        .ps-urgency-dot{ animation: psUrgencyBlink 1.4s ease-in-out infinite; }
+      }
       .ps-trust-meta{
         font-size:.72rem;font-weight:600;color:#2F4F4F;opacity:.6;
         display:inline-flex;align-items:center;gap:6px;
@@ -622,6 +735,12 @@
       </div>
 
       <div class="ps-card">
+        <!-- Badge urgence live (clignotement doux du dot) -->
+        <span class="ps-urgency" aria-label="Offre en cours">
+          <span class="ps-urgency-dot" aria-hidden="true"></span>
+          En ce moment
+        </span>
+
         <!-- Sparkles decoratifs (ambiance premium sans surcharger) -->
         <span class="ps-sparkle ps-sparkle-1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
         <span class="ps-sparkle ps-sparkle-2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg></span>
@@ -692,7 +811,7 @@
 
         <div class="ps-trust">
           <div class="ps-trust-rating">
-            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span class="stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
             <span><strong>5,0/5</strong> · 146 avis Google</span>
           </div>
           <div class="ps-trust-meta">
