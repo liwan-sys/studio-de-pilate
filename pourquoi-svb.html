@@ -351,12 +351,76 @@
     @media (prefers-reduced-motion: reduce){
       .pq-studio-svg,.pq-studio-svg *{animation:none !important;}
     }
-    .pq-side-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;}
+    .pq-side-wrap{
+      display:flex;flex-direction:column;align-items:center;gap:14px;
+      padding:26px 22px 30px;border-radius:26px;
+      width:100%;max-width:340px;
+      transition:transform .35s ease,box-shadow .35s ease,filter .5s ease;
+    }
+    .pq-side-wrap--svb{
+      background:linear-gradient(180deg,rgba(74,141,132,.08) 0%,rgba(232,180,150,.14) 100%);
+      box-shadow:0 18px 48px rgba(74,141,132,.14);
+    }
+    .pq-side-wrap--svb:hover{transform:translateY(-3px);box-shadow:0 24px 60px rgba(74,141,132,.22);}
+    .pq-side-wrap--ailleurs{
+      background:rgba(47,79,79,.045);
+      filter:grayscale(.6);
+    }
+    .pq-side-wrap--ailleurs:hover{filter:grayscale(0);}
     .pq-side-label{font-size:.74rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;margin:0;}
-    .pq-side-count{font-family:'Dancing Script',cursive;font-size:3.2rem;font-weight:700;margin:6px 0 -2px;line-height:1;}
+    .pq-side-count{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(4.2rem,9vw,6.8rem);
+      font-weight:700;margin:10px 0 -6px;line-height:1;
+    }
     .pq-side-sub{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin:0;}
-    .pq-side-wrap--svb .pq-side-label,.pq-side-wrap--svb .pq-side-count{color:#4A8D84;}
-    .pq-side-wrap--ailleurs .pq-side-label,.pq-side-wrap--ailleurs .pq-side-count{color:#2F4F4F;opacity:.55;}
+    .pq-side-wrap--svb .pq-side-label{color:#4A8D84;}
+    .pq-side-wrap--svb .pq-side-count{color:#4A8D84;text-shadow:0 6px 22px rgba(74,141,132,.28);}
+    .pq-side-wrap--ailleurs .pq-side-label,.pq-side-wrap--ailleurs .pq-side-count{color:#2F4F4F;opacity:.45;}
+    @media (prefers-reduced-motion: reduce){
+      .pq-side-wrap{transition:none !important;filter:none !important;}
+    }
+
+    /* Divider central "VS" */
+    .pq-anim-vs{
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(3rem,6vw,4.8rem);
+      font-weight:700;color:#E8B496;line-height:1;
+      margin:0 0 14px;letter-spacing:.02em;
+      text-shadow:0 4px 16px rgba(232,180,150,.35);
+    }
+    /* Delta pill sous le VS */
+    .pq-anim-delta{
+      display:inline-block;
+      background:#2F4F4F;color:#FBF6EC;
+      padding:8px 18px;border-radius:50px;
+      font-family:'Montserrat',sans-serif;
+      font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+      margin:6px 0 16px;
+    }
+
+    /* Progress bar sous les dots — se remplit sur 6s puis change slide */
+    .pq-disc-progress{
+      height:3px;
+      background:rgba(47,79,79,.1);
+      border-radius:3px;overflow:hidden;
+      max-width:420px;
+      margin:22px auto 0;
+    }
+    .pq-disc-progress-bar{
+      display:block;height:100%;width:100%;
+      background:#4A8D84;border-radius:3px;
+      transform-origin:left center;
+      transform:scaleX(0);
+    }
+    .pq-disc-progress-bar.is-playing{
+      transform:scaleX(1);
+      transition:transform 6000ms linear;
+    }
+    .pq-disc-carousel.is-paused .pq-disc-progress-bar{transition:none;}
+    @media (prefers-reduced-motion: reduce){
+      .pq-disc-progress-bar{transition:none !important;}
+    }
     .pq-side-wrap--svb .pq-side-sub{color:#2F4F4F;opacity:.78;}
     .pq-side-wrap--ailleurs .pq-side-sub{color:#2F4F4F;opacity:.5;}
     .pq-anim-text{max-width:460px;}
@@ -856,6 +920,7 @@
       </div>
 
       <div id="pq-disc-dots" class="pq-disc-dots"></div>
+      <div class="pq-disc-progress" aria-hidden="true"><span id="pq-disc-progress-bar" class="pq-disc-progress-bar"></span></div>
     </div>
 
     <script>
@@ -1154,6 +1219,8 @@
       }
 
       function slideHtml(d, i){
+        var ratio = (d.ailN / d.svbN).toFixed(1).replace(/\.0$/, '');
+        var delta = d.ailN - d.svbN;
         return '<div class="pq-disc-slide' + (i===0 ? ' active' : '') + '" data-disc="' + d.id + '">' +
           '<div class="pq-disc-tag"><span style="background:'+d.accent+';">' + d.name + '</span></div>' +
           '<div class="pq-anim-wrap">' +
@@ -1162,6 +1229,8 @@
               '<div><p class="pq-side-count">' + d.svbN + '</p><p class="pq-side-sub">' + d.itemLabel + ' · ' + d.coachSubSvb + '</p></div>' +
             '</div>' +
             '<div class="pq-anim-text">' +
+              '<p class="pq-anim-vs">vs</p>' +
+              '<span class="pq-anim-delta">' + ratio + '× plus de monde</span>' +
               '<h3 class="pq-anim-headline">' + d.svbN + ' ' + d.itemLabel + '.<br/><em>Pas ' + d.ailN + '.</em></h3>' +
               '<p class="pq-anim-body">' + d.copy + '</p>' +
             '</div>' +
@@ -1216,6 +1285,59 @@
         if (counts_arr[1]) animateCount(counts_arr[1], 1800);   // Ailleurs (plus long, comme le stacking)
       }
 
+      var carousel = document.querySelector('.pq-disc-carousel');
+      var progressBar = document.getElementById('pq-disc-progress-bar');
+      var AUTOPLAY_MS = 6000;   // duree de chaque slide (accord avec CSS .pq-disc-progress-bar)
+      var IDLE_MS = 10000;       // reprise auto apres 10s sans interaction utilisateur
+      var autoTimer = null;
+      var idleTimer = null;
+      var userPaused = false;
+      var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function resetProgress(){
+        if (!progressBar) return;
+        // Snap a 0 sans transition
+        carousel.classList.add('is-paused');
+        progressBar.classList.remove('is-playing');
+        // Force reflow puis relance la transition
+        void progressBar.offsetWidth;
+        carousel.classList.remove('is-paused');
+      }
+      function startProgress(){
+        if (!progressBar || reducedMotion) return;
+        resetProgress();
+        // Delai minime pour que le browser applique le reset avant la nouvelle transition
+        requestAnimationFrame(function(){
+          progressBar.classList.add('is-playing');
+        });
+      }
+      function stopProgress(){
+        if (!progressBar) return;
+        carousel.classList.add('is-paused');
+        progressBar.classList.remove('is-playing');
+      }
+      function startAutoplay(){
+        if (autoTimer || reducedMotion) return;
+        startProgress();
+        autoTimer = setInterval(function(){
+          show(current + 1);
+          startProgress();
+        }, AUTOPLAY_MS);
+      }
+      function stopAutoplay(){
+        if (autoTimer){ clearInterval(autoTimer); autoTimer = null; }
+        stopProgress();
+      }
+      function pauseForUser(){
+        userPaused = true;
+        stopAutoplay();
+        if (idleTimer) clearTimeout(idleTimer);
+        idleTimer = setTimeout(function(){
+          userPaused = false;
+          startAutoplay();
+        }, IDLE_MS);
+      }
+
       function show(idx){
         if (idx < 0) idx = slides.length - 1;
         if (idx >= slides.length) idx = 0;
@@ -1228,17 +1350,35 @@
         // Reveal apres le swap (laisse le display:block s'appliquer)
         setTimeout(function(){ revealSlide(slides[idx]); }, 60);
       }
-      document.querySelector('.pq-disc-arrow--prev').addEventListener('click', function(){ show(current - 1); });
-      document.querySelector('.pq-disc-arrow--next').addEventListener('click', function(){ show(current + 1); });
-      dotEls.forEach(function(d, i){ d.addEventListener('click', function(){ show(i); }); });
+      document.querySelector('.pq-disc-arrow--prev').addEventListener('click', function(){
+        show(current - 1); pauseForUser();
+      });
+      document.querySelector('.pq-disc-arrow--next').addEventListener('click', function(){
+        show(current + 1); pauseForUser();
+      });
+      dotEls.forEach(function(d, i){
+        d.addEventListener('click', function(){ show(i); pauseForUser(); });
+      });
 
-      // 1ere visite : ne reveler que quand la section entre dans le viewport
+      // Pause on hover / touch — evite qu'un slide file quand l'user est en train de lire
+      if (carousel){
+        carousel.addEventListener('mouseenter', function(){ if (!userPaused) stopAutoplay(); });
+        carousel.addEventListener('mouseleave', function(){ if (!userPaused) startAutoplay(); });
+      }
+      // Pause quand l'onglet perd le focus (evite qu'on rate 5 slides en background)
+      document.addEventListener('visibilitychange', function(){
+        if (document.hidden) stopAutoplay();
+        else if (!userPaused) startAutoplay();
+      });
+
+      // 1ere visite : ne reveler + demarrer l'autoplay qu'a l'entree dans le viewport
       var section = document.getElementById('exemple');
       if (section && 'IntersectionObserver' in window){
         var io = new IntersectionObserver(function(entries){
           entries.forEach(function(e){
             if (e.isIntersecting){
               revealSlide(slides[current]);
+              startAutoplay();
               io.disconnect();
             }
           });
@@ -1246,6 +1386,7 @@
         io.observe(section);
       } else {
         revealSlide(slides[0]);
+        startAutoplay();
       }
     })();
     </script>
