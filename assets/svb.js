@@ -121,6 +121,113 @@
     });
   }
 
+  // 3a) Trust bar : bandeau discret sous la nav sur toutes les pages fonctionnelles.
+  //     Auto-injecte pour eviter d'editer les 30+ pages individuellement.
+  (function initTrustBar(){
+    try {
+      var path = (location.pathname.replace(/\/+$/, '') || '/').toLowerCase();
+      if (/\/(merci|mentions-legales|cgv|admin|questionnaire-abonnement-svb|404|design-system|forms)(\.html)?$/.test(path)) return;
+      if (document.body.classList.contains('svb-no-trust')) return;
+      if (document.querySelector('.svb-trust-bar')) return;
+
+      var bar = document.createElement('div');
+      bar.className = 'svb-trust-bar';
+      bar.setAttribute('role', 'region');
+      bar.setAttribute('aria-label', "Reperes de confiance Studio SVB");
+      bar.innerHTML = ''
+        + '<div class="svb-trust-bar__inner">'
+        + '  <span class="svb-trust-bar__item svb-trust-bar__rating" aria-label="5 sur 5 sur 146 avis Google">'
+        + '    <svg viewBox="0 0 20 20" aria-hidden="true" class="svb-trust-bar__star"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.9-4.3 4.2 1 5.9L10 15.1l-5.3 2.8 1-5.9L1.5 7.8l5.9-.9L10 1.5z"/></svg>'
+        + '    <strong>5,0/5</strong><span class="svb-trust-bar__meta">·&nbsp;146+ avis Google</span>'
+        + '  </span>'
+        + '  <span class="svb-trust-bar__sep" aria-hidden="true">·</span>'
+        + '  <span class="svb-trust-bar__item">2 studios &agrave; Saint-Ouen</span>'
+        + '  <span class="svb-trust-bar__sep" aria-hidden="true">·</span>'
+        + '  <span class="svb-trust-bar__item">Ouvert 7j&thinsp;/&thinsp;7</span>'
+        + '  <span class="svb-trust-bar__sep" aria-hidden="true">·</span>'
+        + '  <a class="svb-trust-bar__cta js-buy" href="/essai" data-discipline="reformer" data-label="S&eacute;ance d\'essai" data-amount="30 &euro;" data-track="trust_bar_cta">'
+        + '    S&eacute;ance d\'essai <strong>30&nbsp;&euro;</strong> &rarr;'
+        + '  </a>'
+        + '</div>';
+
+      // Insere apres la nav principale (premiere nav de la page)
+      var nav = document.querySelector('nav[role="navigation"]') || document.querySelector('header nav') || document.querySelector('nav');
+      if (nav && nav.parentNode) {
+        nav.parentNode.insertBefore(bar, nav.nextSibling);
+      } else {
+        document.body.insertBefore(bar, document.body.firstChild);
+      }
+    } catch(e) {/* silent */}
+  })();
+
+  // 3b) Auto-mount du bloc newsletter juste avant le footer (utilise le widget existant plus bas)
+  (function autoMountNewsletter(){
+    try {
+      var path = (location.pathname.replace(/\/+$/, '') || '/').toLowerCase();
+      if (/\/(merci|mentions-legales|cgv|admin|questionnaire-abonnement-svb|404|design-system|forms)(\.html)?$/.test(path)) return;
+      if (document.body.classList.contains('svb-no-newsletter')) return;
+      if (document.querySelector('[data-svb-newsletter]')) return;
+
+      var footer = document.querySelector('.svb-footer') || document.querySelector('footer');
+      if (!footer) return;
+
+      var section = document.createElement('section');
+      section.className = 'svb-newsletter-wrap';
+      section.setAttribute('aria-label', 'Newsletter Studio SVB');
+      section.innerHTML = ''
+        + '<div class="svb-newsletter-inner">'
+        + '  <div class="svb-newsletter-copy">'
+        + '    <p class="svb-newsletter-eyebrow">Reste dans la boucle</p>'
+        + '    <h2 class="svb-newsletter-title">Le studio SVB dans ta boite mail.</h2>'
+        + '    <p class="svb-newsletter-sub">Conseils coachs, nouveaut&eacute;s planning, offres members-only. <strong>1 mail / semaine max</strong>, z&eacute;ro spam.</p>'
+        + '  </div>'
+        + '  <div data-svb-newsletter data-source="footer_' + (path.replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'home') + '"></div>'
+        + '</div>';
+      footer.parentNode.insertBefore(section, footer);
+    } catch(e) {/* silent */}
+  })();
+
+  // 3c) Bloc social proof (rating + 3 verbatims) avant le footer
+  (function initSocialProofBlock(){
+    try {
+      var path = (location.pathname.replace(/\/+$/, '') || '/').toLowerCase();
+      if (/\/(merci|mentions-legales|cgv|admin|questionnaire-abonnement-svb|404|design-system|forms|temoignages)(\.html)?$/.test(path)) return;
+      if (document.body.classList.contains('svb-no-social')) return;
+      if (document.querySelector('.svb-social-proof')) return;
+
+      var target = document.querySelector('.svb-newsletter-wrap') || document.querySelector('.svb-footer') || document.querySelector('footer');
+      if (!target) return;
+
+      var block = document.createElement('section');
+      block.className = 'svb-social-proof';
+      block.setAttribute('aria-label', 'Ce que disent nos membres');
+      block.innerHTML = ''
+        + '<div class="svb-social-proof__inner">'
+        + '  <div class="svb-social-proof__head">'
+        + '    <div class="svb-social-proof__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>'
+        + '    <p class="svb-social-proof__title"><strong>5,0 sur 5</strong> &middot; 146+ avis Google</p>'
+        + '    <p class="svb-social-proof__meta">Le studio le mieux not&eacute; de Saint-Ouen</p>'
+        + '  </div>'
+        + '  <ul class="svb-social-proof__list">'
+        + '    <li class="svb-social-proof__card">'
+        + '      <p class="svb-social-proof__quote">&laquo;&nbsp;Coachs au top, salle magnifique, ambiance familiale. Le Reformer a change ma posture en 3 mois.&nbsp;&raquo;</p>'
+        + '      <p class="svb-social-proof__author">Marie L. &middot; membre depuis 2024</p>'
+        + '    </li>'
+        + '    <li class="svb-social-proof__card">'
+        + '      <p class="svb-social-proof__quote">&laquo;&nbsp;Enfin un studio a taille humaine. On te conna&icirc;t, on te corrige, on te fait progresser. Rien &agrave; voir avec les grosses salles.&nbsp;&raquo;</p>'
+        + '      <p class="svb-social-proof__author">Thomas K. &middot; Crossformer 3&times;/sem</p>'
+        + '    </li>'
+        + '    <li class="svb-social-proof__card">'
+        + '      <p class="svb-social-proof__quote">&laquo;&nbsp;Je viens de Paris 18 &agrave; pied. Studio propre, cours varies, coachs bienveillants. Adopt&eacute; !&nbsp;&raquo;</p>'
+        + '      <p class="svb-social-proof__author">Sophie B. &middot; Pilates &amp; Yoga</p>'
+        + '    </li>'
+        + '  </ul>'
+        + '  <a href="/temoignages" class="svb-social-proof__more">Voir les 146 avis &rarr;</a>'
+        + '</div>';
+      target.parentNode.insertBefore(block, target);
+    } catch(e) {/* silent */}
+  })();
+
   // 3bis) Newsletter widget (injecté si <div data-svb-newsletter></div> présent)
   (function initNewsletter(){
     var mounts = document.querySelectorAll('[data-svb-newsletter]');
@@ -191,18 +298,27 @@
 
       var isEssai = path === '/essai' || path === '/essai.html';
       var cta = document.createElement('a');
-      cta.className = 'svb-mobile-sticky-cta';
+      // Sur /essai : ancre vers les offres (choix discipline)
+      // Ailleurs : .js-buy declenche la modale booking iframe (Sportigo/Jayne)
+      //           -> ouverture immediate, 0 friction, tunnel raccourci
+      cta.className = 'svb-mobile-sticky-cta' + (isEssai ? '' : ' js-buy');
       cta.href = isEssai ? '#essai-offres' : '/essai';
+      if (!isEssai) {
+        cta.dataset.discipline = 'reformer';
+        cta.dataset.label = "Séance d'essai Pilates Reformer";
+        cta.dataset.amount = '30 €';
+      }
       cta.setAttribute('data-track', 'mobile_sticky_cta');
       cta.setAttribute('aria-label', isEssai ? "Choisir une séance d'essai" : "Réserver une séance d'essai à 30 euros");
       cta.innerHTML = '\
         <span class="svb-mobile-sticky-cta__text">\
           <span class="svb-mobile-sticky-cta__label">' + (isEssai ? "Choisir mon essai" : "Réserver mon essai") + '</span>\
-          <span class="svb-mobile-sticky-cta__sub">' + (isEssai ? "Paiement sécurisé · confirmation immédiate" : "Studio Reformer Saint-Ouen") + '</span>\
+          <span class="svb-mobile-sticky-cta__sub">' + (isEssai ? "Paiement sécurisé · confirmation immédiate" : "Réservation immédiate · sans engagement") + '</span>\
         </span>\
         <span class="svb-mobile-sticky-cta__pill">30 €</span>';
       document.body.appendChild(cta);
 
+      // Ancre interne : scroll smooth. Sinon on laisse .js-buy prendre la main.
       cta.addEventListener('click', function(e){
         if (cta.getAttribute('href').charAt(0) !== '#') return;
         var target = document.querySelector(cta.getAttribute('href'));
