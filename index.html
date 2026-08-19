@@ -325,94 +325,132 @@
     </div>
 </section>
 
-  <!-- === PASS SAINT-VALENTIN — carte promo duo (rose Valentin) === -->
+  <!-- === PASS STARTER — carte glass avec best-seller badge (design user) === -->
   <section id="offres" class="relative py-16 md:py-24 reveal-load d-2 z-10" style="background:#FBF6EC;overflow:hidden;">
     <style>
+      /* Animation de flottement de la carte */
       @keyframes svbFloatCard {
         0%,100% { transform: translateY(0px); }
         50% { transform: translateY(-15px); }
+      }
+      @keyframes svbPulseBadge {
+        0%,100% { transform: rotate(10deg) scale(1); }
+        50% { transform: rotate(10deg) scale(1.1); }
       }
       .starter-card-wrapper {
         animation: svbFloatCard 6s ease-in-out infinite;
       }
       .starter-card {
-        background: rgba(255,255,255,.8);
+        background: rgba(255,255,255,.85);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-radius: 30px;
-        padding: 50px 40px;
+        padding: 50px 30px;
         text-align: center;
-        box-shadow: 0 30px 60px rgba(214,125,125,.15);
-        max-width: 550px;
+        box-shadow: 0 30px 70px rgba(0,0,0,.15);
+        max-width: 500px;
         margin: 0 auto;
         position: relative;
-        border: 2px solid rgba(255,255,255,.9);
-        transition: transform .4s ease, background .4s ease;
+        border: 2px solid white;
+        transition: transform .4s ease;
       }
-      .starter-card:hover {
-        transform: scale(1.02);
-        background: rgba(255,255,255,.95);
-      }
-      .btn-action-love {
-        display: inline-block;
-        background-color: #D67D7D;
+      .starter-card:hover { transform: scale(1.02); }
+      .best-seller-badge {
+        position: absolute;
+        top: -15px; right: -15px;
+        background: #E8B496;
         color: white;
-        padding: 14px 40px;
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: .7rem;
+        padding: 10px 15px;
+        border-radius: 50px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.15);
+        transform: rotate(10deg);
+        animation: svbPulseBadge 2s infinite;
+        border: 2px solid white;
+      }
+      .btn-action-starter {
+        display: inline-block;
+        background-color: #4A8D84;
+        color: white;
+        padding: 16px 40px;
         border-radius: 50px;
         text-transform: uppercase;
-        font-weight: 700;
-        font-size: .85rem;
+        font-weight: 800;
+        font-size: .9rem;
         letter-spacing: .1em;
         text-decoration: none;
         transition: all .4s cubic-bezier(.25,.8,.25,1);
-        box-shadow: 0 10px 30px rgba(214,125,125,.4);
-        border: 1px solid rgba(255,255,255,.2);
+        box-shadow: 0 10px 30px rgba(74,141,132,.3);
+        border: 2px solid rgba(255,255,255,.3);
       }
-      .btn-action-love:hover {
-        background-color: #c06565;
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 15px 40px rgba(214,125,125,.6);
+      .btn-action-starter:hover {
+        background-color: #386e66;
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(74,141,132,.5);
       }
       @media (prefers-reduced-motion: reduce) {
-        .starter-card-wrapper { animation: none; }
+        .starter-card-wrapper,
+        .best-seller-badge { animation: none; }
       }
     </style>
 
     <div class="px-4">
       <div class="starter-card-wrapper">
         <div class="starter-card">
-          <span class="bg-[#D67D7D] text-white px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6 inline-block shadow-lg animate-pulse">
-            &#10084;&#65039; Offre Spéciale Duo
+          <div class="best-seller-badge">&#128293; Le Préféré</div>
+
+          <span class="bg-[#E8B496] text-white px-5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 inline-block shadow-md">
+            Offre Découverte
           </span>
 
-          <h2 class="text-5xl font-hand text-[#2F4F4F] mb-3">Pass Saint-Valentin</h2>
+          <h2 class="text-5xl font-hand text-[#4A8D84] mb-2">New Pass Starter</h2>
 
-          <div class="flex justify-center items-center space-x-3 text-xs font-bold text-gray-500 uppercase mb-8 tracking-wide">
-            <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">2 Personnes</span>
+          <div class="flex justify-center items-center space-x-2 text-[10px] font-bold text-gray-500 uppercase mb-6 tracking-wide">
+            <span class="bg-gray-100 px-3 py-1 rounded-lg">5 Sessions</span>
             <span>&bull;</span>
-            <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-white">1 Session Offerte</span>
+            <span class="bg-gray-100 px-3 py-1 rounded-lg">Sans Engagement</span>
           </div>
 
-          <p class="text-6xl font-bold text-[#D67D7D] mb-4 tracking-tight drop-shadow-sm">
-            60<span class="text-3xl align-top">&euro;</span>
-            <span class="text-2xl text-gray-400 line-through">100&euro;</span>
+          <p class="text-7xl font-bold text-[#2F4F4F] mb-2 tracking-tight drop-shadow-sm">
+            99,90<span class="text-3xl align-top">&euro;</span>
           </p>
-          <p class="text-sm text-gray-500 mb-8 italic">Soit 30&euro; la séance par personne</p>
+
+          <!-- Ancrage prix : divise la sensation de cout -->
+          <p class="text-xs text-gray-500 mb-8">
+            Soit <strong class="text-[#4A8D84]">19,98&nbsp;&euro;</strong> la séance
+            <span class="text-gray-400 line-through ml-1">50&nbsp;&euro;</span>
+          </p>
+
+          <!-- Benefits : le "pourquoi" en 3 lignes -->
+          <ul class="text-left text-sm text-[#2F4F4F] space-y-2.5 mb-8 mx-auto max-w-xs">
+            <li class="flex items-start gap-2"><span class="text-[#4A8D84] font-bold mt-0.5">&#10004;</span><span><strong>Toutes les disciplines</strong> : Reformer, Crossformer, Yoga, Boxe, Cross&hellip;</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#4A8D84] font-bold mt-0.5">&#10004;</span><span><strong>Réservation 24h/24</strong> · annulation flexible jusqu'à 1h avant</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#4A8D84] font-bold mt-0.5">&#10004;</span><span><strong>Pas de reconduction</strong> · pas de CB stockée</span></li>
+          </ul>
 
           <a href="/essai"
              data-discipline="pass_starter"
-             data-label="Pass Saint-Valentin"
-             data-amount="60 &euro;"
-             data-track="home_starter_valentin_cta"
-             class="js-buy btn-action-love w-full text-lg">
-            Réserver à deux
+             data-label="Pass Starter"
+             data-amount="99,90 &euro;"
+             data-track="home_starter_v2_cta"
+             class="js-buy btn-action-starter w-full">
+            Je prends mon Pass &middot; 99,90&nbsp;&euro;
           </a>
-          <p class="text-[10px] text-gray-500 mt-5 italic">Valable jusqu'au 20 Février &bull; Places limitées</p>
+
+          <!-- Trust footer avec rating Google visible -->
+          <div class="mt-5 flex flex-col items-center gap-1.5">
+            <div class="flex items-center gap-1.5 text-xs text-[#2F4F4F]">
+              <span class="text-[#F5C76D] text-sm tracking-wider">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span><strong>5,0/5</strong> &middot; 146 avis Google</span>
+            </div>
+            <p class="text-[10px] text-gray-400 font-medium">Paiement sécurisé &middot; Confirmation immédiate</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
 
 
   <!-- === BANDEAU PROMO ÉTÉ 2026 — 3 vidéos full-bleed avec halo Ambilight === -->
