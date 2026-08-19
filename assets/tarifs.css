@@ -155,3 +155,27 @@
         .form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; }
         .btn-submit-quiz { width: 100%; padding: 15px; background-color: #25D366; color: white; font-weight: bold; border-radius: 50px; text-transform: uppercase; margin-top: 10px; transition: transform 0.2s; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
         .btn-submit-quiz:hover { transform: scale(1.02); background-color: #1ebc57; }
+
+/* CTA secondaire "essai à 30€" sous chaque pass card
+   Style discret pour ne pas voler la vedette au CTA principal.
+   Ajoute par le sprint operationnel-vente. */
+.tarifs-try-cta {
+  display: block;
+  text-align: center;
+  padding: 12px 12px;
+  margin: 0 0 0 0;
+  background: transparent;
+  color: var(--col-dark, #2F4F4F);
+  border-top: 1px dashed rgba(47,79,79,.16);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: none;
+  transition: background .22s ease, color .22s ease;
+}
+.tarifs-try-cta:hover {
+  background: rgba(232,180,150,.14);
+  color: #2F4F4F;
+}
+.tarifs-try-cta strong { font-weight: 800; color: var(--col-dark, #2F4F4F); }
