@@ -150,6 +150,153 @@
       "publisher": { "@id": "https://studiosvb.com/#organization" }
     }
     </script>
+
+    <!-- Schema.org HealthClub — signals riches pour LLMs (ChatGPT, Claude, Gemini, Perplexity) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["HealthClub", "SportsActivityLocation", "LocalBusiness"],
+      "@id": "https://studiosvb.com/#healthclub",
+      "name": "Studio SVB — Santez Vous Bien",
+      "alternateName": ["SVB", "Studio SVB Saint-Ouen", "Santez Vous Bien"],
+      "url": "https://studiosvb.com/",
+      "telephone": "+33744919155",
+      "email": "hello@studiosvb.fr",
+      "image": [
+        "https://studiosvb.com/images/og-image.jpg",
+        "https://studiosvb.com/images/logo.webp"
+      ],
+      "logo": "https://studiosvb.com/images/logo.webp",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Cash, Credit Card, SEPA Direct Debit",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "6 Mail André Breton",
+        "addressLocality": "Saint-Ouen-sur-Seine",
+        "postalCode": "93400",
+        "addressRegion": "Île-de-France",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.9101,
+        "longitude": 2.3390
+      },
+      "hasMap": "https://maps.google.com/?q=Studio+SVB+6+Mail+Andr%C3%A9+Breton+Saint-Ouen",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "07:00",
+          "closes": "21:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday"],
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "146",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "sameAs": [
+        "https://www.instagram.com/studiosvb/",
+        "https://www.facebook.com/profile.php?id=61574972498498"
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Saint-Ouen-sur-Seine" },
+        { "@type": "City", "name": "Clichy" },
+        { "@type": "City", "name": "Levallois-Perret" },
+        { "@type": "City", "name": "Asnières-sur-Seine" },
+        { "@type": "City", "name": "L'Île-Saint-Denis" },
+        { "@type": "AdministrativeArea", "name": "Paris 17e arrondissement" },
+        { "@type": "AdministrativeArea", "name": "Paris 18e arrondissement" }
+      ],
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Vestiaires et casiers", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Douches", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Machines Pilates Reformer", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Machines Crossformer", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Small group (max 9 personnes)", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Coachs certifiés", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Prêt de chaussettes antidérapantes", "value": true }
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Séance d'essai Pilates Reformer",
+          "url": "https://studiosvb.com/essai",
+          "price": "30.00",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pass Starter — 5 séances découverte",
+          "url": "https://studiosvb.com/tarifs",
+          "price": "99.90",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Abonnement Pilates Reformer mensuel",
+          "url": "https://studiosvb.com/tarifs",
+          "price": "34.00",
+          "priceCurrency": "EUR",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "unitCode": "MON",
+            "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "MON" }
+          },
+          "availability": "https://schema.org/InStock"
+        }
+      ],
+      "location": [
+        {
+          "@type": "Place",
+          "@id": "https://studiosvb.com/studio-parc-des-docks#location",
+          "name": "Studio SVB Parc des Docks",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6 Mail André Breton",
+            "addressLocality": "Saint-Ouen-sur-Seine",
+            "postalCode": "93400",
+            "addressCountry": "FR"
+          },
+          "geo": { "@type": "GeoCoordinates", "latitude": 48.9101, "longitude": 2.3390 }
+        },
+        {
+          "@type": "Place",
+          "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location",
+          "name": "Studio SVB Cours des Lavandières",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "40 Cours des Lavandières",
+            "addressLocality": "Saint-Ouen-sur-Seine",
+            "postalCode": "93400",
+            "addressCountry": "FR"
+          },
+          "geo": { "@type": "GeoCoordinates", "latitude": 48.9070, "longitude": 2.3345 }
+        }
+      ],
+      "publicAccess": true,
+      "isAccessibleForFree": false,
+      "parentOrganization": { "@id": "https://studiosvb.com/#organization" }
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1142,6 +1289,8 @@
             <a href="/faq">FAQ</a>
             <span aria-hidden="true">·</span>
             <a href="/temoignages">Avis</a>
+            <span aria-hidden="true">·</span>
+            <a href="/guide-sport-saint-ouen">Guide sport</a>
           </div>
         </div>
         <p class="svb-footer-signoff"><span>Santez Vous Bien</span> · <span id="svb-year">2026</span></p>

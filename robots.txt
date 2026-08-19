@@ -1,15 +1,156 @@
-# SVB - robots.txt
+# ==========================================================================
+# Studio SVB — robots.txt
+# Autorise explicitement les crawlers IA (LLMs) + Search Engines classiques.
+# But : maximiser la citation de studiosvb.com dans ChatGPT, Claude, Gemini,
+# Perplexity, Copilot, Apple Intelligence, You.com, DuckAssist, etc.
+# ==========================================================================
+
+# --- Crawlers classiques (Google, Bing, DuckDuckGo, Qwant...) ---
 User-agent: *
 Allow: /
 Disallow: /cdn-cgi/
 Disallow: /admin/
 Disallow: /design-system/
+Disallow: /forms
+Disallow: /forms.html
 
-# ChatGPT Search peut consulter les pages publiques de SVB.
+# --- OpenAI / ChatGPT ---
+# GPTBot   : indexation pour training ChatGPT
+# OAI-SearchBot : ChatGPT Search (temps reel)
+# ChatGPT-User  : requetes utilisateur ChatGPT
+User-agent: GPTBot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /cdn-cgi/
 Disallow: /admin/
 Disallow: /design-system/
 
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- Anthropic / Claude ---
+User-agent: ClaudeBot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- Google Gemini / Vertex AI ---
+# Google-Extended controle l'usage du contenu par Gemini et Vertex AI
+# (independant de Googlebot pour la recherche classique)
+User-agent: Google-Extended
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- Perplexity ---
+User-agent: PerplexityBot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- Apple Intelligence ---
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- Microsoft Copilot (Bing AI) ---
+User-agent: bingbot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- Common Crawl (utilise par la plupart des LLMs open-source) ---
+User-agent: CCBot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- Meta AI ---
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+User-agent: FacebookBot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- Amazon Q / Rufus ---
+User-agent: Amazonbot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- Mistral (France) ---
+User-agent: MistralAI-User
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- You.com ---
+User-agent: YouBot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- DuckAssist / DuckDuckGo AI ---
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- ByteDance / Doubao (TikTok search + AI) ---
+User-agent: Bytespider
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /design-system/
+
+# --- Sitemaps ---
 Sitemap: https://studiosvb.com/sitemap.xml
