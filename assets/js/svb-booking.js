@@ -22,6 +22,10 @@
   var ORIGIN = "https://web-customer.studiosvb.com";
   var STORAGE_KEY = "jayne:lastPath";
   var HASH = "#booking";
+  // Chemin d'entree par defaut : page Packs de la boutique.
+  // Un CTA peut le surcharger via data-booking-path (ex: "/place/place_svb-lavandieres/subscription-plans"
+  // pour ouvrir directement les Abonnements).
+  var DEFAULT_PATH = "/place/place_svb-lavandieres/packs";
 
   var MODAL_HTML =
     '<div class="svb-book-overlay" id="svbBookOverlay" role="dialog" aria-modal="true" aria-label="Reservation Studio SVB">' +
@@ -190,9 +194,23 @@
     if (state.isOpen) return;
     opts = opts || {};
 
-    // Choix du path : restaurer si dispo, sinon "/"
+    // Choix du path (ordre de priorite) :
+    //  1) opts.path -> passe explicitement (ex: CTA avec data-booking-path)
+    //  2) sessionStorage jayne:lastPath -> restaure la derniere page vue,
+    //     SAUF si c'est la racine "/" (ancien defaut = planning) : on veut
+    //     que chaque nouvelle ouverture atterrisse sur les packs.
+    //  3) DEFAULT_PATH -> page Packs de la boutique
     var startPath;
-    try { startPath = sessionStorage.getItem(STORAGE_KEY) || "/"; } catch (e) { startPath = "/"; }
+    if (opts.path && typeof opts.path === "string") {
+      startPath = opts.path;
+    } else {
+      try {
+        var stored = sessionStorage.getItem(STORAGE_KEY);
+        startPath = (stored && stored !== "/" && stored !== "") ? stored : DEFAULT_PATH;
+      } catch (e) { startPath = DEFAULT_PATH; }
+    }
+    // Toujours commencer par "/" (path absolu)
+    if (startPath.charAt(0) !== "/") startPath = "/" + startPath;
     state.iframePath = startPath;
 
     // Assigne src (ou reload si deja bon) -> declenche load event -> loader off
@@ -255,12 +273,16 @@
   function bindCtas() {
     // Intercepte tous les .js-buy de la page. Se re-execute sur mutations
     // pour capter les CTAs injectes en JS (au cas ou).
+    // Support de data-booking-path="/xxx" pour surcharger la page cible
+    // (ex: data-booking-path="/place/place_svb-lavandieres/subscription-plans"
+    //  pour ouvrir directement les Abonnements au lieu des Packs).
     document.querySelectorAll(".js-buy").forEach(function (el) {
       if (el.dataset.svbBookingBound === "1") return;
       el.dataset.svbBookingBound = "1";
       el.addEventListener("click", function (ev) {
         ev.preventDefault();
-        openModal();
+        var path = el.dataset.bookingPath || null;
+        openModal(path ? { path: path } : {});
       });
     });
   }
