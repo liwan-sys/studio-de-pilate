@@ -54,23 +54,6 @@
   <h1>Formulaires internes — ne pas supprimer</h1>
   <p>Cette page déclare les formulaires que Netlify doit détecter au build.</p>
 
-  <!-- 1. Réservation essai (utilisé par /reserver) -->
-  <form
-    name="reservation-essai"
-    data-netlify="true"
-    data-netlify-honeypot="website-url"
-    hidden>
-    <input type="text" name="firstname" />
-    <input type="text" name="lastname" />
-    <input type="email" name="email" />
-    <input type="tel" name="phone" />
-    <input type="text" name="discipline" />
-    <textarea name="availability"></textarea>
-    <input type="hidden" name="ref" />
-    <input type="checkbox" name="consent" />
-    <input type="text" name="website-url" />
-  </form>
-
   <!-- 2. Leads Calendly (remplis par la Netlify Function calendly-webhook) -->
   <form
     name="calendly-leads"
