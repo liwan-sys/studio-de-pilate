@@ -31,8 +31,8 @@
     <!-- ── Perf : dns-prefetch services externes ── -->
     <link rel="dns-prefetch" href="https://calendly.com">
     <link rel="dns-prefetch" href="https://wa.me">
-<title>Coaching Sportif Saint-Ouen | Coach & Small Group | SVB</title>
-    <meta name="description" content="Coaching sportif à Saint-Ouen : coach individuel, duo et small group training. Équipe certifiée, Cross Training, Pilates, Yoga, Boxe, essai 30 €.">
+<title>Coaching sportif individuel Saint-Ouen (93) | Coach dédié 1-on-1 | SVB</title>
+    <meta name="description" content="Coaching sportif individuel à Saint-Ouen (93) : coach dédié 1-on-1 ou en duo, programme 100 % sur mesure, 2 studios (Parc des Docks + Cours des Lavandières). Essai 30 €.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://studiosvb.com/coaching-sportif-saint-ouen">
 
@@ -40,7 +40,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://studiosvb.com/coaching-sportif-saint-ouen">
     <meta property="og:title" content="Coaching Sportif Saint-Ouen | Coach & Small Group | SVB">
-    <meta property="og:description" content="Coaching sportif à Saint-Ouen : coach individuel, duo et small group training. Équipe certifiée, Cross Training, Pilates, Yoga, Boxe, essai 30 €.">
+    <meta property="og:description" content="Coaching sportif individuel à Saint-Ouen (93) : coach dédié 1-on-1 ou en duo, programme 100 % sur mesure, 2 studios (Parc des Docks + Cours des Lavandières). Essai 30 €.">
     <meta property="og:image" content="https://studiosvb.com/images/coaching-sportif.webp">
     <meta property="og:site_name" content="SVB">
     <meta property="og:locale" content="fr_FR">
@@ -48,7 +48,7 @@
     <!-- Twitter Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Coaching Sportif Saint-Ouen | Coach & Small Group | SVB">
-    <meta name="twitter:description" content="Coaching sportif à Saint-Ouen : coach individuel, duo et small group training. Équipe certifiée, Cross Training, Pilates, Yoga, Boxe, essai 30 €.">
+    <meta name="twitter:description" content="Coaching sportif individuel à Saint-Ouen (93) : coach dédié 1-on-1 ou en duo, programme 100 % sur mesure, 2 studios (Parc des Docks + Cours des Lavandières). Essai 30 €.">
     <meta name="twitter:image" content="https://studiosvb.com/images/coaching-sportif.webp">
 
     <!-- Schema Markup - LocalBusiness & SportsActivityLocation -->
@@ -57,17 +57,43 @@
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": "https://studiosvb.com/coaching-sportif-saint-ouen#service",
-  "name": "Coaching sportif à Saint-Ouen",
-  "serviceType": "Coaching sportif individuel et duo",
-  "description": "Coaching sportif individuel ou duo au studio SVB Parc des Docks à Saint-Ouen-sur-Seine.",
+  "name": "Coaching sportif individuel à Saint-Ouen",
+  "serviceType": "Personal training (coaching sportif individuel et duo)",
+  "description": "Coaching sportif individuel (1-on-1) ou duo au Studio SVB à Saint-Ouen-sur-Seine. Coach dédié, programme sur mesure, séances de 55 minutes dans les 2 studios : Parc des Docks (6 Mail André Breton) et Cours des Lavandières (40 Cours des Lavandières).",
   "url": "https://studiosvb.com/coaching-sportif-saint-ouen",
   "provider": {
     "@id": "https://studiosvb.com/#organization"
   },
-  "areaServed": {
-    "@type": "City",
-    "name": "Saint-Ouen-sur-Seine"
-  }
+  "areaServed": [
+    {"@type": "City", "name": "Saint-Ouen-sur-Seine"},
+    {"@type": "City", "name": "Paris 17"},
+    {"@type": "City", "name": "Paris 18"},
+    {"@type": "City", "name": "Clichy"}
+  ],
+  "availableAtOrFrom": [
+    {
+      "@type": "Place",
+      "name": "Studio SVB - Parc des Docks",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "6 Mail André Breton",
+        "addressLocality": "Saint-Ouen-sur-Seine",
+        "postalCode": "93400",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "Place",
+      "name": "Studio SVB - Cours des Lavandières",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "40 Cours des Lavandières",
+        "addressLocality": "Saint-Ouen-sur-Seine",
+        "postalCode": "93400",
+        "addressCountry": "FR"
+      }
+    }
+  ]
 }
 </script>
 
@@ -107,10 +133,18 @@
         "mainEntity": [
             {
                 "@type": "Question",
+                "name": "Est-ce que Studio SVB propose du coaching individuel privé (1-on-1) ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui. Studio SVB propose du coaching sportif individuel (personal training) avec un coach dédié, en solo (1-on-1) ou en duo. Séances de 55 minutes, programme 100 % sur mesure selon l'objectif (remise en forme, perte de poids, préparation course, force, mobilité, post-partum, post-blessure). Disponible dans les 2 studios SVB à Saint-Ouen : Parc des Docks (6 Mail André Breton) et Cours des Lavandières (40 Cours des Lavandières)."
+                }
+            },
+            {
+                "@type": "Question",
                 "name": "Quelle est la différence entre le coaching individuel et le small group ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Le coaching individuel propose une séance construite pour une personne et son objectif. Le small group réunit 8 à 12 personnes selon la discipline, avec des options proposées par le coach dans un cours commun."
+                    "text": "Le coaching individuel (1-on-1) propose une séance construite pour une personne et son objectif, avec un coach dédié. Le small group réunit 8 à 12 personnes selon la discipline, avec des options proposées par le coach dans un cours commun."
                 }
             },
             {
@@ -206,12 +240,12 @@
     <!-- hero éditorial -->
     <section id="main-content" class="relative pt-24 pb-14 px-4">
         <div class="max-w-4xl mx-auto text-center">
-            <p class="reveal-load" style="font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#4A8D84;margin:0 0 1.2rem;">Studio SVB · Saint-Ouen (93)</p>
+            <p class="reveal-load" style="font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#4A8D84;margin:0 0 1.2rem;">Coaching sportif privé &middot; Solo &amp; Duo &middot; Saint-Ouen (93)</p>
             <h1 class="text-6xl md:text-8xl font-hand svb-split reveal-load d-1" style="color:#2F4F4F;line-height:1.08;letter-spacing:.02em;margin:0 0 1.4rem;">
-                Ton coach, tes objectifs.
+                Coaching sportif<br/>individuel à Saint-Ouen.
             </h1>
-            <p class="text-lg md:text-xl reveal-load d-2" style="color:#2F4F4F;opacity:.88;max-width:640px;margin:0 auto 2rem;">
-                Solo ou duo · 55 min · programme adapté à ton objectif et à ton niveau.
+            <p class="text-lg md:text-xl reveal-load d-2" style="color:#2F4F4F;opacity:.88;max-width:680px;margin:0 auto 2rem;">
+                <strong>Coach dédié</strong>, <strong>programme 100 % sur mesure</strong>, séances <strong>1-on-1 ou en duo</strong> &middot; 55 min &middot; dans nos <strong>2 studios à Saint-Ouen</strong> (Parc des Docks + Cours des Lavandières).
             </p>
             <a href="/essai" data-discipline="reformer" data-label="Séance d'essai Pilates Reformer" data-amount="30 €" class="js-buy svb-magnetic reveal-load d-3" style="display:inline-block;background:#2F4F4F;color:#FBF6EC;padding:16px 34px;border-radius:999px;font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.02em;text-decoration:none;transition:all .3s cubic-bezier(.2,.8,.2,1);">Réserver un essai coaching</a>
         </div>
@@ -494,9 +528,15 @@
             <h2 class="text-3xl font-bold mb-8" style="color: var(--col-dark);">«&nbsp;Mais, et si…&nbsp;?&nbsp;»</h2>
             <div class="space-y-6">
                 <div class="border-l-4" style="border-color: var(--col-green); padding-left: 24px;">
+                    <h3 class="text-lg font-bold mb-3" style="color: var(--col-dark);">Est-ce que Studio SVB propose du coaching individuel privé (1-on-1) ?</h3>
+                    <p class="text-gray-700">
+                        <strong>Oui.</strong> SVB propose du <strong>coaching sportif individuel</strong> (personal training) avec un <strong>coach dédié</strong>, en solo (1-on-1) ou en duo (à deux avec le même coach). Séances de <strong>55 min</strong>, programme <strong>100 % sur mesure</strong> selon ton objectif (remise en forme, perte de poids, préparation course, force, mobilité, post-partum, post-blessure). Disponible dans les <strong>2 studios</strong> : Parc des Docks (6 Mail André Breton) pour Cross Training / Boxe, et Cours des Lavandières (40 Cours des Lavandières) pour Reformer / Pilates / Yoga.
+                    </p>
+                </div>
+                <div class="border-l-4" style="border-color: var(--col-green); padding-left: 24px;">
                     <h3 class="text-lg font-bold mb-3" style="color: var(--col-dark);">Coaching individuel, duo ou small group : quoi choisir ?</h3>
                     <p class="text-gray-700">
-                        <strong>Individuel</strong> = programme construit pour une personne. <strong>Duo</strong> = séance partagée à deux avec des adaptations pour chacun. <strong>Small group</strong> = petit groupe avec l'énergie collective et les consignes du coach.
+                        <strong>Individuel (1-on-1)</strong> = un coach 100 % pour toi, programme construit selon ton objectif. <strong>Duo</strong> = séance partagée à deux avec le même coach, adaptations pour chacun. <strong>Small group</strong> = petit groupe (8 à 12 max) avec l'énergie collective et les consignes du coach.
                     </p>
                 </div>
                 <div class="border-l-4" style="border-color: var(--col-green); padding-left: 24px;">
@@ -536,9 +576,9 @@
     <!-- CTA Section -->
     <section class="max-w-5xl mx-auto px-4 py-12 reveal-load">
         <div class="glass-card p-12 text-center" style="background: rgba(136, 192, 166, 0.15);">
-            <h2 class="text-4xl font-bold mb-4" style="color: var(--col-dark);">Ton programme sur-mesure démarre là.</h2>
+            <h2 class="text-4xl font-bold mb-4" style="color: var(--col-dark);">Ton programme sur mesure démarre là.</h2>
             <p class="text-lg mb-8 text-gray-700">
-                Coaching individuel, duo ou petit groupe selon ton objectif et tes disponibilités. Les tarifs en cours sont regroupés sur une seule page.
+                Coaching individuel (1-on-1), duo ou small group selon ton objectif et tes disponibilités. Dans nos <strong>2 studios à Saint-Ouen</strong>&nbsp;: <strong>6 Mail André Breton</strong> (Parc des Docks) &middot; <strong>40 Cours des Lavandières</strong>.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/essai" data-discipline="reformer" data-label="Séance d'essai Pilates Reformer" data-amount="30 €" class="js-buy inline-block px-10 py-4 rounded-lg btn font-bold text-lg">
@@ -592,7 +632,7 @@
           <div class="svb-footer-col">
             <h3 class="svb-footer-head">Réseaux</h3>
             <ul>
-              <li><a href="https://www.instagram.com/studiosvb/" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5H5.2a3.7 3.7 0 00-3.7 3.7v5.6a3.7 3.7 0 003.7 3.7h5.6a3.7 3.7 0 003.7-3.7V5.2a3.7 3.7 0 00-3.7-3.7H8zm4.7 1.8c.2 0 .4.2.4.4v.5c0 .2-.2.4-.4.4h-.5a.4.4 0 01-.4-.4v-.5c0-.2.2-.4.4-.4h.5zM8 4.8a3.2 3.2 0 110 6.4 3.2 3.2 0 010-6.4zm0 1.3a1.9 1.9 0 100 3.8 1.9 1.9 0 000-3.8z" fill="currentColor"/></svg>Instagram</a></li>
+              <li><a href="https://www.instagram.com/svb.officiel/" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5H5.2a3.7 3.7 0 00-3.7 3.7v5.6a3.7 3.7 0 003.7 3.7h5.6a3.7 3.7 0 003.7-3.7V5.2a3.7 3.7 0 00-3.7-3.7H8zm4.7 1.8c.2 0 .4.2.4.4v.5c0 .2-.2.4-.4.4h-.5a.4.4 0 01-.4-.4v-.5c0-.2.2-.4.4-.4h.5zM8 4.8a3.2 3.2 0 110 6.4 3.2 3.2 0 010-6.4zm0 1.3a1.9 1.9 0 100 3.8 1.9 1.9 0 000-3.8z" fill="currentColor"/></svg>Instagram</a></li>
               <li><a href="https://www.facebook.com/profile.php?id=61574972498498" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.2 14v-5.3h1.8l.3-2h-2V5.4c0-.6.1-1 1-1h1.1V2.5a16 16 0 00-1.7-.1c-1.7 0-2.8 1-2.8 2.9v1.4H5v2h1.8V14h2.4z" fill="currentColor"/></svg>Facebook</a></li>
               <li><a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 00-5.6 9.8L1.5 14.5l3.3-.8A6.5 6.5 0 108 1.5zm0 1.3a5.2 5.2 0 014.3 8.1l.5 1.5-1.6-.4A5.2 5.2 0 118 2.8zm-2.6 2.5c-.2 0-.4 0-.6.2-.2.2-.8.7-.8 1.8s.8 2.1 1 2.2c.1.2 1.6 2.4 3.8 3.2 1.8.7 2.2.5 2.6.5.4 0 1.3-.5 1.5-1 .2-.6.2-1 .1-1.2l-.8-.4c-.2-.1-.5-.3-.7 0s-.8 1-1 1.1c-.2.2-.4.2-.7 0-.3-.1-1.2-.4-2.3-1.4a8 8 0 01-1.5-2c-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5L6 5.4c-.1-.2-.2-.2-.3-.2z" fill="currentColor"/></svg>WhatsApp</a></li>
             </ul>
