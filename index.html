@@ -586,7 +586,7 @@
         color:#2F4F4F;opacity:.6;margin:10px 0 18px;
       }
 
-      /* Ancrage : pastille gold "19,98€/séance" */
+      /* Ancrage : pastille gold sous le prix */
       .ps-anchor{
         position:relative; z-index:2;
         display:inline-flex;align-items:center;gap:10px;
@@ -790,17 +790,12 @@
         <h3 class="ps-title">New Pass Starter</h3>
         <span class="ps-title-flourish" aria-hidden="true"></span>
 
-        <div class="ps-price">
-          <span class="ps-price-num">99</span>
-          <span class="ps-price-cents">,90</span>
-          <span class="ps-price-cur">€</span>
-        </div>
-        <p class="ps-meta">5 sessions · Valable 1 mois · Sans engagement</p>
+        <p class="ps-meta" style="margin-top:14px;">5 sessions · Valable 1 mois · Sans engagement</p>
 
-        <!-- ANCRAGE PRIX : seulement 19,98 EUR la seance vs 50 EUR hors abo -->
+        <!-- Tarif affiche dans l'espace client (grille tarifaire en cours de mise a jour) -->
         <div class="ps-anchor">
-          <span class="ps-anchor-strong">Soit 19,98&nbsp;€ la séance</span>
-          <span class="ps-anchor-strike">vs 50 € hors abo</span>
+          <span class="ps-anchor-strong">Tarif dans l'espace client</span>
+          <span class="ps-anchor-strike">Pas de reconduction · Pas de CB stockée</span>
         </div>
 
         <!-- Verbatim client — social proof integree -->
@@ -837,9 +832,9 @@
           <p class="ps-stat-label">se sont inscrit·es à un abonnement<br/>après avoir pris le Pass Starter</p>
         </div>
 
-        <a href="/essai" data-discipline="pass_starter" data-label="Pass Starter" data-amount="99,90 €" rel="noopener noreferrer"
+        <a href="/essai" data-discipline="pass_starter" data-label="Pass Starter" rel="noopener noreferrer"
            class="js-buy ps-cta svb-magnetic">
-          <span>Je prends mon Pass · 99,90&nbsp;€</span>
+          <span>Je prends mon Pass Starter</span>
           <span class="ps-cta-arrow">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
           </span>
