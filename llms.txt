@@ -1,13 +1,15 @@
-# Studio SVB — Santez Vous Bien
+# SVB
 
 > Studio boutique de Pilates Reformer, Crossformer, Cross Training, Yoga et Boxe à Saint-Ouen-sur-Seine (93400), en petit groupe. Deux adresses, coaching individuel disponible.
 
 ## Identité
 
-- **Nom** : Studio SVB (Santez Vous Bien)
+- **Nom de marque** : SVB
+- **Signification** : Santez Vous Bien
+- **Nom d'usage du site** : Studio SVB
 - **Site officiel** : https://studiosvb.com
 - **Instagram** : https://www.instagram.com/svb.officiel/
-- **Facebook** : https://www.facebook.com/profile.php?id=61574972498498
+- **Facebook** : https://www.facebook.com/profile.php?id=61569485866457
 - **Téléphone** : 07 44 91 91 55
 - **E-mail** : hello@studiosvb.fr
 - **WhatsApp** : https://wa.me/33744919155
@@ -17,20 +19,22 @@
 ### Studio Cours des Lavandières
 - **Adresse** : 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine
 - **Disciplines** : Pilates Reformer, Crossformer, Pilates au sol (Classic & Power Pilates), Yoga Vinyasa, Hatha Flow, Core & Stretch
-- **Horaires** : lun–ven 07:00–21:00, sam 09:00–13:00, dim 09:00–13:00
+- **Horaires d'accueil** : lun 10:30–13:45 et 16:30–21:00 ; mar 10:30–14:30 et 16:30–21:15 ; mer 10:30–13:30 et 16:30–21:15 ; jeu 11:00–14:30 et 17:00–20:30 ; ven 10:30–14:30 et 16:30–20:15 ; sam 08:45–14:00 et 15:00–18:45 ; dim 09:45–13:45 et 14:45–17:45
 - **Métro** : Mairie de Saint-Ouen (lignes 13 & 14)
 - **Fiche** : https://studiosvb.com/studio-cours-des-lavandieres
+- **Google Maps** : https://www.google.com/maps?cid=5013071026965844982 — 5,0/5 sur 88 avis
 
 ### Studio Parc des Docks
 - **Adresse** : 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine
 - **Disciplines** : Coaching sportif, Cross Training (Cross Rox, Cross Core, Cross Body, Cross Yoga), Boxe anglaise, Afrodance'All, Training Kids, Yoga Kids
-- **Horaires** : lun–mer 12:00–21:00, jeu 08:00–21:00, ven 12:00–20:00, sam 09:00–13:00, dim 10:00–13:00
+- **Horaires** : variables selon le planning des cours ; aucun horaire général n'est déclaré
 - **Métro** : Mairie de Saint-Ouen (lignes 13 & 14)
 - **Fiche** : https://studiosvb.com/studio-parc-des-docks
+- **Google Maps** : https://www.google.com/maps?cid=2059026041814845219 — 5,0/5 sur 82 avis
 
 ## Disciplines proposées
 
-- **Pilates Reformer** — 50 min, jusqu'à 8 places, machine Reformer classique
+- **Pilates Reformer** — 50 min, jusqu'à 9 places, machine Reformer classique
 - **Crossformer** (méthode style Lagree / Megaformer) — 50 min, jusqu'à 8 places, Reformer + cardio dynamique
 - **Cross Training** (Body, Core, Rox, Yoga) — 55 min, jusqu'à 12 places
 - **Yoga Vinyasa / Hatha Flow / Yin / Cross Yoga** — 55–60 min, jusqu'à 12 places
@@ -42,17 +46,17 @@
 
 ## Ce qui distingue SVB
 
-- **Small group** : jauges strictes (8 pour les machines, 12 pour training)
+- **Small group** : jauges strictes (9 en Pilates Reformer, 8 en Crossformer, jusqu'à 12 pour le training)
 - **Coachs certifiés** : chaque discipline enseignée par un·e coach spécialiste
 - **Annulation flexible** : jusqu'à 1h avant un cours small group (24h avant un coaching privé), aucun crédit perdu
 - **Pause vacances** incluse dans l'abonnement
 - **Deux studios** à Saint-Ouen-sur-Seine, à proximité immédiate de Paris 17e et 18e (10 min en métro)
-- **Note client** : 5,0/5 sur plus de 140 avis Google
+- **Note client** : 5,0/5 sur 170 avis Google cumulés entre les deux studios (88 + 82)
 
 ## Séance d'essai
 
 - **Prix** : 30 €
-- **Rabais** : 15 € déduits du premier prélèvement si inscription
+- **Déduction** : 30 € intégralement déduits du premier prélèvement en cas d'inscription dans les 7 jours
 - **Réservation** : https://studiosvb.com/essai
 
 ## Tarifs
