@@ -47,6 +47,11 @@ function valuesForKey(value, key, found = []) {
   return found;
 }
 
+function asArray(value) {
+  if (value === undefined || value === null) return [];
+  return Array.isArray(value) ? value : [value];
+}
+
 function attributeValue(tag, name) {
   if (!tag) return undefined;
   return tag.match(new RegExp(`\\b${name}\\s*=\\s*(["'])(.*?)\\1`, 'i'))?.[2];
@@ -107,7 +112,10 @@ for (const url of sitemapUrls) {
 
 const htmlFiles = walk(root, '.html');
 const businessTypes = new Set(['LocalBusiness', 'SportsActivityLocation', 'HealthClub', 'ExerciseGym']);
+const expectedBusinessFiles = new Set(['studio-cours-des-lavandieres.html', 'studio-parc-des-docks.html']);
 const businessSchemaFiles = new Set();
+const businessSchemas = new Map();
+const serviceSchemas = [];
 
 for (const absoluteFile of htmlFiles) {
   const relativeFile = path.relative(root, absoluteFile);
@@ -132,12 +140,32 @@ for (const absoluteFile of htmlFiles) {
       continue;
     }
 
-    for (const type of valuesForKey(data, '@type').flat()) {
-      if (businessTypes.has(type)) businessSchemaFiles.add(relativeFile);
+    const topLevelNodes = Array.isArray(data)
+      ? data
+      : Array.isArray(data?.['@graph'])
+        ? data['@graph']
+        : [data];
+
+    for (const node of topLevelNodes) {
+      if (!node || typeof node !== 'object') continue;
+      const types = asArray(node['@type']);
+      if (types.some((type) => businessTypes.has(type))) {
+        businessSchemaFiles.add(relativeFile);
+        const schemas = businessSchemas.get(relativeFile) || [];
+        schemas.push(node);
+        businessSchemas.set(relativeFile, schemas);
+      }
+      if (types.includes('Service')) serviceSchemas.push({ file: relativeFile, schema: node });
     }
 
-    for (const key of ['aggregateRating', 'ratingCount', 'reviewCount', 'openingHoursSpecification']) {
-      if (valuesForKey(data, key).length) fail(`${relativeFile} contient encore ${key} dans les données structurées.`);
+    if (valuesForKey(data, 'ratingCount').length) fail(`${relativeFile} contient encore ratingCount dans les données structurées.`);
+    for (const key of ['aggregateRating', 'reviewCount']) {
+      if (valuesForKey(data, key).length && !expectedBusinessFiles.has(relativeFile)) {
+        fail(`${relativeFile} contient ${key} hors d'une fiche d'établissement autorisée.`);
+      }
+    }
+    if (valuesForKey(data, 'openingHoursSpecification').length && relativeFile !== 'studio-cours-des-lavandieres.html') {
+      fail(`${relativeFile} contient des horaires structurés non autorisés.`);
     }
 
     for (const imageValue of [...valuesForKey(data, 'image'), ...valuesForKey(data, 'logo')].flat()) {
@@ -155,12 +183,100 @@ for (const absoluteFile of htmlFiles) {
   }
 }
 
-const expectedBusinessFiles = new Set(['studio-cours-des-lavandieres.html', 'studio-parc-des-docks.html']);
 for (const file of businessSchemaFiles) {
   if (!expectedBusinessFiles.has(file)) fail(`Schema d'établissement inattendu dans ${file}.`);
 }
 for (const file of expectedBusinessFiles) {
   if (!businessSchemaFiles.has(file)) fail(`Schema d'établissement manquant dans ${file}.`);
+}
+
+const expectedBusinesses = new Map([
+  ['studio-parc-des-docks.html', {
+    id: 'https://studiosvb.com/studio-parc-des-docks#location',
+    name: 'SVB - Studio de coaching sportif & Bootcamp',
+    alternateName: 'SVB - Parc des Docks',
+    streetAddress: '6 Mail André Breton',
+    latitude: 48.9118,
+    longitude: 2.3336,
+    map: 'https://www.google.com/maps?cid=2059026041814845219',
+    reviewCount: 82,
+  }],
+  ['studio-cours-des-lavandieres.html', {
+    id: 'https://studiosvb.com/studio-cours-des-lavandieres#location',
+    name: 'Studio de pilates Reformer - SVB',
+    alternateName: 'SVB - Cours des Lavandières',
+    streetAddress: '40 Cours des Lavandières',
+    latitude: 48.9108,
+    longitude: 2.3345,
+    map: 'https://www.google.com/maps?cid=5013071026965844982',
+    reviewCount: 88,
+  }],
+]);
+
+for (const [file, expected] of expectedBusinesses) {
+  const schemas = businessSchemas.get(file) || [];
+  if (schemas.length !== 1) {
+    fail(`${file} contient ${schemas.length} schema(s) d'établissement au lieu d'un seul.`);
+    continue;
+  }
+
+  const [schema] = schemas;
+  const actual = {
+    id: schema['@id'],
+    name: schema.name,
+    alternateName: schema.alternateName,
+    streetAddress: schema.address?.streetAddress,
+    latitude: schema.geo?.latitude,
+    longitude: schema.geo?.longitude,
+    map: schema.hasMap,
+    reviewCount: schema.aggregateRating?.reviewCount,
+  };
+  for (const [key, value] of Object.entries(expected)) {
+    if (actual[key] !== value) fail(`${file} : ${key} vaut ${actual[key]} au lieu de ${value}.`);
+  }
+  if (String(schema.aggregateRating?.ratingValue) !== '5.0') fail(`${file} : la note Google structurée doit être 5.0.`);
+}
+
+const expectedLavandieresHours = [
+  'Monday|10:30|13:45',
+  'Monday|16:30|21:00',
+  'Tuesday|10:30|14:30',
+  'Tuesday|16:30|21:15',
+  'Wednesday|10:30|13:30',
+  'Wednesday|16:30|21:15',
+  'Thursday|11:00|14:30',
+  'Thursday|17:00|20:30',
+  'Friday|10:30|14:30',
+  'Friday|16:30|20:15',
+  'Saturday|08:45|14:00',
+  'Saturday|15:00|18:45',
+  'Sunday|09:45|13:45',
+  'Sunday|14:45|17:45',
+];
+const lavandieresSchema = businessSchemas.get('studio-cours-des-lavandieres.html')?.[0];
+if (lavandieresSchema) {
+  const actualHours = asArray(lavandieresSchema.openingHoursSpecification)
+    .map((entry) => `${entry.dayOfWeek}|${entry.opens}|${entry.closes}`);
+  if (JSON.stringify(actualHours) !== JSON.stringify(expectedLavandieresHours)) {
+    fail('Les horaires structurés de Lavandières ne correspondent pas aux 14 créneaux validés.');
+  }
+}
+const docksSchema = businessSchemas.get('studio-parc-des-docks.html')?.[0];
+if (docksSchema?.openingHoursSpecification !== undefined) {
+  fail("Le studio Parc des Docks ne doit pas publier d'horaires généraux non confirmés.");
+}
+
+const allowedLocationIds = new Set([...expectedBusinesses.values()].map((business) => business.id));
+for (const { file, schema } of serviceSchemas) {
+  const places = asArray(schema.availableAtOrFrom);
+  if (!places.length) {
+    fail(`${file} : le service ${schema.name || 'sans nom'} n'est relié à aucun studio.`);
+    continue;
+  }
+  for (const place of places) {
+    const id = typeof place === 'string' ? place : place?.['@id'];
+    if (!allowedLocationIds.has(id)) fail(`${file} : le service ${schema.name || 'sans nom'} pointe vers un studio inconnu (${id || 'sans @id'}).`);
+  }
 }
 
 for (const absoluteFile of htmlFiles) {
@@ -239,5 +355,5 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`SEO OK : ${sitemapUrls.length} URL canoniques, ${htmlFiles.length} pages source et ${businessSchemaFiles.size} établissements vérifiés.`);
+console.log(`SEO OK : ${sitemapUrls.length} URL canoniques, ${htmlFiles.length} pages source, ${businessSchemaFiles.size} établissements et ${serviceSchemas.length} services vérifiés.`);
 if (warnings.length) warnings.forEach((warning) => console.warn(`Avertissement : ${warning}`));

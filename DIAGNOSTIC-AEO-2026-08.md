@@ -7,53 +7,37 @@ voici l'état d'exécution des 19 actions.
 
 - **Instagram handle** : `instagram.com/studiosvb` (compte inexistant) → `instagram.com/svb.officiel` partout (30 fichiers HTML + schema.org `sameAs`).
 - **5 URLs 404 orphelines** : 10 redirections 301 ajoutées dans `_redirects` (`/tarifs-offres/`, `/cours/`, `/planning/`, `/cadeau`, `/hello-world/` avec + sans slash).
-- **Schema.org studio-cours-des-lavandieres** : type `HealthClub`, `geo`, `hasMap`, `openingHoursSpecification` (7 jours), `aggregateRating` 5.0/140, `knowsAbout` enrichi (Lagree Method, Megaformer, Classic & Power Pilates, Hatha Flow).
-- **Schema.org studio-parc-des-docks** : idem — type `HealthClub`, geo, hasMap, opening hours, aggregateRating, knowsAbout enrichi.
+- **Schema.org studio-cours-des-lavandieres** : type `ExerciseGym`, coordonnées vérifiées, lien canonique Google Maps, horaires d'accueil réels et note propre à la fiche (5,0/5 sur 88 avis).
+- **Schema.org studio-parc-des-docks** : type `ExerciseGym`, coordonnées vérifiées, lien canonique Google Maps et note propre à la fiche (5,0/5 sur 82 avis). Aucun horaire général inventé : les créneaux suivent le planning.
 - **`/contact`** : JSON-LD `ContactPage` + `Organization` ajouté (vide avant).
 - **Hreflang FR/EN** sur 6 paires de pages (sessions, studio, tarifs, equipe, contact, faq) — avant, seul l'accueil déclarait ses alternates.
 - **Sitemap.xml** : `lastmod=2026-08-20` sur les 33 entrées.
-- **Nombre d'avis** : harmonisé à "plus de 140 avis Google" partout (index disait 146, autres pages 140).
-- **`llms.txt`** créé à la racine avec identité, adresses, horaires, disciplines, liens clés.
+- **Nombre d'avis** : harmonisé à **170 avis Google cumulés** entre les deux fiches (88 + 82), sans attribuer le total à un seul établissement.
+- **`llms.txt`** créé, intégré au build public et rempli avec l'identité de marque SVB, les deux fiches Maps, les horaires vérifiés et les jauges exactes.
+- **Liens Google Maps** : les vraies fiches sont reliées depuis l'accueil, le contact et les pages des deux studios.
+- **Jauges et essai** : 9 places en Pilates Reformer, 8 en Crossformer ; les 30 € de la première séance sont intégralement déduits du premier prélèvement si inscription sous 7 jours.
 
 ## ⏳ À faire côté humain — vague 1 (priorité maximale)
 
 Ces actions nécessitent un accès à des comptes externes ou des décisions opérationnelles.
 
-### 1. Fiche Google Business Profile (LE point le plus rentable)
+### 1. Entretenir les deux fiches Google Business Profile
 
-**Priorité #1 absolue.** Le site revendique "5,0 sur 140 avis Google" mais aucune fiche Google Business n'est trouvable par les crawlers. Sans fiche revendiquée avec NAP identique au site :
-- Impossible pour les IA de citer la note
-- `aggregateRating` déclaré dans le code paraît invérifiable
-- Les 140 avis n'ont aucune valeur pour AEO
+Les deux fiches ont été retrouvées et reliées au site :
+- Parc des Docks : 5,0/5 sur 82 avis
+- Cours des Lavandières : 5,0/5 sur 88 avis
 
-**À faire** (2 h max) :
-1. Vérifier sur https://business.google.com si des fiches existent pour :
-   - 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine
-   - 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine
-2. Si oui : **revendiquer** chaque fiche, corriger NAP pour être **strictement identique** au site :
-   - Nom : "Studio SVB" (choisir UNE forme canonique — aujourd'hui 6 variantes circulent)
-   - Adresse : identique caractère par caractère au site
-   - Téléphone : 07 44 91 91 55 (partout)
-   - Catégorie principale : **Studio de Pilates** (pas "Salle de sport")
-   - Horaires : identiques à `openingHoursSpecification` du site
-   - Site : https://studiosvb.com
-3. Si non : **créer** les 2 fiches et lancer une campagne de collecte d'avis Google.
-4. Remplacer les `<iframe src="maps.google.com/maps?q=...">` du site par l'URL canonique de chaque fiche (Google Maps > Partager > Copier le lien).
+**À maintenir** : nom, adresse, téléphone, catégorie, site et horaires strictement cohérents avec le site. Le nom de marque principal reste **SVB** ; les noms d'établissement suivent les libellés publics de chaque fiche.
 
-### 2. Redirection studiosvb.fr → studiosvb.com
+### 2. Vérifier la propagation studiosvb.fr → studiosvb.com
 
-Le domaine `.fr` affiche une page de parking Squarespace "En construction". L'e-mail affiché sur le site est `hello@studiosvb.fr`.
-
-**À faire** :
-1. Depuis Squarespace : configurer une redirection 301 permanente de `studiosvb.fr` vers `studiosvb.com` (ou l'inverse si tu préfères basculer sur le .fr).
-2. Trancher **maintenant** la direction et t'y tenir.
-3. Optionnel : aligner le domaine de l'e-mail (`hello@studiosvb.com`) pour cohérence — si l'e-mail actuel .fr fonctionne bien via un forward MX, tu peux garder .fr.
+La redirection permanente a été configurée dans Squarespace le 20 août 2026. Vérifier sa propagation publique jusqu'à ce que `studiosvb.fr` et `www.studiosvb.fr` arrivent tous deux sur `https://studiosvb.com`. L'e-mail `hello@studiosvb.fr` peut rester en place s'il fonctionne normalement.
 
 ### 3. Fusionner les 2 pages Facebook
 
-Deux pages Facebook concurrentes : ID `61569485866457` (indexée par Google) et `61574972498498` (liée depuis le site).
+Deux pages Facebook concurrentes subsistent : ID `61569485866457` (page active, désormais reliée partout depuis le site) et `61574972498498` (ancienne page).
 
-**À faire** : depuis Meta Business > outil de fusion de pages. Choisir laquelle garder puis fusionner. Effet immédiat sur les signaux sociaux.
+**À faire** : conserver la page active `61569485866457`, puis fusionner ou dépublier l'ancienne depuis Meta Business.
 
 ### 4. S'inscrire sur ClassPass, Gymlib/Wellpass et Urban Sports Club
 
@@ -93,7 +77,7 @@ PagesJaunes, Yelp, Foursquare, Apple Plans, Bing Places, Petit Futé, Justacoté
 
 **Règle absolue** : nom / adresse / téléphone strictement identiques (au caractère près) partout. **Choisir une forme canonique unique** — aujourd'hui 6 variantes circulent : "SVB SANTEZ-VOUS BIEN", "SANTEZ VOUS BIEN", "Studio SVB", "SVB | Pilate reformer"...
 
-Ma reco : **"Studio SVB"** comme nom principal.
+Nom de marque canonique : **SVB**. `Studio SVB` reste un nom d'usage descriptif et `Santez Vous Bien` l'expansion de l'acronyme.
 
 ### 9. LinkedIn
 
