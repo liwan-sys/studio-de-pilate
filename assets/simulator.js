@@ -11,53 +11,15 @@
 (function () {
     'use strict';
 
-    // Grille tarifaire officielle — miroir de /tarifs.html
-    // `includes` = disciplines réellement accessibles avec ce pass (miroir /sessions.html)
+    // Passes disponibles. Les prix ne sont plus affiches sur le site
+    // (grille tarifaire visible uniquement dans l'espace client SVB).
     var PASSES = {
-        reformer: {
-            label: "Pass Reformer",
-            duration: "50 min",
-            url: "reformer",
-            prices: { 2: 70.30, 4: 136.30, 6: 198.30, 8: 256.30, 10: 310.30, 12: 360.30 },
-            includes: ["Pilates Reformer"]
-        },
-        crossformer: {
-            label: "Pass Crossformer",
-            duration: "50 min",
-            url: "crossformer",
-            prices: { 2: 78.30, 4: 152.30, 6: 222.30, 8: 288.30, 10: 350.30, 12: 408.30 },
-            includes: ["Crossformer"]
-        },
-        fullformer: {
-            label: "Pass Full Former",
-            duration: "50 min",
-            url: "fullformer",
-            prices: { 2: 74.30, 4: 144.30, 6: 210.30, 8: 272.30, 10: 330.30, 12: 384.30 },
-            includes: ["Pilates Reformer", "Crossformer"],
-            comboOf: "Reformer + Crossformer"
-        },
-        cross: {
-            label: "Pass Cross",
-            duration: "55 min",
-            url: "cross",
-            prices: { 2: 30.30, 4: 60.30, 6: 90.30, 8: 116.30, 10: 145.30, 12: 168.30 },
-            includes: ["Cross Training", "Cross Rox", "Cross Core", "Cross Body", "Cross Yoga"]
-        },
-        focus: {
-            label: "Pass Focus",
-            duration: "55-60 min",
-            url: "focus",
-            prices: { 2: 36.30, 4: 72.30, 6: 105.30, 8: 136.30, 10: 165.30, 12: 192.30 },
-            includes: ["Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Afrodance'All", "Core & Stretch"]
-        },
-        full: {
-            label: "Pass Full",
-            duration: "55-60 min",
-            url: "full",
-            prices: { 2: 40.30, 4: 80.30, 6: 115.30, 8: 150.30, 10: 180.30, 12: 210.30 },
-            includes: ["Cross Training", "Cross Rox", "Cross Core", "Cross Body", "Cross Yoga", "Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Afrodance'All", "Core & Stretch"],
-            comboOf: "Cross + Focus"
-        }
+        reformer:    { label: "Pass Reformer",    duration: "50 min",     url: "reformer",    includes: ["Pilates Reformer"] },
+        crossformer: { label: "Pass Crossformer", duration: "50 min",     url: "crossformer", includes: ["Crossformer"] },
+        fullformer:  { label: "Pass Full Former", duration: "50 min",     url: "fullformer",  includes: ["Pilates Reformer", "Crossformer"], comboOf: "Reformer + Crossformer" },
+        cross:       { label: "Pass Cross",       duration: "55 min",     url: "cross",       includes: ["Cross Training", "Cross Rox", "Cross Core", "Cross Body", "Cross Yoga"] },
+        focus:       { label: "Pass Focus",       duration: "55-60 min",  url: "focus",       includes: ["Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Afrodance'All", "Core & Stretch"] },
+        full:        { label: "Pass Full",        duration: "55-60 min",  url: "full",        includes: ["Cross Training", "Cross Rox", "Cross Core", "Cross Body", "Cross Yoga", "Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Afrodance'All", "Core & Stretch"], comboOf: "Cross + Focus" }
     };
 
     // Discipline slug pour data-discipline sur le CTA .js-buy (ouvre le modal
@@ -190,8 +152,8 @@
             '<div class="svb-sim-wrap">' +
                 '<div class="svb-sim-head">' +
                     '<span class="svb-sim-pill">Simulateur abonnement</span>' +
-                    '<h3 class="svb-sim-title">Combien ça coûte pour toi ?</h3>' +
-                    '<p class="svb-sim-sub">Choisis ta formule et ta fréquence. Le prix s\'affiche en 1 clic. Zéro calcul compliqué.</p>' +
+                    '<h3 class="svb-sim-title">Trouve ta formule.</h3>' +
+                    '<p class="svb-sim-sub">Choisis ta formule et ta fréquence. Le tarif à jour s\'affiche dans l\'espace client au moment de la réservation.</p>' +
                 '</div>' +
                 passButtonsHtml +
                 '<div class="svb-sim-sessions">' +
@@ -200,39 +162,25 @@
                     '<div class="svb-sim-week" data-week></div>' +
                 '</div>' +
                 '<div class="svb-sim-result">' +
-                    '<div class="svb-sim-price-row">' +
-                        '<div class="svb-sim-price-box">' +
-                            '<div class="svb-sim-price-tag">Par mois</div>' +
-                            '<div class="svb-sim-price-monthly" data-monthly>—</div>' +
-                        '</div>' +
-                        '<div class="svb-sim-price-box">' +
-                            '<div class="svb-sim-price-tag">Par séance</div>' +
-                            '<div class="svb-sim-price-unit" data-unit>—</div>' +
-                        '</div>' +
-                    '</div>' +
                     '<div class="svb-sim-details" data-details></div>' +
                 '</div>' +
                 '<div class="svb-sim-includes-wrap" data-includes></div>' +
-                '<a class="svb-sim-cta js-buy" data-cta href="#" data-discipline="' + (TRIAL_DISCIPLINE[cfg.trial] || TRIAL_DISCIPLINE.other) + '" data-label="Essai ' + cfg.label + '" data-amount="30 €">' +
-                    'Faire une séance d\'essai →' +
+                '<a class="svb-sim-cta js-buy" data-cta href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans">' +
+                    'Voir le tarif dans l\'espace client →' +
                 '</a>' +
-                '<p class="svb-sim-foot">Essai à 30 € · 15 € remboursés si inscription · Pas d\'engagement annuel obligatoire · Résiliation flexible</p>' +
+                '<a class="svb-sim-cta js-buy" data-cta-trial style="margin-top:8px;background:transparent;color:#4A8D84;border:2px solid #4A8D84;" href="#" data-discipline="' + (TRIAL_DISCIPLINE[cfg.trial] || TRIAL_DISCIPLINE.other) + '" data-label="Essai ' + cfg.label + '" data-amount="30 €">' +
+                    'Ou faire une séance d\'essai à 30 €' +
+                '</a>' +
+                '<p class="svb-sim-foot">Essai à 30 € · 15 € remboursés si inscription · Small group · Pause vacances incluse</p>' +
             '</div>';
 
         var state = { pass: initialPass, sessions: DEFAULT_SESSIONS };
-        var $monthly  = el.querySelector('[data-monthly]');
-        var $unit     = el.querySelector('[data-unit]');
         var $details  = el.querySelector('[data-details]');
         var $week     = el.querySelector('[data-week]');
-        var $cta      = el.querySelector('[data-cta]');
         var $includes = el.querySelector('[data-includes]');
 
         function update() {
             var pass = PASSES[state.pass];
-            var price = pass.prices[state.sessions];
-            var perS = price / state.sessions;
-            $monthly.textContent = fmtEuro(price);
-            $unit.textContent = fmtEuroInt(perS) + ' / séance';
             $details.innerHTML =
                 '<strong>' + pass.label + '</strong> — ' +
                 state.sessions + ' séance' + (state.sessions > 1 ? 's' : '') +
@@ -240,7 +188,6 @@
                 'Durée de chaque séance : ' + pass.duration;
             $week.textContent = rhythmText(state.sessions);
             $includes.innerHTML = buildIncludesHtml(pass, cfg.highlight);
-            // Le CTA est fixe : ouvre le modal de reservation. On ne change pas la cible selon le pass.
         }
 
         Array.prototype.forEach.call(el.querySelectorAll('.svb-sim-pass-btn'), function (btn) {
