@@ -10,7 +10,7 @@
     <link rel="dns-prefetch" href="https://wa.me">
 <link rel="icon" type="image/png" href="/images/favicon.jpg" />
     <title>Pilates Memberships Saint-Ouen — Sign Up in 3 Min | SVB</title>
-  <meta name="description" content="Studio SVB Pricing: Starter Pass with no commitment, Reformer and Crossformer memberships. Trial at €30. Sign up in 3 minutes.">
+  <meta name="description" content="Studio SVB Saint-Ouen memberships: Pilates Reformer, Crossformer, Cross Training, Yoga, Boxing. See current prices in the member area. Trial at €30.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="SVB">
   <link rel="canonical" href="https://studiosvb.com/en/tarifs">
@@ -19,7 +19,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://studiosvb.com/en/tarifs">
   <meta property="og:title" content="Pricing &amp; Memberships | SVB">
-  <meta property="og:description" content="Studio SVB Pricing: Starter Pass with no commitment, Reformer and Crossformer memberships. Trial at €30. Sign up in 3 minutes.">
+  <meta property="og:description" content="Studio SVB Saint-Ouen memberships. See current prices in the member area. Trial at €30.">
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="SVB">
@@ -27,7 +27,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Pricing &amp; Memberships | SVB">
-  <meta name="twitter:description" content="Starter Pass €99.90, Reformer €34, Crossformer €38. Full fitness studio in Saint-Ouen.">
+  <meta name="twitter:description" content="Studio SVB Saint-Ouen memberships. See current prices in the member area. Trial at €30.">
   <meta name="twitter:image" content="https://studiosvb.com/images/og-image.jpg">
 
   <meta name="theme-color" content="#4A8D84">
@@ -112,218 +112,116 @@
 
     <div id="inscription" class="relative max-w-7xl mx-auto px-4 pb-20 z-10">
 
-        <!-- === QUICK CALCULATOR === -->
-        <section class="mb-20 reveal-load d-2">
-            <div class="max-w-3xl mx-auto bg-white/80 backdrop-blur-md rounded-3xl p-8 md:p-10 border-2 border-white/60 shadow-2xl">
-                <div class="text-center mb-6">
-                    <span class="bg-[#88C0A6] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Instant calculator</span>
-                    <h2 class="text-4xl md:text-5xl font-hand text-[#2F4F4F] mt-3">What will it actually cost you?</h2>
-                    <p class="text-sm text-[#2F4F4F]/80 mt-2">Membership + filing fee + prorated amount if you start mid-month.</p>
-                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label class="block text-xs font-bold text-[#2F4F4F] uppercase tracking-wide mb-2">Your plan</label>
-                        <select id="calc-pass" class="w-full border border-gray-300 rounded-lg px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#88C0A6]">
-                            <option value="">— Select —</option>
-                            <optgroup label="Small Group Machines (50 min)">
-                                <option value="reformer">Reformer Pass</option>
-                                <option value="crossformer">Crossformer Pass</option>
-                                <option value="fullformer">Full Former Pass</option>
-                            </optgroup>
-                            <optgroup label="Small Group Training (55 min)">
-                                <option value="cross">Cross Pass</option>
-                                <option value="focus">Focus Pass</option>
-                                <option value="full">Full Pass (Cross + Focus)</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-[#2F4F4F] uppercase tracking-wide mb-2">Sessions / month</label>
-                        <select id="calc-sessions" class="w-full border border-gray-300 rounded-lg px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#88C0A6]">
-                            <option value="">— Select —</option>
-                            <option value="2">2 sessions</option>
-                            <option value="4">4 sessions</option>
-                            <option value="6">6 sessions</option>
-                            <option value="8">8 sessions</option>
-                            <option value="10">10 sessions</option>
-                            <option value="12">12 sessions</option>
-                        </select>
-                    </div>
-                </div>
+        <!-- === ALL OUR OFFERS (no prices) === -->
 
-                <div id="calc-result" class="bg-gradient-to-br from-[#F3EBD4] to-[#EBC6A6]/40 rounded-2xl p-6 text-center hidden">
-                    <div class="text-xs font-bold text-[#2F4F4F] uppercase tracking-widest mb-1">Pay today</div>
-                    <div class="text-5xl font-extrabold text-[#2F4F4F]" id="calc-today">—</div>
-                    <div class="text-xs text-[#2F4F4F]/70 mt-2 mb-4" id="calc-today-detail"></div>
-                    <div class="border-t border-[#2F4F4F]/20 pt-4">
-                        <div class="text-xs font-bold text-[#2F4F4F] uppercase tracking-widest mb-1">Then each month</div>
-                        <div class="text-2xl font-extrabold text-[#3A6B63]" id="calc-monthly">—</div>
-                        <div class="text-[11px] text-[#2F4F4F]/60 mt-1" id="calc-perseance"></div>
-                    </div>
-                    <a href="/essai" id="calc-cta"  class="js-buy inline-block mt-6 bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-xl transform hover:scale-105 transition duration-300" data-booking-path="/place/place_svb-lavandieres/subscription-plans">
-                        Sign up with this plan →
-                    </a>
-                </div>
-                <p id="calc-placeholder" class="text-center text-sm text-[#2F4F4F]/60 italic">👆 Choose your plan and number of sessions to see your price.</p>
+        <!-- Small Group Machines -->
+        <div class="text-center mb-6 reveal-load d-2">
+            <span class="bg-[#EBC6A6] text-[#2F4F4F] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Small group machines &middot; 50 min</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Reformer &amp; Crossformer</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20 reveal-load d-3">
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Reformer Pass</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">50 min &middot; max 8</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Classic Pilates Reformer &mdash; the coach adjusts your springs and corrects your form on every rep.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
             </div>
-        </section>
-
-        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Reformer &amp; Crossformer — 8 spots max</h2>
-        <div class="reveal-load d-2 banner-machines max-w-lg mx-auto offer-banner">
-            <div class="mb-2">Trial session €30<br><span class="text-xs opacity-90 font-normal">€15 deducted if you subscribe within 7 days</span></div>
-            <div class="pt-2 border-t border-white/30 text-xs leading-relaxed opacity-80 mb-2">Single session outside membership: €50</div>
-            <div class="pt-2 border-t border-white/30 text-xs leading-relaxed">
-                🧦 <strong>NON-SLIP SOCKS REQUIRED</strong><br>
-                <span class="opacity-90">Available for purchase at studio</span>
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Crossformer Pass</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">50 min &middot; max 8</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Reformer + dynamic cardio. Tight format to manage intensity and secure transitions.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
+            </div>
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border-2 border-[#E8B496] shadow-lg flex flex-col relative">
+                <span class="absolute top-3 right-3 bg-[#E8B496] text-white text-[9px] font-extrabold px-2 py-1 rounded-full uppercase tracking-widest">Combo</span>
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Full Former Pass</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Reformer + Crossformer</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Full access to both machine formats. Alternate depending on your energy that day.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
             </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 reveal-load d-3 mb-24">
-
-            <div class="price-card group">
-                <div class="card-header header-peach">Crossformer Pass <br><span class="text-xs font-normal opacity-80">(50 Minutes)</span></div>
-                <div class="body-peach h-full flex flex-col justify-between">
-                    <div>
-                        <div class="price-row"><span>2 Sessions / month</span> <span>€78.30 <small class="opacity-60 font-normal">· €39/session</small></span></div>
-                        <div class="price-row"><span>4 Sessions / month</span> <span>€152.30 <small class="opacity-60 font-normal">· €38/session</small></span></div>
-                        <div class="price-row"><span>6 Sessions / month</span> <span>€222.30 <small class="opacity-60 font-normal">· €37/session</small></span></div>
-                        <div class="price-row"><span>8 Sessions / month</span> <span>€288.30 <small class="opacity-60 font-normal">· €36/session</small></span></div>
-                        <div class="price-row"><span>10 Sessions / month</span> <span>€350.30 <small class="opacity-60 font-normal">· €35/session</small></span></div>
-                        <div class="price-row"><span>12 Sessions / month</span> <span>€408.30 <small class="opacity-60 font-normal">· €34/session</small></span></div>
-                    </div>
-                </div>
-                <a href="/essai" class="js-buy btn-action svb-magnetic" data-booking-path="/place/place_svb-lavandieres/subscription-plans">Sign up in 3 min →</a>
+        <!-- Small Group Training -->
+        <div class="text-center mb-6 reveal-load d-2">
+            <span class="bg-[#88C0A6] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Small group training &middot; 55&ndash;60 min</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Cross Training, Yoga, Boxing</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20 reveal-load d-3">
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Cross Pass</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">55 min &middot; max 12</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Cross Training, Cross Rox, Cross Core, Cross Body, Cross Yoga. Functional cardio and strength.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
             </div>
-
-            <div class="price-card group">
-                <div class="card-header header-sand">Reformer Pass <br><span class="text-xs font-normal opacity-80">(50 Minutes)</span></div>
-                <div class="body-sand h-full flex flex-col justify-between">
-                    <div>
-                        <div class="price-row"><span>2 Sessions / month</span> <span>€70.30 <small class="opacity-60 font-normal">· €35/session</small></span></div>
-                        <div class="price-row"><span>4 Sessions / month</span> <span>€136.30 <small class="opacity-60 font-normal">· €34/session</small></span></div>
-                        <div class="price-row"><span>6 Sessions / month</span> <span>€198.30 <small class="opacity-60 font-normal">· €33/session</small></span></div>
-                        <div class="price-row"><span>8 Sessions / month</span> <span>€256.30 <small class="opacity-60 font-normal">· €32/session</small></span></div>
-                        <div class="price-row"><span>10 Sessions / month</span> <span>€310.30 <small class="opacity-60 font-normal">· €31/session</small></span></div>
-                        <div class="price-row"><span>12 Sessions / month</span> <span>€360.30 <small class="opacity-60 font-normal">· €30/session</small></span></div>
-                    </div>
-                </div>
-                <a href="/essai" class="js-buy btn-action svb-magnetic" data-booking-path="/place/place_svb-lavandieres/subscription-plans">Sign up in 3 min →</a>
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Focus Pass</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">55&ndash;60 min &middot; max 12</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Vinyasa Yoga, Hatha Flow, Classic &amp; Power Pilates, English Boxing, Afrodance'All, Core &amp; Stretch.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
             </div>
-
-            <div class="price-card group">
-                <div class="card-header header-bicolor-former">Full Former Pass <br><span class="text-xs font-normal opacity-80">(50 Minutes)</span></div>
-                <div class="body-bicolor-former h-full flex flex-col justify-between">
-                    <div>
-                        <div class="price-row"><span>2 Sessions / month</span> <span>€74.30 <small class="opacity-60 font-normal">· €37/session</small></span></div>
-                        <div class="price-row"><span>4 Sessions / month</span> <span>€144.30 <small class="opacity-60 font-normal">· €36/session</small></span></div>
-                        <div class="price-row"><span>6 Sessions / month</span> <span>€210.30 <small class="opacity-60 font-normal">· €35/session</small></span></div>
-                        <div class="price-row"><span>8 Sessions / month</span> <span>€272.30 <small class="opacity-60 font-normal">· €34/session</small></span></div>
-                        <div class="price-row"><span>10 Sessions / month</span> <span>€330.30 <small class="opacity-60 font-normal">· €33/session</small></span></div>
-                        <div class="price-row"><span>12 Sessions / month</span> <span>€384.30 <small class="opacity-60 font-normal">· €32/session</small></span></div>
-                    </div>
-                </div>
-                <a href="/essai" class="js-buy btn-action svb-magnetic" data-booking-path="/place/place_svb-lavandieres/subscription-plans">Sign up in 3 min →</a>
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border-2 border-[#E8B496] shadow-lg flex flex-col relative">
+                <span class="absolute top-3 right-3 bg-[#E8B496] text-white text-[9px] font-extrabold px-2 py-1 rounded-full uppercase tracking-widest">Combo</span>
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Full Pass</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Cross + Focus</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">All small group disciplines. The most flexible option to switch things up every week.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
             </div>
         </div>
 
-        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Cross Training, Yoga, Boxing — 12 spots max</h2>
-        <div class="reveal-load d-2 banner-training max-w-lg mx-auto offer-banner">
-            <div class="mb-1">Trial session €30<br><span class="text-xs opacity-90 font-normal">€15 deducted if you subscribe within 7 days</span></div>
-            <div class="pt-2 border-t border-white/30 text-xs leading-relaxed opacity-80">Single session outside membership: €30</div>
+        <!-- Private coaching -->
+        <div class="text-center mb-6 reveal-load d-2">
+            <span class="bg-[#2F4F4F] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Private coaching &middot; 55 min</span>
         </div>
-
-        <div class="grid md:grid-cols-3 gap-8 reveal-load d-3 mb-24">
-            <div class="price-card group">
-                <div class="card-header header-green">Cross Pass <br><span class="text-xs font-normal opacity-80">(55 Minutes)</span></div>
-                <div class="body-green h-full flex flex-col justify-between">
-                    <div>
-                        <div class="price-row"><span>2 Sessions / month</span> <span>€30.30 <small class="opacity-60 font-normal">· €15/session</small></span></div>
-                        <div class="price-row"><span>4 Sessions / month</span> <span>€60.30 <small class="opacity-60 font-normal">· €15/session</small></span></div>
-                        <div class="price-row"><span>6 Sessions / month</span> <span>€90.30 <small class="opacity-60 font-normal">· €15/session</small></span></div>
-                        <div class="price-row"><span>8 Sessions / month</span> <span>€116.30 <small class="opacity-60 font-normal">· €14/session</small></span></div>
-                        <div class="price-row"><span>10 Sessions / month</span> <span>€145.30 <small class="opacity-60 font-normal">· €14/session</small></span></div>
-                        <div class="price-row"><span>12 Sessions / month</span> <span>€168.30 <small class="opacity-60 font-normal">· €14/session</small></span></div>
-                    </div>
-                </div>
-                <a href="/essai" class="js-buy btn-action svb-magnetic" data-booking-path="/place/place_svb-lavandieres/subscription-plans">Sign up in 3 min →</a>
+        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">You, your coach, no one else</h2>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-20 reveal-load d-3">
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Good Vibes Coaching Pass</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Solo &middot; custom-built</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">A dedicated coach, 100% tailored programme based on your goal and level.</p>
+                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20private%20coaching" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#4A8D84] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Message us on WhatsApp</a>
             </div>
-
-            <div class="price-card group">
-                <div class="card-header header-cream">Focus Pass <br><span class="text-xs font-normal opacity-80">(55 Minutes)</span></div>
-                <div class="body-cream h-full flex flex-col justify-between">
-                    <div>
-                        <div class="price-row"><span>2 Sessions / month</span> <span>€36.30 <small class="opacity-60 font-normal">· €18/session</small></span></div>
-                        <div class="price-row"><span>4 Sessions / month</span> <span>€72.30 <small class="opacity-60 font-normal">· €18/session</small></span></div>
-                        <div class="price-row"><span>6 Sessions / month</span> <span>€105.30 <small class="opacity-60 font-normal">· €17/session</small></span></div>
-                        <div class="price-row"><span>8 Sessions / month</span> <span>€136.30 <small class="opacity-60 font-normal">· €17/session</small></span></div>
-                        <div class="price-row"><span>10 Sessions / month</span> <span>€165.30 <small class="opacity-60 font-normal">· €16/session</small></span></div>
-                        <div class="price-row"><span>12 Sessions / month</span> <span>€192.30 <small class="opacity-60 font-normal">· €16/session</small></span></div>
-                    </div>
-                </div>
-                <a href="/essai" class="js-buy btn-action svb-magnetic" data-booking-path="/place/place_svb-lavandieres/subscription-plans">Sign up in 3 min →</a>
-            </div>
-
-            <div class="price-card group">
-                <div class="card-header header-bicolor-full">Full Pass <br><span class="text-xs font-normal opacity-80">(Cross + Focus)</span></div>
-                <div class="body-bicolor-full h-full flex flex-col justify-between">
-                    <div>
-                        <div class="price-row"><span>2 Sessions / month</span> <span>€40.30 <small class="opacity-60 font-normal">· €20/session</small></span></div>
-                        <div class="price-row"><span>4 Sessions / month</span> <span>€80.30 <small class="opacity-60 font-normal">· €20/session</small></span></div>
-                        <div class="price-row"><span>6 Sessions / month</span> <span>€115.30 <small class="opacity-60 font-normal">· €19/session</small></span></div>
-                        <div class="price-row"><span>8 Sessions / month</span> <span>€150.30 <small class="opacity-60 font-normal">· €19/session</small></span></div>
-                        <div class="price-row"><span>10 Sessions / month</span> <span>€180.30 <small class="opacity-60 font-normal">· €18/session</small></span></div>
-                        <div class="price-row"><span>12 Sessions / month</span> <span>€210.30 <small class="opacity-60 font-normal">· €18/session</small></span></div>
-                    </div>
-                </div>
-                <a href="/essai" class="js-buy btn-action svb-magnetic" data-booking-path="/place/place_svb-lavandieres/subscription-plans">Sign up in 3 min →</a>
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Duo Coaching Pass</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">For two &middot; same coach</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Same coach, same session, for two. Shared motivation, shared cost.</p>
+                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20duo%20coaching" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#4A8D84] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Message us on WhatsApp</a>
             </div>
         </div>
 
-        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-12 reveal-load d-2 drop-shadow-md">Private Coaching — you, your coach, zero others</h2>
-        <div class="grid md:grid-cols-2 gap-8 reveal-load d-3 mb-24 max-w-4xl mx-auto">
-
-            <!-- Coaching Pass Good Vibes (solo) -->
-            <div class="price-card group">
-                <div class="card-header header-dark">Good Vibes Coaching Pass <br><span class="text-xs font-normal opacity-80">(55 Minutes)</span></div>
-                <div class="p-6 body-dark h-full flex flex-col justify-between">
-                    <div>
-                        <p class="text-center text-sm text-gray-600 mb-6 italic">A dedicated coach. 100% personalized program.</p>
-                        <div class="price-row"><span>4 Sessions / month</span> <span>€300.30 <small class="opacity-60 font-normal">· €75/session</small></span></div>
-                        <div class="price-row"><span>8 Sessions / month</span> <span>€560.30 <small class="opacity-60 font-normal">· €70/session</small></span></div>
-                    </div>
-                </div>
-                <button onclick="openQuiz()" class="btn-action svb-magnetic">Take my Assessment</button>
+        <!-- Kids, Starter & Boost -->
+        <div class="text-center mb-6 reveal-load d-2">
+            <span class="bg-[#D4C3A3] text-[#2F4F4F] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Discovery &amp; kids</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Starter, Kids &amp; Boost option</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20 reveal-load d-3">
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Starter Pass</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">5 sessions &middot; 1 month</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">One session across 5 different disciplines, no commitment. Try before you commit.</p>
+                <a href="#" data-discipline="pass_starter" data-label="Starter Pass" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
             </div>
-
-            <!-- Coaching Pass Duo (for 2) -->
-            <div class="price-card group">
-                <div class="card-header header-dark">Duo Coaching Pass <br><span class="text-xs font-normal opacity-80">(55 Minutes · for 2)</span></div>
-                <div class="p-6 body-dark h-full flex flex-col justify-between">
-                    <div>
-                        <p class="text-center text-sm text-gray-600 mb-6 italic">Two people, same coach, same session. Half the individual price.</p>
-                        <div class="price-row"><span>4 Sessions / month</span> <span>€400.60 <small class="opacity-60 font-normal">· €200.30/person</small></span></div>
-                        <div class="price-row"><span>8 Sessions / month</span> <span>€720.60 <small class="opacity-60 font-normal">· €360.30/person</small></span></div>
-                    </div>
-                </div>
-                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20duo%20coaching" target="_blank" rel="noopener noreferrer" class="btn-action svb-magnetic">Book via WhatsApp</a>
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Kids Pass</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Excluding July/August</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Kids Yoga, Kids Training: coached sessions for children. In-studio sign-up.</p>
+                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20to%20book%20a%20Kids%20Pass" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#E8B496] hover:bg-[#d49c7d] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Book on WhatsApp</a>
+            </div>
+            <div class="bg-[#F3EBD4]/70 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <span class="inline-block bg-[#E8B496] text-white text-[9px] font-extrabold px-2 py-1 rounded-full uppercase tracking-widest mb-2 self-start">Option</span>
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">SVB Boost Option</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Add-on to any pass</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Reduced filing fee, no commitment, ability to suspend your membership with no notice.</p>
+                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20to%20add%20SVB%20Boost%20Option" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#E8B496] hover:bg-[#d49c7d] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Add Boost</a>
             </div>
         </div>
 
-        <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Kids Pass — coached activities for children</h2>
-        <div class="flex justify-center mb-24 reveal-load d-3">
-            <div class="price-card group max-w-md w-full">
-                <div class="card-header header-kids">Kids Pass <br><span class="text-xs font-normal opacity-80">(Excluding July/August)</span></div>
-                <div class="body-kids h-full flex flex-col justify-between">
-                    <div>
-                        <div class="price-row"><span>2 Sessions / month</span> <span>€35.30</span></div>
-                        <div class="price-row"><span>4 Sessions / month</span> <span>€65.30</span></div>
-                        <div class="price-row"><span>Extra Session</span> <span>€18.30</span></div>
-                        <p class="text-center text-xs mt-4 text-[#2F4F4F] font-bold uppercase">1 Activity of your choice</p>
-                    </div>
-                </div>
-                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20to%20book%20a%20Kids%20Pass" target="_blank" rel="noopener noreferrer" class="btn-action svb-magnetic">Book (In-Studio)</a>
-            </div>
+        <!-- Trial banner -->
+        <div class="max-w-3xl mx-auto mb-24 reveal-load d-2 bg-gradient-to-br from-[#88C0A6]/20 to-[#EBC6A6]/20 backdrop-blur-md rounded-3xl border border-white/60 shadow-lg p-8 text-center">
+            <p class="text-sm text-[#2F4F4F]/80 mb-4">Not sure yet? Start with a trial session.</p>
+            <a href="#" data-discipline="reformer" data-label="Trial session" data-amount="30 &euro;" class="js-buy inline-block bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-8 py-4 rounded-full font-extrabold text-sm uppercase tracking-widest shadow transform hover:scale-105 transition duration-300">
+                Book my trial &middot; &euro;30
+            </a>
         </div>
 
         <!-- === IMPORTANT TO KNOW — common conditions === -->
@@ -334,8 +232,8 @@
                     <div class="flex items-start gap-3">
                         <div class="text-xl flex-shrink-0">💳</div>
                         <p><strong>Filing Fee</strong><br>
-                        €49 for small group passes &nbsp;·&nbsp; €25 for Kids Pass<br>
-                        <span class="opacity-75">Reduced by 50% with SVB Boost Option (€12.90/month).</span></p>
+                        A filing fee applies at sign-up depending on the pass.<br>
+                        <span class="opacity-75">Reduced with SVB Boost Option. Amount shown in your member area.</span></p>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="text-xl flex-shrink-0">📅</div>
@@ -373,48 +271,11 @@
                     <div class="flex items-start gap-3">
                         <div class="text-xl flex-shrink-0">🏦</div>
                         <p><strong>Payment</strong><br>
-                        SEPA direct debit (default) or credit card (+ €0.30 fee). Bank guarantee activated only in case of non-payment.</p>
+                        SEPA direct debit (default) or credit card (small additional fee). Bank guarantee activated only in case of non-payment.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- === STARTER PASS (discovery alternative) === -->
-        <div class="text-center mb-4 reveal-load d-2">
-            <span class="bg-[#D4C3A3] text-[#2F4F4F] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Discovery alternative</span>
-        </div>
-        <h2 class="text-4xl text-center text-[#2F4F4F] font-hand mb-3 reveal-load d-2 drop-shadow-md">Not quite ready for a pass?</h2>
-        <p class="text-center text-[#2F4F4F] text-sm max-w-xl mx-auto mb-8 reveal-load d-2">The Starter Pass gives you 5 sessions to try 5 different disciplines, with no commitment. Valid for 1 month.</p>
-
-        <!-- Starter Pass + SVB Boost Option -->
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-24 reveal-load d-3">
-
-            <!-- New Starter Pass -->
-            <div class="bg-white/70 backdrop-blur-md rounded-3xl p-8 border border-white/50 shadow-xl text-center flex flex-col justify-between">
-                <div>
-                    <h3 class="text-2xl font-extrabold text-[#4A8D84] uppercase mb-1">New Starter Pass</h3>
-                    <p class="text-5xl font-extrabold text-[#2F4F4F] mb-4">€99.90</p>
-                    <p class="text-xs text-[#2F4F4F]/70 uppercase tracking-wide font-bold mb-6">5 sessions · Valid 1 month · No commitment · No auto-renewal</p>
-                </div>
-                <a href="/essai" class="inline-block bg-[#4A8D84] hover:bg-[#3A6B63] text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-lg transform hover:scale-105 transition duration-300">Get Starter Pass</a>
-            </div>
-
-            <!-- SVB Boost Option -->
-            <div class="bg-[#F3EBD4]/70 backdrop-blur-md rounded-3xl p-8 border border-white/50 shadow-xl text-center flex flex-col justify-between">
-                <div>
-                    <div class="inline-block bg-[#E8B496] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3">Add-on option</div>
-                    <h3 class="text-2xl font-extrabold text-[#4A8D84] uppercase mb-1">SVB Boost Option</h3>
-                    <p class="text-5xl font-extrabold text-[#2F4F4F] mb-1">€12.90<span class="text-base font-semibold opacity-70">/month</span></p>
-                    <p class="text-xs text-[#2F4F4F]/60 font-semibold mb-5">In addition to a small group pass</p>
-                    <ul class="text-left text-sm text-[#2F4F4F] space-y-2 mb-6 mx-auto max-w-xs">
-                        <li>✅ <strong>50% OFF</strong> filing fee (€49 → €24.50)</li>
-                        <li>✅ <strong>No commitment</strong></li>
-                        <li>✅ <strong>Suspend anytime without notice</strong></li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20to%20add%20SVB%20Boost%20Option" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#E8B496] hover:bg-[#d49c7d] text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-lg transform hover:scale-105 transition duration-300">Add Boost to my pass</a>
-            </div>
-        </div>
 
         <!-- === FAQ OBJECTIONS === -->
         <section class="max-w-4xl mx-auto mb-24 reveal-load d-2">
@@ -467,7 +328,7 @@
                         <span>📆 If I start mid-month, do I pay the full month?</span>
                         <span class="text-2xl group-open:rotate-45 transition">+</span>
                     </summary>
-                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">No, we prorate it. Example: you take a 4-session Reformer Pass at €136.30, start mid-month and plan 2 sessions before month end — you pay €68.15 for that first month, then €136.30/month after. The calculator above shows your exact amount.</p>
+                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">No, we <strong>prorate</strong> it based on when you start. The exact amount to pay today is shown automatically in the member area when you pick your plan.</p>
                 </details>
 
                 <details class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/50 shadow-lg cursor-pointer group">
@@ -475,7 +336,7 @@
                         <span>🔒 Are there hidden fees?</span>
                         <span class="text-2xl group-open:rotate-45 transition">+</span>
                     </summary>
-                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">No. The only additions: <strong>filing fee</strong> at sign-up (€49 for small groups, €25 for Kids) — <strong>cut in half</strong> with SVB Boost Option (€12.90/month). <strong>+€0.30 if paying by card</strong> instead of SEPA. And bank guarantee — activated only if you miss a payment, never charged by default.</p>
+                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">No. The only additions: <strong>filing fee</strong> at sign-up (amount shown in the member area, reduced with SVB Boost Option), a small extra fee if you pay by card instead of SEPA, and bank guarantee — activated only if you miss a payment, never charged by default.</p>
                 </details>
             </div>
         </section>
@@ -677,59 +538,6 @@
             window.open(`https://wa.me/33744919155?text=${finalMsg}`, '_blank');
             closeQuiz();
         }
-    </script>
-
-    <!-- === QUICK CALCULATOR === -->
-    <script>
-    (function() {
-      const PRICES = {
-        "reformer":    { label: "Reformer Pass",    2: 70.30, 4: 136.30, 6: 198.30, 8: 256.30, 10: 310.30, 12: 360.30, url: "reformer" },
-        "crossformer": { label: "Crossformer Pass", 2: 78.30, 4: 152.30, 6: 222.30, 8: 288.30, 10: 350.30, 12: 408.30, url: "crossformer" },
-        "fullformer":  { label: "Full Former Pass", 2: 74.30, 4: 144.30, 6: 210.30, 8: 272.30, 10: 330.30, 12: 384.30, url: "fullformer" },
-        "cross":       { label: "Cross Pass",       2: 30.30, 4: 60.30,  6: 90.30,  8: 116.30, 10: 145.30, 12: 168.30, url: "cross" },
-        "focus":       { label: "Focus Pass",       2: 36.30, 4: 72.30,  6: 105.30, 8: 136.30, 10: 165.30, 12: 192.30, url: "focus" },
-        "full":        { label: "Full Pass",        2: 40.30, 4: 80.30,  6: 115.30, 8: 150.30, 10: 180.30, 12: 210.30, url: "full" }
-      };
-      const FILING_FEE = 49;
-
-      const passEl    = document.getElementById('calc-pass');
-      const sessEl    = document.getElementById('calc-sessions');
-      const resEl     = document.getElementById('calc-result');
-      const phEl      = document.getElementById('calc-placeholder');
-      const todayEl   = document.getElementById('calc-today');
-      const todayD    = document.getElementById('calc-today-detail');
-      const monthEl   = document.getElementById('calc-monthly');
-      const perSEl    = document.getElementById('calc-perseance');
-      const ctaEl     = document.getElementById('calc-cta');
-
-      if (!passEl) return;
-
-      function fmt(n) { return '€' + n.toFixed(2).replace('.', ','); }
-
-      function update() {
-        const pass   = passEl.value;
-        const sess   = parseInt(sessEl.value, 10);
-        if (!pass || !sess || !PRICES[pass] || !PRICES[pass][sess]) {
-          resEl.classList.add('hidden');
-          phEl.style.display = 'block';
-          return;
-        }
-        const monthly  = PRICES[pass][sess];
-        const today    = monthly + FILING_FEE;
-        const perSea   = monthly / sess;
-
-        todayEl.textContent  = fmt(today);
-        todayD.textContent   = 'First month (' + fmt(monthly) + ') + filing fee (' + fmt(FILING_FEE) + ')';
-        monthEl.textContent  = fmt(monthly) + ' / month';
-        perSEl.textContent   = 'roughly ' + fmt(perSea) + ' per session';
-        ctaEl.href = '/essai'; ctaEl.dataset.bookingPath = '/place/place_svb-lavandieres/subscription-plans';
-        resEl.classList.remove('hidden');
-        phEl.style.display   = 'none';
-      }
-
-      passEl.addEventListener('change', update);
-      sessEl.addEventListener('change', update);
-    })();
     </script>
 
   <script src="/assets/svb.js?v=20260819e" defer></script>

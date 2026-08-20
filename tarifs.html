@@ -140,47 +140,127 @@
     <div id="inscription" class="relative max-w-7xl mx-auto px-4 pb-20 z-10">
 
 
-        <!-- === HUB TARIFS : redirection espace client === -->
-        <section class="mb-24 reveal-load d-2">
-            <div class="max-w-3xl mx-auto bg-white/85 backdrop-blur-md rounded-3xl p-10 md:p-14 border-2 border-white/60 shadow-2xl text-center">
-                <span class="bg-[#E8B496] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Grille tarifaire</span>
-                <h2 class="text-4xl md:text-5xl font-hand text-[#2F4F4F] mt-4 mb-6">Consulte les tarifs à jour<br/>dans ton espace client.</h2>
-                <p class="text-base text-[#2F4F4F]/80 max-w-xl mx-auto mb-8 leading-relaxed">
-                    Pass Reformer, Crossformer, Cross Training, Yoga, Boxe, Pilates au sol,
-                    Coaching privé et Pass Kids &mdash; toutes les formules et leurs prix
-                    sont accessibles directement dans l'app de r&eacute;servation SVB. Tu peux
-                    d'abord tester avec une s&eacute;ance d'essai &agrave; <strong>30 &euro;</strong>
-                    (dont <strong>15 &euro; d&eacute;duits</strong> si tu t'inscris ensuite).
-                </p>
-                <div class="flex flex-wrap justify-center gap-4 mb-6">
-                    <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-8 py-4 rounded-full font-extrabold text-sm uppercase tracking-widest shadow-xl transform hover:scale-105 transition duration-300">
-                        Voir les abonnements &rarr;
-                    </a>
-                    <a href="#" data-discipline="reformer" data-label="S&eacute;ance d'essai" data-amount="30 &euro;" class="js-buy inline-block bg-white text-[#2F4F4F] border-2 border-[#2F4F4F] hover:bg-[#F3EBD4] px-8 py-4 rounded-full font-extrabold text-sm uppercase tracking-widest shadow transform hover:scale-105 transition duration-300">
-                        R&eacute;server mon essai &middot; 30 &euro;
-                    </a>
-                </div>
-                <p class="text-[11px] uppercase tracking-widest text-[#2F4F4F]/60">Small group &middot; annulation 1h avant &middot; pause vacances incluse</p>
-            </div>
-        </section>
+        <!-- === TOUTES NOS OFFRES (sans prix) === -->
 
-        <!-- Coaching priv&eacute; & Pass Kids : renvoi WhatsApp (pas de prix affich&eacute;) -->
-        <section class="max-w-4xl mx-auto mb-24 reveal-load d-2">
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white/70 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg text-center">
-                    <div class="text-3xl mb-3">🤝</div>
-                    <h3 class="text-xl font-extrabold text-[#2F4F4F] mb-2">Coaching priv&eacute; ou duo</h3>
-                    <p class="text-sm text-[#2F4F4F]/80 mb-5">Un&middot;e coach d&eacute;di&eacute;&middot;e, programme sur-mesure. On te r&eacute;pond sous 1&nbsp;h.</p>
-                    <button onclick="openQuiz()" class="inline-block bg-[#4A8D84] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transform hover:scale-105 transition duration-300">Faire mon diagnostic</button>
-                </div>
-                <div class="bg-white/70 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg text-center">
-                    <div class="text-3xl mb-3">🧒</div>
-                    <h3 class="text-xl font-extrabold text-[#2F4F4F] mb-2">Pass Kids</h3>
-                    <p class="text-sm text-[#2F4F4F]/80 mb-5">Sessions encadr&eacute;es pour enfants (hors juillet/ao&ucirc;t). Inscription sur place.</p>
-                    <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20prendre%20RDV%20pour%20une%20inscription%20Pass%20Kids" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#E8B496] hover:bg-[#d49c7d] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transform hover:scale-105 transition duration-300">Prendre RDV WhatsApp</a>
-                </div>
+        <!-- Groupe 1 : Small Group Machines (Reformer/Crossformer/Full Former) -->
+        <div class="text-center mb-6 reveal-load d-2">
+            <span class="bg-[#EBC6A6] text-[#2F4F4F] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Small group machines · 50 min</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Reformer &amp; Crossformer</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20 reveal-load d-3">
+
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Pass Reformer</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">50 min · 8 max</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Pilates Reformer classique : le coach ajuste tes ressorts et corrige ta posture à chaque répétition.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Voir le tarif</a>
             </div>
-        </section>
+
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Pass Crossformer</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">50 min · 8 max</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Reformer + cardio dynamique. Format serré pour gérer l'intensité et sécuriser les transitions.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Voir le tarif</a>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border-2 border-[#E8B496] shadow-lg flex flex-col relative">
+                <span class="absolute top-3 right-3 bg-[#E8B496] text-white text-[9px] font-extrabold px-2 py-1 rounded-full uppercase tracking-widest">Combo</span>
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Pass Full Former</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Reformer + Crossformer</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Accès complet aux deux formats machine. Pour alterner selon ton énergie du jour.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Voir le tarif</a>
+            </div>
+        </div>
+
+        <!-- Groupe 2 : Small Group Training (Cross/Focus/Full) -->
+        <div class="text-center mb-6 reveal-load d-2">
+            <span class="bg-[#88C0A6] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Small group training · 55&ndash;60 min</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Cross Training, Yoga, Boxe</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20 reveal-load d-3">
+
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Pass Cross</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">55 min · 12 max</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Cross Training, Cross Rox, Cross Core, Cross Body, Cross Yoga. Cardio et renforcement fonctionnels.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Voir le tarif</a>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Pass Focus</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">55&ndash;60 min · 12 max</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Yoga Vinyasa, Hatha Flow, Classic &amp; Power Pilates, Boxe Anglaise, Afrodance'All, Core &amp; Stretch.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Voir le tarif</a>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border-2 border-[#E8B496] shadow-lg flex flex-col relative">
+                <span class="absolute top-3 right-3 bg-[#E8B496] text-white text-[9px] font-extrabold px-2 py-1 rounded-full uppercase tracking-widest">Combo</span>
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Pass Full</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Cross + Focus</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Toutes les disciplines small group. La formule la plus flexible pour varier chaque semaine.</p>
+                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Voir le tarif</a>
+            </div>
+        </div>
+
+        <!-- Groupe 3 : Coaching prive & Duo -->
+        <div class="text-center mb-6 reveal-load d-2">
+            <span class="bg-[#2F4F4F] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Coaching priv&eacute; · 55 min</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Toi, ton coach, z&eacute;ro autre</h2>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-20 reveal-load d-3">
+
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Coaching Pass Good Vibes</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Individuel · sur mesure</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Un&middot;e coach d&eacute;di&eacute;&middot;e, programme 100 % sur mesure selon ton objectif et ton niveau.</p>
+                <button onclick="openQuiz()" class="inline-block text-center bg-[#4A8D84] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Faire mon diagnostic</button>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Coaching Pass Duo</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">&Agrave; deux · m&ecirc;me coach</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">M&ecirc;me coach, m&ecirc;me s&eacute;ance, &agrave; deux. Motivation partag&eacute;e et co&ucirc;t divis&eacute;.</p>
+                <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20un%20coaching%20duo" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#4A8D84] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Prendre RDV WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- Groupe 4 : Kids & Starter & Boost -->
+        <div class="text-center mb-6 reveal-load d-2">
+            <span class="bg-[#D4C3A3] text-[#2F4F4F] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">D&eacute;couverte &amp; enfants</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Pass Starter, Kids &amp; option Boost</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20 reveal-load d-3">
+
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Pass Starter</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">5 sessions · 1 mois</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Une s&eacute;ance dans 5 disciplines diff&eacute;rentes, sans engagement. Pour go&ucirc;ter avant de choisir un pass.</p>
+                <a href="#" data-discipline="pass_starter" data-label="Pass Starter" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Voir le tarif</a>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Pass Kids</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Hors juillet/ao&ucirc;t</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Yoga Kids, Training Kids : sessions encadr&eacute;es pour enfants. Inscription sur place.</p>
+                <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20prendre%20RDV%20pour%20une%20inscription%20Pass%20Kids" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#E8B496] hover:bg-[#d49c7d] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Prendre RDV WhatsApp</a>
+            </div>
+
+            <div class="bg-[#F3EBD4]/70 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
+                <span class="inline-block bg-[#E8B496] text-white text-[9px] font-extrabold px-2 py-1 rounded-full uppercase tracking-widest mb-2 self-start">Option</span>
+                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Option SVB Boost</h3>
+                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Compl&eacute;ment de pass</p>
+                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Frais de dossier r&eacute;duits, sans engagement, suspension d'abonnement sans pr&eacute;avis.</p>
+                <a href="https://wa.me/33744919155?text=Bonjour,%20je%20souhaite%20ajouter%20l'Option%20SVB%20Boost%20%C3%A0%20mon%20abonnement" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#E8B496] hover:bg-[#d49c7d] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Ajouter Boost</a>
+            </div>
+        </div>
+
+        <!-- Bandeau essai -->
+        <div class="max-w-3xl mx-auto mb-24 reveal-load d-2 bg-gradient-to-br from-[#88C0A6]/20 to-[#EBC6A6]/20 backdrop-blur-md rounded-3xl border border-white/60 shadow-lg p-8 text-center">
+            <p class="text-sm text-[#2F4F4F]/80 mb-4">Pas encore s&ucirc;r&middot;e ? Commence par une s&eacute;ance d'essai.</p>
+            <a href="#" data-discipline="reformer" data-label="S&eacute;ance d'essai" data-amount="30 &euro;" class="js-buy inline-block bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-8 py-4 rounded-full font-extrabold text-sm uppercase tracking-widest shadow transform hover:scale-105 transition duration-300">
+                R&eacute;server mon essai &middot; 30 &euro;
+            </a>
+        </div>
 
         <!-- === À SAVOIR — conditions communes, comme dans la brochure p.4 === -->
         <section class="max-w-4xl mx-auto mb-24 reveal-load d-2">
