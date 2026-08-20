@@ -9,6 +9,16 @@
 /en/bien-etre                    /en/sessions.html                       301
 /en/bien-etre.html               /en/sessions.html                       301
 
+# Anciennes URLs encore présentes dans les index de recherche
+/tarifs-offres                    /tarifs                                 301
+/tarifs-offres/                   /tarifs                                 301
+/cours                            /sessions                               301
+/cours/                           /sessions                               301
+/planning                         /studio                                 301
+/planning/                        /studio                                 301
+/hello-world                      /                                      301
+/hello-world/                     /                                      301
+
 # URLs propres (sans .html) → page HTML correspondante, statut 200 (rewrite)
 /sessions                         /sessions.html                          200
 /tarifs                           /tarifs.html                            200
@@ -44,8 +54,10 @@
 /pilates-senior                   /pilates-senior.html                    200
 
 # Pilates quartiers
-/pilates-clichy                   /pilates-clichy.html                    200
-/pilates-paris-18                 /pilates-paris-18.html                  200
+/pilates-clichy                   /pilates-reformer-clichy                301
+/pilates-clichy.html              /pilates-reformer-clichy                301
+/pilates-paris-18                 /pilates-reformer-paris-18              301
+/pilates-paris-18.html            /pilates-reformer-paris-18              301
 /pilates-epinay-sur-seine         /pilates-epinay-sur-seine.html          200
 /pilates-ile-saint-denis          /pilates-ile-saint-denis.html           200
 

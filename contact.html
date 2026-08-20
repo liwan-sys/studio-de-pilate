@@ -15,6 +15,9 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="SVB">
   <link rel="canonical" href="https://studiosvb.com/contact">
+  <link rel="alternate" hreflang="fr" href="https://studiosvb.com/contact">
+  <link rel="alternate" hreflang="en" href="https://studiosvb.com/en/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://studiosvb.com/contact">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -130,30 +133,118 @@
 
     </style>
 
-  <!-- Schema.org Organization -->
+  <!-- Schema.org Organization and the two physical studios -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://studiosvb.com/#organization",
-    "name": "SVB",
-    "alternateName": ["Studio SVB", "Santez Vous Bien", "studiosvb.com"],
-    "description": "Deux studios de sport et de coaching à Saint-Ouen-sur-Seine, spécialisés dans l'accompagnement en petit groupe.",
-    "url": "https://studiosvb.com/",
-    "telephone": "+33744919155",
-    "email": "hello@studiosvb.fr",
-    "image": "https://studiosvb.com/images/og-image.jpg",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://studiosvb.com/images/logo.webp"
-    },
-    "sameAs": [
-      "https://www.instagram.com/studiosvb/",
-      "https://www.facebook.com/profile.php?id=61574972498498"
-    ],
-    "department": [
-      { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
-      { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://studiosvb.com/#organization",
+        "name": "SVB",
+        "alternateName": ["Studio SVB", "Santez Vous Bien", "studiosvb.com"],
+        "description": "Deux studios de sport et de coaching à Saint-Ouen-sur-Seine, spécialisés dans l'accompagnement en petit groupe.",
+        "url": "https://studiosvb.com/",
+        "telephone": "+33744919155",
+        "email": "hello@studiosvb.fr",
+        "image": "https://studiosvb.com/images/og-image.jpg",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://studiosvb.com/images/logo.webp"
+        },
+        "sameAs": [
+          "https://www.instagram.com/svb.officiel/",
+          "https://www.facebook.com/profile.php?id=61569485866457"
+        ],
+        "department": [
+          { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+          { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
+        ]
+      },
+      {
+        "@type": "ExerciseGym",
+        "@id": "https://studiosvb.com/studio-parc-des-docks#location",
+        "name": "SVB - Studio de coaching sportif & Bootcamp",
+        "alternateName": "SVB - Parc des Docks",
+        "url": "https://studiosvb.com/studio-parc-des-docks",
+        "telephone": "+33744919155",
+        "email": "hello@studiosvb.fr",
+        "image": "https://studiosvb.com/images/studio-parc-des-docks.webp",
+        "priceRange": "€€",
+        "parentOrganization": { "@id": "https://studiosvb.com/#organization" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "6 Mail André Breton",
+          "addressLocality": "Saint-Ouen-sur-Seine",
+          "postalCode": "93400",
+          "addressRegion": "Île-de-France",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.9118,
+          "longitude": 2.3336
+        },
+        "hasMap": "https://www.google.com/maps?cid=2059026041814845219",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": 82,
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "knowsAbout": ["Coaching sportif", "Cross Training", "Boxe anglaise", "Afrodance", "Training Kids"]
+      },
+      {
+        "@type": "ExerciseGym",
+        "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location",
+        "name": "Studio de pilates Reformer - SVB",
+        "alternateName": "SVB - Cours des Lavandières",
+        "url": "https://studiosvb.com/studio-cours-des-lavandieres",
+        "telephone": "+33744919155",
+        "email": "hello@studiosvb.fr",
+        "image": "https://studiosvb.com/images/studio-cours-des-lavandieres.webp",
+        "priceRange": "€€",
+        "parentOrganization": { "@id": "https://studiosvb.com/#organization" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "40 Cours des Lavandières",
+          "addressLocality": "Saint-Ouen-sur-Seine",
+          "postalCode": "93400",
+          "addressRegion": "Île-de-France",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.9108,
+          "longitude": 2.3345
+        },
+        "hasMap": "https://www.google.com/maps?cid=5013071026965844982",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": 88,
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "10:30", "closes": "13:45" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "16:30", "closes": "21:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "10:30", "closes": "14:30" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "16:30", "closes": "21:15" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "10:30", "closes": "13:30" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "16:30", "closes": "21:15" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "11:00", "closes": "14:30" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "17:00", "closes": "20:30" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "10:30", "closes": "14:30" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "16:30", "closes": "20:15" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:45", "closes": "14:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "15:00", "closes": "18:45" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:45", "closes": "13:45" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "14:45", "closes": "17:45" }
+        ],
+        "knowsAbout": ["Pilates Reformer", "Crossformer", "Pilates au sol", "Yoga Vinyasa"]
+      }
     ]
   }
   </script>
@@ -219,7 +310,10 @@
                 </div>
                 <h3 class="font-hand text-3xl mb-2 text-[#4A8D84]">Studio Lavandières</h3>
                 <p class="font-bold text-gray-700">📍 40 Cours des Lavandières</p>
-                <p class="text-sm text-gray-600 mb-4">93400 Saint-Ouen-sur-Seine</p>
+                <p class="text-sm text-gray-600 mb-3">93400 Saint-Ouen-sur-Seine</p>
+                <a href="https://www.google.com/maps?cid=5013071026965844982" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-[#2F4F4F] underline hover:text-[#4A8D84] transition" aria-label="Voir le Studio Lavandières et ses 88 avis sur Google Maps">
+                    Voir sur Google Maps · 5,0 (88 avis)
+                </a>
             </div>
 
             <div class="glass-box relative overflow-hidden">
@@ -228,7 +322,10 @@
                 </div>
                 <h3 class="font-hand text-3xl mb-2 text-[#4A8D84]">Studio Docks</h3>
                 <p class="font-bold text-gray-700">📍 6 Mail André Breton</p>
-                <p class="text-sm text-gray-600 mb-4">93400 Saint-Ouen-sur-Seine</p>
+                <p class="text-sm text-gray-600 mb-3">93400 Saint-Ouen-sur-Seine</p>
+                <a href="https://www.google.com/maps?cid=2059026041814845219" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-[#2F4F4F] underline hover:text-[#4A8D84] transition" aria-label="Voir le Studio Docks et ses 82 avis sur Google Maps">
+                    Voir sur Google Maps · 5,0 (82 avis)
+                </a>
             </div>
 
         </div>
@@ -338,8 +435,8 @@
           <div class="svb-footer-col">
             <h3 class="svb-footer-head">Réseaux</h3>
             <ul>
-              <li><a href="https://www.instagram.com/studiosvb/" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5H5.2a3.7 3.7 0 00-3.7 3.7v5.6a3.7 3.7 0 003.7 3.7h5.6a3.7 3.7 0 003.7-3.7V5.2a3.7 3.7 0 00-3.7-3.7H8zm4.7 1.8c.2 0 .4.2.4.4v.5c0 .2-.2.4-.4.4h-.5a.4.4 0 01-.4-.4v-.5c0-.2.2-.4.4-.4h.5zM8 4.8a3.2 3.2 0 110 6.4 3.2 3.2 0 010-6.4zm0 1.3a1.9 1.9 0 100 3.8 1.9 1.9 0 000-3.8z" fill="currentColor"/></svg>Instagram</a></li>
-              <li><a href="https://www.facebook.com/profile.php?id=61574972498498" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.2 14v-5.3h1.8l.3-2h-2V5.4c0-.6.1-1 1-1h1.1V2.5a16 16 0 00-1.7-.1c-1.7 0-2.8 1-2.8 2.9v1.4H5v2h1.8V14h2.4z" fill="currentColor"/></svg>Facebook</a></li>
+              <li><a href="https://www.instagram.com/svb.officiel/" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5H5.2a3.7 3.7 0 00-3.7 3.7v5.6a3.7 3.7 0 003.7 3.7h5.6a3.7 3.7 0 003.7-3.7V5.2a3.7 3.7 0 00-3.7-3.7H8zm4.7 1.8c.2 0 .4.2.4.4v.5c0 .2-.2.4-.4.4h-.5a.4.4 0 01-.4-.4v-.5c0-.2.2-.4.4-.4h.5zM8 4.8a3.2 3.2 0 110 6.4 3.2 3.2 0 010-6.4zm0 1.3a1.9 1.9 0 100 3.8 1.9 1.9 0 000-3.8z" fill="currentColor"/></svg>Instagram</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61569485866457" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.2 14v-5.3h1.8l.3-2h-2V5.4c0-.6.1-1 1-1h1.1V2.5a16 16 0 00-1.7-.1c-1.7 0-2.8 1-2.8 2.9v1.4H5v2h1.8V14h2.4z" fill="currentColor"/></svg>Facebook</a></li>
               <li><a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 00-5.6 9.8L1.5 14.5l3.3-.8A6.5 6.5 0 108 1.5zm0 1.3a5.2 5.2 0 014.3 8.1l.5 1.5-1.6-.4A5.2 5.2 0 118 2.8zm-2.6 2.5c-.2 0-.4 0-.6.2-.2.2-.8.7-.8 1.8s.8 2.1 1 2.2c.1.2 1.6 2.4 3.8 3.2 1.8.7 2.2.5 2.6.5.4 0 1.3-.5 1.5-1 .2-.6.2-1 .1-1.2l-.8-.4c-.2-.1-.5-.3-.7 0s-.8 1-1 1.1c-.2.2-.4.2-.7 0-.3-.1-1.2-.4-2.3-1.4a8 8 0 01-1.5-2c-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5L6 5.4c-.1-.2-.2-.2-.3-.2z" fill="currentColor"/></svg>WhatsApp</a></li>
             </ul>
           </div>

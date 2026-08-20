@@ -90,6 +90,7 @@ prepare_publish() {
     --include='/_headers' \
     --include='/_redirects' \
     --include='/robots.txt' \
+    --include='/llms.txt' \
     --include='/sitemap.xml' \
     --include='/site.webmanifest' \
     --include='/service-worker.js' \
