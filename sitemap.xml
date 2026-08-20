@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Marque et parcours principal -->
-  <url><loc>https://studiosvb.com/</loc></url>
-  <url><loc>https://studiosvb.com/sessions</loc></url>
-  <url><loc>https://studiosvb.com/tarifs</loc></url>
-  <url><loc>https://studiosvb.com/pourquoi-svb</loc></url>
-  <url><loc>https://studiosvb.com/essai</loc></url>
-  <url><loc>https://studiosvb.com/studio</loc></url>
-  <url><loc>https://studiosvb.com/temoignages</loc></url>
-  <url><loc>https://studiosvb.com/equipe</loc></url>
-  <url><loc>https://studiosvb.com/faq</loc></url>
-  <url><loc>https://studiosvb.com/contact</loc></url>
-  <url><loc>https://studiosvb.com/parrainage</loc></url>
+  <url><loc>https://studiosvb.com/</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/sessions</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/tarifs</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/pourquoi-svb</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/essai</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/studio</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/temoignages</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/equipe</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/faq</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/contact</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/parrainage</loc><lastmod>2026-08-20</lastmod></url>
 
   <!-- Deux etablissements reels -->
-  <url><loc>https://studiosvb.com/studio-parc-des-docks</loc></url>
-  <url><loc>https://studiosvb.com/studio-cours-des-lavandieres</loc></url>
+  <url><loc>https://studiosvb.com/studio-parc-des-docks</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/studio-cours-des-lavandieres</loc><lastmod>2026-08-20</lastmod></url>
 
   <!-- Disciplines et besoins locaux -->
-  <url><loc>https://studiosvb.com/pilates-reformer-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/crossformer-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/salle-de-sport-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/yoga-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/boxe-anglaise-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/cross-training-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/bootcamp-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/pilates-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/coaching-sportif-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/afrodance-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/sport-enfant-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/sport-femme-saint-ouen</loc></url>
-  <url><loc>https://studiosvb.com/sport-debutant-saint-ouen</loc></url>
+  <url><loc>https://studiosvb.com/pilates-reformer-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/crossformer-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/salle-de-sport-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/yoga-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/boxe-anglaise-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/cross-training-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/bootcamp-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/pilates-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/coaching-sportif-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/afrodance-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/sport-enfant-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/sport-femme-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/sport-debutant-saint-ouen</loc><lastmod>2026-08-20</lastmod></url>
 
   <!-- English -->
-  <url><loc>https://studiosvb.com/en/</loc></url>
-  <url><loc>https://studiosvb.com/en/sessions</loc></url>
-  <url><loc>https://studiosvb.com/en/studio</loc></url>
-  <url><loc>https://studiosvb.com/en/tarifs</loc></url>
-  <url><loc>https://studiosvb.com/en/equipe</loc></url>
-  <url><loc>https://studiosvb.com/en/faq</loc></url>
-  <url><loc>https://studiosvb.com/en/contact</loc></url>
+  <url><loc>https://studiosvb.com/en/</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/en/sessions</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/en/studio</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/en/tarifs</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/en/equipe</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/en/faq</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://studiosvb.com/en/contact</loc><lastmod>2026-08-20</lastmod></url>
 
 </urlset>

@@ -3,6 +3,18 @@
 
 # Domaine canonique et anciennes pages d'accueil
 /index.html                              / 301!
+
+# URLs orphelines encore dans les index (audit AEO/GEO aout 2026)
+/tarifs-offres/                         /tarifs 301!
+/tarifs-offres                          /tarifs 301!
+/cours/                                 /sessions 301!
+/cours                                  /sessions 301!
+/planning/                              /studio 301!
+/planning                               /studio 301!
+/cadeau                                 /parrainage 301!
+/cadeau/                                /parrainage 301!
+/hello-world/                           / 301!
+/hello-world                            / 301!
 /index-old                              / 301!
 /index-old.html                         / 301!
 /blog                                  /sessions 301!
