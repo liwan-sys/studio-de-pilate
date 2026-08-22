@@ -149,34 +149,72 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   position: relative;
   min-width: 0;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
   color: #fff;
+  box-shadow: 0 14px 30px rgba(47, 79, 79, 0.12);
   text-align: center;
   text-shadow: 0 1px 4px rgba(47, 79, 79, 0.09);
-  transition: filter 180ms ease;
+  transition: filter 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .pricing-reference-panel:hover,
-.pricing-reference-offer:hover { filter: brightness(1.025); }
+.pricing-reference-offer:hover {
+  filter: brightness(1.015);
+  box-shadow: 0 20px 38px rgba(47, 79, 79, 0.17);
+  transform: translateY(-3px);
+}
 
-.pricing-reference-cover-link {
-  position: absolute;
-  z-index: 3;
-  inset: 0;
-  color: transparent;
+.pricing-reference-card-link {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 50px;
+  padding: 13px 18px;
+  border-top: 1px solid rgba(47, 79, 79, 0.1);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--pricing-ink);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.25;
+  text-align: left;
   text-decoration: none;
+  text-shadow: none;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease;
 }
 
-.pricing-reference-cover-link:focus-visible {
-  outline: 4px solid #fff;
-  outline-offset: -7px;
+.pricing-reference-card-link::before {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  content: "";
 }
+
+.pricing-reference-card-link > span { position: relative; z-index: 3; }
+
+.pricing-reference-card-link:hover,
+.pricing-reference-card-link:focus-visible {
+  background: #fbf6ec;
+  color: var(--pricing-ink-deep);
+}
+
+.pricing-reference-card-link:focus-visible {
+  outline: 3px solid var(--pricing-ink);
+  outline-offset: -5px;
+}
+
+.pricing-reference-card-link span[aria-hidden="true"] { font-size: 18px; line-height: 1; }
 
 .pricing-reference-try {
   margin-top: 50px;
-  padding: 24px 42px 25px;
-  background: #c7ddc4;
+  background: transparent;
   text-transform: uppercase;
 }
+
+.pricing-reference-try-body { padding: 24px 42px 25px; background: #c7ddc4; }
 
 .pricing-reference-try h2,
 .pricing-reference-try p { margin: 0; }
@@ -203,7 +241,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 
 .pricing-reference-offer {
   display: grid;
-  grid-template-rows: 52px 108px 112px;
+  grid-template-rows: 52px 108px 112px auto;
   text-transform: uppercase;
 }
 
@@ -373,11 +411,12 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   .pricing-reference-shell { width: calc(100% - 28px); }
   .pricing-reference-header p { font-size: 39px; }
   .pricing-reference-header h1 { margin-top: 6px; font-size: 30px; }
-  .pricing-reference-try { margin-top: 32px; padding: 20px 15px; }
+  .pricing-reference-try { margin-top: 32px; }
+  .pricing-reference-try-body { padding: 20px 15px; }
   .pricing-reference-try h2 { font-size: 22px; }
   .pricing-reference-try p { font-size: 13px; line-height: 1.46; }
   .pricing-reference-studios { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 34px; }
-  .pricing-reference-offer { grid-template-rows: 48px 100px 104px; }
+  .pricing-reference-offer { grid-template-rows: 48px 100px 104px auto; }
   .pricing-reference-location { padding-right: 10px; padding-left: 10px; font-size: 36px; }
   .pricing-reference-offer-heading,
   .pricing-reference-sessions { padding: 12px 14px; }
@@ -395,6 +434,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   .pricing-reference-starter-heading p { font-size: 14px; }
   .pricing-reference-starter-body { min-height: 150px; padding: 18px 14px; }
   .pricing-reference-starter-body p { font-size: 14px; line-height: 1.4; }
+  .pricing-reference-card-link { min-height: 48px; padding: 12px 15px; font-size: 10px; }
 }
 
 @media (max-width: 360px) {
