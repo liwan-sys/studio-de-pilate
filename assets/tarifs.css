@@ -403,15 +403,15 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 }
 
 .pricing-offer-card--form {
-  --card-surface-start: #fff8f2;
-  --card-surface-middle: #f3e2d2;
-  --card-surface-end: #edcfb8;
-  --card-accent-start: #efcfb7;
-  --card-accent-end: #d49371;
-  --card-badge-start: #fff4ec;
-  --card-badge-end: #efd7c3;
-  --card-button-start: #9f6046;
-  --card-button-end: #744331;
+  --card-surface-start: #fffaf1;
+  --card-surface-middle: #eee6d5;
+  --card-surface-end: #d8cfba;
+  --card-accent-start: #eadfc9;
+  --card-accent-end: #b6a485;
+  --card-badge-start: #fffaf0;
+  --card-badge-end: #e1d6c2;
+  --card-button-start: #70644f;
+  --card-button-end: #4b453a;
 }
 
 .pricing-offer-card--starter {
