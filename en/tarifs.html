@@ -59,7 +59,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
   <link rel="stylesheet" href="/assets/svb.css?v=20260820c">
-  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822j">
+  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822k">
 
   <script type="application/ld+json">
   {
@@ -180,78 +180,97 @@
   </header>
 
   <main id="main-content" class="pricing-page">
-    <section class="pricing-reference" aria-labelledby="pricing-title">
-      <div class="pricing-reference-shell">
-        <header class="pricing-reference-header">
-          <p>Our monthly memberships</p>
+    <section class="pricing-showcase" aria-labelledby="pricing-title">
+      <div class="pricing-shell">
+        <header class="pricing-showcase-header">
+          <p class="pricing-showcase-kicker">Our monthly memberships</p>
           <h1 id="pricing-title">Small group</h1>
+          <p class="pricing-showcase-intro">Three memberships to build your routine, plus two passes to discover SVB before choosing.</p>
         </header>
 
-        <article id="pass-try" class="pricing-reference-panel pricing-reference-try">
-          <div class="pricing-reference-try-body">
-            <h2>Pass Try</h2>
-            <p>Buy 1 trial = receive 1 trial in another discipline</p>
-            <p>Registration fees waived when joining immediately after either trial</p>
-            <p>Registration fees reduced by 50% when joining within 3 days</p>
-          </div>
-          <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-booking-path="/place/place_svb-lavandieres/packs" class="js-buy pricing-reference-card-link" aria-label="Book the Pass Try sessions"><span>Book my trials</span><span aria-hidden="true">→</span></a>
-        </article>
+        <section class="pricing-group" aria-labelledby="memberships-title">
+          <header class="pricing-group-header">
+            <p class="pricing-group-eyebrow">3 memberships</p>
+            <h2 id="memberships-title">Choose your SVB access</h2>
+          </header>
 
-        <div class="pricing-reference-studios">
-          <article id="svb-move" class="pricing-reference-offer pricing-reference-move">
-            <h2 class="pricing-reference-location">Parc des Docks</h2>
-            <div class="pricing-reference-offer-heading">
-              <h3>SVB Move</h3>
-              <p>6-month commitment</p>
-              <p>Registration fee on joining</p>
-            </div>
-            <div class="pricing-reference-sessions">
-              <p>4 sessions / month</p>
-              <p>6 sessions / month</p>
-              <p>8 sessions / month</p>
-            </div>
-            <a href="https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" data-booking-path="/place/place_svb-parc-docks/subscription-plans" class="js-buy pricing-reference-card-link" aria-label="Join SVB Move"><span>Join Move</span><span aria-hidden="true">→</span></a>
-          </article>
+          <div class="pricing-membership-grid">
+            <article id="svb-limitless" class="pricing-offer-card pricing-offer-card--limitless">
+              <p class="pricing-offer-badge">Signature membership · 2 studios</p>
+              <h3 class="pricing-offer-title">SVB Limitless</h3>
+              <span class="pricing-offer-flourish" aria-hidden="true"></span>
+              <p class="pricing-offer-summary">All of SVB, with unlimited sessions.</p>
+              <ul class="pricing-offer-benefits">
+                <li>Access to both studios</li>
+                <li>Unlimited classes</li>
+                <li>1-year commitment</li>
+                <li>Cancel sessions at least 12 hours in advance</li>
+              </ul>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Join SVB Limitless"><span>Join Limitless</span><span aria-hidden="true">→</span></a>
+            </article>
 
-          <article id="svb-form" class="pricing-reference-offer pricing-reference-form">
-            <h2 class="pricing-reference-location">Cours des Lavandières</h2>
-            <div class="pricing-reference-offer-heading">
-              <h3>SVB Form</h3>
-              <p>6-month commitment</p>
-              <p>Registration fee on joining</p>
-            </div>
-            <div class="pricing-reference-sessions">
-              <p>4 sessions / month</p>
-              <p>6 sessions / month</p>
-              <p>8 sessions / month</p>
-            </div>
-            <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-reference-card-link" aria-label="Join SVB Form"><span>Join Form</span><span aria-hidden="true">→</span></a>
-          </article>
-        </div>
+            <article id="svb-move" class="pricing-offer-card pricing-offer-card--move">
+              <p class="pricing-offer-badge">Parc des Docks · 1 studio</p>
+              <h3 class="pricing-offer-title">SVB Move</h3>
+              <span class="pricing-offer-flourish" aria-hidden="true"></span>
+              <p class="pricing-offer-summary">Your small-group membership at Parc des Docks.</p>
+              <ul class="pricing-offer-benefits">
+                <li>4, 6 or 8 sessions per month</li>
+                <li>6-month commitment</li>
+                <li>Registration fee on joining</li>
+              </ul>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" data-booking-path="/place/place_svb-parc-docks/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Join SVB Move"><span>Join Move</span><span aria-hidden="true">→</span></a>
+            </article>
 
-        <article id="svb-limitless" class="pricing-reference-panel pricing-reference-limitless">
-          <div class="pricing-reference-limitless-main">
-            <h2>SVB Limitless</h2>
-            <p>1-year commitment · Registration fee on joining</p>
+            <article id="svb-form" class="pricing-offer-card pricing-offer-card--form">
+              <p class="pricing-offer-badge">Cours des Lavandières · 1 studio</p>
+              <h3 class="pricing-offer-title">SVB Form</h3>
+              <span class="pricing-offer-flourish" aria-hidden="true"></span>
+              <p class="pricing-offer-summary">Your Reformer and Crossformer membership at Lavandières.</p>
+              <ul class="pricing-offer-benefits">
+                <li>4, 6 or 8 sessions per month</li>
+                <li>6-month commitment</li>
+                <li>Registration fee on joining</li>
+              </ul>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Join SVB Form"><span>Join Form</span><span aria-hidden="true">→</span></a>
+            </article>
           </div>
-          <p class="pricing-reference-limitless-rule">Cancel sessions at least 12 hours in advance</p>
-          <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-reference-card-link" aria-label="Join SVB Limitless"><span>Join Limitless</span><span aria-hidden="true">→</span></a>
-        </article>
+        </section>
 
-        <article id="pass-starter" class="pricing-reference-panel pricing-reference-starter">
-          <div class="pricing-reference-starter-heading">
-            <h2>Pass Starter</h2>
-            <p>Valid for 1 month</p>
+        <section class="pricing-group" aria-labelledby="discovery-title">
+          <header class="pricing-group-header">
+            <p class="pricing-group-eyebrow">Get started</p>
+            <h2 id="discovery-title">Discover before choosing</h2>
+          </header>
+
+          <div class="pricing-discovery-grid">
+            <article id="pass-try" class="pricing-offer-card pricing-offer-card--try">
+              <p class="pricing-offer-badge">2 trials · 2 disciplines</p>
+              <h3 class="pricing-offer-title">Pass Try</h3>
+              <span class="pricing-offer-flourish" aria-hidden="true"></span>
+              <p class="pricing-offer-summary">Buy 1 trial and receive 1 trial in another discipline.</p>
+              <ul class="pricing-offer-benefits">
+                <li>Two experiences to compare</li>
+                <li>Registration fees waived when joining immediately after either trial</li>
+                <li>Registration fees reduced by 50% when joining within 3 days</li>
+              </ul>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-booking-path="/place/place_svb-lavandieres/packs" class="js-buy pricing-offer-cta" aria-label="Book the Pass Try sessions"><span>Book my trials</span><span aria-hidden="true">→</span></a>
+            </article>
+
+            <article id="pass-starter" class="pricing-offer-card pricing-offer-card--starter">
+              <p class="pricing-offer-badge">No commitment · Valid for 1 month</p>
+              <h3 class="pricing-offer-title">Pass Starter</h3>
+              <span class="pricing-offer-flourish" aria-hidden="true"></span>
+              <p class="pricing-offer-summary">5 different sessions of your choice to find your routine.</p>
+              <ul class="pricing-offer-benefits">
+                <li>No commitment or automatic renewal</li>
+                <li>Registration fees waived while the pass is active</li>
+                <li>Registration fees reduced by 50% when joining within 3 days</li>
+              </ul>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-discipline="pass_starter" data-label="Pass Starter" data-booking-path="/place/place_svb-lavandieres/packs" class="js-buy pricing-offer-cta" aria-label="Choose the Pass Starter"><span>Choose Pass Starter</span><span aria-hidden="true">→</span></a>
+            </article>
           </div>
-          <div class="pricing-reference-starter-body">
-            <p>5 different sessions of your choice</p>
-            <p>No commitment</p>
-            <p>No automatic renewal</p>
-            <p>Registration fees waived while the pass is active</p>
-            <p>Registration fees reduced by 50% when joining within 3 days</p>
-          </div>
-          <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-discipline="pass_starter" data-label="Pass Starter" data-booking-path="/place/place_svb-lavandieres/packs" class="js-buy pricing-reference-card-link" aria-label="Choose the Pass Starter"><span>Choose Pass Starter</span><span aria-hidden="true">→</span></a>
-        </article>
+        </section>
       </div>
     </section>
   </main>
