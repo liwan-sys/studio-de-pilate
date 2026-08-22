@@ -48,20 +48,26 @@
 
 - **Small group** : jauges strictes (9 en Pilates Reformer, 8 en Crossformer, jusqu'à 12 pour le training)
 - **Coachs certifiés** : chaque discipline enseignée par un·e coach spécialiste
-- **Annulation flexible** : jusqu'à 1h avant un cours small group (24h avant un coaching privé), aucun crédit perdu
+- **Annulation** : les sessions doivent être annulées au moins 12h avant le début du cours
 - **Pause vacances** incluse dans l'abonnement
 - **Deux studios** à Saint-Ouen-sur-Seine, à proximité immédiate de Paris 17e et 18e (10 min en métro)
 - **Note client** : 5,0/5 sur 170 avis Google cumulés entre les deux studios (88 + 82)
 
-## Séance d'essai
+## Pass Try
 
-- **Prix** : 30 €
-- **Déduction** : 30 € intégralement déduits du premier prélèvement en cas d'inscription dans les 7 jours
+- **Principe** : une séance d'essai achetée donne droit à une seconde séance d'essai dans une autre discipline
+- **Frais de dossier** : offerts en cas d'inscription immédiatement après l'un des deux essais ; réduits de moitié en cas d'inscription dans les 3 jours
 - **Réservation** : https://studiosvb.com/essai
 
-## Tarifs
+## Abonnements
 
-Les tarifs à jour de chaque formule (Pass Reformer, Pass Crossformer, Pass Full Former, Pass Cross, Pass Focus, Pass Full, Coaching Pass Good Vibes, Coaching Pass Duo, Pass Kids, Pass Starter, Option SVB Boost) sont consultables directement dans l'espace client de réservation : https://web-customer.studiosvb.com
+- **SVB Move** : abonnement small group du Parc des Docks, avec 4, 6 ou 8 sessions par mois et un engagement de 6 mois
+- **SVB Form** : abonnement small group du studio Cours des Lavandières, avec 4, 6 ou 8 sessions par mois et un engagement de 6 mois
+- **SVB Limitless** : accès aux deux studios SVB, avec un engagement d'un an
+- **Pass Starter** : 5 sessions différentes au choix, valables 1 mois, sans engagement ni tacite reconduction
+- **Tarifs** : aucun prix n'est affiché publiquement sur la page abonnements ; l'équipe confirme le tarif et les conditions avant validation
+- **Page officielle** : https://studiosvb.com/tarifs
+- **Espace client** : https://web-customer.studiosvb.com
 
 ## Pages clés
 
@@ -98,4 +104,4 @@ Homepage EN : https://studiosvb.com/en/
 
 ---
 
-Dernière mise à jour : 2026-08-20
+Dernière mise à jour : 2026-08-22
