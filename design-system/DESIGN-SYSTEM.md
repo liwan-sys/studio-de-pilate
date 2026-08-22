@@ -76,7 +76,7 @@ Shades dérivées algorithmiquement pour **couvrir les 9 états** dont une UI a 
 
 ### 1.4 Dark mode
 
-Activé via `[data-theme="dark"]` OU `@media (prefers-color-scheme: dark)`. **Pas activé par défaut sur le site** (public B2C wellness = préfère light). Prêt pour une future toggle.
+Activé via `[data-theme="dark"]` OU `@media (prefers-color-scheme: dark)`. **Pas activé par défaut sur le site** (l'identité SVB privilégie le thème clair). Prêt pour une future toggle.
 
 | Alias | Light | Dark |
 |---|---|---|
@@ -121,7 +121,7 @@ Activé via `[data-theme="dark"]` OU `@media (prefers-color-scheme: dark)`. **Pa
 | `caption` | 13px | 13px | Body | 500 | Captions images |
 | `eyebrow` | 12px | 12px | Body | 700 | Kickers « NOS DISCIPLINES » (uppercase, letter-spacing 0.16em) |
 
-**Ratio de progression** : 1.25 (Major Third) — suffisant pour créer de la hiérarchie sans bond trop dur, wellness-friendly.
+**Ratio de progression** : 1.25 (Major Third) — suffisant pour créer une hiérarchie nette sans rupture visuelle.
 
 **Fluid sizing** : toutes les tailles > body utilisent `clamp(min, vw-relative, max)` pour une adaptation continue de 375px à 1440px+.
 
@@ -191,7 +191,7 @@ focus← 0 0 0 3px rgba(74,141,132,.25)   ring a11y
 
 ### 4.1 Philosophie
 
-> « Le wellness ne court pas. Nos animations non plus. »
+> « Le mouvement reste fluide. Nos animations aussi. »
 
 - **Éase-out dominant** (`standard`, `emphasized`, `decelerate`) — les éléments arrivent en douceur, pressés sur la fin.
 - **Éase-in rare** — uniquement pour les sorties (modal close, dismiss).

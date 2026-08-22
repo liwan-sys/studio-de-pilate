@@ -3,7 +3,7 @@
 > **Rôle** : alimenter directement les mises en page **Figma Make**.
 > Chaque élément indique le nombre de caractères (= contrainte de bloc), la hiérarchie HTML, et les leviers de persuasion activés.
 >
-> **Rédigé par** : Stratégie Conversion — pilier « revenu récurrent par acquisition wellness ».
+> **Rédigé par** : Stratégie Conversion — pilier « acquisition et revenu récurrent ».
 
 ---
 
@@ -32,7 +32,7 @@
 
 **Haute conversion** : *garanti, remboursé, exclusif, essai, offert, illimité, limité, première fois, dernière place, prouvé, mesurable*.
 
-**Émotion wellness** : *bouge mieux, respire, enraciner, libérer, réveiller, dépasser, célébrer, s'offrir, prendre soin*.
+**Émotion de marque** : *bouge mieux, respire, enraciner, libérer, réveiller, dépasser, célébrer, s'offrir, prendre soin*.
 
 **Autorité** : *certifié, 16 coachs, 5,0 étoiles, 77 avis, kinés partenaires, protocole, science-backed*.
 
@@ -130,7 +130,6 @@ Liens (10–18 char) :
 - Tarifs (6)
 - Parrainage (10)
 - Carte cadeau (12)
-- Bien-être (9)
 - FAQ (3)
 
 ### Bloc 4 · Informations
@@ -296,7 +295,6 @@ Par carte : thumbnail · H3 (discipline) · Body-sm (accroche 55 car max) · tag
 **Indicateurs d'autorité** (bande stripe sous témoignages) :
 - Google · 5,0 ★ · 77 avis
 - 16 coachs certifiés BPJEPS / DEUST
-- Partenaires : ostéopathe du 93 · kinés Paris 18
 - Membre Fédération Française d'Haltérophilie et Fitness
 
 **Résultats quantifiables** (data block) :
@@ -772,49 +770,6 @@ Champs :
 
 ---
 
-## 9 · Page Bien-être `/bien-etre`
-
-### 9.1 Hero
-
-**Eyebrow** : `Soin · Récupération` (18)
-**H1** : `Prends soin de toi. Vraiment.` (29)
-**Lead** (~110 car) :
-> `Massages sur mesure, ostéopathie, soins wellness. Le complément silencieux de ton entraînement, chez nous à Saint-Ouen.` (113)
-**CTA** : `Prendre RDV` (11)
-
-### 9.2 3 offres (cards)
-
-#### 1 · Massage sportif
-**H3** : `Massage sportif · 55 min` (23)
-**Body** : `Récupération post-training, relâchement ciblé, précision sur les zones sensibles. Idéal après 2-3 séances intenses.` (114)
-**Prix** : `75 €`
-
-#### 2 · Ostéopathie
-**H3** : `Ostéopathie · 45 min` (21)
-**Body** : `Bilan complet, ajustements manuels, suivi. Utile pour douleurs chroniques, post-blessure, grossesse, préparation compétition.` (126)
-**Prix** : `70 €`
-
-#### 3 · Réflexologie plantaire
-**H3** : `Réflexologie · 50 min` (21)
-**Body** : `Détente profonde via les points de tension des pieds. Pour le stress, le sommeil, la circulation. L'arrêt que ton corps attend.` (128)
-**Prix** : `65 €`
-
-### 9.3 Formule Routine (abonnement)
-
-**H2** : `Ta routine bien-être.` (20)
-**Body** : `1 soin mensuel, suspension possible, tarif membre −15 %.` (58)
-**CTA** : `Demander un RDV` (15)
-
-### 9.4 Chatbot intégré (voir section 14)
-
-### 9.5 Testimonials wellness-focus
-
-> ★★★★★
-> *J'ai découvert l'ostéopathe de SVB après un blocage dos. 2 séances et zéro douleur depuis 6 mois. Le suivi kiné est nickel aussi.* (127)
-> — **Virginie R.** · membre depuis 2024
-
----
-
 ## 10 · Page Pilates Reformer (hub discipline) `/pilates-reformer-saint-ouen`
 
 ### 10.1 Hero
@@ -896,11 +851,11 @@ Tarifs · Équipe · Blog · Contact · FAQ
 **H1** : `Bouge mieux, lis mieux.` (22)
 **Sous-titre** (Dancing Script H3) : `Conseils, guides et inspirations par l'équipe SVB.` (49)
 **Body** (~120 car) :
-> `Tout ce qu'il faut savoir sur le Pilates Reformer, le Crossformer, le yoga, la boxe et le bien-être — écrit par nos 16 coachs certifiés.` (126)
+> `Tout ce qu'il faut savoir sur le Pilates Reformer, le Crossformer, le yoga et la boxe — écrit par nos 16 coachs certifiés.`
 
 ### 12.2 Filtres (chips)
 
-Tout · Pilates · Cross Training · Crossformer · Yoga · Boxe · Afrodance · Kids · Studio · Bien-être
+Tout · Pilates · Cross Training · Crossformer · Yoga · Boxe · Afrodance · Kids · Studio
 
 ### 12.3 Grille articles (cards auto-générées depuis blog-index.json)
 
@@ -976,7 +931,7 @@ Pill top-right : `FR` → redirects to `/`
 **Quick replies** : Horaires · Tarifs · Essai · Adresse · Cours · Réserver · Coaching privé · Kids · Débutant · Matériel · Contact
 
 **Fallback** (quand il ne comprend pas) :
-> `Je ne suis pas sûr·e d'avoir la réponse exacte 🤔. Essaie l'un de ces sujets : Horaires · Planning · Tarifs · Essai · Inscription · Coaching privé · Kids · Règlement · Disciplines · Matériel · Parrainage · Bien-être. Ou réponse directe : WhatsApp 💬 · 07 44 91 91 55`
+> `Je ne suis pas sûr·e d'avoir la réponse exacte. Essaie l'un de ces sujets : Horaires · Planning · Tarifs · Essai · Inscription · Coaching privé · Kids · Règlement · Disciplines · Matériel · Parrainage. Ou réponse directe : WhatsApp · 07 44 91 91 55`
 
 ### 14.3 Toasts
 
