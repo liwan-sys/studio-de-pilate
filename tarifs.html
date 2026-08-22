@@ -56,10 +56,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
   <link rel="stylesheet" href="/assets/svb.css?v=20260820c">
-  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822g">
+  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822h">
 
   <script type="application/ld+json">
   {
@@ -96,7 +96,7 @@
     "itemListElement": [
       {
         "@type": "ListItem",
-        "position": 4,
+        "position": 1,
         "item": {
           "@type": "Service",
           "name": "Pass Try",
@@ -111,7 +111,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 1,
+        "position": 2,
         "item": {
           "@type": "Service",
           "name": "SVB Move",
@@ -123,7 +123,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 2,
+        "position": 3,
         "item": {
           "@type": "Service",
           "name": "SVB Form",
@@ -135,7 +135,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 3,
+        "position": 4,
         "item": {
           "@type": "Service",
           "name": "SVB Limitless",
@@ -206,159 +206,76 @@
   </header>
 
   <main id="main-content" class="pricing-page">
-    <header class="pricing-hero">
-      <div class="pricing-shell pricing-hero-inner">
-        <p class="pricing-eyebrow">Nos abonnements mensuels</p>
-        <h1>Une formule pour chaque rythme.</h1>
-        <p class="pricing-intro">Choisis ton studio, ton rythme et les disciplines qui te donnent envie de revenir chaque semaine.</p>
-        <div class="pricing-jump" aria-label="Accès rapide aux offres">
-          <a href="#svb-limitless" class="pricing-jump-featured"><strong>Limitless</strong><span>Illimité · 2 studios</span></a>
-          <a href="#svb-move"><strong>Move</strong><span>Parc des Docks</span></a>
-          <a href="#svb-form"><strong>Form</strong><span>Lavandières</span></a>
-          <a href="#decouvrir-svb"><strong>Try &amp; Starter</strong><span>Découvrir SVB</span></a>
-        </div>
-      </div>
-    </header>
+    <section class="pricing-reference" aria-labelledby="pricing-title">
+      <div class="pricing-reference-shell">
+        <header class="pricing-reference-header">
+          <p>Nos abonnements mensuels</p>
+          <h1 id="pricing-title">Small group</h1>
+        </header>
 
-    <section class="pricing-offers" aria-labelledby="studio-offers-title">
-      <div class="pricing-shell">
-        <div class="pricing-section-heading">
-          <p class="pricing-kicker">3 abonnements</p>
-          <h2 id="studio-offers-title">Le bon accès, selon ta pratique</h2>
-          <p>Limitless pour profiter de tout SVB. Move et Form pour choisir un seul studio.</p>
-        </div>
+        <article id="pass-try" class="pricing-reference-panel pricing-reference-try">
+          <a href="/essai" class="pricing-reference-cover-link" aria-label="Découvrir et réserver le Pass Try"></a>
+          <h2>Pass Try</h2>
+          <p>1 essai acheté = 1 essai offert dans une autre discipline</p>
+          <p>Frais de dossier : offerts si inscription directement après l'un des 2 essais</p>
+          <p>Frais de dossier à -50 % si inscription dans les 3 jours</p>
+        </article>
 
-        <div class="pricing-card-grid">
-          <article id="svb-move" class="pricing-card pricing-card-move">
-            <div class="pricing-card-heading">
-              <div class="pricing-card-context"><span>1 studio</span><strong>Parc des Docks</strong></div>
+        <div class="pricing-reference-studios">
+          <article id="svb-move" class="pricing-reference-offer pricing-reference-move">
+            <a href="https://wa.me/33744919155?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20l%27abonnement%20SVB%20Move." target="_blank" rel="noopener noreferrer" class="pricing-reference-cover-link" aria-label="Demander l'abonnement SVB Move"></a>
+            <h2 class="pricing-reference-location">Parc des Docks</h2>
+            <div class="pricing-reference-offer-heading">
               <h3>SVB Move</h3>
-              <p class="pricing-card-highlight">4, 6 ou 8 séances par mois</p>
+              <p>Engagement 6 mois</p>
+              <p>Frais de dossier à l'inscription</p>
             </div>
-            <div class="pricing-card-body">
-              <p class="pricing-card-copy">Pour le Cross Training, la Boxe, l'Afrodance et les cours small group du Parc des Docks.</p>
-              <dl class="pricing-facts">
-                <div><dt>Accès</dt><dd>Parc des Docks</dd></div>
-                <div><dt>Rythme</dt><dd>4, 6 ou 8 séances par mois</dd></div>
-                <div><dt>Engagement</dt><dd>6 mois</dd></div>
-              </dl>
+            <div class="pricing-reference-sessions">
+              <p>4 sessions / mois</p>
+              <p>6 sessions / mois</p>
+              <p>8 sessions / mois</p>
             </div>
-            <a href="https://wa.me/33744919155?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20l%27abonnement%20SVB%20Move." target="_blank" rel="noopener noreferrer" class="pricing-button pricing-button-move">Demander Move <span aria-hidden="true">→</span></a>
           </article>
 
-          <article id="svb-form" class="pricing-card pricing-card-form">
-            <div class="pricing-card-heading">
-              <div class="pricing-card-context"><span>1 studio</span><strong>Cours des Lavandières</strong></div>
+          <article id="svb-form" class="pricing-reference-offer pricing-reference-form">
+            <a href="https://wa.me/33744919155?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20l%27abonnement%20SVB%20Form." target="_blank" rel="noopener noreferrer" class="pricing-reference-cover-link" aria-label="Demander l'abonnement SVB Form"></a>
+            <h2 class="pricing-reference-location">Cours des Lavandières</h2>
+            <div class="pricing-reference-offer-heading">
               <h3>SVB Form</h3>
-              <p class="pricing-card-highlight">4, 6 ou 8 séances par mois</p>
+              <p>Engagement 6 mois</p>
+              <p>Frais de dossier à l'inscription</p>
             </div>
-            <div class="pricing-card-body">
-              <p class="pricing-card-copy">Pour le Pilates Reformer, le Crossformer, le Pilates au sol et le Yoga Vinyasa.</p>
-              <dl class="pricing-facts">
-                <div><dt>Accès</dt><dd>Cours des Lavandières</dd></div>
-                <div><dt>Rythme</dt><dd>4, 6 ou 8 séances par mois</dd></div>
-                <div><dt>Engagement</dt><dd>6 mois</dd></div>
-              </dl>
+            <div class="pricing-reference-sessions">
+              <p>4 sessions / mois</p>
+              <p>6 sessions / mois</p>
+              <p>8 sessions / mois</p>
             </div>
-            <a href="https://wa.me/33744919155?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20l%27abonnement%20SVB%20Form." target="_blank" rel="noopener noreferrer" class="pricing-button pricing-button-form">Demander Form <span aria-hidden="true">→</span></a>
           </article>
+        </div>
 
-          <article id="svb-limitless" class="pricing-card pricing-card-limitless">
-            <div class="pricing-card-heading">
-              <p class="pricing-limitless-badge">Pass illimité · Offre signature</p>
-              <div class="pricing-card-context"><span>2 studios</span><strong>Tout SVB</strong></div>
-              <h3>SVB Limitless</h3>
-              <p class="pricing-card-highlight">Cours illimités dans les deux studios</p>
-            </div>
-            <div class="pricing-card-body">
-              <p class="pricing-card-copy">Cross Training, Boxe, Afrodance, Reformer, Crossformer, Pilates et Yoga, sans compter tes séances.</p>
-              <dl class="pricing-facts">
-                <div><dt>Accès</dt><dd>Les deux studios</dd></div>
-                <div><dt>Rythme</dt><dd>Cours illimités</dd></div>
-                <div><dt>Engagement</dt><dd>1 an</dd></div>
-              </dl>
-            </div>
-            <a href="https://wa.me/33744919155?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20l%27abonnement%20SVB%20Limitless." target="_blank" rel="noopener noreferrer" class="pricing-button pricing-button-limitless">Choisir l'illimité <span aria-hidden="true">→</span></a>
-          </article>
-        </div>
-      </div>
-    </section>
+        <article id="svb-limitless" class="pricing-reference-panel pricing-reference-limitless">
+          <a href="https://wa.me/33744919155?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20l%27abonnement%20SVB%20Limitless." target="_blank" rel="noopener noreferrer" class="pricing-reference-cover-link" aria-label="Demander l'abonnement SVB Limitless"></a>
+          <div class="pricing-reference-limitless-main">
+            <h2>SVB Limitless</h2>
+            <p>Engagement 1 an · Frais de dossier à l'inscription</p>
+          </div>
+          <p class="pricing-reference-limitless-rule">Annulation des sessions 12 h avant</p>
+        </article>
 
-    <section id="decouvrir-svb" class="pricing-discovery" aria-labelledby="discovery-title">
-      <div class="pricing-shell">
-        <div class="pricing-section-heading">
-          <p class="pricing-kicker">Avant de t'abonner</p>
-          <h2 id="discovery-title">Découvrir SVB à ton rythme</h2>
-          <p>Deux façons simples de tester les disciplines et de choisir ensuite ton abonnement.</p>
-        </div>
-        <div class="pricing-discovery-grid">
-          <article id="pass-try" class="pricing-discovery-card pricing-discovery-try" aria-labelledby="pass-try-title">
-            <div>
-              <p class="pricing-card-label">Pour un premier essai</p>
-              <h3 id="pass-try-title">Pass Try</h3>
-              <p class="pricing-discovery-highlight">2 essais dans 2 disciplines</p>
-              <p>Un essai acheté donne droit à un second essai dans une autre discipline.</p>
-            </div>
-            <ul class="pricing-benefits">
-              <li>Découvre deux expériences SVB avant de choisir.</li>
-              <li>Frais de dossier offerts si tu t'inscris directement après l'un des deux essais.</li>
-              <li>Frais de dossier réduits de moitié si tu t'inscris dans les 3 jours.</li>
-            </ul>
-            <a href="/essai" class="pricing-button pricing-button-dark">Réserver mes essais <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article id="pass-starter" class="pricing-discovery-card pricing-discovery-starter" aria-labelledby="starter-title">
-            <div>
-              <p class="pricing-card-label">Pour explorer davantage</p>
-              <h3 id="starter-title">Pass Starter</h3>
-              <p class="pricing-discovery-highlight">5 séances différentes pendant 1 mois</p>
-              <p>Compose ton mois de découverte avec les disciplines qui t'attirent.</p>
-            </div>
-            <ul class="pricing-benefits">
-              <li>Valable 1 mois, sans engagement ni tacite reconduction.</li>
-              <li>Frais de dossier offerts si tu choisis un abonnement pendant que le pass est actif.</li>
-              <li>Frais de dossier réduits de moitié si tu t'inscris dans les 3 jours.</li>
-            </ul>
-            <a href="#" data-discipline="pass_starter" data-label="Pass Starter" class="js-buy pricing-button pricing-button-dark">Choisir le Starter <span aria-hidden="true">→</span></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="pricing-conditions" aria-labelledby="conditions-title">
-      <div class="pricing-shell">
-        <div class="pricing-section-heading pricing-section-heading-left">
-          <p class="pricing-kicker">À retenir</p>
-          <h2 id="conditions-title">Des règles claires dès le départ</h2>
-        </div>
-        <div class="pricing-condition-grid">
-          <article>
-            <span class="pricing-condition-number">01</span>
-            <h3>Annulation</h3>
-            <p>Les sessions doivent être annulées au moins 12 h avant le début du cours.</p>
-          </article>
-          <article>
-            <span class="pricing-condition-number">02</span>
-            <h3>Engagement</h3>
-            <p>SVB Move et SVB Form sont engagés 6 mois. SVB Limitless est engagé 1 an.</p>
-          </article>
-          <article>
-            <span class="pricing-condition-number">03</span>
-            <h3>Inscription</h3>
-            <p>Des frais de dossier s'appliquent aux abonnements, selon les conditions indiquées lors de l'inscription.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="pricing-final" aria-labelledby="final-title">
-      <div class="pricing-shell pricing-final-inner">
-        <div>
-          <p class="pricing-kicker">Besoin d'aide pour choisir ?</p>
-          <h2 id="final-title">On trouve la bonne formule avec toi.</h2>
-        </div>
-        <p>Indique ton studio, ton rythme et ton objectif. L'équipe SVB t'oriente vers l'abonnement adapté.</p>
-        <a href="https://wa.me/33744919155?text=Bonjour%2C%20je%20souhaite%20etre%20conseille%20sur%20les%20abonnements%20SVB." target="_blank" rel="noopener noreferrer" class="pricing-button pricing-button-dark">Parler à l'équipe <span aria-hidden="true">→</span></a>
+        <article id="pass-starter" class="pricing-reference-panel pricing-reference-starter">
+          <a href="#" data-discipline="pass_starter" data-label="Pass Starter" class="js-buy pricing-reference-cover-link" aria-label="Choisir le Pass Starter"></a>
+          <div class="pricing-reference-starter-heading">
+            <h2>Pass Starter</h2>
+            <p>Valable 1 mois</p>
+          </div>
+          <div class="pricing-reference-starter-body">
+            <p>5 sessions différentes au choix</p>
+            <p>Pas d'engagement</p>
+            <p>Pas de tacite reconduction</p>
+            <p>Frais de dossier offerts si pass toujours actif</p>
+            <p>Frais de dossier à -50 % si inscription dans les 3 jours</p>
+          </div>
+        </article>
       </div>
     </section>
   </main>
