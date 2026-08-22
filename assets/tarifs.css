@@ -10,6 +10,10 @@
   --pricing-sage: #96a39c;
   --pricing-starter: #8fad98;
   --pricing-starter-light: #c5ccaf;
+  --pricing-page-background:
+    linear-gradient(118deg, rgba(128, 204, 169, 0.74) 0%, rgba(128, 204, 169, 0) 47%),
+    linear-gradient(238deg, rgba(239, 205, 105, 0.48) 0%, rgba(239, 205, 105, 0) 46%),
+    var(--pricing-cream);
 }
 
 html { scroll-behavior: smooth; }
@@ -18,7 +22,7 @@ html { scroll-behavior: smooth; }
   min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
-  background: var(--pricing-cream);
+  background: var(--pricing-page-background);
   color: var(--pricing-ink);
   font-family: "Montserrat", sans-serif;
 }
@@ -40,8 +44,7 @@ html { scroll-behavior: smooth; }
   position: relative;
   z-index: 50;
   width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(47, 79, 79, 0.88);
+  background: transparent;
 }
 
 .pricing-standard-nav {
@@ -110,10 +113,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 .pricing-reference {
   min-height: 100vh;
   padding: 72px 0 90px;
-  background:
-    linear-gradient(118deg, rgba(128, 204, 169, 0.74) 0%, rgba(128, 204, 169, 0) 47%),
-    linear-gradient(238deg, rgba(239, 205, 105, 0.48) 0%, rgba(239, 205, 105, 0) 46%),
-    var(--pricing-cream);
+  background: transparent;
 }
 
 .pricing-reference-shell {
