@@ -32,7 +32,7 @@
   <link rel="icon" type="image/jpeg" href="/images/favicon.jpg">
 
   <title>Small Group Memberships in Saint-Ouen | SVB</title>
-  <meta name="description" content="Discover SVB memberships in Saint-Ouen: Try Pass, SVB Move at Parc des Docks, SVB Form at Cours des Lavandières, SVB Limitless and Starter Pass.">
+  <meta name="description" content="Discover SVB memberships in Saint-Ouen: Pass Try, SVB Move at Parc des Docks, SVB Form at Cours des Lavandières, SVB Limitless and Pass Starter.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="SVB">
   <link rel="canonical" href="https://studiosvb.com/en/tarifs">
@@ -50,7 +50,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SVB memberships">
-  <meta name="twitter:description" content="Try Pass, SVB Move, SVB Form, SVB Limitless and Starter Pass in Saint-Ouen.">
+  <meta name="twitter:description" content="Pass Try, SVB Move, SVB Form, SVB Limitless and Pass Starter in Saint-Ouen.">
   <meta name="twitter:image" content="https://studiosvb.com/images/og-image.jpg">
   <meta name="theme-color" content="#203a3d">
 
@@ -71,10 +71,10 @@
     "itemListElement": [
       {
         "@type": "ListItem",
-        "position": 1,
+        "position": 4,
         "item": {
           "@type": "Service",
-          "name": "Try Pass",
+          "name": "Pass Try",
           "description": "Buy one trial session and receive a second trial in another discipline.",
           "provider": { "@id": "https://studiosvb.com/#organization" },
           "availableAtOrFrom": [
@@ -86,7 +86,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 2,
+        "position": 1,
         "item": {
           "@type": "Service",
           "name": "SVB Move",
@@ -98,7 +98,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 3,
+        "position": 2,
         "item": {
           "@type": "Service",
           "name": "SVB Form",
@@ -110,11 +110,11 @@
       },
       {
         "@type": "ListItem",
-        "position": 4,
+        "position": 3,
         "item": {
           "@type": "Service",
           "name": "SVB Limitless",
-          "description": "The complete SVB membership with a one-year commitment.",
+          "description": "Unlimited access to classes at both SVB studios with a one-year commitment.",
           "provider": { "@id": "https://studiosvb.com/#organization" },
           "availableAtOrFrom": [
             { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
@@ -128,7 +128,7 @@
         "position": 5,
         "item": {
           "@type": "Service",
-          "name": "Starter Pass",
+          "name": "Pass Starter",
           "description": "Five different sessions of your choice, valid for one month, with no commitment or automatic renewal.",
           "provider": { "@id": "https://studiosvb.com/#organization" },
           "availableAtOrFrom": [
@@ -152,133 +152,158 @@
 
   <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <nav role="navigation" class="pricing-nav">
-    <div class="pricing-nav-inner">
-      <a href="/en/" class="pricing-logo-link" aria-label="SVB home">
-        <img src="/images/logo.webp" alt="SVB" class="pricing-logo" width="72" height="51" fetchpriority="high">
-      </a>
-      <button id="nav-toggle" class="pricing-menu-button md:hidden" aria-label="Open menu" aria-controls="nav-menu" aria-expanded="false" onclick="(function(button){var menu=document.getElementById('nav-menu');var open=menu.classList.contains('hidden');menu.classList.toggle('hidden');button.setAttribute('aria-expanded',open?'true':'false');})(this)">
-        <span aria-hidden="true">Menu</span>
-      </button>
-      <div id="nav-menu" class="hidden md:flex pricing-menu">
-        <a href="/en/">Home</a>
-        <a href="/en/sessions">Classes</a>
-        <a href="/en/studio">Schedule</a>
-        <a href="/pourquoi-svb">Why SVB</a>
-        <a href="/essai">Trial</a>
-        <a href="/en/tarifs" aria-current="page">Memberships</a>
-        <a href="/en/equipe">Team</a>
-        <a href="/en/faq">FAQ</a>
-        <a href="/en/contact">Contact</a>
-        <a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener" class="pricing-client">Member area</a>
-        <a href="/tarifs" class="pricing-language">FR | <strong>EN</strong></a>
+  <header class="pricing-site-header">
+    <nav role="navigation" class="pricing-standard-nav p-6 flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
+      <div class="mb-3 md:mb-0 transform hover:scale-105 transition duration-300">
+        <a href="/en/" aria-label="Studio SVB home">
+          <img src="/images/logo.webp" alt="Studio SVB, Pilates Reformer, Cross Training and Yoga in Saint-Ouen" class="h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142" fetchpriority="high">
+        </a>
       </div>
-    </div>
-  </nav>
+      <button id="nav-toggle" class="pricing-menu-toggle md:hidden ml-auto p-2 rounded focus:outline-none" aria-label="Open menu" aria-controls="nav-menu" aria-expanded="false" onclick="(function(button){var m=document.getElementById('nav-menu');var opening=m.classList.contains('hidden');if(opening){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='center';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}button.setAttribute('aria-expanded',opening?'true':'false');})(this)">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <div id="nav-menu" class="hidden md:flex flex-wrap justify-center items-center gap-3 md:gap-5 text-[10px] md:text-xs font-semibold tracking-normal drop-shadow-sm">
+        <a href="/en/" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Home</a>
+        <a href="/en/sessions" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Sessions</a>
+        <a href="/en/studio" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Schedule</a>
+        <a href="/en/tarifs" class="pricing-nav-current hover:text-[#E8B496] transition hover:scale-105 inline-block" aria-current="page">Memberships</a>
+        <a href="/en/equipe" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">The Team</a>
+        <a href="/en/faq" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">FAQ</a>
+        <a href="/en/contact" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Contact</a>
+        <a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener" aria-label="Member area" class="pricing-client-link">Member area</a>
+        <a href="/tarifs" aria-label="Version française" class="pricing-language-link"><span>FR</span>&nbsp;|&nbsp;<span>EN</span></a>
+      </div>
+    </nav>
+  </header>
 
   <main id="main-content" class="pricing-page">
     <header class="pricing-hero">
       <div class="pricing-shell pricing-hero-inner">
-        <p class="pricing-eyebrow">Our monthly memberships</p>
-        <h1>The new SVB memberships</h1>
-        <p class="pricing-intro">A simple choice based on your studio, your training rhythm and how much variety you want. Your rate is confirmed clearly before you commit.</p>
+        <p class="pricing-eyebrow">Small group in Saint-Ouen</p>
+        <h1>SVB memberships</h1>
+        <p class="pricing-intro">Choose your studio, your training rhythm and the disciplines that make you want to come back every week.</p>
         <div class="pricing-jump" aria-label="Quick access to memberships">
-          <a href="#pass-try">Try SVB</a>
-          <a href="#svb-move">Parc des Docks</a>
-          <a href="#svb-form">Cours des Lavandières</a>
-          <a href="#svb-limitless">Both studios</a>
+          <a href="#svb-move"><strong>Move</strong><span>Parc des Docks</span></a>
+          <a href="#svb-form"><strong>Form</strong><span>Lavandières</span></a>
+          <a href="#svb-limitless"><strong>Limitless</strong><span>Both studios</span></a>
+          <a href="#discover-svb"><strong>Try &amp; Starter</strong><span>Discover SVB</span></a>
         </div>
       </div>
     </header>
 
-    <section id="pass-try" class="pricing-band pricing-band-try" aria-labelledby="pass-try-title">
-      <div class="pricing-shell pricing-band-grid">
-        <div>
-          <p class="pricing-kicker">Start here</p>
-          <h2 id="pass-try-title">Try Pass</h2>
-          <p class="pricing-lead">Buy one trial session and receive a second trial in another discipline.</p>
-        </div>
-        <ul class="pricing-benefits">
-          <li>Discover two disciplines before choosing.</li>
-          <li>Registration fees are waived when you join immediately after either trial.</li>
-          <li>Registration fees are reduced by half when you join within 3 days.</li>
-        </ul>
-        <a href="/essai" class="pricing-button pricing-button-dark">Book my trials <span aria-hidden="true">→</span></a>
-      </div>
-    </section>
-
     <section class="pricing-offers" aria-labelledby="studio-offers-title">
       <div class="pricing-shell">
         <div class="pricing-section-heading">
-          <p class="pricing-kicker">Small group</p>
-          <h2 id="studio-offers-title">Choose your studio</h2>
-          <p>Three monthly rhythms, regular coaching and an offer that is easy to understand.</p>
+          <p class="pricing-kicker">3 memberships</p>
+          <h2 id="studio-offers-title">The right access for your practice</h2>
+          <p>Move for Parc des Docks, Form for Lavandières, Limitless for everything SVB.</p>
         </div>
 
         <div class="pricing-card-grid">
           <article id="svb-move" class="pricing-card pricing-card-move">
-            <div class="pricing-card-location">Parc des Docks</div>
-            <div class="pricing-card-body">
-              <p class="pricing-card-label">Monthly membership</p>
+            <div class="pricing-card-heading">
+              <div class="pricing-card-context"><span>1 studio</span><strong>Parc des Docks</strong></div>
               <h3>SVB Move</h3>
-              <p class="pricing-card-copy">The membership dedicated to small group classes at Parc des Docks.</p>
+              <p class="pricing-card-highlight">4, 6 or 8 sessions per month</p>
+            </div>
+            <div class="pricing-card-media">
+              <img src="/images/svb-photos/cross-body.jpg" alt="Small group class at Studio SVB Parc des Docks" width="720" height="1080" loading="lazy" decoding="async">
+            </div>
+            <div class="pricing-card-body">
+              <p class="pricing-card-copy">For Cross Training, Boxing, Afrodance and small group classes at Parc des Docks.</p>
               <dl class="pricing-facts">
+                <div><dt>Access</dt><dd>Parc des Docks</dd></div>
                 <div><dt>Rhythm</dt><dd>4, 6 or 8 sessions per month</dd></div>
                 <div><dt>Commitment</dt><dd>6 months</dd></div>
-                <div><dt>Joining</dt><dd>Registration fees apply</dd></div>
               </dl>
             </div>
-            <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-button pricing-button-move">Discover SVB Move <span aria-hidden="true">→</span></a>
+            <a href="https://wa.me/33744919155?text=Hello%2C%20I%20would%20like%20information%20about%20the%20SVB%20Move%20membership." target="_blank" rel="noopener noreferrer" class="pricing-button pricing-button-move">Ask about Move <span aria-hidden="true">→</span></a>
           </article>
 
           <article id="svb-form" class="pricing-card pricing-card-form">
-            <div class="pricing-card-location">Cours des Lavandières</div>
-            <div class="pricing-card-body">
-              <p class="pricing-card-label">Monthly membership</p>
+            <div class="pricing-card-heading">
+              <div class="pricing-card-context"><span>1 studio</span><strong>Cours des Lavandières</strong></div>
               <h3>SVB Form</h3>
-              <p class="pricing-card-copy">The membership dedicated to small group classes at Cours des Lavandières.</p>
+              <p class="pricing-card-highlight">4, 6 or 8 sessions per month</p>
+            </div>
+            <div class="pricing-card-media">
+              <img src="/images/reformer/reformer-duo-cours.webp" alt="Pilates Reformer class at Studio SVB Cours des Lavandières" width="1068" height="1600" loading="lazy" decoding="async">
+            </div>
+            <div class="pricing-card-body">
+              <p class="pricing-card-copy">For Pilates Reformer, Crossformer, mat Pilates and Vinyasa Yoga.</p>
               <dl class="pricing-facts">
+                <div><dt>Access</dt><dd>Cours des Lavandières</dd></div>
                 <div><dt>Rhythm</dt><dd>4, 6 or 8 sessions per month</dd></div>
                 <div><dt>Commitment</dt><dd>6 months</dd></div>
-                <div><dt>Joining</dt><dd>Registration fees apply</dd></div>
               </dl>
             </div>
-            <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-button pricing-button-form">Discover SVB Form <span aria-hidden="true">→</span></a>
+            <a href="https://wa.me/33744919155?text=Hello%2C%20I%20would%20like%20information%20about%20the%20SVB%20Form%20membership." target="_blank" rel="noopener noreferrer" class="pricing-button pricing-button-form">Ask about Form <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article id="svb-limitless" class="pricing-card pricing-card-limitless">
+            <div class="pricing-card-heading">
+              <div class="pricing-card-context"><span>2 studios</span><strong>All of SVB</strong></div>
+              <h3>SVB Limitless</h3>
+              <p class="pricing-card-highlight">Unlimited classes at both studios</p>
+            </div>
+            <div class="pricing-card-media pricing-card-media-pair">
+              <img src="/images/svb-photos/cross-body.jpg" alt="Class at Studio SVB Parc des Docks" width="720" height="1080" loading="lazy" decoding="async">
+              <img src="/images/reformer/reformer-duo-cours.webp" alt="Class at Studio SVB Cours des Lavandières" width="1068" height="1600" loading="lazy" decoding="async">
+            </div>
+            <div class="pricing-card-body">
+              <p class="pricing-card-copy">Cross Training, Boxing, Afrodance, Reformer, Crossformer, Pilates and Yoga, with no session count.</p>
+              <dl class="pricing-facts">
+                <div><dt>Access</dt><dd>Both studios</dd></div>
+                <div><dt>Rhythm</dt><dd>Unlimited classes</dd></div>
+                <div><dt>Commitment</dt><dd>1 year</dd></div>
+              </dl>
+            </div>
+            <a href="https://wa.me/33744919155?text=Hello%2C%20I%20would%20like%20information%20about%20the%20SVB%20Limitless%20membership." target="_blank" rel="noopener noreferrer" class="pricing-button pricing-button-limitless">Ask about Limitless <span aria-hidden="true">→</span></a>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="svb-limitless" class="pricing-band pricing-band-limitless" aria-labelledby="limitless-title">
-      <div class="pricing-shell pricing-limitless-grid">
-        <div>
-          <p class="pricing-kicker">The complete membership</p>
-          <h2 id="limitless-title">SVB Limitless</h2>
-          <p class="pricing-lead">Train at both studios and vary your disciplines throughout the year.</p>
+    <section id="discover-svb" class="pricing-discovery" aria-labelledby="discovery-title">
+      <div class="pricing-shell">
+        <div class="pricing-section-heading">
+          <p class="pricing-kicker">Before joining</p>
+          <h2 id="discovery-title">Discover SVB at your own pace</h2>
+          <p>Two simple ways to try the disciplines before choosing your membership.</p>
         </div>
-        <dl class="pricing-limitless-facts">
-          <div><dt>Access</dt><dd>Both SVB studios</dd></div>
-          <div><dt>Commitment</dt><dd>1 year</dd></div>
-          <div><dt>Joining</dt><dd>Registration fees apply</dd></div>
-        </dl>
-        <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-button pricing-button-light">Discover Limitless <span aria-hidden="true">→</span></a>
-      </div>
-    </section>
+        <div class="pricing-discovery-grid">
+          <article id="pass-try" class="pricing-discovery-card pricing-discovery-try" aria-labelledby="pass-try-title">
+            <div>
+              <p class="pricing-card-label">For a first experience</p>
+              <h3 id="pass-try-title">Pass Try</h3>
+              <p class="pricing-discovery-highlight">2 trials in 2 disciplines</p>
+              <p>Buy one trial session and receive a second trial in another discipline.</p>
+            </div>
+            <ul class="pricing-benefits">
+              <li>Discover two SVB experiences before choosing.</li>
+              <li>Registration fees are waived when you join immediately after either trial.</li>
+              <li>Registration fees are reduced by half when you join within 3 days.</li>
+            </ul>
+            <a href="/essai" class="pricing-button pricing-button-dark">Book my trials <span aria-hidden="true">→</span></a>
+          </article>
 
-    <section id="pass-starter" class="pricing-band pricing-band-starter" aria-labelledby="starter-title">
-      <div class="pricing-shell pricing-starter-grid">
-        <div>
-          <p class="pricing-kicker">No commitment</p>
-          <h2 id="starter-title">Starter Pass</h2>
-          <p class="pricing-lead">Five different sessions of your choice to explore SVB for one month.</p>
+          <article id="pass-starter" class="pricing-discovery-card pricing-discovery-starter" aria-labelledby="starter-title">
+            <div>
+              <p class="pricing-card-label">To explore further</p>
+              <h3 id="starter-title">Pass Starter</h3>
+              <p class="pricing-discovery-highlight">5 different sessions over 1 month</p>
+              <p>Build your discovery month around the disciplines you want to try.</p>
+            </div>
+            <ul class="pricing-benefits">
+              <li>Valid for 1 month, with no commitment or automatic renewal.</li>
+              <li>Registration fees are waived if you join while the pass is active.</li>
+              <li>Registration fees are reduced by half when you join within 3 days.</li>
+            </ul>
+            <a href="#" data-discipline="pass_starter" data-label="Pass Starter" class="js-buy pricing-button pricing-button-dark">Choose Starter <span aria-hidden="true">→</span></a>
+          </article>
         </div>
-        <ul class="pricing-benefits">
-          <li>Valid for 1 month.</li>
-          <li>No commitment and no automatic renewal.</li>
-          <li>Registration fees are waived if you choose a membership while your Starter Pass is active.</li>
-          <li>Registration fees are reduced by half when you join within 3 days.</li>
-        </ul>
-        <a href="#" data-discipline="pass_starter" data-label="Starter Pass" class="js-buy pricing-button pricing-button-dark">Discover Starter <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -301,8 +326,8 @@
           </article>
           <article>
             <span class="pricing-condition-number">03</span>
-            <h3>Rates</h3>
-            <p>The team confirms the rate for your chosen rhythm before you join.</p>
+            <h3>Registration</h3>
+            <p>Registration fees apply to memberships under the conditions shown when you join.</p>
           </article>
         </div>
       </div>
@@ -314,8 +339,8 @@
           <p class="pricing-kicker">Need help choosing?</p>
           <h2 id="final-title">We will find the right option with you.</h2>
         </div>
-        <p>Tell us your preferred studio, rhythm and goal. The SVB team confirms the most suitable membership and every condition before validation.</p>
-        <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-button pricing-button-dark">View memberships <span aria-hidden="true">→</span></a>
+        <p>Tell us your preferred studio, rhythm and goal. The SVB team will guide you to the right membership.</p>
+        <a href="https://wa.me/33744919155?text=Hello%2C%20I%20would%20like%20help%20choosing%20an%20SVB%20membership." target="_blank" rel="noopener noreferrer" class="pricing-button pricing-button-dark">Talk to the team <span aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
@@ -371,6 +396,6 @@
     </div>
   </footer>
 
-  <script src="/assets/svb.js?v=20260423a" defer></script>
+  <script src="/assets/svb.js?v=20260822b" defer></script>
 </body>
 </html>
