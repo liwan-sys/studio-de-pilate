@@ -1,550 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Consent Mode v2 -->
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+  (function(){
+    var granted = false;
+    try { granted = localStorage.getItem('svb-consent-v1') === 'granted'; } catch(e) {}
+    window.gtag('consent', 'default', {
+      ad_storage: granted ? 'granted' : 'denied',
+      analytics_storage: granted ? 'granted' : 'denied',
+      ad_user_data: granted ? 'granted' : 'denied',
+      ad_personalization: granted ? 'granted' : 'denied',
+      wait_for_update: 500
+    });
+  })();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5RW8LB7B');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="facebook-domain-verification" content="ivgwdh3702t7twxczeskz6m149zuah">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ── Perf : dns-prefetch services externes ── -->
-    <link rel="dns-prefetch" href="https://calendly.com">
-    <link rel="dns-prefetch" href="https://web-customer.studiosvb.com">
-    <link rel="dns-prefetch" href="https://wa.me">
-<link rel="icon" type="image/png" href="/images/favicon.jpg" />
-    <title>Pilates Memberships Saint-Ouen — Sign Up in 3 Min | SVB</title>
-  <meta name="description" content="Studio SVB Saint-Ouen memberships: Pilates Reformer, Crossformer, Cross Training, Yoga, Boxing. See current prices in the member area. Trial at €30.">
+  <link rel="dns-prefetch" href="https://wa.me">
+  <link rel="icon" type="image/jpeg" href="/images/favicon.jpg">
+
+  <title>Small Group Memberships in Saint-Ouen | SVB</title>
+  <meta name="description" content="Discover SVB memberships in Saint-Ouen: Try Pass, SVB Move at Parc des Docks, SVB Form at Cours des Lavandières, SVB Limitless and Starter Pass.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="SVB">
   <link rel="canonical" href="https://studiosvb.com/en/tarifs">
-  <link rel="alternate" hreflang="fr" href="https://studiosvb.com/tarifs" />
-  <link rel="alternate" hreflang="en" href="https://studiosvb.com/en/tarifs" />
-  <link rel="alternate" hreflang="x-default" href="https://studiosvb.com/tarifs" />
+  <link rel="alternate" hreflang="fr" href="https://studiosvb.com/tarifs">
+  <link rel="alternate" hreflang="en" href="https://studiosvb.com/en/tarifs">
+  <link rel="alternate" hreflang="x-default" href="https://studiosvb.com/tarifs">
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://studiosvb.com/en/tarifs">
-  <meta property="og:title" content="Pricing &amp; Memberships | SVB">
-  <meta property="og:description" content="Studio SVB Saint-Ouen memberships. See current prices in the member area. Trial at €30.">
+  <meta property="og:title" content="SVB memberships">
+  <meta property="og:description" content="Five simple options to try SVB, train at one studio or access the full SVB experience.">
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="en_GB">
   <meta property="og:site_name" content="SVB">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pricing &amp; Memberships | SVB">
-  <meta name="twitter:description" content="Studio SVB Saint-Ouen memberships. See current prices in the member area. Trial at €30.">
+  <meta name="twitter:title" content="SVB memberships">
+  <meta name="twitter:description" content="Try Pass, SVB Move, SVB Form, SVB Limitless and Starter Pass in Saint-Ouen.">
   <meta name="twitter:image" content="https://studiosvb.com/images/og-image.jpg">
+  <meta name="theme-color" content="#203a3d">
 
-  <meta name="theme-color" content="#4A8D84">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
+  <link rel="stylesheet" href="/assets/svb.css?v=20260820c">
+  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822a">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "SVB memberships",
+    "description": "The five membership and discovery options available at SVB in Saint-Ouen-sur-Seine.",
+    "numberOfItems": 5,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Service",
+          "name": "Try Pass",
+          "description": "Buy one trial session and receive a second trial in another discipline.",
+          "provider": { "@id": "https://studiosvb.com/#organization" },
+          "availableAtOrFrom": [
+            { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+            { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
+          ],
+          "url": "https://studiosvb.com/en/tarifs#pass-try"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Service",
+          "name": "SVB Move",
+          "description": "Parc des Docks small group membership with 4, 6 or 8 sessions per month and a 6-month commitment.",
+          "provider": { "@id": "https://studiosvb.com/#organization" },
+          "availableAtOrFrom": { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+          "url": "https://studiosvb.com/en/tarifs#svb-move"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Service",
+          "name": "SVB Form",
+          "description": "Cours des Lavandières small group membership with 4, 6 or 8 sessions per month and a 6-month commitment.",
+          "provider": { "@id": "https://studiosvb.com/#organization" },
+          "availableAtOrFrom": { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" },
+          "url": "https://studiosvb.com/en/tarifs#svb-form"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Service",
+          "name": "SVB Limitless",
+          "description": "The complete SVB membership with a one-year commitment.",
+          "provider": { "@id": "https://studiosvb.com/#organization" },
+          "availableAtOrFrom": [
+            { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+            { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
+          ],
+          "url": "https://studiosvb.com/en/tarifs#svb-limitless"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Service",
+          "name": "Starter Pass",
+          "description": "Five different sessions of your choice, valid for one month, with no commitment or automatic renewal.",
+          "provider": { "@id": "https://studiosvb.com/#organization" },
+          "availableAtOrFrom": [
+            { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+            { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
+          ],
+          "url": "https://studiosvb.com/en/tarifs#pass-starter"
+        }
+      }
+    ]
+  }
+  </script>
 
-    <link rel="stylesheet" href="/assets/tarifs.css?v=20260422p" />
-
-  <!-- Schema.org LocalBusiness -->
-
-
-
-  <!-- Schema.org Offers -->
-
-
-    <link rel="stylesheet" href="/assets/svb.css?v=20260820c" />
-
-  <script src="/assets/analytics.js?v=20260427a" defer></script>
+  <script src="/assets/nav-dropdown.js?v=20260820-noop" defer></script>
+  <script src="/assets/analytics.js?v=20260523a" defer></script>
+  <script src="/assets/js/meta-pixel.js" defer></script>
+  <script src="/assets/js/svb-booking.js?v=20260819b" defer></script>
 </head>
-<body class="content-visible">
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
+<body class="content-visible pricing-body">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2">Skip to main content</a>
 
-    <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
-    <div class="noise-overlay"></div>
+  <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-        <nav role="navigation" class="relative p-6 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
-      <div style="display:flex;flex-direction:column;width:100%;gap:8px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-          <a href="/en/">
-            <img src="/images/logo.webp" alt="Logo SVB" class="h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142">
-          </a>
-          <a href="/tarifs" aria-label="French version" style="color:white;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;white-space:nowrap;background:rgba(255,255,255,0.15);"><span style="opacity:0.55;">FR</span>&nbsp;|&nbsp;<span style="font-weight:900;color:#E8B496;">EN</span></a>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:2px 0;">
-          <a href="/en/" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Home</a>
-          <a href="/en/sessions" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Sessions</a>
-          <a href="/en/studio" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Schedule</a>
-          <a href="/en/tarifs" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Memberships</a>
-          <a href="/en/equipe" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">The Team</a>
-          <a href="/en/#reviews" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Reviews</a>
-          <a href="/en/faq" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">FAQ</a>
-          <a href="/en/contact" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Contact</a>
+  <nav role="navigation" class="pricing-nav">
+    <div class="pricing-nav-inner">
+      <a href="/en/" class="pricing-logo-link" aria-label="SVB home">
+        <img src="/images/logo.webp" alt="SVB" class="pricing-logo" width="72" height="51" fetchpriority="high">
+      </a>
+      <button id="nav-toggle" class="pricing-menu-button md:hidden" aria-label="Open menu" aria-controls="nav-menu" aria-expanded="false" onclick="(function(button){var menu=document.getElementById('nav-menu');var open=menu.classList.contains('hidden');menu.classList.toggle('hidden');button.setAttribute('aria-expanded',open?'true':'false');})(this)">
+        <span aria-hidden="true">Menu</span>
+      </button>
+      <div id="nav-menu" class="hidden md:flex pricing-menu">
+        <a href="/en/">Home</a>
+        <a href="/en/sessions">Classes</a>
+        <a href="/en/studio">Schedule</a>
+        <a href="/pourquoi-svb">Why SVB</a>
+        <a href="/essai">Trial</a>
+        <a href="/en/tarifs" aria-current="page">Memberships</a>
+        <a href="/en/equipe">Team</a>
+        <a href="/en/faq">FAQ</a>
+        <a href="/en/contact">Contact</a>
+        <a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener" class="pricing-client">Member area</a>
+        <a href="/tarifs" class="pricing-language">FR | <strong>EN</strong></a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" class="pricing-page">
+    <header class="pricing-hero">
+      <div class="pricing-shell pricing-hero-inner">
+        <p class="pricing-eyebrow">Our monthly memberships</p>
+        <h1>The new SVB memberships</h1>
+        <p class="pricing-intro">A simple choice based on your studio, your training rhythm and how much variety you want. Your rate is confirmed clearly before you commit.</p>
+        <div class="pricing-jump" aria-label="Quick access to memberships">
+          <a href="#pass-try">Try SVB</a>
+          <a href="#svb-move">Parc des Docks</a>
+          <a href="#svb-form">Cours des Lavandières</a>
+          <a href="#svb-limitless">Both studios</a>
         </div>
       </div>
-    </nav>
+    </header>
 
-    <div id="main-content" class="relative text-center py-20 px-4 reveal-load d-1 z-10">
-        <h1 class="text-6xl md:text-8xl text-[#2F4F4F] drop-shadow-xl mb-6 font-hand leading-none">A plan<br/>for every rhythm.</h1>
-        <p class="text-[#2F4F4F] text-base md:text-lg max-w-2xl mx-auto mb-8 font-medium leading-relaxed">
-            No commitment to try, with commitment to truly progress. Trial at <strong>€30</strong>, with <strong>€30 fully deducted</strong> if you subscribe within 7 days. A 3-minute questionnaire, human validation, zero surprises.
-        </p>
-        <a href="#inscription" class="inline-block bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-10 py-5 rounded-full font-bold text-base uppercase tracking-widest shadow-2xl transform hover:scale-105 transition duration-300">
-            Sign up in 3 minutes →
-        </a>
-
-        <!-- Trust banner: 3 differentiators vs other studios -->
-        <div class="max-w-5xl mx-auto mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-            <div class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/40 shadow-lg">
-                <div class="text-3xl mb-2">⏱️</div>
-                <h3 class="text-[#2F4F4F] font-extrabold text-sm uppercase tracking-wide mb-1">Cancel 1h before</h3>
-                <p class="text-xs text-[#2F4F4F]/80 leading-relaxed">At SVB, cancel up to <strong>1 hour before your class</strong> and get your credit back.</p>
-            </div>
-            <div class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/40 shadow-lg">
-                <div class="text-3xl mb-2">👥</div>
-                <h3 class="text-[#2F4F4F] font-extrabold text-sm uppercase tracking-wide mb-1">Small groups, direct coaching</h3>
-                <p class="text-xs text-[#2F4F4F]/80 leading-relaxed"><strong>Small group</strong> sessions with live guidance and feedback in a human-scale setting.</p>
-            </div>
-            <div class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/40 shadow-lg">
-                <div class="text-3xl mb-2">🏖️</div>
-                <h3 class="text-[#2F4F4F] font-extrabold text-sm uppercase tracking-wide mb-1">Free vacation pause</h3>
-                <p class="text-xs text-[#2F4F4F]/80 leading-relaxed">Let us know before you leave and we pause your membership until you return.</p>
-            </div>
+    <section id="pass-try" class="pricing-band pricing-band-try" aria-labelledby="pass-try-title">
+      <div class="pricing-shell pricing-band-grid">
+        <div>
+          <p class="pricing-kicker">Start here</p>
+          <h2 id="pass-try-title">Try Pass</h2>
+          <p class="pricing-lead">Buy one trial session and receive a second trial in another discipline.</p>
         </div>
-    </div>
-
-
-    <div id="inscription" class="relative max-w-7xl mx-auto px-4 pb-20 z-10">
-
-
-        <!-- === ALL OUR OFFERS (no prices) === -->
-
-        <!-- Small Group Machines -->
-        <div class="text-center mb-6 reveal-load d-2">
-            <span class="bg-[#EBC6A6] text-[#2F4F4F] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Small group machines &middot; 50 min</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Reformer &amp; Crossformer</h2>
-        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20 reveal-load d-3">
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Reformer Pass</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">50 min &middot; max 9</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Classic Pilates Reformer &mdash; the coach adjusts your springs and corrects your form on every rep.</p>
-                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
-            </div>
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Crossformer Pass</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">50 min &middot; max 8</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Reformer + dynamic cardio. Tight format to manage intensity and secure transitions.</p>
-                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
-            </div>
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border-2 border-[#E8B496] shadow-lg flex flex-col relative">
-                <span class="absolute top-3 right-3 bg-[#E8B496] text-white text-[9px] font-extrabold px-2 py-1 rounded-full uppercase tracking-widest">Combo</span>
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Full Former Pass</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Reformer + Crossformer</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Full access to both machine formats. Alternate depending on your energy that day.</p>
-                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
-            </div>
-        </div>
-
-        <!-- Small Group Training -->
-        <div class="text-center mb-6 reveal-load d-2">
-            <span class="bg-[#88C0A6] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Small group training &middot; 55&ndash;60 min</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Cross Training, Yoga, Boxing</h2>
-        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20 reveal-load d-3">
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Cross Pass</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">55 min &middot; max 12</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Cross Training, Cross Rox, Cross Core, Cross Body, Cross Yoga. Functional cardio and strength.</p>
-                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
-            </div>
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Focus Pass</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">55&ndash;60 min &middot; max 12</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Vinyasa Yoga, Hatha Flow, Classic &amp; Power Pilates, English Boxing, Afrodance'All, Core &amp; Stretch.</p>
-                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
-            </div>
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border-2 border-[#E8B496] shadow-lg flex flex-col relative">
-                <span class="absolute top-3 right-3 bg-[#E8B496] text-white text-[9px] font-extrabold px-2 py-1 rounded-full uppercase tracking-widest">Combo</span>
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Full Pass</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Cross + Focus</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">All small group disciplines. The most flexible option to switch things up every week.</p>
-                <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
-            </div>
-        </div>
-
-        <!-- Private coaching -->
-        <div class="text-center mb-6 reveal-load d-2">
-            <span class="bg-[#2F4F4F] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Private coaching &middot; 55 min</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">You, your coach, no one else</h2>
-        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-20 reveal-load d-3">
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Good Vibes Coaching Pass</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Solo &middot; custom-built</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">A dedicated coach, 100% tailored programme based on your goal and level.</p>
-                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20private%20coaching" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#4A8D84] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Message us on WhatsApp</a>
-            </div>
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Duo Coaching Pass</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">For two &middot; same coach</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Same coach, same session, for two. Shared motivation, shared cost.</p>
-                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20duo%20coaching" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#4A8D84] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Message us on WhatsApp</a>
-            </div>
-        </div>
-
-        <!-- Kids, Starter & Boost -->
-        <div class="text-center mb-6 reveal-load d-2">
-            <span class="bg-[#D4C3A3] text-[#2F4F4F] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Discovery &amp; kids</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl text-center text-[#2F4F4F] font-hand mb-8 reveal-load d-2 drop-shadow-md">Starter, Kids &amp; Boost option</h2>
-        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20 reveal-load d-3">
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Starter Pass</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">5 sessions &middot; 1 month</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">One session across 5 different disciplines, no commitment. Try before you commit.</p>
-                <a href="#" data-discipline="pass_starter" data-label="Starter Pass" class="js-buy inline-block text-center bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">See price</a>
-            </div>
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">Kids Pass</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Excluding July/August</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Kids Yoga, Kids Training: coached sessions for children. In-studio sign-up.</p>
-                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20to%20book%20a%20Kids%20Pass" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#E8B496] hover:bg-[#d49c7d] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Book on WhatsApp</a>
-            </div>
-            <div class="bg-[#F3EBD4]/70 backdrop-blur-md rounded-3xl p-7 border border-white/50 shadow-lg flex flex-col">
-                <span class="inline-block bg-[#E8B496] text-white text-[9px] font-extrabold px-2 py-1 rounded-full uppercase tracking-widest mb-2 self-start">Option</span>
-                <h3 class="text-2xl font-extrabold text-[#2F4F4F] mb-1">SVB Boost Option</h3>
-                <p class="text-xs uppercase tracking-widest text-[#4A8D84] font-bold mb-4">Add-on to any pass</p>
-                <p class="text-sm text-[#2F4F4F]/80 mb-5 flex-grow">Reduced filing fee, no commitment, ability to suspend your membership with no notice.</p>
-                <a href="https://wa.me/33744919155?text=Hi,%20I%20would%20like%20to%20add%20SVB%20Boost%20Option" target="_blank" rel="noopener noreferrer" class="inline-block text-center bg-[#E8B496] hover:bg-[#d49c7d] text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow transition">Add Boost</a>
-            </div>
-        </div>
-
-        <!-- Trial banner -->
-        <div class="max-w-3xl mx-auto mb-24 reveal-load d-2 bg-gradient-to-br from-[#88C0A6]/20 to-[#EBC6A6]/20 backdrop-blur-md rounded-3xl border border-white/60 shadow-lg p-8 text-center">
-            <p class="text-sm text-[#2F4F4F]/80 mb-4">Not sure yet? Start with a trial session.</p>
-            <a href="#" data-discipline="reformer" data-label="Trial session" data-amount="30 &euro;" class="js-buy inline-block bg-[#2F4F4F] hover:bg-[#3A6B63] text-white px-8 py-4 rounded-full font-extrabold text-sm uppercase tracking-widest shadow transform hover:scale-105 transition duration-300">
-                Book my trial &middot; &euro;30
-            </a>
-        </div>
-
-        <!-- === IMPORTANT TO KNOW — common conditions === -->
-        <section class="max-w-4xl mx-auto mb-24 reveal-load d-2">
-            <div class="bg-white/60 backdrop-blur-md rounded-3xl border border-white/50 shadow-lg p-8">
-                <h2 class="text-3xl text-center text-[#2F4F4F] font-hand mb-6 drop-shadow-sm">Important to know</h2>
-                <div class="grid md:grid-cols-2 gap-5 text-sm text-[#2F4F4F]">
-                    <div class="flex items-start gap-3">
-                        <div class="text-xl flex-shrink-0">💳</div>
-                        <p><strong>Filing Fee</strong><br>
-                        A filing fee applies at sign-up depending on the pass.<br>
-                        <span class="opacity-75">Reduced with SVB Boost Option. Amount shown in your member area.</span></p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="text-xl flex-shrink-0">📅</div>
-                        <p><strong>Commitment</strong><br>
-                        6&nbsp;months for small group passes &nbsp;·&nbsp; 4&nbsp;months for Kids Pass &nbsp;·&nbsp; 3&nbsp;months for Coaching<br>
-                        <span class="opacity-75">Auto-renewal at end of commitment.</span></p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="text-xl flex-shrink-0">🔀</div>
-                        <p><strong>Non-stackable passes</strong><br>
-                        Machine passes (Crossformer, Reformer, Full Former) and training passes (Cross, Focus, Full) work separately — you choose one family.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="text-xl flex-shrink-0">📆</div>
-                        <p><strong>Credit carryover</strong><br>
-                        Sessions from the current month cannot be rolled over to the next month. Must be used within the month.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="text-xl flex-shrink-0">⏱️</div>
-                        <p><strong>Cancellation</strong><br>
-                        Small group: up to <strong>1&nbsp;hour before</strong> class (no credit lost).<br>
-                        Private coaching: up to <strong>24&nbsp;hours before</strong>.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="text-xl flex-shrink-0">🏖️</div>
-                        <p><strong>Suspension for absence</strong><br>
-                        If absent for more than 10 days, 1 month notice to suspend membership.<br>
-                        <span class="opacity-75">SVB Boost Option: suspend with no notice.</span></p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="text-xl flex-shrink-0">✉️</div>
-                        <p><strong>Cancellation</strong><br>
-                        By email, 1 month notice (1 payment) from end of commitment period.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="text-xl flex-shrink-0">🏦</div>
-                        <p><strong>Payment</strong><br>
-                        SEPA direct debit (default) or credit card (small additional fee). Bank guarantee activated only in case of non-payment.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- === FAQ OBJECTIONS === -->
-        <section class="max-w-4xl mx-auto mb-24 reveal-load d-2">
-            <h2 class="text-5xl text-center text-[#2F4F4F] font-hand mb-3 drop-shadow-md">8 questions we hear every day</h2>
-            <p class="text-center text-[#2F4F4F]/80 text-sm mb-10">Common questions before choosing a membership — with clear answers.</p>
-
-            <div class="space-y-4">
-                <details class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/50 shadow-lg cursor-pointer group">
-                    <summary class="font-extrabold text-[#2F4F4F] text-base list-none flex justify-between items-center">
-                        <span>💳 Is SEPA direct debit safe?</span>
-                        <span class="text-2xl group-open:rotate-45 transition">+</span>
-                    </summary>
-                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">Yes. SEPA is a standard European bank mandate. Your IBAN stays with you, you can revoke authorization anytime from your banking app, and you have <strong>13 months of dispute rights</strong> if there's an error. It's more secure than card payments for recurring subscriptions.</p>
-                </details>
-
-                <details class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/50 shadow-lg cursor-pointer group">
-                    <summary class="font-extrabold text-[#2F4F4F] text-base list-none flex justify-between items-center">
-                        <span>📅 Why a 6-month commitment?</span>
-                        <span class="text-2xl group-open:rotate-45 transition">+</span>
-                    </summary>
-                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">The 6-month commitment is designed to support a regular routine. It includes small-group sessions, the applicable holiday-pause terms and flexible cancellation up to 1 hour before class. After 6 months, you can cancel by email with 1 month's notice or continue.</p>
-                </details>
-
-                <details class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/50 shadow-lg cursor-pointer group">
-                    <summary class="font-extrabold text-[#2F4F4F] text-base list-none flex justify-between items-center">
-                        <span>⏱️ How do I cancel if something comes up?</span>
-                        <span class="text-2xl group-open:rotate-45 transition">+</span>
-                    </summary>
-                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">At SVB you can cancel or reschedule a session <strong>up to 1 hour before</strong> class from your account. Your credit is automatically added back to your pass for another session this month.</p>
-                </details>
-
-                <details class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/50 shadow-lg cursor-pointer group">
-                    <summary class="font-extrabold text-[#2F4F4F] text-base list-none flex justify-between items-center">
-                        <span>🌊 Do I pay if I go on vacation?</span>
-                        <span class="text-2xl group-open:rotate-45 transition">+</span>
-                    </summary>
-                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">No. Let us know <strong>before you leave</strong> by email or WhatsApp and we pause your membership while you're away. You resume when you get back, with nothing charged.</p>
-                </details>
-
-                <details class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/50 shadow-lg cursor-pointer group">
-                    <summary class="font-extrabold text-[#2F4F4F] text-base list-none flex justify-between items-center">
-                        <span>🔄 Can I roll over unused sessions to next month?</span>
-                        <span class="text-2xl group-open:rotate-45 transition">+</span>
-                    </summary>
-                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">No, unused credits are lost at month end — this is how we keep our prices low and seats available. Choose the right volume (2, 4, 6, 8, 10, 12 sessions) for your real rhythm, and use the 1h cancellation rule to never lose anything to surprises.</p>
-                </details>
-
-                <details class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/50 shadow-lg cursor-pointer group">
-                    <summary class="font-extrabold text-[#2F4F4F] text-base list-none flex justify-between items-center">
-                        <span>📆 If I start mid-month, do I pay the full month?</span>
-                        <span class="text-2xl group-open:rotate-45 transition">+</span>
-                    </summary>
-                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">No, we <strong>prorate</strong> it based on when you start. The exact amount to pay today is shown automatically in the member area when you pick your plan.</p>
-                </details>
-
-                <details class="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/50 shadow-lg cursor-pointer group">
-                    <summary class="font-extrabold text-[#2F4F4F] text-base list-none flex justify-between items-center">
-                        <span>🔒 Are there hidden fees?</span>
-                        <span class="text-2xl group-open:rotate-45 transition">+</span>
-                    </summary>
-                    <p class="text-sm text-[#2F4F4F]/80 mt-3 leading-relaxed">No. The only additions: <strong>filing fee</strong> at sign-up (amount shown in the member area, reduced with SVB Boost Option), a small extra fee if you pay by card instead of SEPA, and bank guarantee — activated only if you miss a payment, never charged by default.</p>
-                </details>
-            </div>
-        </section>
-
-        <!-- === FINAL CTA === -->
-        <section class="max-w-3xl mx-auto mb-16 reveal-load d-3">
-            <div class="bg-gradient-to-br from-[#3A6B63] to-[#2F4F4F] text-white rounded-3xl p-10 text-center shadow-2xl">
-                <h2 class="text-4xl md:text-5xl font-hand mb-4">We've saved your spot.</h2>
-                <p class="text-sm md:text-base mb-8 opacity-90 leading-relaxed"><strong>3-minute</strong> questionnaire, human validation via WhatsApp by our team, <strong>zero surprise checkout</strong>. Trial at €30, with <strong>€30 fully deducted</strong> if you subscribe within 7 days.</p>
-                <a href="/essai" class="js-buy inline-block bg-white text-[#2F4F4F] hover:bg-[#F3EBD4] px-10 py-5 rounded-full font-extrabold text-base uppercase tracking-widest shadow-xl transform hover:scale-105 transition duration-300" data-booking-path="/place/place_svb-lavandieres/subscription-plans">
-                    Sign up now →
-                </a>
-                <p class="text-[11px] uppercase tracking-widest mt-6 opacity-70">Reply within 1 hour · 5.0 ★ across 170 cumulative Google reviews · Saint-Ouen (L13 · L14)</p>
-            </div>
-        </section>
-
-    </div>
-
-    <div id="quiz-modal">
-        <div class="quiz-card">
-            <span class="close-modal" onclick="closeQuiz()">×</span>
-            <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
-
-            <div class="quiz-content" id="quizContent">
-                </div>
-        </div>
-    </div>
-
-    <footer class="svb-footer" role="contentinfo">
-      <div class="svb-footer-accent" aria-hidden="true"></div>
-      <div class="svb-footer-inner" data-nosnippet>
-        <div class="svb-footer-grid">
-          <div class="svb-footer-brand">
-            <img style="height:56px;width:auto;margin:0 0 18px;filter:none;background:transparent;box-shadow:none;display:block;" src="/images/logo-footer.png" alt="Studio SVB — Pilates, Yoga et Fitness à Saint-Ouen" class="svb-footer-logo" width="593" height="420" decoding="async" loading="lazy">
-            <p class="svb-footer-sig">Bouge mieux,<br>vis mieux.</p>
-            <p class="svb-footer-tagline">Studio de Pilates, Yoga &amp; Fitness à Saint-Ouen-sur-Seine.</p>
-          </div>
-          <div class="svb-footer-col">
-            <h3 class="svb-footer-head">Studios</h3>
-            <ul>
-              <li><a href="/studio-parc-des-docks"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8c0-2.5-2-4.5-4.5-4.5zm0 6.3a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6z" fill="currentColor"/></svg>Parc des Docks</a></li>
-              <li><a href="/studio-cours-des-lavandieres"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8c0-2.5-2-4.5-4.5-4.5zm0 6.3a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6z" fill="currentColor"/></svg>Cours des Lavandières</a></li>
-            </ul>
-          </div>
-          <div class="svb-footer-col">
-            <h3 class="svb-footer-head">Contacts</h3>
-            <ul>
-              <li><a href="tel:+33744919155"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.6 1.8a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7L6 6.7c1 2 2.3 3.3 4.3 4.3l1.3-1.3a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7l-.9.9c-1 1-2.6 1-4.3.4-3.2-1-6-3.8-7-7-.6-1.7-.6-3.3.4-4.3l.2-.5z" fill="currentColor"/></svg>07 44 91 91 55</a></li>
-              <li><a href="mailto:hello@studiosvb.fr"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5A1.5 1.5 0 013.5 2h9A1.5 1.5 0 0114 3.5v9A1.5 1.5 0 0112.5 14h-9A1.5 1.5 0 012 12.5v-9zm1.7.5l4.3 3.3L12.3 4H3.7zM13 5.1L8.5 8.5a.8.8 0 01-1 0L3 5.1V12.5c0 .3.2.5.5.5h9c.3 0 .5-.2.5-.5V5.1z" fill="currentColor"/></svg>hello@studiosvb.fr</a></li>
-            </ul>
-          </div>
-          <div class="svb-footer-col">
-            <h3 class="svb-footer-head">Réseaux</h3>
-            <ul>
-              <li><a href="https://www.instagram.com/svb.officiel/" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5H5.2a3.7 3.7 0 00-3.7 3.7v5.6a3.7 3.7 0 003.7 3.7h5.6a3.7 3.7 0 003.7-3.7V5.2a3.7 3.7 0 00-3.7-3.7H8zm4.7 1.8c.2 0 .4.2.4.4v.5c0 .2-.2.4-.4.4h-.5a.4.4 0 01-.4-.4v-.5c0-.2.2-.4.4-.4h.5zM8 4.8a3.2 3.2 0 110 6.4 3.2 3.2 0 010-6.4zm0 1.3a1.9 1.9 0 100 3.8 1.9 1.9 0 000-3.8z" fill="currentColor"/></svg>Instagram</a></li>
-              <li><a href="https://www.facebook.com/profile.php?id=61569485866457" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.2 14v-5.3h1.8l.3-2h-2V5.4c0-.6.1-1 1-1h1.1V2.5a16 16 0 00-1.7-.1c-1.7 0-2.8 1-2.8 2.9v1.4H5v2h1.8V14h2.4z" fill="currentColor"/></svg>Facebook</a></li>
-              <li><a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 00-5.6 9.8L1.5 14.5l3.3-.8A6.5 6.5 0 108 1.5zm0 1.3a5.2 5.2 0 014.3 8.1l.5 1.5-1.6-.4A5.2 5.2 0 118 2.8zm-2.6 2.5c-.2 0-.4 0-.6.2-.2.2-.8.7-.8 1.8s.8 2.1 1 2.2c.1.2 1.6 2.4 3.8 3.2 1.8.7 2.2.5 2.6.5.4 0 1.3-.5 1.5-1 .2-.6.2-1 .1-1.2l-.8-.4c-.2-.1-.5-.3-.7 0s-.8 1-1 1.1c-.2.2-.4.2-.7 0-.3-.1-1.2-.4-2.3-1.4a8 8 0 01-1.5-2c-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5L6 5.4c-.1-.2-.2-.2-.3-.2z" fill="currentColor"/></svg>WhatsApp</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="svb-footer-sep" aria-hidden="true"></div>
-        <div class="svb-footer-bottom">
-          <div class="svb-footer-adresses">
-            <p class="svb-footer-eyebrow">Adresses</p>
-            <p>Parc des Docks — 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine</p>
-            <p>Cours des Lavandières — 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine</p>
-          </div>
-          <div class="svb-footer-legal">
-            <a href="/mentions-legales">Mentions légales</a> <a href="/cgv">CGV</a> <a href="/parrainage">Parrainage</a> <a href="/sessions">Classes</a>
-          </div>
-        </div>
-        <p class="svb-footer-signoff"><span>Santez Vous Bien</span> · <span id="svb-year">2026</span></p>
+        <ul class="pricing-benefits">
+          <li>Discover two disciplines before choosing.</li>
+          <li>Registration fees are waived when you join immediately after either trial.</li>
+          <li>Registration fees are reduced by half when you join within 3 days.</li>
+        </ul>
+        <a href="/essai" class="pricing-button pricing-button-dark">Book my trials <span aria-hidden="true">→</span></a>
       </div>
-    </footer>
+    </section>
 
-    <script>
-        const questions = [
-            {
-                q: "What is your main goal?",
-                a: [
-                    { icon: "🔥", txt: "Weight loss / Cardio" },
-                    { icon: "💪", txt: "Strength / Body sculpting" },
-                    { icon: "🧘", txt: "Mobility / Breathing" },
-                    { icon: "🚑", txt: "Back health / Posture" }
-                ]
-            },
-            {
-                q: "What is your current level?",
-                a: [
-                    { icon: "🌱", txt: "Beginner / Getting back to it" },
-                    { icon: "🏃", txt: "Intermediate (1x/week)" },
-                    { icon: "🏅", txt: "Advanced / Athlete" }
-                ]
-            },
-            {
-                q: "What frequency are you aiming for?",
-                a: [
-                    { icon: "1️⃣", txt: "Once per week" },
-                    { icon: "2️⃣", txt: "2-3 times per week" },
-                    { icon: "🚀", txt: "Intensive (3+ times)" }
-                ]
-            },
-            {
-                q: "Which format do you prefer?",
-                a: [
-                    { icon: "👤", txt: "Solo (100% focus on me)" },
-                    { icon: "👥", txt: "Duo (Motivation together)" }
-                ]
-            }
-        ];
+    <section class="pricing-offers" aria-labelledby="studio-offers-title">
+      <div class="pricing-shell">
+        <div class="pricing-section-heading">
+          <p class="pricing-kicker">Small group</p>
+          <h2 id="studio-offers-title">Choose your studio</h2>
+          <p>Three monthly rhythms, regular coaching and an offer that is easy to understand.</p>
+        </div>
 
-        let currentStep = 0;
-        let userAnswers = [];
-        const modal = document.getElementById('quiz-modal');
-        const content = document.getElementById('quizContent');
-        const bar = document.getElementById('progressBar');
+        <div class="pricing-card-grid">
+          <article id="svb-move" class="pricing-card pricing-card-move">
+            <div class="pricing-card-location">Parc des Docks</div>
+            <div class="pricing-card-body">
+              <p class="pricing-card-label">Monthly membership</p>
+              <h3>SVB Move</h3>
+              <p class="pricing-card-copy">The membership dedicated to small group classes at Parc des Docks.</p>
+              <dl class="pricing-facts">
+                <div><dt>Rhythm</dt><dd>4, 6 or 8 sessions per month</dd></div>
+                <div><dt>Commitment</dt><dd>6 months</dd></div>
+                <div><dt>Joining</dt><dd>Registration fees apply</dd></div>
+              </dl>
+            </div>
+            <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-button pricing-button-move">Discover SVB Move <span aria-hidden="true">→</span></a>
+          </article>
 
-        function openQuiz() {
-            modal.classList.add('open');
-            currentStep = 0;
-            userAnswers = [];
-            showQuestion();
-        }
+          <article id="svb-form" class="pricing-card pricing-card-form">
+            <div class="pricing-card-location">Cours des Lavandières</div>
+            <div class="pricing-card-body">
+              <p class="pricing-card-label">Monthly membership</p>
+              <h3>SVB Form</h3>
+              <p class="pricing-card-copy">The membership dedicated to small group classes at Cours des Lavandières.</p>
+              <dl class="pricing-facts">
+                <div><dt>Rhythm</dt><dd>4, 6 or 8 sessions per month</dd></div>
+                <div><dt>Commitment</dt><dd>6 months</dd></div>
+                <div><dt>Joining</dt><dd>Registration fees apply</dd></div>
+              </dl>
+            </div>
+            <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-button pricing-button-form">Discover SVB Form <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        function closeQuiz() {
-            modal.classList.remove('open');
-        }
+    <section id="svb-limitless" class="pricing-band pricing-band-limitless" aria-labelledby="limitless-title">
+      <div class="pricing-shell pricing-limitless-grid">
+        <div>
+          <p class="pricing-kicker">The complete membership</p>
+          <h2 id="limitless-title">SVB Limitless</h2>
+          <p class="pricing-lead">Train at both studios and vary your disciplines throughout the year.</p>
+        </div>
+        <dl class="pricing-limitless-facts">
+          <div><dt>Access</dt><dd>Both SVB studios</dd></div>
+          <div><dt>Commitment</dt><dd>1 year</dd></div>
+          <div><dt>Joining</dt><dd>Registration fees apply</dd></div>
+        </dl>
+        <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-button pricing-button-light">Discover Limitless <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeQuiz();
-        });
+    <section id="pass-starter" class="pricing-band pricing-band-starter" aria-labelledby="starter-title">
+      <div class="pricing-shell pricing-starter-grid">
+        <div>
+          <p class="pricing-kicker">No commitment</p>
+          <h2 id="starter-title">Starter Pass</h2>
+          <p class="pricing-lead">Five different sessions of your choice to explore SVB for one month.</p>
+        </div>
+        <ul class="pricing-benefits">
+          <li>Valid for 1 month.</li>
+          <li>No commitment and no automatic renewal.</li>
+          <li>Registration fees are waived if you choose a membership while your Starter Pass is active.</li>
+          <li>Registration fees are reduced by half when you join within 3 days.</li>
+        </ul>
+        <a href="#" data-discipline="pass_starter" data-label="Starter Pass" class="js-buy pricing-button pricing-button-dark">Discover Starter <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
 
-        function showQuestion() {
-            bar.style.width = ((currentStep) / questions.length * 100) + '%';
+    <section class="pricing-conditions" aria-labelledby="conditions-title">
+      <div class="pricing-shell">
+        <div class="pricing-section-heading pricing-section-heading-left">
+          <p class="pricing-kicker">Good to know</p>
+          <h2 id="conditions-title">Clear rules from day one</h2>
+        </div>
+        <div class="pricing-condition-grid">
+          <article>
+            <span class="pricing-condition-number">01</span>
+            <h3>Cancellation</h3>
+            <p>Sessions must be cancelled at least 12 hours before the class starts.</p>
+          </article>
+          <article>
+            <span class="pricing-condition-number">02</span>
+            <h3>Commitment</h3>
+            <p>SVB Move and SVB Form run for 6 months. SVB Limitless runs for 1 year.</p>
+          </article>
+          <article>
+            <span class="pricing-condition-number">03</span>
+            <h3>Rates</h3>
+            <p>The team confirms the rate for your chosen rhythm before you join.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            if (currentStep < questions.length) {
-                const q = questions[currentStep];
-                let html = `<div class="quiz-step active">
-                    <h3 class="text-2xl font-hand text-[#2F4F4F] mb-4">${q.q}</h3>
-                    <div class="quiz-options">`;
+    <section class="pricing-final" aria-labelledby="final-title">
+      <div class="pricing-shell pricing-final-inner">
+        <div>
+          <p class="pricing-kicker">Need help choosing?</p>
+          <h2 id="final-title">We will find the right option with you.</h2>
+        </div>
+        <p>Tell us your preferred studio, rhythm and goal. The SVB team confirms the most suitable membership and every condition before validation.</p>
+        <a href="#" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-button pricing-button-dark">View memberships <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
 
-                q.a.forEach(opt => {
-                    html += `<div class="option-btn" onclick="recordAnswer('${opt.txt}')">
-                        <span class="opt-icon">${opt.icon}</span> ${opt.txt}
-                    </div>`;
-                });
+  <footer class="svb-footer" role="contentinfo">
+    <div class="svb-footer-accent" aria-hidden="true"></div>
+    <div class="svb-footer-inner">
+      <div class="svb-footer-grid">
+        <div class="svb-footer-brand">
+          <img src="/images/logo.webp" alt="SVB, Pilates, Yoga and Fitness studios in Saint-Ouen" class="svb-footer-logo" width="593" height="420" decoding="async" loading="lazy">
+          <p class="svb-footer-sig">Move better,<br>live better.</p>
+          <p class="svb-footer-tagline">Pilates, Yoga &amp; Fitness studios in Saint-Ouen-sur-Seine.</p>
+        </div>
+        <div class="svb-footer-col">
+          <h3 class="svb-footer-head">Studios</h3>
+          <ul>
+            <li><a href="/studio-parc-des-docks">Parc des Docks</a></li>
+            <li><a href="/studio-cours-des-lavandieres">Cours des Lavandières</a></li>
+          </ul>
+        </div>
+        <div class="svb-footer-col">
+          <h3 class="svb-footer-head">Contact</h3>
+          <ul>
+            <li><a href="tel:+33744919155">+33 7 44 91 91 55</a></li>
+            <li><a href="mailto:hello@studiosvb.fr">hello@studiosvb.fr</a></li>
+          </ul>
+        </div>
+        <div class="svb-footer-col">
+          <h3 class="svb-footer-head">Social</h3>
+          <ul>
+            <li><a href="https://www.instagram.com/svb.officiel/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61569485866457" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="svb-footer-sep" aria-hidden="true"></div>
+      <div class="svb-footer-bottom">
+        <div class="svb-footer-adresses">
+          <p class="svb-footer-eyebrow">Addresses</p>
+          <p>Parc des Docks, 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine</p>
+          <p>Cours des Lavandières, 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine</p>
+        </div>
+        <div class="svb-footer-legal">
+          <a href="/mentions-legales">Legal notice</a>
+          <span aria-hidden="true">·</span>
+          <a href="/cgv">Terms</a>
+          <span aria-hidden="true">·</span>
+          <a href="/sessions">Classes</a>
+        </div>
+      </div>
+      <p class="svb-footer-signoff"><span>Santez Vous Bien</span> · <span id="svb-year">2026</span></p>
+    </div>
+  </footer>
 
-                html += `</div></div>`;
-                content.innerHTML = html;
-            } else {
-                showLoading();
-            }
-        }
-
-        function recordAnswer(answer) {
-            userAnswers.push(answer);
-            currentStep++;
-            showQuestion();
-        }
-
-        function showLoading() {
-            bar.style.width = '100%';
-            content.innerHTML = `
-                <div class="loading-spinner"></div>
-                <h3 class="text-xl font-bold text-[#4A8D84]">Analyzing...</h3>
-                <p class="text-sm text-gray-500 mt-2">We're preparing your assessment.</p>
-            `;
-            setTimeout(showResult, 2000);
-        }
-
-        function showResult() {
-            content.innerHTML = `
-                <div class="text-center animate-fadeIn">
-                    <span class="bg-[#E8B496] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Assessment Complete</span>
-                    <h2 class="text-3xl font-hand text-[#2F4F4F] mt-3 mb-2">Profile Confirmed!</h2>
-                    <p class="text-sm text-gray-600 mb-6">Get your full assessment directly on WhatsApp.</p>
-
-                    <form onsubmit="sendToWhatsApp(event)">
-                        <input type="text" id="clientName" class="form-input" placeholder="First &amp; Last Name" required>
-                        <button type="submit" class="btn-submit-quiz">Get my assessment on WhatsApp 📲</button>
-                    </form>
-                </div>
-            `;
-        }
-
-        function sendToWhatsApp(e) {
-            e.preventDefault();
-            const name = document.getElementById('clientName').value;
-
-            let msg = `*New SVB Coaching Assessment* 📋\n\n`;
-            msg += `👤 *Client:* ${name}\n\n`;
-            msg += `1️⃣ *Goal:* ${userAnswers[0]}\n`;
-            msg += `2️⃣ *Level:* ${userAnswers[1]}\n`;
-            msg += `3️⃣ *Frequency:* ${userAnswers[2]}\n`;
-            msg += `4️⃣ *Format:* ${userAnswers[3]}\n\n`;
-            msg += `👉 *Request:* I would like to be contacted for a personalized program.`;
-
-            const finalMsg = encodeURIComponent(msg);
-            window.open(`https://wa.me/33744919155?text=${finalMsg}`, '_blank');
-            closeQuiz();
-        }
-    </script>
-
-  <script src="/assets/svb.js?v=20260819e" defer></script>
-  <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
-  <script src="/assets/svb-motion.js?v=20260424a" defer></script>
+  <script src="/assets/svb.js?v=20260423a" defer></script>
 </body>
 </html>
