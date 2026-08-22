@@ -59,7 +59,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
   <link rel="stylesheet" href="/assets/svb.css?v=20260820c">
-  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822s">
+  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822t">
 
   <script type="application/ld+json">
   {
@@ -125,6 +125,11 @@
           "description": "Abonnement small group du Parc des Docks avec 4, 6 ou 8 sessions par mois et un engagement de 6 mois.",
           "provider": { "@id": "https://studiosvb.com/#organization" },
           "availableAtOrFrom": { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+          "offers": [
+            { "@type": "Offer", "name": "4 séances par mois", "price": "80.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" },
+            { "@type": "Offer", "name": "6 séances par mois", "price": "120.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" },
+            { "@type": "Offer", "name": "8 séances par mois", "price": "160.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" }
+          ],
           "url": "https://studiosvb.com/tarifs#svb-move"
         }
       },
@@ -137,6 +142,11 @@
           "description": "Abonnement small group des Cours des Lavandières avec 4, 6 ou 8 sessions par mois et un engagement de 6 mois.",
           "provider": { "@id": "https://studiosvb.com/#organization" },
           "availableAtOrFrom": { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" },
+          "offers": [
+            { "@type": "Offer", "name": "4 séances par mois", "price": "140.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" },
+            { "@type": "Offer", "name": "6 séances par mois", "price": "210.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" },
+            { "@type": "Offer", "name": "8 séances par mois", "price": "280.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" }
+          ],
           "url": "https://studiosvb.com/tarifs#svb-form"
         }
       },
@@ -152,6 +162,15 @@
             { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
             { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
           ],
+          "offers": {
+            "@type": "Offer",
+            "name": "Tarif de lancement SVB Limitless",
+            "price": "300.00",
+            "priceCurrency": "EUR",
+            "priceValidUntil": "2026-09-21",
+            "availability": "https://schema.org/InStock",
+            "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans"
+          },
           "url": "https://studiosvb.com/tarifs#svb-limitless"
         }
       },
@@ -320,6 +339,7 @@
               <h3 class="pricing-offer-title">SVB Limitless</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
               <p class="pricing-limitless-promise">Un seul pass. Tout SVB. En illimité.</p>
+              <p class="pricing-launch-price" aria-label="Tarif de lancement : 300 euros par mois" data-launch-only><span>Tarif de lancement</span><strong>300 €</strong><small>/ mois</small></p>
               <p class="pricing-offer-summary" data-launch-only>Accédez en illimité à tous les cours SVB et profitez d'un tarif exceptionnel réservé au lancement de notre nouvelle offre.</p>
 
               <div class="pricing-launch-urgency" data-launch-only>
@@ -355,8 +375,8 @@
                 <li>Stretching &amp; Mobility</li>
               </ul>
               <p class="pricing-launch-trial" data-launch-only><span aria-hidden="true">✓</span> Séance d'essai offerte</p>
-              <p class="pricing-limitless-terms">Engagement 1 an <span aria-hidden="true">·</span> Annulation des sessions 12 h avant</p>
-              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Profiter de l'offre de lancement SVB Limitless" data-launch-cta data-default-label="S'abonner à Limitless" data-default-aria-label="S'abonner à SVB Limitless"><span data-launch-cta-label>Profiter de l'offre</span><span aria-hidden="true">→</span></a>
+              <p class="pricing-limitless-terms">Engagement 1 an <span aria-hidden="true">·</span> Frais de dossier 49 € <span aria-hidden="true">·</span> Annulation des sessions 12 h avant</p>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-amount="300 € / mois" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Profiter de l'offre de lancement SVB Limitless à 300 euros par mois" data-launch-cta data-default-label="S'abonner à Limitless" data-default-aria-label="S'abonner à SVB Limitless"><span data-launch-cta-label>Profiter de l'offre</span><span aria-hidden="true">→</span></a>
               <p class="pricing-limitless-note pricing-launch-legal" data-launch-only>Offre valable jusqu'au 21/09/2026 à 23h59. Tarif garanti pour toute souscription réalisée pendant la période de lancement, sous réserve que l'abonnement reste actif sans résiliation. Toute résiliation entraîne la perte définitive du tarif de lancement. Offre soumise aux conditions générales d'abonnement SVB.</p>
               <p class="pricing-limitless-note" data-launch-ended hidden>Un seul abonnement. Tout SVB. Sans compromis.</p>
             </article>
@@ -366,12 +386,16 @@
               <h3 class="pricing-offer-title">SVB Move</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
               <p class="pricing-offer-summary">Ton abonnement small group au Parc des Docks.</p>
+              <dl class="pricing-membership-price-list" aria-label="Tarifs mensuels SVB Move">
+                <div><dt>4 séances / mois</dt><dd>80,50 €</dd></div>
+                <div><dt>6 séances / mois</dt><dd>120,50 €</dd></div>
+                <div><dt>8 séances / mois</dt><dd>160,50 €</dd></div>
+              </dl>
               <ul class="pricing-offer-benefits">
-                <li>4, 6 ou 8 sessions par mois</li>
                 <li>Engagement 6 mois</li>
-                <li>Frais de dossier à l'inscription</li>
+                <li>Frais de dossier : 49 €</li>
               </ul>
-              <a href="https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" data-booking-path="/place/place_svb-parc-docks/subscription-plans" class="js-buy pricing-offer-cta" aria-label="S'abonner à SVB Move"><span>S'abonner à Move</span><span aria-hidden="true">→</span></a>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" data-amount="80,50 à 160,50 € / mois" data-booking-path="/place/place_svb-parc-docks/subscription-plans" class="js-buy pricing-offer-cta" aria-label="S'abonner à SVB Move"><span>S'abonner à Move</span><span aria-hidden="true">→</span></a>
             </article>
 
             <article id="svb-form" class="pricing-offer-card pricing-offer-card--form">
@@ -379,12 +403,16 @@
               <h3 class="pricing-offer-title">SVB Form</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
               <p class="pricing-offer-summary">Ton abonnement Reformer et Crossformer aux Lavandières.</p>
+              <dl class="pricing-membership-price-list" aria-label="Tarifs mensuels SVB Form">
+                <div><dt>4 séances / mois</dt><dd>140,50 €</dd></div>
+                <div><dt>6 séances / mois</dt><dd>210,50 €</dd></div>
+                <div><dt>8 séances / mois</dt><dd>280,50 €</dd></div>
+              </dl>
               <ul class="pricing-offer-benefits">
-                <li>4, 6 ou 8 sessions par mois</li>
                 <li>Engagement 6 mois</li>
-                <li>Frais de dossier à l'inscription</li>
+                <li>Frais de dossier : 49 €</li>
               </ul>
-              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="S'abonner à SVB Form"><span>S'abonner à Form</span><span aria-hidden="true">→</span></a>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-amount="140,50 à 280,50 € / mois" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="S'abonner à SVB Form"><span>S'abonner à Form</span><span aria-hidden="true">→</span></a>
             </article>
           </div>
         </section>

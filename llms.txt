@@ -61,10 +61,10 @@
 
 ## Abonnements
 
-- **SVB Move** : abonnement small group du Parc des Docks, avec 4, 6 ou 8 sessions par mois et un engagement de 6 mois
-- **SVB Form** : abonnement small group du studio Cours des Lavandières, avec 4, 6 ou 8 sessions par mois et un engagement de 6 mois
-- **SVB Limitless** : accès illimité aux cours des deux studios SVB, avec un engagement d'un an
-- **Offre de lancement SVB Limitless** : souscription avant le 21 septembre 2026 à 23 h 59 ; tarif de lancement conservé tant que l'abonnement reste actif sans résiliation ; séance d'essai offerte
+- **SVB Move** : abonnement small group du Parc des Docks, engagement de 6 mois et frais de dossier de 49 € ; 80,50 € pour 4 séances par mois, 120,50 € pour 6 séances ou 160,50 € pour 8 séances
+- **SVB Form** : abonnement Reformer et Crossformer du studio Cours des Lavandières, engagement de 6 mois et frais de dossier de 49 € ; 140,50 € pour 4 séances par mois, 210,50 € pour 6 séances ou 280,50 € pour 8 séances
+- **SVB Limitless** : accès illimité aux cours des deux studios SVB, tarif de lancement de 300 € par mois, engagement d'un an et frais de dossier de 49 €
+- **Offre de lancement SVB Limitless** : souscription avant le 21 septembre 2026 à 23 h 59 ; tarif de 300 € par mois conservé tant que l'abonnement reste actif sans résiliation ; séance d'essai offerte
 - **Pass Starter** : 5 sessions différentes au choix, valables 1 mois, sans engagement ni tacite reconduction, 99,90 €
 - **Pass Try** : 2 essais dans 2 disciplines, 30 €
 - **Coaching Pass Good Vibes** : coaching individuel de 55 minutes, engagement 4 mois, 300,50 € pour 4 séances par mois ou 560,50 € pour 8
@@ -72,7 +72,6 @@
 - **Pass Kids** : Yoga Kids et Training Kids hors juillet et août, engagement 4 mois, 35,50 € pour 2 sessions par mois ou 65,50 € pour 4
 - **SVB Boost** : option à 12,90 € par mois, sans engagement, permettant une pause de l'abonnement sans préavis
 - **Club Running SVB** : gratuit et illimité, chaque samedi à 9 h 30, 20 places en extérieur et 8 places maintenues en intérieur par mauvais temps
-- **Prix non affichés** : les tarifs de SVB Move, SVB Form et SVB Limitless sont confirmés par l'équipe avant validation
 - **Page officielle** : https://studiosvb.com/tarifs
 - **Espace client** : https://web-customer.studiosvb.com
 

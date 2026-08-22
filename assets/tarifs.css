@@ -297,6 +297,42 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 .pricing-offer-price-value { font-size: 40px; }
 .pricing-offer-price-currency { font-size: 20px; }
 
+.pricing-membership-price-list {
+  width: 100%;
+  margin: 0 0 22px;
+  padding: 0;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+}
+
+.pricing-membership-price-list > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 13px 0;
+  border-top: 1px dashed rgba(47, 79, 79, 0.18);
+}
+
+.pricing-membership-price-list > div:first-child { border-top: 0; }
+
+.pricing-membership-price-list dt {
+  color: var(--pricing-ink);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.pricing-membership-price-list dd {
+  margin: 0;
+  color: var(--card-button-end);
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: right;
+  white-space: nowrap;
+}
+
 .pricing-offer-summary {
   max-width: 350px;
   margin: 0 auto 22px;
@@ -509,6 +545,40 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   line-height: 1.4;
   text-transform: uppercase;
 }
+
+.pricing-launch-price {
+  display: grid;
+  justify-items: center;
+  margin: 0 0 24px;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-launch-price > span {
+  margin-bottom: 7px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.pricing-launch-price strong {
+  color: #f4decb;
+  font-size: 58px;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 12px 28px rgba(16, 42, 45, 0.36);
+}
+
+.pricing-launch-price small {
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
 .pricing-offer-card--limitless .pricing-offer-summary {
   max-width: 540px;
   margin-bottom: 26px;
@@ -1011,6 +1081,9 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   .pricing-offer-card { min-height: 0; padding: 35px 23px 23px; border-radius: 24px; }
   .pricing-offer-title { font-size: 42px; }
   .pricing-offer-summary { font-size: 15px; }
+  .pricing-membership-price-list > div { gap: 12px; padding: 11px 0; }
+  .pricing-membership-price-list dt { font-size: 11px; }
+  .pricing-membership-price-list dd { font-size: 15px; }
   .pricing-offer-benefits li { font-size: 13px; }
   .pricing-offer-cta { min-height: 52px; padding: 14px 17px; font-size: 11px; }
   .pricing-offer-card--limitless {
@@ -1020,6 +1093,8 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
     outline-offset: 4px;
   }
   .pricing-offer-card--limitless .pricing-offer-title { font-size: 52px; }
+  .pricing-launch-price { margin-bottom: 21px; }
+  .pricing-launch-price strong { font-size: 48px; }
   .pricing-offer-card--limitless .pricing-offer-summary { font-size: 16px; }
   .pricing-offer-card--limitless .pricing-offer-cta { min-height: 58px; font-size: 12px; }
   .pricing-limitless-highlights p { min-height: 70px; }
@@ -1050,6 +1125,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   .pricing-offer-card { padding-right: 19px; padding-left: 19px; }
   .pricing-offer-title { font-size: 38px; }
   .pricing-offer-card--limitless .pricing-offer-title { font-size: 46px; }
+  .pricing-launch-price strong { font-size: 44px; }
   .pricing-limitless-highlights .pricing-limitless-word { font-size: 14px; }
   .pricing-launch-countdown strong { font-size: 22px; }
   .pricing-launch-countdown span { font-size: 7px; }

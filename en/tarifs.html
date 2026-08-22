@@ -59,7 +59,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
   <link rel="stylesheet" href="/assets/svb.css?v=20260820c">
-  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822s">
+  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822t">
 
   <script type="application/ld+json">
   {
@@ -100,6 +100,11 @@
           "description": "Parc des Docks small group membership with 4, 6 or 8 sessions per month and a 6-month commitment.",
           "provider": { "@id": "https://studiosvb.com/#organization" },
           "availableAtOrFrom": { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+          "offers": [
+            { "@type": "Offer", "name": "4 sessions per month", "price": "80.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" },
+            { "@type": "Offer", "name": "6 sessions per month", "price": "120.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" },
+            { "@type": "Offer", "name": "8 sessions per month", "price": "160.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" }
+          ],
           "url": "https://studiosvb.com/en/tarifs#svb-move"
         }
       },
@@ -112,6 +117,11 @@
           "description": "Cours des Lavandières small group membership with 4, 6 or 8 sessions per month and a 6-month commitment.",
           "provider": { "@id": "https://studiosvb.com/#organization" },
           "availableAtOrFrom": { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" },
+          "offers": [
+            { "@type": "Offer", "name": "4 sessions per month", "price": "140.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" },
+            { "@type": "Offer", "name": "6 sessions per month", "price": "210.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" },
+            { "@type": "Offer", "name": "8 sessions per month", "price": "280.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" }
+          ],
           "url": "https://studiosvb.com/en/tarifs#svb-form"
         }
       },
@@ -127,6 +137,15 @@
             { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
             { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
           ],
+          "offers": {
+            "@type": "Offer",
+            "name": "SVB Limitless launch rate",
+            "price": "300.00",
+            "priceCurrency": "EUR",
+            "priceValidUntil": "2026-09-21",
+            "availability": "https://schema.org/InStock",
+            "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans"
+          },
           "url": "https://studiosvb.com/en/tarifs#svb-limitless"
         }
       },
@@ -294,6 +313,7 @@
               <h3 class="pricing-offer-title">SVB Limitless</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
               <p class="pricing-limitless-promise">One pass. All of SVB. Unlimited.</p>
+              <p class="pricing-launch-price" aria-label="Launch rate: 300 euros per month" data-launch-only><span>Launch rate</span><strong>€300</strong><small>/ month</small></p>
               <p class="pricing-offer-summary" data-launch-only>Get unlimited access to every SVB class and enjoy an exceptional rate reserved for the launch of our new offer.</p>
 
               <div class="pricing-launch-urgency" data-launch-only>
@@ -329,8 +349,8 @@
                 <li>Stretching &amp; Mobility</li>
               </ul>
               <p class="pricing-launch-trial" data-launch-only><span aria-hidden="true">✓</span> Complimentary trial session</p>
-              <p class="pricing-limitless-terms">1-year commitment <span aria-hidden="true">·</span> Cancel sessions at least 12 hours in advance</p>
-              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Claim the SVB Limitless launch offer" data-launch-cta data-default-label="Join Limitless" data-default-aria-label="Join SVB Limitless"><span data-launch-cta-label>Claim the offer</span><span aria-hidden="true">→</span></a>
+              <p class="pricing-limitless-terms">1-year commitment <span aria-hidden="true">·</span> €49 registration fee <span aria-hidden="true">·</span> Cancel sessions at least 12 hours in advance</p>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-amount="€300 / month" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Claim the SVB Limitless launch offer for 300 euros per month" data-launch-cta data-default-label="Join Limitless" data-default-aria-label="Join SVB Limitless"><span data-launch-cta-label>Claim the offer</span><span aria-hidden="true">→</span></a>
               <p class="pricing-limitless-note pricing-launch-legal" data-launch-only>Offer valid until 21 September 2026 at 11:59 pm. The rate is guaranteed for subscriptions started during the launch period, provided the membership remains active without cancellation. Any cancellation permanently forfeits the launch rate. Offer subject to the SVB membership terms and conditions.</p>
               <p class="pricing-limitless-note" data-launch-ended hidden>One membership. All of SVB. No compromise.</p>
             </article>
@@ -340,12 +360,16 @@
               <h3 class="pricing-offer-title">SVB Move</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
               <p class="pricing-offer-summary">Your small-group membership at Parc des Docks.</p>
+              <dl class="pricing-membership-price-list" aria-label="SVB Move monthly rates">
+                <div><dt>4 sessions / month</dt><dd>€80.50</dd></div>
+                <div><dt>6 sessions / month</dt><dd>€120.50</dd></div>
+                <div><dt>8 sessions / month</dt><dd>€160.50</dd></div>
+              </dl>
               <ul class="pricing-offer-benefits">
-                <li>4, 6 or 8 sessions per month</li>
                 <li>6-month commitment</li>
-                <li>Registration fee on joining</li>
+                <li>€49 registration fee</li>
               </ul>
-              <a href="https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" data-booking-path="/place/place_svb-parc-docks/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Join SVB Move"><span>Join Move</span><span aria-hidden="true">→</span></a>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-parc-docks/subscription-plans" data-amount="€80.50 to €160.50 / month" data-booking-path="/place/place_svb-parc-docks/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Join SVB Move"><span>Join Move</span><span aria-hidden="true">→</span></a>
             </article>
 
             <article id="svb-form" class="pricing-offer-card pricing-offer-card--form">
@@ -353,12 +377,16 @@
               <h3 class="pricing-offer-title">SVB Form</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
               <p class="pricing-offer-summary">Your Reformer and Crossformer membership at Lavandières.</p>
+              <dl class="pricing-membership-price-list" aria-label="SVB Form monthly rates">
+                <div><dt>4 sessions / month</dt><dd>€140.50</dd></div>
+                <div><dt>6 sessions / month</dt><dd>€210.50</dd></div>
+                <div><dt>8 sessions / month</dt><dd>€280.50</dd></div>
+              </dl>
               <ul class="pricing-offer-benefits">
-                <li>4, 6 or 8 sessions per month</li>
                 <li>6-month commitment</li>
-                <li>Registration fee on joining</li>
+                <li>€49 registration fee</li>
               </ul>
-              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Join SVB Form"><span>Join Form</span><span aria-hidden="true">→</span></a>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-amount="€140.50 to €280.50 / month" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Join SVB Form"><span>Join Form</span><span aria-hidden="true">→</span></a>
             </article>
           </div>
         </section>
