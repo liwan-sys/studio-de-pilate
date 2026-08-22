@@ -187,7 +187,7 @@
       if (document.getElementById('cta-sticky')) return; // accueil : sticky dedie deja present
 
       var path = location.pathname.replace(/\/+$/, '') || '/';
-      if (/\/(merci|Merci|mentions-legales|cgv|admin|questionnaire-abonnement-svb|404)(\.html)?$/i.test(path)) return;
+      if (/\/(merci|Merci|mentions-legales|cgv|admin|questionnaire-abonnement-svb|tarifs|404)(\.html)?$/i.test(path)) return;
 
       var isEssai = path === '/essai' || path === '/essai.html';
       var cta = document.createElement('a');
