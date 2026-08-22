@@ -195,9 +195,15 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 }
 
 .pricing-offer-card {
-  --card-accent: #4a8d84;
-  --card-accent-soft: #e5f2ec;
-  --card-button: #2f4f4f;
+  --card-surface-start: #ffffff;
+  --card-surface-middle: #fbf6ec;
+  --card-surface-end: #f3eadc;
+  --card-accent-start: #4a8d84;
+  --card-accent-end: #2f4f4f;
+  --card-badge-start: #e5f2ec;
+  --card-badge-end: #c9dfd5;
+  --card-button-start: #4a8d84;
+  --card-button-end: #2f4f4f;
   --card-button-text: #fffdf8;
   position: relative;
   display: flex;
@@ -208,7 +214,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   padding: 42px 30px 30px;
   border: 1px solid rgba(255, 255, 255, 0.76);
   border-radius: 28px;
-  background: linear-gradient(180deg, #fff 0%, #fbf6ec 100%);
+  background: linear-gradient(145deg, var(--card-surface-start) 0%, var(--card-surface-middle) 52%, var(--card-surface-end) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.94),
     0 30px 60px -32px rgba(47, 79, 79, 0.45),
@@ -224,7 +230,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   right: 0;
   left: 0;
   height: 8px;
-  background: var(--card-accent);
+  background: linear-gradient(90deg, var(--card-accent-start), var(--card-accent-end));
   content: "";
 }
 
@@ -237,7 +243,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 }
 
 .pricing-offer-card:focus-within {
-  outline: 3px solid var(--card-accent);
+  outline: 3px solid var(--card-accent-end);
   outline-offset: 4px;
 }
 
@@ -248,8 +254,8 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   padding: 8px 16px;
   border: 1px solid rgba(47, 79, 79, 0.12);
   border-radius: 999px;
-  background: var(--card-accent-soft);
-  color: var(--card-button);
+  background: linear-gradient(135deg, var(--card-badge-start), var(--card-badge-end));
+  color: var(--card-button-end);
   font-size: 10px;
   font-weight: 900;
   line-height: 1.25;
@@ -271,7 +277,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   height: 5px;
   margin: 14px auto 22px;
   border-radius: 999px;
-  background: var(--card-accent);
+  background: linear-gradient(90deg, transparent, var(--card-accent-start) 22%, var(--card-accent-end) 78%, transparent);
 }
 
 .pricing-offer-summary {
@@ -314,8 +320,8 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: var(--card-accent);
-  color: #fff;
+  background: linear-gradient(135deg, var(--card-badge-start), var(--card-badge-end));
+  color: var(--pricing-ink-deep);
   content: "✓";
   font-size: 13px;
   font-weight: 900;
@@ -333,7 +339,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   margin-top: auto;
   padding: 15px 20px;
   border-radius: 999px;
-  background: var(--card-button);
+  background: linear-gradient(135deg, var(--card-button-start), var(--card-button-end));
   box-shadow: 0 14px 28px -14px rgba(47, 79, 79, 0.48);
   color: var(--card-button-text);
   font-size: 12px;
@@ -358,36 +364,65 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 .pricing-offer-cta:focus-visible { outline: none; }
 
 .pricing-offer-card--try {
-  --card-accent: #80b99c;
-  --card-accent-soft: #e5f3ea;
-  --card-button: #3f766d;
+  --card-surface-start: #f3f8ef;
+  --card-surface-middle: #dcebd8;
+  --card-surface-end: #c7ddc4;
+  --card-accent-start: #a7cfb7;
+  --card-accent-end: #6da889;
+  --card-badge-start: #eef6ea;
+  --card-badge-end: #c9e1cf;
+  --card-button-start: #477a62;
+  --card-button-end: #325f55;
 }
 
 .pricing-offer-card--move {
-  --card-accent: #4a8d84;
-  --card-accent-soft: #e3f0ea;
-  --card-button: #356c65;
+  --card-surface-start: #eaf5ee;
+  --card-surface-middle: #c6e1d2;
+  --card-surface-end: #98ccb6;
+  --card-accent-start: #9ed2bb;
+  --card-accent-end: #4a8d84;
+  --card-badge-start: #eff8f2;
+  --card-badge-end: #b8ddca;
+  --card-button-start: #3f7d74;
+  --card-button-end: #294f4b;
 }
 
 .pricing-offer-card--form {
-  --card-accent: #d69b7b;
-  --card-accent-soft: #fae8dc;
-  --card-button: #92583f;
+  --card-surface-start: #fff8f2;
+  --card-surface-middle: #f3e2d2;
+  --card-surface-end: #edcfb8;
+  --card-accent-start: #efcfb7;
+  --card-accent-end: #d49371;
+  --card-badge-start: #fff4ec;
+  --card-badge-end: #efd7c3;
+  --card-button-start: #9f6046;
+  --card-button-end: #744331;
 }
 
 .pricing-offer-card--starter {
-  --card-accent: #e8b496;
-  --card-accent-soft: #fbebdf;
-  --card-button: #2f4f4f;
+  --card-surface-start: #f2f2e5;
+  --card-surface-middle: #d9ddc7;
+  --card-surface-end: #b9c6ae;
+  --card-accent-start: #e8b496;
+  --card-accent-end: #8fad98;
+  --card-badge-start: #f8e9df;
+  --card-badge-end: #d5ddc9;
+  --card-button-start: #5f7d6d;
+  --card-button-end: #3f5c53;
 }
 
 .pricing-offer-card--limitless {
-  --card-accent: #f5c76d;
-  --card-accent-soft: #f5c76d;
-  --card-button: #f5c76d;
+  --card-surface-start: #1f454d;
+  --card-surface-middle: #315d62;
+  --card-surface-end: #566f6e;
+  --card-accent-start: #eed6c1;
+  --card-accent-end: #96a39c;
+  --card-badge-start: #f0ddcb;
+  --card-badge-end: #b8c3b9;
+  --card-button-start: #dfe4d7;
+  --card-button-end: #a8b8ad;
   --card-button-text: #1d3838;
-  border-color: rgba(245, 199, 109, 0.72);
-  background: #244f57;
+  border-color: rgba(238, 214, 193, 0.72);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 34px 70px -28px rgba(29, 56, 56, 0.72),
