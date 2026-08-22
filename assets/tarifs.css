@@ -582,6 +582,217 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   text-transform: uppercase;
 }
 
+.pricing-specials { margin-top: 82px; }
+
+.pricing-coaching-grid,
+.pricing-extras-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.pricing-extras-grid { margin-top: 24px; }
+
+.pricing-special-card {
+  --special-deep: #245f60;
+  --special-mid: #388b82;
+  --special-soft: #d6e1ca;
+  --special-pale: #f1f4e9;
+  --special-ink: #233f40;
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 430px;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 24px;
+  background: linear-gradient(145deg, var(--special-pale), var(--special-soft));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 30px 58px -34px rgba(35, 63, 64, 0.5),
+    0 4px 12px rgba(35, 63, 64, 0.08);
+  color: var(--special-ink);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.pricing-special-card:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 36px 70px -30px rgba(35, 63, 64, 0.54),
+    0 6px 16px rgba(35, 63, 64, 0.1);
+  transform: translateY(-5px);
+}
+
+.pricing-special-card:focus-within {
+  outline: 3px solid var(--special-mid);
+  outline-offset: 4px;
+}
+
+.pricing-special-card-header {
+  padding: 28px 28px 24px;
+  background: linear-gradient(135deg, var(--special-mid), var(--special-deep));
+  color: #fff;
+  text-align: center;
+}
+
+.pricing-special-kicker {
+  margin: 0 0 9px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.pricing-special-card h3 {
+  margin: 0;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 800;
+  line-height: 1.16;
+}
+
+.pricing-special-meta {
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.pricing-special-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 26px 28px 28px;
+}
+
+.pricing-special-summary {
+  margin: 0 0 19px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.pricing-tier-list {
+  width: 100%;
+  margin: 0 0 22px;
+}
+
+.pricing-tier-list > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 13px 0;
+  border-top: 1px solid rgba(35, 63, 64, 0.16);
+}
+
+.pricing-tier-list > div:first-child { border-top: 0; }
+.pricing-tier-list dt { font-size: 12px; font-weight: 800; line-height: 1.4; }
+.pricing-tier-list dd { margin: 0; font-size: 16px; font-weight: 900; line-height: 1.3; text-align: right; }
+.pricing-tier-list dd span { display: block; margin-top: 3px; font-size: 10px; font-weight: 700; }
+
+.pricing-special-footnote {
+  margin: -5px 0 22px;
+  color: rgba(35, 63, 64, 0.72);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.pricing-special-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: auto;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--special-mid), var(--special-deep));
+  box-shadow: 0 14px 28px -15px rgba(35, 63, 64, 0.54);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+.pricing-special-cta span[aria-hidden="true"] { font-size: 17px; transition: transform 180ms ease; }
+.pricing-special-cta:hover { filter: brightness(1.06); transform: translateY(-2px); }
+.pricing-special-cta:hover span[aria-hidden="true"] { transform: translateX(4px); }
+
+.pricing-special-card--kids {
+  --special-deep: #b86445;
+  --special-mid: #e9956d;
+  --special-soft: #efd0b1;
+  --special-pale: #fff7ef;
+  --special-ink: #5b372c;
+  grid-column: 1 / -1;
+  min-height: 0;
+}
+
+.pricing-special-card--kids .pricing-special-card-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.75fr);
+  gap: 28px 46px;
+  align-items: center;
+}
+
+.pricing-special-card--kids .pricing-special-summary { margin: 0; font-size: 15px; }
+.pricing-special-card--kids .pricing-tier-list { margin: 0; }
+.pricing-special-card--kids .pricing-special-footnote { grid-column: 1; margin: 0; }
+.pricing-special-card--kids .pricing-special-cta { grid-column: 2; grid-row: 2; }
+
+.pricing-special-card--boost {
+  --special-deep: #526b60;
+  --special-mid: #839f8c;
+  --special-soft: #bdc9ae;
+  --special-pale: #eef2e7;
+  --special-ink: #30453d;
+}
+
+.pricing-special-card--running {
+  --special-deep: #263f43;
+  --special-mid: #4f6f6c;
+  --special-soft: #526a68;
+  --special-pale: #365457;
+  --special-ink: #fff;
+  border-color: rgba(238, 214, 193, 0.56);
+  color: #fff;
+}
+
+.pricing-special-card--running .pricing-special-card-body { color: #fff; }
+.pricing-special-card--running .pricing-special-summary { color: #fff; }
+.pricing-special-card--running .pricing-tier-list > div { border-top-color: rgba(255, 255, 255, 0.18); }
+.pricing-special-card--running .pricing-special-footnote { color: rgba(255, 255, 255, 0.76); }
+.pricing-special-card--running .pricing-special-cta {
+  background: linear-gradient(135deg, #f0ddcb, #a8b8ad);
+  color: #1d3838;
+}
+
+.pricing-special-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  margin: 0 0 18px;
+  color: var(--special-deep);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.pricing-special-price strong { font-size: 36px; }
+.pricing-special-price span { font-size: 12px; }
+.pricing-special-card--running .pricing-special-price { color: #f0ddcb; }
+
 @media (prefers-reduced-motion: no-preference) {
   .pricing-offer-card--limitless:not(:hover) { animation: pricing-limitless-float 4.8s ease-in-out infinite; }
   .pricing-offer-card--limitless .pricing-offer-cta { animation: pricing-limitless-cta-breathe 3s ease-in-out infinite; }
@@ -602,6 +813,12 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   .pricing-standard-nav #nav-menu .pricing-client-link,
   .pricing-standard-nav #nav-menu .pricing-language-link { margin-top: 8px; border-top-color: transparent; }
   .pricing-membership-grid { grid-template-columns: minmax(0, 1fr); width: min(520px, 100%); margin: 0 auto; }
+  .pricing-coaching-grid,
+  .pricing-extras-grid { grid-template-columns: minmax(0, 1fr); width: min(620px, 100%); }
+  .pricing-special-card--kids { grid-column: auto; }
+  .pricing-special-card--kids .pricing-special-card-body { grid-template-columns: minmax(0, 1fr); }
+  .pricing-special-card--kids .pricing-special-footnote,
+  .pricing-special-card--kids .pricing-special-cta { grid-column: auto; grid-row: auto; }
 }
 
 @media (max-width: 767px) {
@@ -615,6 +832,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   .pricing-showcase-header h1 { margin-top: 6px; font-size: 30px; }
   .pricing-showcase-intro { margin-top: 14px; font-size: 14px; }
   .pricing-group { margin-top: 52px; }
+  .pricing-specials { margin-top: 66px; }
   .pricing-group-header { margin-bottom: 22px; }
   .pricing-group-header h2 { font-size: 37px; }
   .pricing-discovery-grid { grid-template-columns: minmax(0, 1fr); width: min(520px, 100%); }
@@ -636,6 +854,13 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   .pricing-limitless-highlights strong { font-size: 28px; }
   .pricing-limitless-highlights .pricing-limitless-word { font-size: 16px; }
   .pricing-limitless-highlights span { font-size: 9px; }
+  .pricing-special-card { min-height: 0; border-radius: 22px; }
+  .pricing-special-card-header { padding: 24px 21px 21px; }
+  .pricing-special-card-body { padding: 23px 21px 24px; }
+  .pricing-special-card h3 { font-size: 23px; }
+  .pricing-tier-list > div { gap: 12px; }
+  .pricing-tier-list dt { font-size: 11px; }
+  .pricing-tier-list dd { font-size: 14px; }
 }
 
 @media (max-width: 360px) {

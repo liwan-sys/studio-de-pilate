@@ -59,15 +59,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
   <link rel="stylesheet" href="/assets/svb.css?v=20260820c">
-  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822p">
+  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822q">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "SVB memberships",
-    "description": "The five membership and discovery options available at SVB in Saint-Ouen-sur-Seine.",
-    "numberOfItems": 5,
+    "description": "SVB memberships, discovery passes, coaching plans, Kids options and add-ons available in Saint-Ouen-sur-Seine.",
+    "numberOfItems": 10,
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -150,6 +150,84 @@
             "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs"
           },
           "url": "https://studiosvb.com/en/tarifs#pass-starter"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "Service",
+          "name": "Good Vibes Coaching Pass",
+          "description": "Private 55-minute coaching with 4 or 8 sessions per month and a 4-month commitment.",
+          "provider": { "@id": "https://studiosvb.com/#organization" },
+          "availableAtOrFrom": { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+          "offers": [
+            { "@type": "Offer", "name": "4 sessions per month", "price": "300.50", "priceCurrency": "EUR", "url": "https://studiosvb.com/en/tarifs#coaching-good-vibes" },
+            { "@type": "Offer", "name": "8 sessions per month", "price": "560.50", "priceCurrency": "EUR", "url": "https://studiosvb.com/en/tarifs#coaching-good-vibes" }
+          ],
+          "url": "https://studiosvb.com/en/tarifs#coaching-good-vibes"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "Service",
+          "name": "Duo Coaching Pass",
+          "description": "Private 55-minute coaching for two with 4 or 8 sessions per month and a 4-month commitment.",
+          "provider": { "@id": "https://studiosvb.com/#organization" },
+          "availableAtOrFrom": { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+          "offers": [
+            { "@type": "Offer", "name": "4 sessions per month", "price": "401.00", "priceCurrency": "EUR", "url": "https://studiosvb.com/en/tarifs#coaching-duo" },
+            { "@type": "Offer", "name": "8 sessions per month", "price": "721.00", "priceCurrency": "EUR", "url": "https://studiosvb.com/en/tarifs#coaching-duo" }
+          ],
+          "url": "https://studiosvb.com/en/tarifs#coaching-duo"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "Service",
+          "name": "Kids Pass",
+          "description": "Kids Yoga and Kids Training, excluding July and August, with 2 or 4 sessions per month and a 4-month commitment.",
+          "provider": { "@id": "https://studiosvb.com/#organization" },
+          "availableAtOrFrom": { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+          "offers": [
+            { "@type": "Offer", "name": "2 sessions per month", "price": "35.50", "priceCurrency": "EUR", "url": "https://studiosvb.com/en/tarifs#pass-kids" },
+            { "@type": "Offer", "name": "4 sessions per month", "price": "65.50", "priceCurrency": "EUR", "url": "https://studiosvb.com/en/tarifs#pass-kids" },
+            { "@type": "Offer", "name": "Additional session", "price": "18.50", "priceCurrency": "EUR", "url": "https://studiosvb.com/en/tarifs#pass-kids" }
+          ],
+          "url": "https://studiosvb.com/en/tarifs#pass-kids"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "Service",
+          "name": "SVB Boost",
+          "description": "A no-commitment monthly add-on that lets members pause their membership without notice.",
+          "provider": { "@id": "https://studiosvb.com/#organization" },
+          "availableAtOrFrom": [
+            { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+            { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
+          ],
+          "offers": { "@type": "Offer", "price": "12.90", "priceCurrency": "EUR", "url": "https://studiosvb.com/en/tarifs#svb-boost" },
+          "url": "https://studiosvb.com/en/tarifs#svb-boost"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": "Service",
+          "name": "SVB Running Club",
+          "description": "A free, unlimited running club held every Saturday at 9:30 am.",
+          "provider": { "@id": "https://studiosvb.com/#organization" },
+          "availableAtOrFrom": { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
+          "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "EUR", "url": "https://studiosvb.com/en/tarifs#club-running" },
+          "url": "https://studiosvb.com/en/tarifs#club-running"
         }
       }
     ]
@@ -291,6 +369,99 @@
                 <li>Registration fees reduced by 50% when joining within 3 days</li>
               </ul>
               <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-discipline="pass_starter" data-label="Pass Starter" data-amount="99.90 €" data-booking-path="/place/place_svb-lavandieres/packs" class="js-buy pricing-offer-cta" aria-label="Choose the Pass Starter for 99 euros and 90 cents"><span>Choose Pass Starter</span><span aria-hidden="true">→</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="pricing-group pricing-specials" aria-labelledby="coaching-kids-title">
+          <header class="pricing-group-header">
+            <p class="pricing-group-eyebrow">Coaching &amp; Kids</p>
+            <h2 id="coaching-kids-title">Support for every pace</h2>
+          </header>
+
+          <div class="pricing-coaching-grid">
+            <article id="coaching-good-vibes" class="pricing-special-card">
+              <header class="pricing-special-card-header">
+                <p class="pricing-special-kicker">Private coaching · 55 minutes</p>
+                <h3>Coaching Pass Good Vibes</h3>
+                <p class="pricing-special-meta">4-month commitment · €49 registration fee</p>
+              </header>
+              <div class="pricing-special-card-body">
+                <p class="pricing-special-summary">One-to-one coaching with a programme tailored to your goals.</p>
+                <dl class="pricing-tier-list">
+                  <div><dt>4 sessions / month</dt><dd>€300.50</dd></div>
+                  <div><dt>8 sessions / month</dt><dd>€560.50</dd></div>
+                </dl>
+                <a href="https://wa.me/33744919155?text=Hello%2C%20I%20would%20like%20information%20about%20the%20Good%20Vibes%20Coaching%20Pass." target="_blank" rel="noopener noreferrer" class="pricing-special-cta" aria-label="Ask about the Good Vibes Coaching Pass on WhatsApp"><span>Choose Good Vibes</span><span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+
+            <article id="coaching-duo" class="pricing-special-card">
+              <header class="pricing-special-card-header">
+                <p class="pricing-special-kicker">Private coaching for two · 55 minutes</p>
+                <h3>Coaching Pass Duo</h3>
+                <p class="pricing-special-meta">4-month commitment · €49 registration fee</p>
+              </header>
+              <div class="pricing-special-card-body">
+                <p class="pricing-special-summary">A private session to share and progress together as a couple or with a friend.</p>
+                <dl class="pricing-tier-list">
+                  <div><dt>4 sessions / month</dt><dd>€401<span>€200.50 / person</span></dd></div>
+                  <div><dt>8 sessions / month</dt><dd>€721<span>€360.50 / person</span></dd></div>
+                </dl>
+                <a href="https://wa.me/33744919155?text=Hello%2C%20I%20would%20like%20information%20about%20the%20Duo%20Coaching%20Pass." target="_blank" rel="noopener noreferrer" class="pricing-special-cta" aria-label="Ask about the Duo Coaching Pass on WhatsApp"><span>Choose Duo</span><span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+          </div>
+
+          <div class="pricing-extras-grid">
+            <article id="pass-kids" class="pricing-special-card pricing-special-card--kids">
+              <header class="pricing-special-card-header">
+                <p class="pricing-special-kicker">Excluding July and August</p>
+                <h3>Kids Pass</h3>
+                <p class="pricing-special-meta">4-month commitment · €25 registration fee</p>
+              </header>
+              <div class="pricing-special-card-body">
+                <p class="pricing-special-summary">Kids Yoga and Kids Training to move, build coordination and grow in confidence.</p>
+                <dl class="pricing-tier-list">
+                  <div><dt>2 sessions / month</dt><dd>€35.50</dd></div>
+                  <div><dt>4 sessions / month</dt><dd>€65.50</dd></div>
+                  <div><dt>Additional session</dt><dd>€18.50</dd></div>
+                </dl>
+                <p class="pricing-special-footnote">Kids classes are available according to the current schedule.</p>
+                <a href="https://wa.me/33744919155?text=Hello%2C%20I%20would%20like%20to%20enrol%20my%20child%20in%20the%20Kids%20Pass." target="_blank" rel="noopener noreferrer" class="pricing-special-cta" aria-label="Ask about enrolling a child in the Kids Pass on WhatsApp"><span>Enrol my child</span><span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+
+            <article id="svb-boost" class="pricing-special-card pricing-special-card--boost">
+              <header class="pricing-special-card-header">
+                <p class="pricing-special-kicker">Optional add-on to a pass</p>
+                <h3>SVB Boost</h3>
+              </header>
+              <div class="pricing-special-card-body">
+                <p class="pricing-special-price" aria-label="12 euros and 90 cents per month"><strong>€12.90</strong><span>/ month</span></p>
+                <p class="pricing-special-summary">The option designed for schedules that can change.</p>
+                <dl class="pricing-tier-list">
+                  <div><dt>Commitment</dt><dd>No commitment</dd></div>
+                  <div><dt>Membership pause</dt><dd>No notice</dd></div>
+                </dl>
+                <a href="https://wa.me/33744919155?text=Hello%2C%20I%20would%20like%20to%20add%20the%20SVB%20Boost%20option%20to%20my%20pass." target="_blank" rel="noopener noreferrer" class="pricing-special-cta" aria-label="Ask about adding SVB Boost on WhatsApp"><span>Add SVB Boost</span><span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+
+            <article id="club-running" class="pricing-special-card pricing-special-card--running">
+              <header class="pricing-special-card-header">
+                <p class="pricing-special-kicker">Free · unlimited</p>
+                <h3>SVB Running Club</h3>
+              </header>
+              <div class="pricing-special-card-body">
+                <p class="pricing-special-price"><strong>9:30 am</strong><span>every Saturday</span></p>
+                <p class="pricing-special-summary">A regular group session to run with SVB.</p>
+                <dl class="pricing-tier-list">
+                  <div><dt>Available places</dt><dd>20 outdoors</dd></div>
+                  <div><dt>In bad weather</dt><dd>8 places kept indoors</dd></div>
+                </dl>
+                <a href="/en/studio" class="pricing-special-cta" aria-label="View the SVB Running Club schedule"><span>View schedule</span><span aria-hidden="true">→</span></a>
+              </div>
             </article>
           </div>
         </section>
