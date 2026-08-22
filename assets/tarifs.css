@@ -180,14 +180,14 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 .pricing-jump a:hover,
 .pricing-jump a:focus-visible { background: rgba(255, 255, 255, 0.76); transform: translateY(-2px); }
 .pricing-jump .pricing-jump-featured {
-  border-color: var(--pricing-gold);
-  background: var(--pricing-gold);
-  color: var(--pricing-ink-deep);
+  border-color: rgba(232, 180, 150, 0.82);
+  background: var(--pricing-ink-deep);
+  color: #fff;
   box-shadow: 0 12px 30px rgba(29, 56, 56, 0.2);
 }
 .pricing-jump .pricing-jump-featured:hover,
-.pricing-jump .pricing-jump-featured:focus-visible { background: var(--pricing-peach); }
-.pricing-jump .pricing-jump-featured span { color: var(--pricing-ink-deep); }
+.pricing-jump .pricing-jump-featured:focus-visible { background: var(--pricing-ink); }
+.pricing-jump .pricing-jump-featured span { color: var(--pricing-peach); }
 .pricing-jump strong { font-size: 12px; font-weight: 900; line-height: 1.3; }
 .pricing-jump span { margin-top: 3px; color: var(--pricing-ink-soft); font-size: 10px; font-weight: 600; line-height: 1.35; }
 
@@ -240,14 +240,16 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   order: -1;
   grid-column: 1 / -1;
   margin: 10px 0 16px;
-  border: 3px solid var(--pricing-gold);
+  border: 1px solid rgba(232, 180, 150, 0.82);
+  border-top-width: 6px;
+  border-top-color: var(--pricing-peach);
   background: var(--pricing-ink-deep);
-  box-shadow: 0 0 0 6px rgba(245, 199, 109, 0.16), 0 24px 58px rgba(29, 56, 56, 0.3);
-  transform: scale(1.015);
+  box-shadow: 0 24px 58px rgba(29, 56, 56, 0.24);
+  transform: none;
 }
 .pricing-card-limitless:hover {
-  box-shadow: 0 0 0 8px rgba(245, 199, 109, 0.22), 0 30px 68px rgba(29, 56, 56, 0.34);
-  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 30px 68px rgba(29, 56, 56, 0.3);
+  transform: translateY(-4px);
 }
 .pricing-card-media { display: none; }
 
@@ -303,9 +305,9 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 .pricing-card-limitless .pricing-card-heading {
   min-height: 0;
   padding: 34px 38px 26px;
-  border-color: rgba(29, 56, 56, 0.18);
-  background: var(--pricing-gold);
-  color: var(--pricing-ink-deep);
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(136, 192, 166, 0.12);
+  color: #fff;
 }
 .pricing-limitless-badge {
   display: inline-flex;
@@ -314,18 +316,18 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   margin: 0 0 20px;
   padding: 6px 12px;
   border-radius: 18px;
-  background: var(--pricing-ink-deep);
-  color: #fff;
+  background: var(--pricing-peach);
+  color: var(--pricing-ink-deep);
   font-family: "Montserrat", sans-serif;
   font-size: 10px;
   font-weight: 900;
   line-height: 1.2;
   text-transform: uppercase;
 }
-.pricing-card-limitless .pricing-card-context span { color: #74492f; }
+.pricing-card-limitless .pricing-card-context span { color: var(--pricing-mint-light); }
 .pricing-card-limitless .pricing-card-context strong,
-.pricing-card-limitless h3,
-.pricing-card-limitless .pricing-card-highlight { color: var(--pricing-ink-deep); }
+.pricing-card-limitless h3 { color: var(--pricing-paper); }
+.pricing-card-limitless .pricing-card-highlight { color: var(--pricing-peach); }
 .pricing-card-limitless .pricing-card-copy,
 .pricing-card-limitless .pricing-facts dt,
 .pricing-card-limitless .pricing-facts dd { color: #fff; }
