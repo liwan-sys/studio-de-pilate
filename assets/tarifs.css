@@ -280,6 +280,21 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   background: linear-gradient(90deg, transparent, var(--card-accent-start) 22%, var(--card-accent-end) 78%, transparent);
 }
 
+.pricing-offer-price {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  margin: -2px 0 20px;
+  color: var(--card-button-end);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.pricing-offer-price-value { font-size: 40px; }
+.pricing-offer-price-currency { font-size: 20px; }
+
 .pricing-offer-summary {
   max-width: 350px;
   margin: 0 auto 22px;

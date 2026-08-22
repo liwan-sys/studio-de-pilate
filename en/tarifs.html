@@ -59,7 +59,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
   <link rel="stylesheet" href="/assets/svb.css?v=20260820c">
-  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822l">
+  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822m">
 
   <script type="application/ld+json">
   {
@@ -81,6 +81,13 @@
             { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
             { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
           ],
+          "offers": {
+            "@type": "Offer",
+            "price": "30.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs"
+          },
           "url": "https://studiosvb.com/en/tarifs#pass-try"
         }
       },
@@ -135,6 +142,13 @@
             { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
             { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
           ],
+          "offers": {
+            "@type": "Offer",
+            "price": "99.90",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs"
+          },
           "url": "https://studiosvb.com/en/tarifs#pass-starter"
         }
       }
@@ -248,26 +262,28 @@
               <p class="pricing-offer-badge">2 trials · 2 disciplines</p>
               <h3 class="pricing-offer-title">Pass Try</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
+              <p class="pricing-offer-price" aria-label="30 euros"><span class="pricing-offer-price-value">30</span><span class="pricing-offer-price-currency">€</span></p>
               <p class="pricing-offer-summary">Buy 1 trial and receive 1 trial in another discipline.</p>
               <ul class="pricing-offer-benefits">
                 <li>Two experiences to compare</li>
                 <li>Registration fees waived when joining immediately after either trial</li>
                 <li>Registration fees reduced by 50% when joining within 3 days</li>
               </ul>
-              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-booking-path="/place/place_svb-lavandieres/packs" class="js-buy pricing-offer-cta" aria-label="Book the Pass Try sessions"><span>Book my trials</span><span aria-hidden="true">→</span></a>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-amount="30 €" data-booking-path="/place/place_svb-lavandieres/packs" class="js-buy pricing-offer-cta" aria-label="Book the Pass Try sessions for 30 euros"><span>Book my trials</span><span aria-hidden="true">→</span></a>
             </article>
 
             <article id="pass-starter" class="pricing-offer-card pricing-offer-card--starter">
               <p class="pricing-offer-badge">No commitment · Valid for 1 month</p>
               <h3 class="pricing-offer-title">Pass Starter</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
+              <p class="pricing-offer-price" aria-label="99 euros and 90 cents"><span class="pricing-offer-price-value">99.90</span><span class="pricing-offer-price-currency">€</span></p>
               <p class="pricing-offer-summary">5 different sessions of your choice to find your routine.</p>
               <ul class="pricing-offer-benefits">
                 <li>No commitment or automatic renewal</li>
                 <li>Registration fees waived while the pass is active</li>
                 <li>Registration fees reduced by 50% when joining within 3 days</li>
               </ul>
-              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-discipline="pass_starter" data-label="Pass Starter" data-booking-path="/place/place_svb-lavandieres/packs" class="js-buy pricing-offer-cta" aria-label="Choose the Pass Starter"><span>Choose Pass Starter</span><span aria-hidden="true">→</span></a>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-discipline="pass_starter" data-label="Pass Starter" data-amount="99.90 €" data-booking-path="/place/place_svb-lavandieres/packs" class="js-buy pricing-offer-cta" aria-label="Choose the Pass Starter for 99 euros and 90 cents"><span>Choose Pass Starter</span><span aria-hidden="true">→</span></a>
             </article>
           </div>
         </section>
