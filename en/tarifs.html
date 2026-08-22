@@ -59,7 +59,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
   <link rel="stylesheet" href="/assets/svb.css?v=20260820c">
-  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822r">
+  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822s">
 
   <script type="application/ld+json">
   {
@@ -121,7 +121,7 @@
         "item": {
           "@type": "Service",
           "name": "SVB Limitless",
-          "description": "Unlimited access to classes at both SVB studios with a one-year commitment.",
+          "description": "Unlimited access to classes at both SVB studios with a one-year commitment. Launch offer available until 21 September 2026 at 11:59 pm, with the rate retained while the membership remains active without cancellation.",
           "provider": { "@id": "https://studiosvb.com/#organization" },
           "availableAtOrFrom": [
             { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
@@ -238,6 +238,7 @@
   <script src="/assets/analytics.js?v=20260523a" defer></script>
   <script src="/assets/js/meta-pixel.js" defer></script>
   <script src="/assets/js/svb-booking.js?v=20260819b" defer></script>
+  <script src="/assets/tarifs-launch.js?v=20260822a" defer></script>
 </head>
 <body class="content-visible pricing-body">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2">Skip to main content</a>
@@ -287,25 +288,51 @@
           </header>
 
           <div class="pricing-membership-grid">
-            <article id="svb-limitless" class="pricing-offer-card pricing-offer-card--limitless">
-              <p class="pricing-offer-badge">Signature offer · full access</p>
+            <article id="svb-limitless" class="pricing-offer-card pricing-offer-card--limitless" data-launch-offer data-launch-deadline="2026-09-21T23:59:00+02:00">
+              <p class="pricing-offer-badge" data-launch-only>Unlimited pass · Launch offer</p>
+              <p class="pricing-offer-badge" data-launch-ended hidden>Signature offer · full access</p>
               <h3 class="pricing-offer-title">SVB Limitless</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
-              <p class="pricing-limitless-promise">The only membership that unlocks all of SVB.</p>
-              <p class="pricing-offer-summary">Two studios, every discipline and unlimited sessions.</p>
+              <p class="pricing-limitless-promise">One pass. All of SVB. Unlimited.</p>
+              <p class="pricing-offer-summary" data-launch-only>Get unlimited access to every SVB class and enjoy an exceptional rate reserved for the launch of our new offer.</p>
+
+              <div class="pricing-launch-urgency" data-launch-only>
+                <p class="pricing-launch-kicker">Limited-time offer</p>
+                <p class="pricing-launch-deadline">Join before <time datetime="2026-09-21T23:59:00+02:00">21 September 2026 at 11:59 pm</time>.</p>
+                <p class="pricing-launch-label">The offer ends in:</p>
+                <div class="pricing-launch-countdown" role="timer" aria-label="Countdown to 21 September 2026 at 11:59 pm">
+                  <p><strong data-countdown-days>00</strong><span>days</span></p>
+                  <p><strong data-countdown-hours>00</strong><span>hours</span></p>
+                  <p><strong data-countdown-minutes>00</strong><span>minutes</span></p>
+                  <p><strong data-countdown-seconds>00</strong><span>seconds</span></p>
+                </div>
+                <p class="pricing-launch-advantage"><strong>Your advantage:</strong> join before the countdown ends and keep this rate for as long as your membership remains active.</p>
+                <p class="pricing-launch-after">After 21 September 2026, this offer and rate will no longer be available to new members.</p>
+              </div>
+
               <div class="pricing-limitless-highlights" aria-label="Two studios, every discipline and unlimited sessions">
                 <p><strong>2</strong><span>studios</span></p>
                 <p aria-label="Unlimited sessions"><strong aria-hidden="true">∞</strong><span aria-hidden="true">sessions</span></p>
                 <p><strong class="pricing-limitless-word">Every</strong><span>discipline</span></p>
               </div>
-              <ul class="pricing-offer-benefits">
-                <li>Book freely across both studios</li>
-                <li>Switch disciplines whenever you feel like it</li>
-                <li>Train as often as you want</li>
+
+              <ul class="pricing-launch-disciplines" aria-label="Disciplines included with SVB Limitless">
+                <li>Pilates Reformer</li>
+                <li>Crossformer</li>
+                <li>Cross Training</li>
+                <li>CrossRox</li>
+                <li>CrossBody</li>
+                <li>CrossCore</li>
+                <li>Pilates</li>
+                <li>Yoga</li>
+                <li>Boxing</li>
+                <li>Stretching &amp; Mobility</li>
               </ul>
+              <p class="pricing-launch-trial" data-launch-only><span aria-hidden="true">✓</span> Complimentary trial session</p>
               <p class="pricing-limitless-terms">1-year commitment <span aria-hidden="true">·</span> Cancel sessions at least 12 hours in advance</p>
-              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Join SVB Limitless"><span>Join Limitless</span><span aria-hidden="true">→</span></a>
-              <p class="pricing-limitless-note">One membership. All of SVB. No compromise.</p>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Claim the SVB Limitless launch offer" data-launch-cta data-default-label="Join Limitless" data-default-aria-label="Join SVB Limitless"><span data-launch-cta-label>Claim the offer</span><span aria-hidden="true">→</span></a>
+              <p class="pricing-limitless-note pricing-launch-legal" data-launch-only>Offer valid until 21 September 2026 at 11:59 pm. The rate is guaranteed for subscriptions started during the launch period, provided the membership remains active without cancellation. Any cancellation permanently forfeits the launch rate. Offer subject to the SVB membership terms and conditions.</p>
+              <p class="pricing-limitless-note" data-launch-ended hidden>One membership. All of SVB. No compromise.</p>
             </article>
 
             <article id="svb-move" class="pricing-offer-card pricing-offer-card--move">

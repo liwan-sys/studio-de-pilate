@@ -59,7 +59,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
   <link rel="stylesheet" href="/assets/svb.css?v=20260820c">
-  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822r">
+  <link rel="stylesheet" href="/assets/tarifs.css?v=20260822s">
 
   <script type="application/ld+json">
   {
@@ -146,7 +146,7 @@
         "item": {
           "@type": "Service",
           "name": "SVB Limitless",
-          "description": "Accès illimité aux cours des deux studios SVB avec un engagement d'un an.",
+          "description": "Accès illimité aux cours des deux studios SVB avec un engagement d'un an. Offre de lancement accessible jusqu'au 21 septembre 2026 à 23h59, avec tarif conservé tant que l'abonnement reste actif sans résiliation.",
           "provider": { "@id": "https://studiosvb.com/#organization" },
           "availableAtOrFrom": [
             { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
@@ -263,6 +263,7 @@
   <script src="/assets/analytics.js?v=20260523a" defer></script>
   <script src="/assets/js/meta-pixel.js" defer></script>
   <script src="/assets/js/svb-booking.js?v=20260819b" defer></script>
+  <script src="/assets/tarifs-launch.js?v=20260822a" defer></script>
 </head>
 <body class="content-visible pricing-body">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2">Aller au contenu principal</a>
@@ -313,25 +314,51 @@
           </header>
 
           <div class="pricing-membership-grid">
-            <article id="svb-limitless" class="pricing-offer-card pricing-offer-card--limitless">
-              <p class="pricing-offer-badge">Offre signature · accès total</p>
+            <article id="svb-limitless" class="pricing-offer-card pricing-offer-card--limitless" data-launch-offer data-launch-deadline="2026-09-21T23:59:00+02:00">
+              <p class="pricing-offer-badge" data-launch-only>Pass illimité · Offre de lancement</p>
+              <p class="pricing-offer-badge" data-launch-ended hidden>Offre signature · accès total</p>
               <h3 class="pricing-offer-title">SVB Limitless</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
-              <p class="pricing-limitless-promise">Le seul abonnement qui ouvre tout SVB.</p>
-              <p class="pricing-offer-summary">Deux studios, toutes les disciplines et des séances illimitées.</p>
+              <p class="pricing-limitless-promise">Un seul pass. Tout SVB. En illimité.</p>
+              <p class="pricing-offer-summary" data-launch-only>Accédez en illimité à tous les cours SVB et profitez d'un tarif exceptionnel réservé au lancement de notre nouvelle offre.</p>
+
+              <div class="pricing-launch-urgency" data-launch-only>
+                <p class="pricing-launch-kicker">Offre à durée limitée</p>
+                <p class="pricing-launch-deadline">Souscrivez avant le <time datetime="2026-09-21T23:59:00+02:00">21 septembre 2026 à 23h59</time>.</p>
+                <p class="pricing-launch-label">L'offre disparaît dans :</p>
+                <div class="pricing-launch-countdown" role="timer" aria-label="Compte à rebours jusqu'au 21 septembre 2026 à 23h59">
+                  <p><strong data-countdown-days>00</strong><span>jours</span></p>
+                  <p><strong data-countdown-hours>00</strong><span>heures</span></p>
+                  <p><strong data-countdown-minutes>00</strong><span>minutes</span></p>
+                  <p><strong data-countdown-seconds>00</strong><span>secondes</span></p>
+                </div>
+                <p class="pricing-launch-advantage"><strong>Votre avantage :</strong> si vous souscrivez avant la fin du compte à rebours, vous conservez ce tarif aussi longtemps que votre abonnement reste actif.</p>
+                <p class="pricing-launch-after">Après le 21 septembre 2026, cette offre et ce tarif ne seront plus disponibles pour les nouvelles inscriptions.</p>
+              </div>
+
               <div class="pricing-limitless-highlights" aria-label="Deux studios, toutes les disciplines et séances illimitées">
                 <p><strong>2</strong><span>studios</span></p>
                 <p aria-label="Séances illimitées"><strong aria-hidden="true">∞</strong><span aria-hidden="true">séances</span></p>
                 <p><strong class="pricing-limitless-word">Toutes</strong><span>disciplines</span></p>
               </div>
-              <ul class="pricing-offer-benefits">
-                <li>Réserve librement dans les deux studios</li>
-                <li>Passe d'une discipline à l'autre selon tes envies</li>
-                <li>Entraîne-toi autant de fois que tu veux</li>
+
+              <ul class="pricing-launch-disciplines" aria-label="Disciplines incluses dans SVB Limitless">
+                <li>Pilates Reformer</li>
+                <li>Crossformer</li>
+                <li>Cross Training</li>
+                <li>CrossRox</li>
+                <li>CrossBody</li>
+                <li>CrossCore</li>
+                <li>Pilates</li>
+                <li>Yoga</li>
+                <li>Boxe</li>
+                <li>Stretching &amp; Mobility</li>
               </ul>
+              <p class="pricing-launch-trial" data-launch-only><span aria-hidden="true">✓</span> Séance d'essai offerte</p>
               <p class="pricing-limitless-terms">Engagement 1 an <span aria-hidden="true">·</span> Annulation des sessions 12 h avant</p>
-              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="S'abonner à SVB Limitless"><span>S'abonner à Limitless</span><span aria-hidden="true">→</span></a>
-              <p class="pricing-limitless-note">Un seul abonnement. Tout SVB. Sans compromis.</p>
+              <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans" data-booking-path="/place/place_svb-lavandieres/subscription-plans" class="js-buy pricing-offer-cta" aria-label="Profiter de l'offre de lancement SVB Limitless" data-launch-cta data-default-label="S'abonner à Limitless" data-default-aria-label="S'abonner à SVB Limitless"><span data-launch-cta-label>Profiter de l'offre</span><span aria-hidden="true">→</span></a>
+              <p class="pricing-limitless-note pricing-launch-legal" data-launch-only>Offre valable jusqu'au 21/09/2026 à 23h59. Tarif garanti pour toute souscription réalisée pendant la période de lancement, sous réserve que l'abonnement reste actif sans résiliation. Toute résiliation entraîne la perte définitive du tarif de lancement. Offre soumise aux conditions générales d'abonnement SVB.</p>
+              <p class="pricing-limitless-note" data-launch-ended hidden>Un seul abonnement. Tout SVB. Sans compromis.</p>
             </article>
 
             <article id="svb-move" class="pricing-offer-card pricing-offer-card--move">
