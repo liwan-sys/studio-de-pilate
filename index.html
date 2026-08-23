@@ -326,11 +326,7 @@
 </section>
 
   <!-- === SVB LIMITLESS — offre signature === -->
-  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" style="background:linear-gradient(180deg,#FBF6EC 0%,#F5EFDF 55%,#FBF6EC 100%);overflow:hidden;">
-
-    <!-- Halos decoratifs pour donner de la vie sans etre bruite -->
-    <div aria-hidden="true" style="position:absolute;top:-120px;right:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(232,180,150,.35),transparent 65%);pointer-events:none;filter:blur(20px);"></div>
-    <div aria-hidden="true" style="position:absolute;bottom:-140px;left:-100px;width:380px;height:380px;background:radial-gradient(circle,rgba(152,208,179,.28),transparent 65%);pointer-events:none;filter:blur(20px);"></div>
+  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" style="background:#F6F2EA;overflow:hidden;">
 
     <style>
       /* === Pass Starter — carte editoriale === */
@@ -777,23 +773,28 @@
       .ps-trust-meta svg{width:12px;height:12px;color:#4A8D84;opacity:.85;}
 
       /* Variante Limitless : la carte signature remplace le Pass Starter. */
+      @keyframes psPremiumFloat{
+        0%,100%{transform:translateY(0);}
+        50%{transform:translateY(-5px);}
+      }
       .ps-card--limitless{
         max-width:720px;
         padding:64px 52px 42px;
         color:#fff;
         background:
-          radial-gradient(circle at 88% 5%,rgba(245,199,109,.18),transparent 34%),
-          linear-gradient(145deg,#285c5e 0%,#1f4b4d 46%,#183d3f 100%);
-        border:1px solid rgba(245,199,109,.78);
+          radial-gradient(circle at 88% 5%,rgba(240,221,203,.14),transparent 34%),
+          linear-gradient(145deg,#1F454D 0%,#315D62 48%,#566F6E 100%);
+        border:1px solid rgba(238,214,193,.62);
         box-shadow:
-          0 34px 70px -24px rgba(18,58,59,.68),
-          0 14px 30px -16px rgba(245,199,109,.72),
-          inset 0 1px 0 rgba(255,255,255,.22);
+          0 36px 72px -28px rgba(29,56,56,.62),
+          0 12px 28px -18px rgba(150,163,156,.58),
+          inset 0 1px 0 rgba(255,255,255,.18);
         overflow:visible;
+        animation:psPremiumFloat 7s ease-in-out infinite;
       }
       .ps-card--limitless::before{
         inset:8px;
-        border:1px solid rgba(255,255,255,.12);
+        border:1px solid rgba(255,255,255,.1);
         border-radius:24px;
         background:none;
       }
@@ -803,19 +804,20 @@
         transform:translateX(-50%);
         width:max-content;
         max-width:calc(100% - 40px);
-        background:#F5C76D;
-        border-color:rgba(255,255,255,.55);
-        color:#173d3f;
-        box-shadow:0 10px 24px -12px rgba(245,199,109,.9);
+        background:linear-gradient(135deg,#F0DDCB,#B8C3B9);
+        border-color:rgba(255,255,255,.4);
+        color:#1D3838;
+        box-shadow:0 10px 24px -14px rgba(29,56,56,.7);
       }
       .ps-card--limitless .ps-urgency-dot{
-        background:#C25A38;
+        background:#8F7467;
+        box-shadow:none;
       }
       .ps-limitless-kicker{
         position:relative;
         z-index:2;
         margin:8px 0 16px;
-        color:#F8E7CF;
+        color:#F4DECB;
         font-size:.7rem;
         font-weight:800;
         letter-spacing:.16em;
@@ -829,7 +831,7 @@
       .ps-card--limitless .ps-title-flourish{
         width:92px;
         margin-bottom:18px;
-        background:linear-gradient(90deg,transparent,#F5C76D 22%,#E8B496 50%,#F5C76D 78%,transparent);
+        background:linear-gradient(90deg,transparent,#96A39C 12%,#F0DDCB 38%,#FFF4E8 50%,#F0DDCB 62%,#96A39C 88%,transparent);
       }
       .ps-card--limitless .ps-price{
         margin-bottom:2px;
@@ -842,7 +844,7 @@
         text-shadow:0 8px 28px rgba(0,0,0,.2);
       }
       .ps-card--limitless .ps-price-cur{
-        color:#F5C76D;
+        color:#F0DDCB;
       }
       .ps-card--limitless .ps-price-period{
         position:relative;
@@ -878,21 +880,21 @@
       .ps-card--limitless .ps-benefits .ic,
       .ps-card--limitless .ps-benefits li:nth-child(2) .ic,
       .ps-card--limitless .ps-benefits li:nth-child(4) .ic{
-        background:#F5C76D;
-        color:#173d3f;
-        box-shadow:0 6px 16px -8px rgba(245,199,109,.9);
+        background:#DFE4D7;
+        color:#1D3838;
+        box-shadow:0 6px 16px -9px rgba(29,56,56,.75);
       }
       .ps-launch-panel{
         position:relative;
         z-index:2;
         margin:0 auto 24px;
         padding:20px 18px 18px;
-        border-top:1px solid rgba(245,199,109,.58);
-        border-bottom:1px solid rgba(245,199,109,.58);
+        border-top:1px solid rgba(240,221,203,.48);
+        border-bottom:1px solid rgba(240,221,203,.48);
       }
       .ps-launch-deadline{
         margin:0 0 14px;
-        color:#F8E7CF;
+        color:#F4DECB;
         font-size:.78rem;
         font-weight:800;
         line-height:1.5;
@@ -949,8 +951,8 @@
         gap:8px;
         margin:0 0 24px;
         padding:9px 16px;
-        color:#173d3f;
-        background:#F8E7CF;
+        color:#1D3838;
+        background:#F0DDCB;
         border-radius:100px;
         font-size:.72rem;
         font-weight:800;
@@ -960,12 +962,14 @@
       .ps-card--limitless .ps-cta{
         max-width:560px;
         margin:0 auto;
-        color:#173d3f;
-        background:linear-gradient(135deg,#F8E7CF 0%,#F5C76D 100%);
-        box-shadow:0 18px 36px -16px rgba(245,199,109,.95);
+        color:#1D3838;
+        background:linear-gradient(135deg,#DFE4D7 0%,#A8B8AD 100%);
+        box-shadow:0 18px 36px -18px rgba(29,56,56,.88);
+        animation:none;
       }
       .ps-card--limitless .ps-cta:hover{
-        box-shadow:0 22px 42px -15px rgba(245,199,109,1);
+        box-shadow:0 22px 42px -18px rgba(29,56,56,.95);
+        filter:brightness(1.04);
       }
       .ps-limitless-more{
         position:relative;
@@ -992,7 +996,7 @@
         position:relative;
         z-index:2;
         margin:0 0 22px;
-        color:#F8E7CF;
+        color:#F4DECB;
         font-size:.82rem;
         font-weight:800;
       }
@@ -1013,7 +1017,7 @@
 
     <div class="max-w-5xl mx-auto px-4">
       <div class="text-center mb-9">
-        <span class="inline-block bg-[#F5C76D] text-[#173d3f] text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">L'offre signature · 2 studios</span>
+        <span class="inline-block text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4" style="background:linear-gradient(135deg,#F0DDCB,#B8C3B9);color:#1D3838;">L'offre signature · 2 studios</span>
         <h2 class="text-5xl md:text-7xl text-[#2F4F4F] font-hand mb-3 leading-none">Le pass qui ouvre tout SVB</h2>
         <p class="text-[#2F4F4F] text-base md:text-lg max-w-2xl mx-auto opacity-80 leading-relaxed">
           Tous les cours, toutes les disciplines, dans les deux studios. Sans compter tes séances.
