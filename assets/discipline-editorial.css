@@ -20,6 +20,10 @@ html,
   background: #e8b496 !important;
 }
 
+.discipline-page > .svb-footer {
+  margin-top: 0;
+}
+
 .discipline-editorial {
   --discipline-ink: #243f3f;
   --discipline-text: #304646;
@@ -203,8 +207,7 @@ html,
 
 .discipline-story h2,
 .discipline-section h2,
-.discipline-practice h2,
-.discipline-resources h2 {
+.discipline-practice h2 {
   margin: 0;
   color: var(--discipline-ink);
   font-family: "Dancing Script", cursive;
@@ -486,8 +489,7 @@ html,
   line-height: 1.5;
 }
 
-.discipline-studio a,
-.discipline-resources a {
+.discipline-studio a {
   color: inherit;
   font-size: 12px;
   font-weight: 800;
@@ -537,30 +539,6 @@ html,
   line-height: 1.7;
 }
 
-.discipline-resources {
-  padding: 66px 0;
-  color: #fff;
-  background: var(--discipline-ink);
-}
-
-.discipline-resources h2 { color: #fff; }
-
-.discipline-resources__inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 40px;
-  align-items: end;
-}
-
-.discipline-resources__links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 14px 24px;
-}
-
-.discipline-resources a { color: #fff; }
-
 @media (max-width: 860px) {
   .discipline-hero { min-height: 570px; height: 68svh; }
   .discipline-hero h1 { font-size: 60px; }
@@ -592,8 +570,7 @@ html,
   .discipline-hero__lead { font-size: 15px; line-height: 1.55; }
   .discipline-story h2,
   .discipline-section h2,
-  .discipline-practice h2,
-  .discipline-resources h2 { font-size: 40px; }
+  .discipline-practice h2 { font-size: 40px; }
   .discipline-story__copy { font-size: 16px; line-height: 1.65; }
   .discipline-subnav {
     display: grid;
@@ -633,9 +610,6 @@ html,
   .discipline-first-class { padding: 26px 23px; }
   .discipline-studio { grid-template-columns: 1fr; gap: 24px; }
   .discipline-faq { gap: 28px; }
-  .discipline-resources { padding: 58px 0; }
-  .discipline-resources__inner { grid-template-columns: 1fr; gap: 28px; }
-  .discipline-resources__links { justify-content: flex-start; }
 }
 
 @media (max-width: 380px) {

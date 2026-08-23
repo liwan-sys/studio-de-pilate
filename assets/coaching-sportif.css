@@ -29,6 +29,8 @@ body {
 body::before,
 body::after { content: none; }
 
+body > .svb-footer { margin-top: 0; }
+
 .coaching-editorial { background: var(--coaching-cream); }
 
 .coaching-editorial section[id] { scroll-margin-top: 74px; }
@@ -119,8 +121,7 @@ body::after { content: none; }
 
 .coaching-intro,
 .coaching-section__inner,
-.coaching-format,
-.coaching-resources__inner {
+.coaching-format {
   width: min(1120px, calc(100% - 48px));
   margin-inline: auto;
 }
@@ -134,8 +135,7 @@ body::after { content: none; }
 }
 
 .coaching-intro h2,
-.coaching-section h2,
-.coaching-resources h2 {
+.coaching-section h2 {
   margin: 0;
   color: var(--coaching-ink);
   font-family: "Dancing Script", cursive;
@@ -426,33 +426,6 @@ body::after { content: none; }
 
 .coaching-note p { margin: 0; font-size: 13px; line-height: 1.6; }
 
-.coaching-resources {
-  padding: 74px 0;
-  color: #fff;
-  background: var(--coaching-ink);
-}
-
-.coaching-resources h2 { color: #fff; }
-.coaching-resources p { max-width: 700px; margin: 15px 0 30px; line-height: 1.7; }
-
-.coaching-resources__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-}
-
-.coaching-resources__links a {
-  color: #fff;
-  font-size: 12px;
-  font-weight: 800;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, .55);
-  padding-bottom: 4px;
-}
-
-.coaching-resources__links a:hover,
-.coaching-resources__links a:focus { color: var(--coaching-peach); }
-
 @media (max-width: 860px) {
   .coaching-hero { min-height: 580px; height: 68svh; }
   .coaching-hero h1 { font-size: 58px; }
@@ -479,11 +452,9 @@ body::after { content: none; }
   .coaching-hero__lead { font-size: 15px; line-height: 1.55; }
   .coaching-intro,
   .coaching-section__inner,
-  .coaching-format,
-  .coaching-resources__inner { width: calc(100% - 32px); }
+  .coaching-format { width: calc(100% - 32px); }
   .coaching-intro h2,
-  .coaching-section h2,
-  .coaching-resources h2 { font-size: 40px; }
+  .coaching-section h2 { font-size: 40px; }
   .coaching-intro__copy { font-size: 16px; line-height: 1.65; }
   .coaching-subnav {
     display: grid;
@@ -515,7 +486,6 @@ body::after { content: none; }
   .coaching-location { padding: 26px 0; }
   .coaching-location + .coaching-location { padding: 26px 0; border-left: 0; border-top: 1px solid rgba(33, 63, 63, .18); }
   .coaching-notes { grid-template-columns: 1fr; gap: 24px; }
-  .coaching-resources { padding: 58px 0; }
 }
 
 @media (max-width: 380px) {
