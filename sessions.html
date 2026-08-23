@@ -34,7 +34,7 @@
     <link rel="dns-prefetch" href="https://wa.me">
 <link rel="icon" type="image/png" href="images/favicon.jpg" />
     <title>Cours Sport Saint-Ouen | Reformer, Cross, Yoga, Boxe, Kids | SVB</title>
-  <meta name="description" content="Tous les cours SVB à Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe, coaching et Yoga Kids en petit groupe.">
+  <meta name="description" content="Tous les cours SVB à Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Pilates, Yoga, Boxe et Yoga Kids en petit groupe.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="SVB">
   <link rel="canonical" href="https://studiosvb.com/sessions">
@@ -46,7 +46,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://studiosvb.com/sessions">
   <meta property="og:title" content="Cours Sport Saint-Ouen | Reformer, Cross, Yoga, Boxe, Kids | SVB">
-  <meta property="og:description" content="Pilates Reformer, Crossformer, Cross Training, Yoga, Boxe, coaching et Yoga Kids en petit groupe à Saint-Ouen.">
+  <meta property="og:description" content="Pilates Reformer, Crossformer, Cross Training, Pilates, Yoga, Boxe et Yoga Kids en petit groupe à Saint-Ouen.">
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="SVB">
@@ -54,7 +54,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cours Sport Saint-Ouen | SVB">
-  <meta name="twitter:description" content="Reformer, Cross Training, Yoga, Boxe, coaching et Yoga Kids en petit groupe a Saint-Ouen-sur-Seine.">
+  <meta name="twitter:description" content="Reformer, Cross Training, Pilates, Yoga, Boxe et Yoga Kids en petit groupe à Saint-Ouen-sur-Seine.">
   <meta name="twitter:image" content="https://studiosvb.com/images/og-image.jpg">
 
   <meta name="theme-color" content="#4A8D84">
@@ -194,6 +194,7 @@
 
 
   <link rel="stylesheet" href="/assets/svb.css?v=20260823c" />
+  <link rel="stylesheet" href="/assets/sessions-cards.css?v=20260823a" />
 
 
   <script src="/assets/nav-dropdown.js?v=20260823-cours3" defer></script>
@@ -291,27 +292,38 @@
                 <div class="section-icon">🔥</div>
                 <h2 class="section-title">Crossformer</h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <div style="position:relative;background:#1d3838;">
-                        <video autoplay muted loop playsinline preload="auto" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true" data-svb-lazy-video
-                               style="display:block;width:100%;aspect-ratio:9/16;max-height:620px;object-fit:cover;">
+            <div class="session-grid grid md:grid-cols-2 gap-6">
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <video autoplay muted loop playsinline preload="metadata" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true" data-svb-lazy-video>
                             <source src="/videos/crossformer-immersion.mp4?v=20260816" type="video/mp4">
                         </video>
-                        <span style="position:absolute;top:18px;left:50%;transform:translateX(-50%);font-family:'Dancing Script',cursive;font-weight:700;font-size:2rem;color:white;text-shadow:0 2px 14px rgba(0,0,0,0.55);letter-spacing:.01em;white-space:nowrap;pointer-events:none;">Crossformer</span>
                     </div>
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/crossformer-saint-ouen" style="color:inherit;text-decoration:none;">Crossformer</a></h3>
-                        <p class="activity-desc"><strong>8 personnes maximum.</strong> Le cours signature SVB où le fitness prend place sur un Reformer. Une approche dynamique et cardio pour travailler plus intensément ; le coach adapte chaque exercice au niveau du groupe.</p>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Cours des Lavandières</span>
+                            <span class="session-card__capacity">8 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/crossformer-saint-ouen">Crossformer</a></h3>
+                        <p class="activity-desc">Le cours signature SVB où le fitness prend place sur un Reformer. Une approche dynamique et cardio pour travailler plus intensément ; le coach adapte chaque exercice au niveau du groupe.</p>
+                        <span class="session-card__kind">Cours signature</span>
                     </div>
-                </div>
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <img src="/images/svb-photos/crossformer-burn.jpg" alt="Crossformer Challenger au Studio SVB Cours des Lavandières" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/crossformer-saint-ouen" style="color:inherit;text-decoration:none;">Crossformer Challenger</a></h3>
-                        <p class="activity-desc"><strong>8 personnes maximum.</strong> Une version plus intense et exigeante du Crossformer, avec des enchaînements soutenus qui sollicitent davantage la force, l'endurance, le gainage et le contrôle du corps.</p>
+                </article>
+
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <img src="/images/svb-photos/crossformer-burn.jpg" alt="Crossformer Challenger au Studio SVB Cours des Lavandières" loading="lazy" decoding="async">
                     </div>
-                </div>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Cours des Lavandières</span>
+                            <span class="session-card__capacity">8 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/crossformer-saint-ouen">Crossformer Challenger</a></h3>
+                        <p class="activity-desc">La version plus intense du Crossformer, avec des enchaînements soutenus qui sollicitent davantage la force, l'endurance, le gainage et le contrôle du corps.</p>
+                        <span class="session-card__kind">Version intense</span>
+                    </div>
+                </article>
             </div>
         </div>
 
@@ -320,27 +332,38 @@
                 <div class="section-icon">🌱</div>
                 <h2 class="section-title">Reformer</h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <div style="position:relative;background:#1d3838;">
-                        <video autoplay muted loop playsinline preload="auto" poster="/videos/reformer-card-v2-poster.jpg" aria-hidden="true" data-svb-lazy-video
-                               style="display:block;width:100%;aspect-ratio:9/16;max-height:620px;object-fit:cover;">
+            <div class="session-grid grid md:grid-cols-2 gap-6">
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <video autoplay muted loop playsinline preload="metadata" poster="/videos/reformer-card-v2-poster.jpg" aria-hidden="true" data-svb-lazy-video>
                             <source src="/videos/reformer-card-v2.mp4?v=20260816" type="video/mp4">
                         </video>
-                        <span style="position:absolute;top:18px;left:50%;transform:translateX(-50%);font-family:'Dancing Script',cursive;font-weight:700;font-size:2rem;color:white;text-shadow:0 2px 14px rgba(0,0,0,0.55);letter-spacing:.01em;white-space:nowrap;pointer-events:none;">Pilates Reformer</span>
                     </div>
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/pilates-reformer-saint-ouen" style="color:inherit;text-decoration:none;">Pilates Reformer</a></h3>
-                        <p class="activity-desc"><strong>9 personnes maximum.</strong> Un cours de Pilates sur machine pour renforcer les muscles profonds et améliorer la posture, la mobilité et le contrôle du corps grâce à la résistance des ressorts.</p>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Cours des Lavandières</span>
+                            <span class="session-card__capacity">9 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/pilates-reformer-saint-ouen">Pilates Reformer</a></h3>
+                        <p class="activity-desc">Un cours de Pilates sur machine pour renforcer les muscles profonds et améliorer la posture, la mobilité et le contrôle du corps grâce à la résistance des ressorts.</p>
+                        <span class="session-card__kind">Technique &amp; contrôle</span>
                     </div>
-                </div>
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <img src="/images/reformer/reformer-debout-coach.webp" alt="Flow Reformer au Studio SVB Cours des Lavandières" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/pilates-reformer-saint-ouen" style="color:inherit;text-decoration:none;">Flow Reformer</a></h3>
-                        <p class="activity-desc"><strong>9 personnes maximum.</strong> Une version plus fluide et dynamique du Reformer : les exercices s'enchaînent avec peu de pauses pour travailler le renforcement, la mobilité, l'équilibre et la coordination.</p>
+                </article>
+
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <img src="/images/reformer/reformer-debout-coach.webp" alt="Flow Reformer au Studio SVB Cours des Lavandières" loading="lazy" decoding="async">
                     </div>
-                </div>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Cours des Lavandières</span>
+                            <span class="session-card__capacity">9 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/pilates-reformer-saint-ouen">Flow Reformer</a></h3>
+                        <p class="activity-desc">Une version plus fluide et dynamique du Reformer : les exercices s'enchaînent avec peu de pauses pour travailler le renforcement, la mobilité, l'équilibre et la coordination.</p>
+                        <span class="session-card__kind">Fluide &amp; dynamique</span>
+                    </div>
+                </article>
             </div>
         </div>
 
@@ -349,50 +372,85 @@
                 <div class="section-icon">⚡</div>
                 <h2 class="section-title">Cross &amp; renforcement</h2>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div class="session-card">
-                    <h3 class="activity-name"><a href="/cross-training-saint-ouen" style="color:inherit;text-decoration:none;">Cross Training</a></h3>
-                    <p class="activity-desc"><strong>12 personnes maximum.</strong> Un cours ludique et dynamique qui travaille tout le corps à travers des ateliers et circuits variés, principalement au poids du corps et avec des charges adaptées à ton niveau.</p>
-                </div>
-
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <img src="/images/svb-photos/cross-rox.jpg" alt="Cross Rox — atelier fonctionnel small group au Studio SVB Saint-Ouen" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/bootcamp-saint-ouen" style="color:inherit;text-decoration:none;">Cross Rox</a></h3>
-                        <p class="activity-desc"><strong>12 personnes maximum.</strong> Inspiré de l'HYROX, ce cours permet de découvrir la discipline ou de préparer une compétition avec des stations de force, de cardio et de mouvements fonctionnels, sans réaliser un HYROX complet.</p>
+            <div class="session-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <video autoplay muted loop playsinline preload="metadata" poster="/videos/cross-training-immersion-poster.jpg" aria-hidden="true" data-svb-lazy-video>
+                            <source src="/videos/cross-training-immersion.mp4?v=20260823" type="video/mp4">
+                        </video>
                     </div>
-                </div>
-
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <img src="/images/svb-photos/cross-core.jpg" alt="Cross Core — gainage profond small group au Studio SVB Saint-Ouen" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/bootcamp-saint-ouen" style="color:inherit;text-decoration:none;">Cross Core</a></h3>
-                        <p class="activity-desc"><strong>12 personnes maximum.</strong> Un cours axé sur toute la ceinture abdominale : muscles profonds, superficiels et obliques. Les exercices complets sollicitent constamment le centre du corps.</p>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/cross-training-saint-ouen">Cross Training</a></h3>
+                        <p class="activity-desc">Un cours ludique et dynamique qui travaille tout le corps à travers des ateliers et circuits variés, principalement au poids du corps et avec des charges adaptées à ton niveau.</p>
+                        <span class="session-card__kind">Ateliers &amp; circuits</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <img src="/images/svb-photos/cross-body.jpg" alt="Cross Body — renforcement global au Studio SVB Saint-Ouen" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/bootcamp-saint-ouen" style="color:inherit;text-decoration:none;">Cross Body</a></h3>
-                        <p class="activity-desc"><strong>12 personnes maximum.</strong> Un cours de renforcement musculaire sans impact pour travailler tout le corps tout en préservant le dos et les genoux.</p>
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <img src="/images/svb-photos/cross-rox.jpg" alt="Cross Rox, atelier fonctionnel en petit groupe au Studio SVB" loading="lazy" decoding="async">
                     </div>
-                </div>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/bootcamp-saint-ouen">Cross Rox</a></h3>
+                        <p class="activity-desc">Inspiré de l'HYROX, ce cours permet de découvrir la discipline ou de préparer une compétition avec des stations de force, de cardio et de mouvements fonctionnels, sans réaliser un HYROX complet.</p>
+                        <span class="session-card__kind">Inspiré HYROX</span>
+                    </div>
+                </article>
 
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <div style="position:relative;">
-                        <video autoplay muted loop playsinline preload="auto" poster="/videos/cross-yoga-card-poster.jpg" aria-hidden="true" data-svb-lazy-video
-                               style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <img src="/images/svb-photos/cross-core.jpg" alt="Cross Core, travail du gainage profond au Studio SVB" loading="lazy" decoding="async">
+                    </div>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/bootcamp-saint-ouen">Cross Core</a></h3>
+                        <p class="activity-desc">Un cours axé sur toute la ceinture abdominale : muscles profonds, superficiels et obliques. Les exercices complets sollicitent constamment le centre du corps.</p>
+                        <span class="session-card__kind">Centre du corps</span>
+                    </div>
+                </article>
+
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <img src="/images/svb-photos/cross-body.jpg" alt="Cross Body, renforcement global sans impact au Studio SVB" loading="lazy" decoding="async">
+                    </div>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/bootcamp-saint-ouen">Cross Body</a></h3>
+                        <p class="activity-desc">Un cours de renforcement musculaire sans impact pour travailler tout le corps tout en préservant le dos et les genoux.</p>
+                        <span class="session-card__kind">Sans impact</span>
+                    </div>
+                </article>
+
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <video autoplay muted loop playsinline preload="metadata" poster="/videos/cross-yoga-card-poster.jpg" aria-hidden="true" data-svb-lazy-video>
                             <source src="/videos/cross-yoga-card.mp4?v=20260816" type="video/mp4">
                         </video>
-                        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);font-family:'Dancing Script',cursive;font-weight:700;font-size:1.6rem;color:white;text-shadow:0 2px 12px rgba(0,0,0,0.5);letter-spacing:.01em;white-space:nowrap;pointer-events:none;">Cross Yoga</span>
                     </div>
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/yoga-saint-ouen" style="color:inherit;text-decoration:none;">Cross Yoga</a></h3>
-                        <p class="activity-desc"><strong>12 personnes maximum.</strong> Un yoga orienté fitness, sans dimension spirituelle, pour travailler la mobilité, la souplesse, l'équilibre, le centre du corps et le renforcement musculaire. Un cours doux et accessible à tous.</p>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/yoga-saint-ouen">Cross Yoga</a></h3>
+                        <p class="activity-desc">Un yoga orienté fitness, sans dimension spirituelle, pour travailler la mobilité, la souplesse, l'équilibre, le centre du corps et le renforcement musculaire. Un cours doux et accessible à tous.</p>
+                        <span class="session-card__kind">Yoga fitness</span>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
 
@@ -401,47 +459,81 @@
                 <div class="section-icon">🧘‍♀️</div>
                 <h2 class="section-title">Pilates, Yoga &amp; mobilité</h2>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <img src="/images/svb-photos/yoga-vinyasa.jpg" alt="Yoga Vinyasa — salutation et alignement respiratoire au Studio SVB Saint-Ouen" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/yoga-saint-ouen" style="color:inherit;text-decoration:none;">Yoga Vinyasa</a></h3>
-                        <p class="activity-desc"><strong>12 personnes maximum.</strong> Un cours fluide et dynamique où les postures s'enchaînent au rythme de la respiration pour travailler la souplesse, la mobilité, l'équilibre et le renforcement musculaire.</p>
+            <div class="session-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <img src="/images/svb-photos/yoga-vinyasa.jpg" alt="Yoga Vinyasa au Studio SVB Parc des Docks" loading="lazy" decoding="async">
                     </div>
-                </div>
-
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <img src="/images/svb-photos/classic-pilates.jpg" alt="Pilates Classique — contrôle du mouvement au Studio SVB Saint-Ouen" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/pilates-saint-ouen" style="color:inherit;text-decoration:none;">Pilates Classique</a></h3>
-                        <p class="activity-desc"><strong>12 personnes maximum.</strong> Un cours doux et précis au sol qui renforce les muscles profonds et améliore la posture, la mobilité et le contrôle du corps.</p>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/yoga-saint-ouen">Yoga Vinyasa</a></h3>
+                        <p class="activity-desc">Un cours fluide et dynamique où les postures s'enchaînent au rythme de la respiration pour travailler la souplesse, la mobilité, l'équilibre et le renforcement musculaire.</p>
+                        <span class="session-card__kind">Flow dynamique</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <img src="/images/svb-photos/power-pilates.jpg" alt="Power Pilates — enchaînements rapides core au Studio SVB Saint-Ouen" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/pilates-saint-ouen" style="color:inherit;text-decoration:none;">Power Pilates</a></h3>
-                        <p class="activity-desc"><strong>12 personnes maximum.</strong> Une version plus dynamique et intense du Pilates qui combine renforcement musculaire, gainage et contrôle du mouvement pour travailler l'ensemble du corps.</p>
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <img src="/images/svb-photos/classic-pilates.jpg" alt="Pilates Classique au sol au Studio SVB Parc des Docks" loading="lazy" decoding="async">
                     </div>
-                </div>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/pilates-saint-ouen">Pilates Classique</a></h3>
+                        <p class="activity-desc">Un cours doux et précis au sol qui renforce les muscles profonds et améliore la posture, la mobilité et le contrôle du corps.</p>
+                        <span class="session-card__kind">Doux &amp; précis</span>
+                    </div>
+                </article>
 
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <img src="/images/barre-saint-ouen.webp" alt="Pilates Barre au Studio SVB Parc des Docks" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/pilates-saint-ouen" style="color:inherit;text-decoration:none;">Pilates Barre</a></h3>
-                        <p class="activity-desc"><strong>12 personnes maximum.</strong> Les principes du Pilates associés à des exercices réalisés à la barre pour renforcer les muscles profonds, améliorer la posture, l'équilibre et la mobilité, et tonifier tout le corps.</p>
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <img src="/images/svb-photos/power-pilates.jpg" alt="Power Pilates au Studio SVB Parc des Docks" loading="lazy" decoding="async">
                     </div>
-                </div>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/pilates-saint-ouen">Power Pilates</a></h3>
+                        <p class="activity-desc">Une version plus dynamique et intense du Pilates qui combine renforcement musculaire, gainage et contrôle du mouvement pour travailler l'ensemble du corps.</p>
+                        <span class="session-card__kind">Plus intense</span>
+                    </div>
+                </article>
 
-                <div id="stretch-mobility" class="session-card" style="padding:0;overflow:hidden;scroll-margin-top:8rem;">
-                    <img src="/images/svb-photos/core-stretch.jpg" alt="Stretch Mobility — étirements guidés au Studio SVB Saint-Ouen" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;background:#1d3838;">
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/pilates-saint-ouen" style="color:inherit;text-decoration:none;">Stretch Mobility</a></h3>
-                        <p class="activity-desc"><strong>12 personnes maximum.</strong> Un cours doux axé sur la souplesse, la mobilité et l'amplitude des mouvements pour relâcher les tensions, améliorer la posture et retrouver un corps plus mobile.</p>
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <img src="/images/barre-saint-ouen.webp" alt="Pilates Barre au Studio SVB Parc des Docks" loading="lazy" decoding="async">
                     </div>
-                </div>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/pilates-saint-ouen">Pilates Barre</a></h3>
+                        <p class="activity-desc">Les principes du Pilates associés à des exercices réalisés à la barre pour renforcer les muscles profonds, améliorer la posture, l'équilibre et la mobilité, et tonifier tout le corps.</p>
+                        <span class="session-card__kind">Pilates &amp; barre</span>
+                    </div>
+                </article>
+
+                <article id="stretch-mobility" class="session-card" style="scroll-margin-top:8rem;">
+                    <div class="session-card__media">
+                        <img src="/images/svb-photos/core-stretch.jpg" alt="Stretch Mobility au Studio SVB Parc des Docks" loading="lazy" decoding="async">
+                    </div>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/pilates-saint-ouen">Stretch Mobility</a></h3>
+                        <p class="activity-desc">Un cours doux axé sur la souplesse, la mobilité et l'amplitude des mouvements pour relâcher les tensions, améliorer la posture et retrouver un corps plus mobile.</p>
+                        <span class="session-card__kind">Mobilité</span>
+                    </div>
+                </article>
             </div>
         </div>
 
@@ -450,22 +542,38 @@
                 <div class="section-icon">🎈</div>
                 <h2 class="section-title">Boxe &amp; Yoga Kids</h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="session-card" style="padding:0;overflow:hidden;">
-                    <div style="position:relative;background:#1d3838;">
-                        <video autoplay muted loop playsinline preload="auto" poster="/videos/boxe-card-poster.jpg" aria-hidden="true" data-svb-lazy-video style="display:block;width:100%;aspect-ratio:9/16;max-height:340px;object-fit:cover;">
+            <div class="session-grid grid md:grid-cols-2 gap-6">
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <video autoplay muted loop playsinline preload="metadata" poster="/videos/boxe-card-poster.jpg" aria-hidden="true" data-svb-lazy-video>
                             <source src="/videos/boxe-card.mp4?v=20260816" type="video/mp4">
                         </video>
                     </div>
-                    <div style="padding:28px 32px 32px;">
-                        <h3 class="activity-name"><a href="/boxe-anglaise-saint-ouen" style="color:inherit;text-decoration:none;">Boxe Anglaise</a></h3>
-                        <p class="activity-desc"><strong>12 personnes maximum.</strong> Un cours dynamique pour apprendre les techniques de frappe, les déplacements et les enchaînements, tout en développant le cardio, la coordination et les réflexes.</p>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">12 personnes max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/boxe-anglaise-saint-ouen">Boxe Anglaise</a></h3>
+                        <p class="activity-desc">Un cours dynamique pour apprendre les techniques de frappe, les déplacements et les enchaînements, tout en développant le cardio, la coordination et les réflexes.</p>
+                        <span class="session-card__kind">Technique &amp; cardio</span>
                     </div>
-                </div>
-                <div class="session-card">
-                    <h3 class="activity-name"><a href="/sport-enfant-saint-ouen" style="color:inherit;text-decoration:none;">Yoga Kids</a></h3>
-                    <p class="activity-desc"><strong>8 enfants maximum.</strong> Un cours ludique où les enfants découvrent le yoga à travers des histoires, des animaux et des postures amusantes pour développer équilibre, souplesse, coordination, concentration et conscience du corps.</p>
-                </div>
+                </article>
+
+                <article class="session-card">
+                    <div class="session-card__media">
+                        <img src="/images/svb-photos/yoga-hero.jpg" alt="Cours de yoga en petit groupe au Studio SVB Parc des Docks" loading="lazy" decoding="async">
+                    </div>
+                    <div class="session-card__body">
+                        <div class="session-card__meta">
+                            <span class="session-card__studio">Parc des Docks</span>
+                            <span class="session-card__capacity">8 enfants max.</span>
+                        </div>
+                        <h3 class="activity-name"><a href="/sport-enfant-saint-ouen">Yoga Kids</a></h3>
+                        <p class="activity-desc">Un cours ludique où les enfants découvrent le yoga à travers des histoires, des animaux et des postures amusantes pour développer équilibre, souplesse, coordination, concentration et conscience du corps.</p>
+                        <span class="session-card__kind">Pour les enfants</span>
+                    </div>
+                </article>
             </div>
         </div>
 

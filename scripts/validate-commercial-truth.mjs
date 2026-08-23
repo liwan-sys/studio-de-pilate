@@ -148,6 +148,27 @@ requireText('sessions.html', 'Studio Cours des Lavandières');
 forbidText('sessions.html', /Studio Mail André Breton/i, 'adresse utilisée comme nom de studio');
 forbidText('sessions.html', /Coaching Individuel|Coaching Duo/i, 'coaching affiché parmi les cours collectifs');
 
+const sessionsCatalogue = read('sessions.html');
+const sessionCardCount = (sessionsCatalogue.match(/<article\b[^>]*\bclass="session-card"/g) || []).length;
+const sessionMediaCount = (sessionsCatalogue.match(/class="session-card__media"/g) || []).length;
+const sessionBodyCount = (sessionsCatalogue.match(/class="session-card__body"/g) || []).length;
+const sessionVideoCount = (sessionsCatalogue.match(/<video\b/g) || []).length;
+if (sessionCardCount !== 16) fail(`sessions.html doit afficher 16 cartes de cours homogènes, pas ${sessionCardCount}.`);
+if (sessionMediaCount !== sessionCardCount) fail('Chaque carte de cours doit avoir un média de même format.');
+if (sessionBodyCount !== sessionCardCount) fail('Chaque carte de cours doit utiliser la même structure de contenu.');
+if (sessionVideoCount < 5) fail('Les vidéos Crossformer, Reformer, Cross Training, Cross Yoga et Boxe doivent rester dans les cartes.');
+for (const video of [
+  'crossformer-immersion.mp4',
+  'reformer-card-v2.mp4',
+  'cross-training-immersion.mp4',
+  'cross-yoga-card.mp4',
+  'boxe-card.mp4',
+]) {
+  requireText('sessions.html', video);
+}
+requireText('sessions.html', 'Version intense');
+forbidText('sessions.html', /<div class="session-card"/i, 'ancienne structure hétérogène des cartes de cours');
+
 for (const course of ['Pilates Reformer', 'Flow Reformer', 'Crossformer', 'Crossformer Challenger']) {
   requireText('studio-cours-des-lavandieres.html', course);
 }

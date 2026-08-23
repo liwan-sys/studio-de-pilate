@@ -1,0 +1,185 @@
+/* Unified course cards shared by the French and English catalogues. */
+.session-grid {
+  align-items: stretch;
+}
+
+.session-card {
+  --session-accent: #88c0a6;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  color: var(--svb-text);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: 22px;
+  box-shadow: 0 14px 34px rgba(47, 79, 79, 0.10);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.session-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  height: 6px;
+  background: var(--session-accent);
+}
+
+.theme-crossformer .session-card { --session-accent: #e8b496; }
+.theme-reformer .session-card { --session-accent: #d4c3a3; }
+.theme-cross .session-card { --session-accent: #75ad96; }
+.theme-focus .session-card { --session-accent: #c9b78f; }
+.theme-kids .session-card { --session-accent: #dca07e; }
+
+.session-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 22px 46px rgba(47, 79, 79, 0.16);
+}
+
+.session-card__media {
+  position: relative;
+  flex: 0 0 250px;
+  height: 250px;
+  overflow: hidden;
+  background: #1d3838;
+}
+
+.session-card__media::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 28%;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(22, 51, 49, 0.22), transparent);
+}
+
+.session-card__media img,
+.session-card__media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.session-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 24px 26px 28px;
+}
+
+.session-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.session-card__studio {
+  color: #4a756f;
+  font-size: 0.67rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.session-card__capacity,
+.session-card__kind {
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  color: #2f4f4f;
+  background: color-mix(in srgb, var(--session-accent) 42%, white);
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.session-card .activity-name {
+  min-height: 2.1em;
+  margin: 0 0 14px;
+  color: var(--svb-text);
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.session-card .activity-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.session-card .activity-name a:hover,
+.session-card .activity-name a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.session-card .activity-desc {
+  margin: 0;
+  color: #4d5d5b;
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.session-card__kind {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  transform: translateY(14px);
+}
+
+@media (min-width: 768px) {
+  .session-card__body {
+    min-height: 275px;
+  }
+}
+
+@media (max-width: 767px) {
+  .session-card {
+    border-radius: 18px;
+  }
+
+  .session-card__media {
+    flex-basis: 225px;
+    height: 225px;
+  }
+
+  .session-card__body {
+    padding: 22px 22px 26px;
+  }
+
+  .session-card__meta {
+    align-items: flex-start;
+  }
+
+  .session-card .activity-name {
+    min-height: 0;
+    font-size: 1.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .session-card {
+    transition: none;
+  }
+
+  .session-card:hover {
+    transform: none;
+  }
+}
