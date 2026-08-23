@@ -33,8 +33,8 @@
     <link rel="dns-prefetch" href="https://calendly.com">
     <link rel="dns-prefetch" href="https://wa.me">
 <link rel="icon" type="image/png" href="images/favicon.jpg" />
-    <title>Planning & Studios | SVB</title>
-  <meta name="description" content="Ouvre le planning SVB en direct pour les deux studios de Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Pilates, Yoga et Boxe.">
+    <title>Planning des cours à Saint-Ouen | SVB</title>
+  <meta name="description" content="Consulte les horaires hebdomadaires des deux studios SVB à Saint-Ouen : Reformer, Crossformer, Cross Training, Pilates, Yoga et Boxe.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="SVB">
   <link rel="canonical" href="https://studiosvb.com/studio">
@@ -45,16 +45,16 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://studiosvb.com/studio">
-  <meta property="og:title" content="Planning &amp; Horaires | SVB">
-  <meta property="og:description" content="Consulte le planning en direct des cours Pilates Reformer, Crossformer, Cross Training, Yoga et Boxe dans les deux studios SVB.">
+  <meta property="og:title" content="Planning des cours à Saint-Ouen | SVB">
+  <meta property="og:description" content="Consulte les horaires hebdomadaires des cours Reformer, Crossformer, Cross Training, Pilates, Yoga et Boxe dans les deux studios SVB.">
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="SVB">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Planning &amp; Horaires | SVB">
-  <meta name="twitter:description" content="Consulte le planning en direct des deux studios SVB à Saint-Ouen et réserve ton cours en ligne.">
+  <meta name="twitter:title" content="Planning des cours à Saint-Ouen | SVB">
+  <meta name="twitter:description" content="Consulte les horaires hebdomadaires des deux studios SVB à Saint-Ouen et réserve ton cours en ligne.">
   <meta name="twitter:image" content="https://studiosvb.com/images/og-image.jpg">
 
   <meta name="theme-color" content="#4A8D84">
@@ -75,7 +75,7 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif !important;
             background-color: var(--svb-green-light);
             color: var(--svb-text);
             min-height: 100vh;
@@ -131,139 +131,324 @@
         .d-2 { animation-delay: 0.2s; }
         .d-3 { animation-delay: 0.3s; }
 
-        /* === CONTENEUR PLANNING (GLASSMORPHISM) === */
-        .planning-box {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 35px;
-            margin-bottom: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-            transition: transform 0.4s ease;
+        /* Planning hebdomadaire - couleurs extraites de la brochure SVB 08/2026. */
+        .planning-switcher-wrapper {
+            position: sticky;
+            top: 10px;
+            z-index: 40;
+            padding: 0 16px 28px;
+            text-align: center;
         }
-        .planning-box:hover { transform: translateY(-5px); }
 
-        .studio-header { text-align: center; margin-bottom: 35px; }
-        .studio-header h2 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin-bottom: 5px; text-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-
-        .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
-        @media (max-width: 1024px) { .week-grid { grid-template-columns: repeat(4, 1fr); } }
-        @media (max-width: 768px) { .week-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .week-grid { grid-template-columns: 1fr; } }
-
-        .day-column {
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
-            padding: 12px;
-            min-height: 220px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            transition: all 0.3s ease;
+        .planning-switcher {
+            display: inline-flex;
+            gap: 6px;
+            padding: 6px;
+            border: 1px solid rgba(37, 69, 76, 0.16);
+            border-radius: 8px;
+            background: rgba(255, 253, 247, 0.94);
+            box-shadow: 0 12px 30px rgba(37, 69, 76, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-        .day-column:hover { background: rgba(255, 255, 255, 0.6); }
+
+        .planning-switcher a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 9px 16px;
+            border-radius: 6px;
+            color: #25454c;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0;
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .planning-switcher a:first-child { background: #86a68e; color: white; }
+        .planning-switcher a:last-child { background: #e1cda5; color: #25454c; }
+        .planning-switcher a:hover { filter: brightness(0.96); }
+
+        .planning-intro {
+            max-width: 760px;
+            margin: 0 auto 58px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .planning-intro h2 {
+            margin: 0 0 12px;
+            color: #25454c;
+            font-size: 2.55rem;
+            line-height: 1.1;
+            letter-spacing: 0;
+        }
+
+        .planning-intro p {
+            margin: 0;
+            color: #405d5c;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .schedule-shell {
+            position: relative;
+            z-index: 10;
+            width: min(100%, 1320px);
+            margin: 0 auto;
+            padding: 0 24px 96px;
+        }
+
+        .schedule-section {
+            scroll-margin-top: 96px;
+            margin-bottom: 92px;
+        }
+
+        .schedule-section + .schedule-section {
+            padding-top: 76px;
+            border-top: 1px solid rgba(37, 69, 76, 0.24);
+        }
+
+        .schedule-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 26px;
+        }
+
+        .schedule-heading__title { min-width: 0; }
+        .schedule-kicker {
+            margin: 0 0 2px;
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.75rem;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        .schedule-heading h2 {
+            display: inline-block;
+            margin: 12px 0 0;
+            padding: 11px 22px;
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: 0;
+        }
+
+        .schedule-section--docks .schedule-heading h2 { background: #86a68e; color: white; }
+        .schedule-section--lavandieres .schedule-heading h2 { background: #e1cda5; color: #25454c; }
+
+        .schedule-address {
+            max-width: 420px;
+            margin: 0;
+            color: #405d5c;
+            font-size: 0.86rem;
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: right;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 10px;
+            align-items: start;
+        }
+
+        .schedule-day { min-width: 0; }
 
         .day-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 54px;
+            padding: 10px 8px;
+            border-radius: 2px;
+            background: #86a68e;
+            color: white;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: 0;
             text-align: center;
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
-            color: var(--svb-text);
-            border-bottom: 2px solid rgba(255,255,255,0.6);
-            padding-bottom: 8px;
-            letter-spacing: 0.05em;
         }
 
         .class-slot {
-            padding: 10px 8px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            color: white;
-            text-align: center;
-            font-size: 0.7rem;
-            font-weight: 600;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .class-slot:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 8px 15px rgba(0,0,0,0.15); z-index: 10; }
-        .class-time { font-size: 0.95rem; font-weight: 800; display: block; margin-bottom: 2px; }
-
-        /* COULEURS DES PASS */
-        /* Couleurs alignées sur la brochure SVB 2026 (plannings p. 6 & 7) */
-        .bg-cross { background-color: #88C0A6; color: white; }                            /* Cross et renforcement — vert sauge */
-        .bg-crossformer { background-color: #24454d; color: white; }                      /* Crossformer — teal sombre */
-        .bg-reformer { background-color: #E2DAC6; color: #2F4F4F; }                       /* Pilates Reformer — beige sable chaud */
-        .bg-yoga { background-color: #EFE3C5; color: #2F4F4F; }                           /* Pilates, Yoga et Boxe — crème */
-        .bg-kids { background-color: #E8B496; color: white; border: 2px solid white; }    /* Pass Kids — pêche/corail */
-
-        /* WHATSAPP */
-        .wa-container { position: fixed; bottom: 30px; right: 30px; z-index: 50; display: flex; flex-direction: column; align-items: flex-end; }
-        .wa-bubble {
-            background: white; color: #2F4F4F;
-            padding: 12px 18px; border-radius: 15px 15px 0 15px;
-            font-size: 0.85rem; font-weight: 600; margin-bottom: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-width: 220px; opacity: 0; transform: translateY(10px);
-            transition: all 0.5s ease; pointer-events: none;
-        }
-        .wa-bubble.show { opacity: 1; transform: translateY(0); }
-        .whatsapp-btn {
-            background-color: #25d366; width: 65px; height: 65px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            animation: pulse-wa 2.5s infinite; transition: transform 0.3s;
-        }
-        .whatsapp-btn:hover { transform: scale(1.1); }
-        @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-
-        /* === LÉGENDE STICKY (CORRIGÉE : HORS HEADER) === */
-        .sticky-legend-wrapper {
-            position: sticky;
-            top: 10px; /* Reste collé à 10px du haut de l'écran */
-            z-index: 100; /* Reste au-dessus de tout */
-            padding-bottom: 20px;
-            pointer-events: none; /* Permet de cliquer à travers si besoin */
-            text-align: center;
-        }
-
-        .legend-bar {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(15px);
-            border-radius: 50px;
-            padding: 12px 30px;
-            margin: 0 auto;
-            display: inline-flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            pointer-events: auto;
-        }
-
-        .legend-item {
-            display: flex;
             align-items: center;
-            font-size: 0.75rem;
+            justify-content: center;
+            min-height: 82px;
+            margin-top: 10px;
+            padding: 10px 8px;
+            border: 1px solid rgba(255, 255, 255, 0.44);
+            border-radius: 2px;
+            box-shadow: 0 5px 14px rgba(37, 69, 76, 0.07);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
             font-weight: 700;
-            color: var(--svb-text);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            line-height: 1.25;
+            letter-spacing: 0;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .legend-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            margin-right: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            border: 1px solid rgba(0,0,0,0.05);
+        .class-slot:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 9px 20px rgba(37, 69, 76, 0.13);
+        }
+
+        .class-time {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.98rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        .class-name { display: block; }
+
+        .course-cross-training { background: #b5d4b8; color: #25454c; }
+        .course-cross-rox, .course-crossformer { background: #25454c; color: white; }
+        .course-cross-core { background: #268181; color: white; }
+        .course-cross-body { background: #224060; color: white; }
+        .course-cross-yoga, .course-reformer { background: #dabd99; color: #25454c; }
+        .course-yoga-vinyasa { background: #e3d8ba; color: #25454c; }
+        .course-power-pilates { background: #d1bf91; color: #25454c; }
+        .course-boxe { background: #191919; color: white; }
+        .course-stretch-mobility { background: #f0b28d; color: #25454c; }
+        .course-yoga-kids { background: #636b9c; color: white; }
+        .course-pilates-barre { background: #d1a48e; color: #25454c; }
+        .course-classic-pilates { background: #dac194; color: #25454c; }
+        .course-club-running { background: #86a68e; color: #173d3d; }
+        .course-yoga-pilates {
+            background: linear-gradient(148deg, #e8dbbc 0 52%, #dac194 52% 100%);
+            color: #25454c;
+        }
+
+        .schedule-sunday {
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr);
+            gap: 10px;
+            margin-top: 36px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(37, 69, 76, 0.32);
+        }
+
+        .schedule-sunday .day-header { min-height: 82px; }
+        .schedule-sunday__slots {
+            display: grid;
+            grid-template-columns: repeat(var(--slot-count), minmax(0, 1fr));
+            gap: 10px;
+        }
+        .schedule-sunday .class-slot { margin-top: 0; }
+
+        .schedule-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            margin-top: 28px;
+            color: #25454c;
+            font-size: 0.78rem;
+            font-weight: 800;
+            line-height: 1.4;
+            letter-spacing: 0;
+        }
+
+        .schedule-legend span { display: inline-flex; align-items: center; gap: 8px; }
+        .schedule-swatch {
+            width: 18px;
+            height: 18px;
+            border: 2px solid white;
+            border-radius: 2px;
+            box-shadow: 0 2px 7px rgba(37, 69, 76, 0.12);
+        }
+        .schedule-swatch--reformer { background: #dabd99; }
+        .schedule-swatch--crossformer { background: #25454c; }
+
+        .schedule-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .schedule-note {
+            max-width: 720px;
+            margin: 0;
+            color: #405d5c;
+            font-size: 0.8rem;
+            font-weight: 600;
+            line-height: 1.55;
+        }
+
+        .schedule-live-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            background: #25454c;
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .schedule-live-link:hover { background: #173d3d; transform: translateY(-1px); }
+
+        @media (max-width: 1080px) {
+            .schedule-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 720px) {
+            .planning-switcher-wrapper { top: 8px; padding-bottom: 24px; }
+            .planning-switcher { width: 100%; max-width: 420px; }
+            .planning-switcher a { flex: 1 1 0; padding: 9px 8px; font-size: 0.7rem; }
+            .planning-intro { margin-bottom: 46px; }
+            .planning-intro h2 { font-size: 2rem; }
+            .planning-intro p { font-size: 0.9rem; }
+            .schedule-shell { padding: 0 16px 72px; }
+            .schedule-section { margin-bottom: 72px; }
+            .schedule-section + .schedule-section { padding-top: 58px; }
+            .schedule-heading { display: block; margin-bottom: 22px; }
+            .schedule-kicker { font-size: 2.3rem; }
+            .schedule-heading h2 { font-size: 1.05rem; }
+            .schedule-address { margin-top: 12px; max-width: none; text-align: left; font-size: 0.78rem; }
+            .schedule-grid {
+                display: flex;
+                gap: 12px;
+                margin-right: -16px;
+                padding-right: 16px;
+                padding-bottom: 14px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: thin;
+                scrollbar-color: #86a68e rgba(255, 255, 255, 0.28);
+            }
+            .schedule-day {
+                flex: 0 0 min(80vw, 310px);
+                scroll-snap-align: start;
+            }
+            .schedule-sunday { grid-template-columns: 1fr; }
+            .schedule-sunday .day-header { min-height: 54px; }
+            .schedule-sunday__slots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .schedule-actions { align-items: stretch; }
+            .schedule-live-link { width: 100%; }
         }
 
     </style>
@@ -319,26 +504,206 @@
     <div id="main-content" class="relative text-center py-16 px-4 reveal-load d-1 z-10">
         <h1 class="text-7xl md:text-8xl text-white drop-shadow-lg mb-4 font-hand svb-split">Choisis ton moment.</h1>
         <p class="text-white uppercase tracking-widest text-sm font-light opacity-90 bg-white/20 inline-block px-6 py-2 rounded-full backdrop-blur-sm mb-4">
-            Deux studios · Un planning en direct
+            Deux studios · Planning hebdomadaire
         </p>
         <p class="text-white text-base md:text-lg max-w-2xl mx-auto mt-2 font-medium leading-relaxed opacity-95">
-            Annule jusqu'à 1 h avant pour les small groups et 24 h avant pour le coaching privé afin de conserver ton crédit.
+            Retrouve ta semaine type et ouvre l'espace client pour les places disponibles, les coachs et les changements exceptionnels.
         </p>
     </div>
 
-    <section class="relative max-w-4xl mx-auto px-4 pb-24 z-10" aria-label="Planning SVB en direct">
-      <div class="planning-box reveal-load d-2 text-center" style="padding:clamp(32px,6vw,64px);">
-        <p class="text-[#4A8D84] text-xs font-black uppercase tracking-widest mb-3">Toujours à jour</p>
-        <h2 class="text-4xl md:text-5xl text-[#2F4F4F] font-hand mb-5">Le planning en direct est dans ton espace SVB.</h2>
-        <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">Les horaires et les coachs peuvent changer pendant les vacances et les périodes spéciales. L'espace client est la seule source utilisée pour les places disponibles et les réservations.</p>
-        <div class="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3">
-          <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/schedule" target="_blank" rel="noopener" class="inline-block bg-[#2F4F4F] text-white font-black text-sm uppercase px-8 py-4 rounded-full">Planning Lavandières</a>
-          <a href="https://web-customer.studiosvb.com/place/place_svb-parc-docks/schedule" target="_blank" rel="noopener" class="inline-block bg-[#2F4F4F] text-white font-black text-sm uppercase px-8 py-4 rounded-full">Planning Parc des Docks</a>
-          <a href="/sessions" class="inline-block border-2 border-[#2F4F4F] text-[#2F4F4F] font-black text-sm uppercase px-8 py-4 rounded-full">Découvrir les cours</a>
+    <div class="planning-switcher-wrapper reveal-load d-2">
+      <nav class="planning-switcher" aria-label="Choisir un studio dans le planning">
+        <a href="#planning-parc-des-docks">Parc des Docks</a>
+        <a href="#planning-lavandieres">Cours des Lavandières</a>
+      </nav>
+    </div>
+
+    <div class="planning-intro reveal-load d-2">
+      <h2>Ta semaine chez SVB</h2>
+      <p>Ce planning présente les horaires hebdomadaires. Les réservations, les coachs et les ajustements exceptionnels restent disponibles en direct dans ton espace SVB.</p>
+    </div>
+
+    <main class="schedule-shell" aria-label="Planning hebdomadaire des studios SVB">
+      <section id="planning-parc-des-docks" class="schedule-section schedule-section--docks reveal-load d-2" data-schedule-studio="parc-des-docks">
+        <header class="schedule-heading">
+          <div class="schedule-heading__title">
+            <p class="schedule-kicker">Planning</p>
+            <h2>Parc des Docks</h2>
+          </div>
+          <p class="schedule-address">6 Mail André Breton, 93400 Saint-Ouen-sur-Seine</p>
+        </header>
+
+        <div class="schedule-grid">
+          <article class="schedule-day" data-day="Lundi">
+            <h3 class="day-header">Lundi</h3>
+            <div class="class-slot course-cross-training" data-time="12h" data-course="Cross Training"><span class="class-time">12h</span><span class="class-name">Cross Training</span></div>
+            <div class="class-slot course-yoga-vinyasa" data-time="12h" data-course="Yoga Vinyasa"><span class="class-time">12h</span><span class="class-name">Yoga Vinyasa</span></div>
+            <div class="class-slot course-cross-core" data-time="13h" data-course="Cross Core"><span class="class-time">13h</span><span class="class-name">Cross Core</span></div>
+            <div class="class-slot course-power-pilates" data-time="13h" data-course="Power Pilates"><span class="class-time">13h</span><span class="class-name">Power Pilates</span></div>
+            <div class="class-slot course-cross-yoga" data-time="19h" data-course="Cross Yoga"><span class="class-time">19h</span><span class="class-name">Cross Yoga</span></div>
+            <div class="class-slot course-yoga-vinyasa" data-time="19h" data-course="Yoga Vinyasa"><span class="class-time">19h</span><span class="class-name">Yoga Vinyasa</span></div>
+            <div class="class-slot course-cross-body" data-time="20h" data-course="Cross Body"><span class="class-time">20h</span><span class="class-name">Cross Body</span></div>
+          </article>
+
+          <article class="schedule-day" data-day="Mardi">
+            <h3 class="day-header">Mardi</h3>
+            <div class="class-slot course-cross-rox" data-time="12h" data-course="Cross Rox"><span class="class-time">12h</span><span class="class-name">Cross Rox</span></div>
+            <div class="class-slot course-power-pilates" data-time="12h" data-course="Power Pilates"><span class="class-time">12h</span><span class="class-name">Power Pilates</span></div>
+            <div class="class-slot course-boxe" data-time="13h" data-course="Boxe"><span class="class-time">13h</span><span class="class-name">Boxe</span></div>
+            <div class="class-slot course-cross-training" data-time="18h" data-course="Cross Training"><span class="class-time">18h</span><span class="class-name">Cross Training</span></div>
+            <div class="class-slot course-cross-body" data-time="19h" data-course="Cross Body"><span class="class-time">19h</span><span class="class-name">Cross Body</span></div>
+            <div class="class-slot course-pilates-barre" data-time="19h" data-course="Pilates Barre"><span class="class-time">19h</span><span class="class-name">Pilates Barre</span></div>
+            <div class="class-slot course-power-pilates" data-time="20h" data-course="Power Pilates"><span class="class-time">20h</span><span class="class-name">Power Pilates</span></div>
+          </article>
+
+          <article class="schedule-day" data-day="Mercredi">
+            <h3 class="day-header">Mercredi</h3>
+            <div class="class-slot course-cross-training" data-time="12h" data-course="Cross Training"><span class="class-time">12h</span><span class="class-name">Cross Training</span></div>
+            <div class="class-slot course-stretch-mobility" data-time="13h" data-course="Stretch Mobility"><span class="class-time">13h</span><span class="class-name">Stretch Mobility</span></div>
+            <div class="class-slot course-yoga-kids" data-time="16h" data-course="Yoga Kids"><span class="class-time">16h</span><span class="class-name">Yoga Kids</span></div>
+            <div class="class-slot course-cross-training" data-time="19h" data-course="Cross Training"><span class="class-time">19h</span><span class="class-name">Cross Training</span></div>
+            <div class="class-slot course-yoga-vinyasa" data-time="19h" data-course="Yoga Vinyasa"><span class="class-time">19h</span><span class="class-name">Yoga Vinyasa</span></div>
+            <div class="class-slot course-boxe" data-time="20h" data-course="Boxe"><span class="class-time">20h</span><span class="class-name">Boxe</span></div>
+            <div class="class-slot course-power-pilates" data-time="20h" data-course="Power Pilates"><span class="class-time">20h</span><span class="class-name">Power Pilates</span></div>
+          </article>
+
+          <article class="schedule-day" data-day="Jeudi">
+            <h3 class="day-header">Jeudi</h3>
+            <div class="class-slot course-yoga-pilates" data-time="7h30" data-course="Yoga/Pilates"><span class="class-time">7h30</span><span class="class-name">Yoga/Pilates</span></div>
+            <div class="class-slot course-cross-core" data-time="8h" data-course="Cross Core"><span class="class-time">8h</span><span class="class-name">Cross Core</span></div>
+            <div class="class-slot course-cross-body" data-time="12h" data-course="Cross Body"><span class="class-time">12h</span><span class="class-name">Cross Body</span></div>
+            <div class="class-slot course-yoga-vinyasa" data-time="12h" data-course="Yoga Vinyasa"><span class="class-time">12h</span><span class="class-name">Yoga Vinyasa</span></div>
+            <div class="class-slot course-cross-rox" data-time="19h" data-course="Cross Rox"><span class="class-time">19h</span><span class="class-name">Cross Rox</span></div>
+            <div class="class-slot course-power-pilates" data-time="19h" data-course="Power Pilates"><span class="class-time">19h</span><span class="class-name">Power Pilates</span></div>
+            <div class="class-slot course-cross-training" data-time="20h" data-course="Cross Training"><span class="class-time">20h</span><span class="class-name">Cross Training</span></div>
+          </article>
+
+          <article class="schedule-day" data-day="Vendredi">
+            <h3 class="day-header">Vendredi</h3>
+            <div class="class-slot course-cross-training" data-time="12h" data-course="Cross Training"><span class="class-time">12h</span><span class="class-name">Cross Training</span></div>
+            <div class="class-slot course-cross-body" data-time="13h" data-course="Cross Body"><span class="class-time">13h</span><span class="class-name">Cross Body</span></div>
+            <div class="class-slot course-pilates-barre" data-time="13h" data-course="Pilates Barre"><span class="class-time">13h</span><span class="class-name">Pilates Barre</span></div>
+            <div class="class-slot course-classic-pilates" data-time="18h30" data-course="Classic Pilates"><span class="class-time">18h30</span><span class="class-name">Classic Pilates</span></div>
+            <div class="class-slot course-cross-rox" data-time="18h30" data-course="Cross Rox"><span class="class-time">18h30</span><span class="class-name">Cross Rox</span></div>
+            <div class="class-slot course-cross-training" data-time="19h30" data-course="Cross Training"><span class="class-time">19h30</span><span class="class-name">Cross Training</span></div>
+          </article>
+
+          <article class="schedule-day" data-day="Samedi">
+            <h3 class="day-header">Samedi</h3>
+            <div class="class-slot course-club-running" data-time="9h30" data-course="Club Running"><span class="class-time">9h30</span><span class="class-name">Club Running</span></div>
+            <div class="class-slot course-yoga-vinyasa" data-time="9h30" data-course="Yoga Vinyasa"><span class="class-time">9h30</span><span class="class-name">Yoga Vinyasa</span></div>
+            <div class="class-slot course-cross-body" data-time="10h30" data-course="Cross Body"><span class="class-time">10h30</span><span class="class-name">Cross Body</span></div>
+            <div class="class-slot course-classic-pilates" data-time="10h30" data-course="Classic Pilates"><span class="class-time">10h30</span><span class="class-name">Classic Pilates</span></div>
+            <div class="class-slot course-cross-core" data-time="11h30" data-course="Cross Core"><span class="class-time">11h30</span><span class="class-name">Cross Core</span></div>
+            <div class="class-slot course-stretch-mobility" data-time="11h30" data-course="Stretch Mobility"><span class="class-time">11h30</span><span class="class-name">Stretch Mobility</span></div>
+          </article>
         </div>
-        <p class="text-gray-600 text-sm mt-7">Annulation Small Group : jusqu'à 1 h avant. Coaching privé : jusqu'à 24 h avant.</p>
-      </div>
-    </section>
+
+        <article class="schedule-sunday" data-day="Dimanche">
+          <h3 class="day-header">Dimanche</h3>
+          <div class="schedule-sunday__slots" style="--slot-count:4">
+            <div class="class-slot course-cross-training" data-time="10h30" data-course="Cross Training"><span class="class-time">10h30</span><span class="class-name">Cross Training</span></div>
+            <div class="class-slot course-classic-pilates" data-time="10h30" data-course="Classic Pilates"><span class="class-time">10h30</span><span class="class-name">Classic Pilates</span></div>
+            <div class="class-slot course-cross-yoga" data-time="11h30" data-course="Cross Yoga"><span class="class-time">11h30</span><span class="class-name">Cross Yoga</span></div>
+            <div class="class-slot course-yoga-vinyasa" data-time="11h30" data-course="Yoga Vinyasa"><span class="class-time">11h30</span><span class="class-name">Yoga Vinyasa</span></div>
+          </div>
+        </article>
+
+        <div class="schedule-actions">
+          <p class="schedule-note">Réservations sur l'application pour les membres SVB. Les places disponibles et les changements exceptionnels sont affichés en direct.</p>
+          <a class="schedule-live-link" href="https://web-customer.studiosvb.com/place/place_svb-parc-docks/schedule" target="_blank" rel="noopener">Voir les places au Parc des Docks</a>
+        </div>
+      </section>
+
+      <section id="planning-lavandieres" class="schedule-section schedule-section--lavandieres reveal-load d-3" data-schedule-studio="cours-des-lavandieres">
+        <header class="schedule-heading">
+          <div class="schedule-heading__title">
+            <p class="schedule-kicker">Planning</p>
+            <h2>Cours des Lavandières</h2>
+          </div>
+          <p class="schedule-address">40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine</p>
+        </header>
+
+        <div class="schedule-grid">
+          <article class="schedule-day" data-day="Lundi">
+            <h3 class="day-header">Lundi</h3>
+            <div class="class-slot course-crossformer" data-time="12h" data-course="Crossformer"><span class="class-time">12h</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-reformer" data-time="12h10" data-course="Reformer"><span class="class-time">12h10</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-reformer" data-time="13h10" data-course="Reformer"><span class="class-time">13h10</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-reformer" data-time="19h" data-course="Reformer"><span class="class-time">19h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="19h10" data-course="Crossformer"><span class="class-time">19h10</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-reformer" data-time="20h" data-course="Reformer"><span class="class-time">20h</span><span class="class-name">Reformer</span></div>
+          </article>
+
+          <article class="schedule-day" data-day="Mardi">
+            <h3 class="day-header">Mardi</h3>
+            <div class="class-slot course-reformer" data-time="8h" data-course="Reformer"><span class="class-time">8h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-reformer" data-time="12h" data-course="Reformer"><span class="class-time">12h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-reformer" data-time="13h" data-course="Reformer"><span class="class-time">13h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="13h10" data-course="Crossformer"><span class="class-time">13h10</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-reformer" data-time="19h" data-course="Reformer"><span class="class-time">19h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="20h10" data-course="Crossformer"><span class="class-time">20h10</span><span class="class-name">Crossformer</span></div>
+          </article>
+
+          <article class="schedule-day" data-day="Mercredi">
+            <h3 class="day-header">Mercredi</h3>
+            <div class="class-slot course-reformer" data-time="12h" data-course="Reformer"><span class="class-time">12h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="12h" data-course="Crossformer"><span class="class-time">12h</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-reformer" data-time="13h" data-course="Reformer"><span class="class-time">13h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-reformer" data-time="19h" data-course="Reformer"><span class="class-time">19h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="19h10" data-course="Crossformer"><span class="class-time">19h10</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-reformer" data-time="20h" data-course="Reformer"><span class="class-time">20h</span><span class="class-name">Reformer</span></div>
+          </article>
+
+          <article class="schedule-day" data-day="Jeudi">
+            <h3 class="day-header">Jeudi</h3>
+            <div class="class-slot course-reformer" data-time="12h" data-course="Reformer"><span class="class-time">12h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="13h10" data-course="Crossformer"><span class="class-time">13h10</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-reformer" data-time="19h" data-course="Reformer"><span class="class-time">19h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-reformer" data-time="20h" data-course="Reformer"><span class="class-time">20h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="20h10" data-course="Crossformer"><span class="class-time">20h10</span><span class="class-name">Crossformer</span></div>
+          </article>
+
+          <article class="schedule-day" data-day="Vendredi">
+            <h3 class="day-header">Vendredi</h3>
+            <div class="class-slot course-crossformer" data-time="12h" data-course="Crossformer"><span class="class-time">12h</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-reformer" data-time="12h10" data-course="Reformer"><span class="class-time">12h10</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-reformer" data-time="13h10" data-course="Reformer"><span class="class-time">13h10</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="18h30" data-course="Crossformer"><span class="class-time">18h30</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-reformer" data-time="18h40" data-course="Reformer"><span class="class-time">18h40</span><span class="class-name">Reformer</span></div>
+          </article>
+
+          <article class="schedule-day" data-day="Samedi">
+            <h3 class="day-header">Samedi</h3>
+            <div class="class-slot course-reformer" data-time="9h" data-course="Reformer"><span class="class-time">9h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-reformer" data-time="10h" data-course="Reformer"><span class="class-time">10h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="10h30" data-course="Crossformer"><span class="class-time">10h30</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-crossformer" data-time="11h30" data-course="Crossformer"><span class="class-time">11h30</span><span class="class-name">Crossformer</span></div>
+          </article>
+        </div>
+
+        <article class="schedule-sunday" data-day="Dimanche">
+          <h3 class="day-header">Dimanche</h3>
+          <div class="schedule-sunday__slots" style="--slot-count:5">
+            <div class="class-slot course-reformer" data-time="10h" data-course="Reformer"><span class="class-time">10h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="10h10" data-course="Crossformer"><span class="class-time">10h10</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-reformer" data-time="11h" data-course="Reformer"><span class="class-time">11h</span><span class="class-name">Reformer</span></div>
+            <div class="class-slot course-crossformer" data-time="11h10" data-course="Crossformer"><span class="class-time">11h10</span><span class="class-name">Crossformer</span></div>
+            <div class="class-slot course-reformer" data-time="12h" data-course="Reformer"><span class="class-time">12h</span><span class="class-name">Reformer</span></div>
+          </div>
+        </article>
+
+        <div class="schedule-legend" aria-label="Légende des cours sur machine">
+          <span><i class="schedule-swatch schedule-swatch--reformer" aria-hidden="true"></i> Reformer : Pilates sur machine</span>
+          <span><i class="schedule-swatch schedule-swatch--crossformer" aria-hidden="true"></i> Crossformer : fitness sur machine</span>
+        </div>
+
+        <div class="schedule-actions">
+          <p class="schedule-note">Réservations sur l'application pour les membres SVB. Les places disponibles et les changements exceptionnels sont affichés en direct.</p>
+          <a class="schedule-live-link" href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/schedule" target="_blank" rel="noopener">Voir les places aux Lavandières</a>
+        </div>
+      </section>
+    </main>
 
     <footer class="svb-footer" role="contentinfo">
       <div class="svb-footer-accent" aria-hidden="true"></div>
@@ -387,20 +752,7 @@
       </div>
     </footer>
 
-    <div id="wa-container" class="wa-container">
-        <div id="wa-bubble" class="wa-bubble">👋 Hello ! Une question sur le planning ?</div>
-        <a href="https://wa.me/33744919155" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-            <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.096 0-4.141-.547-5.946-1.588L0 .057zm6.549-2.938c1.614.96 3.434 1.468 5.282 1.468 5.497 0 9.97-4.473 9.97-9.97s-4.473-9.97-9.97-9.97c-5.497 0-9.97 4.473-9.97 9.97 0 1.848.508 3.668 1.468 5.282L2.324 21.676l4.282-1.564zm11.334-7.129c-.314-.157-1.859-.917-2.148-1.021-.288-.105-.499-.157-.709.157-.21.314-.813 1.021-.996 1.231-.183.21-.367.236-.681.079-.314-.157-1.325-.489-2.524-1.559-.933-.833-1.563-1.861-1.747-2.175-.183-.314-.02-.484.137-.64.141-.141.314-.367.472-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.709-1.703-.971-2.332-.255-.612-.513-.529-.709-.539-.183-.01-.393-.012-.603-.012s-.551.079-.84.393c-.288.314-1.102 1.074-1.102 2.62s1.128 3.039 1.285 3.25c.157.21 2.221 3.391 5.38 4.755.751.325 1.337.519 1.794.664.754.24 1.441.206 1.983.125.603-.09 1.859-.759 2.121-1.467.262-.708.262-1.312.183-1.467-.079-.157-.288-.263-.603-.42z"/></svg>
-        </a>
-    </div>
-
-    <script>
-        setTimeout(() => {
-            const bubble = document.getElementById('wa-bubble');
-            if(bubble) bubble.classList.add('show');
-        }, 800);
-    </script>
-  <script src="/assets/svb.js?v=20260823d" defer></script>
+  <script src="/assets/svb.js?v=20260823e" defer></script>
   <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
   <script src="/assets/svb-motion.js?v=20260424a" defer></script>
 </body>

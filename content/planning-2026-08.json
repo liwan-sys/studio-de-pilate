@@ -1,0 +1,145 @@
+{
+  "source": "SVB_Brochure_148x148mm_082026.pdf, pages 6 et 7",
+  "effectiveFrom": "2026-08",
+  "studios": {
+    "parc-des-docks": {
+      "name": "Parc des Docks",
+      "address": "6 Mail André Breton, 93400 Saint-Ouen-sur-Seine",
+      "days": {
+        "Lundi": [
+          ["12h", "Cross Training"],
+          ["12h", "Yoga Vinyasa"],
+          ["13h", "Cross Core"],
+          ["13h", "Power Pilates"],
+          ["19h", "Cross Yoga"],
+          ["19h", "Yoga Vinyasa"],
+          ["20h", "Cross Body"]
+        ],
+        "Mardi": [
+          ["12h", "Cross Rox"],
+          ["12h", "Power Pilates"],
+          ["13h", "Boxe"],
+          ["18h", "Cross Training"],
+          ["19h", "Cross Body"],
+          ["19h", "Pilates Barre"],
+          ["20h", "Power Pilates"]
+        ],
+        "Mercredi": [
+          ["12h", "Cross Training"],
+          ["13h", "Stretch Mobility"],
+          ["16h", "Yoga Kids"],
+          ["19h", "Cross Training"],
+          ["19h", "Yoga Vinyasa"],
+          ["20h", "Boxe"],
+          ["20h", "Power Pilates"]
+        ],
+        "Jeudi": [
+          ["7h30", "Yoga/Pilates"],
+          ["8h", "Cross Core"],
+          ["12h", "Cross Body"],
+          ["12h", "Yoga Vinyasa"],
+          ["19h", "Cross Rox"],
+          ["19h", "Power Pilates"],
+          ["20h", "Cross Training"]
+        ],
+        "Vendredi": [
+          ["12h", "Cross Training"],
+          ["13h", "Cross Body"],
+          ["13h", "Pilates Barre"],
+          ["18h30", "Classic Pilates"],
+          ["18h30", "Cross Rox"],
+          ["19h30", "Cross Training"]
+        ],
+        "Samedi": [
+          ["9h30", "Club Running"],
+          ["9h30", "Yoga Vinyasa"],
+          ["10h30", "Cross Body"],
+          ["10h30", "Classic Pilates"],
+          ["11h30", "Cross Core"],
+          ["11h30", "Stretch Mobility"]
+        ],
+        "Dimanche": [
+          ["10h30", "Cross Training"],
+          ["10h30", "Classic Pilates"],
+          ["11h30", "Cross Yoga"],
+          ["11h30", "Yoga Vinyasa"]
+        ]
+      }
+    },
+    "cours-des-lavandieres": {
+      "name": "Cours des Lavandières",
+      "address": "40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine",
+      "days": {
+        "Lundi": [
+          ["12h", "Crossformer"],
+          ["12h10", "Reformer"],
+          ["13h10", "Reformer"],
+          ["19h", "Reformer"],
+          ["19h10", "Crossformer"],
+          ["20h", "Reformer"]
+        ],
+        "Mardi": [
+          ["8h", "Reformer"],
+          ["12h", "Reformer"],
+          ["13h", "Reformer"],
+          ["13h10", "Crossformer"],
+          ["19h", "Reformer"],
+          ["20h10", "Crossformer"]
+        ],
+        "Mercredi": [
+          ["12h", "Reformer"],
+          ["12h", "Crossformer"],
+          ["13h", "Reformer"],
+          ["19h", "Reformer"],
+          ["19h10", "Crossformer"],
+          ["20h", "Reformer"]
+        ],
+        "Jeudi": [
+          ["12h", "Reformer"],
+          ["13h10", "Crossformer"],
+          ["19h", "Reformer"],
+          ["20h", "Reformer"],
+          ["20h10", "Crossformer"]
+        ],
+        "Vendredi": [
+          ["12h", "Crossformer"],
+          ["12h10", "Reformer"],
+          ["13h10", "Reformer"],
+          ["18h30", "Crossformer"],
+          ["18h40", "Reformer"]
+        ],
+        "Samedi": [
+          ["9h", "Reformer"],
+          ["10h", "Reformer"],
+          ["10h30", "Crossformer"],
+          ["11h30", "Crossformer"]
+        ],
+        "Dimanche": [
+          ["10h", "Reformer"],
+          ["10h10", "Crossformer"],
+          ["11h", "Reformer"],
+          ["11h10", "Crossformer"],
+          ["12h", "Reformer"]
+        ]
+      }
+    }
+  },
+  "colors": {
+    "Cross Training": "#B5D4B8",
+    "Cross Rox": "#25454C",
+    "Cross Core": "#268181",
+    "Cross Body": "#224060",
+    "Cross Yoga": "#DABD99",
+    "Yoga Vinyasa": "#E3D8BA",
+    "Power Pilates": "#D1BF91",
+    "Boxe": "#191919",
+    "Stretch Mobility": "#F0B28D",
+    "Yoga Kids": "#636B9C",
+    "Pilates Barre": "#D1A48E",
+    "Classic Pilates": "#DAC194",
+    "Club Running": "#86A68E",
+    "Yoga/Pilates": ["#E8DBBC", "#DAC194"],
+    "Reformer": "#DABD99",
+    "Crossformer": "#25454C"
+  }
+}

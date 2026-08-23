@@ -50,6 +50,35 @@ function allSourceHtml(directory = root, files = []) {
 const sourceHtmlFiles = allSourceHtml();
 const publicCopy = sourceHtmlFiles.map((file) => fs.readFileSync(file, 'utf8')).join('\n');
 
+const planningTruth = JSON.parse(fs.readFileSync(path.join(root, 'content/planning-2026-08.json'), 'utf8'));
+const planningHtml = read('studio.html');
+for (const [studioId, studio] of Object.entries(planningTruth.studios)) {
+  const studioMarker = `data-schedule-studio="${studioId}"`;
+  const studioStart = planningHtml.indexOf(studioMarker);
+  if (studioStart === -1) {
+    fail(`studio.html doit contenir le planning ${studio.name}.`);
+    continue;
+  }
+  const studioEnd = planningHtml.indexOf('</section>', studioStart);
+  const studioBlock = planningHtml.slice(studioStart, studioEnd);
+  const renderedDays = new Map();
+  for (const match of studioBlock.matchAll(/<article\b[^>]*data-day="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g)) {
+    const slots = [...match[2].matchAll(/class="class-slot [^"]*"\s+data-time="([^"]+)"\s+data-course="([^"]+)"/g)]
+      .map((slot) => [slot[1], slot[2]]);
+    renderedDays.set(match[1], slots);
+  }
+  for (const [day, expectedSlots] of Object.entries(studio.days)) {
+    const renderedSlots = renderedDays.get(day);
+    if (!renderedSlots) {
+      fail(`studio.html : ${studio.name} ne contient pas le ${day}.`);
+      continue;
+    }
+    if (JSON.stringify(renderedSlots) !== JSON.stringify(expectedSlots)) {
+      fail(`studio.html : créneaux incorrects pour ${studio.name}, ${day}.`);
+    }
+  }
+}
+
 if (fs.existsSync(path.join(root, 'parrainage.html'))) {
   fail('La page parrainage supprimée ne doit pas être recréée.');
 }
