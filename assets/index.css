@@ -478,6 +478,226 @@
   @media (min-width: 540px){
     .hero-cta-stack { flex-direction: row !important; }
   }
+
+  .hero-limitless-cover {
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 118px 22px 34px;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  .hero-limitless-inner {
+    display: grid;
+    justify-items: center;
+    width: min(820px, 100%);
+  }
+
+  .hero-limitless-badge {
+    margin: 0 0 12px;
+    padding: 7px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.52);
+    border-radius: 999px;
+    background: rgba(24, 52, 54, 0.34);
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.3;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-limitless-title {
+    margin: 0;
+    color: #fff;
+    font-family: "Great Vibes", cursive;
+    font-size: 78px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 0.95;
+    text-shadow: 0 5px 24px rgba(0, 0, 0, 0.48);
+  }
+
+  .hero-limitless-tagline {
+    margin: 9px 0 10px;
+    color: rgba(255, 255, 255, 0.96);
+    font-family: "Montserrat", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.4;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-limitless-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 7px;
+    margin: 0 0 11px;
+    color: #f4decb;
+    font-family: "Montserrat", sans-serif;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.48);
+  }
+
+  .hero-limitless-price strong {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1;
+  }
+
+  .hero-limitless-price span {
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .hero-limitless-points {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 0 0 14px;
+    padding: 0;
+    flex-wrap: wrap;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    list-style: none;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-limitless-points li {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .hero-limitless-points li + li::before {
+    margin: 0 9px;
+    color: #f4decb;
+    content: "•";
+  }
+
+  .hero-limitless-countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 68px);
+    justify-content: center;
+    margin: 0 0 16px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .hero-limitless-countdown p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 48px;
+    margin: 0;
+    flex-direction: column;
+    border-left: 1px solid rgba(255, 255, 255, 0.28);
+    color: #fff;
+  }
+
+  .hero-limitless-countdown p:first-child { border-left: 0; }
+
+  .hero-limitless-countdown strong {
+    font-size: 21px;
+    font-variant-numeric: tabular-nums;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .hero-limitless-countdown span {
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .hero-limitless-ended {
+    margin: 0 0 18px;
+    color: #f4decb;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .hero-limitless-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    pointer-events: auto;
+  }
+
+  .hero-limitless-primary,
+  .hero-limitless-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 24px;
+    border-radius: 999px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.25;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+  }
+
+  .hero-limitless-primary {
+    gap: 10px;
+    background: #f0ddcb;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+    color: #1d3838;
+  }
+
+  .hero-limitless-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .hero-limitless-primary:hover,
+  .hero-limitless-secondary:hover { transform: translateY(-2px); }
+  .hero-limitless-primary:hover { background: #fff2e6; }
+  .hero-limitless-secondary:hover { background: rgba(255, 255, 255, 0.2); }
+
+  .hero-limitless-note {
+    margin: 11px 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.4;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+
   #hero-video .hero-content {
     position: relative;
     z-index: 10;
@@ -604,4 +824,36 @@
     #hero-video { min-height: 100vh; height: 100dvh; }
     #hero-video .hero-content { padding-top: 150px; padding-bottom: 80px; }
     #hero-video .hero-nav { padding: 0.75rem 1rem; }
+    .hero-limitless-cover { padding: 102px 16px 20px; }
+    .hero-limitless-title { font-size: 56px; }
+    .hero-limitless-tagline { margin-top: 7px; font-size: 14px; }
+    .hero-limitless-price { margin-bottom: 10px; }
+    .hero-limitless-price strong { font-size: 36px; }
+    .hero-limitless-points { max-width: 330px; margin-bottom: 12px; }
+    .hero-limitless-points li { font-size: 9px; }
+    .hero-limitless-points li + li::before { margin: 0 6px; }
+    .hero-limitless-countdown { grid-template-columns: repeat(4, 60px); margin-bottom: 14px; }
+    .hero-limitless-countdown p { min-height: 43px; }
+    .hero-limitless-countdown strong { font-size: 19px; }
+    .hero-limitless-actions { width: min(330px, 100%); flex-direction: column; gap: 8px; }
+    .hero-limitless-primary,
+    .hero-limitless-secondary { width: 100%; min-height: 46px; padding: 12px 18px; }
+    .hero-limitless-note { max-width: 320px; margin-top: 9px; }
+  }
+
+  @media (max-width: 360px) {
+    .hero-limitless-cover { padding-right: 12px; padding-left: 12px; }
+    .hero-limitless-title { font-size: 50px; }
+    .hero-limitless-countdown { grid-template-columns: repeat(4, 56px); }
+    .hero-limitless-points li { font-size: 8px; }
+  }
+
+  @media (max-height: 700px) and (max-width: 640px) {
+    .hero-limitless-badge { margin-bottom: 8px; padding-top: 5px; padding-bottom: 5px; }
+    .hero-limitless-title { font-size: 50px; }
+    .hero-limitless-tagline { margin-bottom: 6px; }
+    .hero-limitless-price { margin-bottom: 7px; }
+    .hero-limitless-points { margin-bottom: 8px; }
+    .hero-limitless-countdown { margin-bottom: 9px; }
+    .hero-limitless-note { margin-top: 6px; }
   }

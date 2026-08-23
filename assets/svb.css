@@ -1396,6 +1396,18 @@ body:has(.svb-video-hero) .svb-video-hero{
     right:14px;
     bottom:calc(var(--svb-mobile-cta-h) + 18px + env(safe-area-inset-bottom, 0px));
   }
+  #cta-sticky:not(.visible) + .whatsapp-btn{
+    bottom:calc(14px + env(safe-area-inset-bottom, 0px));
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(12px);
+  }
+  #cta-sticky.visible + .whatsapp-btn{
+    bottom:calc(var(--svb-mobile-cta-h) + 18px + env(safe-area-inset-bottom, 0px));
+    opacity:1;
+    pointer-events:auto;
+    transform:none;
+  }
 }
 
 @media (max-width:380px){

@@ -179,7 +179,20 @@
     });
   })();
 
-  // 3ter) CTA mobile sur les pages sans sticky dedie.
+  // 3ter) Active le sticky dedie de l'accueil dans toutes les langues.
+  (function initDedicatedStickyCta(){
+    var sticky = document.getElementById('cta-sticky');
+    if (!sticky) return;
+
+    function syncSticky(){
+      sticky.classList.toggle('visible', window.scrollY > 260);
+    }
+
+    window.addEventListener('scroll', syncSticky, { passive: true });
+    syncSticky();
+  })();
+
+  // 3quater) CTA mobile sur les pages sans sticky dedie.
   (function initMobileStickyCta(){
     try {
       if (!window.matchMedia || !window.matchMedia('(max-width: 767px)').matches) return;

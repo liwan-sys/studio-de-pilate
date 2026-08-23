@@ -74,7 +74,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c" />
 
-  <link rel="stylesheet" href="/assets/index.css?v=20260816" />
+  <link rel="stylesheet" href="/assets/index.css?v=20260823a" />
 
 
   <!-- Schema.org Organization -->
@@ -233,7 +233,7 @@
       ]
     }
     </script>
-  <link rel="stylesheet" href="/assets/svb.css?v=20260820c" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260823a" />
 
 
   <script src="/assets/nav-dropdown.js?v=20260820-noop" defer></script>
@@ -301,26 +301,45 @@
       </div>
     </nav>
 
-    <!-- CONTENU CENTRÉ HERO -->
-    <div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none;z-index:5;">
-      <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(3rem,14vw,7rem);color:white;margin:0 0 10px;line-height:1;text-shadow:0 4px 20px rgba(0,0,0,0.4);">SVB<span class="sr-only"> — Santez Vous Bien, studio de coaching sportif à Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Yoga et Boxe anglaise en petits groupes.</span></h1>
-      <p style="color:rgba(255,255,255,0.92);font-family:'Montserrat',sans-serif;font-size:clamp(15px,3.2vw,20px);font-weight:500;letter-spacing:.01em;margin:0 auto 34px;max-width:640px;text-shadow:0 2px 10px rgba(0,0,0,0.5);line-height:1.4;"><strong>Santez Vous Bien.</strong><br>Un studio pour bouger&nbsp;juste, en petit comité.</p>
-      <div class="hero-cta-stack" style="display:flex;flex-direction:column;gap:12px;align-items:center;pointer-events:all;">
-        <a href="/essai"
-           class="js-buy svb-magnetic"
-           data-discipline="reformer"
-           data-label="Séance d'essai Pilates Reformer"
-           data-amount="30 €"
-           data-track="home_hero_primary_cta"
-           style="background:white;color:#2F4F4F;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-decoration:none;padding:16px 36px;border-radius:50px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 30px rgba(0,0,0,0.35);transition:transform .2s,background .2s;"
-           onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-          Réserver mon essai · 30&nbsp;€
-        </a>
-        <a href="/studio"
-           style="color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:50px;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,0.55);background:rgba(255,255,255,0.08);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .25s, border-color .25s;"
-           onmouseover="this.style.background='rgba(255,255,255,0.18)';this.style.borderColor='rgba(255,255,255,0.9)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.55)'">
-          Découvrir le studio
-        </a>
+    <!-- COUVERTURE SVB LIMITLESS -->
+    <div class="hero-limitless-cover" data-launch-offer data-launch-deadline="2026-09-21T23:59:00+02:00">
+      <div class="hero-limitless-inner">
+        <p class="hero-limitless-badge" data-launch-only>Offre de lancement · jusqu'au 21 septembre</p>
+        <h1 class="hero-limitless-title">SVB Limitless<span class="sr-only"> — l'abonnement illimité aux deux studios SVB de Saint-Ouen.</span></h1>
+        <p class="hero-limitless-tagline">Un seul pass. Tout SVB. En illimité.</p>
+        <p class="hero-limitless-price" aria-label="Tarif de lancement : 300 euros par mois" data-launch-only><strong>300 €</strong><span>/ mois</span></p>
+
+        <ul class="hero-limitless-points" aria-label="Avantages SVB Limitless">
+          <li>2 studios</li>
+          <li>Toutes les disciplines</li>
+          <li>Cours illimités</li>
+        </ul>
+
+        <div class="hero-limitless-countdown pricing-launch-countdown" data-launch-only aria-live="off">
+          <p><strong data-countdown-days>00</strong><span>jours</span></p>
+          <p><strong data-countdown-hours>00</strong><span>heures</span></p>
+          <p><strong data-countdown-minutes>00</strong><span>minutes</span></p>
+          <p><strong data-countdown-seconds>00</strong><span>secondes</span></p>
+        </div>
+
+        <p class="hero-limitless-ended" data-launch-ended hidden>L'accès illimité aux deux studios SVB.</p>
+
+        <div class="hero-limitless-actions">
+          <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans"
+             data-booking-path="/place/place_svb-lavandieres/subscription-plans"
+             data-amount="300 € / mois"
+             data-track="home_hero_limitless_cta"
+             class="js-buy hero-limitless-primary svb-magnetic"
+             aria-label="Profiter de l'offre de lancement SVB Limitless à 300 euros par mois"
+             data-launch-cta
+             data-default-label="Découvrir Limitless"
+             data-default-aria-label="Découvrir l'abonnement SVB Limitless">
+            <span data-launch-cta-label>Profiter de l'offre</span><span aria-hidden="true">→</span>
+          </a>
+          <a href="/tarifs#svb-limitless" class="hero-limitless-secondary">Voir les détails</a>
+        </div>
+
+        <p class="hero-limitless-note" data-launch-only>Séance d'essai offerte · tarif conservé tant que l'abonnement reste actif</p>
       </div>
     </div>
 </section>
@@ -1363,15 +1382,6 @@
     </footer>
 
   <script>
-    const ctaSticky = document.getElementById('cta-sticky');
-    const offreSection = document.getElementById('offre-premium');
-
-    window.addEventListener('scroll', () => {
-      if (offreSection) {
-        ctaSticky.classList.toggle('visible', window.scrollY > 260);
-      }
-    });
-
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -1381,7 +1391,8 @@
     });
   </script>
 
-  <script src="/assets/svb.js?v=20260819e" defer></script>
+  <script src="/assets/svb.js?v=20260823a" defer></script>
+  <script src="/assets/tarifs-launch.js?v=20260822a" defer></script>
   <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
   <script src="/assets/svb-motion.js?v=20260424a" defer></script>
 
