@@ -50,6 +50,16 @@ function allSourceHtml(directory = root, files = []) {
 const sourceHtmlFiles = allSourceHtml();
 const publicCopy = sourceHtmlFiles.map((file) => fs.readFileSync(file, 'utf8')).join('\n');
 
+if (fs.existsSync(path.join(root, 'parrainage.html'))) {
+  fail('La page parrainage supprimée ne doit pas être recréée.');
+}
+if (/href=["']\/parrainage(?:["'/?#])/i.test(publicCopy)) {
+  fail('Un lien public pointe encore vers la page parrainage supprimée.');
+}
+forbidText('sitemap.xml', /studiosvb\.com\/parrainage/i, 'page parrainage dans le sitemap');
+forbidText('llms.txt', /studiosvb\.com\/parrainage/i, 'page parrainage communiquée aux IA');
+requireText('_redirects', '/parrainage                             /tarifs 301!');
+
 for (const retired of [...truth.retired.courses, ...truth.retired.services, ...truth.retired.passes]) {
   const escaped = retired.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/-/g, '[- ]');
   if (new RegExp(`\\b${escaped}\\b`, 'i').test(publicCopy)) {

@@ -195,7 +195,7 @@ focus← 0 0 0 3px rgba(74,141,132,.25)   ring a11y
 
 - **Éase-out dominant** (`standard`, `emphasized`, `decelerate`) — les éléments arrivent en douceur, pressés sur la fin.
 - **Éase-in rare** — uniquement pour les sorties (modal close, dismiss).
-- **Bounce parcimonieux** — moments ludiques uniquement (confirmation, parrainage).
+- **Bounce parcimonieux** — moments ludiques uniquement (confirmation).
 
 ### 4.2 Durées
 

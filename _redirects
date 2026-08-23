@@ -11,8 +11,8 @@
 /cours                                  /sessions 301!
 /planning/                              /studio 301!
 /planning                               /studio 301!
-/cadeau                                 /parrainage 301!
-/cadeau/                                /parrainage 301!
+/cadeau                                 /tarifs 301!
+/cadeau/                                /tarifs 301!
 /hello-world/                           / 301!
 /hello-world                            / 301!
 /hello-world.html                       / 301!
@@ -131,7 +131,9 @@
 /sport-enfant-saint-ouen.html           /sport-enfant-saint-ouen 301!
 /sport-femme-saint-ouen.html            /sport-femme-saint-ouen 301!
 /sport-debutant-saint-ouen.html         /sport-debutant-saint-ouen 301!
-/parrainage.html                        /parrainage 301!
+/parrainage.html                        /tarifs 301!
+/parrainage                             /tarifs 301!
+/parrainage/                            /tarifs 301!
 /mentions-legales.html                  /mentions-legales 301!
 /cgv.html                               /cgv 301!
 /Merci.html                             /Merci 301!
@@ -169,7 +171,6 @@
 /sport-enfant-saint-ouen          /sport-enfant-saint-ouen.html 200
 /sport-femme-saint-ouen           /sport-femme-saint-ouen.html 200
 /sport-debutant-saint-ouen        /sport-debutant-saint-ouen.html 200
-/parrainage                       /parrainage.html 200
 /mentions-legales                 /mentions-legales.html 200
 /cgv                              /cgv.html 200
 /Merci                            /Merci.html 200

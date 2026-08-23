@@ -155,7 +155,7 @@ Un ancien blog, un mini-CMS, trois avis internes non affichés, un widget inutil
 
 Les 35 URL indexables sont réparties en cinq ensembles :
 
-1. Marque et conversion : accueil, pourquoi SVB, essai, tarifs, témoignages, équipe, FAQ, contact, cadeau et parrainage.
+1. Marque et conversion : accueil, pourquoi SVB, essai, tarifs, témoignages, équipe, FAQ et contact.
 2. Navigation pratique : disciplines, planning et studios.
 3. Deux établissements : Parc des Docks et Cours des Lavandières.
 4. Disciplines et besoins : Reformer, Crossformer, salle de sport, Yoga, Boxe, Cross Training, Bootcamp, Pilates au sol, coaching, Yoga Kids, sport enfant, sport femme et sport débutant.

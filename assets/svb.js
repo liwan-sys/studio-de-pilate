@@ -36,48 +36,6 @@
     });
   })();
 
-  // -0.5) Referral code capture (programme parrainage)
-  //       Lit ?ref=XXX sur n'importe quelle page, persiste 60j, propage aux CTA de réservation.
-  (function initRefTracking(){
-    try {
-      var params = new URLSearchParams(location.search);
-      var ref = (params.get('ref') || '').toUpperCase().trim();
-      if (ref) {
-        var exp = new Date(Date.now() + 60 * 86400000).toUTCString();
-        document.cookie = 'svb_ref=' + encodeURIComponent(ref) + '; expires=' + exp + '; path=/; SameSite=Lax';
-        try {
-          localStorage.setItem('svb-ref', ref);
-          localStorage.setItem('svb-ref-ts', Date.now().toString());
-        } catch(e){}
-      }
-      var stored = (function(){
-        var m = document.cookie.match(/(?:^|;\s*)svb_ref=([^;]+)/);
-        if (m) return decodeURIComponent(m[1]);
-        try { return localStorage.getItem('svb-ref') || ''; } catch(e){ return ''; }
-      })();
-      if (stored) {
-        // Propage automatiquement aux liens Sportigo, /reserver et formulaires
-        document.querySelectorAll('a[href*="sportigo.fr"], a[href^="/reserver"], form').forEach(function(el){
-          if (el.tagName === 'A') {
-            try {
-              var u = new URL(el.href, location.origin);
-              if (!u.searchParams.has('ref')) {
-                u.searchParams.set('ref', stored);
-                el.href = u.toString();
-              }
-            } catch(e){}
-          } else if (el.tagName === 'FORM') {
-            if (!el.querySelector('input[name="ref"]')) {
-              var i = document.createElement('input');
-              i.type = 'hidden'; i.name = 'ref'; i.value = stored;
-              el.appendChild(i);
-            }
-          }
-        });
-      }
-    } catch(e){}
-  })();
-
   // 0) WebP → JPG fallback (pour les navigateurs qui ne supportent pas WebP)
   //    On ajoute un handler une seule fois par image.
   document.querySelectorAll('img[src*="/images/"][src$=".webp"]').forEach(function(img){
