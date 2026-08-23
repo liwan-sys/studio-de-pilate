@@ -201,7 +201,7 @@
 
       var path = location.pathname.replace(/\/+$/, '') || '/';
       if (/\/(merci|Merci|mentions-legales|cgv|admin|questionnaire-abonnement-svb|tarifs|coaching-sportif-saint-ouen|404)(\.html)?$/i.test(path)) return;
-      if (/\/(pilates-reformer-saint-ouen|crossformer-saint-ouen|cross-training-saint-ouen|bootcamp-saint-ouen|pilates-saint-ouen|yoga-saint-ouen|boxe-anglaise-saint-ouen|afrodance-saint-ouen|sport-enfant-saint-ouen)(\.html)?$/i.test(path)) return;
+      if (/\/(pilates-reformer-saint-ouen|crossformer-saint-ouen|cross-training-saint-ouen|bootcamp-saint-ouen|pilates-saint-ouen|yoga-saint-ouen|boxe-anglaise-saint-ouen|sport-enfant-saint-ouen)(\.html)?$/i.test(path)) return;
 
       var isEssai = path === '/essai' || path === '/essai.html';
       var cta = document.createElement('a');

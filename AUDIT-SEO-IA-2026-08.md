@@ -11,7 +11,7 @@ La nouvelle structure donne un message beaucoup plus net :
 
 - **SVB** est la marque ; **Santez Vous Bien** est sa signification ; **Studio SVB** désigne le site et les studios.
 - SVB possède **deux établissements réels à Saint-Ouen-sur-Seine**.
-- Le Parc des Docks, 6 Mail André Breton, accueille Cross Training, Boxe, Afrodance, Training Kids et coaching privé.
+- Le Parc des Docks, 6 Mail André Breton, accueille Cross Training, Boxe, Yoga Kids et coaching privé.
 - Le Cours des Lavandières, 40 Cours des Lavandières, accueille Pilates Reformer, Crossformer, Pilates au sol et Yoga Vinyasa.
 - SVB ne propose plus de massage ni de rubrique bien-être.
 - Les pages prioritaires parlent des disciplines, des studios, des coachs, des tarifs et de l'essai, sans multiplier les pages artificielles par ville.
@@ -156,7 +156,7 @@ Les 35 URL indexables sont réparties en cinq ensembles :
 1. Marque et conversion : accueil, pourquoi SVB, essai, tarifs, témoignages, équipe, FAQ, contact, cadeau et parrainage.
 2. Navigation pratique : disciplines, planning et studios.
 3. Deux établissements : Parc des Docks et Cours des Lavandières.
-4. Disciplines et besoins : Reformer, Crossformer, salle de sport, Yoga, Boxe, Cross Training, Bootcamp, Pilates au sol, coaching, Afrodance, sport enfant, sport femme et sport débutant.
+4. Disciplines et besoins : Reformer, Crossformer, salle de sport, Yoga, Boxe, Cross Training, Bootcamp, Pilates au sol, coaching, Yoga Kids, sport enfant, sport femme et sport débutant.
 5. Huit pages anglaises utiles pour les personnes qui cherchent un studio à Saint-Ouen en anglais.
 
 ## Ce qui reste à faire hors du site

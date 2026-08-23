@@ -14,8 +14,7 @@
         { label: 'Pilates', href: '/pilates-saint-ouen', tag: 'Classic, Power & mobilité' },
         { label: 'Yoga', href: '/yoga-saint-ouen', tag: 'Vinyasa, Hatha & Cross Yoga' },
         { label: 'Boxe anglaise', href: '/boxe-anglaise-saint-ouen', tag: 'Technique sans contact' },
-        { label: 'Afrodance', href: '/afrodance-saint-ouen', tag: 'Danse fitness · Parc des Docks' },
-        { label: 'Training Kids', href: '/sport-enfant-saint-ouen', tag: 'Cours enfants · Parc des Docks' },
+        { label: 'Yoga Kids', href: '/sport-enfant-saint-ouen', tag: 'Cours enfants · Parc des Docks' },
         { label: 'Coaching privé', href: '/coaching-sportif-saint-ouen', tag: 'Solo ou duo · 2 studios' }
     ];
 

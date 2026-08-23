@@ -3,7 +3,7 @@
  * Drop-in widget : <div data-svb-simulator="pilates-reformer"></div>
  *
  * Disciplines supportées :
- *   pilates-reformer, crossformer, cross-training, yoga, boxe, barre, afrodance
+ *   pilates-reformer, crossformer, cross-training, yoga, boxe, barre
  *
  * Auto-init au DOMContentLoaded.
  * Réversible via SvbSimulator.render(el) si injection dynamique.
@@ -18,8 +18,8 @@
         crossformer: { label: "Pass Crossformer", duration: "50 min",     url: "crossformer", includes: ["Crossformer"] },
         fullformer:  { label: "Pass Full Former", duration: "50 min",     url: "fullformer",  includes: ["Pilates Reformer", "Crossformer"], comboOf: "Reformer + Crossformer" },
         cross:       { label: "Pass Cross",       duration: "55 min",     url: "cross",       includes: ["Cross Training", "Cross Rox", "Cross Core", "Cross Body", "Cross Yoga"] },
-        focus:       { label: "Pass Focus",       duration: "55-60 min",  url: "focus",       includes: ["Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Afrodance'All", "Core & Stretch"] },
-        full:        { label: "Pass Full",        duration: "55-60 min",  url: "full",        includes: ["Cross Training", "Cross Rox", "Cross Core", "Cross Body", "Cross Yoga", "Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Afrodance'All", "Core & Stretch"], comboOf: "Cross + Focus" }
+        focus:       { label: "Pass Focus",       duration: "55-60 min",  url: "focus",       includes: ["Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Core & Stretch"] },
+        full:        { label: "Pass Full",        duration: "55-60 min",  url: "full",        includes: ["Cross Training", "Cross Rox", "Cross Core", "Cross Body", "Cross Yoga", "Yoga Vinyasa", "Hatha Flow", "Classic Pilates", "Power Pilates", "Boxe Anglaise", "Core & Stretch"], comboOf: "Cross + Focus" }
     };
 
     // Discipline slug pour data-discipline sur le CTA .js-buy (ouvre le modal
@@ -68,12 +68,6 @@
         "pilates": {
             label: "Pilates",
             highlight: "Classic Pilates",
-            passes: ["focus", "full"],
-            trial: "other"
-        },
-        "afrodance": {
-            label: "Afrodance",
-            highlight: "Afrodance'All",
             passes: ["focus", "full"],
             trial: "other"
         }

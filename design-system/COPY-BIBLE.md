@@ -119,8 +119,7 @@ Liens (10–18 char) :
 - Cross Training (14)
 - Yoga Vinyasa (12)
 - Boxe anglaise (13)
-- Afrodance (9)
-- Training Kids (13)
+- Yoga Kids (9)
 
 ### Bloc 3 · Studio
 
@@ -181,7 +180,7 @@ Alternative A/B variant :
 > **`Le studio qui te ressemble.`** (27)
 
 **Sous-titre** (Lead · ~15 mots / max 110 car) :
-> `Pilates Reformer, Crossformer, Yoga, Boxe, Afrodance. 16 coachs certifiés, 12 places max, deux studios à 4 min du métro.` (118 — à couper à 110 ou garder selon blocsize)
+> `Pilates Reformer, Crossformer, Yoga, Boxe et Yoga Kids. 16 coachs certifiés, 12 places max, deux studios à 4 min du métro.`
 
 Version courte (85 car) :
 > `Pilates Reformer, Cross, Yoga, Boxe — 16 coachs, 12 places max, à 4 min du métro.` (80)
@@ -224,10 +223,10 @@ Version courte (85 car) :
 > `Ton meeting déborde ? Ta fille est malade ? Annule ton small group jusqu'à une heure avant, sans perdre ton crédit. Suspension d'abonnement possible, parce que la vie, c'est la vie.` (176)
 **Preuve inline** : *Option Boost (12,90 €/mois) — suspension sans préavis*
 
-### 3.3 Disciplines (grille visuelle · 7 cartes)
+### 3.3 Disciplines (grille visuelle · 6 cartes)
 
 **Eyebrow** : `Nos disciplines` (15)
-**H2** : `Sept façons. Une seule énergie.` (31)
+**H2** : `Six façons. Une seule énergie.` (30)
 
 Par carte : thumbnail · H3 (discipline) · Body-sm (accroche 55 car max) · tags · link-arrow
 
@@ -238,8 +237,7 @@ Par carte : thumbnail · H3 (discipline) · Body-sm (accroche 55 car max) · tag
 | Cross Training | *HIIT, conditioning, mobilité. 8 semaines.* (44) | 55 min · Progressif |
 | Yoga | *Vinyasa, Hatha, Yin. Respire, enracine-toi.* (44) | 60 min · Débutant ok |
 | Boxe anglaise | *Pieds, gardes, combos. Confiance garantie.* (44) | 55 min · Tous niveaux |
-| Afrodance | *Groove, chorés, énergie collective.* (38) | 60 min · Fun, cardio |
-| Training Kids | *Motricité, jeux sportifs. 5–12 ans.* (38) | 45 min · 5–12 ans |
+| Yoga Kids | *Respiration, équilibre et confiance. 5–12 ans.* | 45 min · 5–12 ans |
 
 ### 3.4 Promesse / stats (section signature)
 
@@ -255,7 +253,7 @@ Par carte : thumbnail · H3 (discipline) · Body-sm (accroche 55 car max) · tag
 - `16` — coachs certifiés
 - `12` — places max/cours
 - `77` — avis 5 ★
-- `7` — disciplines
+- `6` — disciplines
 - `2` — studios à Saint-Ouen
 - `1 h` — pour annuler
 
@@ -281,16 +279,12 @@ Par carte : thumbnail · H3 (discipline) · Body-sm (accroche 55 car max) · tag
 > — **Yanis B.** · Cross Training · il y a 1 mois
 
 > ★★★★★
-> *Les cours Afrodance de Lila sont une vraie thérapie. On sue, on rigole, on se défoule. Mon meilleur moment de la semaine.* (122)
-> — **Amina K.** · Afrodance · il y a 3 semaines
-
-> ★★★★★
 > *J'avais peur du Crossformer, au final c'est devenu mon format préféré. Coachs hyper attentifs à la technique.* (112)
 > — **Marc D.** · Crossformer · il y a 2 mois
 
 > ★★★★★
-> *Mon fils adore le Training Kids. Il demande à y aller le samedi matin. C'est dire.* (85)
-> — **Sonia T.** · Training Kids · il y a 1 mois
+> *Mon enfant adore le Yoga Kids. Il revient plus calme et demande déjà quand aura lieu le prochain cours.*
+> — **Sonia T.** · Yoga Kids · il y a 1 mois
 
 **Indicateurs d'autorité** (bande stripe sous témoignages) :
 - Google · 5,0 ★ · 77 avis
@@ -349,7 +343,7 @@ Par carte : thumbnail · H3 (discipline) · Body-sm (accroche 55 car max) · tag
 #### Q7 · « Avez-vous des cours pour mes enfants ? »
 
 **Réponse** (~150 car) :
-> `Oui, **Pass Kids** (5–12 ans, hors juillet/août) : 35,30 €/mois pour 2 sessions, 65,30 €/mois pour 4. Cours Yoga Kids (mercredi 16 h) et Training Kids (samedi 9 h 30) au Studio Breton.` (182)
+> `Oui, **Pass Kids** (5–12 ans, hors juillet/août) : 35,30 €/mois pour 2 sessions, 65,30 €/mois pour 4. Cours Yoga Kids au Studio Breton.`
 
 #### Q8 · « Je suis enceinte / j'ai une blessure — quoi faire ? »
 
@@ -402,7 +396,7 @@ Tabs :
 **Sous-prix** : *« soit 180,30 €/mois pour 12 sessions »*
 **Features** :
 - Accès **illimité** à toutes les disciplines small group
-- Cross, Focus, Yoga, Boxe, Afrodance, Training Kids
+- Cross, Focus, Yoga, Boxe et Yoga Kids
 - Jusqu'à 12 sessions/mois
 - Pause vacances possible (préavis 1 mois)
 - Annulation 1 h avant
@@ -463,7 +457,7 @@ Tabs :
 
 **Eyebrow** : `Pour les 5–12 ans` (17)
 **H3** : `Pass Kids — sport pour les petits.` (33)
-**Body** : `Yoga Kids (mercredi 16 h) · Training Kids (samedi 9 h 30). Hors juillet/août.` (79)
+**Body** : `Yoga Kids au Studio Breton. Hors juillet/août.`
 
 | Sessions | Prix | Détails |
 |---|---|---|
@@ -566,7 +560,7 @@ Tabs :
 **Karim** — *Boxe · Cross Training*
 > « Tu ne te connais vraiment qu'au round 4. »
 
-**Lila** — *Afrodance · Kids*
+**Lila** — *Yoga Kids*
 > « La joie est un muscle. Il s'entraîne. »
 
 **Théo** — *Crossformer · Reformer*
@@ -642,7 +636,7 @@ Champs :
 #### Studio Breton — Coaching & Small Group
 > 6 Mail André Breton · 93400 Saint-Ouen-sur-Seine
 > 🚇 Mairie de Saint-Ouen (L13 · L14) — **4 min à pied**
-> Cours : Cross Training · Cross Body · Cross Core · Cross Yoga · Cross Rox · Boxe · Afrodance · Yoga Kids · Training Kids · Coaching privé
+> Cours : Cross Training · Cross Body · Cross Core · Cross Yoga · Cross Rox · Boxe · Yoga Kids · Coaching privé
 
 #### Studio Lavandières — Reformer & Crossformer
 > 40 Cours des Lavandières · 93400 Saint-Ouen-sur-Seine
@@ -683,7 +677,7 @@ Champs :
 - Nom *(required)*
 - Email *(required, email validation)*
 - Téléphone *(required, pattern numérique)*
-- Discipline souhaitée *(select)* : Pilates Reformer / Crossformer / Cross Training / Yoga / Boxe / Afrodance / Training Kids / *Je ne sais pas, aidez-moi à choisir*
+- Discipline souhaitée *(select)* : Pilates Reformer / Crossformer / Cross Training / Yoga / Boxe / Yoga Kids / *Je ne sais pas, aidez-moi à choisir*
 - Disponibilités *(textarea, optionnel)* : *Ex : lundi soir après 19h, samedi matin...*
 - Checkbox RGPD
 
@@ -855,7 +849,7 @@ Tarifs · Équipe · Blog · Contact · FAQ
 
 ### 12.2 Filtres (chips)
 
-Tout · Pilates · Cross Training · Crossformer · Yoga · Boxe · Afrodance · Kids · Studio
+Tout · Pilates · Cross Training · Crossformer · Yoga · Boxe · Yoga Kids · Studio
 
 ### 12.3 Grille articles (cards auto-générées depuis blog-index.json)
 
@@ -875,7 +869,7 @@ Tout · Pilates · Cross Training · Crossformer · Yoga · Boxe · Afrodance ·
 **Eyebrow** : `BOUTIQUE STUDIO · SAINT-OUEN · PARIS` (36)
 **H1** : `Move better, live stronger.` (27)
 **Lead** (~130 car) :
-> `Pilates Reformer, Crossformer, Cross Training, Yoga, Boxing & Afrodance in Saint-Ouen. Small groups of 12, English-speaking coaches, 4 min from Paris metro 13 & 14.` (162 → trim à 150)
+> `Pilates Reformer, Crossformer, Cross Training, Yoga, Boxing and Yoga Kids in Saint-Ouen. Small groups of 12, 4 min from Paris metro 13 & 14.`
 **CTA Primary** : `Book my trial · €30` (19)
 **CTA Outline** : `See disciplines` (15)
 
