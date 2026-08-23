@@ -6,6 +6,36 @@
 (function(){
   'use strict';
 
+  // Met en avant uniquement la page courante dans les navigations communes.
+  // Certaines anciennes pages embarquent encore une couleur active en ligne :
+  // elle est retirée ici pour éviter plusieurs onglets surlignés à la fois.
+  (function initCurrentNavigation(){
+    var cleanPath = function(value){
+      var path = value.replace(/\.html$/, '').replace(/\/+$/, '');
+      if (path === '/index') path = '';
+      if (/\/index$/i.test(path)) path = path.replace(/\/index$/i, '');
+      return path || '/';
+    };
+    var currentPath = cleanPath(location.pathname);
+    document.querySelectorAll('nav a[href]').forEach(function(link){
+      var raw = link.getAttribute('href') || '';
+      if (!raw || raw.charAt(0) === '#' || !link.textContent.trim()) return;
+      var target;
+      try { target = new URL(raw, location.origin); } catch(e) { return; }
+      if (target.origin !== location.origin) return;
+
+      if (/^#e8b496$/i.test(link.style.color || '')) link.style.removeProperty('color');
+      if (link.style.fontWeight === '800') link.style.removeProperty('font-weight');
+      link.classList.remove('svb-nav-current');
+      link.removeAttribute('aria-current');
+
+      if (cleanPath(target.pathname) === currentPath) {
+        link.classList.add('svb-nav-current');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+
   // -0.5) Referral code capture (programme parrainage)
   //       Lit ?ref=XXX sur n'importe quelle page, persiste 60j, propage aux CTA de réservation.
   (function initRefTracking(){

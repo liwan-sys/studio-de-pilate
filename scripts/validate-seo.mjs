@@ -318,7 +318,7 @@ const forbiddenClaims = [
   /3\s*[×x]\s*moins cher/i,
   /5\s*[×x]\s*plus attentif/i,
   /2\s+à\s+15\s+ans d'expérience/i,
-  /bien[- ]être/i,
+  /(?:soins?|espace|prestations?|services?)\s+(?:de\s+)?bien[- ]être/i,
   /\bmassages?\b/i,
   /\bwellness\b/i,
 ];

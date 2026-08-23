@@ -10,36 +10,39 @@
     "parcDesDocks": {
       "address": "6 Mail André Breton, 93400 Saint-Ouen-sur-Seine",
       "courses": [
-        "Coaching individuel",
-        "Coaching duo",
         "Cross Training",
         "Cross Rox",
         "Cross Core",
         "Cross Body",
         "Cross Yoga",
         "Boxe anglaise",
-        "Yoga Kids"
+        "Yoga Vinyasa",
+        "Yoga Kids",
+        "Pilates Classique",
+        "Power Pilates",
+        "Pilates Barre",
+        "Stretch Mobility"
       ]
     },
     "coursDesLavandieres": {
       "address": "40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine",
       "courses": [
         "Pilates Reformer",
+        "Flow Reformer",
         "Crossformer",
-        "Classic Pilates",
-        "Power Pilates",
-        "Yoga Vinyasa",
-        "Hatha Flow",
-        "Yin selon le planning",
-        "Core & Stretch"
+        "Crossformer Challenger"
       ]
     }
   },
   "capacities": {
     "pilatesReformer": 9,
+    "flowReformer": 9,
     "crossformer": 8,
+    "crossformerChallenger": 8,
     "crossAndYoga": 12,
-    "pilatesMat": 10
+    "pilatesMat": 12,
+    "pilatesBarre": 12,
+    "yogaKids": 8
   },
   "offers": {
     "passTry": {
@@ -75,7 +78,7 @@
       "commitmentMonths": 12,
       "registrationFee": "49 €",
       "access": "Tous les cours des deux studios en illimité.",
-      "launchDeadline": "2026-09-21T23:59:00+02:00"
+      "launchDeadline": "2026-09-30T23:59:00+02:00"
     },
     "passStarter": {
       "price": "99,90 €",
@@ -119,7 +122,8 @@
       "type": "Option ajoutée à un abonnement actif",
       "pricePerMonth": "12,90 €",
       "commitment": "Sans engagement",
-      "pause": "Sans préavis"
+      "pause": "Sans préavis",
+      "incompatibleWith": "SVB Limitless"
     },
     "runningClub": {
       "dayAndTime": "Samedi à 9 h 30",
@@ -128,15 +132,18 @@
     }
   },
   "policies": {
-    "smallGroupCancellation": "Jusqu'à 1 heure avant le cours",
+    "smallGroupCancellation": "Jusqu'à 1 heure avant le cours pour SVB Move, SVB Form et SVB Limitless",
     "privateCoachingCancellation": "Jusqu'à 24 heures avant la séance",
-    "noShow": "Après deux no-shows, l'abonnement et le compte sont bloqués jusqu'à prise de contact avec SVB.",
-    "standardPause": "Absence de plus de 10 jours, préavis d'un mois, deux mois maximum, une fois par an.",
-    "boostPause": "L'option SVB Boost permet une pause sans préavis."
+    "noShowCredits": "Pour SVB Move et SVB Form, une séance annulée hors délai ou non honorée est décomptée.",
+    "noShowLimitless": "Pour SVB Limitless uniquement, un no-show bloque l'abonnement pendant une semaine.",
+    "termination": "Résiliation par email avec un mois de préavis comprenant une mensualité complète, possible une fois la période d'engagement terminée.",
+    "standardPause": "Suspension possible pour une absence d'au moins 10 jours, avec un mois de préavis.",
+    "medicalPause": "Sur justificatif médical, l'abonnement peut être mis en pause sans préavis.",
+    "boostPause": "L'option SVB Boost permet une pause sans préavis et n'est pas compatible avec SVB Limitless."
   },
   "retired": {
-    "courses": ["Afrodance", "Training Kids"],
-    "services": ["Massage", "Bien-être", "Wellness"],
+    "courses": ["Afrodance", "Training Kids", "Hatha Flow", "Yin Yoga", "Core & Stretch"],
+    "services": ["Massage", "Massage bien-être", "Massage technique", "Wellness"],
     "passes": ["Pass Cross", "Pass Focus", "Pass Reformer", "Pass Crossformer", "Pass Full"]
   },
   "acquisitionOnlyRoutes": ["/essai"]

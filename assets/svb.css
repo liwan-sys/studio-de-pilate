@@ -1431,3 +1431,8 @@ body:has(.svb-video-hero) .svb-video-hero{
   .svb-mobile-sticky-cta__label{font-size:.82rem}
   .svb-mobile-sticky-cta__pill{padding:0 10px;font-size:.72rem}
 }
+/* Une seule entrée active dans la navigation, déterminée par assets/svb.js. */
+.svb-nav-current {
+  color: #E8B496 !important;
+  font-weight: 800 !important;
+}

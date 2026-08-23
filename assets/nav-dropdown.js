@@ -7,15 +7,14 @@
     'use strict';
 
     var DISCIPLINES = [
-        { label: 'Pilates Reformer', href: '/pilates-reformer-saint-ouen', tag: 'Machines · Lavandières' },
-        { label: 'Crossformer', href: '/crossformer-saint-ouen', tag: 'Reformer + cardio · Lavandières' },
-        { label: 'Cross Training', href: '/cross-training-saint-ouen', tag: 'Force & cardio · Parc des Docks' },
-        { label: 'CrossRox, CrossCore & CrossBody', href: '/bootcamp-saint-ouen', tag: '3 formats Cross · Parc des Docks' },
-        { label: 'Pilates', href: '/pilates-saint-ouen', tag: 'Classic, Power & mobilité' },
-        { label: 'Yoga', href: '/yoga-saint-ouen', tag: 'Vinyasa, Hatha & Cross Yoga' },
+        { label: 'Reformer', href: '/pilates-reformer-saint-ouen', tag: 'Pilates & Flow · Lavandières' },
+        { label: 'Crossformer', href: '/crossformer-saint-ouen', tag: 'Signature & Challenger · Lavandières' },
+        { label: 'Cross Training & formats Cross', href: '/cross-training-saint-ouen', tag: 'Training, Rox, Body, Core & Yoga' },
+        { label: 'Pilates', href: '/pilates-saint-ouen', tag: 'Classique, Power & Barre' },
+        { label: 'Yoga', href: '/yoga-saint-ouen', tag: 'Vinyasa & Cross Yoga' },
+        { label: 'Stretch Mobility', href: '/pilates-saint-ouen#stretch-mobility', tag: 'Souplesse & mobilité' },
         { label: 'Boxe anglaise', href: '/boxe-anglaise-saint-ouen', tag: 'Technique sans contact' },
-        { label: 'Yoga Kids', href: '/sport-enfant-saint-ouen', tag: 'Cours enfants · Parc des Docks' },
-        { label: 'Coaching privé', href: '/coaching-sportif-saint-ouen', tag: 'Solo ou duo · 2 studios' }
+        { label: 'Yoga Kids', href: '/sport-enfant-saint-ouen', tag: '8 enfants max · Parc des Docks' }
     ];
 
     var CSS = [

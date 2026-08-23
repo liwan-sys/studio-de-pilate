@@ -18,15 +18,16 @@
 
 ### Studio Cours des Lavandières
 - **Adresse** : 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine
-- **Disciplines** : Pilates Reformer, Crossformer, Pilates au sol (Classic & Power Pilates), Yoga Vinyasa, Hatha Flow, Core & Stretch
-- **Planning à jour** : https://web-customer.studiosvb.com
+- **Disciplines** : Pilates Reformer, Flow Reformer, Crossformer, Crossformer Challenger
+- **Planning à jour** : https://web-customer.studiosvb.com/place/place_svb-lavandieres/schedule
 - **Métro** : Mairie de Saint-Ouen (lignes 13 & 14)
 - **Fiche** : https://studiosvb.com/studio-cours-des-lavandieres
 - **Google Maps et avis** : https://www.google.com/maps?cid=5013071026965844982
 
 ### Studio Parc des Docks
 - **Adresse** : 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine
-- **Disciplines** : Coaching sportif, Cross Training (Cross Rox, Cross Core, Cross Body, Cross Yoga), Boxe anglaise, Yoga Kids
+- **Disciplines** : Cross Training, Cross Rox, Cross Core, Cross Body, Cross Yoga, Boxe anglaise, Yoga Vinyasa, Yoga Kids, Pilates Classique, Power Pilates, Pilates Barre, Stretch Mobility
+- **Planning à jour** : https://web-customer.studiosvb.com/place/place_svb-parc-docks/schedule
 - **Horaires** : variables selon le planning des cours ; aucun horaire général n'est déclaré
 - **Métro** : Mairie de Saint-Ouen (lignes 13 & 14)
 - **Fiche** : https://studiosvb.com/studio-parc-des-docks
@@ -34,29 +35,34 @@
 
 ## Disciplines proposées
 
-- **Pilates Reformer** — 50 min, jusqu'à 9 places, machine Reformer classique
-- **Crossformer** (méthode style Lagree / Megaformer) — 50 min, jusqu'à 8 places, Reformer + cardio dynamique
-- **Cross Training** (Body, Core, Rox, Yoga) — 55 min, jusqu'à 12 places
-- **Yoga Vinyasa / Hatha Flow / Yin / Cross Yoga** — 55–60 min, jusqu'à 12 places
+- **Pilates Reformer et Flow Reformer** — jusqu'à 9 places, travail sur machine Reformer
+- **Crossformer et Crossformer Challenger** — jusqu'à 8 places, fitness dynamique sur Reformer
+- **Cross Training, Cross Body, Cross Core, Cross Rox et Cross Yoga** — jusqu'à 12 places
+- **Yoga Vinyasa** — jusqu'à 12 places
 - **Boxe Anglaise** — 55 min, jusqu'à 12 places
-- **Pilates au sol** (Classic & Power) — 55 min, jusqu'à 10 places
+- **Pilates Classique, Power Pilates et Pilates Barre** — jusqu'à 12 places
+- **Stretch Mobility** — jusqu'à 12 places
 - **Coaching privé** ou duo — 55 min
-- **Yoga Kids** — cours enfants hors juillet/août
+- **Yoga Kids** — jusqu'à 8 enfants, hors juillet et août
 
 ## Ce qui distingue SVB
 
-- **Small group** : jauges strictes (9 en Pilates Reformer, 8 en Crossformer, jusqu'à 12 pour le training)
+- **Small group** : jauges strictes (9 en Reformer, 8 en Crossformer, jusqu'à 12 pour les autres cours et 8 en Yoga Kids)
 - **Coachs certifiés** : chaque discipline enseignée par un·e coach spécialiste
 - **Annulation** : les cours Small Group, y compris avec SVB Limitless, peuvent être annulés jusqu'à 1 h avant ; le Coaching Privé peut être annulé jusqu'à 24 h avant
-- **No-show** : après 2 absences non annulées dans le délai requis, l'abonnement et le compte sont bloqués jusqu'à prise de contact avec SVB
-- **Pause standard** : possible pour une absence de plus de 10 jours, avec un préavis d'un mois, pendant 2 mois maximum et une fois par an
-- **Exception SVB Boost** : l'option permet une pause sans préavis
+- **No-show Move et Form** : une séance annulée hors délai ou non honorée est décomptée
+- **No-show Limitless** : un no-show bloque l'abonnement pendant une semaine
+- **Résiliation** : par email avec un mois de préavis comprenant une mensualité complète, une fois l'engagement terminé
+- **Pause standard** : possible pour une absence d'au moins 10 jours, avec un préavis d'un mois
+- **Pause médicale** : sans préavis sur justificatif médical
+- **Exception SVB Boost** : l'option permet une pause sans préavis et n'est pas compatible avec SVB Limitless
 - **Deux studios** à Saint-Ouen-sur-Seine, à proximité immédiate de Paris 17e et 18e (10 min en métro)
 - **Avis clients** : les avis à jour sont consultables sur les deux fiches Google Maps officielles liées ci-dessus
 
 ## Pass Try
 
 - **Principe** : une séance d'essai achetée donne droit à une seconde séance d'essai dans une autre discipline
+- **Disponibilité** : une seule fois par personne
 - **Frais de dossier après le Pass Try** : offerts en cas d'inscription immédiatement après l'un des deux essais ; réduits de moitié dans les 3 jours suivant le dernier essai
 - **Réservation** : https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs
 
@@ -65,13 +71,13 @@
 - **SVB Move** : abonnement small group du Parc des Docks, engagement de 6 mois et frais de dossier de 49 € ; 80,50 € pour 4 séances par mois, 120,50 € pour 6 séances ou 160,50 € pour 8 séances
 - **SVB Form** : abonnement Reformer et Crossformer du studio Cours des Lavandières, engagement de 6 mois et frais de dossier de 49 € ; 140,50 € pour 4 séances par mois, 210,50 € pour 6 séances ou 280,50 € pour 8 séances
 - **SVB Limitless** : accès illimité aux cours des deux studios SVB, tarif de lancement de 300 € par mois, engagement d'un an et frais de dossier de 49 €
-- **Offre de lancement SVB Limitless** : souscription avant le 21 septembre 2026 à 23 h 59 ; tarif de 300 € par mois conservé tant que l'abonnement reste actif sans résiliation ; séance d'essai offerte
-- **Pass Starter** : 5 sessions différentes au choix, valables 1 mois, sans engagement ni tacite reconduction, 99,90 € ; frais de dossier offerts pendant la validité du pass ou réduits de moitié dans les 3 jours suivant son expiration
-- **Pass Try** : 2 essais dans 2 disciplines, 30 €
+- **Offre de lancement SVB Limitless** : souscription avant le 30 septembre 2026 à 23 h 59 ; tarif de 300 € par mois conservé tant que l'abonnement reste actif sans résiliation ; séance d'essai offerte
+- **Pass Starter** : 5 sessions différentes au choix, valables 1 mois, sans engagement ni tacite reconduction, 99,90 €, disponible une seule fois par personne ; frais de dossier offerts pendant la validité du pass ou réduits de moitié dans les 3 jours suivant son expiration
+- **Pass Try** : 2 essais dans 2 disciplines, 30 €, disponible une seule fois par personne
 - **Coaching Pass Good Vibes** : coaching individuel de 55 minutes, engagement 4 mois, 300,50 € pour 4 séances par mois ou 560,50 € pour 8
 - **Coaching Pass Duo** : coaching privé à deux de 55 minutes, engagement 4 mois, 401 € pour 4 séances par mois ou 721 € pour 8
 - **Pass Kids** : Yoga Kids hors juillet et août, engagement 4 mois, 35,50 € pour 2 sessions par mois ou 65,50 € pour 4
-- **SVB Boost** : option à 12,90 € par mois, sans engagement, permettant une pause de l'abonnement sans préavis
+- **SVB Boost** : option à 12,90 € par mois, sans engagement, permettant une pause de l'abonnement sans préavis ; incompatible avec SVB Limitless
 - **Club Running SVB** : gratuit et illimité, chaque samedi à 9 h 30, 20 places en extérieur et 8 places maintenues en intérieur par mauvais temps
 - **Page officielle** : https://studiosvb.com/tarifs
 - **Espace client** : https://web-customer.studiosvb.com

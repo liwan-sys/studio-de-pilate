@@ -40,7 +40,7 @@
   <meta property="og:url" content="https://studiosvb.com/parrainage" />
   <meta property="og:title" content="Parrainage SVB" />
   <meta property="og:site_name" content="SVB">
-  <meta property="og:description" content="1 mois offert pour toi et ton parrain. Saint-Ouen." />
+  <meta property="og:description" content="Un mois offert pour le membre SVB et 30 % sur le premier mois de la personne parrainée." />
   <meta property="og:image" content="https://studiosvb.com/images/og-image.jpg" />
 
   <meta name="theme-color" content="#4A8D84" />
@@ -53,93 +53,102 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260823b" />
-  <link rel="stylesheet" href="/assets/svb.css?v=20260823b" />
+  <link rel="stylesheet" href="/assets/svb.css?v=20260823c" />
+  <link rel="stylesheet" href="/assets/parrainage.css?v=20260823a" />
 
 
-  <script src="/assets/nav-dropdown.js?v=20260823-cours2" defer></script>
+  <script src="/assets/nav-dropdown.js?v=20260823-cours3" defer></script>
     <script src="/assets/analytics.js?v=20260523a" defer></script>
   <script src="/assets/js/meta-pixel.js" defer></script>
   <script src="/assets/js/svb-booking.js?v=20260823b" defer></script>
 </head>
-<body>
+<body class="referral-page">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
     <a href="#main-content" class="svb-skip">Aller au contenu principal</a>
-<nav class="nav" aria-label="Navigation principale">
-      <div style="display:flex;flex-direction:column;width:100%;gap:8px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-          <a href="/">
-            <img src="/images/logo.webp" alt="Logo SVB" class="h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142">
-          </a>
-          <a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener" aria-label="Espace client" style="background:#E8B496;color:#2F4F4F;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.12em;padding:6px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase;transition:transform .2s,background .2s;" onmouseover="this.style.background='#F5C76D';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#E8B496';this.style.transform=''">Espace client</a>
-          <a href="/en/" style="color:white;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;border:1px solid rgba(255,255,255,0.5);padding:5px 10px;border-radius:20px;white-space:nowrap;">FR&nbsp;|&nbsp;EN</a>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:2px 0;">
-          <a href="/" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Accueil</a>
-          <a href="/sessions" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Sessions</a>
-          <a href="/studio" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Planning</a>
-          <a href="/pourquoi-svb" style="color:#E8B496;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.04em;white-space:nowrap;">Pourquoi SVB</a>
-          <a href="/tarifs" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Abonnements</a>
-          <a href="/equipe" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">La Team</a>
-          <a href="/temoignages" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Avis</a>
-          <a href="/faq" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">FAQ</a>
-          <a href="/contact" style="color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.04em;white-space:nowrap;">Contact</a>
-        </div>
+    <nav class="referral-nav" aria-label="Navigation principale">
+      <a href="/" class="referral-nav__logo" aria-label="Accueil SVB">
+        <img src="/images/logo.webp" alt="SVB" width="200" height="142">
+      </a>
+      <button id="referral-nav-toggle" class="referral-nav__toggle" type="button" aria-expanded="false" aria-controls="referral-nav-links" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div id="referral-nav-links" class="referral-nav__links">
+        <a href="/">Accueil</a>
+        <a href="/sessions">Cours</a>
+        <a href="/studio">Planning</a>
+        <a href="/pourquoi-svb">Pourquoi SVB</a>
+        <a href="/tarifs">Abonnements</a>
+        <a href="/equipe">La Team</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
+        <a href="/en/" aria-label="English version">FR | EN</a>
+        <a class="referral-nav__client" href="https://web-customer.studiosvb.com" target="_blank" rel="noopener">Espace client</a>
       </div>
     </nav>
 
-  <header class="hero">
-    <p class="eyebrow">Programme de parrainage</p>
-    <h1>Partage le sport, <em>offrez-vous un mois.</em></h1>
-    <p class="sub">1 mois offert pour toi · 30% sur le 1er mois pour ta filleule</p>
-    <p class="lead">
-      Chaque membre SVB reçoit un code unique.
-      Quand ton filleul s'abonne avec ton code, il paie <strong>−30%</strong> son 1er mois
-      et <strong>tu reçois 1 mois gratuit</strong> sur ton prochain prélèvement.
-      Aucune limite, parraine autant de monde que tu veux.
-    </p>
-  </header>
+  <main id="main-content">
+    <header class="referral-hero">
+      <div class="referral-hero__inner">
+        <p class="referral-eyebrow">Programme de parrainage</p>
+        <h1>Partage le sport, <em>offre-toi un mois.</em></h1>
+        <p class="referral-hero__offer">1 mois offert pour toi · 30 % sur le premier mois de la personne parrainée</p>
+        <p class="referral-hero__lead">
+          Chaque membre SVB reçoit un code unique. Quand une personne s'abonne avec ton code, elle bénéficie de <strong>30 % de réduction</strong> sur son premier mois et <strong>tu reçois un mois offert</strong> sur ton prochain prélèvement.
+        </p>
+      </div>
+    </header>
 
   <!-- Dynamic referral box (affiche le code si ?member=XXX dans l'URL, sinon une explication) -->
-  <div class="referral-box" id="refBox">
-    <p class="welcome">Bienvenue</p>
-    <h2>Tu as un code de parrain ?</h2>
-    <p style="color:#2F4F4F;opacity:.75;margin:0 0 1rem">
-      Colle-le ou partage le lien qu'un·e ami·e t'a envoyé et ton code sera automatiquement appliqué à ta réservation.
-    </p>
-    <p id="refCodeBox" style="margin:0"></p>
-    <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-discipline="reformer" data-label="Pass Try · 2 séances" data-amount="30 €" class="js-buy ref-box-btn svb-magnetic" data-track="cta_ref_to_booking">Réserver mes 2 séances</a>
-  </div>
+    <section class="referral-tool-band" aria-label="Activer un code de parrainage">
+      <div class="referral-box" id="refBox">
+        <p class="welcome">Ton avantage SVB</p>
+        <h2>Tu as un code de parrainage ?</h2>
+        <p style="color:#2F4F4F;opacity:.75;margin:16px auto 1rem;max-width:620px;line-height:1.7">
+          Ouvre le lien envoyé par un membre SVB : son code est automatiquement mémorisé et appliqué à ta demande.
+        </p>
+        <p id="refCodeBox" style="margin:0"></p>
+        <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-discipline="reformer" data-label="Pass Try · 2 séances" data-amount="30 €" class="js-buy ref-box-btn svb-magnetic" data-track="cta_ref_to_booking">Réserver mes 2 séances</a>
+      </div>
+    </section>
 
-  <section id="main-content" aria-label="Comment ça marche">
-    <ol class="steps" aria-label="Les 3 étapes du parrainage">
-      <li class="step svb-reveal">
-        <span class="num">1</span>
-        <h3>Demande ton code</h3>
-        <p>Dès que tu es membre SVB, on te donne un code unique (exemple : SHANAEL-7X42). Il est affiché dans ton espace membre.</p>
-      </li>
-      <li class="step svb-reveal">
-        <span class="num">2</span>
-        <h3>Partage-le</h3>
-        <p>Par SMS, WhatsApp, Instagram, email. Ta filleule reçoit automatiquement 30% sur son 1er mois avec ton code.</p>
-      </li>
-      <li class="step svb-reveal">
-        <span class="num">3</span>
-        <h3>Ton mois offert</h3>
-        <p>Dès que l'inscription de ta filleule est confirmée, tu reçois 1 mois gratuit crédité sur ton prochain prélèvement. Automatiquement.</p>
-      </li>
-    </ol>
-  </section>
+    <section class="referral-steps" aria-labelledby="referral-steps-title">
+      <div class="referral-steps__inner">
+        <div class="referral-steps__intro">
+          <p class="referral-eyebrow">Simple et automatique</p>
+          <h2 id="referral-steps-title">Comment ça marche ?</h2>
+          <p>Tu partages ton code. La personne que tu parraines profite de son avantage. Ton mois offert est ensuite crédité.</p>
+        </div>
+        <ol class="steps" aria-label="Les 3 étapes du parrainage">
+          <li class="step svb-reveal">
+            <span class="num">1</span>
+            <h3>Demande ton code</h3>
+            <p>Dès que tu es membre SVB, tu reçois un code unique à partager avec tes proches.</p>
+          </li>
+          <li class="step svb-reveal">
+            <span class="num">2</span>
+            <h3>Partage-le</h3>
+            <p>Par WhatsApp, SMS, Instagram ou e-mail. La personne parrainée bénéficie de 30 % sur son premier mois.</p>
+          </li>
+          <li class="step svb-reveal">
+            <span class="num">3</span>
+            <h3>Ton mois offert</h3>
+            <p>Dès que son inscription est confirmée, ton mois offert est crédité sur ton prochain prélèvement.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-  <section class="share">
+    <section class="referral-share">
     <h2>Partage le lien en 1 clic</h2>
-    <p style="color:#2F4F4F;opacity:.75;max-width:50ch;margin:0 auto">Pour les membres actuels : partage ton lien personnel ci-dessous, il contient ton code automatiquement.</p>
+    <p>Ton lien personnel contient déjà ton code. Il suffit de choisir ton canal de partage.</p>
     <div class="share-btns" id="shareBtns">
       <!-- remplis en JS si un code est détecté -->
     </div>
-  </section>
+    </section>
+  </main>
 
   <footer class="svb-footer" role="contentinfo">
       <div class="svb-footer-accent" aria-hidden="true"></div>
@@ -147,7 +156,7 @@
         <div class="svb-footer-grid">
           <div class="svb-footer-brand">
             <img style="height:56px;width:auto;margin:0 0 18px;filter:none;background:transparent;box-shadow:none;display:block;" src="/images/logo-footer.png" alt="Studio SVB — Pilates, Yoga et Fitness à Saint-Ouen" class="svb-footer-logo" width="593" height="420" decoding="async" loading="lazy">
-            <p class="svb-footer-sig">Bouge mieux,<br>vis mieux.</p>
+            <p class="svb-footer-sig">Santez vous bien,<br>le bien-être au quotidien.</p>
             <p class="svb-footer-tagline">Studio de Pilates, Yoga &amp; Fitness à Saint-Ouen-sur-Seine.</p>
           </div>
           <div class="svb-footer-col">
@@ -190,12 +199,23 @@
 
   <div id="refToast" role="status" aria-live="polite">Code copié ✓</div>
 
-  <script src="/assets/svb.js?v=20260823b" defer></script>
+  <script src="/assets/svb.js?v=20260823c" defer></script>
   <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
   <script src="/assets/svb-motion.js?v=20260424a" defer></script>
   <script>
     (function(){
-      document.getElementById('year').textContent = new Date().getFullYear();
+      var navToggle = document.getElementById('referral-nav-toggle');
+      var navLinks = document.getElementById('referral-nav-links');
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function(){
+          var open = navLinks.classList.toggle('is-open');
+          navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          navToggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        });
+      }
+
+      var year = document.getElementById('svb-year');
+      if (year) year.textContent = new Date().getFullYear();
 
       // Récupère le code depuis l'URL (?ref=ABC123 ou ?member=PRENOM-1234 pour membre)
       var params = new URLSearchParams(location.search);
@@ -232,7 +252,7 @@
           '<br/><small style="color:#2F4F4F;opacity:.7;font-size:.82rem">Valable sur ton 1er mois si tu t\'abonnes dans les ' + DAYS + ' jours.</small>';
         if (window.svbTrack) window.svbTrack('ref_applied', { code: code });
       } else {
-        refBox.innerHTML = '<em style="color:#2F4F4F;opacity:.6">Aucun code détecté. Demande à ton parrain de te partager son lien personnel.</em>';
+        refBox.innerHTML = '<em style="color:#2F4F4F;opacity:.6">Aucun code détecté. Demande à un membre SVB de te partager son lien personnel.</em>';
       }
 
       // Vue membre : affiche les boutons de partage avec son code unique
@@ -241,11 +261,11 @@
         var url = encodeURIComponent('https://studiosvb.com/parrainage?ref=' + encodeURIComponent(member));
         var txt = encodeURIComponent('Viens tester le Studio SVB à Saint-Ouen 💪 Avec mon code "' + member + '" tu as 30% sur ton 1er mois : ');
         document.getElementById('shareBtns').innerHTML = '\
-<a class="share-btn share-wa" href="https://wa.me/?text=' + txt + url + '" target="_blank" rel="noopener noreferrer" data-track="ref_share_whatsapp">💬 WhatsApp</a>\
-<a class="share-btn share-fb" href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener noreferrer" data-track="ref_share_fb">📘 Facebook</a>\
-<a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=' + txt + '&url=' + url + '" target="_blank" rel="noopener noreferrer" data-track="ref_share_twitter">🐦 X / Twitter</a>\
-<a class="share-btn share-mail" href="mailto:?subject=Un%20bon%20plan%20sport%20%C3%A0%20Saint-Ouen&body=' + txt + url + '" data-track="ref_share_email">✉️ Email</a>\
-<button class="share-btn share-copy" id="copyRef">📋 Copier le lien</button>';
+<a class="share-btn share-wa" href="https://wa.me/?text=' + txt + url + '" target="_blank" rel="noopener noreferrer" data-track="ref_share_whatsapp">WhatsApp</a>\
+<a class="share-btn share-fb" href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener noreferrer" data-track="ref_share_fb">Facebook</a>\
+<a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=' + txt + '&url=' + url + '" target="_blank" rel="noopener noreferrer" data-track="ref_share_twitter">X</a>\
+<a class="share-btn share-mail" href="mailto:?subject=Un%20bon%20plan%20sport%20%C3%A0%20Saint-Ouen&body=' + txt + url + '" data-track="ref_share_email">E-mail</a>\
+<button class="share-btn share-copy" id="copyRef">Copier le lien</button>';
 
         document.getElementById('copyRef').addEventListener('click', function(){
           var link = 'https://studiosvb.com/parrainage?ref=' + encodeURIComponent(member);

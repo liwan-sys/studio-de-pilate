@@ -72,8 +72,18 @@ for (const [pattern, label] of globalForbidden) {
   if (pattern.test(publicCopy)) fail(`Ancienne information trouvée : ${label}`);
 }
 
-requireText('index.html', 'Pass Try à 30&nbsp;€</strong> comprend 2 séances dans 2 disciplines');
+requireText('index.html', 'Le Pass Try coûte 30 € et comprend deux séances dans deux disciplines différentes');
+requireText('index.html', 'Pour Limitless, 1 no-show bloque l\'abonnement pendant 1 semaine.');
+requireText('index.html', 'data-launch-deadline="2026-09-30T23:59:00+02:00"');
+requireText('index.html', "Offre valable jusqu'au 30/09/2026 à 23h59");
 requireText('tarifs.html', 'Une séance d\'essai achetée et une séance offerte dans une autre discipline.');
+requireText('tarifs.html', 'data-launch-deadline="2026-09-30T23:59:00+02:00"');
+requireText('tarifs.html', '"priceValidUntil": "2026-09-30"');
+requireText('en/tarifs.html', 'data-launch-deadline="2026-09-30T23:59:00+02:00"');
+requireText('en/tarifs.html', '"priceValidUntil": "2026-09-30"');
+forbidText('index.html', /21 septembre 2026|21\/09\/2026|2026-09-21/i, 'ancienne date de fin Limitless');
+forbidText('tarifs.html', /21 septembre 2026|21\/09\/2026|2026-09-21/i, 'ancienne date de fin Limitless');
+forbidText('en/tarifs.html', /21 September 2026|2026-09-21/i, 'ancienne date de fin Limitless en anglais');
 requireText('tarifs.html', '<dt>4 séances / mois</dt><dd>80,50 €</dd>');
 requireText('tarifs.html', '<dt>4 séances / mois</dt><dd>140,50 €</dd>');
 requireText('tarifs.html', '<strong>300 €</strong><small>/ mois</small>');
@@ -85,6 +95,14 @@ requireText('en/tarifs.html', 'within 3 days after the final trial');
 requireText('en/tarifs.html', 'within 3 days after the pass expires');
 requireText('faq.html', 'jusqu\'à 1 h avant');
 requireText('faq.html', 'jusqu\'à 24 h avant');
+requireText('faq.html', '1 no-show bloque l\'abonnement pendant 1 semaine');
+requireText('faq.html', '<strong>Résiliation :</strong> par email avec 1 mois de préavis');
+requireText('faq.html', 'absence d\'au moins 10 jours');
+requireText('faq.html', 'sur justificatif médical');
+requireText('tarifs.html', 'Valable une seule fois par personne');
+requireText('tarifs.html', 'Non compatible avec SVB Limitless');
+requireText('en/tarifs.html', 'Available once per person');
+requireText('en/tarifs.html', 'Not available with SVB Limitless');
 requireText('llms.txt', '**SVB Boost** : option à 12,90 € par mois');
 requireText('studio.html', 'https://web-customer.studiosvb.com/place/place_svb-lavandieres/schedule');
 requireText('studio.html', 'https://web-customer.studiosvb.com/place/place_svb-parc-docks/schedule');
@@ -97,32 +115,53 @@ forbidText('essai.html', /Une séance par discipline|1 séance\s*\/\s*discipline
 requireText('essai.html', '5 séances différentes au choix · 1 mois');
 requireText('pilates-reformer-saint-ouen.html', '9 personnes maximum');
 forbidText('pilates-reformer-saint-ouen.html', /8 personnes maximum/i, 'mauvaise jauge Reformer');
-requireText('yoga-saint-ouen.html', 'Cours des Lavandières et Parc des Docks');
+requireText('yoga-saint-ouen.html', 'Parc des Docks');
+requireText('pourquoi-svb.html', "à 7 minutes à pied l'un de l'autre");
+forbidText('pourquoi-svb.html', /Les 3 erreurs|LES ERREURS QUE PERSONNE CORRIGE/i, 'ancienne section des trois erreurs');
+requireText('equipe.html', 'La Team SVB se prépare.');
+requireText('en/equipe.html', 'The SVB team is getting ready.');
+forbidText('equipe.html', /class="coach-card/i, 'anciens profils de la Team');
+forbidText('en/equipe.html', /class="coach-card/i, 'anciens profils de la Team en anglais');
 
 for (const course of [
-  'Coaching Individuel',
-  'Coaching Duo',
+  'Pilates Reformer',
+  'Flow Reformer',
+  'Crossformer',
+  'Crossformer Challenger',
   'Cross Training',
   'Cross Rox',
   'Cross Core',
   'Cross Body',
   'Cross Yoga',
+  'Yoga Vinyasa',
+  'Pilates Classique',
+  'Power Pilates',
+  'Pilates Barre',
+  'Stretch Mobility',
   'Boxe Anglaise',
   'Yoga Kids',
-  'Pilates Reformer',
-  'Crossformer',
-  'Classic Pilates',
-  'Power Pilates',
-  'Yoga Vinyasa',
-  'Hatha Flow',
-  'Yin Yoga',
-  'Core &amp; Stretch',
 ]) {
   requireText('sessions.html', course);
 }
 requireText('sessions.html', 'Studio Parc des Docks');
 requireText('sessions.html', 'Studio Cours des Lavandières');
 forbidText('sessions.html', /Studio Mail André Breton/i, 'adresse utilisée comme nom de studio');
+forbidText('sessions.html', /Coaching Individuel|Coaching Duo/i, 'coaching affiché parmi les cours collectifs');
+
+for (const course of ['Pilates Reformer', 'Flow Reformer', 'Crossformer', 'Crossformer Challenger']) {
+  requireText('studio-cours-des-lavandieres.html', course);
+}
+for (const course of ['Cross Training', 'Cross Yoga', 'Pilates Classique', 'Power Pilates', 'Pilates Barre', 'Stretch Mobility', 'Boxe anglaise', 'Yoga Kids']) {
+  requireText('studio-parc-des-docks.html', course);
+}
+forbidText('studio-cours-des-lavandieres.html', /Pilates au sol|Yoga Vinyasa|Hatha Flow|Yin Yoga|Core &(?:amp;|) Stretch/i, 'discipline attribuée au mauvais studio');
+forbidText('studio-parc-des-docks.html', /Coaching individuel|Coaching duo/i, 'coaching affiché dans la liste des cours du Parc des Docks');
+
+const navCourses = read('assets/nav-dropdown.js');
+for (const course of ['Reformer', 'Crossformer', 'Cross Training', 'Pilates', 'Yoga', 'Stretch Mobility', 'Boxe', 'Yoga Kids']) {
+  if (!navCourses.includes(course)) fail(`Le menu Cours doit contenir : ${course}`);
+}
+if (/Afrodance|Training Kids|Hatha/i.test(navCourses)) fail('Le menu Cours contient encore une discipline retirée.');
 
 const sitemap = read('sitemap.xml');
 const sitemapUrls = [...sitemap.matchAll(/<loc>(https:\/\/studiosvb\.com\/[^<]*)<\/loc>/g)].map((match) => match[1]);
@@ -131,6 +170,9 @@ for (const url of sitemapUrls) {
   const html = read(file);
   const footerCount = (html.match(/<footer\b/gi) || []).length;
   if (footerCount !== 1) fail(`${file} doit avoir exactement un pied de page, pas ${footerCount}.`);
+  if (!html.includes('Santez vous bien,<br>le bien-être au quotidien.')) {
+    fail(`${file} n'affiche pas le slogan validé dans son pied de page.`);
+  }
 }
 
 const standardNavPages = [

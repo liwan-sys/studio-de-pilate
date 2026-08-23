@@ -42,35 +42,37 @@ La page `/essai` est réservée aux campagnes publicitaires. Elle reste en `noin
 
 Adresse : 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine.
 
-- Coaching individuel
-- Coaching duo
 - Cross Training
 - Cross Rox
 - Cross Core
 - Cross Body
 - Cross Yoga
 - Boxe anglaise
+- Yoga Vinyasa
 - Yoga Kids
+- Pilates Classique
+- Power Pilates
+- Pilates Barre
+- Stretch Mobility
 
 ### Cours des Lavandières
 
 Adresse : 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine.
 
 - Pilates Reformer
+- Flow Reformer
 - Crossformer
-- Classic Pilates
-- Power Pilates
-- Yoga Vinyasa
-- Hatha Flow
-- Yin selon le planning
-- Core & Stretch
+- Crossformer Challenger
 
 ### Jauges
 
 - Pilates Reformer : 9 personnes maximum.
+- Flow Reformer : 9 personnes maximum.
 - Crossformer : 8 personnes maximum.
+- Crossformer Challenger : 8 personnes maximum.
 - Cross, Yoga et Boxe : jusqu'à 12 personnes.
-- Pilates au sol : jusqu'à 10 personnes.
+- Pilates au sol et Pilates Barre : jusqu'à 12 personnes.
+- Yoga Kids : 8 enfants maximum.
 
 ## Offres
 
@@ -104,8 +106,10 @@ Adresse : 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine.
 - Tous les cours des deux studios en illimité.
 - Engagement : 1 an.
 - Frais de dossier : 49 €.
-- Offre de lancement ouverte jusqu'au 21 septembre 2026 à 23 h 59.
+- Offre de lancement ouverte jusqu'au 30 septembre 2026 à 23 h 59.
 - Le tarif est conservé tant que l'abonnement reste actif sans résiliation.
+- Une annulation est possible jusqu'à 1 heure avant le cours.
+- Un no-show bloque l'abonnement pendant une semaine.
 
 ### Pass Starter - 99,90 €
 
@@ -140,6 +144,7 @@ Adresse : 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine.
 - 12,90 € par mois.
 - Sans engagement.
 - Pause de l'abonnement sans préavis.
+- Incompatible avec SVB Limitless.
 
 ### Club Running SVB
 
@@ -149,11 +154,14 @@ Adresse : 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine.
 
 ## Règles d'abonnement
 
-- Small Group, y compris SVB Limitless : annulation jusqu'à 1 heure avant le cours.
+- SVB Move, SVB Form et SVB Limitless : annulation jusqu'à 1 heure avant le cours.
 - Coaching privé : annulation jusqu'à 24 heures avant la séance.
-- Après 2 no-shows, l'abonnement et le compte sont bloqués jusqu'à prise de contact avec SVB.
-- Suspension standard : absence de plus de 10 jours, préavis d'un mois, deux mois maximum, une fois par an.
-- Exception SVB Boost : pause sans préavis.
+- SVB Move et SVB Form : une séance annulée hors délai ou non honorée est décomptée.
+- SVB Limitless uniquement : un no-show bloque l'abonnement pendant une semaine.
+- Résiliation : par email avec un mois de préavis comprenant une mensualité complète, une fois l'engagement terminé.
+- Suspension standard : absence d'au moins 10 jours avec un mois de préavis.
+- Suspension médicale : sans préavis sur justificatif médical.
+- Exception SVB Boost : pause sans préavis, option incompatible avec SVB Limitless.
 - Une hausse de formule peut être immédiate ; une baisse suit le préavis prévu par les CGV.
 
 ## Offres et services retirés
