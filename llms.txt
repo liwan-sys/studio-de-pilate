@@ -58,7 +58,7 @@
 
 - **Principe** : une séance d'essai achetée donne droit à une seconde séance d'essai dans une autre discipline
 - **Frais de dossier** : offerts en cas d'inscription immédiatement après l'un des deux essais ; réduits de moitié en cas d'inscription dans les 3 jours
-- **Réservation** : https://studiosvb.com/essai
+- **Réservation** : https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs
 
 ## Abonnements
 

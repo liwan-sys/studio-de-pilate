@@ -207,7 +207,7 @@
       // .js-buy -> ouverture directe de la modale iframe (page Packs).
       // Sur /essai on garde le scroll interne vers les offres du produit.
       cta.className = 'svb-mobile-sticky-cta' + (isEssai ? '' : ' js-buy');
-      cta.href = isEssai ? '#essai-offres' : '/essai';
+      cta.href = isEssai ? '#essai-offres' : 'https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs';
       if (!isEssai) {
         cta.dataset.discipline = 'reformer';
         cta.dataset.label = "Pass Try · 2 séances";

@@ -46,6 +46,14 @@
 
 # HTML : charset explicite (sinon certains navigateurs decodent en Latin-1
 # malgre <meta charset> — surtout Safari mobile avec X-Content-Type-Options: nosniff)
+/essai
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: public, max-age=0, must-revalidate
+
+/essai.html
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: public, max-age=0, must-revalidate
+
 /*.html
   Content-Type: text/html; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate
