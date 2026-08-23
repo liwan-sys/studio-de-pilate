@@ -1,3 +1,9 @@
+html,
+.discipline-page {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
+
 .discipline-page {
   background: #3f625c !important;
 }
@@ -24,7 +30,7 @@
   --discipline-accent: #e8b496;
   --discipline-accent-soft: #f2d8c7;
   margin: 0;
-  overflow: clip;
+  overflow: visible;
   color: var(--discipline-text);
   background: var(--discipline-cream);
   font-family: "Montserrat", sans-serif;
@@ -87,6 +93,10 @@
 .discipline-editorial *,
 .discipline-editorial *::before,
 .discipline-editorial *::after { box-sizing: border-box; }
+
+.discipline-editorial section[id] { scroll-margin-top: 74px; }
+
+.discipline-editorial .svb-unmute-hint { display: block; }
 
 .discipline-shell {
   width: min(1120px, calc(100% - 48px));
@@ -568,6 +578,8 @@
 }
 
 @media (max-width: 700px) {
+  .discipline-editorial section[id] { scroll-margin-top: 108px; }
+  .discipline-editorial .svb-unmute-hint { display: none !important; }
   .discipline-shell,
   .discipline-practice { width: calc(100% - 32px); }
   .discipline-hero {

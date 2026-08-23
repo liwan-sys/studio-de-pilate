@@ -11,20 +11,28 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
 
 body {
   margin: 0;
   background: var(--coaching-cream);
   color: var(--coaching-ink);
   font-family: "Montserrat", sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
 }
 
 body::before,
 body::after { content: none; }
 
 .coaching-editorial { background: var(--coaching-cream); }
+
+.coaching-editorial section[id] { scroll-margin-top: 74px; }
+.coaching-editorial .svb-unmute-hint { display: block; }
 
 .coaching-hero {
   position: relative;
@@ -458,6 +466,8 @@ body::after { content: none; }
 }
 
 @media (max-width: 700px) {
+  .coaching-editorial section[id] { scroll-margin-top: 108px; }
+  .coaching-editorial .svb-unmute-hint { display: none !important; }
   .coaching-hero {
     min-height: 560px;
     height: 70svh;

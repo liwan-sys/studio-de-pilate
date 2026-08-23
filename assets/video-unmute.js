@@ -52,6 +52,7 @@
 
     // Hint éphémère
     var hint = document.createElement('span');
+    hint.className = 'svb-unmute-hint';
     hint.setAttribute('aria-hidden', 'true');
     hint.textContent = 'Son : cliquez';
     hint.style.cssText = HINT_STYLE;
