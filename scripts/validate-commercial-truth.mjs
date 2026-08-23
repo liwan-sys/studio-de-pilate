@@ -49,6 +49,10 @@ function allSourceHtml(directory = root, files = []) {
 
 const sourceHtmlFiles = allSourceHtml();
 const publicCopy = sourceHtmlFiles.map((file) => fs.readFileSync(file, 'utf8')).join('\n');
+const navigationScript = read('assets/nav-dropdown.js');
+if (/svb-course-panel|svb-mobile-courses|buildCoursesAccordion|Choisir une discipline/i.test(navigationScript)) {
+  fail('Le lien Cours doit rester un lien direct vers /sessions, sans sous-menu de disciplines.');
+}
 
 const planningTruth = JSON.parse(fs.readFileSync(path.join(root, 'content/planning-2026-08.json'), 'utf8'));
 const planningHtml = read('studio.html');
@@ -217,11 +221,9 @@ for (const course of ['Cross Training', 'Cross Yoga', 'Pilates Classique', 'Powe
 forbidText('studio-cours-des-lavandieres.html', /Pilates au sol|Yoga Vinyasa|Hatha Flow|Yin Yoga|Core &(?:amp;|) Stretch/i, 'discipline attribuée au mauvais studio');
 forbidText('studio-parc-des-docks.html', /Coaching individuel|Coaching duo/i, 'coaching affiché dans la liste des cours du Parc des Docks');
 
-const navCourses = read('assets/nav-dropdown.js');
 for (const course of ['Reformer', 'Crossformer', 'Cross Training', 'Pilates', 'Yoga', 'Stretch Mobility', 'Boxe', 'Yoga Kids']) {
-  if (!navCourses.includes(course)) fail(`Le menu Cours doit contenir : ${course}`);
+  requireText('sessions.html', course);
 }
-if (/Afrodance|Training Kids|Hatha/i.test(navCourses)) fail('Le menu Cours contient encore une discipline retirée.');
 
 const sitemap = read('sitemap.xml');
 const sitemapUrls = [...sitemap.matchAll(/<loc>(https:\/\/studiosvb\.com\/[^<]*)<\/loc>/g)].map((match) => match[1]);
