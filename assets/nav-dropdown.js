@@ -25,6 +25,8 @@
                 'transition:transform .3s cubic-bezier(.16,1,.3,1),visibility .3s;',
             '}',
             'body.svb-nav-open .svb-mobile-drawer{transform:translateX(0);visibility:visible;}',
+            '.svb-mobile-drawer__close{position:absolute;top:14px;right:14px;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(47,79,79,.14);border-radius:999px;background:#fff;color:#2F4F4F;font-family:"Montserrat",sans-serif;font-size:28px;font-weight:400;line-height:1;cursor:pointer;}',
+            '.svb-mobile-drawer__close:hover,.svb-mobile-drawer__close:focus{background:#F2E6CF;outline:none;}',
             '.svb-mobile-drawer__title{margin:0 14px 8px;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#4A8D84;}',
             '.svb-mobile-drawer>a{display:block;width:100%;margin:0;padding:14px;border:0;border-bottom:1px solid rgba(47,79,79,.09);border-radius:0;background:transparent;color:#2F4F4F;font-size:15px;font-weight:650;letter-spacing:0;text-align:left;text-decoration:none;text-transform:none;}',
             '.svb-mobile-drawer>a:hover,.svb-mobile-drawer>a:focus{background:rgba(242,230,207,.72);outline:none;}',
@@ -65,7 +67,13 @@
         drawer.setAttribute('role', 'navigation');
         drawer.setAttribute('aria-label', 'Menu principal mobile');
         drawer.setAttribute('aria-hidden', 'true');
-        drawer.innerHTML = '<p class="svb-mobile-drawer__title">Explorer SVB</p>';
+        var isEnglish = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0;
+        drawer.innerHTML =
+            '<button type="button" class="svb-mobile-drawer__close" aria-label="' + (isEnglish ? 'Close menu' : 'Fermer le menu') + '">' +
+                '<span aria-hidden="true">&times;</span>' +
+            '</button>' +
+            '<p class="svb-mobile-drawer__title">' + (isEnglish ? 'Explore SVB' : 'Explorer SVB') + '</p>';
+        drawer.querySelector('.svb-mobile-drawer__close').addEventListener('click', closeDrawer);
 
         menu.querySelectorAll('a').forEach(function (anchor) {
             var clone = anchor.cloneNode(true);

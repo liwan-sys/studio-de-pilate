@@ -1436,3 +1436,205 @@ body:has(.svb-video-hero) .svb-video-hero{
   color: #E8B496 !important;
   font-weight: 800 !important;
 }
+
+/* =================================================================
+   Navigation principale unifiee.
+   La barre de l'accueil est la reference visuelle de toutes les pages.
+   ================================================================= */
+nav[role="navigation"]:has(> #nav-menu) {
+  width:min(100%,80rem) !important;
+  min-height:68px;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding:10px 16px !important;
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:16px;
+  color:#fff !important;
+  background:#416864;
+  position:relative;
+  z-index:60;
+}
+
+#hero-video nav[role="navigation"]:has(> #nav-menu),
+body:has(.svb-video-hero) > nav[role="navigation"]:has(> #nav-menu) {
+  background:transparent;
+}
+
+body > main > section:first-child:has(> nav[role="navigation"] > #nav-menu) {
+  padding-top:0 !important;
+}
+
+body > header:first-of-type:has(> nav[role="navigation"] > #nav-menu) {
+  padding-top:0 !important;
+}
+
+nav[role="navigation"]:has(> #nav-menu) > :first-child {
+  margin:0 !important;
+  flex:0 0 auto;
+}
+
+nav[role="navigation"]:has(> #nav-menu) img {
+  width:auto !important;
+  height:48px !important;
+  max-height:48px !important;
+  object-fit:contain;
+  filter:brightness(0) invert(1)
+         drop-shadow(0 1px 3px rgba(0,0,0,.35))
+         drop-shadow(0 0 8px rgba(0,0,0,.18)) !important;
+}
+
+nav[role="navigation"]:has(> #nav-menu) #nav-toggle {
+  margin-left:auto !important;
+}
+
+@media (max-width:767px) {
+  nav[role="navigation"]:has(> #nav-menu) {
+    width:100vw !important;
+    max-width:100vw !important;
+    left:50%;
+    margin-left:-50vw !important;
+    margin-right:-50vw !important;
+  }
+}
+
+@media (min-width:768px) {
+  #hero-video nav[role="navigation"]:has(> #nav-menu) {
+    left:50% !important;
+    right:auto !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    transform:translateX(-50%);
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) {
+    min-height:120px;
+    padding:20px 24px !important;
+    gap:24px;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) img {
+    height:80px !important;
+    max-height:80px !important;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu {
+    min-width:0;
+    margin:0 !important;
+    padding:0 !important;
+    display:flex !important;
+    flex:1 1 auto;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:clamp(10px,1.65vw,24px) !important;
+    color:#fff !important;
+    font-family:"Montserrat",sans-serif !important;
+    font-size:clamp(10px,.84vw,12px) !important;
+    font-weight:600 !important;
+    line-height:1 !important;
+    letter-spacing:0 !important;
+    white-space:nowrap;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.14));
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a {
+    margin:0 !important;
+    padding:9px 0;
+    color:#fff !important;
+    opacity:1 !important;
+    text-decoration:none !important;
+    font:inherit;
+    white-space:nowrap;
+    transition:color .2s ease,transform .2s ease,background .2s ease;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a:hover,
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a:focus-visible,
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a.svb-nav-current {
+    color:#E8B496 !important;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a[aria-label="Espace client"] {
+    min-height:38px;
+    padding:0 17px !important;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px !important;
+    background:#E8B496 !important;
+    color:#2F4F4F !important;
+    font-size:10px !important;
+    font-weight:800 !important;
+    letter-spacing:.12em !important;
+    text-transform:uppercase;
+    box-shadow:none;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a[aria-label="Espace client"]:hover,
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a[aria-label="Espace client"]:focus-visible {
+    background:#F5C76D !important;
+    color:#2F4F4F !important;
+    transform:translateY(-1px);
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a:last-child {
+    min-height:34px;
+    padding:0 12px !important;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.5) !important;
+    border-radius:999px !important;
+    background:rgba(255,255,255,.15) !important;
+    color:#fff !important;
+    font-size:10px !important;
+    font-weight:700 !important;
+    letter-spacing:.12em !important;
+    opacity:1 !important;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a:last-child strong,
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a:last-child span:first-child {
+    color:#E8B496 !important;
+    opacity:1 !important;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a:last-child span:last-child {
+    opacity:.55 !important;
+  }
+}
+
+@media (min-width:768px) and (max-width:1099px) {
+  nav[role="navigation"]:has(> #nav-menu) {
+    min-height:100px;
+    padding:14px 18px !important;
+    gap:14px;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) img {
+    height:64px !important;
+    max-height:64px !important;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu {
+    gap:8px !important;
+    font-size:9px !important;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a[aria-label="Espace client"] {
+    min-height:34px;
+    padding:0 10px !important;
+    font-size:9px !important;
+  }
+
+  nav[role="navigation"]:has(> #nav-menu) #nav-menu > a:last-child {
+    min-height:32px;
+    padding:0 8px !important;
+    font-size:9px !important;
+  }
+}
