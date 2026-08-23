@@ -1453,8 +1453,7 @@ nav[role="navigation"]:has(> #nav-menu) {
   align-items:center !important;
   justify-content:space-between !important;
   gap:16px;
-  color:#fff !important;
-  background:#416864;
+  background:transparent !important;
   position:relative;
   z-index:60;
 }
@@ -1532,7 +1531,7 @@ nav[role="navigation"]:has(> #nav-menu) #nav-toggle {
     align-items:center !important;
     justify-content:flex-end !important;
     gap:clamp(10px,1.65vw,24px) !important;
-    color:#fff !important;
+    color:inherit !important;
     font-family:"Montserrat",sans-serif !important;
     font-size:clamp(10px,.84vw,12px) !important;
     font-weight:600 !important;
@@ -1545,7 +1544,7 @@ nav[role="navigation"]:has(> #nav-menu) #nav-toggle {
   nav[role="navigation"]:has(> #nav-menu) #nav-menu > a {
     margin:0 !important;
     padding:9px 0;
-    color:#fff !important;
+    color:inherit !important;
     opacity:1 !important;
     text-decoration:none !important;
     font:inherit;
@@ -1588,10 +1587,10 @@ nav[role="navigation"]:has(> #nav-menu) #nav-toggle {
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    border:1px solid rgba(255,255,255,.5) !important;
+    border:1px solid color-mix(in srgb,currentColor 38%,transparent) !important;
     border-radius:999px !important;
-    background:rgba(255,255,255,.15) !important;
-    color:#fff !important;
+    background:color-mix(in srgb,currentColor 9%,transparent) !important;
+    color:inherit !important;
     font-size:10px !important;
     font-weight:700 !important;
     letter-spacing:.12em !important;
