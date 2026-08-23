@@ -210,15 +210,15 @@
       cta.href = isEssai ? '#essai-offres' : '/essai';
       if (!isEssai) {
         cta.dataset.discipline = 'reformer';
-        cta.dataset.label = "Séance d'essai Pilates Reformer";
+        cta.dataset.label = "Pass Try · 2 séances";
         cta.dataset.amount = '30 €';
       }
       cta.setAttribute('data-track', 'mobile_sticky_cta');
-      cta.setAttribute('aria-label', isEssai ? "Choisir une séance d'essai" : "Réserver une séance d'essai à 30 euros");
+      cta.setAttribute('aria-label', isEssai ? "Choisir le Pass Try" : "Réserver le Pass Try, deux séances à 30 euros");
       cta.innerHTML = '\
         <span class="svb-mobile-sticky-cta__text">\
-          <span class="svb-mobile-sticky-cta__label">' + (isEssai ? "Choisir mon essai" : "Réserver mon essai") + '</span>\
-          <span class="svb-mobile-sticky-cta__sub">' + (isEssai ? "Paiement sécurisé · confirmation immédiate" : "Réservation immédiate · sans engagement") + '</span>\
+          <span class="svb-mobile-sticky-cta__label">' + (isEssai ? "Choisir mon Pass Try" : "Réserver mes 2 séances") + '</span>\
+          <span class="svb-mobile-sticky-cta__sub">' + (isEssai ? "Paiement sécurisé · confirmation immédiate" : "2 disciplines · sans engagement") + '</span>\
         </span>\
         <span class="svb-mobile-sticky-cta__pill">30 €</span>';
       document.body.appendChild(cta);

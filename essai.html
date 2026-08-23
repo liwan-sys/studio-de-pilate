@@ -35,15 +35,15 @@
   <link rel="preconnect" href="https://web-customer.studiosvb.com" crossorigin>
   <link rel="icon" type="image/png" href="/images/favicon.jpg" />
 
-  <title>Séance d'essai Pilates Reformer Saint-Ouen | SVB</title>
-  <meta name="description" content="Réserve ta séance d'essai Pilates Reformer à Saint-Ouen : 30 €, petit groupe, cours coaché, paiement sécurisé, métro Mairie de Saint-Ouen.">
+  <title>Pass Try SVB : 2 séances, 2 disciplines, 30 €</title>
+  <meta name="description" content="Découvre SVB à Saint-Ouen avec le Pass Try : 2 séances dans 2 disciplines différentes pour 30 €, en petit groupe avec un coach.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://studiosvb.com/essai">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://studiosvb.com/essai">
-  <meta property="og:title" content="Séance d'essai Pilates Reformer Saint-Ouen · 30 €">
-  <meta property="og:description" content="Découvre Studio SVB en petit groupe, avec un coach qui te corrige. Paiement sécurisé, sans engagement.">
+  <meta property="og:title" content="Pass Try SVB · 2 séances · 2 disciplines · 30 €">
+  <meta property="og:description" content="Un essai acheté, un essai offert dans une autre discipline. Petit groupe, coach et paiement sécurisé.">
   <meta property="og:image" content="https://studiosvb.com/videos/pilates-reformer-immersion-poster.jpg">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="SVB">
@@ -122,12 +122,19 @@
     }
     .hd-nav a:hover{color:#E8B496;}
     @media (max-width:720px){
+      .hero{min-height:calc(100svh - 38px);}
+      .hero-overlay{
+        background:linear-gradient(180deg,rgba(20,37,37,.78) 0%,rgba(20,37,37,.62) 38%,rgba(20,37,37,.93) 100%);
+      }
+      .hd{padding:8px 14px 4px;gap:6px;}
+      .hd-logo img{height:54px;}
+      .hd-tel{padding:7px 10px;font-size:.7rem;}
       .hd-nav{
         order:3;width:100%;gap:14px;
-        padding-top:8px;margin-top:4px;
+        padding-top:6px;margin-top:2px;
         border-top:1px solid rgba(255,255,255,.14);
       }
-      .hd-nav a{font-size:.74rem;padding:4px 2px;}
+      .hd-nav a{font-size:.68rem;padding:3px 1px;}
     }
 
     /* Contenu hero */
@@ -639,34 +646,9 @@
     .pass-bens li:nth-child(4) .ic{background:linear-gradient(135deg,#4A8D84,#2F4F4F);}
     .pass-bens strong{font-weight:800;color:#2F4F4F;}
 
-    .pass-stat{
-      background:linear-gradient(135deg,#F5C76D 0%,#E8B496 50%,#88C0A6 100%);
-      border-radius:14px;padding:20px 16px 18px;
-      margin:0 0 22px;
-      box-shadow:0 8px 20px -6px rgba(212,156,125,.45);
-      position:relative;overflow:hidden;
-    }
-    .pass-stat::before{
-      content:'';position:absolute;top:-20%;left:-30%;width:60%;height:140%;
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
-      animation:statShine 4s linear infinite;
-    }
     @keyframes statShine{
       0%{transform:translateX(0) skewX(-20deg);}
       100%{transform:translateX(400%) skewX(-20deg);}
-    }
-    .pass-stat-n{
-      font-size:3rem;font-weight:900;color:#FFFFFF;
-      line-height:.9;letter-spacing:-.02em;margin:0 0 6px;
-      text-shadow:0 2px 12px rgba(47,79,79,.3);
-      position:relative;
-    }
-    .pass-stat-n span{font-size:2rem;color:#FFFFFF;margin-left:2px;opacity:.85;}
-    .pass-stat-l{
-      font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-      color:#FFFFFF;opacity:.95;line-height:1.4;margin:0;
-      text-shadow:0 1px 6px rgba(47,79,79,.25);
-      position:relative;
     }
     .pass-cta{
       display:flex;align-items:center;justify-content:center;gap:10px;
@@ -820,8 +802,31 @@
       50%{opacity:.9;transform:scale(1.04);}
     }
 
-    /* Counter 100% — invisible initially, JS reveal */
-    .pass-stat-n{transition:opacity .3s;}
+    @media (max-width:720px){
+      .hero-content{padding:10px 18px 24px;}
+      .stars{margin-bottom:14px;padding:7px 13px;font-size:.66rem;}
+      .hero-kicker{margin-bottom:8px;font-size:.64rem;}
+      .hero h1{font-size:clamp(2.05rem,10vw,3rem);line-height:.96;margin-bottom:10px;}
+      .hero-sub{font-size:.9rem;line-height:1.45;margin-bottom:16px;}
+      .hero-proof{margin-bottom:14px;gap:6px;}
+      .hero-proof span{min-height:30px;padding:6px 9px;font-size:.64rem;}
+      .hero-action{min-height:48px;padding:12px 16px;font-size:.74rem;}
+      .reassure{margin-top:12px;gap:8px;font-size:.64rem;}
+      .scroll-hint{display:none;}
+    }
+    @media (max-width:720px) and (max-height:650px){
+      .urgency{padding:5px 8px;font-size:.58rem;letter-spacing:.04em;gap:3px;}
+      .urgency > span:nth-child(4),.urgency > span:nth-child(5){display:none;}
+      .hd{padding-top:5px;}
+      .hd-logo img{height:46px;}
+      .hero-content{justify-content:flex-start;padding:6px 14px 18px;}
+      .stars,.hero-proof,.hero-action.secondary,.reassure{display:none;}
+      .hero-kicker{font-size:.58rem;margin-bottom:6px;}
+      .hero h1{font-size:clamp(1.85rem,9.5vw,2.35rem);margin-bottom:8px;}
+      .hero-sub{font-size:.8rem;line-height:1.35;margin-bottom:12px;max-width:290px;}
+      .hero-actions{max-width:290px;}
+      .hero-action.primary{min-height:44px;padding:10px 14px;font-size:.68rem;}
+    }
 
     @media (prefers-reduced-motion: reduce){
       .stars,.hero-kicker,.hero h1,.hero-sub,.hero-proof,.hero-actions,.pick,.chips,.reassure,.scroll-hint{
@@ -836,8 +841,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Offer",
-  "name": "Séance d'essai Studio SVB",
-  "description": "Séance d'essai Pilates Reformer ou small group à Saint-Ouen avec un coach. 30 €, paiement sécurisé, sans engagement.",
+  "name": "Pass Try Studio SVB",
+  "description": "Deux séances dans deux disciplines différentes à Saint-Ouen avec un coach. 30 €, paiement sécurisé, sans engagement.",
   "price": "30",
   "priceCurrency": "EUR",
   "availability": "https://schema.org/InStock",
@@ -863,7 +868,7 @@
       {
         "@type":"Question",
         "name":"Combien coûte l'essai chez Studio SVB ?",
-        "acceptedAnswer":{"@type":"Answer","text":"La séance d'essai est à 30 €. Elle permet de découvrir le studio, le coach et la discipline avant de choisir une formule ou un abonnement."}
+        "acceptedAnswer":{"@type":"Answer","text":"Le Pass Try coûte 30 € et comprend deux séances dans deux disciplines différentes : un essai acheté et un essai offert. Les frais de dossier sont offerts en cas d'inscription directement après l'un des essais, ou réduits de 50 % en cas d'inscription dans les 3 jours."}
       }
     ]
   }
@@ -898,16 +903,18 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <a class="svb-mobile-sticky-cta is-visible js-buy"
+  <a class="svb-mobile-sticky-cta js-buy"
      href="#checkout-reformer"
      data-discipline="reformer"
-     data-label="Pilates Reformer"
+     data-label="Pass Try · 2 séances"
      data-amount="30 €"
      rel="noopener noreferrer"
-     aria-label="Réserver une séance d'essai Pilates Reformer à 30 euros">
+     aria-hidden="true"
+     tabindex="-1"
+     aria-label="Réserver le Pass Try avec deux séances à 30 euros">
     <span class="svb-mobile-sticky-cta__text">
-      <span class="svb-mobile-sticky-cta__label">Réserver Reformer</span>
-      <span class="svb-mobile-sticky-cta__sub">Saint-Ouen · confirmation immédiate</span>
+      <span class="svb-mobile-sticky-cta__label">Réserver mes 2 séances</span>
+      <span class="svb-mobile-sticky-cta__sub">2 disciplines · confirmation immédiate</span>
     </span>
     <span class="svb-mobile-sticky-cta__pill">30 €</span>
   </a>
@@ -948,23 +955,23 @@
         <i>★★★★★</i><b>5,0</b><span>· 170 avis Google cumulés</span>
       </div>
 
-      <p class="hero-kicker">Pilates Reformer · Saint-Ouen</p>
-      <h1>Réserve ton essai<br/><em>Reformer à 30 €.</em></h1>
-      <p class="hero-sub">50 min, petit groupe, <b>coach qui corrige tes placements</b>. Paiement sécurisé, confirmation immédiate.</p>
+      <p class="hero-kicker">Pass Try · Saint-Ouen</p>
+      <h1>Teste deux disciplines<br/><em>pour 30 €.</em></h1>
+      <p class="hero-sub"><b>1 essai acheté = 1 essai offert</b> dans une autre discipline. Petit groupe, coach et confirmation immédiate.</p>
 
-      <div class="hero-proof" aria-label="Points forts de l'essai Reformer">
-        <span>petit groupe</span>
+      <div class="hero-proof" aria-label="Points forts du Pass Try">
+        <span>2 séances</span>
+        <span>2 disciplines</span>
         <span>5,0/5 Google</span>
-        <span>Mairie de Saint-Ouen</span>
       </div>
 
       <div class="hero-actions">
         <a class="hero-action primary js-buy"
            href="#checkout-reformer"
            data-discipline="reformer"
-           data-label="Pilates Reformer"
+           data-label="Pass Try · 2 séances"
            data-amount="30 €"
-           rel="noopener noreferrer">Réserver mon essai · 30 €</a>
+           rel="noopener noreferrer">Réserver mes 2 séances · 30 €</a>
         <a class="hero-action secondary" href="#offres">Voir les offres</a>
       </div>
 
@@ -982,46 +989,46 @@
   </section>
 
   <section class="offers-wrap" id="offres">
-    <p class="offers-eye">Reformer d'abord</p>
-    <h2 class="offers-h">Commence par ton essai <em>à 30 €</em></h2>
+    <p class="offers-eye">Deux façons de découvrir SVB</p>
+    <h2 class="offers-h">Choisis ton premier pas <em>chez SVB</em></h2>
 
     <div class="offers-grid" id="essai-offres">
 
-      <!-- CARD GAUCHE : 1 séance d'essai (cool tones mint/teal) -->
+      <!-- CARD GAUCHE : Pass Try (cool tones mint/teal) -->
       <div class="essai">
         <div class="essai-rib">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="8 1 12 5 8 9"/><line x1="3" y1="5" x2="12" y2="5"/></svg>
           Première visite
         </div>
-        <h3 class="essai-name">1 séance d'essai</h3>
+        <h3 class="essai-name">Pass Try</h3>
         <div class="essai-price">
           <span class="essai-price-n">30</span>
           <span class="essai-price-e">€</span>
         </div>
-        <p class="essai-meta">50-60 min · Discipline au choix</p>
+        <p class="essai-meta">2 séances · 2 disciplines différentes</p>
 
         <div class="essai-anchor">
           <span class="essai-anchor-perseance">Sans engagement</span>
           <span class="essai-anchor-sep">|</span>
-          <span class="essai-anchor-eco">30 € intégralement déduits si tu t'inscris sous 7 jours</span>
+          <span class="essai-anchor-eco">1 essai acheté = 1 essai offert</span>
         </div>
 
         <ul class="essai-bens">
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>1 séance</strong> complète</span>
+            <span><strong>2 séances</strong> dans 2 disciplines</span>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Coach</strong> certifié</span>
+            <span><strong>Coach certifié</strong> en petit groupe</span>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Small</strong> group</span>
+            <span>Frais de dossier <strong>offerts</strong> si inscription immédiate</span>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Zéro</strong> engagement</span>
+            <span>Frais de dossier à <strong>-50 %</strong> dans les 3 jours</span>
           </li>
         </ul>
 
@@ -1031,7 +1038,7 @@
           <p class="essai-stat-l">sur 170 avis Google cumulés</p>
         </div>
 
-        <p class="essai-pick">Ton essai Reformer</p>
+        <p class="essai-pick">Choisis ta première discipline</p>
         <div class="essai-discs">
           <a class="essai-disc primary js-buy"
              href="#checkout-reformer"
@@ -1039,8 +1046,8 @@
              data-label="Pilates Reformer"
              data-amount="30 €"
              rel="noopener noreferrer">
-            <span>Pilates Reformer</span>
-            <span class="essai-disc-r">30&nbsp;€
+            <span>Commencer par Reformer</span>
+            <span class="essai-disc-r">Choisir
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
             </span>
           </a>
@@ -1051,8 +1058,8 @@
              data-label="Crossformer"
              data-amount="30 €"
              rel="noopener noreferrer">
-            <span>Crossformer</span>
-            <span class="essai-disc-r">30&nbsp;€
+            <span>Commencer par Crossformer</span>
+            <span class="essai-disc-r">Choisir
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
             </span>
           </a>
@@ -1062,8 +1069,8 @@
              data-label="Cross · Yoga · Boxe · Pilates sol"
              data-amount="30 €"
              rel="noopener noreferrer">
-            <span>Cross · Yoga · Boxe · Pilates sol</span>
-            <span class="essai-disc-r">30&nbsp;€
+            <span>Commencer par Cross · Yoga · Pilates</span>
+            <span class="essai-disc-r">Choisir
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
             </span>
           </a>
@@ -1079,13 +1086,16 @@
           Le plus pris
         </div>
         <h3 class="pass-name">Pass Starter</h3>
-        <p class="pass-meta" style="margin-top:14px;">5 disciplines différentes · 1 mois</p>
+        <div class="pass-price" aria-label="99 euros et 90 centimes">
+          <span class="pass-price-n">99</span><span class="pass-price-c">,90</span><span class="pass-price-e">€</span>
+        </div>
+        <p class="pass-meta">5 disciplines différentes · 1 mois</p>
         <p class="pass-clarify">Une séance par discipline — pour les goûter toutes</p>
 
         <div class="pass-anchor">
           <span class="pass-anchor-perseance">Sans engagement</span>
           <span class="pass-anchor-sep">|</span>
-          <span class="pass-anchor-eco">Tarif dans l'espace client</span>
+          <span class="pass-anchor-eco">Valable 1 mois</span>
         </div>
 
         <ul class="pass-bens">
@@ -1107,14 +1117,10 @@
           </li>
         </ul>
 
-        <div class="pass-stat">
-          <p class="pass-stat-n">100<span>%</span></p>
-          <p class="pass-stat-l">se sont inscrit·es à un abonnement<br/>après avoir pris le Pass Starter</p>
-        </div>
-
         <a href="#checkout-pass-starter"
            data-discipline="pass_starter"
            data-label="Pass Starter"
+           data-amount="99,90 €"
            rel="noopener noreferrer"
            class="pass-cta js-buy">
           <span>Je prends mon Pass Starter</span>
@@ -1126,22 +1132,22 @@
     </div>
   </section>
 
-  <section style="background:#FBF6EC;padding:58px 22px 68px;color:#2F4F4F;" aria-label="Informations séance d'essai Studio SVB">
+  <section style="background:#FBF6EC;padding:58px 22px 68px;color:#2F4F4F;" aria-label="Informations Pass Try Studio SVB">
     <div style="max-width:980px;margin:0 auto;">
-      <p style="text-align:center;font-size:.68rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#4A8D84;margin:0 0 10px;">Essai Pilates Reformer Saint-Ouen</p>
-      <h2 style="text-align:center;font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.08;margin:0 0 28px;font-weight:900;">Une première séance simple, encadrée, et faite pour comprendre ton niveau.</h2>
+      <p style="text-align:center;font-size:.68rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#4A8D84;margin:0 0 10px;">Pass Try SVB · Saint-Ouen</p>
+      <h2 style="text-align:center;font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.08;margin:0 0 28px;font-weight:900;">Deux séances encadrées pour trouver la discipline qui te correspond.</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;">
         <div style="background:#fff;border:1px solid rgba(74,141,132,.16);border-radius:18px;padding:22px;box-shadow:0 12px 32px rgba(47,79,79,.06);">
           <h3 style="font-size:1rem;margin:0 0 10px;font-weight:900;">Où venir ?</h3>
-          <p style="font-size:.92rem;margin:0;opacity:.82;">Le Reformer se pratique au <strong>40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine</strong>, à proximité de Mairie de Saint-Ouen, lignes 13 et 14.</p>
+          <p style="font-size:.92rem;margin:0;opacity:.82;">Reformer et Crossformer se pratiquent au <strong>40 Cours des Lavandières</strong>. Les autres cours Small Group ont lieu au <strong>6 Mail André Breton</strong>, près du métro Mairie de Saint-Ouen.</p>
         </div>
         <div style="background:#fff;border:1px solid rgba(74,141,132,.16);border-radius:18px;padding:22px;box-shadow:0 12px 32px rgba(47,79,79,.06);">
-          <h3 style="font-size:1rem;margin:0 0 10px;font-weight:900;">Comment se passe l'essai ?</h3>
-          <p style="font-size:.92rem;margin:0;opacity:.82;">Tu choisis ta discipline, tu règles en ligne, puis le studio te confirme le créneau. Le coach t'explique la machine, corrige tes placements et adapte l'intensité.</p>
+          <h3 style="font-size:1rem;margin:0 0 10px;font-weight:900;">Comment se passe le Pass Try ?</h3>
+          <p style="font-size:.92rem;margin:0;opacity:.82;">Tu choisis ta première discipline et règles 30 € en ligne. Ton deuxième essai est offert dans une discipline différente, toujours en petit groupe avec un coach.</p>
         </div>
         <div style="background:#fff;border:1px solid rgba(74,141,132,.16);border-radius:18px;padding:22px;box-shadow:0 12px 32px rgba(47,79,79,.06);">
           <h3 style="font-size:1rem;margin:0 0 10px;font-weight:900;">Pourquoi commencer ici ?</h3>
-          <p style="font-size:.92rem;margin:0;opacity:.82;">SVB travaille en petit groupe, avec des coachs certifiés et une ambiance accessible. C'est idéal pour tester le Pilates Reformer sans engagement.</p>
+          <p style="font-size:.92rem;margin:0;opacity:.82;">SVB travaille en petit groupe, avec des coachs certifiés et une ambiance accessible. Tu compares deux expériences avant de choisir un abonnement, sans engagement.</p>
         </div>
       </div>
     </div>
@@ -1197,39 +1203,29 @@
       }catch(e){}
     })();
 
-    // Count-up animation sur le 100% du Pass Starter
+    // La barre mobile aide après le hero, mais ne masque jamais les cartes d'offres.
     (function(){
-      var el = document.querySelector('.pass-stat-n');
-      if (!el || !('IntersectionObserver' in window)) return;
-      var target = 100;
-      // sauvegarde le innerHTML d'origine (avec le span %)
-      var orig = el.innerHTML;
-      el.textContent = '0';
-      el.style.opacity = '.6';
-      var triggered = false;
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (!e.isIntersecting || triggered) return;
-          triggered = true;
-          var start = performance.now();
-          el.style.opacity = '1';
-          function step(now){
-            var t = Math.min(1, (now - start) / 1400);
-            var eased = 1 - Math.pow(1 - t, 3);
-            var val = Math.round(target * eased);
-            if (t < 1){
-              el.textContent = val;
-              requestAnimationFrame(step);
-            } else {
-              el.innerHTML = orig;
-            }
-          }
-          requestAnimationFrame(step);
-          io.disconnect();
-        });
-      }, { threshold: 0.5 });
-      io.observe(el);
+      var sticky = document.querySelector('.svb-mobile-sticky-cta');
+      var hero = document.querySelector('.hero');
+      var offers = document.getElementById('essai-offres');
+      if (!sticky || !hero || !offers) return;
+
+      var updateSticky = function(){
+        var mobile = window.matchMedia('(max-width: 767px)').matches;
+        var heroRect = hero.getBoundingClientRect();
+        var offersRect = offers.getBoundingClientRect();
+        var offersVisible = offersRect.top < window.innerHeight && offersRect.bottom > 0;
+        var visible = mobile && heroRect.bottom < 120 && !offersVisible;
+        sticky.classList.toggle('is-visible', visible);
+        sticky.setAttribute('aria-hidden', visible ? 'false' : 'true');
+        sticky.tabIndex = visible ? 0 : -1;
+      };
+
+      window.addEventListener('scroll', updateSticky, { passive:true });
+      window.addEventListener('resize', updateSticky);
+      updateSticky();
     })();
+
   </script>
 
 </body>
