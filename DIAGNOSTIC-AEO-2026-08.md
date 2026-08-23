@@ -1,5 +1,7 @@
 # Diagnostic AEO/GEO — Actions restantes (2026-08-20)
 
+> Archive de travail. Pour les offres, prix, disciplines et règles actuellement validés, utiliser uniquement `content/commercial-truth.json`.
+
 Suite à l'audit AEO/GEO du 19-20 août 2026 (fichier `auditaeosvb.html`),
 voici l'état d'exécution des 19 actions.
 
@@ -15,7 +17,7 @@ voici l'état d'exécution des 19 actions.
 - **Nombre d'avis** : harmonisé à **170 avis Google cumulés** entre les deux fiches (88 + 82), sans attribuer le total à un seul établissement.
 - **`llms.txt`** créé, intégré au build public et rempli avec l'identité de marque SVB, les deux fiches Maps, les horaires vérifiés et les jauges exactes.
 - **Liens Google Maps** : les vraies fiches sont reliées depuis l'accueil, le contact et les pages des deux studios.
-- **Jauges et essai** : 9 places en Pilates Reformer, 8 en Crossformer ; les 30 € de la première séance sont intégralement déduits du premier prélèvement si inscription sous 7 jours.
+- **Jauges et essai** : 9 places en Pilates Reformer, 8 en Crossformer ; le Pass Try comprend 2 séances dans 2 disciplines pour 30 €. Les frais de dossier sont offerts en cas d'inscription immédiatement après l'un des essais, ou réduits de 50 % dans les 3 jours.
 
 ## ⏳ À faire côté humain — vague 1 (priorité maximale)
 
@@ -156,4 +158,4 @@ Ces actions demandent une rédaction plus longue et méritent leur propre PR :
 
 ---
 
-Dernière mise à jour : 2026-08-20 (post-audit AEO/GEO)
+Dernière mise à jour : 2026-08-23 (document d'archive ; vérité commerciale courante dans `content/commercial-truth.json`)

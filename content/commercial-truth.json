@@ -1,0 +1,143 @@
+{
+  "version": "2026-08-23",
+  "brand": {
+    "name": "SVB",
+    "meaning": "Santez Vous Bien",
+    "websiteName": "Studio SVB",
+    "domain": "https://studiosvb.com"
+  },
+  "studios": {
+    "parcDesDocks": {
+      "address": "6 Mail André Breton, 93400 Saint-Ouen-sur-Seine",
+      "courses": [
+        "Coaching individuel",
+        "Coaching duo",
+        "Cross Training",
+        "Cross Rox",
+        "Cross Core",
+        "Cross Body",
+        "Cross Yoga",
+        "Boxe anglaise",
+        "Yoga Kids"
+      ]
+    },
+    "coursDesLavandieres": {
+      "address": "40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine",
+      "courses": [
+        "Pilates Reformer",
+        "Crossformer",
+        "Classic Pilates",
+        "Power Pilates",
+        "Yoga Vinyasa",
+        "Hatha Flow",
+        "Yin selon le planning",
+        "Core & Stretch"
+      ]
+    }
+  },
+  "capacities": {
+    "pilatesReformer": 9,
+    "crossformer": 8,
+    "crossAndYoga": 12,
+    "pilatesMat": 10
+  },
+  "offers": {
+    "passTry": {
+      "price": "30 €",
+      "sessions": 2,
+      "validity": "1 mois à partir de la date d'achat",
+      "availability": "Une seule fois par personne",
+      "rule": "Deux séances dans deux disciplines différentes : un essai acheté et un essai offert.",
+      "registrationFee": "Frais de dossier offerts en cas d'inscription immédiatement après l'un des essais, ou réduits de 50 % en cas d'inscription dans les 3 jours suivant le dernier essai."
+    },
+    "svbMove": {
+      "studio": "Parc des Docks",
+      "commitmentMonths": 6,
+      "registrationFee": "49 €",
+      "monthlyPrices": {
+        "4": "80,50 €",
+        "6": "120,50 €",
+        "8": "160,50 €"
+      }
+    },
+    "svbForm": {
+      "studio": "Cours des Lavandières",
+      "commitmentMonths": 6,
+      "registrationFee": "49 €",
+      "monthlyPrices": {
+        "4": "140,50 €",
+        "6": "210,50 €",
+        "8": "280,50 €"
+      }
+    },
+    "svbLimitless": {
+      "pricePerMonth": "300 €",
+      "commitmentMonths": 12,
+      "registrationFee": "49 €",
+      "access": "Tous les cours des deux studios en illimité.",
+      "launchDeadline": "2026-09-21T23:59:00+02:00"
+    },
+    "passStarter": {
+      "price": "99,90 €",
+      "sessions": 5,
+      "validity": "1 mois",
+      "commitment": "Sans engagement ni tacite reconduction",
+      "availability": "Une seule fois par personne",
+      "rule": "Cinq séances différentes au choix.",
+      "registrationFee": "Frais de dossier offerts si l'abonnement est souscrit pendant la validité du pass, ou réduits de 50 % dans les 3 jours suivant son expiration."
+    },
+    "coachingGoodVibes": {
+      "duration": "55 minutes",
+      "commitmentMonths": 4,
+      "registrationFee": "49 €",
+      "monthlyPrices": {
+        "4": "300,50 €",
+        "8": "560,50 €"
+      }
+    },
+    "coachingDuo": {
+      "duration": "55 minutes",
+      "commitmentMonths": 4,
+      "registrationFee": "49 €",
+      "monthlyPrices": {
+        "4": "401 €",
+        "8": "721 €"
+      }
+    },
+    "passKids": {
+      "course": "Yoga Kids",
+      "availability": "Hors juillet et août",
+      "commitmentMonths": 4,
+      "registrationFee": "25 €",
+      "monthlyPrices": {
+        "2": "35,50 €",
+        "4": "65,50 €"
+      },
+      "extraSession": "18,50 €"
+    },
+    "svbBoost": {
+      "type": "Option ajoutée à un abonnement actif",
+      "pricePerMonth": "12,90 €",
+      "commitment": "Sans engagement",
+      "pause": "Sans préavis"
+    },
+    "runningClub": {
+      "dayAndTime": "Samedi à 9 h 30",
+      "outdoorCapacity": 20,
+      "indoorBadWeatherCapacity": 8
+    }
+  },
+  "policies": {
+    "smallGroupCancellation": "Jusqu'à 1 heure avant le cours",
+    "privateCoachingCancellation": "Jusqu'à 24 heures avant la séance",
+    "noShow": "Après deux no-shows, l'abonnement et le compte sont bloqués jusqu'à prise de contact avec SVB.",
+    "standardPause": "Absence de plus de 10 jours, préavis d'un mois, deux mois maximum, une fois par an.",
+    "boostPause": "L'option SVB Boost permet une pause sans préavis."
+  },
+  "retired": {
+    "courses": ["Afrodance", "Training Kids"],
+    "services": ["Massage", "Bien-être", "Wellness"],
+    "passes": ["Pass Cross", "Pass Focus", "Pass Reformer", "Pass Crossformer", "Pass Full"]
+  },
+  "acquisitionOnlyRoutes": ["/essai"]
+}

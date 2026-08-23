@@ -185,7 +185,9 @@
     if (!sticky) return;
 
     function syncSticky(){
-      sticky.classList.toggle('visible', window.scrollY > 260);
+      var isVisible = window.scrollY > 260;
+      sticky.classList.toggle('visible', isVisible);
+      document.body.classList.toggle('svb-mobile-sticky-visible', isVisible);
     }
 
     window.addEventListener('scroll', syncSticky, { passive: true });
@@ -200,7 +202,7 @@
       if (document.getElementById('cta-sticky')) return; // accueil : sticky dedie deja present
 
       var path = location.pathname.replace(/\/+$/, '') || '/';
-      if (/\/(merci|Merci|mentions-legales|cgv|admin|questionnaire-abonnement-svb|tarifs|coaching-sportif-saint-ouen|404)(\.html)?$/i.test(path)) return;
+      if (/\/(merci|Merci|mentions-legales|cgv|admin|questionnaire-abonnement-svb|tarifs|contact|coaching-sportif-saint-ouen|404)(\.html)?$/i.test(path)) return;
       if (/\/(pilates-reformer-saint-ouen|crossformer-saint-ouen|cross-training-saint-ouen|bootcamp-saint-ouen|pilates-saint-ouen|yoga-saint-ouen|boxe-anglaise-saint-ouen|sport-enfant-saint-ouen)(\.html)?$/i.test(path)) return;
 
       var isEssai = path === '/essai' || path === '/essai.html';
@@ -234,7 +236,9 @@
       });
 
       var updateVisibility = function(){
-        cta.classList.toggle('is-visible', window.scrollY > 320);
+        var isVisible = window.scrollY > 320;
+        cta.classList.toggle('is-visible', isVisible);
+        document.body.classList.toggle('svb-mobile-sticky-visible', isVisible);
       };
       window.addEventListener('scroll', updateVisibility, { passive: true });
       updateVisibility();

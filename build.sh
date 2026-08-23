@@ -96,6 +96,8 @@ prepare_publish() {
     --include='/assets/' --include='/assets/**' \
     --include='/en/' --include='/en/**' \
     --include='/images/' --include='/images/**' \
+    --exclude='/videos/afrodance-card.mp4' \
+    --exclude='/videos/afrodance-card-poster.jpg' \
     --include='/videos/' --include='/videos/**' \
     --exclude='*' \
     "$ROOT/" "$publish_dir/"
@@ -108,6 +110,10 @@ main() {
   [ -x "$TAILWIND_BIN" ] || install_tailwind
   ensure_config
   ensure_input
+
+  echo "→ Validation de la vérité commerciale et du référencement…"
+  node scripts/validate-commercial-truth.mjs
+  node scripts/validate-seo.mjs
 
   echo "→ Build Tailwind (purge + minify)…"
   "$TAILWIND_BIN" \

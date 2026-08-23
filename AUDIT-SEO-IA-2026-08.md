@@ -1,5 +1,7 @@
 # Audit SEO et référencement IA - SVB
 
+> Archive de l'audit d'août 2026. Ce document décrit l'état observé au moment de l'audit et ne doit pas servir de référence commerciale. La source actuelle et contrôlée est `content/commercial-truth.json`.
+
 Date : 16 août 2026
 Périmètre : studiosvb.com, pages françaises et anglaises, données structurées, indexation, performance, cohérence de marque et compréhension par les moteurs d'IA.
 
@@ -118,7 +120,7 @@ Un ancien blog, un mini-CMS, trois avis internes non affichés, un widget inutil
 
 ### Contenu et fiabilité
 
-- Offre d'essai uniformisée : **30 €**, dont **15 € déduits en cas d'inscription sous 7 jours**.
+- Offre d'essai uniformisée : **Pass Try à 30 €**, avec deux séances dans deux disciplines différentes. Les frais de dossier sont offerts en cas d'inscription immédiatement après l'un des essais, ou réduits de 50 % en cas d'inscription dans les 3 jours.
 - Suppression des promesses médicales, chiffres de calories, délais de résultats et comparaisons non démontrables.
 - Suppression de l'affirmation « 2 à 3 fois plus vite » et des prestations non confirmées.
 - Tarifs détaillés concentrés sur la page Tarifs afin d'éviter les contradictions futures.

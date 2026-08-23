@@ -73,6 +73,14 @@ for (const rawLine of redirects.split('\n')) {
   if (status === '200' || status === '200!') rewrites.set(source, target);
 }
 
+function publicPathExists(pathname) {
+  if (pathname === '/' || pathname === '/en/') return true;
+  if (rewrites.has(pathname)) return true;
+
+  const relativePath = pathname.replace(/^\/+/, '');
+  return relativePath !== '' && fs.existsSync(path.join(root, relativePath));
+}
+
 const canonicals = new Map();
 const titles = new Map();
 const descriptions = new Map();
@@ -158,14 +166,13 @@ for (const absoluteFile of htmlFiles) {
       if (types.includes('Service')) serviceSchemas.push({ file: relativeFile, schema: node });
     }
 
-    if (valuesForKey(data, 'ratingCount').length) fail(`${relativeFile} contient encore ratingCount dans les données structurées.`);
-    for (const key of ['aggregateRating', 'reviewCount']) {
-      if (valuesForKey(data, key).length && !expectedBusinessFiles.has(relativeFile)) {
-        fail(`${relativeFile} contient ${key} hors d'une fiche d'établissement autorisée.`);
+    for (const key of ['aggregateRating', 'ratingCount', 'reviewCount']) {
+      if (valuesForKey(data, key).length) {
+        fail(`${relativeFile} contient ${key}, une donnée périssable qui doit rester sur la fiche Google.`);
       }
     }
-    if (valuesForKey(data, 'openingHoursSpecification').length && relativeFile !== 'studio-cours-des-lavandieres.html') {
-      fail(`${relativeFile} contient des horaires structurés non autorisés.`);
+    if (valuesForKey(data, 'openingHoursSpecification').length) {
+      fail(`${relativeFile} contient des horaires fixes alors que le planning en ligne est la source courante.`);
     }
 
     for (const imageValue of [...valuesForKey(data, 'image'), ...valuesForKey(data, 'logo')].flat()) {
@@ -199,7 +206,6 @@ const expectedBusinesses = new Map([
     latitude: 48.9118,
     longitude: 2.3336,
     map: 'https://www.google.com/maps?cid=2059026041814845219',
-    reviewCount: 82,
   }],
   ['studio-cours-des-lavandieres.html', {
     id: 'https://studiosvb.com/studio-cours-des-lavandieres#location',
@@ -209,7 +215,6 @@ const expectedBusinesses = new Map([
     latitude: 48.9108,
     longitude: 2.3345,
     map: 'https://www.google.com/maps?cid=5013071026965844982',
-    reviewCount: 88,
   }],
 ]);
 
@@ -229,41 +234,10 @@ for (const [file, expected] of expectedBusinesses) {
     latitude: schema.geo?.latitude,
     longitude: schema.geo?.longitude,
     map: schema.hasMap,
-    reviewCount: schema.aggregateRating?.reviewCount,
   };
   for (const [key, value] of Object.entries(expected)) {
     if (actual[key] !== value) fail(`${file} : ${key} vaut ${actual[key]} au lieu de ${value}.`);
   }
-  if (String(schema.aggregateRating?.ratingValue) !== '5.0') fail(`${file} : la note Google structurée doit être 5.0.`);
-}
-
-const expectedLavandieresHours = [
-  'Monday|10:30|13:45',
-  'Monday|16:30|21:00',
-  'Tuesday|10:30|14:30',
-  'Tuesday|16:30|21:15',
-  'Wednesday|10:30|13:30',
-  'Wednesday|16:30|21:15',
-  'Thursday|11:00|14:30',
-  'Thursday|17:00|20:30',
-  'Friday|10:30|14:30',
-  'Friday|16:30|20:15',
-  'Saturday|08:45|14:00',
-  'Saturday|15:00|18:45',
-  'Sunday|09:45|13:45',
-  'Sunday|14:45|17:45',
-];
-const lavandieresSchema = businessSchemas.get('studio-cours-des-lavandieres.html')?.[0];
-if (lavandieresSchema) {
-  const actualHours = asArray(lavandieresSchema.openingHoursSpecification)
-    .map((entry) => `${entry.dayOfWeek}|${entry.opens}|${entry.closes}`);
-  if (JSON.stringify(actualHours) !== JSON.stringify(expectedLavandieresHours)) {
-    fail('Les horaires structurés de Lavandières ne correspondent pas aux 14 créneaux validés.');
-  }
-}
-const docksSchema = businessSchemas.get('studio-parc-des-docks.html')?.[0];
-if (docksSchema?.openingHoursSpecification !== undefined) {
-  fail("Le studio Parc des Docks ne doit pas publier d'horaires généraux non confirmés.");
 }
 
 const allowedLocationIds = new Set([...expectedBusinesses.values()].map((business) => business.id));
@@ -297,6 +271,9 @@ for (const absoluteFile of htmlFiles) {
     if (url.hostname !== 'studiosvb.com') continue;
     const pathname = decodeURIComponent(url.pathname);
     if (permanentRedirects.has(pathname)) fail(`${relativeFile} pointe vers une ancienne URL : ${pathname}.`);
+    if (!permanentRedirects.has(pathname) && !publicPathExists(pathname)) {
+      fail(`${relativeFile} pointe vers une page interne inexistante : ${pathname}.`);
+    }
   }
 
   for (const match of html.matchAll(/(?:src|poster|data-src)=["']([^"']+)["']/gi)) {

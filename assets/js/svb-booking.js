@@ -194,20 +194,19 @@
     if (state.isOpen) return;
     opts = opts || {};
 
-    // Choix du path (ordre de priorite) :
-    //  1) opts.path -> passe explicitement (ex: CTA avec data-booking-path)
-    //  2) sessionStorage jayne:lastPath -> restaure la derniere page vue,
-    //     SAUF si c'est la racine "/" (ancien defaut = planning) : on veut
-    //     que chaque nouvelle ouverture atterrisse sur les packs.
-    //  3) DEFAULT_PATH -> page Packs de la boutique
+    // Chaque nouvelle ouverture repart de la destination du CTA. L'historique
+    // de la modale ne doit jamais transformer un clic "Pass Try" en ouverture
+    // de la page Abonnements (ou l'inverse).
     var startPath;
     if (opts.path && typeof opts.path === "string") {
       startPath = opts.path;
-    } else {
+    } else if (opts.fromHash) {
       try {
         var stored = sessionStorage.getItem(STORAGE_KEY);
         startPath = (stored && stored !== "/" && stored !== "") ? stored : DEFAULT_PATH;
       } catch (e) { startPath = DEFAULT_PATH; }
+    } else {
+      startPath = DEFAULT_PATH;
     }
     // Toujours commencer par "/" (path absolu)
     if (startPath.charAt(0) !== "/") startPath = "/" + startPath;
@@ -282,6 +281,13 @@
       el.addEventListener("click", function (ev) {
         ev.preventDefault();
         var path = el.dataset.bookingPath || null;
+        if (!path) {
+          try {
+            var href = el.getAttribute("href");
+            var hrefUrl = href ? new URL(href, window.location.href) : null;
+            if (hrefUrl && hrefUrl.origin === ORIGIN) path = hrefUrl.pathname;
+          } catch (e) {}
+        }
         openModal(path ? { path: path } : {});
       });
     });

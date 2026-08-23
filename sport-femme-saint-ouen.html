@@ -14,11 +14,12 @@
   <meta property="og:description" content="Un studio de sport encadré, esthétique et accessible à Saint-Ouen : Reformer, Yoga, Crossformer et petits groupes.">
   <meta property="og:image" content="https://studiosvb.com/images/reformer/reformer-duo-cours.jpg">
   <link rel="icon" type="image/png" href="/images/favicon.jpg">
-  <link rel="stylesheet" href="/assets/tailwind.css?v=20260423c">
-  <link rel="stylesheet" href="/assets/svb.css?v=20260820c">
+  <link rel="stylesheet" href="/assets/tailwind.css?v=20260823b">
+  <link rel="stylesheet" href="/assets/svb.css?v=20260823b">
+  <script src="/assets/nav-dropdown.js?v=20260823-cours2" defer></script>
   <script src="/assets/analytics.js?v=20260523a" defer></script>
   <script src="/assets/js/meta-pixel.js" defer></script>
-  <script src="/assets/js/svb-booking.js?v=20260819b" defer></script>
+  <script src="/assets/js/svb-booking.js?v=20260823b" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -64,16 +65,23 @@
 <body class="bg-[#FBF6EC] text-[#2F4F4F] font-sans">
   <main>
     <section class="px-5 py-8 md:py-12 bg-gradient-to-b from-[#f4eadc] to-[#FBF6EC]">
-      <nav class="max-w-6xl mx-auto flex items-center justify-between gap-4 mb-14">
-        <a href="/"><img src="/images/logo.webp" alt="Studio SVB" class="h-20 w-auto object-contain brightness-0 invert drop-shadow-md"></a>
-        <div class="flex gap-4 text-xs font-extrabold uppercase tracking-wide"><a href="/sessions">Cours</a><a href="/tarifs">Tarifs</a><a href="/faq">FAQ</a><a href="/contact">Contact</a><a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener" style="background:#E8B496;color:#2F4F4F;padding:4px 10px;border-radius:16px;font-weight:800;text-transform:uppercase;font-size:.72em;">Espace client</a></div>
+      <nav role="navigation" class="flex flex-row flex-wrap justify-between items-center max-w-7xl mx-auto text-[#2F4F4F] mb-14">
+        <a href="/" class="transform hover:scale-105 transition duration-300"><img src="/images/logo.webp" alt="Studio SVB" class="h-20 w-auto object-contain" width="200" height="142"></a>
+        <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='center';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}})()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div id="nav-menu" class="hidden md:flex flex-wrap justify-center items-center gap-3 md:gap-5 text-[10px] md:text-xs font-semibold tracking-normal">
+          <a href="/">Accueil</a><a href="/sessions">Cours</a><a href="/studio">Planning</a><a href="/pourquoi-svb">Pourquoi SVB</a><a href="/tarifs">Abonnements</a><a href="/equipe">La Team</a><a href="/faq">FAQ</a><a href="/contact">Contact</a>
+          <a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener" aria-label="Espace client" style="background:#E8B496;color:#2F4F4F;padding:6px 12px;border-radius:20px;font-weight:800;text-transform:uppercase;font-size:10px;">Espace client</a>
+          <a href="/en/" aria-label="English version"><strong>FR</strong>&nbsp;|&nbsp;EN</a>
+        </div>
       </nav>
       <div class="max-w-6xl mx-auto grid md:grid-cols-[1fr_.9fr] gap-10 items-center">
         <div>
           <p class="text-[#4A8D84] text-xs font-black uppercase tracking-[.22em] mb-4">Sport femme · Saint-Ouen</p>
           <h1 class="font-hand text-6xl md:text-8xl leading-none mb-6">Un corps plus fort, sans brutalité.</h1>
           <p class="text-lg md:text-xl leading-relaxed font-semibold text-[#2F4F4F]/80 mb-8 max-w-2xl">SVB accompagne les femmes qui veulent se renforcer, reprendre confiance, bouger régulièrement ou découvrir le Pilates Reformer dans un cadre précis et premium.</p>
-          <a href="#" data-discipline="reformer" data-label="Pilates Reformer" data-amount="30 €" class="js-buy inline-block bg-[#2F4F4F] text-white px-6 py-4 rounded-full font-black">Essayer le Reformer · 30 €</a>
+          <a href="#" data-discipline="reformer" data-label="Pass Try · 2 séances" data-amount="30 €" class="js-buy inline-block bg-[#2F4F4F] text-white px-6 py-4 rounded-full font-black">Réserver mes 2 séances · 30 €</a>
         </div>
         <img src="/images/reformer/reformer-duo-cours.jpg" alt="Pilates Reformer pour femmes à Saint-Ouen Studio SVB" class="rounded-[2rem] shadow-2xl w-full aspect-[4/5] object-cover">
       </div>
@@ -101,5 +109,27 @@
       </div>
     </section>
   </main>
+  <footer class="svb-footer" role="contentinfo">
+    <div class="svb-footer-accent" aria-hidden="true"></div>
+    <div class="svb-footer-inner" data-nosnippet>
+      <div class="svb-footer-grid">
+        <div class="svb-footer-brand">
+          <img style="height:56px;width:auto;margin:0 0 18px;display:block;" src="/images/logo-footer.png" alt="Studio SVB" class="svb-footer-logo" width="593" height="420" loading="lazy">
+          <p class="svb-footer-sig">Bouge mieux,<br>vis mieux.</p>
+          <p class="svb-footer-tagline">SVB signifie Santez Vous Bien.</p>
+        </div>
+        <div class="svb-footer-col"><h3 class="svb-footer-head">Studios</h3><ul><li><a href="/studio-parc-des-docks">Parc des Docks</a></li><li><a href="/studio-cours-des-lavandieres">Cours des Lavandières</a></li></ul></div>
+        <div class="svb-footer-col"><h3 class="svb-footer-head">Contacts</h3><ul><li><a href="tel:+33744919155">07 44 91 91 55</a></li><li><a href="mailto:hello@studiosvb.fr">hello@studiosvb.fr</a></li></ul></div>
+        <div class="svb-footer-col"><h3 class="svb-footer-head">Réseaux</h3><ul><li><a href="https://www.instagram.com/svb.officiel/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.facebook.com/profile.php?id=61569485866457" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer">WhatsApp</a></li></ul></div>
+      </div>
+      <div class="svb-footer-sep" aria-hidden="true"></div>
+      <div class="svb-footer-bottom">
+        <div class="svb-footer-adresses"><p class="svb-footer-eyebrow">Adresses</p><p>Parc des Docks — 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine</p><p>Cours des Lavandières — 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine</p></div>
+        <div class="svb-footer-legal"><a href="/mentions-legales">Mentions légales</a> <a href="/cgv">CGV</a> <a href="/parrainage">Parrainage</a> <a href="/sessions">Disciplines</a> <a href="/faq">FAQ</a> <a href="/temoignages">Avis</a></div>
+      </div>
+      <p class="svb-footer-signoff"><span>Santez Vous Bien</span> · <span id="svb-year">2026</span></p>
+    </div>
+  </footer>
+  <script src="/assets/svb.js?v=20260823b" defer></script>
 </body>
 </html>

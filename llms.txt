@@ -19,10 +19,10 @@
 ### Studio Cours des Lavandières
 - **Adresse** : 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine
 - **Disciplines** : Pilates Reformer, Crossformer, Pilates au sol (Classic & Power Pilates), Yoga Vinyasa, Hatha Flow, Core & Stretch
-- **Horaires d'accueil** : lun 10:30–13:45 et 16:30–21:00 ; mar 10:30–14:30 et 16:30–21:15 ; mer 10:30–13:30 et 16:30–21:15 ; jeu 11:00–14:30 et 17:00–20:30 ; ven 10:30–14:30 et 16:30–20:15 ; sam 08:45–14:00 et 15:00–18:45 ; dim 09:45–13:45 et 14:45–17:45
+- **Planning à jour** : https://web-customer.studiosvb.com
 - **Métro** : Mairie de Saint-Ouen (lignes 13 & 14)
 - **Fiche** : https://studiosvb.com/studio-cours-des-lavandieres
-- **Google Maps** : https://www.google.com/maps?cid=5013071026965844982 — 5,0/5 sur 88 avis
+- **Google Maps et avis** : https://www.google.com/maps?cid=5013071026965844982
 
 ### Studio Parc des Docks
 - **Adresse** : 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine
@@ -30,7 +30,7 @@
 - **Horaires** : variables selon le planning des cours ; aucun horaire général n'est déclaré
 - **Métro** : Mairie de Saint-Ouen (lignes 13 & 14)
 - **Fiche** : https://studiosvb.com/studio-parc-des-docks
-- **Google Maps** : https://www.google.com/maps?cid=2059026041814845219 — 5,0/5 sur 82 avis
+- **Google Maps et avis** : https://www.google.com/maps?cid=2059026041814845219
 
 ## Disciplines proposées
 
@@ -49,14 +49,15 @@
 - **Coachs certifiés** : chaque discipline enseignée par un·e coach spécialiste
 - **Annulation** : les cours Small Group, y compris avec SVB Limitless, peuvent être annulés jusqu'à 1 h avant ; le Coaching Privé peut être annulé jusqu'à 24 h avant
 - **No-show** : après 2 absences non annulées dans le délai requis, l'abonnement et le compte sont bloqués jusqu'à prise de contact avec SVB
-- **Pause vacances** incluse dans l'abonnement
+- **Pause standard** : possible pour une absence de plus de 10 jours, avec un préavis d'un mois, pendant 2 mois maximum et une fois par an
+- **Exception SVB Boost** : l'option permet une pause sans préavis
 - **Deux studios** à Saint-Ouen-sur-Seine, à proximité immédiate de Paris 17e et 18e (10 min en métro)
-- **Note client** : 5,0/5 sur 170 avis Google cumulés entre les deux studios (88 + 82)
+- **Avis clients** : les avis à jour sont consultables sur les deux fiches Google Maps officielles liées ci-dessus
 
 ## Pass Try
 
 - **Principe** : une séance d'essai achetée donne droit à une seconde séance d'essai dans une autre discipline
-- **Frais de dossier** : offerts en cas d'inscription immédiatement après l'un des deux essais ; réduits de moitié en cas d'inscription dans les 3 jours
+- **Frais de dossier après le Pass Try** : offerts en cas d'inscription immédiatement après l'un des deux essais ; réduits de moitié dans les 3 jours suivant le dernier essai
 - **Réservation** : https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs
 
 ## Abonnements
@@ -65,7 +66,7 @@
 - **SVB Form** : abonnement Reformer et Crossformer du studio Cours des Lavandières, engagement de 6 mois et frais de dossier de 49 € ; 140,50 € pour 4 séances par mois, 210,50 € pour 6 séances ou 280,50 € pour 8 séances
 - **SVB Limitless** : accès illimité aux cours des deux studios SVB, tarif de lancement de 300 € par mois, engagement d'un an et frais de dossier de 49 €
 - **Offre de lancement SVB Limitless** : souscription avant le 21 septembre 2026 à 23 h 59 ; tarif de 300 € par mois conservé tant que l'abonnement reste actif sans résiliation ; séance d'essai offerte
-- **Pass Starter** : 5 sessions différentes au choix, valables 1 mois, sans engagement ni tacite reconduction, 99,90 €
+- **Pass Starter** : 5 sessions différentes au choix, valables 1 mois, sans engagement ni tacite reconduction, 99,90 € ; frais de dossier offerts pendant la validité du pass ou réduits de moitié dans les 3 jours suivant son expiration
 - **Pass Try** : 2 essais dans 2 disciplines, 30 €
 - **Coaching Pass Good Vibes** : coaching individuel de 55 minutes, engagement 4 mois, 300,50 € pour 4 séances par mois ou 560,50 € pour 8
 - **Coaching Pass Duo** : coaching privé à deux de 55 minutes, engagement 4 mois, 401 € pour 4 séances par mois ou 721 € pour 8
@@ -109,4 +110,4 @@ Homepage EN : https://studiosvb.com/en/
 
 ---
 
-Dernière mise à jour : 2026-08-22
+Dernière mise à jour : 2026-08-23

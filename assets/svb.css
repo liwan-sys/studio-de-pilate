@@ -1396,6 +1396,18 @@ body:has(.svb-video-hero) .svb-video-hero{
     right:14px;
     bottom:calc(var(--svb-mobile-cta-h) + 18px + env(safe-area-inset-bottom, 0px));
   }
+  body.svb-mobile-sticky-visible .whatsapp-btn{
+    width:52px !important;
+    height:52px !important;
+    right:14px !important;
+    bottom:calc(var(--svb-mobile-cta-h) + 18px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  body.svb-mobile-sticky-visible .wa-bubble{
+    display:none !important;
+  }
+  .wa-bubble{
+    display:none !important;
+  }
   #cta-sticky:not(.visible) + .whatsapp-btn{
     bottom:calc(14px + env(safe-area-inset-bottom, 0px));
     opacity:0;

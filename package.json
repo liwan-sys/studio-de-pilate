@@ -1,7 +1,9 @@
 {
   "scripts": {
     "build": "./build.sh",
-    "validate:seo": "node scripts/validate-seo.mjs"
+    "validate:seo": "node scripts/validate-seo.mjs",
+    "validate:commercial": "node scripts/validate-commercial-truth.mjs",
+    "validate": "npm run validate:commercial && npm run validate:seo"
   },
   "dependencies": {
     "@netlify/database": "^1.0.0",
