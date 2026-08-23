@@ -74,12 +74,14 @@
             --svb-text: #2F4F4F;
         }
 
+        html { overflow-x: clip !important; }
+
         body {
             font-family: 'Montserrat', sans-serif !important;
             background-color: var(--svb-green-light);
             color: var(--svb-text);
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow-x: clip !important;
             position: relative;
         }
 
@@ -131,45 +133,112 @@
         .d-2 { animation-delay: 0.2s; }
         .d-3 { animation-delay: 0.3s; }
 
-        /* Planning hebdomadaire - couleurs extraites de la brochure SVB 08/2026. */
+        /* Planning web interactif - palette de la brochure SVB 08/2026. */
         .planning-switcher-wrapper {
-            position: sticky;
-            top: 10px;
+            position: relative;
             z-index: 40;
-            padding: 0 16px 28px;
-            text-align: center;
+            padding: 0 20px 34px;
+        }
+
+        .planning-controls {
+            width: min(100%, 980px);
+            margin: 0 auto;
+            padding: 7px;
+            border: 1px solid rgba(37, 69, 76, 0.14);
+            border-radius: 8px;
+            background: rgba(255, 253, 247, 0.95);
+            box-shadow: 0 16px 42px rgba(37, 69, 76, 0.14);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
         .planning-switcher {
-            display: inline-flex;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 6px;
-            padding: 6px;
-            border: 1px solid rgba(37, 69, 76, 0.16);
-            border-radius: 8px;
-            background: rgba(255, 253, 247, 0.94);
-            box-shadow: 0 12px 30px rgba(37, 69, 76, 0.12);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
         }
 
-        .planning-switcher a {
+        .planning-studio-tab,
+        .planning-day-tab {
+            appearance: none;
+            border: 0;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0;
+            cursor: pointer;
+        }
+
+        .planning-studio-tab {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 40px;
+            min-height: 42px;
             padding: 9px 16px;
             border-radius: 6px;
-            color: #25454c;
+            background: transparent;
+            color: #405d5c;
             font-size: 0.78rem;
             font-weight: 800;
-            letter-spacing: 0;
-            text-decoration: none;
-            transition: background 0.2s ease, color 0.2s ease;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
         }
 
-        .planning-switcher a:first-child { background: #86a68e; color: white; }
-        .planning-switcher a:last-child { background: #e1cda5; color: #25454c; }
-        .planning-switcher a:hover { filter: brightness(0.96); }
+        .planning-studio-tab:hover { background: rgba(134, 166, 142, 0.14); }
+        .planning-studio-tab:active { transform: translateY(1px); }
+        .planning-studio-tab[data-studio-target="parc-des-docks"].is-active {
+            background: #86a68e;
+            color: white;
+        }
+        .planning-studio-tab[data-studio-target="cours-des-lavandieres"].is-active {
+            background: #e1cda5;
+            color: #25454c;
+        }
+
+        .planning-day-nav {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: 4px;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(37, 69, 76, 0.1);
+        }
+
+        .planning-day-tab {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 5px;
+            min-width: 0;
+            min-height: 40px;
+            padding: 7px 10px;
+            border-radius: 6px;
+            background: transparent;
+            color: #536b69;
+            font-size: 0.72rem;
+            font-weight: 700;
+            line-height: 1;
+            transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .planning-day-tab:hover { background: rgba(37, 69, 76, 0.07); }
+        .planning-day-tab.is-active {
+            background: #25454c;
+            color: white;
+            box-shadow: 0 5px 14px rgba(37, 69, 76, 0.18);
+        }
+
+        .planning-day-short { display: none; }
+        .planning-day-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 5px;
+            border-radius: 50%;
+            background: rgba(37, 69, 76, 0.1);
+            font-size: 0.6rem;
+            font-weight: 900;
+        }
+        .planning-day-tab.is-active .planning-day-count { background: rgba(255, 255, 255, 0.18); }
 
         .planning-intro {
             max-width: 760px;
@@ -196,19 +265,25 @@
         .schedule-shell {
             position: relative;
             z-index: 10;
-            width: min(100%, 1320px);
+            width: min(100%, 1480px);
             margin: 0 auto;
             padding: 0 24px 96px;
         }
 
         .schedule-section {
             scroll-margin-top: 96px;
-            margin-bottom: 92px;
+            margin-bottom: 36px;
         }
 
-        .schedule-section + .schedule-section {
-            padding-top: 76px;
-            border-top: 1px solid rgba(37, 69, 76, 0.24);
+        .planning-enhanced .schedule-section { display: none; }
+        .planning-enhanced .schedule-section.is-active {
+            display: block;
+            animation: scheduleStudioIn 0.35s ease both;
+        }
+
+        @keyframes scheduleStudioIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .schedule-heading {
@@ -216,7 +291,8 @@
             align-items: flex-end;
             justify-content: space-between;
             gap: 24px;
-            margin-bottom: 26px;
+            margin-bottom: 22px;
+            padding: 0 4px;
         }
 
         .schedule-heading__title { min-width: 0; }
@@ -257,12 +333,30 @@
 
         .schedule-grid {
             display: grid;
-            grid-template-columns: repeat(6, minmax(0, 1fr));
+            grid-template-columns: repeat(7, minmax(0, 1fr));
             gap: 10px;
             align-items: start;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            background: rgba(255, 253, 247, 0.34);
+            box-shadow: 0 22px 54px rgba(37, 69, 76, 0.12);
         }
 
-        .schedule-day { min-width: 0; }
+        .schedule-day {
+            min-width: 0;
+            padding: 6px;
+            border: 1px solid transparent;
+            border-radius: 7px;
+            background: rgba(255, 253, 247, 0.3);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .schedule-day.is-active {
+            border-color: rgba(37, 69, 76, 0.24);
+            box-shadow: 0 12px 28px rgba(37, 69, 76, 0.12);
+            transform: translateY(-3px);
+        }
 
         .day-header {
             display: flex;
@@ -270,7 +364,7 @@
             justify-content: center;
             min-height: 54px;
             padding: 10px 8px;
-            border-radius: 2px;
+            border-radius: 6px;
             background: #86a68e;
             color: white;
             font-family: 'Montserrat', sans-serif !important;
@@ -286,11 +380,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 82px;
-            margin-top: 10px;
+            min-height: 78px;
+            margin-top: 7px;
             padding: 10px 8px;
             border: 1px solid rgba(255, 255, 255, 0.44);
-            border-radius: 2px;
+            border-radius: 6px;
             box-shadow: 0 5px 14px rgba(37, 69, 76, 0.07);
             font-family: 'Montserrat', sans-serif;
             font-size: 0.78rem;
@@ -334,23 +428,6 @@
             background: linear-gradient(148deg, #e8dbbc 0 52%, #dac194 52% 100%);
             color: #25454c;
         }
-
-        .schedule-sunday {
-            display: grid;
-            grid-template-columns: 180px minmax(0, 1fr);
-            gap: 10px;
-            margin-top: 36px;
-            padding-top: 32px;
-            border-top: 1px solid rgba(37, 69, 76, 0.32);
-        }
-
-        .schedule-sunday .day-header { min-height: 82px; }
-        .schedule-sunday__slots {
-            display: grid;
-            grid-template-columns: repeat(var(--slot-count), minmax(0, 1fr));
-            gap: 10px;
-        }
-        .schedule-sunday .class-slot { margin-top: 0; }
 
         .schedule-legend {
             display: flex;
@@ -411,44 +488,88 @@
 
         .schedule-live-link:hover { background: #173d3d; transform: translateY(-1px); }
 
-        @media (max-width: 1080px) {
-            .schedule-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        @media (max-width: 1120px) and (min-width: 821px) {
+            .schedule-shell { padding-inline: 14px; }
+            .schedule-grid { gap: 6px; padding: 7px; }
+            .schedule-day { padding: 4px; }
+            .day-header { font-size: 0.78rem; }
+            .class-slot { min-height: 72px; padding-inline: 5px; font-size: 0.67rem; }
+            .class-time { font-size: 0.84rem; }
         }
 
-        @media (max-width: 720px) {
-            .planning-switcher-wrapper { top: 8px; padding-bottom: 24px; }
-            .planning-switcher { width: 100%; max-width: 420px; }
-            .planning-switcher a { flex: 1 1 0; padding: 9px 8px; font-size: 0.7rem; }
+        @media (max-width: 820px) {
+            .planning-switcher-wrapper { position: sticky; top: 6px; padding: 0 10px 26px; }
+            .planning-controls { padding: 6px; }
+            .planning-studio-tab { min-height: 39px; padding: 8px 6px; font-size: 0.68rem; }
+            .planning-day-nav { gap: 2px; }
+            .planning-day-tab {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 4px;
+                min-height: 48px;
+                padding: 5px 1px;
+                font-size: 0.64rem;
+            }
+            .planning-day-full { display: none; }
+            .planning-day-short { display: inline; }
+            .planning-day-count { min-width: 17px; height: 17px; padding: 0 4px; font-size: 0.55rem; }
             .planning-intro { margin-bottom: 46px; }
             .planning-intro h2 { font-size: 2rem; }
             .planning-intro p { font-size: 0.9rem; }
             .schedule-shell { padding: 0 16px 72px; }
-            .schedule-section { margin-bottom: 72px; }
-            .schedule-section + .schedule-section { padding-top: 58px; }
-            .schedule-heading { display: block; margin-bottom: 22px; }
+            .schedule-section { margin-bottom: 28px; }
+            .schedule-heading { display: block; margin-bottom: 18px; padding-inline: 2px; }
             .schedule-kicker { font-size: 2.3rem; }
             .schedule-heading h2 { font-size: 1.05rem; }
             .schedule-address { margin-top: 12px; max-width: none; text-align: left; font-size: 0.78rem; }
             .schedule-grid {
-                display: flex;
-                gap: 12px;
-                margin-right: -16px;
-                padding-right: 16px;
-                padding-bottom: 14px;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                scrollbar-width: thin;
-                scrollbar-color: #86a68e rgba(255, 255, 255, 0.28);
+                grid-template-columns: 1fr;
+                padding: 8px;
+                border-radius: 8px;
             }
             .schedule-day {
-                flex: 0 0 min(80vw, 310px);
-                scroll-snap-align: start;
+                padding: 6px;
+                transform: none;
             }
-            .schedule-sunday { grid-template-columns: 1fr; }
-            .schedule-sunday .day-header { min-height: 54px; }
-            .schedule-sunday__slots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .planning-enhanced .schedule-day { display: none; }
+            .planning-enhanced .schedule-day.is-active {
+                display: block;
+                animation: scheduleDayIn 0.28s ease both;
+            }
+            .day-header { min-height: 48px; font-size: 0.92rem; }
+            .class-slot {
+                flex-direction: row;
+                justify-content: flex-start;
+                min-height: 62px;
+                padding: 9px 14px;
+                text-align: left;
+            }
+            .class-time {
+                flex: 0 0 68px;
+                margin: 0 14px 0 0;
+                padding-right: 14px;
+                border-right: 1px solid rgba(37, 69, 76, 0.18);
+                font-size: 1rem;
+                text-align: center;
+            }
+            .class-name { min-width: 0; font-size: 0.82rem; }
             .schedule-actions { align-items: stretch; }
             .schedule-live-link { width: 100%; }
+        }
+
+        @keyframes scheduleDayIn {
+            from { opacity: 0; transform: translateX(10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .schedule-section.is-active,
+            .schedule-day.is-active { animation: none !important; }
+            .schedule-day,
+            .class-slot,
+            .planning-studio-tab,
+            .planning-day-tab { transition: none !important; }
         }
 
     </style>
@@ -512,10 +633,21 @@
     </div>
 
     <div class="planning-switcher-wrapper reveal-load d-2">
-      <nav class="planning-switcher" aria-label="Choisir un studio dans le planning">
-        <a href="#planning-parc-des-docks">Parc des Docks</a>
-        <a href="#planning-lavandieres">Cours des Lavandières</a>
-      </nav>
+      <div class="planning-controls">
+        <div class="planning-switcher" role="group" aria-label="Choisir un studio dans le planning">
+          <button class="planning-studio-tab is-active" type="button" data-studio-target="parc-des-docks" aria-pressed="true">Parc des Docks</button>
+          <button class="planning-studio-tab" type="button" data-studio-target="cours-des-lavandieres" aria-pressed="false">Cours des Lavandières</button>
+        </div>
+        <div class="planning-day-nav" role="group" aria-label="Choisir un jour">
+          <button class="planning-day-tab is-active" type="button" data-day-target="Lundi" aria-pressed="true" aria-label="Afficher le lundi"><span class="planning-day-full">Lundi</span><span class="planning-day-short" aria-hidden="true">Lun</span><span class="planning-day-count" aria-hidden="true">0</span></button>
+          <button class="planning-day-tab" type="button" data-day-target="Mardi" aria-pressed="false" aria-label="Afficher le mardi"><span class="planning-day-full">Mardi</span><span class="planning-day-short" aria-hidden="true">Mar</span><span class="planning-day-count" aria-hidden="true">0</span></button>
+          <button class="planning-day-tab" type="button" data-day-target="Mercredi" aria-pressed="false" aria-label="Afficher le mercredi"><span class="planning-day-full">Mercredi</span><span class="planning-day-short" aria-hidden="true">Mer</span><span class="planning-day-count" aria-hidden="true">0</span></button>
+          <button class="planning-day-tab" type="button" data-day-target="Jeudi" aria-pressed="false" aria-label="Afficher le jeudi"><span class="planning-day-full">Jeudi</span><span class="planning-day-short" aria-hidden="true">Jeu</span><span class="planning-day-count" aria-hidden="true">0</span></button>
+          <button class="planning-day-tab" type="button" data-day-target="Vendredi" aria-pressed="false" aria-label="Afficher le vendredi"><span class="planning-day-full">Vendredi</span><span class="planning-day-short" aria-hidden="true">Ven</span><span class="planning-day-count" aria-hidden="true">0</span></button>
+          <button class="planning-day-tab" type="button" data-day-target="Samedi" aria-pressed="false" aria-label="Afficher le samedi"><span class="planning-day-full">Samedi</span><span class="planning-day-short" aria-hidden="true">Sam</span><span class="planning-day-count" aria-hidden="true">0</span></button>
+          <button class="planning-day-tab" type="button" data-day-target="Dimanche" aria-pressed="false" aria-label="Afficher le dimanche"><span class="planning-day-full">Dimanche</span><span class="planning-day-short" aria-hidden="true">Dim</span><span class="planning-day-count" aria-hidden="true">0</span></button>
+        </div>
+      </div>
     </div>
 
     <div class="planning-intro reveal-load d-2">
@@ -524,7 +656,7 @@
     </div>
 
     <main class="schedule-shell" aria-label="Planning hebdomadaire des studios SVB">
-      <section id="planning-parc-des-docks" class="schedule-section schedule-section--docks reveal-load d-2" data-schedule-studio="parc-des-docks">
+      <section id="planning-parc-des-docks" class="schedule-section schedule-section--docks reveal-load d-2 is-active" data-schedule-studio="parc-des-docks">
         <header class="schedule-heading">
           <div class="schedule-heading__title">
             <p class="schedule-kicker">Planning</p>
@@ -597,17 +729,15 @@
             <div class="class-slot course-cross-core" data-time="11h30" data-course="Cross Core"><span class="class-time">11h30</span><span class="class-name">Cross Core</span></div>
             <div class="class-slot course-stretch-mobility" data-time="11h30" data-course="Stretch Mobility"><span class="class-time">11h30</span><span class="class-name">Stretch Mobility</span></div>
           </article>
-        </div>
 
-        <article class="schedule-sunday" data-day="Dimanche">
-          <h3 class="day-header">Dimanche</h3>
-          <div class="schedule-sunday__slots" style="--slot-count:4">
+          <article class="schedule-day" data-day="Dimanche">
+            <h3 class="day-header">Dimanche</h3>
             <div class="class-slot course-cross-training" data-time="10h30" data-course="Cross Training"><span class="class-time">10h30</span><span class="class-name">Cross Training</span></div>
             <div class="class-slot course-classic-pilates" data-time="10h30" data-course="Classic Pilates"><span class="class-time">10h30</span><span class="class-name">Classic Pilates</span></div>
             <div class="class-slot course-cross-yoga" data-time="11h30" data-course="Cross Yoga"><span class="class-time">11h30</span><span class="class-name">Cross Yoga</span></div>
             <div class="class-slot course-yoga-vinyasa" data-time="11h30" data-course="Yoga Vinyasa"><span class="class-time">11h30</span><span class="class-name">Yoga Vinyasa</span></div>
-          </div>
-        </article>
+          </article>
+        </div>
 
         <div class="schedule-actions">
           <p class="schedule-note">Réservations sur l'application pour les membres SVB. Les places disponibles et les changements exceptionnels sont affichés en direct.</p>
@@ -680,18 +810,16 @@
             <div class="class-slot course-crossformer" data-time="10h30" data-course="Crossformer"><span class="class-time">10h30</span><span class="class-name">Crossformer</span></div>
             <div class="class-slot course-crossformer" data-time="11h30" data-course="Crossformer"><span class="class-time">11h30</span><span class="class-name">Crossformer</span></div>
           </article>
-        </div>
 
-        <article class="schedule-sunday" data-day="Dimanche">
-          <h3 class="day-header">Dimanche</h3>
-          <div class="schedule-sunday__slots" style="--slot-count:5">
+          <article class="schedule-day" data-day="Dimanche">
+            <h3 class="day-header">Dimanche</h3>
             <div class="class-slot course-reformer" data-time="10h" data-course="Reformer"><span class="class-time">10h</span><span class="class-name">Reformer</span></div>
             <div class="class-slot course-crossformer" data-time="10h10" data-course="Crossformer"><span class="class-time">10h10</span><span class="class-name">Crossformer</span></div>
             <div class="class-slot course-reformer" data-time="11h" data-course="Reformer"><span class="class-time">11h</span><span class="class-name">Reformer</span></div>
             <div class="class-slot course-crossformer" data-time="11h10" data-course="Crossformer"><span class="class-time">11h10</span><span class="class-name">Crossformer</span></div>
             <div class="class-slot course-reformer" data-time="12h" data-course="Reformer"><span class="class-time">12h</span><span class="class-name">Reformer</span></div>
-          </div>
-        </article>
+          </article>
+        </div>
 
         <div class="schedule-legend" aria-label="Légende des cours sur machine">
           <span><i class="schedule-swatch schedule-swatch--reformer" aria-hidden="true"></i> Reformer : Pilates sur machine</span>
@@ -752,6 +880,113 @@
       </div>
     </footer>
 
+  <script>
+    (function () {
+      var days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+      var studioNames = {
+        'parc-des-docks': 'Parc des Docks',
+        'cours-des-lavandieres': 'Cours des Lavandières'
+      };
+      var sections = Array.from(document.querySelectorAll('[data-schedule-studio]'));
+      var studioButtons = Array.from(document.querySelectorAll('[data-studio-target]'));
+      var dayButtons = Array.from(document.querySelectorAll('[data-day-target]'));
+      var status = document.createElement('span');
+      var initialHash = window.location.hash.replace('#planning-', '');
+      var activeStudio = initialHash === 'lavandieres' ? 'cours-des-lavandieres' : 'parc-des-docks';
+      var jsDay = new Date().getDay();
+      var activeDay = days[jsDay === 0 ? 6 : jsDay - 1];
+
+      if (!sections.length || !studioButtons.length || !dayButtons.length) return;
+
+      status.className = 'sr-only';
+      status.setAttribute('aria-live', 'polite');
+      document.querySelector('.planning-controls').appendChild(status);
+
+      function activeSection() {
+        return sections.find(function (section) {
+          return section.dataset.scheduleStudio === activeStudio;
+        });
+      }
+
+      function updatePlanning() {
+        var section = activeSection();
+
+        sections.forEach(function (item) {
+          var selected = item === section;
+          item.classList.toggle('is-active', selected);
+          item.setAttribute('aria-hidden', selected ? 'false' : 'true');
+        });
+
+        studioButtons.forEach(function (button) {
+          var selected = button.dataset.studioTarget === activeStudio;
+          button.classList.toggle('is-active', selected);
+          button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        });
+
+        dayButtons.forEach(function (button) {
+          var day = button.dataset.dayTarget;
+          var selected = day === activeDay;
+          var dayPanel = section.querySelector('[data-day="' + day + '"]');
+          var count = dayPanel ? dayPanel.querySelectorAll('.class-slot').length : 0;
+          button.classList.toggle('is-active', selected);
+          button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+          button.querySelector('.planning-day-count').textContent = count;
+        });
+
+        sections.forEach(function (item) {
+          item.querySelectorAll('[data-day]').forEach(function (dayPanel) {
+            dayPanel.classList.toggle('is-active', item === section && dayPanel.dataset.day === activeDay);
+          });
+        });
+
+        var selectedPanel = section.querySelector('[data-day="' + activeDay + '"]');
+        var selectedCount = selectedPanel ? selectedPanel.querySelectorAll('.class-slot').length : 0;
+        status.textContent = studioNames[activeStudio] + ', ' + activeDay + ', ' + selectedCount + ' cours.';
+        document.documentElement.classList.add('planning-enhanced');
+      }
+
+      studioButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          activeStudio = button.dataset.studioTarget;
+          var hash = activeStudio === 'cours-des-lavandieres' ? '#planning-lavandieres' : '#planning-parc-des-docks';
+          history.replaceState(null, '', hash);
+          updatePlanning();
+        });
+      });
+
+      dayButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          activeDay = button.dataset.dayTarget;
+          updatePlanning();
+        });
+      });
+
+      sections.forEach(function (section) {
+        var touchStartX = 0;
+        var touchStartY = 0;
+        var grid = section.querySelector('.schedule-grid');
+        grid.addEventListener('touchstart', function (event) {
+          touchStartX = event.changedTouches[0].clientX;
+          touchStartY = event.changedTouches[0].clientY;
+        }, { passive: true });
+        grid.addEventListener('touchend', function (event) {
+          var distanceX = event.changedTouches[0].clientX - touchStartX;
+          var distanceY = event.changedTouches[0].clientY - touchStartY;
+          var currentIndex = days.indexOf(activeDay);
+          if (window.innerWidth > 820 || Math.abs(distanceX) < 55 || Math.abs(distanceX) < Math.abs(distanceY) * 1.4) return;
+          activeDay = days[(currentIndex + (distanceX < 0 ? 1 : -1) + days.length) % days.length];
+          updatePlanning();
+        }, { passive: true });
+      });
+
+      window.addEventListener('hashchange', function () {
+        activeStudio = window.location.hash === '#planning-lavandieres' ? 'cours-des-lavandieres' : 'parc-des-docks';
+        updatePlanning();
+      });
+
+      updatePlanning();
+    })();
+  </script>
   <script src="/assets/svb.js?v=20260823e" defer></script>
   <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
   <script src="/assets/svb-motion.js?v=20260424a" defer></script>
