@@ -326,7 +326,7 @@
 </section>
 
   <!-- === SVB LIMITLESS — offre signature === -->
-  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" style="background:#F6F2EA;overflow:hidden;">
+  <section class="relative py-20 md:py-28 reveal-load d-2 z-10" style="background:linear-gradient(135deg,#D4DFD7 0%,#F0DFD5 48%,#E7DEC8 100%);overflow:hidden;">
 
     <style>
       /* === Pass Starter — carte editoriale === */
@@ -774,8 +774,8 @@
 
       /* Variante Limitless : la carte signature remplace le Pass Starter. */
       @keyframes psPremiumFloat{
-        0%,100%{transform:translateY(0);}
-        50%{transform:translateY(-5px);}
+        0%,100%{transform:translateY(-4px);}
+        50%{transform:translateY(-16px);}
       }
       .ps-card--limitless{
         max-width:720px;
@@ -786,11 +786,14 @@
           linear-gradient(145deg,#1F454D 0%,#315D62 48%,#566F6E 100%);
         border:1px solid rgba(238,214,193,.62);
         box-shadow:
-          0 36px 72px -28px rgba(29,56,56,.62),
-          0 12px 28px -18px rgba(150,163,156,.58),
+          0 48px 88px -28px rgba(29,56,56,.68),
+          0 22px 44px -24px rgba(238,214,193,.92),
+          0 0 0 1px rgba(255,255,255,.12),
           inset 0 1px 0 rgba(255,255,255,.18);
+        filter:drop-shadow(0 22px 22px rgba(29,56,56,.2));
         overflow:visible;
-        animation:psPremiumFloat 7s ease-in-out infinite;
+        animation:psPremiumFloat 5.2s ease-in-out infinite;
+        will-change:transform;
       }
       .ps-card--limitless::before{
         inset:8px;
@@ -1012,6 +1015,9 @@
         .ps-limitless-countdown strong{font-size:1.35rem;}
         .ps-limitless-countdown span{font-size:.48rem;letter-spacing:.04em;}
         .ps-card--limitless .ps-cta{font-size:.7rem;padding:18px 16px;letter-spacing:.09em;}
+      }
+      @media (prefers-reduced-motion:reduce){
+        .ps-card--limitless{animation:none;transform:translateY(-7px);}
       }
     </style>
 
