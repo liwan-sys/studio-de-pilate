@@ -361,78 +361,65 @@ Par carte : thumbnail · H3 (discipline) · Body-sm (accroche 55 car max) · tag
 ### 4.1 Hero
 
 **Eyebrow** : `Tarifs & abonnements` (20)
-**H1** : `Une formule pour chaque rythme.` (31 · 6 mots)
-**Sous-titre** (~110 car) :
-> `Sans engagement pour tester, avec engagement pour vraiment progresser. Essai 30 € intégralement déductible.` (105)
-**CTA** : `Commencer par l'essai` (20)
+**H1** : `Choisis ton accès SVB.`
+**Sous-titre** :
+> `Trois abonnements pour construire ta routine, plus deux pass pour découvrir SVB avant de choisir.`
+**CTA** : `Voir les abonnements`
 
-### 4.2 Toggle d'engagement
+### 4.2 Structure de lecture
 
-Tabs :
-- `Sans engagement` (15)
-- `Engagement 6 mois` (17) avec badge `−32 %`
+Ordre :
+- `SVB Limitless` en offre signature
+- `SVB Move` pour le Parc des Docks
+- `SVB Form` pour Reformer et Crossformer aux Lavandières
+- `Pass Try` et `Pass Starter` pour découvrir
 
 ### 4.3 3 cartes principales
 
-#### Carte 1 · Pass Starter (découverte)
+#### Carte 1 · SVB Limitless (featured)
 
-**Badge** : `Le test parfait` (15)
-**Titre** : `New Pass Starter` (16)
-**Prix hero** : `99,90 €` / `5 sessions`
-**Ancien prix** : barré `190 €`
-**Features** (5 bullets) :
-- 5 sessions au choix parmi nos disciplines small group
-- Sans engagement, pas de tacite reconduction
+**Badge** : `Pass illimité · Offre signature`
+**Prix** : `300 € / mois`
+**Features** :
+- Accès aux deux studios
+- Toutes les disciplines SVB
+- Cours illimités
+- Engagement 1 an
+- Annulation jusqu'à 1 h avant
+**CTA** : `S'abonner à Limitless`
+
+#### Carte 2 · SVB Move
+
+**Badge** : `Parc des Docks · 1 studio`
+**Prix** : `80,50 € / 120,50 € / 160,50 €`
+**Rythmes** : `4, 6 ou 8 séances par mois`
+**Engagement** : `6 mois`
+**CTA** : `S'abonner à Move`
+
+#### Carte 3 · SVB Form
+
+**Badge** : `Cours des Lavandières · 1 studio`
+**Prix** : `140,50 € / 210,50 € / 280,50 €`
+**Rythmes** : `4, 6 ou 8 séances par mois`
+**Disciplines** : `Pilates Reformer et Crossformer`
+**Engagement** : `6 mois`
+**CTA** : `S'abonner à Form`
+
+### 4.4 Pass découverte
+
+#### Pass Try
+
+- `30 €`
+- 1 essai acheté = 1 essai offert dans une autre discipline
+- Frais de dossier offerts si inscription directement après l'un des essais
+- Frais de dossier à -50 % si inscription dans les 3 jours
+
+#### Pass Starter
+
+- `99,90 €`
+- 5 séances différentes au choix
+- Sans engagement ni tacite reconduction
 - Valable 1 mois
-- Annulation 1 h avant le cours
-- Chaussettes antidérapantes fournies au Reformer
-**CTA** : `Commencer` (9)
-
-#### Carte 2 · Pass Full (featured, centrale, scale +3%)
-
-**Badge peach** : `Le + choisi` (11)
-**Titre** : `Pass Full` (9) — `(Cross + Focus)`
-**Prix hero** (toggle-driven) : `20 €` / cours — *switch « 15 € avec engagement »*
-**Sous-prix** : *« soit 180,30 €/mois pour 12 sessions »*
-**Features** :
-- Accès **illimité** à toutes les disciplines small group
-- Cross, Focus, Yoga, Boxe et Yoga Kids
-- Jusqu'à 12 sessions/mois
-- Pause vacances possible (préavis 1 mois)
-- Annulation 1 h avant
-- Priorité de réservation
-**CTA** : `Choisir Full` (11)
-
-#### Carte 3 · Pass Reformer / Crossformer
-
-**Titre** : `Machine Former` (14) — *« Reformer & Crossformer »*
-**Prix hero** (toggle) : `50 €` / unité — *switch « 30 €/cours avec pack 12 »*
-**Features** :
-- Machine Pilates Reformer ou Crossformer
-- Maximum **8 places** par cours (intimité rare)
-- Séances 50 minutes
-- Progression individualisée, notée par le coach
-- Crossformer : hybride cardio + Reformer, brûle-énergie
-- Pack Full Former disponible (R+CF cumulé)
-**CTA** : `Réserver` (8)
-
-### 4.4 Tableau comparatif exhaustif (tous les pass)
-
-> **Eyebrow** : `Tarifs complets` (15)
-> **H2** : `Du pack découverte au membership illimité.` (42)
-
-**Table** · 3 colonnes : Pass · Durée cours · Tarifs par palier (2/4/6/8/10/12 sessions) :
-
-| Pass | Durée | 2 | 4 | 6 | 8 | 10 | 12 |
-|---|---|---|---|---|---|---|---|
-| **Crossformer** | 50 min | 78,30 | 152,30 | 222,30 | 288,30 | 350,30 | **408,30** |
-| **Reformer** | 50 min | 70,30 | 136,30 | 198,30 | 256,30 | 310,30 | **360,30** |
-| **Full Former** | 50 min | 74,30 | 144,30 | 210,30 | 272,30 | 330,30 | **384,30** |
-| **Cross** | 55 min | 30,30 | 60,30 | 90,30 | 116,30 | 145,30 | **168,30** |
-| **Focus** | 55 min | 36,30 | 72,30 | 105,30 | 136,30 | 165,30 | **192,30** |
-| **Full (Cross+Focus)** | 55 min | 40,30 | 80,30 | 115,30 | 150,30 | 180,30 | **210,30** |
-
-*Prix en € TTC · Non cumulable entre Reformer/Crossformer ni entre Cross/Focus*
 
 ### 4.5 Coaching privé (section dédiée, fond ink-2)
 
@@ -461,9 +448,9 @@ Tabs :
 
 | Sessions | Prix | Détails |
 |---|---|---|
-| 2/mois | **35,30 €** | 1 activité au choix |
-| 4/mois | **65,30 €** | 1 activité au choix |
-| Session +1 | 18,30 € | en supplément |
+| 2/mois | **35,50 €** | Yoga Kids |
+| 4/mois | **65,50 €** | Yoga Kids |
+| Session +1 | 18,50 € | en supplément |
 
 *Frais de dossier 25 € · Engagement 4 mois*
 
@@ -498,9 +485,7 @@ Tabs :
 - `−32 %` — économie max avec pack 12 Reformer
 
 **Testimonial pricing-focus** :
-> ★★★★★
-> *J'ai d'abord pris le Starter à 99,90 € — je voulais juste tester. Résultat : je suis en Pass Full Former depuis 11 mois. Le ratio prix/qualité/résultat est imbattable.* (175)
-> — **Sonia L.** · Pass Full Former · membre depuis nov. 2025
+> Utiliser uniquement un avis client réel parlant de Move, Form ou Limitless.
 
 ### 4.10 FAQ tarifs (8 questions conversion)
 
@@ -508,13 +493,13 @@ Tabs :
 `**Pass Starter à 99,90 €** : 5 sessions à choisir dans nos disciplines small group, 1 mois pour tester, zéro engagement. C'est conçu exactement pour ça.`
 
 #### Q2 · `Les passes sont-ils cumulables entre disciplines ?`
-`Pass **Cross et Focus** → non cumulables, mais le **Pass Full** les combine. Pass **Reformer et Crossformer** → non cumulables, le **Pass Full Former** les cumule. On simplifie plutôt qu'on ne multiplie.`
+`**SVB Move** donne accès aux cours du Parc des Docks. **SVB Form** donne accès au Reformer et au Crossformer aux Lavandières. **SVB Limitless** réunit les deux studios et toutes les disciplines en illimité.`
 
 #### Q3 · `Combien me coûte vraiment ma séance ?`
-`Par palier dégressif : de 39,15 €/séance (pack 2 Reformer) à **30,03 €/séance** (pack 12 Reformer). Soit **−40 %** par rapport à l'unité (50 €). Tu fais l'économie en t'engageant.`
+`Les prix mensuels sont affichés directement sur chaque carte : Move à 80,50 €, 120,50 € ou 160,50 € ; Form à 140,50 €, 210,50 € ou 280,50 € ; Limitless à 300 €.`
 
 #### Q4 · `Que se passe-t-il si je dépasse mes crédits ?`
-`Tu peux ajouter une séance au **prix unitaire de ton abonnement** (ex. : 30 €/séance si tu es en Pass Reformer). Les crédits non consommés **ne se reportent pas** au mois suivant.`
+`Pour Move et Form, contacte l'équipe afin d'ajouter une séance ou de faire évoluer ton rythme. Limitless ne comporte pas de compteur de séances.`
 
 #### Q5 · `Puis-je changer d'abonnement en cours de route ?`
 `Oui. **Upgrade** : immédiat, sans préavis. **Downgrade** : 1 mois de préavis en fin de période d'engagement. Un mail à hello@studiosvb.fr et on s'occupe du reste.`
@@ -795,16 +780,15 @@ Champs :
 
 ### 10.4 Tarifs (mini-table)
 
-Pass Reformer (50 min) :
+SVB Form — Reformer et Crossformer (50 min) :
 
-| Pack | Prix/mois | Coût/séance |
-|---|---|---|
-| 2 sessions | 70,30 € | 35,15 € |
-| 4 sessions | 136,30 € | 34,07 € |
-| 8 sessions | 256,30 € | 32,04 € |
-| **12 sessions** | **360,30 €** | **30,03 €** ⭐ |
+| Rythme | Prix/mois |
+|---|---|
+| 4 séances | 140,50 € |
+| 6 séances | 210,50 € |
+| 8 séances | 280,50 € |
 
-*Essai 30 €, 15 € remboursés si inscription. Hors abo : 50 €/séance.*
+*Engagement 6 mois · Frais de dossier 49 € · Pass Try : 2 essais pour 30 €.*
 
 ### 10.5 Créneaux cette semaine (dynamique)
 
