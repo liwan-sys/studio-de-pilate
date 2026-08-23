@@ -301,50 +301,31 @@
       </div>
     </nav>
 
-    <!-- COUVERTURE SVB LIMITLESS -->
-    <div class="hero-limitless-cover" data-launch-offer data-launch-deadline="2026-09-21T23:59:00+02:00">
-      <div class="hero-limitless-inner">
-        <p class="hero-limitless-badge" data-launch-only>Offre de lancement · jusqu'au 21 septembre</p>
-        <h1 class="hero-limitless-title">SVB Limitless<span class="sr-only"> — l'abonnement illimité aux deux studios SVB de Saint-Ouen.</span></h1>
-        <p class="hero-limitless-tagline">Un seul pass. Tout SVB. En illimité.</p>
-        <p class="hero-limitless-price" aria-label="Tarif de lancement : 300 euros par mois" data-launch-only><strong>300 €</strong><span>/ mois</span></p>
-
-        <ul class="hero-limitless-points" aria-label="Avantages SVB Limitless">
-          <li>2 studios</li>
-          <li>Toutes les disciplines</li>
-          <li>Cours illimités</li>
-        </ul>
-
-        <div class="hero-limitless-countdown pricing-launch-countdown" data-launch-only aria-live="off">
-          <p><strong data-countdown-days>00</strong><span>jours</span></p>
-          <p><strong data-countdown-hours>00</strong><span>heures</span></p>
-          <p><strong data-countdown-minutes>00</strong><span>minutes</span></p>
-          <p><strong data-countdown-seconds>00</strong><span>secondes</span></p>
-        </div>
-
-        <p class="hero-limitless-ended" data-launch-ended hidden>L'accès illimité aux deux studios SVB.</p>
-
-        <div class="hero-limitless-actions">
-          <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans"
-             data-booking-path="/place/place_svb-lavandieres/subscription-plans"
-             data-amount="300 € / mois"
-             data-track="home_hero_limitless_cta"
-             class="js-buy hero-limitless-primary svb-magnetic"
-             aria-label="Profiter de l'offre de lancement SVB Limitless à 300 euros par mois"
-             data-launch-cta
-             data-default-label="Découvrir Limitless"
-             data-default-aria-label="Découvrir l'abonnement SVB Limitless">
-            <span data-launch-cta-label>Profiter de l'offre</span><span aria-hidden="true">→</span>
-          </a>
-          <a href="/tarifs#svb-limitless" class="hero-limitless-secondary">Voir les détails</a>
-        </div>
-
-        <p class="hero-limitless-note" data-launch-only>Séance d'essai offerte · tarif conservé tant que l'abonnement reste actif</p>
+    <!-- CONTENU CENTRÉ HERO -->
+    <div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none;z-index:5;">
+      <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(3rem,14vw,7rem);color:white;margin:0 0 10px;line-height:1;text-shadow:0 4px 20px rgba(0,0,0,0.4);">SVB<span class="sr-only"> — Santez Vous Bien, studio de coaching sportif à Saint-Ouen : Pilates Reformer, Crossformer, Cross Training, Yoga et Boxe anglaise en petits groupes.</span></h1>
+      <p style="color:rgba(255,255,255,0.92);font-family:'Montserrat',sans-serif;font-size:clamp(15px,3.2vw,20px);font-weight:500;letter-spacing:.01em;margin:0 auto 34px;max-width:640px;text-shadow:0 2px 10px rgba(0,0,0,0.5);line-height:1.4;"><strong>Santez Vous Bien.</strong><br>Un studio pour bouger&nbsp;juste, en petit comité.</p>
+      <div class="hero-cta-stack" style="display:flex;flex-direction:column;gap:12px;align-items:center;pointer-events:all;">
+        <a href="/essai"
+           class="js-buy svb-magnetic"
+           data-discipline="reformer"
+           data-label="Séance d'essai Pilates Reformer"
+           data-amount="30 €"
+           data-track="home_hero_primary_cta"
+           style="background:white;color:#2F4F4F;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-decoration:none;padding:16px 36px;border-radius:50px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 30px rgba(0,0,0,0.35);transition:transform .2s,background .2s;"
+           onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+          Réserver mon essai · 30&nbsp;€
+        </a>
+        <a href="/studio"
+           style="color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:50px;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,0.55);background:rgba(255,255,255,0.08);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .25s, border-color .25s;"
+           onmouseover="this.style.background='rgba(255,255,255,0.18)';this.style.borderColor='rgba(255,255,255,0.9)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.55)'">
+          Découvrir le studio
+        </a>
       </div>
     </div>
 </section>
 
-  <!-- === PASS STARTER — refonte editoriale, DA SVB (cream + peach + gold) === -->
+  <!-- === SVB LIMITLESS — offre signature === -->
   <section class="relative py-20 md:py-28 reveal-load d-2 z-10" style="background:linear-gradient(180deg,#FBF6EC 0%,#F5EFDF 55%,#FBF6EC 100%);overflow:hidden;">
 
     <!-- Halos decoratifs pour donner de la vie sans etre bruite -->
@@ -794,78 +775,320 @@
         display:inline-flex;align-items:center;gap:6px;
       }
       .ps-trust-meta svg{width:12px;height:12px;color:#4A8D84;opacity:.85;}
+
+      /* Variante Limitless : la carte signature remplace le Pass Starter. */
+      .ps-card--limitless{
+        max-width:720px;
+        padding:64px 52px 42px;
+        color:#fff;
+        background:
+          radial-gradient(circle at 88% 5%,rgba(245,199,109,.18),transparent 34%),
+          linear-gradient(145deg,#285c5e 0%,#1f4b4d 46%,#183d3f 100%);
+        border:1px solid rgba(245,199,109,.78);
+        box-shadow:
+          0 34px 70px -24px rgba(18,58,59,.68),
+          0 14px 30px -16px rgba(245,199,109,.72),
+          inset 0 1px 0 rgba(255,255,255,.22);
+        overflow:visible;
+      }
+      .ps-card--limitless::before{
+        inset:8px;
+        border:1px solid rgba(255,255,255,.12);
+        border-radius:24px;
+        background:none;
+      }
+      .ps-card--limitless .ps-urgency{
+        top:18px;
+        left:50%;
+        transform:translateX(-50%);
+        width:max-content;
+        max-width:calc(100% - 40px);
+        background:#F5C76D;
+        border-color:rgba(255,255,255,.55);
+        color:#173d3f;
+        box-shadow:0 10px 24px -12px rgba(245,199,109,.9);
+      }
+      .ps-card--limitless .ps-urgency-dot{
+        background:#C25A38;
+      }
+      .ps-limitless-kicker{
+        position:relative;
+        z-index:2;
+        margin:8px 0 16px;
+        color:#F8E7CF;
+        font-size:.7rem;
+        font-weight:800;
+        letter-spacing:.16em;
+        text-transform:uppercase;
+      }
+      .ps-card--limitless .ps-title{
+        color:#fff;
+        font-size:clamp(3.3rem,8vw,5.2rem);
+        text-shadow:0 4px 18px rgba(0,0,0,.18);
+      }
+      .ps-card--limitless .ps-title-flourish{
+        width:92px;
+        margin-bottom:18px;
+        background:linear-gradient(90deg,transparent,#F5C76D 22%,#E8B496 50%,#F5C76D 78%,transparent);
+      }
+      .ps-card--limitless .ps-price{
+        margin-bottom:2px;
+      }
+      .ps-card--limitless .ps-price-num{
+        color:#fff;
+        font-size:clamp(4.6rem,15vw,6.6rem);
+        letter-spacing:0;
+        animation:none;
+        text-shadow:0 8px 28px rgba(0,0,0,.2);
+      }
+      .ps-card--limitless .ps-price-cur{
+        color:#F5C76D;
+      }
+      .ps-card--limitless .ps-price-period{
+        position:relative;
+        z-index:2;
+        margin:-2px 0 18px;
+        color:rgba(255,255,255,.75);
+        font-size:.75rem;
+        font-weight:700;
+        letter-spacing:.12em;
+        text-transform:uppercase;
+      }
+      .ps-limitless-lead{
+        position:relative;
+        z-index:2;
+        max-width:570px;
+        margin:0 auto 22px;
+        color:#fff;
+        font-size:1.05rem;
+        font-weight:700;
+        line-height:1.55;
+      }
+      .ps-card--limitless .ps-benefits{
+        max-width:590px;
+        margin:0 auto 24px;
+      }
+      .ps-card--limitless .ps-benefits li{
+        color:rgba(255,255,255,.94);
+        border-color:rgba(255,255,255,.14);
+      }
+      .ps-card--limitless .ps-benefits strong{
+        color:#fff;
+      }
+      .ps-card--limitless .ps-benefits .ic,
+      .ps-card--limitless .ps-benefits li:nth-child(2) .ic,
+      .ps-card--limitless .ps-benefits li:nth-child(4) .ic{
+        background:#F5C76D;
+        color:#173d3f;
+        box-shadow:0 6px 16px -8px rgba(245,199,109,.9);
+      }
+      .ps-launch-panel{
+        position:relative;
+        z-index:2;
+        margin:0 auto 24px;
+        padding:20px 18px 18px;
+        border-top:1px solid rgba(245,199,109,.58);
+        border-bottom:1px solid rgba(245,199,109,.58);
+      }
+      .ps-launch-deadline{
+        margin:0 0 14px;
+        color:#F8E7CF;
+        font-size:.78rem;
+        font-weight:800;
+        line-height:1.5;
+        letter-spacing:.03em;
+      }
+      .ps-limitless-countdown{
+        display:grid;
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        max-width:500px;
+        margin:0 auto 12px;
+      }
+      .ps-limitless-countdown p{
+        margin:0;
+        padding:0 8px;
+        border-left:1px solid rgba(255,255,255,.18);
+      }
+      .ps-limitless-countdown p:first-child{border-left:0;}
+      .ps-limitless-countdown strong{
+        display:block;
+        color:#fff;
+        font-size:1.65rem;
+        font-weight:900;
+        line-height:1;
+      }
+      .ps-limitless-countdown span{
+        display:block;
+        margin-top:6px;
+        color:rgba(255,255,255,.62);
+        font-size:.55rem;
+        font-weight:800;
+        letter-spacing:.08em;
+        text-transform:uppercase;
+      }
+      .ps-launch-guarantee{
+        max-width:540px;
+        margin:0 auto;
+        color:rgba(255,255,255,.78);
+        font-size:.75rem;
+        line-height:1.55;
+      }
+      .ps-limitless-disciplines{
+        position:relative;
+        z-index:2;
+        margin:0 auto 20px;
+        color:rgba(255,255,255,.7);
+        font-size:.73rem;
+        line-height:1.65;
+      }
+      .ps-trial-gift{
+        position:relative;
+        z-index:2;
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        margin:0 0 24px;
+        padding:9px 16px;
+        color:#173d3f;
+        background:#F8E7CF;
+        border-radius:100px;
+        font-size:.72rem;
+        font-weight:800;
+        letter-spacing:.05em;
+        text-transform:uppercase;
+      }
+      .ps-card--limitless .ps-cta{
+        max-width:560px;
+        margin:0 auto;
+        color:#173d3f;
+        background:linear-gradient(135deg,#F8E7CF 0%,#F5C76D 100%);
+        box-shadow:0 18px 36px -16px rgba(245,199,109,.95);
+      }
+      .ps-card--limitless .ps-cta:hover{
+        box-shadow:0 22px 42px -15px rgba(245,199,109,1);
+      }
+      .ps-limitless-more{
+        position:relative;
+        z-index:2;
+        display:inline-block;
+        margin:17px 0 0;
+        color:#fff;
+        font-size:.7rem;
+        font-weight:800;
+        letter-spacing:.1em;
+        text-transform:uppercase;
+        text-underline-offset:4px;
+      }
+      .ps-limitless-terms{
+        position:relative;
+        z-index:2;
+        max-width:580px;
+        margin:18px auto 0;
+        color:rgba(255,255,255,.5);
+        font-size:.6rem;
+        line-height:1.55;
+      }
+      .ps-launch-ended{
+        position:relative;
+        z-index:2;
+        margin:0 0 22px;
+        color:#F8E7CF;
+        font-size:.82rem;
+        font-weight:800;
+      }
+      @media (max-width:640px){
+        .ps-card--limitless{
+          padding:62px 22px 30px;
+          border-radius:24px;
+        }
+        .ps-card--limitless::before{border-radius:17px;}
+        .ps-limitless-lead{font-size:.94rem;}
+        .ps-card--limitless .ps-benefits li{font-size:.86rem;}
+        .ps-limitless-countdown p{padding:0 4px;}
+        .ps-limitless-countdown strong{font-size:1.35rem;}
+        .ps-limitless-countdown span{font-size:.48rem;letter-spacing:.04em;}
+        .ps-card--limitless .ps-cta{font-size:.7rem;padding:18px 16px;letter-spacing:.09em;}
+      }
     </style>
 
     <div class="max-w-5xl mx-auto px-4">
       <div class="text-center mb-9">
-        <span class="inline-block bg-[#E8B496] text-[#2F4F4F] text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">Pour commencer sans s'engager</span>
-        <h2 class="text-5xl md:text-7xl text-[#2F4F4F] font-hand mb-3 leading-none">Pass Starter</h2>
+        <span class="inline-block bg-[#F5C76D] text-[#173d3f] text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">L'offre signature · 2 studios</span>
+        <h2 class="text-5xl md:text-7xl text-[#2F4F4F] font-hand mb-3 leading-none">Le pass qui ouvre tout SVB</h2>
         <p class="text-[#2F4F4F] text-base md:text-lg max-w-2xl mx-auto opacity-80 leading-relaxed">
-          <strong>5 sessions pour tester 5 disciplines différentes.</strong><br/>Valable 1 mois. Sans engagement, sans tacite reconduction.
+          Tous les cours, toutes les disciplines, dans les deux studios. Sans compter tes séances.
         </p>
       </div>
 
-      <div class="ps-card">
-        <h3 class="ps-title">New Pass Starter</h3>
+      <div class="ps-card ps-card--limitless" data-launch-offer data-launch-deadline="2026-09-21T23:59:00+02:00">
+        <span class="ps-urgency" data-launch-only><span class="ps-urgency-dot"></span>Offre de lancement</span>
+        <p class="ps-limitless-kicker">Pass illimité · Offre à durée limitée</p>
+        <h3 class="ps-title">SVB Limitless</h3>
         <span class="ps-title-flourish" aria-hidden="true"></span>
 
-        <p class="ps-meta" style="margin-top:14px;">5 sessions · Valable 1 mois · Sans engagement</p>
-
-        <!-- Tarif affiche dans l'espace client (grille tarifaire en cours de mise a jour) -->
-        <div class="ps-anchor">
-          <span class="ps-anchor-strong">Tarif dans l'espace client</span>
-          <span class="ps-anchor-strike">Pas de reconduction · Pas de CB stockée</span>
+        <div class="ps-price" aria-label="300 euros par mois">
+          <span class="ps-price-num">300</span>
+          <span class="ps-price-cur">€</span>
         </div>
+        <p class="ps-price-period">par mois · engagement 1 an · frais de dossier 49 €</p>
 
-        <!-- Verbatim client — social proof integree -->
-        <blockquote class="ps-quote">
-          Testé pour tester… puis abonnée au bout de 3 séances. Le petit groupe change vraiment tout.
-          <span class="ps-quote-author">— Marie L. · abonnée depuis 2024</span>
-        </blockquote>
+        <p class="ps-limitless-lead">Un seul pass. Tout SVB. En illimité.</p>
 
         <ul class="ps-benefits">
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>5 sessions</strong> à utiliser comme tu veux sur 1 mois</span>
+            <span><strong>Accès aux deux studios</strong> de Saint-Ouen</span>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Toutes les disciplines</strong> : Reformer, Crossformer, Cross, Yoga, Boxe, Pilates sol</span>
+            <span><strong>Toutes les disciplines SVB</strong> avec une seule formule</span>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Une équipe de coachs certifiés</strong> dans chaque discipline</span>
+            <span><strong>Cours illimités</strong> : viens selon ton rythme, sans compter</span>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Réservation 24h/24</strong> dans l'appli SVB, annulation flexible 1h avant</span>
-          </li>
-          <li>
-            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 8 7 12 13 4"/></svg></span>
-            <span><strong>Zéro engagement</strong> · pas de CB stockée · pas de reconduction</span>
+            <span><strong>Annulation flexible</strong> jusqu'à 1 heure avant la séance</span>
           </li>
         </ul>
 
-        <div class="ps-stat">
-          <p class="ps-stat-num">100<span>%</span></p>
-          <p class="ps-stat-label">se sont inscrit·es à un abonnement<br/>après avoir pris le Pass Starter</p>
+        <div class="ps-launch-panel" data-launch-only>
+          <p class="ps-launch-deadline">Souscris avant le 21 septembre 2026 à 23h59.</p>
+          <div class="pricing-launch-countdown ps-limitless-countdown" aria-live="off">
+            <p><strong data-countdown-days>00</strong><span>jours</span></p>
+            <p><strong data-countdown-hours>00</strong><span>heures</span></p>
+            <p><strong data-countdown-minutes>00</strong><span>minutes</span></p>
+            <p><strong data-countdown-seconds>00</strong><span>secondes</span></p>
+          </div>
+          <p class="ps-launch-guarantee">Tu conserves ce tarif aussi longtemps que ton abonnement reste actif.</p>
         </div>
 
-        <a href="/essai" data-discipline="pass_starter" data-label="Pass Starter" rel="noopener noreferrer"
+        <p class="ps-launch-ended" data-launch-ended hidden>L'accès illimité aux deux studios SVB.</p>
+
+        <p class="ps-limitless-disciplines">Pilates Reformer · Crossformer · Cross Training · CrossRox · CrossBody · CrossCore · Pilates · Yoga · Boxe · Stretching &amp; Mobility</p>
+        <p class="ps-trial-gift"><span aria-hidden="true">✓</span> Séance d'essai offerte</p>
+
+        <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans"
+           data-booking-path="/place/place_svb-lavandieres/subscription-plans"
+           data-discipline="svb_limitless"
+           data-label="SVB Limitless"
+           data-amount="300 € / mois"
+           data-track="home_limitless_cta"
+           data-launch-cta
+           data-default-label="S'abonner à Limitless"
+           data-default-aria-label="S'abonner à SVB Limitless"
+           aria-label="Profiter de l'offre de lancement SVB Limitless à 300 euros par mois"
+           rel="noopener noreferrer"
            class="js-buy ps-cta svb-magnetic">
-          <span>Je prends mon Pass Starter</span>
-          <span class="ps-cta-arrow">
+          <span data-launch-cta-label>Profiter de l'offre</span>
+          <span class="ps-cta-arrow" aria-hidden="true">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg>
           </span>
         </a>
 
-        <!-- Rating marquant : bloc dedie, plus grand, ancre en haut de la trust row -->
-        <div class="ps-rating-big">
-          <div class="ps-rating-big__stars" aria-hidden="true">★★★★★</div>
-          <div class="ps-rating-big__num">5,0<span class="on">/5</span></div>
-          <div class="ps-rating-big__meta">Sur <strong>170 avis Google cumulés</strong> entre nos 2 studios à Saint-Ouen</div>
-        </div>
-        <p class="ps-trust-meta ps-trust-meta--small">Paiement sécurisé · Confirmation immédiate</p>
+        <a href="/tarifs#svb-limitless" class="ps-limitless-more">Voir tous les détails</a>
+        <p class="ps-limitless-terms" data-launch-only>Offre valable jusqu'au 21/09/2026 à 23h59. Tarif conservé tant que l'abonnement reste actif sans résiliation. Toute résiliation entraîne la perte du tarif de lancement. Offre soumise aux conditions générales d'abonnement SVB.</p>
       </div>
     </div>
   </section>
