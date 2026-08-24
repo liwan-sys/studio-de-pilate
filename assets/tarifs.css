@@ -469,6 +469,19 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   50% { transform: translateY(calc(var(--limitless-base-y) - 12px)); }
 }
 
+@keyframes pricing-limitless-price-attention {
+  0%, 28%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 0 rgba(240, 221, 203, 0));
+  }
+  8% {
+    transform: translateY(-9px) scale(1.06);
+    filter: drop-shadow(0 12px 14px rgba(240, 221, 203, 0.34));
+  }
+  15% { transform: translateY(2px) scale(0.995); }
+  21% { transform: translateY(-4px) scale(1.025); }
+}
+
 @keyframes pricing-limitless-cta-breathe {
   0%, 100% {
     box-shadow: 0 14px 28px -12px rgba(223, 228, 215, 0.4), 0 0 0 0 rgba(223, 228, 215, 0.35);
@@ -564,11 +577,14 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 }
 
 .pricing-launch-price strong {
+  display: inline-block;
   color: #f4decb;
   font-size: 58px;
   font-weight: 900;
   line-height: 1;
   text-shadow: 0 12px 28px rgba(16, 42, 45, 0.36);
+  transform-origin: center;
+  will-change: transform, filter;
 }
 
 .pricing-launch-price small {
@@ -1041,6 +1057,7 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
 
 @media (prefers-reduced-motion: no-preference) {
   .pricing-offer-card--limitless:not(:hover) { animation: pricing-limitless-float 4.8s ease-in-out infinite; }
+  .pricing-offer-card--limitless .pricing-launch-price strong { animation: pricing-limitless-price-attention 4.2s cubic-bezier(0.2, 0.75, 0.25, 1) infinite; }
   .pricing-offer-card--limitless .pricing-offer-cta { animation: pricing-limitless-cta-breathe 3s ease-in-out infinite; }
   .pricing-offer-card--limitless .pricing-offer-cta:hover { animation: none; }
 }
@@ -1136,4 +1153,5 @@ html[lang="en"] .pricing-language-link span:last-child { color: var(--pricing-go
   html { scroll-behavior: auto; }
   .pricing-page *,
   .pricing-site-header * { transition: none !important; }
+  .pricing-launch-price strong { animation: none !important; filter: none !important; }
 }

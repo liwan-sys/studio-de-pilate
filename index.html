@@ -778,6 +778,18 @@
         0%,100%{transform:translateY(-4px);}
         50%{transform:translateY(-16px);}
       }
+      @keyframes psLimitlessPriceAttention{
+        0%,28%,100%{
+          transform:translateY(0) scale(1);
+          filter:drop-shadow(0 0 0 rgba(240,221,203,0));
+        }
+        8%{
+          transform:translateY(-10px) scale(1.06);
+          filter:drop-shadow(0 12px 14px rgba(240,221,203,.34));
+        }
+        15%{transform:translateY(2px) scale(.995);}
+        21%{transform:translateY(-4px) scale(1.025);}
+      }
       .ps-card--limitless{
         max-width:720px;
         padding:64px 52px 42px;
@@ -839,6 +851,8 @@
       }
       .ps-card--limitless .ps-price{
         margin-bottom:2px;
+        transform-origin:center;
+        will-change:transform,filter;
       }
       .ps-card--limitless .ps-price-num{
         color:#fff;
@@ -849,6 +863,11 @@
       }
       .ps-card--limitless .ps-price-cur{
         color:#F0DDCB;
+      }
+      @media (prefers-reduced-motion:no-preference){
+        .ps-card--limitless .ps-price{
+          animation:psLimitlessPriceAttention 4.2s cubic-bezier(.2,.75,.25,1) infinite;
+        }
       }
       .ps-card--limitless .ps-price-period{
         position:relative;
@@ -1019,6 +1038,7 @@
       }
       @media (prefers-reduced-motion:reduce){
         .ps-card--limitless{animation:none;transform:translateY(-7px);}
+        .ps-card--limitless .ps-price{animation:none;filter:none;}
       }
     </style>
 
