@@ -13,6 +13,8 @@
  *   { type: "jayne:close" }                -> ferme la modale
  *   { type: "jayne:resize", height: N }    -> fixe la hauteur en px
  *   { type: "jayne:navigate", path: "/x" } -> memorise le path
+ * Une conversion OpenAI Ads est mesuree uniquement sur une route de paiement
+ * confirme envoyee par l'application, jamais lors du simple clic sur un CTA.
  * ============================================================ */
 (function () {
   if (window.__svbBookingLoaded) return;
@@ -91,6 +93,7 @@
     iframePath: null,
     previousBodyOverflow: "",
     hasPushedState: false,
+    openaiConversionSent: false,
   };
 
   var overlay = null;
@@ -186,8 +189,23 @@
     if (data.type === "jayne:navigate" && typeof data.path === "string") {
       state.iframePath = data.path;
       try { sessionStorage.setItem(STORAGE_KEY, data.path); } catch (e) {}
+      measureOpenAIConversion(data.path);
       return;
     }
+  }
+
+  function measureOpenAIConversion(path) {
+    if (state.openaiConversionSent || typeof window.oaiq !== "function") return;
+
+    var pathname = path.split(/[?#]/, 1)[0].replace(/\/+$/, "");
+    var isPackPurchaseConfirmed = /^\/place\/[^/]+\/packs\/success$/.test(pathname);
+    var isPaymentConfirmed = pathname === "/payment/confirmed";
+    if (!isPackPurchaseConfirmed && !isPaymentConfirmed) return;
+
+    try {
+      window.oaiq("measure", "order_created", { type: "contents" });
+      state.openaiConversionSent = true;
+    } catch (e) {}
   }
 
   function openModal(opts) {
@@ -214,6 +232,7 @@
 
     // Assigne src (ou reload si deja bon) -> declenche load event -> loader off
     state.loaded = false;
+    state.openaiConversionSent = false;
     loader.classList.remove("is-hidden");
     iframe.style.height = "";
     iframe.src = BOOKING_URL + startPath;

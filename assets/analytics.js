@@ -1,8 +1,7 @@
 /* ================================================================
-   SVB · Consent Mode helper
+   SVB · Consent Mode + OpenAI Ads Pixel helper
    - GTM is loaded from the page <head> snippets.
-   - This file only keeps Google consent state aligned with the local
-     RGPD banner choice so GA4/Ads receive Consent Mode v2 signals.
+   - Google and OpenAI measurement stay aligned with the local RGPD choice.
    ================================================================ */
 (function () {
   window.dataLayer = window.dataLayer || [];
@@ -16,5 +15,25 @@
     analytics_storage: granted ? 'granted' : 'denied',
     ad_user_data: granted ? 'granted' : 'denied',
     ad_personalization: granted ? 'granted' : 'denied'
+  });
+
+  if (!granted) return;
+
+  (function (w, d, s, u) {
+    if (w.oaiq) return;
+    var q = function () { q.q.push(arguments); };
+    q.q = [];
+    w.oaiq = q;
+    var j = d.createElement(s);
+    j.async = true;
+    j.src = u;
+    var f = d.getElementsByTagName(s)[0];
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'https://bzrcdn.openai.com/sdk/oaiq.min.js');
+
+  window.oaiq('consent', true);
+  window.oaiq('init', {
+    pixelId: 'Ay4rEhG4kjfExwRLyAvnRL',
+    debug: false
   });
 })();
