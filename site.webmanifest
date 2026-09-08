@@ -4,17 +4,17 @@
   "description": "Studio Pilates Reformer & Coaching Sportif a Saint-Ouen-sur-Seine",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F2E6CF",
-  "theme_color": "#4A8D84",
+  "background_color": "#f9eed8",
+  "theme_color": "#25231f",
   "icons": [
     {
-      "src": "/images/icon-192.png",
+      "src": "/images/svb-icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/images/icon-512.png",
+      "src": "/images/svb-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
