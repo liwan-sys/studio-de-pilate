@@ -41,15 +41,15 @@ body::after {
     display: none !important;
 }
 
-/* ---------- Typographie home ---------- */
-/* H1 = Great Vibes (signature home), fin, large letter-spacing, shadow subtil */
+/* ---------- Typographie ---------- */
+/* H1 = Dancing Script, comme tous les titres du site (règle de marque, svb.css) */
 h1,
 h1.text-5xl,
 h1.text-6xl,
 section h1 {
-    font-family: 'Great Vibes', cursive !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.03em;
+    font-family: 'Dancing Script', cursive !important;
+    font-weight: 700 !important;
+    letter-spacing: 0;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.12);
     line-height: 1.05;
     color: var(--svb-text);
@@ -120,9 +120,9 @@ a { transition: color 0.2s ease; }
 }
 
 /* ---------- Safe overrides pour rétro-compat : Tailwind text-* sur titres ---------- */
-/* Les classes Tailwind text-5xl/6xl/7xl forcent font-weight:700 par défaut ; on corrige pour Great Vibes */
+/* Les classes Tailwind text-5xl/6xl/7xl : graisse alignée sur la règle de marque (Dancing Script 700) */
 h1.font-bold,
-h1[class*="text-"] { font-weight: 400 !important; }
+h1[class*="text-"] { font-weight: 700 !important; }
 
 /* Focus visible unifié */
 a:focus-visible,
