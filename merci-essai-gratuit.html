@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merci · Studio SVB Saint-Ouen</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" href="/images/favicon.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF6EC;
+      --sand: #F3EBD4;
+      --peach: #E8B496;
+      --teal-dark: #2F4F4F;
+      --teal-mid: #4A8D84;
+      --ink: #2F4F4F;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 22px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card {
+      max-width: 520px;
+      width: 100%;
+      background: white;
+      border-radius: 24px;
+      padding: 40px 28px;
+      text-align: center;
+      box-shadow: 0 20px 60px -12px rgba(47,79,79,.15);
+    }
+    header { margin-bottom: 24px; }
+    header img { height: 56px; width: auto; }
+    .check {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: var(--teal-mid);
+      color: var(--cream);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 44px;
+      font-weight: 900;
+      margin: 8px 0 20px;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      font-size: clamp(2.6rem, 9vw, 3.5rem);
+      color: var(--teal-dark);
+      margin: 0 0 14px;
+      line-height: 1;
+    }
+    .lead {
+      font-size: 1.02rem;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .lead b { color: var(--teal-mid); }
+    .info-box {
+      background: var(--sand);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 26px 0 20px;
+      text-align: left;
+      font-size: .92rem;
+    }
+    .info-box p { margin: 0 0 6px; }
+    .info-box p:last-child { margin-bottom: 0; }
+    .info-box strong { color: var(--teal-dark); }
+    .cta-secondary {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal-mid);
+      text-decoration: none;
+      border-bottom: 2px solid var(--teal-mid);
+      padding-bottom: 2px;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: .75rem;
+      opacity: .6;
+    }
+    footer a { color: var(--teal-mid); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <header>
+      <a href="/" aria-label="Accueil Studio SVB">
+        <img src="/images/logo.webp" alt="Studio SVB">
+      </a>
+    </header>
+
+    <div class="check" aria-hidden="true">✓</div>
+
+    <h1>C'est noté !</h1>
+    <p class="lead">On a bien reçu ta demande de séance d'essai offerte.</p>
+    <p class="lead"><b>On te rappelle sous 1 heure</b> pour caler ton créneau.</p>
+
+    <div class="info-box">
+      <p><strong>Ce qui se passe ensuite :</strong></p>
+      <p>1. L'équipe te rappelle au numéro que tu as laissé.</p>
+      <p>2. On choisit ensemble ton créneau et ton studio.</p>
+      <p>3. Tu viens tester ta séance offerte, sans engagement.</p>
+    </div>
+
+    <a href="/" class="cta-secondary">← Retour au site</a>
+
+    <footer>
+      <p>Studio SVB · 6 Mail André Breton &amp; 40 Cours des Lavandières · 93400 Saint-Ouen<br/>
+      <a href="tel:+33744919155">07 44 91 91 55</a></p>
+    </footer>
+  </div>
+
+  <script>
+    // GA/Meta best-effort — conversion tracking
+    try {
+      if (window.dataLayer) window.dataLayer.push({ event: 'lead_jcdecaux_confirmed' });
+    } catch(_) {}
+  </script>
+</body>
+</html>

@@ -246,7 +246,17 @@
       <h2>Réserve en 30 secondes.</h2>
       <p class="sub">Laisse-nous tes coordonnées, on te rappelle pour caler ton créneau.</p>
 
-      <form id="essai-form" novalidate>
+      <form
+        id="essai-form"
+        name="essai-gratuit"
+        method="POST"
+        action="/merci-essai-gratuit"
+        data-netlify="true"
+        data-netlify-honeypot="website-url"
+        novalidate>
+        <input type="hidden" name="form-name" value="essai-gratuit">
+        <input type="hidden" name="source" value="jcdecaux">
+
         <div class="row-2">
           <div class="field">
             <label for="firstname">Prénom</label>
@@ -276,20 +286,12 @@
         </div>
 
         <!-- honeypot anti-spam -->
-        <input class="honeypot" type="text" name="website-url" tabindex="-1" autocomplete="off">
+        <p class="honeypot"><label>Ne pas remplir : <input name="website-url" tabindex="-1" autocomplete="off"></label></p>
 
         <button type="submit" id="submit-btn">Je réserve ma séance offerte</button>
         <p class="form-error" id="form-error">Merci de vérifier tes informations.</p>
         <p class="form-legal">En envoyant ce formulaire tu acceptes d'être recontacté·e par Studio SVB. Aucune donnée n'est partagée à des tiers.</p>
       </form>
-
-      <div class="success" id="success" role="status" aria-live="polite">
-        <div class="success-check" aria-hidden="true">✓</div>
-        <h2>C'est noté !</h2>
-        <p>Merci <b id="success-name">·</b>, on a bien reçu ta demande.</p>
-        <p><b>On te rappelle sous 1 heure</b> pour caler ton créneau.</p>
-        <p style="margin-top:18px;font-size:.85rem;opacity:.7">Un email de confirmation vient de partir sur ta boîte.</p>
-      </div>
     </div>
 
     <footer>
@@ -302,15 +304,12 @@
   <script>
     (function() {
       var form = document.getElementById('essai-form');
-      var success = document.getElementById('success');
-      var successName = document.getElementById('success-name');
       var errorEl = document.getElementById('form-error');
       var btn = document.getElementById('submit-btn');
 
       function isEmail(s) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(s || '').trim()); }
 
       form.addEventListener('submit', function(e) {
-        e.preventDefault();
         errorEl.classList.remove('is-visible');
 
         var data = {
@@ -319,39 +318,21 @@
           email:     form.email.value.trim().toLowerCase(),
           phone:     form.phone.value.trim(),
           studio:    form.studio.value,
-          honeypot:  form['website-url'].value,
         };
 
-        // Honeypot: bot fills the invisible field
-        if (data.honeypot) return;
-
         if (!data.firstname || !data.lastname || !isEmail(data.email) || !data.phone || !data.studio) {
+          e.preventDefault();
           errorEl.classList.add('is-visible');
           return;
         }
 
+        // Validation OK : on laisse le form POST vers Netlify Forms (action="/merci-essai-gratuit")
         btn.disabled = true;
         btn.textContent = 'Envoi...';
 
-        fetch('/.netlify/functions/essai-gratuit', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify(data),
-        })
-        .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-        .then(function() {
-          successName.textContent = data.firstname;
-          form.style.display = 'none';
-          success.classList.add('is-visible');
-          // GA / Meta tracking best-effort
-          try { if (window.dataLayer) window.dataLayer.push({ event: 'lead_jcdecaux_submit', studio: data.studio }); } catch(_) {}
-        })
-        .catch(function() {
-          btn.disabled = false;
-          btn.textContent = 'Je réserve ma séance offerte';
-          errorEl.textContent = "Une erreur est survenue. Réessaie ou appelle-nous au 07 44 91 91 55.";
-          errorEl.classList.add('is-visible');
-        });
+        try {
+          if (window.dataLayer) window.dataLayer.push({ event: 'lead_jcdecaux_submit', studio: data.studio });
+        } catch(_) {}
       });
     })();
   </script>
