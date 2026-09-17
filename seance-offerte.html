@@ -366,13 +366,8 @@
             <h2>Je réserve ma séance</h2>
             <p class="card-lead">30 secondes, sans carte bancaire. On te rappelle ou on t'écrit : c'est toi qui choisis.</p>
 
-            <form name="seance-offerte" method="POST" action="https://formsubmit.co/hello@studiosvb.fr" data-netlify="true" data-netlify-honeypot="website-url">
+            <form name="seance-offerte" method="POST" action="/Merci" data-netlify="true" data-netlify-honeypot="website-url">
               <input type="hidden" name="form-name" value="seance-offerte">
-              <!-- Sans JavaScript : envoi direct par FormSubmit (même service que le formulaire de contact) -->
-              <input type="hidden" name="_subject" value="Nouveau lead séance offerte (affiche JCDecaux)">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://studiosvb.com/Merci">
               <input type="hidden" name="offre" value="Séance d'essai offerte (affiche JCDecaux)">
               <input type="hidden" name="source" id="f-source" value="affiche-jcdecaux">
               <input type="hidden" name="campagne" id="f-campagne" value="jcdecaux-2026">
@@ -565,62 +560,10 @@
         io.observe(card);
       }
 
-      // --- Envoi du lead, deux canaux en parallèle :
-      //     1) email au studio via FormSubmit (même service que le formulaire de contact)
-      //     2) copie dans Netlify Forms (tableau de bord + export) si la détection est active
-      //     Le lead est considéré reçu dès qu'un des deux canaux répond OK.
-      var FORMSUBMIT_URL = 'https://formsubmit.co/ajax/hello@studiosvb.fr';
+      // --- Envoi AJAX vers Netlify Forms (fallback sans JS : POST classique vers /Merci)
       var btn = form.querySelector('button[type="submit"]');
       var error = document.getElementById('form-error');
       function showError(message){ error.textContent = message; error.hidden = false; }
-
-      function sendEmail(data){
-        var contact = data.get('contact') || '';
-        var payload = {
-          _subject: 'Nouveau lead séance offerte : ' + (data.get('prenom') || '') + ' ' + (data.get('nom') || ''),
-          _template: 'table',
-          _captcha: 'false',
-          _replyto: data.get('email') || '',
-          'Prénom': data.get('prenom') || '',
-          'Nom': data.get('nom') || '',
-          'Email': data.get('email') || '',
-          'Téléphone': data.get('telephone') || '',
-          'Discipline souhaitée': data.get('discipline') || 'Je choisirai avec vous',
-          'Contact souhaité': contact || 'Sans préférence',
-          'Offre': data.get('offre') || '',
-          'Source': data.get('source') || '',
-          'Campagne': data.get('campagne') || '',
-          'Page': data.get('page') || ''
-        };
-        return fetch(FORMSUBMIT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
-        }).then(function(res){ return res.json(); }).then(function(json){
-          if (!json || String(json.success) !== 'true') throw new Error('formsubmit');
-          return 'email';
-        });
-      }
-      function sendNetlify(data){
-        var body = new URLSearchParams();
-        data.forEach(function(value, key){ if (key.charAt(0) !== '_') body.append(key, value); });
-        return fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: body.toString()
-        }).then(function(res){ if (!res.ok) throw new Error('netlify_' + res.status); return 'netlify'; });
-      }
-      function firstSuccess(promises){
-        return new Promise(function(resolve, reject){
-          var pending = promises.length, failures = [];
-          promises.forEach(function(p){
-            p.then(resolve, function(err){
-              failures.push(err);
-              if (--pending === 0) reject(failures);
-            });
-          });
-        });
-      }
 
       form.addEventListener('submit', function(e){
         e.preventDefault();
@@ -633,8 +576,13 @@
         btn.disabled = true; btn.textContent = 'Envoi…';
         form.setAttribute('aria-busy', 'true');
 
-        firstSuccess([sendEmail(data), sendNetlify(data)])
-        .then(function(){
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString()
+        })
+        .then(function(res){
+          if (!res.ok) throw new Error('http_' + res.status);
           done = true;
           setSticky(false);
           var prenom = (data.get('prenom') || '').trim();
