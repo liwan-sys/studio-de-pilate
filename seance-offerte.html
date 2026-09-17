@@ -48,8 +48,7 @@
   <meta name="theme-color" content="#1a2826">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Mêmes polices et graisses que l'accueil : Dancing Script (titres), Great Vibes, Montserrat (textes) -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
@@ -199,8 +198,6 @@
     .submit:disabled{opacity:.7;cursor:progress;transform:none;}
     .note{font-size:.66rem;color:rgba(47,79,79,.65);line-height:1.45;margin-top:12px;}
     .error{margin-top:10px;font-size:.78rem;font-weight:700;color:#8F2F1F;background:#FBE9E5;border-radius:12px;padding:10px 12px;}
-    .field-error{margin-top:8px;font-size:.72rem;font-weight:700;color:#8F2F1F;}
-    .pref.is-invalid .chip{border-color:#C9705C;}
     .hp-field{position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden;}
 
     /* === Confirmation === */
@@ -399,17 +396,6 @@
                 <input id="f-tel" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9\s\+\-\.\(\)]{8,20}" placeholder="06 12 34 56 78" aria-describedby="tel-hint">
                 <span class="hint" id="tel-hint">Pour te confirmer ta séance par SMS ou par appel.</span>
               </label>
-              <!-- Obligatoire : contrôlé en JS (message clair sous les choix) -->
-              <fieldset class="pref" id="f-decouverte" aria-describedby="decouverte-error" aria-required="true">
-                <legend>Comment as-tu vu l'offre ? *</legend>
-                <div class="chips">
-                  <label class="chip"><input type="radio" name="decouverte" value="Arrêt de bus"> <span>🚏 Arrêt de bus</span></label>
-                  <label class="chip"><input type="radio" name="decouverte" value="Site web"> <span>🌐 Sur le site</span></label>
-                  <label class="chip"><input type="radio" name="decouverte" value="Instagram"> <span>📸 Instagram</span></label>
-                  <label class="chip"><input type="radio" name="decouverte" value="Autre"> <span>✨ Autre</span></label>
-                </div>
-                <p id="decouverte-error" class="field-error" role="alert" hidden>Dis-nous où tu as vu l'offre pour continuer.</p>
-              </fieldset>
               <label for="f-discipline">Ce qui te tente <span class="opt">(optionnel)</span>
                 <select id="f-discipline" name="discipline">
                   <option value="">Je choisirai avec vous</option>
@@ -591,7 +577,7 @@
       function sendEmail(data){
         var contact = data.get('contact') || '';
         var payload = {
-          _subject: 'Nouveau lead séance offerte : ' + (data.get('prenom') || '') + ' ' + (data.get('nom') || '') + (data.get('decouverte') ? ' (' + data.get('decouverte') + ')' : ''),
+          _subject: 'Nouveau lead séance offerte : ' + (data.get('prenom') || '') + ' ' + (data.get('nom') || ''),
           _template: 'table',
           _captcha: 'false',
           _replyto: data.get('email') || '',
@@ -599,7 +585,6 @@
           'Nom': data.get('nom') || '',
           'Email': data.get('email') || '',
           'Téléphone': data.get('telephone') || '',
-          'A vu l\'offre via': data.get('decouverte') || '',
           'Discipline souhaitée': data.get('discipline') || 'Je choisirai avec vous',
           'Contact souhaité': contact || 'Sans préférence',
           'Offre': data.get('offre') || '',
@@ -637,33 +622,9 @@
         });
       }
 
-      // --- Question obligatoire "Comment as-tu vu l'offre ?" : message clair à la place de la bulle navigateur
-      var decouverteBox = document.getElementById('f-decouverte');
-      var decouverteError = document.getElementById('decouverte-error');
-      function decouverteChecked(){ return !!form.querySelector('input[name="decouverte"]:checked'); }
-      form.addEventListener('change', function(ev){
-        if (ev.target && ev.target.name === 'decouverte') {
-          decouverteBox.classList.remove('is-invalid');
-          decouverteError.hidden = true;
-        }
-      });
-
       form.addEventListener('submit', function(e){
         e.preventDefault();
         if (btn.disabled) return;
-        // Les champs texte d'abord (bulles natives), puis la question obligatoire
-        var textFields = form.querySelectorAll('#f-prenom, #f-nom, #f-email, #f-tel');
-        for (var i = 0; i < textFields.length; i++) {
-          if (!textFields[i].checkValidity()) { textFields[i].reportValidity(); return; }
-        }
-        if (!decouverteChecked()) {
-          decouverteBox.classList.add('is-invalid');
-          decouverteError.hidden = false;
-          try { decouverteBox.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (err) {}
-          var firstChip = form.querySelector('input[name="decouverte"]');
-          if (firstChip) firstChip.focus({ preventScroll: true });
-          return;
-        }
         if (!form.checkValidity()) { form.reportValidity(); return; }
         var data = new FormData(form);
         if (data.get('website-url')) { return; } // honeypot : on ignore silencieusement
@@ -689,12 +650,10 @@
 
           // --- Mesure de la conversion (lead) : jamais de données personnelles vers GTM / GA4.
           var discipline = data.get('discipline') || null;
-          var decouverte = data.get('decouverte') || null;
           try {
             if (window.svbTrack) window.svbTrack('form_submit_seance_offerte', {
               label: 'Séance offerte · affiche JCDecaux',
               discipline: discipline,
-              decouverte: decouverte,
               contact: contact || null,
               source: data.get('source') || null
             });
@@ -702,7 +661,7 @@
           // Notification au studio (Telegram via /api/notify) : le lead a demandé à être contacté.
           try {
             if (window.svbNotify) window.svbNotify('form_submit_essai', {
-              label: 'Séance offerte' + (decouverte ? ' · vu via ' + decouverte : '') + (discipline ? ' · ' + discipline : ''),
+              label: 'Séance offerte · affiche JCDecaux' + (discipline ? ' · ' + discipline : ''),
               userData: {
                 firstname: prenom,
                 lastname: data.get('nom') || '',
