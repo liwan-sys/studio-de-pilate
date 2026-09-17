@@ -54,6 +54,26 @@
   <h1>Formulaires internes — ne pas supprimer</h1>
   <p>Cette page déclare les formulaires que Netlify doit détecter au build.</p>
 
+  <!-- 1. Séance d'essai offerte (campagne affichage JCDecaux) — utilisé par /seance-offerte -->
+  <form
+    name="seance-offerte"
+    data-netlify="true"
+    data-netlify-honeypot="website-url"
+    hidden>
+    <input type="text" name="prenom" />
+    <input type="text" name="nom" />
+    <input type="email" name="email" />
+    <input type="tel" name="telephone" />
+    <input type="text" name="discipline" />
+    <input type="text" name="contact" />
+    <input type="checkbox" name="consentement" />
+    <input type="hidden" name="offre" />
+    <input type="hidden" name="source" />
+    <input type="hidden" name="campagne" />
+    <input type="hidden" name="page" />
+    <input type="text" name="website-url" />
+  </form>
+
   <!-- 2. Leads Calendly (remplis par la Netlify Function calendly-webhook) -->
   <form
     name="calendly-leads"
