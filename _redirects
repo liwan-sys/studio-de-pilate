@@ -157,7 +157,6 @@
 /contact                          /contact.html 200
 /pourquoi-svb                     /pourquoi-svb.html 200
 /essai                            /essai.html 200
-/seance-offerte                   /seance-offerte.html 200
 /studio-parc-des-docks            /studio-parc-des-docks.html 200
 /studio-cours-des-lavandieres     /studio-cours-des-lavandieres.html 200
 /pilates-reformer-saint-ouen      /pilates-reformer-saint-ouen.html 200
@@ -185,10 +184,6 @@
 /en/contact                       /en/contact.html 200
 
 # Pages techniques et formulaires
-/seance-offerte.html              /seance-offerte 301!
-/offre                            /seance-offerte 301!
-/essai-gratuit                    /seance-offerte 301!
-/seance-essai                     /seance-offerte 301!
 /reserver                         /#offre-premium 301!
 /ete-2026                         / 301!
 /merci-reservation               /Merci 301!
