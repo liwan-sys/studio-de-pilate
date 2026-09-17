@@ -157,6 +157,8 @@
 /contact                          /contact.html 200
 /pourquoi-svb                     /pourquoi-svb.html 200
 /essai                            /essai.html 200
+/essai-gratuit                    /essai-gratuit.html 200
+/essai-gratuit.html               /essai-gratuit 301!
 /studio-parc-des-docks            /studio-parc-des-docks.html 200
 /studio-cours-des-lavandieres     /studio-cours-des-lavandieres.html 200
 /pilates-reformer-saint-ouen      /pilates-reformer-saint-ouen.html 200
@@ -196,3 +198,4 @@
 /api/newsletter                   /.netlify/functions/newsletter 200!
 /api/newsletter/confirm           /.netlify/functions/newsletter 200!
 /api/notify                       /.netlify/functions/notify 200!
+/api/essai-gratuit                /.netlify/functions/essai-gratuit 200!
