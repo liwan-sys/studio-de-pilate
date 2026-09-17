@@ -117,8 +117,10 @@ for (const [pattern, label] of globalForbidden) {
 
 requireText('index.html', 'Le Pass Try coûte 30 € et comprend deux séances dans deux disciplines différentes');
 requireText('index.html', 'Pour Limitless, 1 no-show bloque l\'abonnement pendant 1 semaine.');
-requireText('index.html', 'data-launch-deadline="2026-09-30T23:59:00+02:00"');
-requireText('index.html', "Offre valable jusqu'au 30/09/2026 à 23h59");
+// La carte signature de l'accueil présente désormais le Pass Try (l'offre de lancement Limitless reste sur /tarifs).
+requireText('index.html', 'Réserver mes 2 séances · 30 €');
+requireText('index.html', 'Un essai acheté, un essai offert dans une autre discipline.');
+forbidText('index.html', /data-launch-deadline=/i, 'compte à rebours de lancement Limitless sur l\'accueil');
 requireText('tarifs.html', 'Une séance d\'essai achetée et une séance offerte dans une autre discipline.');
 requireText('tarifs.html', 'data-launch-deadline="2026-09-30T23:59:00+02:00"');
 requireText('tarifs.html', '"priceValidUntil": "2026-09-30"');
