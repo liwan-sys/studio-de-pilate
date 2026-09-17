@@ -115,6 +115,8 @@
 /contact.html                           /contact 301!
 /pourquoi-svb.html                      /pourquoi-svb 301!
 /essai.html                             /essai 301!
+/essai-gratuit.html                     /essai-gratuit 301!
+/merci-essai-gratuit.html               /merci-essai-gratuit 301!
 /studio-parc-des-docks.html             /studio-parc-des-docks 301!
 /studio-cours-des-lavandieres.html      /studio-cours-des-lavandieres 301!
 /pilates-reformer-saint-ouen.html       /pilates-reformer-saint-ouen 301!
@@ -158,9 +160,7 @@
 /pourquoi-svb                     /pourquoi-svb.html 200
 /essai                            /essai.html 200
 /essai-gratuit                    /essai-gratuit.html 200
-/essai-gratuit.html               /essai-gratuit 301!
 /merci-essai-gratuit              /merci-essai-gratuit.html 200
-/merci-essai-gratuit.html         /merci-essai-gratuit 301!
 /studio-parc-des-docks            /studio-parc-des-docks.html 200
 /studio-cours-des-lavandieres     /studio-cours-des-lavandieres.html 200
 /pilates-reformer-saint-ouen      /pilates-reformer-saint-ouen.html 200
