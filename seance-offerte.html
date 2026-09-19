@@ -236,6 +236,26 @@
     .thanks h2{font-size:2.4rem;line-height:1.05;margin-bottom:10px;}
     .thanks p{font-size:.92rem;color:rgba(47,79,79,.85);margin-bottom:12px;line-height:1.5;}
     .thanks a{color:#4A8D84;font-weight:700;}
+    /* Abonnements présentés après l'envoi (même DA : Dancing Script pour les titres, Montserrat pour le reste) */
+    .plans{margin:22px 0 6px;padding-top:20px;border-top:1px solid rgba(47,79,79,.12);text-align:left;}
+    .thanks .plans-kicker{font-size:.62rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#4A8D84;margin:0 0 2px;text-align:center;}
+    .plans h3{font-size:1.9rem;line-height:1.1;margin:0 0 6px;text-align:center;color:#2F4F4F;}
+    .thanks .plans-lead{font-size:.82rem;line-height:1.5;color:rgba(47,79,79,.78);margin:0 0 14px;text-align:center;}
+    .plan{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:#fff;border:1px solid rgba(47,79,79,.1);margin-bottom:8px;}
+    .plan-name{display:block;font-size:.78rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#2F4F4F;}
+    .plan-desc{display:block;font-size:.72rem;line-height:1.4;color:rgba(47,79,79,.7);margin-top:2px;}
+    .plan-price{flex:0 0 auto;text-align:right;font-size:.66rem;font-weight:700;color:rgba(47,79,79,.65);line-height:1.2;}
+    .plan-price b{display:block;font-size:1.15rem;font-weight:900;color:#2F4F4F;letter-spacing:-.01em;}
+    .plan--star{background:#2F4F4F;border-color:#2F4F4F;}
+    .plan--star .plan-name,.plan--star .plan-price b{color:#FBF6EC;}
+    .plan--star .plan-desc,.plan--star .plan-price{color:rgba(251,246,236,.75);}
+    .thanks .plans-note{font-size:.66rem;line-height:1.45;color:rgba(47,79,79,.6);margin:8px 0 14px;text-align:center;}
+    .plans-actions{display:flex;flex-direction:column;align-items:center;gap:8px;}
+    .plans-actions .btn-primary{
+      display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:50px;padding:12px 20px;border-radius:999px;
+      background:linear-gradient(135deg,#F5C76D 0%,#E8B496 100%);color:#2F4F4F !important;text-decoration:none;
+      font-size:.78rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+    }
     .btn-secondary{
       display:inline-flex;align-items:center;justify-content:center;min-height:48px;
       padding:12px 22px;border-radius:999px;margin-top:6px;
@@ -487,7 +507,28 @@
             <h2 id="thanks-title" tabindex="-1">Ta place est réservée<span id="thanks-name"></span> !</h2>
             <p>Elle est à ton nom ✅. L'équipe SVB te contacte <span id="thanks-channel">très vite</span>, sous 48 h, pour fixer ta discipline et ton créneau. Garde un œil sur ton téléphone.</p>
             <p>Trop pressé·e ? <a href="https://wa.me/33744919155?text=Bonjour%2C%20je%20viens%20de%20demander%20ma%20s%C3%A9ance%20d%27essai%20offerte%20sur%20le%20site" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou <a href="tel:+33744919155">07 44 91 91 55</a>.</p>
-            <a class="btn-secondary" href="/sessions">Découvrir les cours en attendant</a>
+            <div class="plans" aria-labelledby="plans-title">
+              <p class="plans-kicker">Pour la suite</p>
+              <h3 id="plans-title">Nos abonnements</h3>
+              <p class="plans-lead">Après ta séance, si tu as envie de continuer, voici nos formules. On t'aidera à choisir celle qui colle à ton rythme.</p>
+              <div class="plan">
+                <span><span class="plan-name">SVB Move</span><span class="plan-desc">Cours small group · Parc des Docks</span></span>
+                <span class="plan-price">dès<b>80,50 €</b>/ mois</span>
+              </div>
+              <div class="plan">
+                <span><span class="plan-name">SVB Form</span><span class="plan-desc">Reformer &amp; Crossformer · Cours des Lavandières</span></span>
+                <span class="plan-price">dès<b>140,50 €</b>/ mois</span>
+              </div>
+              <div class="plan plan--star" id="plan-limitless" data-launch-until="2026-09-30T23:59:00+02:00">
+                <span><span class="plan-name">SVB Limitless</span><span class="plan-desc">Illimité, 2 studios · engagement 1 an · tarif de lancement jusqu'au 30/09</span></span>
+                <span class="plan-price"><b>300 €</b>/ mois</span>
+              </div>
+              <p class="plans-note">Move et Form : 4, 6 ou 8 séances par mois, engagement 6 mois · frais de dossier 49 €.</p>
+              <div class="plans-actions">
+                <a class="btn-primary" href="/tarifs">Voir tous les abonnements</a>
+                <a class="btn-secondary" href="/sessions">Découvrir les cours</a>
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -766,7 +807,12 @@
           var prenom = (data.get('prenom') || '').trim();
           var contact = data.get('contact') || '';
           var channel = { 'SMS': 'par SMS', 'Appel': 'par téléphone', 'Email': 'par email' }[contact] || 'très vite';
-          document.getElementById('thanks-name').textContent = prenom ? ', ' + prenom : '';
+          var prenomAff = prenom ? prenom.charAt(0).toUpperCase() + prenom.slice(1) : '';
+          document.getElementById('thanks-name').textContent = prenomAff ? ', ' + prenomAff : '';
+          try {
+            var lim = document.getElementById('plan-limitless');
+            if (lim && Date.now() > Date.parse(lim.getAttribute('data-launch-until'))) lim.hidden = true;
+          } catch (err) {}
           document.getElementById('thanks-channel').textContent = channel;
           document.getElementById('form-container').hidden = true;
           var thanks = document.getElementById('thanks');
