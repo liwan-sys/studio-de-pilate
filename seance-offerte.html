@@ -713,6 +713,8 @@
               }
             });
           } catch (err) {}
+          // Compteur de places restantes (une place par email)
+          try { fetch('/api/places', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: data.get('email') || '' }), keepalive: true }).catch(function(){}); } catch (err) {}
           try { if (typeof window.fbq === 'function') window.fbq('track', 'Lead', { content_name: 'seance-offerte' }); } catch (err) {}
           try { if (typeof window.oaiq === 'function') window.oaiq('measure', 'lead_created', { type: 'customer_action' }); } catch (err) {}
         })
