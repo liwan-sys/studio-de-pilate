@@ -203,6 +203,33 @@
     .pref.is-invalid .chip{border-color:#C9705C;}
     .hp-field{position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden;}
 
+    /* === File d'attente (courte, toujours positive) === */
+    .queue{text-align:center;padding:18px 6px 10px;}
+    .queue-kicker{font-size:.62rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#4A8D84;margin-bottom:6px;}
+    .queue h2{font-size:2.1rem;line-height:1.05;margin-bottom:10px;}
+    .queue-status{min-height:1.5em;font-size:.92rem;font-weight:600;color:rgba(47,79,79,.85);margin-bottom:16px;transition:opacity .25s;}
+    .queue-status.is-fading{opacity:0;}
+    .queue-bar{width:100%;height:10px;border-radius:999px;background:rgba(47,79,79,.1);overflow:hidden;}
+    .queue-bar span{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#F5C76D,#E8B496);transition:width .6s cubic-bezier(.16,1,.3,1);}
+    .queue-dots{display:inline-flex;gap:6px;margin:14px 0 4px;}
+    .queue-dots i{width:8px;height:8px;border-radius:50%;background:#4A8D84;opacity:.3;animation:queueDot 1.2s ease-in-out infinite;}
+    .queue-dots i:nth-child(2){animation-delay:.2s;} .queue-dots i:nth-child(3){animation-delay:.4s;}
+    @keyframes queueDot{0%,100%{opacity:.3;transform:translateY(0);}50%{opacity:1;transform:translateY(-4px);}}
+    .queue-note{font-size:.7rem;color:rgba(47,79,79,.6);margin-top:12px;}
+    .queue.is-found .queue-dots{display:none;}
+    .queue.is-found .queue-status{color:#2F4F4F;font-weight:800;}
+    .hold{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      margin:0 0 16px;padding:10px 14px;border-radius:14px;
+      background:#F2E6CF;border:1px solid rgba(47,79,79,.1);
+      font-size:.74rem;font-weight:700;color:#2F4F4F;
+    }
+    .hold b{font-variant-numeric:tabular-nums;font-size:1.05rem;font-weight:900;color:#2F4F4F;letter-spacing:.02em;}
+    .hold.is-late{background:#FBE9E5;}
+    .hold[hidden]{display:none;}
+    @keyframes queuePop{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+    #form-container.is-revealed{animation:queuePop .45s cubic-bezier(.16,1,.3,1) both;}
+
     /* === Confirmation === */
     .thanks{text-align:center;padding:12px 4px 6px;}
     .thanks-emoji{font-size:2.6rem;line-height:1;margin-bottom:8px;}
@@ -356,18 +383,32 @@
         <h1>Ta première séance<br><em>est offerte.</em></h1>
         <p class="oh-sub"><b>Pilates Reformer, Crossformer, Pilates au sol, Yoga, Cross Training ou Boxe.</b> Laisse-nous tes coordonnées : l'équipe SVB te contacte par SMS, appel ou email pour choisir ta discipline et ton créneau.</p>
         <div class="oh-proof" aria-label="Réassurance">
+          <span>🎟 100 places pour toute la campagne</span>
+          <span>Dans l'ordre d'arrivée</span>
           <span>2 studios à Saint-Ouen</span>
-          <span>Petits groupes</span>
-          <span>Coachs certifiés</span>
         </div>
       </div>
 
       <main id="main-content">
         <div class="card" id="formulaire">
-          <div id="form-container">
-            <p class="card-kicker">Séance d'essai offerte</p>
-            <h2>Je réserve ma séance</h2>
-            <p class="card-lead">30 secondes, sans carte bancaire. On te rappelle ou on t'écrit : c'est toi qui choisis.</p>
+          <!-- File d'attente : quelques secondes, et ça finit toujours bien -->
+          <div id="queue" class="queue" role="status" aria-live="polite">
+            <p class="queue-kicker">Séance d'essai offerte · 100 places</p>
+            <h2>On te cherche une place…</h2>
+            <p class="queue-status" id="queue-status">Connexion à la file d'attente</p>
+            <div class="queue-bar" aria-hidden="true"><span id="queue-fill"></span></div>
+            <div class="queue-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <p class="queue-note">Les places sont attribuées dans l'ordre d'arrivée. Ça ne prend que quelques secondes.</p>
+          </div>
+
+          <div id="form-container" hidden>
+            <p class="card-kicker">Une place vient de se libérer</p>
+            <h2>Je prends ma place</h2>
+            <p class="card-lead">Elle est offerte, sans carte bancaire. 30 secondes pour la confirmer : on te rappelle ou on t'écrit, c'est toi qui choisis.</p>
+            <div class="hold" id="hold" hidden>
+              <span>🔒 Ta place est bloquée pour toi pendant</span>
+              <b id="hold-time">10:00</b>
+            </div>
 
             <form name="seance-offerte" method="POST" action="https://formsubmit.co/hello@studiosvb.fr" data-netlify="true" data-netlify-honeypot="website-url">
               <input type="hidden" name="form-name" value="seance-offerte">
@@ -434,17 +475,17 @@
                 <input id="f-consent" type="checkbox" name="consentement" value="oui" required>
                 <span>J'accepte que le Studio SVB me contacte pour organiser ma séance d'essai offerte. Pas de newsletter, pas de spam. <a href="/mentions-legales">Données personnelles</a></span>
               </label>
-              <button type="submit" class="submit">Recevoir ma séance offerte</button>
+              <button type="submit" class="submit">Je prends ma place</button>
               <p id="form-error" class="error" role="alert" hidden></p>
-              <p class="note">Une séance offerte par personne, réservée aux nouveaux membres, selon les places disponibles. Tes coordonnées servent uniquement à organiser ta séance.</p>
+              <p class="note">100 places pour toute la campagne, une par personne, réservées aux nouveaux membres et attribuées dans l'ordre d'arrivée. Tes coordonnées servent uniquement à organiser ta séance.</p>
             </form>
           </div>
 
           <!-- Affiché après envoi réussi -->
           <div id="thanks" class="thanks" hidden>
             <div class="thanks-emoji" aria-hidden="true">🎉</div>
-            <h2 id="thanks-title" tabindex="-1">C'est noté<span id="thanks-name"></span> !</h2>
-            <p>L'équipe SVB te contacte <span id="thanks-channel">très vite</span> pour choisir ta discipline et ton créneau. Garde un œil sur ton téléphone.</p>
+            <h2 id="thanks-title" tabindex="-1">Ta place est réservée<span id="thanks-name"></span> !</h2>
+            <p>Elle est à ton nom ✅. L'équipe SVB te contacte <span id="thanks-channel">très vite</span>, sous 48 h, pour fixer ta discipline et ton créneau. Garde un œil sur ton téléphone.</p>
             <p>Trop pressé·e ? <a href="https://wa.me/33744919155?text=Bonjour%2C%20je%20viens%20de%20demander%20ma%20s%C3%A9ance%20d%27essai%20offerte%20sur%20le%20site" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou <a href="tel:+33744919155">07 44 91 91 55</a>.</p>
             <a class="btn-secondary" href="/sessions">Découvrir les cours en attendant</a>
           </div>
@@ -542,6 +583,52 @@
     (function(){
       var form = document.querySelector('form[name="seance-offerte"]');
       if (!form) return;
+
+      // --- File d'attente courte (6 s) puis place « bloquée » 10 min : chaque étape finit par un oui
+      (function queue(){
+        var box = document.getElementById('queue'), status = document.getElementById('queue-status'), fill = document.getElementById('queue-fill');
+        var container = document.getElementById('form-container'), hold = document.getElementById('hold'), holdTime = document.getElementById('hold-time');
+        var KEY = 'svb-offer-queue-v1', done = false;
+        try { done = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+        var steps = [
+          [0,    12, "Connexion à la file d'attente…"],
+          [1400, 38, "Vérification des places disponibles…"],
+          [3200, 64, "Beaucoup de demandes aujourd'hui, on regarde pour toi…"],
+          [4800, 88, "Une place se libère…"],
+          [6000, 100, "🎉 Trouvé ! Une place vient de se libérer pour toi."]
+        ];
+        function setStatus(t){ status.classList.add('is-fading'); setTimeout(function(){ status.textContent = t; status.classList.remove('is-fading'); }, 220); }
+        function reveal(){
+          box.hidden = true; container.hidden = false; container.classList.add('is-revealed');
+          try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+          startHold();
+          try { if (window.svbTrack) window.svbTrack('queue_place_found', {}); } catch (e) {}
+        }
+        function startHold(){
+          if (!hold) return;
+          var end = Date.now() + 10 * 60 * 1000;
+          hold.hidden = false;
+          var iv = setInterval(function(){
+            var left = Math.max(0, end - Date.now());
+            var m = Math.floor(left / 60000), sec = Math.floor((left % 60000) / 1000);
+            holdTime.textContent = (m < 10 ? '0' : '') + m + ':' + (sec < 10 ? '0' : '') + sec;
+            if (left <= 0) {
+              clearInterval(iv);
+              hold.classList.add('is-late');
+              hold.innerHTML = "<span>⏰ Le délai est passé, mais on te garde une place : vas-y, remplis le formulaire.</span>";
+            }
+          }, 250);
+          form.addEventListener('submit', function(){ setTimeout(function(){ if (window.__svbLeadDone) { clearInterval(iv); hold.hidden = true; } }, 1500); });
+        }
+        if (done) { box.hidden = true; container.hidden = false; startHold(); return; }
+        steps.forEach(function(st){
+          setTimeout(function(){
+            fill.style.width = st[1] + '%';
+            setStatus(st[2]);
+            if (st[1] === 100) { box.classList.add('is-found'); setTimeout(reveal, 900); }
+          }, st[0]);
+        });
+      })();
 
       // --- Source de la visite (UTM) -> champs cachés Netlify
       try {
@@ -674,7 +761,7 @@
 
         firstSuccess([sendEmail(data), sendNetlify(data)])
         .then(function(){
-          done = true;
+          done = true; window.__svbLeadDone = true;
           setSticky(false);
           var prenom = (data.get('prenom') || '').trim();
           var contact = data.get('contact') || '';
