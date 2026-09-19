@@ -241,14 +241,21 @@
     .thanks .plans-kicker{font-size:.62rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#4A8D84;margin:0 0 2px;text-align:center;}
     .plans h3{font-size:1.9rem;line-height:1.1;margin:0 0 6px;text-align:center;color:#2F4F4F;}
     .thanks .plans-lead{font-size:.82rem;line-height:1.5;color:rgba(47,79,79,.78);margin:0 0 14px;text-align:center;}
-    .plan{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:#fff;border:1px solid rgba(47,79,79,.1);margin-bottom:8px;}
-    .plan-name{display:block;font-size:.78rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#2F4F4F;}
-    .plan-desc{display:block;font-size:.72rem;line-height:1.4;color:rgba(47,79,79,.7);margin-top:2px;}
-    .plan-price{flex:0 0 auto;text-align:right;font-size:.66rem;font-weight:700;color:rgba(47,79,79,.65);line-height:1.2;}
-    .plan-price b{display:block;font-size:1.15rem;font-weight:900;color:#2F4F4F;letter-spacing:-.01em;}
+    .plan{display:flex;gap:12px;align-items:stretch;padding:12px;border-radius:18px;background:#fff;border:1px solid rgba(47,79,79,.1);margin-bottom:10px;}
+    .plan-vid{flex:0 0 84px;width:84px;height:140px;border-radius:12px;object-fit:cover;background:#2F4F4F;display:block;}
+    .plan-body{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center;}
+    .plan-name{display:block;font-size:.8rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#2F4F4F;}
+    .plan-desc{display:block;font-size:.7rem;line-height:1.4;color:rgba(47,79,79,.7);margin:3px 0 8px;}
+    .plan-tiers{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;}
+    .plan-tiers li{display:flex;justify-content:space-between;align-items:baseline;gap:6px;font-size:.7rem;color:rgba(47,79,79,.8);padding:5px 9px;border-radius:9px;background:#F7F1E4;}
+    .plan-tiers b{font-size:.86rem;font-weight:900;color:#2F4F4F;white-space:nowrap;}
+    .plan-tiers li > span{white-space:nowrap;}
+    .plan-tiers small{font-size:.62rem;font-weight:600;opacity:.7;}
     .plan--star{background:#2F4F4F;border-color:#2F4F4F;}
-    .plan--star .plan-name,.plan--star .plan-price b{color:#FBF6EC;}
-    .plan--star .plan-desc,.plan--star .plan-price{color:rgba(251,246,236,.75);}
+    .plan--star .plan-name{color:#FBF6EC;}
+    .plan--star .plan-desc{color:rgba(251,246,236,.75);}
+    .plan--star .plan-tiers li{background:rgba(251,246,236,.1);color:rgba(251,246,236,.85);}
+    .plan--star .plan-tiers b{color:#F5C76D;}
     .thanks .plans-note{font-size:.66rem;line-height:1.45;color:rgba(47,79,79,.6);margin:8px 0 14px;text-align:center;}
     .plans-actions{display:flex;flex-direction:column;align-items:center;gap:8px;}
     .plans-actions .btn-primary{
@@ -512,18 +519,30 @@
               <h3 id="plans-title">Nos abonnements</h3>
               <p class="plans-lead">Après ta séance, si tu as envie de continuer, voici nos formules. On t'aidera à choisir celle qui colle à ton rythme.</p>
               <div class="plan">
-                <span><span class="plan-name">SVB Move</span><span class="plan-desc">Cours small group · Parc des Docks</span></span>
-                <span class="plan-price">dès<b>80,50 €</b>/ mois</span>
+                <video class="plan-vid" muted loop playsinline preload="none" poster="/videos/cross-training-immersion-poster.jpg?v=20260918a" data-src="/videos/cross-training-immersion.mp4?v=20260918a" aria-hidden="true"></video>
+                <div class="plan-body">
+                  <span class="plan-name">SVB Move</span>
+                  <span class="plan-desc">Cross Training, Yoga, Pilates au sol, Boxe · Parc des Docks</span>
+                  <ul class="plan-tiers"><li><span>4 séances</span><b>80,50 €<small> /mois</small></b></li><li><span>6 séances</span><b>120,50 €<small> /mois</small></b></li><li><span>8 séances</span><b>160,50 €<small> /mois</small></b></li></ul>
+                </div>
               </div>
               <div class="plan">
-                <span><span class="plan-name">SVB Form</span><span class="plan-desc">Reformer &amp; Crossformer · Cours des Lavandières</span></span>
-                <span class="plan-price">dès<b>140,50 €</b>/ mois</span>
+                <video class="plan-vid" muted loop playsinline preload="none" poster="/videos/reformer-card-v2-poster.jpg" data-src="/videos/reformer-card-v2.mp4" aria-hidden="true"></video>
+                <div class="plan-body">
+                  <span class="plan-name">SVB Form</span>
+                  <span class="plan-desc">Pilates Reformer &amp; Crossformer · Cours des Lavandières</span>
+                  <ul class="plan-tiers"><li><span>4 séances</span><b>140,50 €<small> /mois</small></b></li><li><span>6 séances</span><b>210,50 €<small> /mois</small></b></li><li><span>8 séances</span><b>280,50 €<small> /mois</small></b></li></ul>
+                </div>
               </div>
               <div class="plan plan--star" id="plan-limitless" data-launch-until="2026-09-30T23:59:00+02:00">
-                <span><span class="plan-name">SVB Limitless</span><span class="plan-desc">Illimité, 2 studios · engagement 1 an · tarif de lancement jusqu'au 30/09</span></span>
-                <span class="plan-price"><b>300 €</b>/ mois</span>
+                <video class="plan-vid" muted loop playsinline preload="none" poster="/videos/crossformer-immersion-poster.jpg" data-src="/videos/crossformer-immersion.mp4" aria-hidden="true"></video>
+                <div class="plan-body">
+                  <span class="plan-name">SVB Limitless</span>
+                  <span class="plan-desc">Tous les cours des 2 studios · engagement 1 an · tarif de lancement jusqu'au 30/09</span>
+                  <ul class="plan-tiers"><li><span>Séances illimitées</span><b>300 €<small> /mois</small></b></li></ul>
+                </div>
               </div>
-              <p class="plans-note">Move et Form : 4, 6 ou 8 séances par mois, engagement 6 mois · frais de dossier 49 €.</p>
+              <p class="plans-note">Prix par mois selon le nombre de séances · Move et Form : engagement 6 mois · frais de dossier 49 €.</p>
               <div class="plans-actions">
                 <a class="btn-primary" href="/tarifs">Voir tous les abonnements</a>
                 <a class="btn-secondary" href="/sessions">Découvrir les cours</a>
@@ -809,6 +828,12 @@
           var channel = { 'SMS': 'par SMS', 'Appel': 'par téléphone', 'Email': 'par email' }[contact] || 'très vite';
           var prenomAff = prenom ? prenom.charAt(0).toUpperCase() + prenom.slice(1) : '';
           document.getElementById('thanks-name').textContent = prenomAff ? ', ' + prenomAff : '';
+          try {
+            Array.prototype.forEach.call(document.querySelectorAll('.plan-vid[data-src]'), function(v){
+              v.src = v.getAttribute('data-src'); v.removeAttribute('data-src');
+              var pr = v.play(); if (pr && pr.catch) pr.catch(function(){});
+            });
+          } catch (err) {}
           try {
             var lim = document.getElementById('plan-limitless');
             if (lim && Date.now() > Date.parse(lim.getAttribute('data-launch-until'))) lim.hidden = true;
