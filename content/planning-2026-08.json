@@ -21,7 +21,6 @@
           ["13h", "Boxe"],
           ["18h", "Cross Training"],
           ["19h", "Cross Body"],
-          ["19h", "Pilates Barre"],
           ["20h", "Power Pilates"]
         ],
         "Mercredi": [
@@ -45,7 +44,6 @@
         "Vendredi": [
           ["12h", "Cross Training"],
           ["13h", "Cross Body"],
-          ["13h", "Pilates Barre"],
           ["18h30", "Classic Pilates"],
           ["18h30", "Cross Rox"],
           ["19h30", "Cross Training"]
@@ -135,7 +133,6 @@
     "Boxe": "#191919",
     "Stretch Mobility": "#F0B28D",
     "Yoga Kids": "#636B9C",
-    "Pilates Barre": "#D1A48E",
     "Classic Pilates": "#DAC194",
     "Club Running": "#86A68E",
     "Yoga/Pilates": ["#E8DBBC", "#DAC194"],
