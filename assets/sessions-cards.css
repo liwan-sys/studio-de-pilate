@@ -44,8 +44,8 @@
 
 .session-card__media {
   position: relative;
-  flex: 0 0 250px;
-  height: 250px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #1d3838;
 }
@@ -64,9 +64,8 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;
-  background: #1d3838;
 }
 
 .session-card__body {
@@ -158,8 +157,8 @@
   }
 
   .session-card__media {
-    flex-basis: 225px;
-    height: 225px;
+    aspect-ratio: 16 / 9;
+    width: 100%;
   }
 
   .session-card__body {
