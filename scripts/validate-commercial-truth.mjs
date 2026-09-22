@@ -181,7 +181,6 @@ for (const course of [
   'Yoga Vinyasa',
   'Pilates Classique',
   'Power Pilates',
-  'Pilates Barre',
   'Stretch Mobility',
   'Boxe Anglaise',
   'Yoga Kids',
@@ -198,7 +197,7 @@ const sessionCardCount = (sessionsCatalogue.match(/<article\b[^>]*\bclass="sessi
 const sessionMediaCount = (sessionsCatalogue.match(/class="session-card__media"/g) || []).length;
 const sessionBodyCount = (sessionsCatalogue.match(/class="session-card__body"/g) || []).length;
 const sessionVideoCount = (sessionsCatalogue.match(/<video\b/g) || []).length;
-if (sessionCardCount !== 16) fail(`sessions.html doit afficher 16 cartes de cours homogènes, pas ${sessionCardCount}.`);
+if (sessionCardCount !== 15) fail(`sessions.html doit afficher 15 cartes de cours homogènes, pas ${sessionCardCount}.`);
 if (sessionMediaCount !== sessionCardCount) fail('Chaque carte de cours doit avoir un média de même format.');
 if (sessionBodyCount !== sessionCardCount) fail('Chaque carte de cours doit utiliser la même structure de contenu.');
 if (sessionVideoCount < 5) fail('Les vidéos Crossformer, Reformer, Cross Training, Cross Yoga et Boxe doivent rester dans les cartes.');
@@ -217,7 +216,7 @@ forbidText('sessions.html', /<div class="session-card"/i, 'ancienne structure h�
 for (const course of ['Pilates Reformer', 'Flow Reformer', 'Crossformer', 'Crossformer Challenger']) {
   requireText('studio-cours-des-lavandieres.html', course);
 }
-for (const course of ['Cross Training', 'Cross Yoga', 'Pilates Classique', 'Power Pilates', 'Pilates Barre', 'Stretch Mobility', 'Boxe anglaise', 'Yoga Kids']) {
+for (const course of ['Cross Training', 'Cross Yoga', 'Pilates Classique', 'Power Pilates', 'Stretch Mobility', 'Boxe anglaise', 'Yoga Kids']) {
   requireText('studio-parc-des-docks.html', course);
 }
 forbidText('studio-cours-des-lavandieres.html', /Pilates au sol|Yoga Vinyasa|Hatha Flow|Yin Yoga|Core &(?:amp;|) Stretch/i, 'discipline attribuée au mauvais studio');
