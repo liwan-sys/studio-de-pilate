@@ -7,7 +7,7 @@
   --session-accent: #88c0a6;
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100%;
   padding: 0;
   overflow: hidden;
@@ -44,8 +44,9 @@
 
 .session-card__media {
   position: relative;
-  flex: 0 0 250px;
-  height: 250px;
+  flex: 0 0 40%;
+  align-self: stretch;
+  min-height: 220px;
   overflow: hidden;
   background: #1d3838;
 }
@@ -156,21 +157,23 @@
   }
 
   .session-card__media {
-    flex-basis: 225px;
-    height: 225px;
+    flex: 0 0 42%;
+    min-height: 180px;
   }
 
   .session-card__body {
-    padding: 22px 22px 26px;
+    padding: 18px 18px 22px;
   }
 
   .session-card__meta {
     align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .session-card .activity-name {
     min-height: 0;
-    font-size: 1.9rem;
+    font-size: 1.5rem;
   }
 }
 
