@@ -886,7 +886,23 @@
         })
         .catch(function(){
           if (done) return; // une erreur de mesure ne doit pas annuler un envoi réussi
-          showError("L'envoi n'a pas abouti. Réessaie dans un instant, ou écris-nous sur WhatsApp au 07 44 91 91 55.");
+          // Fallback : construit un message WhatsApp pre-rempli avec les infos du formulaire.
+          // La cliente cloue en 1 tap et son message part avec toutes les infos.
+          try {
+            var wa = 'Bonjour Studio SVB, je souhaite reserver ma seance d\'essai offerte.\n'
+                   + '\nPrenom : ' + (data.get('prenom') || '')
+                   + '\nNom : ' + (data.get('nom') || '')
+                   + '\nEmail : ' + (data.get('email') || '')
+                   + '\nTelephone : ' + (data.get('telephone') || '')
+                   + '\nAge : ' + (data.get('age') || '')
+                   + '\nDiscipline : ' + (data.get('discipline') || 'A definir')
+                   + '\nContact prefere : ' + (data.get('contact') || 'Sans preference');
+            var waUrl = 'https://wa.me/33744919155?text=' + encodeURIComponent(wa);
+            error.innerHTML = 'L\'envoi n\'a pas abouti. <a href="' + waUrl + '" target="_blank" rel="noopener" style="color:#4A8D84;text-decoration:underline;font-weight:800;">Clique ici pour nous envoyer tes infos sur WhatsApp</a> — 1 clic et c\'est bon.';
+            error.hidden = false;
+          } catch (err) {
+            showError("L'envoi n'a pas abouti. Réessaie dans un instant, ou écris-nous sur WhatsApp au 07 44 91 91 55.");
+          }
         })
         .finally(function(){
           form.setAttribute('aria-busy', 'false');
