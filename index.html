@@ -254,23 +254,38 @@
   </div>
   <div class="noise-overlay"></div>
 
-  <!-- === BANDEAU PASS TRY (editorial minimal) === -->
+  <!-- === BANDEAU PASS TRY (marquee defilant) === -->
   <style>
-    .svb-offer-bar{position:relative;z-index:30;display:flex;align-items:center;justify-content:center;gap:14px;min-height:42px;padding:10px 20px;background:#2F4F4F;color:#FBF6EC;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;line-height:1.3;text-align:center;transition:background .2s;border:none;cursor:pointer;width:100%;}
+    .svb-offer-bar{position:relative;z-index:30;display:block;width:100%;overflow:hidden;background:#2F4F4F;color:#FBF6EC;border:none;cursor:pointer;padding:0;transition:background .2s;}
     .svb-offer-bar:hover{background:#1d3838;}
+    .svb-offer-bar__track{display:flex;flex-wrap:nowrap;width:max-content;padding:12px 0;animation:svbBarScroll 32s linear infinite;will-change:transform;}
+    .svb-offer-bar:hover .svb-offer-bar__track{animation-play-state:paused;}
+    .svb-offer-bar__item{display:inline-flex;align-items:center;gap:14px;padding:0 32px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;}
+    .svb-offer-bar__item::after{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:rgba(245,199,109,.55);margin-left:24px;}
     .svb-offer-bar__old{color:rgba(251,246,236,.5);font-weight:400;text-decoration:line-through;text-decoration-color:#E8B496;letter-spacing:.02em;}
     .svb-offer-bar__new{color:#F5C76D;font-weight:700;letter-spacing:.02em;}
-    .svb-offer-bar__arrow{display:inline-block;transform:translateX(0);transition:transform .2s;font-family:serif;font-weight:400;}
-    .svb-offer-bar:hover .svb-offer-bar__arrow{transform:translateX(4px);}
+    @keyframes svbBarScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
     @media (max-width:640px){
-      .svb-offer-bar{gap:10px;padding:9px 14px;font-size:.62rem;letter-spacing:.1em;}
+      .svb-offer-bar__item{gap:10px;padding:0 22px;font-size:.62rem;letter-spacing:.1em;}
+      .svb-offer-bar__item::after{margin-left:18px;}
+      .svb-offer-bar__track{animation-duration:22s;}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .svb-offer-bar__track{animation:none;justify-content:center;width:100%;}
+      .svb-offer-bar__item + .svb-offer-bar__item{display:none;}
     }
   </style>
-  <button type="button" class="svb-offer-bar js-buy" data-discipline="reformer" data-label="Pass Try · 2 séances" data-amount="30 €" data-track="home_offer_bar" aria-label="Pass Try : 2 séances 30 euros au lieu de 100">
-    <span>Pass Try — 2 séances</span>
-    <span class="svb-offer-bar__old">100€</span>
-    <span class="svb-offer-bar__new">30€</span>
-    <span class="svb-offer-bar__arrow" aria-hidden="true">→</span>
+  <button type="button" class="svb-offer-bar js-buy" data-discipline="reformer" data-label="Pass Try · 2 séances" data-amount="30 €" data-track="home_offer_bar" aria-label="Pass Try : 2 séances 30 euros au lieu de 100, je réserve">
+    <span class="svb-offer-bar__track" aria-hidden="true">
+      <span class="svb-offer-bar__item">Pass Try — 2 séances <span class="svb-offer-bar__old">100€</span> <span class="svb-offer-bar__new">30€</span></span>
+      <span class="svb-offer-bar__item">Pass Try — 2 séances <span class="svb-offer-bar__old">100€</span> <span class="svb-offer-bar__new">30€</span></span>
+      <span class="svb-offer-bar__item">Pass Try — 2 séances <span class="svb-offer-bar__old">100€</span> <span class="svb-offer-bar__new">30€</span></span>
+      <span class="svb-offer-bar__item">Pass Try — 2 séances <span class="svb-offer-bar__old">100€</span> <span class="svb-offer-bar__new">30€</span></span>
+      <span class="svb-offer-bar__item">Pass Try — 2 séances <span class="svb-offer-bar__old">100€</span> <span class="svb-offer-bar__new">30€</span></span>
+      <span class="svb-offer-bar__item">Pass Try — 2 séances <span class="svb-offer-bar__old">100€</span> <span class="svb-offer-bar__new">30€</span></span>
+      <span class="svb-offer-bar__item">Pass Try — 2 séances <span class="svb-offer-bar__old">100€</span> <span class="svb-offer-bar__new">30€</span></span>
+      <span class="svb-offer-bar__item">Pass Try — 2 séances <span class="svb-offer-bar__old">100€</span> <span class="svb-offer-bar__new">30€</span></span>
+    </span>
   </button>
 
   <!-- === HERO VIDEO — TON CORPS N'ATTEND QUE TOI === -->
