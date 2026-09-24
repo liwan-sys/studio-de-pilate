@@ -262,6 +262,9 @@
     .svb-offer-bar strong{font-weight:900;letter-spacing:.06em;text-transform:uppercase;}
     .svb-offer-bar__cta{flex:0 0 auto;display:inline-flex;align-items:center;min-height:32px;padding:6px 14px;border-radius:999px;background:#2F4F4F;color:#FBF6EC;font-size:.66rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;transition:background .2s,transform .2s;}
     .svb-offer-bar:hover .svb-offer-bar__cta{background:#1d3838;transform:translateY(-1px);}
+    .svb-offer-bar__old{position:relative;display:inline-block;padding:0 2px;color:rgba(47,79,79,.55);font-weight:700;}
+    .svb-offer-bar__old::before{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:1.5px;background:#2F4F4F;transform:rotate(-8deg);}
+    .svb-offer-bar__new{font-weight:900;color:#2F4F4F;margin-left:2px;}
     @keyframes svbOfferWiggle{0%,100%{transform:rotate(-6deg);}50%{transform:rotate(6deg);}}
     @media (max-width:640px){
       .svb-offer-bar{gap:8px;padding:8px 12px;font-size:.72rem;}
@@ -272,7 +275,7 @@
   </style>
   <button type="button" class="svb-offer-bar js-buy" data-discipline="reformer" data-label="Pass Try · 2 séances" data-amount="30 €" data-track="home_offer_bar" aria-label="Offre exceptionnelle : Pass Try 2 séances 30 euros au lieu de 100, je réserve">
     <span class="svb-offer-bar__gift" aria-hidden="true">🔥</span>
-    <span class="svb-offer-bar__text"><strong>Offre exceptionnelle · Pass Try 30€</strong> <span class="svb-offer-bar__sub">· 2 séances au lieu de <s>100€</s> — économise 70€.</span></span>
+    <span class="svb-offer-bar__text"><strong>Offre exceptionnelle</strong> · Pass Try <span class="svb-offer-bar__old">100€</span> <span class="svb-offer-bar__new">30€</span></span>
     <span class="svb-offer-bar__cta">J'en profite</span>
   </button>
 
@@ -1546,12 +1549,18 @@
     .svb-offer-popup__gift{font-size:.95rem;line-height:1;animation:svbOfferWiggle 2.4s ease-in-out infinite;}
     .svb-offer-popup__kicker{margin:14px 0 4px;font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:#F5C76D;}
     .svb-offer-popup__title{font-family:'Montserrat',sans-serif;font-size:clamp(1.35rem,4.4vw,1.6rem);font-weight:800;line-height:1.2;margin:0 0 10px;color:#FBF6EC;letter-spacing:.01em;}
-    .svb-offer-popup__price-stack{display:flex;flex-direction:column;align-items:center;gap:2px;margin:14px 0 8px;}
-    .svb-offer-popup__old{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;color:rgba(251,246,236,.6);letter-spacing:.08em;text-transform:uppercase;}
-    .svb-offer-popup__old s{position:relative;display:inline-block;padding:0 2px;color:rgba(251,246,236,.7);text-decoration:line-through;text-decoration-color:#E8B496;text-decoration-thickness:2px;}
-    .svb-offer-popup__deal{display:flex;align-items:baseline;gap:6px;margin-top:2px;}
+    .svb-offer-popup__price-stack{display:flex;flex-direction:column;align-items:center;gap:6px;margin:18px 0 12px;}
+    .svb-offer-popup__old{
+      font-family:'Montserrat',sans-serif;font-size:1.9rem;font-weight:700;line-height:1;
+      color:rgba(251,246,236,.55);letter-spacing:-.01em;position:relative;display:inline-block;
+    }
+    .svb-offer-popup__old::before{
+      content:"";position:absolute;left:-6px;right:-6px;top:52%;height:2px;
+      background:#E8B496;transform:rotate(-8deg);transform-origin:center;
+    }
+    .svb-offer-popup__deal{display:flex;align-items:baseline;gap:6px;}
     .svb-offer-popup__amount{
-      font-family:'Great Vibes',cursive;font-size:5.2rem;line-height:.9;color:#F5C76D;
+      font-family:'Great Vibes',cursive;font-size:5.6rem;line-height:.9;color:#F5C76D;
       text-shadow:0 6px 30px rgba(245,199,109,.35);
       animation:svbAmountVibrate 1.8s ease-in-out infinite;transform-origin:center;display:inline-block;
     }
@@ -1562,8 +1571,7 @@
       45%{transform:scale(1.06) rotate(-.6deg);}
       60%{transform:scale(1.02) rotate(0);}
     }
-    .svb-offer-popup__amount-euro{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:900;color:#F5C76D;}
-    .svb-offer-popup__savings{display:inline-block;margin:6px auto 12px;padding:5px 12px;border-radius:999px;background:rgba(245,199,109,.14);color:#F5C76D;font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.06em;}
+    .svb-offer-popup__amount-euro{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:#F5C76D;}
     .svb-offer-popup__text{font-family:'Montserrat',sans-serif;font-size:.9rem;line-height:1.55;color:rgba(251,246,236,.92);margin:0 0 16px;}
     .svb-offer-popup__text strong{color:#F5C76D;font-weight:800;}
     .svb-offer-popup__hook{font-family:'Montserrat',sans-serif;font-size:1.02rem;font-weight:800;line-height:1.35;color:#FBF6EC;margin:0 0 8px;}
@@ -1591,13 +1599,12 @@
       </button>
       <span class="svb-offer-popup__pill"><span class="svb-offer-popup__gift" aria-hidden="true">🔥</span> Offre exceptionnelle</span>
       <h2 id="svb-offer-popup-title" class="svb-offer-popup__title">Pass Try · 2 séances découverte</h2>
-      <div class="svb-offer-popup__price-stack" aria-label="Prix normal 50 euros la séance, offre à 30 euros les deux séances">
-        <span class="svb-offer-popup__old">Normalement <s>50€</s> la séance</span>
+      <div class="svb-offer-popup__price-stack" aria-label="100 euros barré, offre à 30 euros pour deux séances">
+        <span class="svb-offer-popup__old" aria-hidden="true">100€</span>
         <span class="svb-offer-popup__deal">
           <span class="svb-offer-popup__amount" aria-hidden="true">30</span>
           <span class="svb-offer-popup__amount-euro" aria-hidden="true">€</span>
         </span>
-        <span class="svb-offer-popup__savings">Les 2 séances · Économise 70€</span>
       </div>
       <p id="svb-offer-popup-text" class="svb-offer-popup__text">Deux séances de 55 min, <strong>deux disciplines au choix</strong> — Reformer, Pilates, Yoga, Barre à Terre ou Cross-Training. Sans engagement.</p>
       <button type="button" class="svb-offer-popup__cta js-buy" data-discipline="reformer" data-label="Pass Try · 2 séances" data-amount="30 €" data-track="home_offer_popup_cta">Je profite de l'offre — 30€ <span aria-hidden="true">→</span></button>
@@ -1608,7 +1615,7 @@
     (function(){
       var pop = document.getElementById('svb-offer-popup');
       if (!pop) return;
-      var KEY = 'svb-offer-popup-v5-exceptionnelle';
+      var KEY = 'svb-offer-popup-v6-cent-euros';
       var seen = false;
       try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
       if (seen) return; // déjà fermée pendant cette visite
