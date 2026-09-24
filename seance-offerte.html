@@ -158,13 +158,17 @@
     form label .opt{font-weight:500;opacity:.6;}
     .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
     @media (max-width:420px){.grid2{grid-template-columns:1fr;}}
-    input[type="text"],input[type="email"],input[type="tel"],select{
+    input[type="text"],input[type="email"],input[type="tel"],input[type="number"],select{
       display:block;width:100%;margin-top:6px;
       font:inherit;font-size:16px;font-weight:500;color:#2F4F4F;
       background:#fff;border:1.5px solid rgba(47,79,79,.22);border-radius:14px;
       padding:13px 15px;transition:border-color .2s,box-shadow .2s;
       -webkit-appearance:none;appearance:none;
     }
+    /* Retire les fleches natives du input number pour un look propre */
+    input[type="number"]{-moz-appearance:textfield;}
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
     select{
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%234A8D84' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
       background-repeat:no-repeat;background-position:right 15px center;padding-right:42px;cursor:pointer;
