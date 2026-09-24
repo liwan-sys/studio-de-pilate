@@ -467,6 +467,10 @@
                 <input id="f-tel" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9\s\+\-\.\(\)]{8,20}" placeholder="06 12 34 56 78" aria-describedby="tel-hint">
                 <span class="hint" id="tel-hint">Pour te confirmer ta séance par SMS ou par appel.</span>
               </label>
+              <label for="f-age">Âge *
+                <input id="f-age" name="age" type="number" required min="16" max="99" inputmode="numeric" placeholder="Ex&nbsp;: 32" autocomplete="off">
+                <span class="hint">Pour t'orienter vers les créneaux et disciplines qui te conviendront le mieux.</span>
+              </label>
               <!-- Obligatoire : contrôlé en JS (message clair sous les choix) -->
               <fieldset class="pref" id="f-decouverte" aria-describedby="decouverte-error" aria-required="true">
                 <legend>Comment as-tu vu l'offre ? *</legend>
@@ -798,8 +802,8 @@
       form.addEventListener('submit', function(e){
         e.preventDefault();
         if (btn.disabled) return;
-        // Les champs texte d'abord (bulles natives), puis la question obligatoire
-        var textFields = form.querySelectorAll('#f-prenom, #f-nom, #f-email, #f-tel');
+        // Les champs texte d'abord (bulles natives), puis les questions obligatoires
+        var textFields = form.querySelectorAll('#f-prenom, #f-nom, #f-email, #f-tel, #f-age');
         for (var i = 0; i < textFields.length; i++) {
           if (!textFields[i].checkValidity()) { textFields[i].reportValidity(); return; }
         }
@@ -848,11 +852,13 @@
           // --- Mesure de la conversion (lead) : jamais de données personnelles vers GTM / GA4.
           var discipline = data.get('discipline') || null;
           var decouverte = data.get('decouverte') || null;
+          var age = data.get('age') || null;
           try {
             if (window.svbTrack) window.svbTrack('form_submit_seance_offerte', {
               label: 'Séance offerte · affiche JCDecaux',
               discipline: discipline,
               decouverte: decouverte,
+              age_bucket: age ? (age < 25 ? '<25' : age < 40 ? '25-39' : age < 55 ? '40-54' : '55+') : null,
               contact: contact || null,
               source: data.get('source') || null
             });
@@ -866,6 +872,7 @@
                 lastname: data.get('nom') || '',
                 email: data.get('email') || '',
                 phone: data.get('telephone') || '',
+                age: age || '',
                 discipline: discipline || '',
                 availability: contact ? 'Contact souhaité : ' + contact : ''
               }
