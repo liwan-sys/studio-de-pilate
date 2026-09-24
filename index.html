@@ -254,9 +254,9 @@
   </div>
   <div class="noise-overlay"></div>
 
-  <!-- === BANDEAU SÉANCE D'ESSAI OFFERTE (campagne affichage JCDecaux → formulaire) === -->
+  <!-- === BANDEAU PASS TRY 30€ (accroche haut de page) === -->
   <style>
-    .svb-offer-bar{position:relative;z-index:30;display:flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:8px 16px;background:linear-gradient(90deg,#F5C76D 0%,#E8B496 100%);color:#2F4F4F;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;line-height:1.3;text-align:center;transition:filter .2s;}
+    .svb-offer-bar{position:relative;z-index:30;display:flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:8px 16px;background:linear-gradient(90deg,#F5C76D 0%,#E8B496 100%);color:#2F4F4F;font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;line-height:1.3;text-align:center;transition:filter .2s;border:none;cursor:pointer;width:100%;}
     .svb-offer-bar:hover{filter:brightness(1.03);}
     .svb-offer-bar__gift{font-size:1.15rem;line-height:1;animation:svbOfferWiggle 2.4s ease-in-out infinite;}
     .svb-offer-bar strong{font-weight:900;letter-spacing:.06em;text-transform:uppercase;}
@@ -270,11 +270,11 @@
     }
     @media (prefers-reduced-motion:reduce){.svb-offer-bar__gift{animation:none;}}
   </style>
-  <a href="/seance-offerte" class="svb-offer-bar" data-track="home_offer_bar" aria-label="Séance d'essai offerte : je réserve ma séance">
+  <button type="button" class="svb-offer-bar js-buy" data-discipline="reformer" data-label="Pass Try · 2 séances" data-amount="30 €" data-track="home_offer_bar" aria-label="Pass Try : 2 séances découverte pour 30 euros, je réserve">
     <span class="svb-offer-bar__gift" aria-hidden="true">🎁</span>
-    <span class="svb-offer-bar__text"><strong>Séance d'essai offerte</strong> <span class="svb-offer-bar__sub">· Vu sur l'affiche ? Ta première séance est pour nous.</span></span>
+    <span class="svb-offer-bar__text"><strong>Pass Try · 2 séances 30€</strong> <span class="svb-offer-bar__sub">· Découvre 2 disciplines, sans engagement.</span></span>
     <span class="svb-offer-bar__cta">Je réserve</span>
-  </a>
+  </button>
 
   <!-- === HERO VIDEO — TON CORPS N'ATTEND QUE TOI === -->
   <section id="hero-video">
@@ -1555,7 +1555,7 @@
     .svb-offer-popup__bar span{display:block;height:100%;width:100%;border-radius:999px;background:linear-gradient(90deg,#F5C76D,#E8B496);transition:width 1.2s cubic-bezier(.16,1,.3,1);}
     .svb-offer-popup__cta{
       display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;
-      padding:14px 22px;border-radius:999px;background:linear-gradient(135deg,#F5C76D 0%,#E8B496 100%);color:#2F4F4F;
+      padding:14px 22px;border:none;border-radius:999px;background:linear-gradient(135deg,#F5C76D 0%,#E8B496 100%);color:#2F4F4F;cursor:pointer;
       text-decoration:none;font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;
       box-shadow:0 16px 36px rgba(232,180,150,.35);transition:transform .2s;
     }
@@ -1575,24 +1575,19 @@
       <button type="button" class="svb-offer-popup__close" id="svb-offer-popup-close" aria-label="Fermer et continuer sur le site">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
-      <span class="svb-offer-popup__pill"><span class="svb-offer-popup__gift" aria-hidden="true">🎁</span> Séance d'essai offerte</span>
-      <h2 id="svb-offer-popup-title" class="svb-offer-popup__title">Places ultra limitées</h2>
-      <div class="svb-offer-popup__counter" aria-live="polite">
-        <span class="svb-offer-popup__num" id="svb-offer-popup-num" data-total="100">100</span>
-        <span class="svb-offer-popup__num-label">places restantes sur 100</span>
-        <span class="svb-offer-popup__bar" aria-hidden="true"><span id="svb-offer-popup-bar-fill"></span></span>
-      </div>
+      <span class="svb-offer-popup__pill"><span class="svb-offer-popup__gift" aria-hidden="true">🎁</span> Pass Try · Offre découverte</span>
+      <h2 id="svb-offer-popup-title" class="svb-offer-popup__title">2 séances pour 30€</h2>
       <p class="svb-offer-popup__hook">Avant de t'engager, viens tester.</p>
-      <p id="svb-offer-popup-text" class="svb-offer-popup__text">Ta première séance est <strong>offerte</strong>. Si tu accroches, on t'aide ensuite à trouver la formule d'abonnement qui colle à ton rythme.</p>
-      <a href="/seance-offerte" class="svb-offer-popup__cta" data-track="home_offer_popup_cta">Je prends ma place <span aria-hidden="true">→</span></a>
-      <p class="svb-offer-popup__note">Nouveaux membres · séance sans engagement · selon les places disponibles</p>
+      <p id="svb-offer-popup-text" class="svb-offer-popup__text"><strong>Deux séances</strong> de 55 min pour découvrir <strong>deux disciplines</strong> — Reformer, Pilates, Yoga, Barre à Terre ou Cross-Training. Tout compris, sans engagement.</p>
+      <button type="button" class="svb-offer-popup__cta js-buy" data-discipline="reformer" data-label="Pass Try · 2 séances" data-amount="30 €" data-track="home_offer_popup_cta">Je réserve mon Pass Try <span aria-hidden="true">→</span></button>
+      <p class="svb-offer-popup__note">Nouveaux membres · valide 30 jours · paiement sécurisé</p>
     </div>
   </div>
   <script>
     (function(){
       var pop = document.getElementById('svb-offer-popup');
       if (!pop) return;
-      var KEY = 'svb-offer-popup-v3-freeoffer';
+      var KEY = 'svb-offer-popup-v4-passtry';
       var seen = false;
       try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
       if (seen) return; // déjà fermée pendant cette visite
@@ -1624,30 +1619,6 @@
         if (e.shiftKey) { if (i <= 0) { e.preventDefault(); focusables[focusables.length - 1].focus(); } }
         else if (i === -1 || i === focusables.length - 1) { e.preventDefault(); focusables[0].focus(); }
       });
-      // Compteur réel : 100 places moins les demandes reçues (une par email), via /api/places
-      var num = document.getElementById('svb-offer-popup-num');
-      var fill = document.getElementById('svb-offer-popup-bar-fill');
-      var total = Number(num.getAttribute('data-total')) || 100;
-      function renderCount(restantes, animate){
-        var from = Number(num.textContent) || total;
-        var to = Math.max(0, Math.min(total, restantes));
-        if (fill) fill.style.width = Math.max(4, Math.round(to / total * 100)) + '%';
-        if (!animate || from === to) { num.textContent = to; return; }
-        var start = null, dur = 900;
-        function step(ts){
-          if (!start) start = ts;
-          var t = Math.min(1, (ts - start) / dur), e = 1 - Math.pow(1 - t, 3);
-          num.textContent = Math.round(from + (to - from) * e);
-          if (t < 1) requestAnimationFrame(step); else { num.classList.add('is-bump'); setTimeout(function(){ num.classList.remove('is-bump'); }, 320); }
-        }
-        requestAnimationFrame(step);
-      }
-      fetch('/api/places', { cache: 'no-store' }).then(function(r){ return r.json(); }).then(function(d){
-        if (d && typeof d.restantes === 'number') {
-          if (d.total) { total = d.total; num.setAttribute('data-total', total); }
-          renderCount(d.restantes, !pop.hidden);
-        }
-      }).catch(function(){});
       window.setTimeout(open, 900);
     })();
   </script>
