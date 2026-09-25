@@ -1613,9 +1613,25 @@
       font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
     }
     .svb-offer-popup__text{
-      font-family:'Montserrat',sans-serif;font-size:.88rem;line-height:1.55;color:rgba(251,246,236,.9);margin:0 0 20px;
+      font-family:'Montserrat',sans-serif;font-size:.88rem;line-height:1.55;color:rgba(251,246,236,.9);margin:0 0 16px;
     }
     .svb-offer-popup__text strong{color:#F5C76D;font-weight:800;}
+    .svb-offer-popup__urgency{
+      display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;
+      font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+      color:#F5C76D;
+    }
+    .svb-offer-popup__urgency-dot{
+      width:8px;height:8px;border-radius:50%;background:#C25A38;flex:0 0 auto;position:relative;
+    }
+    .svb-offer-popup__urgency-dot::after{
+      content:"";position:absolute;inset:-4px;border-radius:50%;background:rgba(194,90,56,.5);
+      animation:svbUrgencyPing 1.4s cubic-bezier(0,0,.2,1) infinite;
+    }
+    @keyframes svbUrgencyPing{
+      0%{transform:scale(.6);opacity:.9;}
+      75%,100%{transform:scale(2);opacity:0;}
+    }
     .svb-offer-popup__cta{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:60px;
       padding:16px 24px;border:none;border-radius:999px;
@@ -1639,7 +1655,7 @@
       .svb-offer-popup__card{padding:44px 22px 24px;border-radius:24px;}
     }
     @media (prefers-reduced-motion:reduce){
-      .svb-offer-popup__card::before,.svb-offer-popup__pill,.svb-offer-popup__flame,.svb-offer-popup__amount,.svb-offer-popup__cta::after{animation:none;}
+      .svb-offer-popup__card::before,.svb-offer-popup__pill,.svb-offer-popup__flame,.svb-offer-popup__amount,.svb-offer-popup__cta::after,.svb-offer-popup__urgency-dot::after{animation:none;}
       .svb-offer-popup__amount{background:none;-webkit-text-fill-color:#F5C76D;color:#F5C76D;}
     }
   </style>
@@ -1661,6 +1677,10 @@
       </div>
       <span class="svb-offer-popup__savings">Économise 70€</span>
       <p id="svb-offer-popup-text" class="svb-offer-popup__text">Reformer, Pilates, Yoga, Barre à Terre ou Cross-Training. <strong>Sans engagement.</strong></p>
+      <div class="svb-offer-popup__urgency" role="status" aria-label="Offre limitée dans le temps">
+        <span class="svb-offer-popup__urgency-dot" aria-hidden="true"></span>
+        <span>Offre limitée · Profite-en</span>
+      </div>
       <button type="button" class="svb-offer-popup__cta js-buy" data-discipline="reformer" data-label="Pass Try · 2 séances" data-amount="30 €" data-track="home_offer_popup_cta"><span>J'en profite <span aria-hidden="true">→</span></span></button>
       <p class="svb-offer-popup__note">Nouveaux membres · valide 30 jours · paiement sécurisé</p>
     </div>
@@ -1669,7 +1689,7 @@
     (function(){
       var pop = document.getElementById('svb-offer-popup');
       if (!pop) return;
-      var KEY = 'svb-offer-popup-v8-ultra';
+      var KEY = 'svb-offer-popup-v9-limitee';
       var seen = false;
       try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
       if (seen) return; // déjà fermée pendant cette visite
