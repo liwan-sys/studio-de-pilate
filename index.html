@@ -1576,7 +1576,7 @@
       font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
       color:rgba(251,246,236,.85);margin:6px 0 20px;
     }
-    .svb-offer-popup__prices{display:flex;align-items:baseline;justify-content:center;gap:20px;margin:0 0 6px;}
+    .svb-offer-popup__prices{display:flex;align-items:baseline;justify-content:center;gap:20px;margin:0 0 6px;padding-bottom:12px;overflow:visible;}
     .svb-offer-popup__old{
       font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:600;line-height:1;
       color:rgba(251,246,236,.45);letter-spacing:-.02em;position:relative;display:inline-block;
@@ -1587,13 +1587,13 @@
     }
     .svb-offer-popup__new{display:inline-flex;align-items:baseline;gap:2px;}
     .svb-offer-popup__amount{
-      font-family:'Great Vibes',cursive;font-size:clamp(5rem,16vw,6.4rem);line-height:.85;
+      font-family:'Great Vibes',cursive;font-size:clamp(5rem,16vw,6.4rem);line-height:1.1;
       color:#F5C76D;letter-spacing:-.01em;font-weight:400;
       text-shadow:0 6px 40px rgba(245,199,109,.55),0 0 20px rgba(245,199,109,.35);
       background:linear-gradient(90deg,#F5C76D 0%,#F9E1A6 45%,#F5C76D 55%,#E8B496 100%);
       background-size:200% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
       animation:svbAmountVibrate 1.8s ease-in-out infinite,svbAmountShimmer 3.2s linear infinite;
-      transform-origin:center;display:inline-block;
+      transform-origin:center;display:inline-block;padding:0 .08em .12em;overflow:visible;
     }
     @keyframes svbAmountVibrate{
       0%,100%{transform:scale(1) rotate(0);}
