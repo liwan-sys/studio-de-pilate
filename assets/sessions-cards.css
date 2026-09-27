@@ -1,6 +1,17 @@
 /* Unified course cards shared by the French and English catalogues. */
+.session-catalogue {
+  max-width: 1280px;
+}
+
 .session-grid {
   align-items: stretch;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1100px) {
+  .session-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .session-card {
@@ -44,7 +55,7 @@
 
 .session-card__media {
   position: relative;
-  flex: 0 0 40%;
+  flex: 0 0 48%;
   align-self: stretch;
   min-height: 220px;
   overflow: hidden;
@@ -71,12 +82,14 @@
 .session-card__body {
   display: flex;
   flex: 1;
+  min-width: 0;
   flex-direction: column;
   padding: 24px 26px 28px;
 }
 
 .session-card__meta {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
@@ -174,6 +187,31 @@
   .session-card .activity-name {
     min-height: 0;
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .session-card {
+    flex-direction: column;
+  }
+
+  .session-card__media {
+    flex: none;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 9 / 16;
+  }
+
+  .session-card__media img,
+  .session-card__media video {
+    position: absolute;
+    inset: 0;
+  }
+
+  .session-card__meta {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
   }
 }
 
