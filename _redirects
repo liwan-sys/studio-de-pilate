@@ -110,7 +110,7 @@
 /tarifs.html                            /tarifs 301!
 /studio.html                            /studio 301!
 /temoignages.html                       /temoignages 301!
-/equipe.html                            /equipe 301!
+/equipe.html                            / 301!
 /faq.html                               /faq 301!
 /contact.html                           /contact 301!
 /pourquoi-svb.html                      /pourquoi-svb 301!
@@ -143,7 +143,7 @@
 /en/sessions.html                       /en/sessions 301!
 /en/studio.html                         /en/studio 301!
 /en/tarifs.html                         /en/tarifs 301!
-/en/equipe.html                         /en/equipe 301!
+/en/equipe.html                         /en/ 301!
 /en/faq.html                            /en/faq 301!
 /en/contact.html                        /en/contact 301!
 
@@ -152,7 +152,8 @@
 /tarifs                           /tarifs.html 200
 /studio                           /studio.html 200
 /temoignages                      /temoignages.html 200
-/equipe                           /equipe.html 200
+/equipe                           / 301!
+/equipe/                          / 301!
 /faq                              /faq.html 200
 /contact                          /contact.html 200
 /pourquoi-svb                     /pourquoi-svb.html 200
@@ -180,7 +181,8 @@
 /en/sessions                      /en/sessions.html 200
 /en/studio                        /en/studio.html 200
 /en/tarifs                        /en/tarifs.html 200
-/en/equipe                        /en/equipe.html 200
+/en/equipe                        /en/ 301!
+/en/equipe/                       /en/ 301!
 /en/faq                           /en/faq.html 200
 /en/contact                       /en/contact.html 200
 

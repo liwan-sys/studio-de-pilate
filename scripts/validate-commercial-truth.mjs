@@ -163,10 +163,12 @@ forbidText('pilates-reformer-saint-ouen.html', /8 personnes maximum/i, 'mauvaise
 requireText('yoga-saint-ouen.html', 'Parc des Docks');
 requireText('pourquoi-svb.html', "à 7 minutes à pied l'un de l'autre");
 forbidText('pourquoi-svb.html', /Les 3 erreurs|LES ERREURS QUE PERSONNE CORRIGE/i, 'ancienne section des trois erreurs');
-requireText('equipe.html', 'La Team SVB se prépare.');
-requireText('en/equipe.html', 'The SVB team is getting ready.');
-forbidText('equipe.html', /class="coach-card/i, 'anciens profils de la Team');
-forbidText('en/equipe.html', /class="coach-card/i, 'anciens profils de la Team en anglais');
+for (const file of sourceHtmlFiles) {
+  forbidText(path.relative(root, file), /href=["']\/(?:en\/)?equipe(?:\.html)?(?:[\/#?][^"']*)?["']/i, 'lien vers la page Team retirée');
+}
+if (/studiosvb\.com\/(?:en\/)?equipe/.test(read('sitemap.xml'))) {
+  fail('Les pages Team retirées ne doivent plus être dans le sitemap.');
+}
 
 for (const course of [
   'Pilates Reformer',
@@ -247,7 +249,7 @@ const standardNavPages = [
 ];
 for (const file of standardNavPages) {
   const html = read(file);
-  for (const href of ['/sessions', '/studio', '/tarifs', '/equipe', '/faq', '/contact']) {
+  for (const href of ['/sessions', '/studio', '/tarifs', '/faq', '/contact']) {
     if (!html.includes(`href="${href}"`)) fail(`${file} n'a pas le lien de navigation ${href}.`);
   }
 }
