@@ -1,0 +1,27 @@
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; }
+body { display: flex; flex-direction: column; color: #242320; background: #fffdf8; font-family: Montserrat, Arial, sans-serif; }
+#studios-map { flex: 1; min-height: 180px; background: #f0eee8; font-family: inherit; }
+#map-status { padding: 24px; text-align: center; font-size: 14px; }
+.studio-addresses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid #ded9cd; }
+.studio-addresses a { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 12px; color: inherit; text-decoration: none; font-size: 13px; line-height: 1.45; }
+.studio-addresses a + a { border-left: 1px solid #ded9cd; }
+.studio-addresses a:hover { background: #f4eddf; }
+.studio-addresses a:focus-visible, .leaflet-marker-icon:focus-visible { outline: 3px solid #242320; outline-offset: -3px; }
+.studio-addresses strong { display: block; font-size: 14px; }
+.studio-address, .studio-directions { display: block; }
+.studio-directions { margin-top: 3px; text-decoration: underline; text-underline-offset: 3px; }
+.studio-number, .svb-map-marker { display: grid; place-items: center; flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; color: #fff; background: #242320; font: 700 14px Montserrat, Arial, sans-serif; }
+.svb-map-marker { border: 2px solid #fff; box-shadow: 0 2px 6px #0004; }
+.studio-label { padding: 5px 9px; border: 1px solid #ded9cd; border-radius: 4px; color: #242320; background: #fffdf8; font: 700 13px/1.3 Montserrat, Arial, sans-serif; box-shadow: 0 2px 5px #0002; }
+.leaflet-tooltip-top.studio-label::before { border-top-color: #ded9cd; }
+.leaflet-tooltip-bottom.studio-label::before { border-bottom-color: #ded9cd; }
+.leaflet-popup-content { font: 13px/1.5 Montserrat, Arial, sans-serif; }
+.leaflet-popup-content strong { display: block; margin-bottom: 4px; }
+.leaflet-popup-content a { display: inline-block; margin-top: 8px; color: #242320; }
+.leaflet-control-zoom a { width: 36px; height: 36px; line-height: 36px; color: #242320; }
+@media (max-width: 480px) {
+  .studio-addresses a { align-items: flex-start; justify-content: flex-start; gap: 7px; padding: 10px 8px; font-size: 11px; }
+  .studio-addresses strong { font-size: 12px; }
+  .studio-number { flex-basis: 24px; width: 24px; height: 24px; font-size: 12px; }
+}
