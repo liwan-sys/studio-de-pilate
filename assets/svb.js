@@ -19,10 +19,12 @@
     bar.setAttribute('aria-label', english
       ? 'Pass Try: 2 sessions for 30 euros instead of 100. Book now.'
       : 'Pass Try : 2 séances pour 30 euros au lieu de 100. Je réserve.');
-    bar.innerHTML = '<span class="svb-site-offer__label">Pass Try · ' + (english ? '2 sessions' : '2 séances') + '</span>' +
+    var offer = '<span class="svb-site-offer__item"><span class="svb-site-offer__label">Pass Try · ' + (english ? '2 sessions' : '2 séances') + '</span>' +
       '<s class="svb-site-offer__old">100 €</s>' +
       '<strong class="svb-site-offer__price">30 €</strong>' +
-      '<span class="svb-site-offer__cta">' + (english ? 'Book now' : 'Je réserve') + ' <span aria-hidden="true">→</span></span>';
+      '<span class="svb-site-offer__separator">·</span></span>';
+    var group = '<span class="svb-site-offer__group">' + offer.repeat(3) + '</span>';
+    bar.innerHTML = '<span class="svb-site-offer__track" aria-hidden="true">' + group + group + '</span>';
 
     // The confirmation and error pages center their content with a flex body.
     // Keep the banner out of that row without changing the centered card.
