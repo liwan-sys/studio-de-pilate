@@ -6,6 +6,36 @@
 (function(){
   'use strict';
 
+  (function initSiteOffer(){
+    if (document.querySelector('.svb-site-offer')) return;
+    var english = document.documentElement.lang.indexOf('en') === 0;
+    var bar = document.createElement('a');
+    bar.className = 'svb-site-offer js-buy';
+    bar.href = 'https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs';
+    bar.dataset.bookingPath = '/place/place_svb-lavandieres/packs';
+    bar.dataset.label = english ? 'Pass Try - 2 sessions' : 'Pass Try - 2 séances';
+    bar.dataset.amount = '30 €';
+    bar.dataset.track = 'site_offer_bar';
+    bar.setAttribute('aria-label', english
+      ? 'Pass Try: 2 sessions for 30 euros instead of 100. Book now.'
+      : 'Pass Try : 2 séances pour 30 euros au lieu de 100. Je réserve.');
+    bar.innerHTML = '<span class="svb-site-offer__label">Pass Try · ' + (english ? '2 sessions' : '2 séances') + '</span>' +
+      '<s class="svb-site-offer__old">100 €</s>' +
+      '<strong class="svb-site-offer__price">30 €</strong>' +
+      '<span class="svb-site-offer__cta">' + (english ? 'Book now' : 'Je réserve') + ' <span aria-hidden="true">→</span></span>';
+
+    // The confirmation and error pages center their content with a flex body.
+    // Keep the banner out of that row without changing the centered card.
+    var bodyStyle = getComputedStyle(document.body);
+    if (bodyStyle.display === 'flex' || bodyStyle.display === 'grid') {
+      bar.classList.add('svb-site-offer--absolute');
+      document.body.style.paddingTop = (parseFloat(bodyStyle.paddingTop) + 60) + 'px';
+    }
+    var skipLink = document.body.querySelector(':scope > a[href="#main-content"]');
+    if (skipLink) skipLink.after(bar);
+    else document.body.prepend(bar);
+  })();
+
   // Met en avant uniquement la page courante dans les navigations communes.
   // Certaines anciennes pages embarquent encore une couleur active en ligne :
   // elle est retirée ici pour éviter plusieurs onglets surlignés à la fois.
