@@ -13,15 +13,15 @@
     bar.className = 'svb-site-offer js-buy';
     bar.href = 'https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs';
     bar.dataset.bookingPath = '/place/place_svb-lavandieres/packs';
-    bar.dataset.label = english ? 'Pass Try - 2 sessions' : 'Pass Try - 2 séances';
-    bar.dataset.amount = '30 €';
+    bar.dataset.label = english ? 'Unlimited trial - 1 month' : 'Essai illimité - 1 mois';
+    bar.dataset.amount = '99 €';
     bar.dataset.track = 'site_offer_bar';
     bar.setAttribute('aria-label', english
-      ? 'Pass Try: 2 sessions for 30 euros instead of 100. Book now.'
-      : 'Pass Try : 2 séances pour 30 euros au lieu de 100. Je réserve.');
-    var offer = '<span class="svb-site-offer__item"><span class="svb-site-offer__label">Pass Try · ' + (english ? '2 sessions' : '2 séances') + '</span>' +
-      '<s class="svb-site-offer__old">100 €</s>' +
-      '<strong class="svb-site-offer__price">30 €</strong>' +
+      ? 'Unlimited trial: your first month for 99 euros instead of 300. Book now.'
+      : 'Essai illimité : ton premier mois à 99 euros au lieu de 300. Je réserve.');
+    var offer = '<span class="svb-site-offer__item"><span class="svb-site-offer__label">' + (english ? 'Unlimited trial · 1 month' : 'Essai illimité · 1 mois') + '</span>' +
+      '<s class="svb-site-offer__old">300 €</s>' +
+      '<strong class="svb-site-offer__price">99 €</strong>' +
       '<span class="svb-site-offer__separator">·</span></span>';
     var group = '<span class="svb-site-offer__group">' + offer.repeat(3) + '</span>';
     bar.innerHTML = '<span class="svb-site-offer__track" aria-hidden="true">' + group + group + '</span>';
