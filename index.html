@@ -1478,189 +1478,164 @@
     </div>
   </section>
 
-  <!-- === POP-UP PREMIER MOIS ILLIMITE 99 EUR (premium) === -->
+  <!-- === POP-UP PREMIER MOIS 99 EUR (design system SVB v2.6) === -->
   <style>
     .svb-offer-popup{position:fixed;inset:0;z-index:99990;display:flex;align-items:center;justify-content:center;padding:18px;}
     .svb-offer-popup[hidden]{display:none;}
-    .svb-offer-popup__backdrop{position:absolute;inset:0;background:rgba(10,18,18,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+    .svb-offer-popup__backdrop{position:absolute;inset:0;background:rgba(47,79,79,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);}
     .svb-offer-popup__card{
       position:relative;width:min(440px,100%);max-height:calc(100dvh - 36px);overflow-y:auto;
-      background:linear-gradient(165deg,#0f1a1a 0%,#0a1414 100%);color:#FBF6EC;
-      border-radius:24px;padding:44px 28px 24px;text-align:center;
-      box-shadow:0 40px 100px rgba(0,0,0,.7),inset 0 0 0 1px rgba(245,199,109,.22);
+      background:var(--svb-cream,#FBF6EC);color:var(--svb-ink,#2F4F4F);
+      border-radius:18px;padding:44px 30px 26px;text-align:center;
+      box-shadow:0 30px 80px rgba(29,56,56,.35);
       animation:svbPopIn .55s cubic-bezier(.16,1,.3,1) both;scrollbar-width:none;
     }
     .svb-offer-popup__card::-webkit-scrollbar{display:none;}
-    /* Halo dore vivant en arriere-plan */
-    .svb-offer-popup__card::before{
-      content:"";position:absolute;top:-30%;left:50%;width:130%;height:80%;transform:translateX(-50%);
-      background:radial-gradient(ellipse at center,rgba(245,199,109,.18) 0%,rgba(245,199,109,0) 60%);
-      animation:svbGlowFloat 6s ease-in-out infinite;pointer-events:none;z-index:0;
-    }
-    @keyframes svbGlowFloat{0%,100%{opacity:.6;transform:translate(-50%,0);}50%{opacity:1;transform:translate(-50%,20px);}}
-    .svb-offer-popup__card > *{position:relative;z-index:1;}
-    @keyframes svbPopIn{from{opacity:0;transform:translateY(24px) scale(.94);}to{opacity:1;transform:none;}}
-    @keyframes svbFadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+    @keyframes svbPopIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+    @keyframes svbFadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 
     .svb-offer-popup__close{
-      position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;
-      border:1px solid rgba(251,246,236,.28);background:rgba(251,246,236,.06);color:#FBF6EC;
-      display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;z-index:5;
+      position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;
+      border:none;background:transparent;color:var(--svb-ink,#2F4F4F);cursor:pointer;padding:0;
+      display:inline-flex;align-items:center;justify-content:center;opacity:.55;transition:opacity .2s;z-index:5;
     }
-    .svb-offer-popup__close:hover,.svb-offer-popup__close:focus-visible{background:rgba(251,246,236,.18);outline:none;}
+    .svb-offer-popup__close:hover,.svb-offer-popup__close:focus-visible{opacity:1;outline:none;}
 
     .svb-offer-popup__kicker{
       display:inline-block;
-      font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.36em;text-transform:uppercase;
-      color:#F5C76D;opacity:0;animation:svbFadeUp .5s .1s cubic-bezier(.16,1,.3,1) both;
+      font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+      color:var(--svb-ink,#2F4F4F);opacity:.72;
+      animation:svbFadeUp .5s .1s cubic-bezier(.16,1,.3,1) both;
     }
-    .svb-offer-popup__rule{
-      width:32px;height:1px;background:linear-gradient(90deg,transparent,rgba(245,199,109,.7),transparent);
-      margin:14px auto 12px;border:none;transform-origin:center;
-      animation:svbRuleExpand .55s .25s cubic-bezier(.16,1,.3,1) both;
-    }
-    @keyframes svbRuleExpand{from{transform:scaleX(0);opacity:0;}to{transform:scaleX(1);opacity:1;}}
     .svb-offer-popup__title{
-      font-family:'Montserrat',sans-serif;line-height:1.05;margin:0 0 24px;
-      opacity:0;animation:svbFadeUp .6s .35s cubic-bezier(.16,1,.3,1) both;
+      /* Dancing Script est force par la regle svb.css sur h1-h6 */
+      margin:12px 0 6px;font-size:clamp(2.4rem,8.5vw,3.1rem);line-height:1;color:var(--svb-ink,#2F4F4F);
+      animation:svbFadeUp .55s .25s cubic-bezier(.16,1,.3,1) both;opacity:0;animation-fill-mode:both;
     }
-    .svb-offer-popup__title-a{display:block;font-size:.94rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,246,236,.72);margin:0 0 4px;}
-    .svb-offer-popup__title-b{display:block;font-size:clamp(2rem,7vw,2.6rem);font-weight:900;letter-spacing:-.01em;color:#FBF6EC;}
-    .svb-offer-popup__title-b em{font-style:normal;color:#F5C76D;}
+    .svb-offer-popup__subtitle{
+      font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+      color:var(--svb-ink,#2F4F4F);opacity:.75;margin:0 0 22px;
+      animation:svbFadeUp .5s .4s cubic-bezier(.16,1,.3,1) both;
+    }
 
-    .svb-offer-popup__prices{display:flex;align-items:baseline;justify-content:center;gap:18px;margin:0 0 4px;padding-bottom:8px;flex-wrap:wrap;}
+    .svb-offer-popup__prices{display:flex;align-items:baseline;justify-content:center;gap:20px;margin:0 0 6px;padding-bottom:6px;flex-wrap:wrap;}
     .svb-offer-popup__old{
-      font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:600;line-height:1;
-      color:rgba(251,246,236,.42);letter-spacing:-.02em;position:relative;display:inline-block;padding:0 6px;
+      font-family:'Montserrat',sans-serif;font-size:1.35rem;font-weight:600;line-height:1;
+      color:var(--svb-ink,#2F4F4F);opacity:.35;letter-spacing:-.02em;position:relative;display:inline-block;padding:0 4px;
       opacity:0;animation:svbFadeUp .45s .55s cubic-bezier(.16,1,.3,1) both;
     }
     .svb-offer-popup__old::before{
-      content:"";position:absolute;left:0;right:0;top:52%;height:2px;background:#C25A38;
-      transform:rotate(-10deg) scaleX(0);transform-origin:left;
+      content:"";position:absolute;left:0;right:0;top:52%;height:1.5px;background:var(--svb-ink,#2F4F4F);opacity:.5;
+      transform:rotate(-8deg) scaleX(0);transform-origin:left;
       animation:svbStrike .5s .75s cubic-bezier(.65,0,.35,1) forwards;
     }
-    @keyframes svbStrike{to{transform:rotate(-10deg) scaleX(1);}}
+    @keyframes svbStrike{to{transform:rotate(-8deg) scaleX(1);}}
     .svb-offer-popup__new{
       display:inline-flex;align-items:baseline;gap:2px;
-      opacity:0;transform:scale(.55);
-      animation:svbAmountIn .7s .9s cubic-bezier(.34,1.56,.64,1) both;
+      opacity:0;transform:scale(.6);
+      animation:svbAmountIn .65s .9s cubic-bezier(.34,1.56,.64,1) both;
     }
-    @keyframes svbAmountIn{from{opacity:0;transform:scale(.55);}60%{transform:scale(1.08);}to{opacity:1;transform:scale(1);}}
+    @keyframes svbAmountIn{from{opacity:0;transform:scale(.6);}60%{transform:scale(1.06);}to{opacity:1;transform:scale(1);}}
     .svb-offer-popup__amount{
-      font-family:'Montserrat',sans-serif;font-size:clamp(4.2rem,14vw,5.4rem);line-height:.9;
-      font-weight:900;color:#F5C76D;letter-spacing:-.04em;
-      text-shadow:0 6px 40px rgba(245,199,109,.4),0 0 20px rgba(245,199,109,.25);
+      font-family:'Montserrat',sans-serif;font-size:clamp(4rem,13vw,4.8rem);line-height:.9;
+      font-weight:900;color:var(--svb-ink,#2F4F4F);letter-spacing:-.04em;
       display:inline-block;padding-bottom:.02em;
     }
-    .svb-offer-popup__amount-euro{font-family:'Montserrat',sans-serif;font-size:1.9rem;font-weight:800;color:#F5C76D;}
-    .svb-offer-popup__terms{
-      font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-      color:rgba(251,246,236,.8);margin:0 0 22px;
-      opacity:0;animation:svbFadeUp .5s 1.1s cubic-bezier(.16,1,.3,1) both;
-    }
-    .svb-offer-popup__terms strong{color:#F5C76D;font-weight:800;}
+    .svb-offer-popup__amount-euro{font-family:'Montserrat',sans-serif;font-size:1.7rem;font-weight:800;color:var(--svb-ink,#2F4F4F);}
 
-    /* Compteur + progress */
-    .svb-offer-popup__scarcity{margin:0 0 20px;opacity:0;animation:svbFadeUp .5s 1.3s cubic-bezier(.16,1,.3,1) both;}
+    .svb-offer-popup__terms{
+      font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--svb-ink,#2F4F4F);opacity:.72;margin:8px 0 22px;
+      animation:svbFadeUp .5s 1.1s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    /* Scarcity : filet peach (le seul accent peach du popup) */
+    .svb-offer-popup__scarcity{margin:0 0 22px;opacity:0;animation:svbFadeUp .5s 1.3s cubic-bezier(.16,1,.3,1) both;}
     .svb-offer-popup__progress{
-      position:relative;height:6px;border-radius:999px;background:rgba(251,246,236,.08);overflow:hidden;margin:0 0 8px;
+      position:relative;height:3px;background:rgba(47,79,79,.1);overflow:hidden;margin:0 0 10px;
     }
     .svb-offer-popup__progress-bar{
       position:absolute;inset:0;transform-origin:left;transform:scaleX(0);
-      background:linear-gradient(90deg,#F5C76D,#E8B496);
+      background:var(--svb-accent,#E8B496);
       transition:transform 1.4s cubic-bezier(.16,1,.3,1);
     }
     .svb-offer-popup__counter{
-      display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0;
-      font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-      color:rgba(251,246,236,.7);
+      font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--svb-ink,#2F4F4F);opacity:.75;margin:0;text-align:center;
     }
-    .svb-offer-popup__counter strong{color:#F5C76D;font-weight:900;font-size:.78rem;}
-    .svb-offer-popup__remaining{
-      color:#F5C76D;font-weight:800;transition:transform .3s;display:inline-block;
-    }
-    .svb-offer-popup__remaining.is-bump{transform:scale(1.15);}
+    .svb-offer-popup__counter strong{color:var(--svb-ink,#2F4F4F);font-weight:800;opacity:1;}
 
-    /* Avantages */
+    /* Avantages : liste editoriale */
     .svb-offer-popup__benefits{
-      list-style:none;padding:0;margin:0 0 22px;text-align:left;
-      display:flex;flex-direction:column;gap:8px;
+      list-style:none;padding:0;margin:0 0 24px;text-align:left;
+      display:flex;flex-direction:column;gap:6px;
+      border-top:1px solid rgba(47,79,79,.12);border-bottom:1px solid rgba(47,79,79,.12);
+      padding:16px 0;
     }
     .svb-offer-popup__benefits li{
-      display:flex;align-items:baseline;gap:14px;
-      font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:400;color:rgba(251,246,236,.88);line-height:1.4;
-      padding:2px 0;
-      opacity:0;transform:translateX(-8px);
-      animation:svbBenefitIn .45s cubic-bezier(.16,1,.3,1) both;
+      display:flex;align-items:baseline;gap:12px;
+      font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:400;color:var(--svb-ink,#2F4F4F);line-height:1.4;
+      opacity:0;transform:translateX(-6px);
+      animation:svbBenefitIn .4s cubic-bezier(.16,1,.3,1) both;
     }
     .svb-offer-popup__benefits li:nth-child(1){animation-delay:1.5s;}
-    .svb-offer-popup__benefits li:nth-child(2){animation-delay:1.62s;}
-    .svb-offer-popup__benefits li:nth-child(3){animation-delay:1.74s;}
-    .svb-offer-popup__benefits li:nth-child(4){animation-delay:1.86s;}
-    .svb-offer-popup__benefits li:nth-child(5){animation-delay:1.98s;}
-    .svb-offer-popup__benefits li:nth-child(6){animation-delay:2.1s;}
+    .svb-offer-popup__benefits li:nth-child(2){animation-delay:1.6s;}
+    .svb-offer-popup__benefits li:nth-child(3){animation-delay:1.7s;}
+    .svb-offer-popup__benefits li:nth-child(4){animation-delay:1.8s;}
+    .svb-offer-popup__benefits li:nth-child(5){animation-delay:1.9s;}
+    .svb-offer-popup__benefits li:nth-child(6){animation-delay:2s;}
     @keyframes svbBenefitIn{to{opacity:1;transform:none;}}
     .svb-offer-popup__mark{
-      flex:0 0 auto;color:#F5C76D;font-family:'Montserrat',sans-serif;font-weight:400;font-size:.9rem;line-height:1;
+      flex:0 0 auto;color:var(--svb-ink,#2F4F4F);opacity:.4;
+      font-family:'Montserrat',sans-serif;font-weight:400;font-size:.82rem;line-height:1;min-width:14px;
     }
 
-    /* CTA */
+    /* CTA : ink sur cream, comme dicte par le design system */
     .svb-offer-popup__cta{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:60px;
-      padding:16px 24px;border:none;border-radius:2px;
-      background:#F5C76D;color:#0f1a1a;cursor:pointer;
-      font-family:'Montserrat',sans-serif;font-size:.88rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
-      box-shadow:0 14px 30px rgba(245,199,109,.25);
-      transition:background .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden;
-      opacity:0;animation:svbFadeUp .5s 2.25s cubic-bezier(.16,1,.3,1) both,svbCtaHalo 3.4s 3s ease-in-out infinite;
+      display:block;width:100%;min-height:56px;
+      padding:16px 24px;border:none;border-radius:10px;
+      background:var(--svb-ink,#2F4F4F);color:var(--svb-cream,#FBF6EC);cursor:pointer;
+      font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+      transition:background .2s,transform .2s;
+      opacity:0;animation:svbFadeUp .5s 2.15s cubic-bezier(.16,1,.3,1) both;
     }
-    @keyframes svbCtaHalo{
-      0%,100%{box-shadow:0 14px 30px rgba(245,199,109,.25),0 0 0 0 rgba(245,199,109,.4);}
-      50%{box-shadow:0 14px 30px rgba(245,199,109,.25),0 0 0 10px rgba(245,199,109,0);}
-    }
-    .svb-offer-popup__cta::after{
-      content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
-      background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.55) 50%,transparent 100%);
-      animation:svbCtaShine 3.2s 2.6s ease-in-out infinite;
-    }
-    @keyframes svbCtaShine{0%,50%{left:-120%;}100%{left:120%;}}
-    .svb-offer-popup__cta:hover{transform:translateY(-1px);background:#F9DA92;}
-    .svb-offer-popup__cta > span{position:relative;z-index:1;}
+    .svb-offer-popup__cta:hover{background:var(--svb-ink-deep,#1d3838);transform:translateY(-1px);}
     .svb-offer-popup__cta-note{
-      margin:12px 0 0;font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,246,236,.6);
-      opacity:0;animation:svbFadeUp .5s 2.4s cubic-bezier(.16,1,.3,1) both;
+      margin:12px 0 0;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--svb-ink,#2F4F4F);opacity:.55;
+      animation:svbFadeUp .5s 2.3s cubic-bezier(.16,1,.3,1) both;
     }
 
-    /* Live visitors */
+    /* Live visitors : discret */
     .svb-offer-popup__live{
-      display:inline-flex;align-items:center;gap:9px;margin:16px 0 0;
-      font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(251,246,236,.55);
-      opacity:0;animation:svbFadeUp .5s 2.55s cubic-bezier(.16,1,.3,1) both;
+      display:inline-flex;align-items:center;gap:8px;margin:14px 0 0;
+      font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:500;letter-spacing:.06em;color:var(--svb-ink,#2F4F4F);opacity:.55;
+      animation:svbFadeUp .5s 2.45s cubic-bezier(.16,1,.3,1) both;
     }
     .svb-offer-popup__live-dot{
-      width:7px;height:7px;border-radius:50%;background:#67CE84;flex:0 0 auto;position:relative;
+      width:6px;height:6px;border-radius:50%;background:var(--svb-ink-soft,#4A8D84);flex:0 0 auto;position:relative;
     }
     .svb-offer-popup__live-dot::after{
-      content:"";position:absolute;inset:-3px;border-radius:50%;background:rgba(103,206,132,.4);
-      animation:svbLivePing 2s cubic-bezier(0,0,.2,1) infinite;
+      content:"";position:absolute;inset:-3px;border-radius:50%;background:rgba(74,141,132,.4);
+      animation:svbLivePing 2.2s cubic-bezier(0,0,.2,1) infinite;
     }
     @keyframes svbLivePing{0%{transform:scale(.6);opacity:.9;}75%,100%{transform:scale(2.4);opacity:0;}}
-    .svb-offer-popup__live-count{color:#FBF6EC;font-weight:800;}
+    .svb-offer-popup__live-count{color:var(--svb-ink,#2F4F4F);font-weight:700;opacity:1;}
 
     .svb-offer-popup__fine{
-      margin:16px 0 0;font-family:'Montserrat',sans-serif;font-size:.58rem;line-height:1.5;color:rgba(251,246,236,.4);letter-spacing:.02em;
-      opacity:0;animation:svbFadeUp .5s 2.7s cubic-bezier(.16,1,.3,1) both;
+      margin:18px 0 0;font-family:'Montserrat',sans-serif;font-size:.58rem;line-height:1.55;color:var(--svb-ink,#2F4F4F);opacity:.5;
+      animation:svbFadeUp .5s 2.6s cubic-bezier(.16,1,.3,1) both;
     }
 
     body.svb-offer-popup-open{overflow:hidden;}
     @media (max-width:480px){
       .svb-offer-popup{padding:12px;}
-      .svb-offer-popup__card{padding:40px 20px 20px;border-radius:22px;}
+      .svb-offer-popup__card{padding:40px 22px 22px;border-radius:16px;}
     }
     @media (prefers-reduced-motion:reduce){
-      .svb-offer-popup__card,.svb-offer-popup__card::before,.svb-offer-popup__kicker,.svb-offer-popup__rule,.svb-offer-popup__title,
+      .svb-offer-popup__card,.svb-offer-popup__kicker,.svb-offer-popup__title,.svb-offer-popup__subtitle,
       .svb-offer-popup__old,.svb-offer-popup__old::before,.svb-offer-popup__new,.svb-offer-popup__terms,.svb-offer-popup__scarcity,
-      .svb-offer-popup__benefits li,.svb-offer-popup__cta,.svb-offer-popup__cta::after,.svb-offer-popup__cta-note,
+      .svb-offer-popup__benefits li,.svb-offer-popup__cta,.svb-offer-popup__cta-note,
       .svb-offer-popup__live,.svb-offer-popup__live-dot::after,.svb-offer-popup__fine{animation:none;opacity:1;transform:none;}
       .svb-offer-popup__progress-bar{transition:none;}
     }
@@ -1669,15 +1644,12 @@
     <div class="svb-offer-popup__backdrop" aria-hidden="true"></div>
     <div class="svb-offer-popup__card" role="document">
       <button type="button" class="svb-offer-popup__close" id="svb-offer-popup-close" aria-label="Fermer">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
 
       <span class="svb-offer-popup__kicker">Offre exceptionnelle</span>
-      <hr class="svb-offer-popup__rule" aria-hidden="true">
-      <h2 id="svb-offer-popup-title" class="svb-offer-popup__title">
-        <span class="svb-offer-popup__title-a">Votre premier mois chez SVB</span>
-        <span class="svb-offer-popup__title-b">en <em>illimité</em></span>
-      </h2>
+      <h2 id="svb-offer-popup-title" class="svb-offer-popup__title">Premier mois offert*</h2>
+      <p class="svb-offer-popup__subtitle">Illimité · 30 jours</p>
 
       <div class="svb-offer-popup__prices" aria-label="Tarif normal 300 euros par mois, offre à 99 euros">
         <span class="svb-offer-popup__old" aria-hidden="true">300€</span>
@@ -1686,14 +1658,11 @@
           <span class="svb-offer-popup__amount-euro">€</span>
         </span>
       </div>
-      <p class="svb-offer-popup__terms">30 jours <strong>·</strong> jusqu'à 1 cours / jour</p>
+      <p class="svb-offer-popup__terms">30 jours · jusqu'à 1 cours / jour</p>
 
       <div class="svb-offer-popup__scarcity" aria-live="polite">
         <div class="svb-offer-popup__progress" aria-hidden="true"><div class="svb-offer-popup__progress-bar" id="svb-offer-popup-bar"></div></div>
-        <p class="svb-offer-popup__counter">
-          <span><strong id="svb-offer-popup-taken">0</strong> / 100 places réservées</span>
-          <span class="svb-offer-popup__remaining" id="svb-offer-popup-remaining">Plus que 100 places</span>
-        </p>
+        <p class="svb-offer-popup__counter"><strong id="svb-offer-popup-taken">0</strong> / 100 places réservées <span id="svb-offer-popup-remaining"></span></p>
       </div>
 
       <ul class="svb-offer-popup__benefits">
@@ -1705,7 +1674,7 @@
         <li><span class="svb-offer-popup__mark" aria-hidden="true">—</span>Une seule offre découverte par personne</li>
       </ul>
 
-      <button type="button" class="svb-offer-popup__cta js-buy" data-booking-path="/place/place_svb-lavandieres/subscription-plans" data-label="Premier mois illimité · 99 €" data-amount="99 €" data-track="home_offer_popup_cta"><span>Je profite des 99 €</span></button>
+      <button type="button" class="svb-offer-popup__cta js-buy" data-booking-path="/place/place_svb-lavandieres/subscription-plans" data-label="Premier mois illimité · 99 €" data-amount="99 €" data-track="home_offer_popup_cta">Je profite des 99 €</button>
       <p class="svb-offer-popup__cta-note">Offre limitée aux 100 premiers inscrits</p>
 
       <div class="svb-offer-popup__live" role="status" id="svb-offer-popup-live" hidden>
@@ -1713,14 +1682,14 @@
         <span><strong class="svb-offer-popup__live-count" id="svb-offer-popup-live-n">0</strong> personnes consultent cette offre</span>
       </div>
 
-      <p class="svb-offer-popup__fine">À partir du 2e mois : abonnement SVB Limitless à 300 €/mois, engagement 1 an, frais de dossier 49 €. Sans engagement pendant le mois découvert. Résiliation possible à tout moment avant le 30e jour. Offre réservée aux nouveaux membres, une seule fois par personne.</p>
+      <p class="svb-offer-popup__fine">*Tarif de lancement à 99 € pour le premier mois. À partir du 2e mois : abonnement SVB Limitless à 300 €/mois, engagement 1 an, frais de dossier 49 €. Résiliation possible avant le 30e jour. Offre réservée aux nouveaux membres, une seule fois par personne.</p>
     </div>
   </div>
   <script>
     (function(){
       var pop = document.getElementById('svb-offer-popup');
       if (!pop) return;
-      var KEY = 'svb-offer-popup-v10-mois-99';
+      var KEY = 'svb-offer-popup-v11-native';
       var seen = false;
       try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
       if (seen) return;
@@ -1753,53 +1722,37 @@
         else if (i === -1 || i === focusables.length - 1) { e.preventDefault(); focusables[0].focus(); }
       });
 
-      // ----- Compteur "places restantes" persistant -----
-      // Faux compteur : demarre a 27 pris / 73 restants, decremente lentement
-      // (une place toutes les 3-6h), plafonne a 12 places restantes.
-      // Persiste dans localStorage pour survivre aux visites.
+      // Compteur places (fake, persistant)
       var TOTAL = 100, MIN_LEFT = 12, START_TAKEN = 27;
       var DEC_MIN_MS = 3 * 60 * 60 * 1000, DEC_MAX_MS = 6 * 60 * 60 * 1000;
       var LS_KEY = 'svb-99-places-state';
-      function rand(min, max){ return Math.floor(Math.random() * (max - min + 1)) + min; }
-      function readState(){
-        try { return JSON.parse(localStorage.getItem(LS_KEY) || 'null'); } catch (e) { return null; }
-      }
-      function writeState(s){
-        try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch (e) {}
-      }
+      function rand(a, b){ return Math.floor(Math.random() * (b - a + 1)) + a; }
+      function readState(){ try { return JSON.parse(localStorage.getItem(LS_KEY) || 'null'); } catch (e) { return null; } }
+      function writeState(s){ try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch (e) {} }
       function getPlaces(){
         var now = Date.now();
         var s = readState();
         if (!s || typeof s.taken !== 'number' || typeof s.next !== 'number') {
           s = { taken: START_TAKEN, next: now + rand(DEC_MIN_MS, DEC_MAX_MS) };
-          writeState(s);
-          return s;
+          writeState(s); return s;
         }
-        // Rattrapage : combien de decrementations sont dues ?
         var guard = 0;
         while (s.taken < TOTAL - MIN_LEFT && s.next <= now && guard < 200) {
-          s.taken += 1;
-          s.next += rand(DEC_MIN_MS, DEC_MAX_MS);
-          guard += 1;
+          s.taken += 1; s.next += rand(DEC_MIN_MS, DEC_MAX_MS); guard += 1;
         }
-        writeState(s);
-        return s;
+        writeState(s); return s;
       }
-      // ----- Faux compteur visiteurs -----
+
       var VISIT_KEY = 'svb-99-visitors-state';
       var VMIN = 4, VMAX = 9;
       function readV(){ try { return JSON.parse(sessionStorage.getItem(VISIT_KEY) || 'null'); } catch (e) { return null; } }
       function writeV(v){ try { sessionStorage.setItem(VISIT_KEY, JSON.stringify(v)); } catch (e) {} }
       function nextVisitors(){
-        var now = Date.now();
-        var s = readV();
+        var now = Date.now(); var s = readV();
         if (!s) { s = { n: rand(VMIN, VMAX), at: now }; writeV(s); return s.n; }
-        // Petit drift +-1 (pas monotone), plafonne dans [VMIN,VMAX]
         var delta = Math.random() < .5 ? -1 : 1;
         var next = Math.max(VMIN, Math.min(VMAX, s.n + delta));
-        s = { n: next, at: now };
-        writeV(s);
-        return next;
+        s = { n: next, at: now }; writeV(s); return next;
       }
 
       function startCounters(){
@@ -1808,12 +1761,9 @@
         var barEl = document.getElementById('svb-offer-popup-bar');
         var liveWrap = document.getElementById('svb-offer-popup-live');
         var liveN = document.getElementById('svb-offer-popup-live-n');
-
         var state = getPlaces();
-        var taken = state.taken;
-        var left = TOTAL - taken;
+        var taken = state.taken; var left = TOTAL - taken;
 
-        // Animation count up 0 -> taken
         var start = null, dur = 1400;
         function tick(ts){
           if (!start) start = ts;
@@ -1821,52 +1771,34 @@
           var e = 1 - Math.pow(1 - t, 3);
           var current = Math.round(e * taken);
           takenEl.textContent = current;
-          remEl.textContent = 'Plus que ' + (TOTAL - current) + (TOTAL - current === 1 ? ' place' : ' places');
+          remEl.textContent = ' · Plus que ' + (TOTAL - current) + (TOTAL - current === 1 ? ' place' : ' places');
           if (t < 1) requestAnimationFrame(tick);
-          else {
-            takenEl.textContent = taken;
-            remEl.textContent = 'Plus que ' + left + (left === 1 ? ' place' : ' places');
-          }
+          else { takenEl.textContent = taken; remEl.textContent = ' · Plus que ' + left + (left === 1 ? ' place' : ' places'); }
         }
-        // Delay for the visual sequence (matches CSS)
         window.setTimeout(function(){
           if (barEl) barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
           requestAnimationFrame(tick);
         }, 1350);
 
-        // Live visitors : afficher apres 2.5s puis jitter
         var v0 = nextVisitors();
         if (v0 >= VMIN && liveN) {
-          window.setTimeout(function(){
-            liveN.textContent = v0;
-            liveWrap.hidden = false;
-          }, 2600);
-          window.setInterval(function(){
-            if (pop.hidden) return;
-            var v = nextVisitors();
-            liveN.textContent = v;
-          }, rand(14000, 22000));
+          window.setTimeout(function(){ liveN.textContent = v0; liveWrap.hidden = false; }, 2500);
+          window.setInterval(function(){ if (pop.hidden) return; liveN.textContent = nextVisitors(); }, rand(14000, 22000));
         }
 
-        // Programme une decrementation en direct si l'utilisateur reste
-        // sur la page assez longtemps (bump visuel + persist).
         function scheduleNextDrop(){
           if (taken >= TOTAL - MIN_LEFT) return;
-          var s = readState();
-          if (!s) return;
+          var s = readState(); if (!s) return;
           var wait = Math.max(30000, s.next - Date.now());
-          if (wait > 300000) return; // > 5min : on ne planifie pas
+          if (wait > 300000) return;
           window.setTimeout(function(){
             if (pop.hidden) return;
             s = getPlaces();
-            var newTaken = s.taken;
-            if (newTaken > taken) {
-              taken = newTaken; left = TOTAL - taken;
+            if (s.taken > taken) {
+              taken = s.taken; left = TOTAL - taken;
               takenEl.textContent = taken;
-              remEl.textContent = 'Plus que ' + left + (left === 1 ? ' place' : ' places');
+              remEl.textContent = ' · Plus que ' + left + (left === 1 ? ' place' : ' places');
               if (barEl) barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
-              remEl.classList.add('is-bump');
-              window.setTimeout(function(){ remEl.classList.remove('is-bump'); }, 350);
             }
             scheduleNextDrop();
           }, wait);
