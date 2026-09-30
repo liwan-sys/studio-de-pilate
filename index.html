@@ -1496,25 +1496,11 @@
     @keyframes svbOfferPopIn{from{opacity:0;transform:translateY(40px) scale(.96);}to{opacity:1;transform:none;}}
 
     /* Media : reveal en rideau + zoom lent */
-    .svb-offer-popup__media{
-      position:relative;height:200px;overflow:hidden;background:#1d3838;
-      clip-path:inset(0 0 100% 0);animation:svbOfferCurtain 1s cubic-bezier(.77,0,.18,1) .2s forwards;
-    }
-    @keyframes svbOfferCurtain{to{clip-path:inset(0 0 0 0);}}
-    .svb-offer-popup__media video{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;
-      transform:scale(1.25);animation:svbOfferKen 12s cubic-bezier(.16,1,.3,1) .2s forwards;
-    }
-    @keyframes svbOfferKen{to{transform:scale(1.02);}}
-    .svb-offer-popup__media::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(180deg,rgba(29,56,56,.25) 0%,rgba(29,56,56,0) 30%,rgba(29,56,56,.8) 80%,#1d3838 100%);
-    }
     .svb-offer-popup__kicker{
-      position:absolute;top:16px;left:18px;z-index:2;
+      display:block;margin:0 0 14px;
       font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;
-      color:var(--svb-cream,#FBF6EC);
-      opacity:0;transform:translateX(-12px);transition:opacity .6s var(--ease-out) .9s,transform .6s var(--ease-out) .9s;
+      color:var(--svb-accent,#E8B496);
+      opacity:0;transform:translateY(-8px);transition:opacity .6s var(--ease-out) .5s,transform .6s var(--ease-out) .5s;
     }
     .svb-offer-popup.is-in .svb-offer-popup__kicker{opacity:1;transform:none;}
     .svb-offer-popup__close{
@@ -1525,7 +1511,7 @@
     }
     .svb-offer-popup__close:hover,.svb-offer-popup__close:focus-visible{background:rgba(29,56,56,.85);outline:none;}
 
-    .svb-offer-popup__body{position:relative;padding:0 24px 22px;margin-top:-54px;}
+    .svb-offer-popup__body{position:relative;padding:40px 24px 22px;}
 
     .svb-offer-popup__title{margin:0 0 4px;font-size:clamp(2.4rem,9vw,3rem);line-height:1.02;color:var(--svb-cream,#FBF6EC);text-shadow:0 4px 24px rgba(0,0,0,.35);}
     .svb-offer-popup__subtitle{
@@ -1694,14 +1680,11 @@
     .svb-offer-popup__tag.is-swap{opacity:0;transform:translateY(8px);}
     @media (max-width:480px){
       .svb-offer-popup{padding:10px;}
-      .svb-offer-popup__media{height:180px;}
-      .svb-offer-popup__body{padding:0 20px 20px;}
+      .svb-offer-popup__body{padding:40px 20px 20px;}
     }
     @media (prefers-reduced-motion:reduce){
       .svb-offer-popup *,.svb-offer-popup *::before,.svb-offer-popup *::after{animation:none!important;transition:none!important;}
-      .svb-offer-popup__media{clip-path:none;}
       .svb-offer-popup__side{opacity:1;}
-      .svb-offer-popup__media video{transform:none;}
     }
   </style>
   <div id="svb-offer-popup" class="svb-offer-popup" role="dialog" aria-modal="true" aria-labelledby="svb-offer-popup-title" hidden>
@@ -1712,15 +1695,12 @@
       <p class="svb-offer-popup__tag"></p>
     </div>
     <div class="svb-offer-popup__card" role="document">
-      <div class="svb-offer-popup__media" data-reel="head">
-        <video id="svb-offer-popup-video" class="is-on" muted playsinline preload="none" poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true"></video><video muted playsinline preload="none" aria-hidden="true"></video>
-        <span class="svb-offer-popup__kicker">Offre exceptionnelle</span>
-        <button type="button" class="svb-offer-popup__close" id="svb-offer-popup-close" aria-label="Fermer">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
-      </div>
+      <button type="button" class="svb-offer-popup__close" id="svb-offer-popup-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
 
       <div class="svb-offer-popup__body">
+        <span class="svb-offer-popup__kicker">Offre exceptionnelle</span>
         <h2 id="svb-offer-popup-title" class="svb-offer-popup__title svb-split">Ton premier mois illimité</h2>
         <p class="svb-offer-popup__subtitle">Réservé aux 100 premiers inscrits</p>
 
@@ -1836,8 +1816,6 @@
       var REELS = {
         left:  [clip('cross-rox-collectif', 'Cross Training'), clip('cross-yoga-card', 'Yoga'), clip('boxe-card', 'Boxe')],
         right: [clip('reformer-card-v2', 'Reformer'), clip('crossformer-immersion', 'Crossformer'), clip('flow-reformer-hotel-lobby-v2', 'Flow Reformer')],
-        headDesktop: [clip('pilates-reformer-immersion', '')],
-        headMobile: [clip('pilates-reformer-immersion', ''), clip('reformer-card-v2', ''), clip('boxe-card', ''), clip('cross-yoga-card', '')]
       };
       var CLIP_MS = 4800;
       function runReel(box, list, offset){
@@ -1873,7 +1851,6 @@
       }
       function startReels(){
         var desktop = window.matchMedia('(min-width: 960px) and (min-height: 640px)').matches;
-        runReel(pop.querySelector('[data-reel="head"]'), desktop ? REELS.headDesktop : REELS.headMobile, 0);
         if (desktop) {
           runReel(pop.querySelector('[data-reel="left"]'), REELS.left, 0);
           runReel(pop.querySelector('[data-reel="right"]'), REELS.right, CLIP_MS / 2);
