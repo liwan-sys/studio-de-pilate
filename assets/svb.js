@@ -11,8 +11,8 @@
     var english = document.documentElement.lang.indexOf('en') === 0;
     var bar = document.createElement('a');
     bar.className = 'svb-site-offer js-buy';
-    bar.href = 'https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans';
-    bar.dataset.bookingPath = '/place/place_svb-lavandieres/subscription-plans';
+    bar.href = 'https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs';
+    bar.dataset.bookingPath = '/place/place_svb-lavandieres/packs';
     bar.dataset.label = english ? 'Unlimited trial - 1 month' : 'Essai illimité - 1 mois';
     bar.dataset.amount = '99 €';
     bar.dataset.track = 'site_offer_bar';
