@@ -1692,10 +1692,10 @@
         </div>
         <p class="svb-offer-popup__terms">30 jours · jusqu'à 1 cours / jour</p>
 
-        <div class="svb-offer-popup__scarcity" aria-live="polite">
+        <div class="svb-offer-popup__scarcity">
           <p class="svb-offer-popup__scarcity-head">
-            <span><strong id="svb-offer-popup-taken">0</strong> / 100 réservées</span>
-            <span class="svb-offer-popup__left" id="svb-offer-popup-remaining">Plus que 100 places</span>
+            <span>Places limitées</span>
+            <span class="svb-offer-popup__left">Premiers inscrits</span>
           </p>
           <div class="svb-offer-popup__progress" aria-hidden="true"><div class="svb-offer-popup__progress-bar" id="svb-offer-popup-bar"></div></div>
         </div>
@@ -1816,22 +1816,9 @@
         while (s.taken < TOTAL - MIN_LEFT && s.next <= now && g++ < 200) { s.taken++; s.next += rand(DEC_MIN, DEC_MAX); }
         writeS(s); return s;
       }
-      function label(n){ return 'Plus que ' + n + (n === 1 ? ' place' : ' places'); }
       function startScarcity(){
-        var takenEl = document.getElementById('svb-offer-popup-taken');
-        var remEl = document.getElementById('svb-offer-popup-remaining');
         var barEl = document.getElementById('svb-offer-popup-bar');
-        var taken = getPlaces().taken;
-        barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
-        if (reduced) { takenEl.textContent = taken; remEl.textContent = label(TOTAL - taken); return; }
-        var start = null, dur = 1500;
-        requestAnimationFrame(function tick(ts){
-          if (!start) start = ts;
-          var t = Math.min(1, (ts - start) / dur), cur = Math.round((1 - Math.pow(1 - t, 3)) * taken);
-          takenEl.textContent = cur; remEl.textContent = label(TOTAL - cur);
-          if (t < 1) requestAnimationFrame(tick);
-          else { remEl.classList.add('is-bump'); later(function(){ remEl.classList.remove('is-bump'); }, 380); }
-        });
+        barEl.style.transform = 'scaleX(' + (getPlaces().taken / TOTAL) + ')';
       }
 
       // --- En direct : visiteurs (4-11), avatars, ticker ---
