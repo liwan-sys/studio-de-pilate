@@ -1575,6 +1575,15 @@
     .svb-offer-popup__prices.is-landed + .svb-offer-popup__terms{opacity:.85;transition-delay:.3s;}
 
     /* Places */
+    /* Compte a rebours jusqu'a la fin de l'offre */
+    .svb-offer-popup__countdown{margin:0 0 18px;opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out);}
+    .svb-offer-popup.is-stage2 .svb-offer-popup__countdown{opacity:1;transform:none;}
+    .svb-offer-popup__countdown-label{margin:0 0 8px;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(251,246,236,.6);}
+    .svb-offer-popup__clock{display:flex;justify-content:center;align-items:flex-start;gap:6px;margin:0;font-family:'Montserrat',sans-serif;color:var(--svb-cream,#FBF6EC);}
+    .svb-offer-popup__unit{display:flex;flex-direction:column;align-items:center;min-width:44px;}
+    .svb-offer-popup__unit b{font-size:1.7rem;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+    .svb-offer-popup__unit small{margin-top:4px;font-size:.52rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(251,246,236,.5);}
+    .svb-offer-popup__colon{font-size:1.3rem;font-weight:700;line-height:1.1;color:var(--svb-accent,#E8B496);}
     .svb-offer-popup__scarcity{margin:0 0 18px;text-align:left;opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out);}
     .svb-offer-popup.is-stage2 .svb-offer-popup__scarcity{opacity:1;transform:none;}
     .svb-offer-popup__scarcity-head{
@@ -1692,10 +1701,20 @@
         </div>
         <p class="svb-offer-popup__terms">30 jours · jusqu'à 1 cours / jour</p>
 
-        <div class="svb-offer-popup__scarcity" aria-live="polite">
+        <div class="svb-offer-popup__countdown" role="timer" aria-label="Temps restant avant la fin de l'offre">
+          <p class="svb-offer-popup__countdown-label">Fin de l'offre dans</p>
+          <p class="svb-offer-popup__clock" aria-hidden="true">
+            <span class="svb-offer-popup__unit"><b id="svb-cd-d">00</b><small>jours</small></span><span class="svb-offer-popup__colon">:</span>
+            <span class="svb-offer-popup__unit"><b id="svb-cd-h">00</b><small>heures</small></span><span class="svb-offer-popup__colon">:</span>
+            <span class="svb-offer-popup__unit"><b id="svb-cd-m">00</b><small>min</small></span><span class="svb-offer-popup__colon">:</span>
+            <span class="svb-offer-popup__unit"><b id="svb-cd-s">00</b><small>sec</small></span>
+          </p>
+        </div>
+
+        <div class="svb-offer-popup__scarcity">
           <p class="svb-offer-popup__scarcity-head">
-            <span><strong id="svb-offer-popup-taken">0</strong> / 100 réservées</span>
-            <span class="svb-offer-popup__left" id="svb-offer-popup-remaining">Plus que 100 places</span>
+            <span>Places limitées</span>
+            <span class="svb-offer-popup__left">100 places</span>
           </p>
           <div class="svb-offer-popup__progress" aria-hidden="true"><div class="svb-offer-popup__progress-bar" id="svb-offer-popup-bar"></div></div>
         </div>
@@ -1726,10 +1745,13 @@
     (function(){
       var pop = document.getElementById('svb-offer-popup');
       if (!pop) return;
-      var KEY = 'svb-offer-popup-v14-live';
+      var KEY = 'svb-offer-popup-v15-countdown';
       var seen = false;
       try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
       if (seen) return;
+      // Fin de l'offre : meme date pour tous les visiteurs. Apres, le popup ne s'affiche plus.
+      var OFFER_END = new Date('2026-10-31T23:59:59+01:00').getTime();
+      if (Date.now() >= OFFER_END) return;
       var closeBtn = document.getElementById('svb-offer-popup-close');
       var cta = pop.querySelector('.svb-offer-popup__cta');
       var video = document.getElementById('svb-offer-popup-video');
@@ -1756,6 +1778,7 @@
           later(function(){ var t = document.getElementById('svb-offer-popup-title'); if (t) t.classList.add('svb-split-in'); }, 900);
         }); });
         runPrice();
+        startCountdown();
         later(function(){ pop.classList.add('is-stage2'); startScarcity(); startLive(); }, reduced ? 0 : 4000);
       }
       function close(){
@@ -1816,22 +1839,21 @@
         while (s.taken < TOTAL - MIN_LEFT && s.next <= now && g++ < 200) { s.taken++; s.next += rand(DEC_MIN, DEC_MAX); }
         writeS(s); return s;
       }
-      function label(n){ return 'Plus que ' + n + (n === 1 ? ' place' : ' places'); }
+      function startCountdown(){
+        var ids = ['d', 'h', 'm', 's'].map(function(k){ return document.getElementById('svb-cd-' + k); });
+        function pad(n){ return (n < 10 ? '0' : '') + n; }
+        function tick(){
+          var left = Math.max(0, Math.floor((OFFER_END - Date.now()) / 1000));
+          var parts = [Math.floor(left / 86400), Math.floor(left % 86400 / 3600), Math.floor(left % 3600 / 60), left % 60];
+          for (var i = 0; i < 4; i++) ids[i].textContent = pad(parts[i]);
+        }
+        tick();
+        every(tick, 1000);
+      }
+
       function startScarcity(){
-        var takenEl = document.getElementById('svb-offer-popup-taken');
-        var remEl = document.getElementById('svb-offer-popup-remaining');
         var barEl = document.getElementById('svb-offer-popup-bar');
-        var taken = getPlaces().taken;
-        barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
-        if (reduced) { takenEl.textContent = taken; remEl.textContent = label(TOTAL - taken); return; }
-        var start = null, dur = 1500;
-        requestAnimationFrame(function tick(ts){
-          if (!start) start = ts;
-          var t = Math.min(1, (ts - start) / dur), cur = Math.round((1 - Math.pow(1 - t, 3)) * taken);
-          takenEl.textContent = cur; remEl.textContent = label(TOTAL - cur);
-          if (t < 1) requestAnimationFrame(tick);
-          else { remEl.classList.add('is-bump'); later(function(){ remEl.classList.remove('is-bump'); }, 380); }
-        });
+        barEl.style.transform = 'scaleX(' + (getPlaces().taken / TOTAL) + ')';
       }
 
       // --- En direct : visiteurs (4-11), avatars, ticker ---
