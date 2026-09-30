@@ -1838,7 +1838,7 @@
         if (reduced || list.length < 2) { vids[0].loop = true; return; }
         later(function(){
           every(function(){
-            if (pop.hidden) return;
+            if (pop.hidden || document.hidden) return;
             idx = (idx + 1) % list.length;
             var nxt = 1 - cur, old = vids[cur], nv = vids[nxt];
             load(nv, list[idx]);
@@ -1936,13 +1936,20 @@
         f.textContent = LETTERS.charAt(rand(0, LETTERS.length - 1));
         return f;
       }
+      // Une seule ligne visible a la fois : toutes les anciennes sortent,
+      // la nouvelle entre. Pas de requestAnimationFrame (gele quand l'onglet
+      // est en arriere-plan, ce qui empilait les phrases au retour).
       function roll(wrap, text){
-        var cur = wrap.firstElementChild;
-        if (reduced || !cur) { wrap.innerHTML = ''; var s0 = document.createElement('span'); s0.textContent = text; wrap.appendChild(s0); return; }
-        var nx = document.createElement('span'); nx.textContent = text; nx.className = 'is-entering';
+        var nx = document.createElement('span'); nx.textContent = text;
+        if (reduced || document.hidden || !wrap.firstElementChild) { wrap.innerHTML = ''; wrap.appendChild(nx); return; }
+        Array.prototype.forEach.call(wrap.children, function(old){
+          old.className = 'is-leaving';
+          setTimeout(function(){ if (old.parentNode) old.parentNode.removeChild(old); }, 520);
+        });
+        nx.className = 'is-entering';
         wrap.appendChild(nx);
-        requestAnimationFrame(function(){ requestAnimationFrame(function(){ cur.className = 'is-leaving'; nx.className = ''; }); });
-        later(function(){ if (cur.parentNode) cur.parentNode.removeChild(cur); }, 520);
+        void nx.offsetWidth;
+        nx.className = '';
       }
       function startLive(){
         var faces = document.getElementById('svb-offer-popup-faces');
@@ -1963,13 +1970,13 @@
 
         var fi = 0;
         every(function(){
-          if (pop.hidden) return;
+          if (pop.hidden || document.hidden) return;
           fi = (fi + 1) % FEED.length;
           roll(ticker, FEED[fi]);
         }, 3400);
 
         every(function(){
-          if (pop.hidden) return;
+          if (pop.hidden || document.hidden) return;
           var delta = Math.random() < .55 ? 1 : -1;
           var nn = Math.max(VMIN, Math.min(VMAX, n + delta));
           if (nn === n) return;
