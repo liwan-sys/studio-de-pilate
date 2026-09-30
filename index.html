@@ -1478,275 +1478,276 @@
     </div>
   </section>
 
-  <!-- === POP-UP PREMIER MOIS 99 EUR (design system SVB + motion natif) === -->
+  <!-- === POP-UP PREMIER MOIS 99 EUR (video studio + ink/cream) === -->
   <style>
-    .svb-offer-popup{position:fixed;inset:0;z-index:99990;display:flex;align-items:center;justify-content:center;padding:18px;}
+    .svb-offer-popup{position:fixed;inset:0;z-index:99990;display:flex;align-items:center;justify-content:center;padding:16px;}
     .svb-offer-popup[hidden]{display:none;}
-    .svb-offer-popup__backdrop{position:absolute;inset:0;background:rgba(29,56,56,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+    .svb-offer-popup__backdrop{position:absolute;inset:0;background:rgba(15,28,28,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
     .svb-offer-popup__card{
-      position:relative;width:min(440px,100%);max-height:calc(100dvh - 36px);overflow-y:auto;
-      background:var(--svb-cream,#FBF6EC);color:var(--svb-ink,#2F4F4F);
-      border-radius:var(--r-md,18px);padding:46px 30px 26px;text-align:center;
-      box-shadow:0 30px 80px rgba(29,56,56,.35);
-      animation:svbOfferPopIn .6s var(--ease-out,cubic-bezier(.16,1,.3,1)) both;
+      position:relative;width:min(420px,100%);max-height:calc(100dvh - 32px);overflow-y:auto;overflow-x:hidden;
+      background:var(--svb-ink-deep,#1d3838);color:var(--svb-cream,#FBF6EC);
+      border-radius:var(--r-md,18px);text-align:center;
+      box-shadow:0 40px 100px rgba(0,0,0,.5);
+      animation:svbOfferPopIn .7s var(--ease-out,cubic-bezier(.16,1,.3,1)) both;
       scrollbar-width:none;
     }
     .svb-offer-popup__card::-webkit-scrollbar{display:none;}
-    @keyframes svbOfferPopIn{from{opacity:0;transform:translateY(24px) scale(.98);}to{opacity:1;transform:none;}}
+    @keyframes svbOfferPopIn{from{opacity:0;transform:translateY(30px) scale(.97);}to{opacity:1;transform:none;}}
 
-    /* Blob mint qui derive doucement en fond (langage SVB) */
-    .svb-offer-popup__blob{
-      position:absolute;top:-60px;right:-80px;width:260px;height:260px;pointer-events:none;z-index:0;
-      background:radial-gradient(circle at 30% 30%,rgba(184,216,192,.55),rgba(184,216,192,0) 65%);
-      animation:svbOfferBlob 22s ease-in-out infinite alternate;
+    /* Media : vraie video du studio */
+    .svb-offer-popup__media{position:relative;height:210px;overflow:hidden;background:#1d3838;}
+    .svb-offer-popup__media video,.svb-offer-popup__media img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;
+      transform:scale(1.12);animation:svbOfferKen 14s ease-out forwards;
     }
-    .svb-offer-popup__blob--b{
-      top:auto;right:auto;bottom:-100px;left:-100px;width:300px;height:300px;
-      background:radial-gradient(circle at 60% 60%,rgba(232,180,150,.28),rgba(232,180,150,0) 65%);
-      animation-duration:28s;animation-delay:-6s;
+    @keyframes svbOfferKen{to{transform:scale(1);}}
+    .svb-offer-popup__media::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(29,56,56,.15) 0%,rgba(29,56,56,0) 35%,rgba(29,56,56,.75) 78%,#1d3838 100%);
     }
-    @keyframes svbOfferBlob{
-      0%{transform:translate(0,0) scale(1);}
-      50%{transform:translate(-20px,20px) scale(1.08);}
-      100%{transform:translate(20px,-10px) scale(.95);}
-    }
-    .svb-offer-popup__card > *:not(.svb-offer-popup__blob){position:relative;z-index:1;}
-
-    .svb-offer-popup__close{
-      position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;
-      border:none;background:transparent;color:var(--svb-ink,#2F4F4F);cursor:pointer;padding:0;
-      display:inline-flex;align-items:center;justify-content:center;opacity:.55;transition:opacity .2s;z-index:5;
-    }
-    .svb-offer-popup__close:hover,.svb-offer-popup__close:focus-visible{opacity:1;outline:none;}
-
     .svb-offer-popup__kicker{
-      display:inline-block;
-      font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
-      color:var(--svb-ink,#2F4F4F);opacity:0;
-      transition:opacity .6s var(--ease-out,cubic-bezier(.16,1,.3,1)) .1s;
+      position:absolute;top:16px;left:18px;z-index:2;
+      font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;
+      color:var(--svb-cream,#FBF6EC);
+      opacity:0;transform:translateY(-6px);transition:opacity .6s var(--ease-out) .3s,transform .6s var(--ease-out) .3s;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__kicker{opacity:.72;}
+    .svb-offer-popup.is-in .svb-offer-popup__kicker{opacity:1;transform:none;}
+    .svb-offer-popup__close{
+      position:absolute;top:10px;right:10px;z-index:3;width:36px;height:36px;border-radius:50%;
+      border:none;background:rgba(29,56,56,.45);color:var(--svb-cream,#FBF6EC);cursor:pointer;padding:0;
+      display:inline-flex;align-items:center;justify-content:center;transition:background .2s;
+      backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+    }
+    .svb-offer-popup__close:hover,.svb-offer-popup__close:focus-visible{background:rgba(29,56,56,.8);outline:none;}
+
+    .svb-offer-popup__body{position:relative;padding:0 26px 24px;margin-top:-58px;}
 
     .svb-offer-popup__title{
-      /* Dancing Script force par svb.css. .svb-split anime en cascade lettre a lettre. */
-      margin:14px 0 6px;font-size:clamp(2.6rem,9vw,3.4rem);line-height:1;color:var(--svb-ink,#2F4F4F);
+      margin:0 0 4px;font-size:clamp(2.5rem,9vw,3.1rem);line-height:1.02;color:var(--svb-cream,#FBF6EC);
+      text-shadow:0 4px 24px rgba(0,0,0,.35);
     }
     .svb-offer-popup__subtitle{
-      font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-      color:var(--svb-ink,#2F4F4F);opacity:0;margin:0 0 24px;
-      transition:opacity .55s var(--ease-out,cubic-bezier(.16,1,.3,1)) .55s;
+      font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+      color:var(--svb-cream,#FBF6EC);opacity:0;margin:6px 0 18px;
+      transition:opacity .5s var(--ease-out) .8s;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__subtitle{opacity:.78;}
+    .svb-offer-popup.is-in .svb-offer-popup__subtitle{opacity:.7;}
 
-    .svb-offer-popup__prices{display:flex;align-items:baseline;justify-content:center;gap:22px;margin:0 0 4px;padding-bottom:4px;flex-wrap:wrap;}
+    /* Prix : le 99 est l'unique accent peach */
+    .svb-offer-popup__prices{display:flex;align-items:center;justify-content:center;gap:18px;margin:0;}
     .svb-offer-popup__old{
-      font-family:'Montserrat',sans-serif;font-size:1.35rem;font-weight:600;line-height:1;
-      color:var(--svb-ink,#2F4F4F);letter-spacing:-.02em;position:relative;display:inline-block;padding:0 4px;
-      opacity:0;transform:translateY(6px);
-      transition:opacity .5s var(--ease-out) .7s,transform .5s var(--ease-out) .7s;
+      font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:600;line-height:1;
+      color:var(--svb-cream,#FBF6EC);letter-spacing:-.02em;position:relative;display:inline-block;padding:0 4px;
+      opacity:0;transform:translateX(10px);
+      transition:opacity .45s var(--ease-out) .95s,transform .45s var(--ease-out) .95s;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__old{opacity:.42;transform:none;}
+    .svb-offer-popup.is-in .svb-offer-popup__old{opacity:.45;transform:none;}
     .svb-offer-popup__old::before{
-      content:"";position:absolute;left:0;right:0;top:52%;height:1.5px;background:var(--svb-ink,#2F4F4F);opacity:.55;
-      transform:rotate(-8deg) scaleX(0);transform-origin:left;
-      transition:transform .55s cubic-bezier(.65,0,.35,1) .95s;
+      content:"";position:absolute;left:-2px;right:-2px;top:50%;height:2px;background:var(--svb-accent,#E8B496);
+      transform:rotate(-12deg) scaleX(0);transform-origin:left;
+      transition:transform .45s cubic-bezier(.65,0,.35,1) 1.25s;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__old::before{transform:rotate(-8deg) scaleX(1);}
-
+    .svb-offer-popup.is-in .svb-offer-popup__old::before{transform:rotate(-12deg) scaleX(1);}
     .svb-offer-popup__new{
-      display:inline-flex;align-items:baseline;gap:2px;
-      opacity:0;transform:scale(.65);
-      transition:opacity .7s var(--ease-out) 1.1s,transform .7s var(--ease-out) 1.1s;
+      position:relative;display:inline-flex;align-items:flex-start;
+      opacity:0;transform:scale(.5);
+      transition:opacity .5s var(--ease-out) 1.45s,transform .8s cubic-bezier(.34,1.56,.64,1) 1.45s;
     }
     .svb-offer-popup.is-in .svb-offer-popup__new{opacity:1;transform:none;}
     .svb-offer-popup__amount{
-      font-family:'Montserrat',sans-serif;font-size:clamp(4.4rem,14vw,5.2rem);line-height:.9;
-      font-weight:900;color:var(--svb-ink,#2F4F4F);letter-spacing:-.04em;
-      display:inline-block;padding-bottom:.02em;
-      animation:svbOfferBreath 3.6s ease-in-out infinite;transform-origin:center;
+      font-family:'Montserrat',sans-serif;font-size:clamp(4.8rem,17vw,5.8rem);line-height:.88;
+      font-weight:900;letter-spacing:-.05em;color:var(--svb-accent,#E8B496);
+      background:linear-gradient(100deg,#E8B496 0%,#E8B496 40%,#FBF6EC 50%,#E8B496 60%,#E8B496 100%);
+      background-size:250% 100%;background-position:100% 0;
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
     }
-    @keyframes svbOfferBreath{0%,100%{transform:scale(1);}50%{transform:scale(1.03);}}
-    .svb-offer-popup__amount-euro{font-family:'Montserrat',sans-serif;font-size:1.9rem;font-weight:800;color:var(--svb-ink,#2F4F4F);}
-
+    .svb-offer-popup.is-in .svb-offer-popup__amount{animation:svbOfferSheen 1.4s ease-in-out 2.2s both,svbOfferSheen 1.4s ease-in-out 7s infinite;}
+    @keyframes svbOfferSheen{from{background-position:100% 0;}to{background-position:0 0;}}
+    .svb-offer-popup__euro{font-family:'Montserrat',sans-serif;font-size:1.9rem;font-weight:800;color:var(--svb-accent,#E8B496);margin:.35rem 0 0 2px;}
     .svb-offer-popup__terms{
-      font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-      color:var(--svb-ink,#2F4F4F);opacity:0;margin:10px 0 24px;
-      transition:opacity .5s var(--ease-out) 1.4s;
+      font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--svb-cream,#FBF6EC);opacity:0;margin:10px 0 20px;
+      transition:opacity .5s var(--ease-out) 1.75s;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__terms{opacity:.7;}
+    .svb-offer-popup.is-in .svb-offer-popup__terms{opacity:.85;}
 
-    /* Scarcity : filet peach (seul accent peach) */
+    /* Places */
     .svb-offer-popup__scarcity{
-      margin:0 0 24px;opacity:0;transform:translateY(8px);
-      transition:opacity .5s var(--ease-out) 1.55s,transform .5s var(--ease-out) 1.55s;
+      margin:0 0 18px;text-align:left;opacity:0;transform:translateY(8px);
+      transition:opacity .5s var(--ease-out) 1.9s,transform .5s var(--ease-out) 1.9s;
     }
     .svb-offer-popup.is-in .svb-offer-popup__scarcity{opacity:1;transform:none;}
-    .svb-offer-popup__progress{
-      position:relative;height:3px;background:rgba(47,79,79,.1);overflow:hidden;margin:0 0 10px;border-radius:2px;
+    .svb-offer-popup__scarcity-head{
+      display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px;
+      font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
     }
+    .svb-offer-popup__scarcity-head span:first-child{color:rgba(251,246,236,.65);}
+    .svb-offer-popup__left{color:var(--svb-cream,#FBF6EC);display:inline-block;transition:transform .35s cubic-bezier(.34,1.56,.64,1);}
+    .svb-offer-popup__left.is-bump{transform:scale(1.18);}
+    .svb-offer-popup__progress{position:relative;height:4px;border-radius:4px;background:rgba(251,246,236,.12);overflow:hidden;}
     .svb-offer-popup__progress-bar{
-      position:absolute;inset:0;transform-origin:left;transform:scaleX(0);
-      background:var(--svb-accent,#E8B496);
-      transition:transform 1.4s var(--ease-out);
+      position:absolute;inset:0;transform-origin:left;transform:scaleX(0);border-radius:4px;
+      background:var(--svb-cream,#FBF6EC);
+      transition:transform 1.6s var(--ease-out);
     }
-    .svb-offer-popup__counter{
-      font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-      color:var(--svb-ink,#2F4F4F);opacity:.75;margin:0;text-align:center;
-    }
-    .svb-offer-popup__counter strong{color:var(--svb-ink,#2F4F4F);font-weight:800;opacity:1;}
 
-    /* Avantages : liste editoriale + stagger natif */
+    /* Avantages : grille 2x2 */
     .svb-offer-popup__benefits{
-      list-style:none;padding:18px 0;margin:0 0 26px;text-align:left;
-      display:flex;flex-direction:column;gap:8px;
-      border-top:1px solid rgba(47,79,79,.14);border-bottom:1px solid rgba(47,79,79,.14);
+      list-style:none;padding:0;margin:0 0 20px;
+      display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(251,246,236,.1);
+      border-radius:var(--r-sm,10px);overflow:hidden;
     }
     .svb-offer-popup__benefits li{
-      display:flex;align-items:baseline;gap:12px;
-      font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:400;color:var(--svb-ink,#2F4F4F);line-height:1.4;
+      background:var(--svb-ink-deep,#1d3838);padding:12px 8px;
+      font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;line-height:1.3;color:rgba(251,246,236,.9);
+      opacity:0;transform:translateY(8px);
+      transition:opacity .45s var(--ease-out),transform .45s var(--ease-out);
     }
-    .svb-offer-popup__mark{
-      flex:0 0 auto;color:var(--svb-ink,#2F4F4F);opacity:.4;
-      font-family:'Montserrat',sans-serif;font-weight:400;font-size:.82rem;line-height:1;min-width:14px;
-    }
+    .svb-offer-popup__benefits li:nth-child(1){transition-delay:2.05s;}
+    .svb-offer-popup__benefits li:nth-child(2){transition-delay:2.15s;}
+    .svb-offer-popup__benefits li:nth-child(3){transition-delay:2.25s;}
+    .svb-offer-popup__benefits li:nth-child(4){transition-delay:2.35s;}
+    .svb-offer-popup.is-in .svb-offer-popup__benefits li{opacity:1;transform:none;}
+    .svb-offer-popup__benefits strong{display:block;font-family:'Dancing Script',cursive;font-size:1.25rem;font-weight:700;color:var(--svb-accent,#E8B496);margin-bottom:2px;}
 
-    /* CTA : ink sur cream, magnetic (JS existant sur .svb-magnetic) */
+    /* CTA : cream sur ink (regle DA) + halo periodique */
     .svb-offer-popup__cta{
-      display:block;width:100%;min-height:58px;
-      padding:16px 24px;border:none;border-radius:var(--r-sm,10px);
-      background:var(--svb-ink,#2F4F4F);color:var(--svb-cream,#FBF6EC);cursor:pointer;
-      font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
-      transition:background .22s ease,transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .22s ease;
+      position:relative;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:58px;
+      padding:16px 22px;border:none;border-radius:var(--r-sm,10px);
+      background:var(--svb-cream,#FBF6EC);color:var(--svb-ink,#2F4F4F);cursor:pointer;
+      font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
       opacity:0;transform:translateY(10px);
+      transition:opacity .5s var(--ease-out) 2.5s,transform .5s var(--ease-out) 2.5s,background .2s;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__cta{
-      opacity:1;transform:none;transition:background .22s ease,transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .22s ease,opacity .5s var(--ease-out) 2.3s,translate .5s var(--ease-out) 2.3s;
-    }
-    .svb-offer-popup__cta:hover{background:var(--svb-ink-deep,#1d3838);}
+    .svb-offer-popup.is-in .svb-offer-popup__cta{opacity:1;transform:none;animation:svbOfferHalo 3s ease-out 3.4s infinite;}
+    @keyframes svbOfferHalo{0%{box-shadow:0 0 0 0 rgba(251,246,236,.45);}70%,100%{box-shadow:0 0 0 14px rgba(251,246,236,0);}}
+    .svb-offer-popup__cta:hover{background:#fff;}
+    .svb-offer-popup__cta-arrow{display:inline-block;transition:transform .25s var(--ease-out);}
+    .svb-offer-popup__cta:hover .svb-offer-popup__cta-arrow{transform:translateX(5px);}
 
     .svb-offer-popup__cta-note{
-      margin:12px 0 0;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-      color:var(--svb-ink,#2F4F4F);opacity:0;
-      transition:opacity .5s var(--ease-out) 2.5s;
+      margin:10px 0 0;font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--svb-cream,#FBF6EC);opacity:0;transition:opacity .5s var(--ease-out) 2.7s;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__cta-note{opacity:.55;}
+    .svb-offer-popup.is-in .svb-offer-popup__cta-note{opacity:.6;}
 
-    /* Live visitors */
     .svb-offer-popup__live{
-      display:inline-flex;align-items:center;gap:8px;margin:16px 0 0;
-      font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:500;letter-spacing:.06em;color:var(--svb-ink,#2F4F4F);opacity:0;
-      transition:opacity .5s var(--ease-out) 2.65s;
+      display:inline-flex;align-items:center;gap:8px;margin:12px 0 0;
+      font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:500;color:var(--svb-cream,#FBF6EC);opacity:0;
+      transition:opacity .5s var(--ease-out);
     }
-    .svb-offer-popup.is-in .svb-offer-popup__live:not([hidden]){opacity:.55;}
-    .svb-offer-popup__live-dot{
-      width:6px;height:6px;border-radius:50%;background:var(--svb-ink-soft,#4A8D84);flex:0 0 auto;position:relative;
-    }
-    .svb-offer-popup__live-dot::after{
-      content:"";position:absolute;inset:-3px;border-radius:50%;background:rgba(74,141,132,.4);
-      animation:svbOfferPing 2.2s cubic-bezier(0,0,.2,1) infinite;
-    }
+    .svb-offer-popup__live[hidden]{display:none;}
+    .svb-offer-popup.is-in .svb-offer-popup__live:not([hidden]){opacity:.7;}
+    .svb-offer-popup__live-dot{width:6px;height:6px;border-radius:50%;background:#98D0B3;position:relative;flex:0 0 auto;}
+    .svb-offer-popup__live-dot::after{content:"";position:absolute;inset:-3px;border-radius:50%;background:rgba(152,208,179,.45);animation:svbOfferPing 2.2s cubic-bezier(0,0,.2,1) infinite;}
     @keyframes svbOfferPing{0%{transform:scale(.6);opacity:.9;}75%,100%{transform:scale(2.4);opacity:0;}}
-    .svb-offer-popup__live-count{color:var(--svb-ink,#2F4F4F);font-weight:700;opacity:1;}
+    .svb-offer-popup__live strong{font-weight:800;}
 
     .svb-offer-popup__fine{
-      margin:18px 0 0;font-family:'Montserrat',sans-serif;font-size:.58rem;line-height:1.55;color:var(--svb-ink,#2F4F4F);opacity:0;
-      transition:opacity .5s var(--ease-out) 2.8s;
+      margin:14px 0 0;font-family:'Montserrat',sans-serif;font-size:.56rem;line-height:1.55;color:var(--svb-cream,#FBF6EC);opacity:0;
+      transition:opacity .5s var(--ease-out) 3s;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__fine{opacity:.5;}
+    .svb-offer-popup.is-in .svb-offer-popup__fine{opacity:.42;}
 
     body.svb-offer-popup-open{overflow:hidden;}
     @media (max-width:480px){
-      .svb-offer-popup{padding:12px;}
-      .svb-offer-popup__card{padding:40px 22px 22px;border-radius:16px;}
+      .svb-offer-popup{padding:10px;}
+      .svb-offer-popup__media{height:190px;}
+      .svb-offer-popup__body{padding:0 20px 20px;}
     }
     @media (prefers-reduced-motion:reduce){
-      .svb-offer-popup__card,.svb-offer-popup__blob,.svb-offer-popup__amount,.svb-offer-popup__live-dot::after{animation:none;}
-      .svb-offer-popup__kicker,.svb-offer-popup__subtitle,.svb-offer-popup__old,.svb-offer-popup__new,
-      .svb-offer-popup__terms,.svb-offer-popup__scarcity,.svb-offer-popup__cta,.svb-offer-popup__cta-note,
-      .svb-offer-popup__live,.svb-offer-popup__fine{opacity:1!important;transform:none!important;transition:none!important;}
-      .svb-offer-popup__old::before{transform:rotate(-8deg) scaleX(1)!important;transition:none!important;}
-      .svb-offer-popup__progress-bar{transition:none;}
+      .svb-offer-popup__card,.svb-offer-popup__media video,.svb-offer-popup__media img,.svb-offer-popup__amount,
+      .svb-offer-popup__cta,.svb-offer-popup__live-dot::after{animation:none!important;transform:none;}
+      .svb-offer-popup *{transition:none!important;}
+      .svb-offer-popup__kicker,.svb-offer-popup__subtitle,.svb-offer-popup__old,.svb-offer-popup__new,.svb-offer-popup__terms,
+      .svb-offer-popup__scarcity,.svb-offer-popup__benefits li,.svb-offer-popup__cta,.svb-offer-popup__cta-note,
+      .svb-offer-popup__live,.svb-offer-popup__fine{opacity:1!important;transform:none!important;}
+      .svb-offer-popup__old::before{transform:rotate(-12deg) scaleX(1)!important;}
     }
   </style>
   <div id="svb-offer-popup" class="svb-offer-popup" role="dialog" aria-modal="true" aria-labelledby="svb-offer-popup-title" hidden>
     <div class="svb-offer-popup__backdrop" aria-hidden="true"></div>
     <div class="svb-offer-popup__card" role="document">
-      <span class="svb-offer-popup__blob" aria-hidden="true"></span>
-      <span class="svb-offer-popup__blob svb-offer-popup__blob--b" aria-hidden="true"></span>
-      <button type="button" class="svb-offer-popup__close" id="svb-offer-popup-close" aria-label="Fermer">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-
-      <span class="svb-offer-popup__kicker">Offre exceptionnelle</span>
-      <h2 id="svb-offer-popup-title" class="svb-offer-popup__title svb-split">Premier mois offert*</h2>
-      <p class="svb-offer-popup__subtitle">Illimité · 30 jours</p>
-
-      <div class="svb-offer-popup__prices" aria-label="Tarif normal 300 euros par mois, offre à 99 euros">
-        <span class="svb-offer-popup__old" aria-hidden="true">300€</span>
-        <span class="svb-offer-popup__new" aria-hidden="true">
-          <span class="svb-offer-popup__amount">99</span>
-          <span class="svb-offer-popup__amount-euro">€</span>
-        </span>
-      </div>
-      <p class="svb-offer-popup__terms">30 jours · jusqu'à 1 cours / jour</p>
-
-      <div class="svb-offer-popup__scarcity" aria-live="polite">
-        <div class="svb-offer-popup__progress" aria-hidden="true"><div class="svb-offer-popup__progress-bar" id="svb-offer-popup-bar"></div></div>
-        <p class="svb-offer-popup__counter"><strong id="svb-offer-popup-taken">0</strong> / 100 places réservées <span id="svb-offer-popup-remaining"></span></p>
+      <div class="svb-offer-popup__media">
+        <video id="svb-offer-popup-video" muted loop playsinline preload="none" poster="/videos/reformer-card-v2-poster.jpg" data-src="/videos/reformer-card-v2.mp4" aria-hidden="true"></video>
+        <span class="svb-offer-popup__kicker">Offre exceptionnelle</span>
+        <button type="button" class="svb-offer-popup__close" id="svb-offer-popup-close" aria-label="Fermer">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
       </div>
 
-      <ul class="svb-offer-popup__benefits">
-        <li><span class="svb-offer-popup__mark" aria-hidden="true">—</span>30 jours pour découvrir l'univers SVB</li>
-        <li><span class="svb-offer-popup__mark" aria-hidden="true">—</span>Jusqu'à 1 cours par jour</li>
-        <li><span class="svb-offer-popup__mark" aria-hidden="true">—</span>Reformer, Cross Training, Pilates, Yoga, Boxe</li>
-        <li><span class="svb-offer-popup__mark" aria-hidden="true">—</span>Coaching en petits groupes</li>
-        <li><span class="svb-offer-popup__mark" aria-hidden="true">—</span>Deux studios à Saint-Ouen</li>
-        <li><span class="svb-offer-popup__mark" aria-hidden="true">—</span>Une seule offre découverte par personne</li>
-      </ul>
+      <div class="svb-offer-popup__body">
+        <h2 id="svb-offer-popup-title" class="svb-offer-popup__title svb-split">Ton premier mois illimité</h2>
+        <p class="svb-offer-popup__subtitle">Réservé aux 100 premiers inscrits</p>
 
-      <button type="button" class="svb-offer-popup__cta svb-magnetic js-buy" data-booking-path="/place/place_svb-lavandieres/subscription-plans" data-label="Premier mois illimité · 99 €" data-amount="99 €" data-track="home_offer_popup_cta">Je profite des 99 €</button>
-      <p class="svb-offer-popup__cta-note">Offre limitée aux 100 premiers inscrits</p>
+        <div class="svb-offer-popup__prices" aria-label="300 euros barré, 99 euros">
+          <span class="svb-offer-popup__old" aria-hidden="true">300€</span>
+          <span class="svb-offer-popup__new" aria-hidden="true"><span class="svb-offer-popup__amount">99</span><span class="svb-offer-popup__euro">€</span></span>
+        </div>
+        <p class="svb-offer-popup__terms">30 jours · jusqu'à 1 cours / jour</p>
 
-      <div class="svb-offer-popup__live" role="status" id="svb-offer-popup-live" hidden>
-        <span class="svb-offer-popup__live-dot" aria-hidden="true"></span>
-        <span><strong class="svb-offer-popup__live-count" id="svb-offer-popup-live-n">0</strong> personnes consultent cette offre</span>
+        <div class="svb-offer-popup__scarcity" aria-live="polite">
+          <p class="svb-offer-popup__scarcity-head">
+            <span><strong id="svb-offer-popup-taken">0</strong> / 100 réservées</span>
+            <span class="svb-offer-popup__left" id="svb-offer-popup-remaining">Plus que 100 places</span>
+          </p>
+          <div class="svb-offer-popup__progress" aria-hidden="true"><div class="svb-offer-popup__progress-bar" id="svb-offer-popup-bar"></div></div>
+        </div>
+
+        <ul class="svb-offer-popup__benefits">
+          <li><strong>Toutes</strong>les disciplines SVB</li>
+          <li><strong>Petits</strong>groupes</li>
+          <li><strong>Deux</strong>studios à Saint-Ouen</li>
+          <li><strong>Coaching</strong>premium</li>
+        </ul>
+
+        <button type="button" class="svb-offer-popup__cta svb-magnetic js-buy" data-booking-path="/place/place_svb-lavandieres/subscription-plans" data-label="Premier mois illimité · 99 €" data-amount="99 €" data-track="home_offer_popup_cta">Je profite des 99 € <span class="svb-offer-popup__cta-arrow" aria-hidden="true">→</span></button>
+        <p class="svb-offer-popup__cta-note">Une seule offre découverte par personne</p>
+
+        <div class="svb-offer-popup__live" role="status" id="svb-offer-popup-live" hidden>
+          <span class="svb-offer-popup__live-dot" aria-hidden="true"></span>
+          <span><strong id="svb-offer-popup-live-n">0</strong> personnes consultent cette offre</span>
+        </div>
+
+        <p class="svb-offer-popup__fine">Premier mois à 99 € pour les nouveaux membres, une seule fois par personne. À partir du 2e mois : SVB Limitless 300 €/mois, engagement 1 an, frais de dossier 49 €.</p>
       </div>
-
-      <p class="svb-offer-popup__fine">*Tarif de lancement à 99 € pour le premier mois. À partir du 2e mois : abonnement SVB Limitless à 300 €/mois, engagement 1 an, frais de dossier 49 €. Résiliation possible avant le 30e jour. Offre réservée aux nouveaux membres, une seule fois par personne.</p>
     </div>
   </div>
   <script>
     (function(){
       var pop = document.getElementById('svb-offer-popup');
       if (!pop) return;
-      var KEY = 'svb-offer-popup-v12-native-motion';
+      var KEY = 'svb-offer-popup-v13-video';
       var seen = false;
       try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
       if (seen) return;
       var closeBtn = document.getElementById('svb-offer-popup-close');
       var cta = pop.querySelector('.svb-offer-popup__cta');
+      var video = document.getElementById('svb-offer-popup-video');
+      var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
       var lastFocus = null;
       function remember(){ try { sessionStorage.setItem(KEY, '1'); } catch (e) {} }
       function open(){
         lastFocus = document.activeElement;
+        if (video && !reduced && video.dataset.src) {
+          video.src = video.dataset.src;
+          var p = video.play(); if (p && p.catch) p.catch(function(){});
+        }
         pop.hidden = false;
         document.body.classList.add('svb-offer-popup-open');
         try { closeBtn.focus({ preventScroll: true }); } catch (e) {}
         try { if (window.svbTrack) window.svbTrack('home_offer_popup_view', { offer: 'premier_mois_99' }); } catch (e) {}
-        // Declenche la cascade : is-in reveal les elements en sequence,
-        // svb-split-in fait apparaitre le titre lettre par lettre (langage SVB).
-        window.requestAnimationFrame(function(){
-          window.requestAnimationFrame(function(){
-            pop.classList.add('is-in');
-            var title = document.getElementById('svb-offer-popup-title');
-            if (title) title.classList.add('svb-split-in');
-          });
-        });
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){
+          pop.classList.add('is-in');
+          var title = document.getElementById('svb-offer-popup-title');
+          if (title) setTimeout(function(){ title.classList.add('svb-split-in'); }, 450);
+        }); });
         startCounters();
       }
       function close(){
         pop.hidden = true;
         document.body.classList.remove('svb-offer-popup-open');
+        if (video) { try { video.pause(); } catch (e) {} }
         remember();
         if (lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) {} }
       }
@@ -1755,43 +1756,34 @@
       document.addEventListener('keydown', function(e){ if (!pop.hidden && e.key === 'Escape') close(); });
       pop.addEventListener('keydown', function(e){
         if (e.key !== 'Tab') return;
-        var focusables = [closeBtn, cta];
-        var i = focusables.indexOf(document.activeElement);
-        if (e.shiftKey) { if (i <= 0) { e.preventDefault(); focusables[focusables.length - 1].focus(); } }
-        else if (i === -1 || i === focusables.length - 1) { e.preventDefault(); focusables[0].focus(); }
+        var f = [closeBtn, cta], i = f.indexOf(document.activeElement);
+        if (e.shiftKey) { if (i <= 0) { e.preventDefault(); f[f.length - 1].focus(); } }
+        else if (i === -1 || i === f.length - 1) { e.preventDefault(); f[0].focus(); }
       });
 
+      // Compteur places : decremente 1 place toutes les 3-6h, plancher 12 restantes, persiste en localStorage
       var TOTAL = 100, MIN_LEFT = 12, START_TAKEN = 27;
-      var DEC_MIN_MS = 3 * 60 * 60 * 1000, DEC_MAX_MS = 6 * 60 * 60 * 1000;
-      var LS_KEY = 'svb-99-places-state';
+      var DEC_MIN = 3 * 3600000, DEC_MAX = 6 * 3600000, LS_KEY = 'svb-99-places-state';
       function rand(a, b){ return Math.floor(Math.random() * (b - a + 1)) + a; }
-      function readState(){ try { return JSON.parse(localStorage.getItem(LS_KEY) || 'null'); } catch (e) { return null; } }
-      function writeState(s){ try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch (e) {} }
+      function readS(){ try { return JSON.parse(localStorage.getItem(LS_KEY) || 'null'); } catch (e) { return null; } }
+      function writeS(s){ try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch (e) {} }
       function getPlaces(){
-        var now = Date.now();
-        var s = readState();
+        var now = Date.now(), s = readS();
         if (!s || typeof s.taken !== 'number' || typeof s.next !== 'number') {
-          s = { taken: START_TAKEN, next: now + rand(DEC_MIN_MS, DEC_MAX_MS) };
-          writeState(s); return s;
+          s = { taken: START_TAKEN, next: now + rand(DEC_MIN, DEC_MAX) }; writeS(s); return s;
         }
-        var guard = 0;
-        while (s.taken < TOTAL - MIN_LEFT && s.next <= now && guard < 200) {
-          s.taken += 1; s.next += rand(DEC_MIN_MS, DEC_MAX_MS); guard += 1;
-        }
-        writeState(s); return s;
+        var g = 0;
+        while (s.taken < TOTAL - MIN_LEFT && s.next <= now && g++ < 200) { s.taken++; s.next += rand(DEC_MIN, DEC_MAX); }
+        writeS(s); return s;
       }
-
-      var VISIT_KEY = 'svb-99-visitors-state';
-      var VMIN = 4, VMAX = 9;
-      function readV(){ try { return JSON.parse(sessionStorage.getItem(VISIT_KEY) || 'null'); } catch (e) { return null; } }
-      function writeV(v){ try { sessionStorage.setItem(VISIT_KEY, JSON.stringify(v)); } catch (e) {} }
+      var V_KEY = 'svb-99-visitors-state', VMIN = 4, VMAX = 9;
       function nextVisitors(){
-        var now = Date.now(); var s = readV();
-        if (!s) { s = { n: rand(VMIN, VMAX), at: now }; writeV(s); return s.n; }
-        var delta = Math.random() < .5 ? -1 : 1;
-        var next = Math.max(VMIN, Math.min(VMAX, s.n + delta));
-        s = { n: next, at: now }; writeV(s); return next;
+        var s = null; try { s = JSON.parse(sessionStorage.getItem(V_KEY) || 'null'); } catch (e) {}
+        var n = s ? Math.max(VMIN, Math.min(VMAX, s.n + (Math.random() < .5 ? -1 : 1))) : rand(VMIN, VMAX);
+        try { sessionStorage.setItem(V_KEY, JSON.stringify({ n: n })); } catch (e) {}
+        return n;
       }
+      function label(n){ return 'Plus que ' + n + (n === 1 ? ' place' : ' places'); }
 
       function startCounters(){
         var takenEl = document.getElementById('svb-offer-popup-taken');
@@ -1799,52 +1791,42 @@
         var barEl = document.getElementById('svb-offer-popup-bar');
         var liveWrap = document.getElementById('svb-offer-popup-live');
         var liveN = document.getElementById('svb-offer-popup-live-n');
-        var state = getPlaces();
-        var taken = state.taken; var left = TOTAL - taken;
+        var taken = getPlaces().taken;
 
-        var start = null, dur = 1400;
-        function tick(ts){
-          if (!start) start = ts;
-          var t = Math.min(1, (ts - start) / dur);
-          var e = 1 - Math.pow(1 - t, 3);
-          var current = Math.round(e * taken);
-          takenEl.textContent = current;
-          remEl.textContent = ' · Plus que ' + (TOTAL - current) + (TOTAL - current === 1 ? ' place' : ' places');
-          if (t < 1) requestAnimationFrame(tick);
-          else { takenEl.textContent = taken; remEl.textContent = ' · Plus que ' + left + (left === 1 ? ' place' : ' places'); }
-        }
-        window.setTimeout(function(){
-          if (barEl) barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
-          requestAnimationFrame(tick);
-        }, 1700);
+        setTimeout(function(){
+          barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
+          var start = null, dur = 1500;
+          (function tick(ts){
+            if (!ts) return requestAnimationFrame(tick);
+            if (!start) start = ts;
+            var t = Math.min(1, (ts - start) / dur), cur = Math.round((1 - Math.pow(1 - t, 3)) * taken);
+            takenEl.textContent = cur; remEl.textContent = label(TOTAL - cur);
+            if (t < 1) requestAnimationFrame(tick);
+            else { remEl.classList.add('is-bump'); setTimeout(function(){ remEl.classList.remove('is-bump'); }, 380); }
+          })();
+        }, 2000);
 
-        var v0 = nextVisitors();
-        if (v0 >= VMIN && liveN) {
-          window.setTimeout(function(){ liveN.textContent = v0; liveWrap.hidden = false; }, 2700);
-          window.setInterval(function(){ if (pop.hidden) return; liveN.textContent = nextVisitors(); }, rand(14000, 22000));
-        }
+        setTimeout(function(){ liveN.textContent = nextVisitors(); liveWrap.hidden = false; }, 2900);
+        setInterval(function(){ if (!pop.hidden) liveN.textContent = nextVisitors(); }, rand(14000, 22000));
 
-        function scheduleNextDrop(){
-          if (taken >= TOTAL - MIN_LEFT) return;
-          var s = readState(); if (!s) return;
+        (function scheduleDrop(){
+          var s = readS(); if (!s || taken >= TOTAL - MIN_LEFT) return;
           var wait = Math.max(30000, s.next - Date.now());
           if (wait > 300000) return;
-          window.setTimeout(function(){
+          setTimeout(function(){
             if (pop.hidden) return;
-            s = getPlaces();
-            if (s.taken > taken) {
-              taken = s.taken; left = TOTAL - taken;
-              takenEl.textContent = taken;
-              remEl.textContent = ' · Plus que ' + left + (left === 1 ? ' place' : ' places');
-              if (barEl) barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
+            var nt = getPlaces().taken;
+            if (nt > taken) {
+              taken = nt; takenEl.textContent = taken; remEl.textContent = label(TOTAL - taken);
+              barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
+              remEl.classList.add('is-bump'); setTimeout(function(){ remEl.classList.remove('is-bump'); }, 380);
             }
-            scheduleNextDrop();
+            scheduleDrop();
           }, wait);
-        }
-        scheduleNextDrop();
+        })();
       }
 
-      window.setTimeout(open, 900);
+      setTimeout(open, 900);
     })();
   </script>
 
