@@ -1668,6 +1668,30 @@
     .svb-offer-popup.is-stage2 .svb-offer-popup__fine{opacity:.42;}
 
     body.svb-offer-popup-open{overflow:hidden;}
+    /* Scene : carte + deux colonnes video (desktop) */
+    .svb-offer-popup__stage{position:relative;width:100%;display:flex;align-items:stretch;justify-content:center;gap:18px;max-height:calc(100dvh - 32px);}
+    .svb-offer-popup__side{display:none;}
+    .svb-offer-popup__stage > .svb-offer-popup__card{flex:0 1 420px;min-width:0;}
+    [data-reel] video{opacity:0;transition:opacity .9s ease;}
+    [data-reel] video.is-on{opacity:1;}
+    @media (min-width:960px) and (min-height:640px){
+      .svb-offer-popup__side{
+        display:block;position:relative;width:230px;flex:0 0 230px;border-radius:var(--r-md,18px);overflow:hidden;
+        background:#1d3838;box-shadow:0 40px 100px rgba(0,0,0,.45);
+        opacity:0;animation:svbOfferSide .9s var(--ease-out,cubic-bezier(.16,1,.3,1)) .55s forwards;
+      }
+      .svb-offer-popup__side--l{--from:-50px;}
+      .svb-offer-popup__side--r{--from:50px;animation-delay:.7s;}
+      .svb-offer-popup__side video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+      .svb-offer-popup__side::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,56,56,0) 55%,rgba(29,56,56,.85) 100%);pointer-events:none;}
+    }
+    @keyframes svbOfferSide{from{opacity:0;transform:translateX(var(--from)) scale(.96);}to{opacity:1;transform:none;}}
+    .svb-offer-popup__tag{
+      position:absolute;left:0;right:0;bottom:18px;z-index:2;margin:0;text-align:center;
+      font-family:'Dancing Script',cursive;font-size:1.7rem;font-weight:700;color:var(--svb-cream,#FBF6EC);
+      text-shadow:0 2px 14px rgba(0,0,0,.4);transition:opacity .45s ease,transform .45s ease;
+    }
+    .svb-offer-popup__tag.is-swap{opacity:0;transform:translateY(8px);}
     @media (max-width:480px){
       .svb-offer-popup{padding:10px;}
       .svb-offer-popup__media{height:180px;}
@@ -1676,14 +1700,20 @@
     @media (prefers-reduced-motion:reduce){
       .svb-offer-popup *,.svb-offer-popup *::before,.svb-offer-popup *::after{animation:none!important;transition:none!important;}
       .svb-offer-popup__media{clip-path:none;}
+      .svb-offer-popup__side{opacity:1;}
       .svb-offer-popup__media video{transform:none;}
     }
   </style>
   <div id="svb-offer-popup" class="svb-offer-popup" role="dialog" aria-modal="true" aria-labelledby="svb-offer-popup-title" hidden>
     <div class="svb-offer-popup__backdrop" aria-hidden="true"></div>
+    <div class="svb-offer-popup__stage">
+    <div class="svb-offer-popup__side svb-offer-popup__side--l" data-reel="left" aria-hidden="true">
+      <video muted playsinline preload="none" class="is-on"></video><video muted playsinline preload="none"></video>
+      <p class="svb-offer-popup__tag"></p>
+    </div>
     <div class="svb-offer-popup__card" role="document">
-      <div class="svb-offer-popup__media">
-        <video id="svb-offer-popup-video" muted loop playsinline preload="none" poster="/videos/pilates-reformer-immersion-poster.jpg" data-src="/videos/pilates-reformer-immersion.mp4" aria-hidden="true"></video>
+      <div class="svb-offer-popup__media" data-reel="head">
+        <video id="svb-offer-popup-video" class="is-on" muted playsinline preload="none" poster="/videos/pilates-reformer-immersion-poster.jpg" aria-hidden="true"></video><video muted playsinline preload="none" aria-hidden="true"></video>
         <span class="svb-offer-popup__kicker">Offre exceptionnelle</span>
         <button type="button" class="svb-offer-popup__close" id="svb-offer-popup-close" aria-label="Fermer">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -1740,12 +1770,17 @@
         <p class="svb-offer-popup__fine">Premier mois à 99 € pour les nouveaux membres, une seule fois par personne. Sans engagement.</p>
       </div>
     </div>
+    <div class="svb-offer-popup__side svb-offer-popup__side--r" data-reel="right" aria-hidden="true">
+      <video muted playsinline preload="none" class="is-on"></video><video muted playsinline preload="none"></video>
+      <p class="svb-offer-popup__tag"></p>
+    </div>
+    </div>
   </div>
   <script>
     (function(){
       var pop = document.getElementById('svb-offer-popup');
       if (!pop) return;
-      var KEY = 'svb-offer-popup-v15-countdown';
+      var KEY = 'svb-offer-popup-v16-mix';
       var seen = false;
       try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
       if (seen) return;
@@ -1754,7 +1789,6 @@
       if (Date.now() >= OFFER_END) return;
       var closeBtn = document.getElementById('svb-offer-popup-close');
       var cta = pop.querySelector('.svb-offer-popup__cta');
-      var video = document.getElementById('svb-offer-popup-video');
       var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
       var timers = [];
       function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
@@ -1765,10 +1799,7 @@
 
       function open(){
         lastFocus = document.activeElement;
-        if (video && !reduced && video.dataset.src) {
-          video.src = video.dataset.src;
-          var p = video.play(); if (p && p.catch) p.catch(function(){});
-        }
+        startReels();
         pop.hidden = false;
         document.body.classList.add('svb-offer-popup-open');
         try { closeBtn.focus({ preventScroll: true }); } catch (e) {}
@@ -1784,7 +1815,7 @@
       function close(){
         pop.hidden = true;
         document.body.classList.remove('svb-offer-popup-open');
-        if (video) { try { video.pause(); } catch (e) {} }
+        pop.querySelectorAll('video').forEach(function(v){ try { v.pause(); } catch (e) {} });
         timers.forEach(function(t){ clearTimeout(t); clearInterval(t); });
         remember();
         if (lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) {} }
@@ -1798,6 +1829,56 @@
         if (e.shiftKey) { if (i <= 0) { e.preventDefault(); f[f.length - 1].focus(); } }
         else if (i === -1 || i === f.length - 1) { e.preventDefault(); f[0].focus(); }
       });
+
+      // --- Mix video : colonnes gauche / droite (desktop) et haut de carte ---
+      var V = '/videos/';
+      function clip(name, tag){ return { src: V + name + '.mp4', poster: V + name + '-poster.jpg', tag: tag }; }
+      var REELS = {
+        left:  [clip('cross-rox-collectif', 'Cross Training'), clip('cross-yoga-card', 'Yoga'), clip('boxe-card', 'Boxe')],
+        right: [clip('reformer-card-v2', 'Reformer'), clip('crossformer-immersion', 'Crossformer'), clip('flow-reformer-hotel-lobby-v2', 'Flow Reformer')],
+        headDesktop: [clip('pilates-reformer-immersion', '')],
+        headMobile: [clip('pilates-reformer-immersion', ''), clip('reformer-card-v2', ''), clip('boxe-card', ''), clip('cross-yoga-card', '')]
+      };
+      var CLIP_MS = 4800;
+      function runReel(box, list, offset){
+        var vids = box.querySelectorAll('video'), tag = box.querySelector('.svb-offer-popup__tag');
+        var cur = 0, idx = 0;
+        function load(v, c){
+          v.poster = c.poster;
+          if (reduced) return;
+          if (v.getAttribute('src') !== c.src) v.src = c.src;
+          try { v.currentTime = 0; } catch (e) {}
+          var p = v.play(); if (p && p.catch) p.catch(function(){});
+        }
+        function setTag(text){
+          if (!tag) return;
+          tag.classList.add('is-swap');
+          later(function(){ tag.textContent = text; tag.classList.remove('is-swap'); }, 300);
+        }
+        load(vids[0], list[0]);
+        if (tag) tag.textContent = list[0].tag;
+        if (reduced || list.length < 2) { vids[0].loop = true; return; }
+        later(function(){
+          every(function(){
+            if (pop.hidden) return;
+            idx = (idx + 1) % list.length;
+            var nxt = 1 - cur, old = vids[cur], nv = vids[nxt];
+            load(nv, list[idx]);
+            nv.classList.add('is-on'); old.classList.remove('is-on');
+            setTag(list[idx].tag);
+            later(function(){ try { old.pause(); } catch (e) {} }, 950);
+            cur = nxt;
+          }, CLIP_MS);
+        }, offset);
+      }
+      function startReels(){
+        var desktop = window.matchMedia('(min-width: 960px) and (min-height: 640px)').matches;
+        runReel(pop.querySelector('[data-reel="head"]'), desktop ? REELS.headDesktop : REELS.headMobile, 0);
+        if (desktop) {
+          runReel(pop.querySelector('[data-reel="left"]'), REELS.left, 0);
+          runReel(pop.querySelector('[data-reel="right"]'), REELS.right, CLIP_MS / 2);
+        }
+      }
 
       // --- Prix : 300 -> 99 ---
       function runPrice(){
