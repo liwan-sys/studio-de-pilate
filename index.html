@@ -1478,38 +1478,43 @@
     </div>
   </section>
 
-  <!-- === POP-UP PREMIER MOIS 99 EUR (video studio + ink/cream) === -->
+  <!-- === POP-UP PREMIER MOIS 99 EUR (video studio + live viewers) === -->
   <style>
     .svb-offer-popup{position:fixed;inset:0;z-index:99990;display:flex;align-items:center;justify-content:center;padding:16px;}
     .svb-offer-popup[hidden]{display:none;}
-    .svb-offer-popup__backdrop{position:absolute;inset:0;background:rgba(15,28,28,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+    .svb-offer-popup__backdrop{position:absolute;inset:0;background:rgba(15,28,28,.74);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:svbOfferFade .5s ease both;}
+    @keyframes svbOfferFade{from{opacity:0;}to{opacity:1;}}
     .svb-offer-popup__card{
       position:relative;width:min(420px,100%);max-height:calc(100dvh - 32px);overflow-y:auto;overflow-x:hidden;
       background:var(--svb-ink-deep,#1d3838);color:var(--svb-cream,#FBF6EC);
       border-radius:var(--r-md,18px);text-align:center;
       box-shadow:0 40px 100px rgba(0,0,0,.5);
-      animation:svbOfferPopIn .7s var(--ease-out,cubic-bezier(.16,1,.3,1)) both;
+      animation:svbOfferPopIn .75s var(--ease-out,cubic-bezier(.16,1,.3,1)) both;
       scrollbar-width:none;
     }
     .svb-offer-popup__card::-webkit-scrollbar{display:none;}
-    @keyframes svbOfferPopIn{from{opacity:0;transform:translateY(30px) scale(.97);}to{opacity:1;transform:none;}}
+    @keyframes svbOfferPopIn{from{opacity:0;transform:translateY(40px) scale(.96);}to{opacity:1;transform:none;}}
 
-    /* Media : vraie video du studio */
-    .svb-offer-popup__media{position:relative;height:210px;overflow:hidden;background:#1d3838;}
-    .svb-offer-popup__media video,.svb-offer-popup__media img{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;
-      transform:scale(1.12);animation:svbOfferKen 14s ease-out forwards;
+    /* Media : reveal en rideau + zoom lent */
+    .svb-offer-popup__media{
+      position:relative;height:200px;overflow:hidden;background:#1d3838;
+      clip-path:inset(0 0 100% 0);animation:svbOfferCurtain 1s cubic-bezier(.77,0,.18,1) .2s forwards;
     }
-    @keyframes svbOfferKen{to{transform:scale(1);}}
+    @keyframes svbOfferCurtain{to{clip-path:inset(0 0 0 0);}}
+    .svb-offer-popup__media video{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;
+      transform:scale(1.25);animation:svbOfferKen 12s cubic-bezier(.16,1,.3,1) .2s forwards;
+    }
+    @keyframes svbOfferKen{to{transform:scale(1.02);}}
     .svb-offer-popup__media::after{
       content:"";position:absolute;inset:0;
-      background:linear-gradient(180deg,rgba(29,56,56,.15) 0%,rgba(29,56,56,0) 35%,rgba(29,56,56,.75) 78%,#1d3838 100%);
+      background:linear-gradient(180deg,rgba(29,56,56,.25) 0%,rgba(29,56,56,0) 30%,rgba(29,56,56,.8) 80%,#1d3838 100%);
     }
     .svb-offer-popup__kicker{
       position:absolute;top:16px;left:18px;z-index:2;
       font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;
       color:var(--svb-cream,#FBF6EC);
-      opacity:0;transform:translateY(-6px);transition:opacity .6s var(--ease-out) .3s,transform .6s var(--ease-out) .3s;
+      opacity:0;transform:translateX(-12px);transition:opacity .6s var(--ease-out) .9s,transform .6s var(--ease-out) .9s;
     }
     .svb-offer-popup.is-in .svb-offer-popup__kicker{opacity:1;transform:none;}
     .svb-offer-popup__close{
@@ -1518,158 +1523,158 @@
       display:inline-flex;align-items:center;justify-content:center;transition:background .2s;
       backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
     }
-    .svb-offer-popup__close:hover,.svb-offer-popup__close:focus-visible{background:rgba(29,56,56,.8);outline:none;}
+    .svb-offer-popup__close:hover,.svb-offer-popup__close:focus-visible{background:rgba(29,56,56,.85);outline:none;}
 
-    .svb-offer-popup__body{position:relative;padding:0 26px 24px;margin-top:-58px;}
+    .svb-offer-popup__body{position:relative;padding:0 24px 22px;margin-top:-54px;}
 
-    .svb-offer-popup__title{
-      margin:0 0 4px;font-size:clamp(2.5rem,9vw,3.1rem);line-height:1.02;color:var(--svb-cream,#FBF6EC);
-      text-shadow:0 4px 24px rgba(0,0,0,.35);
-    }
+    .svb-offer-popup__title{margin:0 0 4px;font-size:clamp(2.4rem,9vw,3rem);line-height:1.02;color:var(--svb-cream,#FBF6EC);text-shadow:0 4px 24px rgba(0,0,0,.35);}
     .svb-offer-popup__subtitle{
-      font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
-      color:var(--svb-cream,#FBF6EC);opacity:0;margin:6px 0 18px;
-      transition:opacity .5s var(--ease-out) .8s;
+      font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+      color:var(--svb-cream,#FBF6EC);opacity:0;margin:6px 0 10px;transition:opacity .5s var(--ease-out) 1.3s;
     }
     .svb-offer-popup.is-in .svb-offer-popup__subtitle{opacity:.7;}
 
-    /* Prix : le 99 est l'unique accent peach */
-    .svb-offer-popup__prices{display:flex;align-items:center;justify-content:center;gap:18px;margin:0;}
+    /* Prix : le chiffre defile de 300 a 99 puis atterrit en peach */
+    .svb-offer-popup__prices{position:relative;display:flex;align-items:center;justify-content:center;gap:16px;height:96px;}
     .svb-offer-popup__old{
       font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:600;line-height:1;
-      color:var(--svb-cream,#FBF6EC);letter-spacing:-.02em;position:relative;display:inline-block;padding:0 4px;
-      opacity:0;transform:translateX(10px);
-      transition:opacity .45s var(--ease-out) .95s,transform .45s var(--ease-out) .95s;
+      color:var(--svb-cream,#FBF6EC);position:relative;display:inline-block;padding:0 4px;
+      max-width:0;overflow:visible;opacity:0;transform:translateX(24px);white-space:nowrap;
+      transition:max-width .5s var(--ease-out),opacity .5s var(--ease-out),transform .5s var(--ease-out);
     }
-    .svb-offer-popup.is-in .svb-offer-popup__old{opacity:.45;transform:none;}
+    .svb-offer-popup__prices.is-landed .svb-offer-popup__old{max-width:90px;opacity:.45;transform:none;}
     .svb-offer-popup__old::before{
       content:"";position:absolute;left:-2px;right:-2px;top:50%;height:2px;background:var(--svb-accent,#E8B496);
-      transform:rotate(-12deg) scaleX(0);transform-origin:left;
-      transition:transform .45s cubic-bezier(.65,0,.35,1) 1.25s;
+      transform:rotate(-12deg) scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.65,0,.35,1) .35s;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__old::before{transform:rotate(-12deg) scaleX(1);}
-    .svb-offer-popup__new{
-      position:relative;display:inline-flex;align-items:flex-start;
-      opacity:0;transform:scale(.5);
-      transition:opacity .5s var(--ease-out) 1.45s,transform .8s cubic-bezier(.34,1.56,.64,1) 1.45s;
-    }
-    .svb-offer-popup.is-in .svb-offer-popup__new{opacity:1;transform:none;}
+    .svb-offer-popup__prices.is-landed .svb-offer-popup__old::before{transform:rotate(-12deg) scaleX(1);}
+    .svb-offer-popup__new{display:inline-flex;align-items:flex-start;opacity:0;transition:opacity .4s ease;}
+    .svb-offer-popup.is-in .svb-offer-popup__new{opacity:1;transition-delay:1.5s;}
     .svb-offer-popup__amount{
-      font-family:'Montserrat',sans-serif;font-size:clamp(4.8rem,17vw,5.8rem);line-height:.88;
-      font-weight:900;letter-spacing:-.05em;color:var(--svb-accent,#E8B496);
-      background:linear-gradient(100deg,#E8B496 0%,#E8B496 40%,#FBF6EC 50%,#E8B496 60%,#E8B496 100%);
-      background-size:250% 100%;background-position:100% 0;
-      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+      font-family:'Montserrat',sans-serif;font-size:clamp(4.6rem,16vw,5.6rem);line-height:.88;font-weight:900;letter-spacing:-.05em;
+      color:var(--svb-cream,#FBF6EC);font-variant-numeric:tabular-nums;display:inline-block;min-width:2ch;
+      transition:color .35s ease;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__amount{animation:svbOfferSheen 1.4s ease-in-out 2.2s both,svbOfferSheen 1.4s ease-in-out 7s infinite;}
-    @keyframes svbOfferSheen{from{background-position:100% 0;}to{background-position:0 0;}}
-    .svb-offer-popup__euro{font-family:'Montserrat',sans-serif;font-size:1.9rem;font-weight:800;color:var(--svb-accent,#E8B496);margin:.35rem 0 0 2px;}
+    .svb-offer-popup__euro{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:800;color:var(--svb-cream,#FBF6EC);margin:.35rem 0 0 2px;transition:color .35s ease;}
+    .svb-offer-popup__prices.is-landed .svb-offer-popup__amount,
+    .svb-offer-popup__prices.is-landed .svb-offer-popup__euro{color:var(--svb-accent,#E8B496);}
+    .svb-offer-popup__prices.is-landed .svb-offer-popup__new{animation:svbOfferLand .6s cubic-bezier(.34,1.56,.64,1);}
+    @keyframes svbOfferLand{0%{transform:scale(1);}35%{transform:scale(1.14);}100%{transform:scale(1);}}
+    /* onde peach a l'atterrissage */
+    .svb-offer-popup__ring{
+      position:absolute;left:50%;top:50%;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;
+      border:2px solid var(--svb-accent,#E8B496);opacity:0;pointer-events:none;
+    }
+    .svb-offer-popup__prices.is-landed .svb-offer-popup__ring{animation:svbOfferRing .9s var(--ease-out);}
+    @keyframes svbOfferRing{0%{opacity:.7;transform:scale(.4);}100%{opacity:0;transform:scale(2.2);}}
+
     .svb-offer-popup__terms{
-      font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-      color:var(--svb-cream,#FBF6EC);opacity:0;margin:10px 0 20px;
-      transition:opacity .5s var(--ease-out) 1.75s;
+      font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--svb-cream,#FBF6EC);opacity:0;margin:2px 0 18px;transition:opacity .5s var(--ease-out);
     }
-    .svb-offer-popup.is-in .svb-offer-popup__terms{opacity:.85;}
+    .svb-offer-popup__prices.is-landed + .svb-offer-popup__terms{opacity:.85;transition-delay:.3s;}
 
     /* Places */
-    .svb-offer-popup__scarcity{
-      margin:0 0 18px;text-align:left;opacity:0;transform:translateY(8px);
-      transition:opacity .5s var(--ease-out) 1.9s,transform .5s var(--ease-out) 1.9s;
-    }
-    .svb-offer-popup.is-in .svb-offer-popup__scarcity{opacity:1;transform:none;}
+    .svb-offer-popup__scarcity{margin:0 0 18px;text-align:left;opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out);}
+    .svb-offer-popup.is-stage2 .svb-offer-popup__scarcity{opacity:1;transform:none;}
     .svb-offer-popup__scarcity-head{
       display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px;
-      font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
     }
     .svb-offer-popup__scarcity-head span:first-child{color:rgba(251,246,236,.65);}
     .svb-offer-popup__left{color:var(--svb-cream,#FBF6EC);display:inline-block;transition:transform .35s cubic-bezier(.34,1.56,.64,1);}
     .svb-offer-popup__left.is-bump{transform:scale(1.18);}
     .svb-offer-popup__progress{position:relative;height:4px;border-radius:4px;background:rgba(251,246,236,.12);overflow:hidden;}
-    .svb-offer-popup__progress-bar{
-      position:absolute;inset:0;transform-origin:left;transform:scaleX(0);border-radius:4px;
-      background:var(--svb-cream,#FBF6EC);
-      transition:transform 1.6s var(--ease-out);
-    }
+    .svb-offer-popup__progress-bar{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);border-radius:4px;background:var(--svb-cream,#FBF6EC);transition:transform 1.6s var(--ease-out);}
 
-    /* Avantages : grille 2x2 */
-    .svb-offer-popup__benefits{
-      list-style:none;padding:0;margin:0 0 20px;
-      display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(251,246,236,.1);
-      border-radius:var(--r-sm,10px);overflow:hidden;
+    /* EN DIRECT : qui regarde l'offre */
+    .svb-offer-popup__live{
+      display:flex;align-items:center;gap:14px;margin:0 0 18px;padding:14px 0;text-align:left;
+      border-top:1px solid rgba(251,246,236,.1);border-bottom:1px solid rgba(251,246,236,.1);
+      opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease-out) .15s,transform .5s var(--ease-out) .15s;
     }
+    .svb-offer-popup.is-stage2 .svb-offer-popup__live{opacity:1;transform:none;}
+    .svb-offer-popup__faces{display:flex;flex:0 0 auto;padding-left:8px;}
+    .svb-offer-popup__face{
+      width:32px;height:32px;margin-left:-9px;border-radius:50%;border:2px solid var(--svb-ink-deep,#1d3838);
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:800;color:var(--svb-ink,#2F4F4F);
+      animation:svbOfferFaceIn .45s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    .svb-offer-popup__face.is-out{animation:svbOfferFaceOut .35s ease forwards;}
+    @keyframes svbOfferFaceIn{from{transform:scale(0) translateY(6px);opacity:0;}to{transform:none;opacity:1;}}
+    @keyframes svbOfferFaceOut{to{transform:scale(0);opacity:0;}}
+    .svb-offer-popup__face--more{background:rgba(251,246,236,.14);color:var(--svb-cream,#FBF6EC);font-size:.62rem;}
+    .svb-offer-popup__live-text{flex:1;min-width:0;}
+    .svb-offer-popup__live-head{
+      display:flex;align-items:center;gap:7px;margin:0 0 3px;
+      font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#98D0B3;
+    }
+    .svb-offer-popup__live-dot{width:6px;height:6px;border-radius:50%;background:#98D0B3;position:relative;flex:0 0 auto;}
+    .svb-offer-popup__live-dot::after{content:"";position:absolute;inset:-3px;border-radius:50%;background:rgba(152,208,179,.5);animation:svbOfferPing 1.8s cubic-bezier(0,0,.2,1) infinite;}
+    @keyframes svbOfferPing{0%{transform:scale(.6);opacity:.9;}75%,100%{transform:scale(2.6);opacity:0;}}
+    .svb-offer-popup__live-main{margin:0;font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:500;color:var(--svb-cream,#FBF6EC);line-height:1.3;}
+    .svb-offer-popup__count{display:inline-block;position:relative;overflow:hidden;height:1.2em;vertical-align:bottom;font-weight:900;min-width:.7em;text-align:center;}
+    .svb-offer-popup__count span{display:block;transition:transform .45s cubic-bezier(.65,0,.35,1),opacity .45s;}
+    .svb-offer-popup__count .is-leaving{position:absolute;inset:0;transform:translateY(-100%);opacity:0;}
+    .svb-offer-popup__count .is-entering{transform:translateY(100%);opacity:0;}
+    .svb-offer-popup__ticker{
+      margin:3px 0 0;height:1.3em;overflow:hidden;position:relative;
+      font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:500;color:rgba(251,246,236,.55);
+    }
+    .svb-offer-popup__ticker span{position:absolute;inset:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:transform .5s var(--ease-out),opacity .5s;}
+    .svb-offer-popup__ticker .is-leaving{transform:translateY(-100%);opacity:0;}
+    .svb-offer-popup__ticker .is-entering{transform:translateY(100%);opacity:0;}
+
+    /* Avantages 2x2 */
+    .svb-offer-popup__benefits{list-style:none;padding:0;margin:0 0 18px;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;text-align:left;}
     .svb-offer-popup__benefits li{
-      background:var(--svb-ink-deep,#1d3838);padding:12px 8px;
-      font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;line-height:1.3;color:rgba(251,246,236,.9);
-      opacity:0;transform:translateY(8px);
-      transition:opacity .45s var(--ease-out),transform .45s var(--ease-out);
+      font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;line-height:1.3;color:rgba(251,246,236,.85);
+      opacity:0;transform:translateY(8px);transition:opacity .45s var(--ease-out),transform .45s var(--ease-out);
     }
-    .svb-offer-popup__benefits li:nth-child(1){transition-delay:2.05s;}
-    .svb-offer-popup__benefits li:nth-child(2){transition-delay:2.15s;}
-    .svb-offer-popup__benefits li:nth-child(3){transition-delay:2.25s;}
-    .svb-offer-popup__benefits li:nth-child(4){transition-delay:2.35s;}
-    .svb-offer-popup.is-in .svb-offer-popup__benefits li{opacity:1;transform:none;}
-    .svb-offer-popup__benefits strong{display:block;font-family:'Dancing Script',cursive;font-size:1.25rem;font-weight:700;color:var(--svb-accent,#E8B496);margin-bottom:2px;}
+    .svb-offer-popup__benefits li:nth-child(1){transition-delay:.3s;}
+    .svb-offer-popup__benefits li:nth-child(2){transition-delay:.38s;}
+    .svb-offer-popup__benefits li:nth-child(3){transition-delay:.46s;}
+    .svb-offer-popup__benefits li:nth-child(4){transition-delay:.54s;}
+    .svb-offer-popup.is-stage2 .svb-offer-popup__benefits li{opacity:1;transform:none;}
+    .svb-offer-popup__benefits strong{display:block;font-family:'Dancing Script',cursive;font-size:1.2rem;font-weight:700;color:var(--svb-accent,#E8B496);line-height:1.1;}
 
-    /* CTA : cream sur ink (regle DA) + halo periodique */
+    /* CTA creme sur ink + halo */
     .svb-offer-popup__cta{
       position:relative;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:58px;
       padding:16px 22px;border:none;border-radius:var(--r-sm,10px);
       background:var(--svb-cream,#FBF6EC);color:var(--svb-ink,#2F4F4F);cursor:pointer;
       font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
-      opacity:0;transform:translateY(10px);
-      transition:opacity .5s var(--ease-out) 2.5s,transform .5s var(--ease-out) 2.5s,background .2s;
+      opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease-out) .6s,transform .5s var(--ease-out) .6s,background .2s;
     }
-    .svb-offer-popup.is-in .svb-offer-popup__cta{opacity:1;transform:none;animation:svbOfferHalo 3s ease-out 3.4s infinite;}
+    .svb-offer-popup.is-stage2 .svb-offer-popup__cta{opacity:1;transform:none;animation:svbOfferHalo 3s ease-out 1.6s infinite;}
     @keyframes svbOfferHalo{0%{box-shadow:0 0 0 0 rgba(251,246,236,.45);}70%,100%{box-shadow:0 0 0 14px rgba(251,246,236,0);}}
     .svb-offer-popup__cta:hover{background:#fff;}
-    .svb-offer-popup__cta-arrow{display:inline-block;transition:transform .25s var(--ease-out);}
-    .svb-offer-popup__cta:hover .svb-offer-popup__cta-arrow{transform:translateX(5px);}
+    .svb-offer-popup__cta-arrow{display:inline-block;animation:svbOfferNudge 2.4s ease-in-out infinite;}
+    @keyframes svbOfferNudge{0%,70%,100%{transform:none;}80%{transform:translateX(5px);}90%{transform:translateX(0);}}
 
-    .svb-offer-popup__cta-note{
-      margin:10px 0 0;font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-      color:var(--svb-cream,#FBF6EC);opacity:0;transition:opacity .5s var(--ease-out) 2.7s;
-    }
-    .svb-offer-popup.is-in .svb-offer-popup__cta-note{opacity:.6;}
-
-    .svb-offer-popup__live{
-      display:inline-flex;align-items:center;gap:8px;margin:12px 0 0;
-      font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:500;color:var(--svb-cream,#FBF6EC);opacity:0;
-      transition:opacity .5s var(--ease-out);
-    }
-    .svb-offer-popup__live[hidden]{display:none;}
-    .svb-offer-popup.is-in .svb-offer-popup__live:not([hidden]){opacity:.7;}
-    .svb-offer-popup__live-dot{width:6px;height:6px;border-radius:50%;background:#98D0B3;position:relative;flex:0 0 auto;}
-    .svb-offer-popup__live-dot::after{content:"";position:absolute;inset:-3px;border-radius:50%;background:rgba(152,208,179,.45);animation:svbOfferPing 2.2s cubic-bezier(0,0,.2,1) infinite;}
-    @keyframes svbOfferPing{0%{transform:scale(.6);opacity:.9;}75%,100%{transform:scale(2.4);opacity:0;}}
-    .svb-offer-popup__live strong{font-weight:800;}
-
-    .svb-offer-popup__fine{
-      margin:14px 0 0;font-family:'Montserrat',sans-serif;font-size:.56rem;line-height:1.55;color:var(--svb-cream,#FBF6EC);opacity:0;
-      transition:opacity .5s var(--ease-out) 3s;
-    }
-    .svb-offer-popup.is-in .svb-offer-popup__fine{opacity:.42;}
+    .svb-offer-popup__cta-note{margin:10px 0 0;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--svb-cream,#FBF6EC);opacity:0;transition:opacity .5s var(--ease-out) .8s;}
+    .svb-offer-popup.is-stage2 .svb-offer-popup__cta-note{opacity:.6;}
+    .svb-offer-popup__fine{margin:12px 0 0;font-family:'Montserrat',sans-serif;font-size:.56rem;line-height:1.55;color:var(--svb-cream,#FBF6EC);opacity:0;transition:opacity .5s var(--ease-out) .9s;}
+    .svb-offer-popup.is-stage2 .svb-offer-popup__fine{opacity:.42;}
 
     body.svb-offer-popup-open{overflow:hidden;}
     @media (max-width:480px){
       .svb-offer-popup{padding:10px;}
-      .svb-offer-popup__media{height:190px;}
+      .svb-offer-popup__media{height:180px;}
       .svb-offer-popup__body{padding:0 20px 20px;}
     }
     @media (prefers-reduced-motion:reduce){
-      .svb-offer-popup__card,.svb-offer-popup__media video,.svb-offer-popup__media img,.svb-offer-popup__amount,
-      .svb-offer-popup__cta,.svb-offer-popup__live-dot::after{animation:none!important;transform:none;}
-      .svb-offer-popup *{transition:none!important;}
-      .svb-offer-popup__kicker,.svb-offer-popup__subtitle,.svb-offer-popup__old,.svb-offer-popup__new,.svb-offer-popup__terms,
-      .svb-offer-popup__scarcity,.svb-offer-popup__benefits li,.svb-offer-popup__cta,.svb-offer-popup__cta-note,
-      .svb-offer-popup__live,.svb-offer-popup__fine{opacity:1!important;transform:none!important;}
-      .svb-offer-popup__old::before{transform:rotate(-12deg) scaleX(1)!important;}
+      .svb-offer-popup *,.svb-offer-popup *::before,.svb-offer-popup *::after{animation:none!important;transition:none!important;}
+      .svb-offer-popup__media{clip-path:none;}
+      .svb-offer-popup__media video{transform:none;}
     }
   </style>
   <div id="svb-offer-popup" class="svb-offer-popup" role="dialog" aria-modal="true" aria-labelledby="svb-offer-popup-title" hidden>
     <div class="svb-offer-popup__backdrop" aria-hidden="true"></div>
     <div class="svb-offer-popup__card" role="document">
       <div class="svb-offer-popup__media">
-        <video id="svb-offer-popup-video" muted loop playsinline preload="none" poster="/videos/reformer-card-v2-poster.jpg" data-src="/videos/reformer-card-v2.mp4" aria-hidden="true"></video>
+        <video id="svb-offer-popup-video" muted loop playsinline preload="none" poster="/videos/pilates-reformer-immersion-poster.jpg" data-src="/videos/pilates-reformer-immersion.mp4" aria-hidden="true"></video>
         <span class="svb-offer-popup__kicker">Offre exceptionnelle</span>
         <button type="button" class="svb-offer-popup__close" id="svb-offer-popup-close" aria-label="Fermer">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -1680,9 +1685,10 @@
         <h2 id="svb-offer-popup-title" class="svb-offer-popup__title svb-split">Ton premier mois illimité</h2>
         <p class="svb-offer-popup__subtitle">Réservé aux 100 premiers inscrits</p>
 
-        <div class="svb-offer-popup__prices" aria-label="300 euros barré, 99 euros">
+        <div class="svb-offer-popup__prices" id="svb-offer-popup-prices" aria-label="300 euros barré, 99 euros">
+          <span class="svb-offer-popup__ring" aria-hidden="true"></span>
           <span class="svb-offer-popup__old" aria-hidden="true">300€</span>
-          <span class="svb-offer-popup__new" aria-hidden="true"><span class="svb-offer-popup__amount">99</span><span class="svb-offer-popup__euro">€</span></span>
+          <span class="svb-offer-popup__new" aria-hidden="true"><span class="svb-offer-popup__amount" id="svb-offer-popup-amount">300</span><span class="svb-offer-popup__euro">€</span></span>
         </div>
         <p class="svb-offer-popup__terms">30 jours · jusqu'à 1 cours / jour</p>
 
@@ -1694,20 +1700,24 @@
           <div class="svb-offer-popup__progress" aria-hidden="true"><div class="svb-offer-popup__progress-bar" id="svb-offer-popup-bar"></div></div>
         </div>
 
+        <div class="svb-offer-popup__live" role="status">
+          <div class="svb-offer-popup__faces" id="svb-offer-popup-faces" aria-hidden="true"></div>
+          <div class="svb-offer-popup__live-text">
+            <p class="svb-offer-popup__live-head"><span class="svb-offer-popup__live-dot" aria-hidden="true"></span>En direct</p>
+            <p class="svb-offer-popup__live-main"><span class="svb-offer-popup__count" id="svb-offer-popup-count"><span>6</span></span> personnes regardent cette offre</p>
+            <p class="svb-offer-popup__ticker" id="svb-offer-popup-ticker" aria-hidden="true"><span>Quelqu'un vient d'ouvrir l'offre</span></p>
+          </div>
+        </div>
+
         <ul class="svb-offer-popup__benefits">
           <li><strong>Toutes</strong>les disciplines SVB</li>
           <li><strong>Petits</strong>groupes</li>
-          <li><strong>Deux</strong>studios à Saint-Ouen</li>
           <li><strong>Coaching</strong>premium</li>
+          <li><strong>Deux</strong>studios à Saint-Ouen</li>
         </ul>
 
         <button type="button" class="svb-offer-popup__cta svb-magnetic js-buy" data-booking-path="/place/place_svb-lavandieres/subscription-plans" data-label="Premier mois illimité · 99 €" data-amount="99 €" data-track="home_offer_popup_cta">Je profite des 99 € <span class="svb-offer-popup__cta-arrow" aria-hidden="true">→</span></button>
         <p class="svb-offer-popup__cta-note">Une seule offre découverte par personne</p>
-
-        <div class="svb-offer-popup__live" role="status" id="svb-offer-popup-live" hidden>
-          <span class="svb-offer-popup__live-dot" aria-hidden="true"></span>
-          <span><strong id="svb-offer-popup-live-n">0</strong> personnes consultent cette offre</span>
-        </div>
 
         <p class="svb-offer-popup__fine">Premier mois à 99 € pour les nouveaux membres, une seule fois par personne. À partir du 2e mois : SVB Limitless 300 €/mois, engagement 1 an, frais de dossier 49 €.</p>
       </div>
@@ -1717,7 +1727,7 @@
     (function(){
       var pop = document.getElementById('svb-offer-popup');
       if (!pop) return;
-      var KEY = 'svb-offer-popup-v13-video';
+      var KEY = 'svb-offer-popup-v14-live';
       var seen = false;
       try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
       if (seen) return;
@@ -1725,8 +1735,13 @@
       var cta = pop.querySelector('.svb-offer-popup__cta');
       var video = document.getElementById('svb-offer-popup-video');
       var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var timers = [];
+      function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+      function every(fn, ms){ timers.push(setInterval(fn, ms)); }
       var lastFocus = null;
       function remember(){ try { sessionStorage.setItem(KEY, '1'); } catch (e) {} }
+      function rand(a, b){ return Math.floor(Math.random() * (b - a + 1)) + a; }
+
       function open(){
         lastFocus = document.activeElement;
         if (video && !reduced && video.dataset.src) {
@@ -1739,15 +1754,16 @@
         try { if (window.svbTrack) window.svbTrack('home_offer_popup_view', { offer: 'premier_mois_99' }); } catch (e) {}
         requestAnimationFrame(function(){ requestAnimationFrame(function(){
           pop.classList.add('is-in');
-          var title = document.getElementById('svb-offer-popup-title');
-          if (title) setTimeout(function(){ title.classList.add('svb-split-in'); }, 450);
+          later(function(){ var t = document.getElementById('svb-offer-popup-title'); if (t) t.classList.add('svb-split-in'); }, 900);
         }); });
-        startCounters();
+        runPrice();
+        later(function(){ pop.classList.add('is-stage2'); startScarcity(); startLive(); }, reduced ? 0 : 3100);
       }
       function close(){
         pop.hidden = true;
         document.body.classList.remove('svb-offer-popup-open');
         if (video) { try { video.pause(); } catch (e) {} }
+        timers.forEach(function(t){ clearTimeout(t); clearInterval(t); });
         remember();
         if (lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) {} }
       }
@@ -1761,10 +1777,26 @@
         else if (i === -1 || i === f.length - 1) { e.preventDefault(); f[0].focus(); }
       });
 
-      // Compteur places : decremente 1 place toutes les 3-6h, plancher 12 restantes, persiste en localStorage
+      // --- Prix : 300 -> 99 ---
+      function runPrice(){
+        var box = document.getElementById('svb-offer-popup-prices');
+        var el = document.getElementById('svb-offer-popup-amount');
+        if (reduced) { el.textContent = '99'; box.classList.add('is-landed'); return; }
+        later(function(){
+          var from = 300, to = 99, dur = 1300, start = null;
+          requestAnimationFrame(function step(ts){
+            if (!start) start = ts;
+            var t = Math.min(1, (ts - start) / dur);
+            var e = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+            el.textContent = Math.round(from + (to - from) * e);
+            if (t < 1) requestAnimationFrame(step); else { el.textContent = '99'; box.classList.add('is-landed'); }
+          });
+        }, 1700);
+      }
+
+      // --- Places : 1 place toutes les 3-6h, plancher 12, localStorage ---
       var TOTAL = 100, MIN_LEFT = 12, START_TAKEN = 27;
       var DEC_MIN = 3 * 3600000, DEC_MAX = 6 * 3600000, LS_KEY = 'svb-99-places-state';
-      function rand(a, b){ return Math.floor(Math.random() * (b - a + 1)) + a; }
       function readS(){ try { return JSON.parse(localStorage.getItem(LS_KEY) || 'null'); } catch (e) { return null; } }
       function writeS(s){ try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch (e) {} }
       function getPlaces(){
@@ -1776,54 +1808,96 @@
         while (s.taken < TOTAL - MIN_LEFT && s.next <= now && g++ < 200) { s.taken++; s.next += rand(DEC_MIN, DEC_MAX); }
         writeS(s); return s;
       }
-      var V_KEY = 'svb-99-visitors-state', VMIN = 4, VMAX = 9;
-      function nextVisitors(){
-        var s = null; try { s = JSON.parse(sessionStorage.getItem(V_KEY) || 'null'); } catch (e) {}
-        var n = s ? Math.max(VMIN, Math.min(VMAX, s.n + (Math.random() < .5 ? -1 : 1))) : rand(VMIN, VMAX);
-        try { sessionStorage.setItem(V_KEY, JSON.stringify({ n: n })); } catch (e) {}
-        return n;
-      }
       function label(n){ return 'Plus que ' + n + (n === 1 ? ' place' : ' places'); }
-
-      function startCounters(){
+      function startScarcity(){
         var takenEl = document.getElementById('svb-offer-popup-taken');
         var remEl = document.getElementById('svb-offer-popup-remaining');
         var barEl = document.getElementById('svb-offer-popup-bar');
-        var liveWrap = document.getElementById('svb-offer-popup-live');
-        var liveN = document.getElementById('svb-offer-popup-live-n');
         var taken = getPlaces().taken;
+        barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
+        if (reduced) { takenEl.textContent = taken; remEl.textContent = label(TOTAL - taken); return; }
+        var start = null, dur = 1500;
+        requestAnimationFrame(function tick(ts){
+          if (!start) start = ts;
+          var t = Math.min(1, (ts - start) / dur), cur = Math.round((1 - Math.pow(1 - t, 3)) * taken);
+          takenEl.textContent = cur; remEl.textContent = label(TOTAL - cur);
+          if (t < 1) requestAnimationFrame(tick);
+          else { remEl.classList.add('is-bump'); later(function(){ remEl.classList.remove('is-bump'); }, 380); }
+        });
+      }
 
-        setTimeout(function(){
-          barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
-          var start = null, dur = 1500;
-          (function tick(ts){
-            if (!ts) return requestAnimationFrame(tick);
-            if (!start) start = ts;
-            var t = Math.min(1, (ts - start) / dur), cur = Math.round((1 - Math.pow(1 - t, 3)) * taken);
-            takenEl.textContent = cur; remEl.textContent = label(TOTAL - cur);
-            if (t < 1) requestAnimationFrame(tick);
-            else { remEl.classList.add('is-bump'); setTimeout(function(){ remEl.classList.remove('is-bump'); }, 380); }
-          })();
-        }, 2000);
+      // --- En direct : visiteurs (4-11), avatars, ticker ---
+      var V_KEY = 'svb-99-visitors-state', VMIN = 4, VMAX = 11;
+      var LETTERS = 'ACDEHIJKLMNOSY';
+      var TONES = ['#E8B496', '#B8D8C0', '#F2E6CF', '#98D0B3', '#D4C3A3'];
+      var FEED = [
+        "Quelqu'un vient d'ouvrir l'offre",
+        'Nouvelle visite depuis Saint-Ouen',
+        "Une personne compare avec le Pass Try",
+        'Quelqu\'un regarde le planning Reformer',
+        'Nouvelle visite depuis Paris 17e',
+        'Quelqu\'un lit les conditions de l\'offre',
+        'Nouvelle visite depuis Clichy'
+      ];
+      function readV(){ try { return JSON.parse(sessionStorage.getItem(V_KEY) || 'null'); } catch (e) { return null; } }
+      function writeV(n){ try { sessionStorage.setItem(V_KEY, JSON.stringify({ n: n })); } catch (e) {} }
+      function makeFace(){
+        var f = document.createElement('span');
+        f.className = 'svb-offer-popup__face';
+        f.style.background = TONES[rand(0, TONES.length - 1)];
+        f.textContent = LETTERS.charAt(rand(0, LETTERS.length - 1));
+        return f;
+      }
+      function roll(wrap, text){
+        var cur = wrap.firstElementChild;
+        if (reduced || !cur) { wrap.innerHTML = ''; var s0 = document.createElement('span'); s0.textContent = text; wrap.appendChild(s0); return; }
+        var nx = document.createElement('span'); nx.textContent = text; nx.className = 'is-entering';
+        wrap.appendChild(nx);
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){ cur.className = 'is-leaving'; nx.className = ''; }); });
+        later(function(){ if (cur.parentNode) cur.parentNode.removeChild(cur); }, 520);
+      }
+      function startLive(){
+        var faces = document.getElementById('svb-offer-popup-faces');
+        var count = document.getElementById('svb-offer-popup-count');
+        var ticker = document.getElementById('svb-offer-popup-ticker');
+        var s = readV();
+        var n = s ? s.n : rand(5, 8);
+        writeV(n);
+        count.firstElementChild.textContent = n;
+        var MAX_FACES = 4;
+        var more = document.createElement('span');
+        more.className = 'svb-offer-popup__face svb-offer-popup__face--more';
+        function renderMore(){ more.textContent = '+' + Math.max(0, n - MAX_FACES); more.style.display = n > MAX_FACES ? '' : 'none'; }
+        for (var i = 0; i < Math.min(n, MAX_FACES); i++) {
+          (function(k){ later(function(){ var f = makeFace(); faces.insertBefore(f, more.parentNode ? more : null); }, reduced ? 0 : k * 130); })(i);
+        }
+        later(function(){ faces.appendChild(more); renderMore(); }, reduced ? 0 : MAX_FACES * 130);
 
-        setTimeout(function(){ liveN.textContent = nextVisitors(); liveWrap.hidden = false; }, 2900);
-        setInterval(function(){ if (!pop.hidden) liveN.textContent = nextVisitors(); }, rand(14000, 22000));
+        var fi = 0;
+        every(function(){
+          if (pop.hidden) return;
+          fi = (fi + 1) % FEED.length;
+          roll(ticker, FEED[fi]);
+        }, 3400);
 
-        (function scheduleDrop(){
-          var s = readS(); if (!s || taken >= TOTAL - MIN_LEFT) return;
-          var wait = Math.max(30000, s.next - Date.now());
-          if (wait > 300000) return;
-          setTimeout(function(){
-            if (pop.hidden) return;
-            var nt = getPlaces().taken;
-            if (nt > taken) {
-              taken = nt; takenEl.textContent = taken; remEl.textContent = label(TOTAL - taken);
-              barEl.style.transform = 'scaleX(' + (taken / TOTAL) + ')';
-              remEl.classList.add('is-bump'); setTimeout(function(){ remEl.classList.remove('is-bump'); }, 380);
-            }
-            scheduleDrop();
-          }, wait);
-        })();
+        every(function(){
+          if (pop.hidden) return;
+          var delta = Math.random() < .55 ? 1 : -1;
+          var nn = Math.max(VMIN, Math.min(VMAX, n + delta));
+          if (nn === n) return;
+          n = nn; writeV(n);
+          roll(count, String(n));
+          var list = faces.querySelectorAll('.svb-offer-popup__face:not(.svb-offer-popup__face--more)');
+          if (delta > 0) {
+            var f = makeFace();
+            faces.insertBefore(f, faces.firstChild);
+            if (list.length >= MAX_FACES) { var last = list[list.length - 1]; last.classList.add('is-out'); later(function(){ if (last.parentNode) last.parentNode.removeChild(last); }, 360); }
+            roll(ticker, n % 2 ? "Quelqu'un vient d'ouvrir l'offre" : 'Nouvelle visite depuis Saint-Ouen');
+          } else if (list.length && n < MAX_FACES) {
+            var first = list[0]; first.classList.add('is-out'); later(function(){ if (first.parentNode) first.parentNode.removeChild(first); }, 360);
+          }
+          renderMore();
+        }, rand(7000, 11000));
       }
 
       setTimeout(open, 900);
