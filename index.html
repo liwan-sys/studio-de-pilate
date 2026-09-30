@@ -1756,7 +1756,7 @@
           later(function(){ var t = document.getElementById('svb-offer-popup-title'); if (t) t.classList.add('svb-split-in'); }, 900);
         }); });
         runPrice();
-        later(function(){ pop.classList.add('is-stage2'); startScarcity(); startLive(); }, reduced ? 0 : 3100);
+        later(function(){ pop.classList.add('is-stage2'); startScarcity(); startLive(); }, reduced ? 0 : 4000);
       }
       function close(){
         pop.hidden = true;
@@ -1781,14 +1781,23 @@
         var box = document.getElementById('svb-offer-popup-prices');
         var el = document.getElementById('svb-offer-popup-amount');
         if (reduced) { el.textContent = '99'; box.classList.add('is-landed'); return; }
+        // Temps 1 : defilement rapide 300 -> 110, qui freine (ease-out cubique).
+        // Temps 2 : derniers chiffres un par un, de plus en plus lentement.
+        var FINAL = [108, 106, 104, 103, 102, 101, 100, 99];
+        var WAITS = [70, 85, 105, 130, 165, 210, 270, 340];
+        function land(){ el.textContent = '99'; box.classList.add('is-landed'); }
+        function tail(i){
+          if (i >= FINAL.length) return land();
+          later(function(){ el.textContent = FINAL[i]; if (i === FINAL.length - 1) land(); else tail(i + 1); }, WAITS[i]);
+        }
         later(function(){
-          var from = 300, to = 99, dur = 1300, start = null;
+          var from = 300, to = 110, dur = 800, start = null;
           requestAnimationFrame(function step(ts){
             if (!start) start = ts;
             var t = Math.min(1, (ts - start) / dur);
-            var e = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-            el.textContent = Math.round(from + (to - from) * e);
-            if (t < 1) requestAnimationFrame(step); else { el.textContent = '99'; box.classList.add('is-landed'); }
+            var v = Math.round(from + (to - from) * (1 - Math.pow(1 - t, 3)));
+            el.textContent = v;
+            if (v > to && t < 1) requestAnimationFrame(step); else tail(0);
           });
         }, 1700);
       }
