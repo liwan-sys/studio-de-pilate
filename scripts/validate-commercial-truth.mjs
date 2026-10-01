@@ -115,7 +115,7 @@ for (const [pattern, label] of globalForbidden) {
   if (pattern.test(publicCopy)) fail(`Ancienne information trouvée : ${label}`);
 }
 
-requireText('index.html', 'Le Pass Try coûte 30 € et comprend deux séances dans deux disciplines différentes');
+requireText('index.html', 'Pour 30 €, tu réserves 2 séances dans 2 disciplines différentes.');
 requireText('index.html', 'Pour Limitless, 1 no-show bloque l\'abonnement pendant 1 semaine.');
 // La carte signature de l'accueil présente désormais le Pass Try (l'offre de lancement Limitless reste sur /tarifs).
 requireText('index.html', 'Réserver mes 2 séances · 30 €');

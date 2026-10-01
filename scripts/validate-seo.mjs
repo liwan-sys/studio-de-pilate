@@ -158,6 +158,24 @@ for (const absoluteFile of htmlFiles) {
     for (const node of topLevelNodes) {
       if (!node || typeof node !== 'object') continue;
       const types = asArray(node['@type']);
+      if (types.includes('FAQPage')) {
+        const body = html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)?.[1] || '';
+        const visibleText = body.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
+        if (!asArray(node.mainEntity).some((question) => {
+          const words = String(question.name || '').replace(/\s+/g, ' ').trim();
+          return words && visibleText.includes(words);
+        })) {
+          fail(`${relativeFile} : FAQ declaree sans aucune question correspondante dans le contenu HTML.`);
+        }
+        if (['index.html', 'essai.html'].includes(relativeFile)) {
+          const copy = body.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
+          for (const question of asArray(node.mainEntity)) {
+            if (!copy.includes(question.name) || !copy.includes(question.acceptedAnswer?.text)) {
+              fail(`${relativeFile} : la FAQ structuree differe du texte affiche (${question.name}).`);
+            }
+          }
+        }
+      }
       if (types.some((type) => businessTypes.has(type))) {
         businessSchemaFiles.add(relativeFile);
         const schemas = businessSchemas.get(relativeFile) || [];
