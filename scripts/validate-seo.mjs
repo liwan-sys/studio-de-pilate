@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const errors = [];
 const warnings = [];
+const commercialTruth = JSON.parse(read('content/commercial-truth.json'));
 
 function read(relativePath) {
   return fs.readFileSync(path.join(root, relativePath), 'utf8');
@@ -238,6 +239,19 @@ for (const [file, expected] of expectedBusinesses) {
   for (const [key, value] of Object.entries(expected)) {
     if (actual[key] !== value) fail(`${file} : ${key} vaut ${actual[key]} au lieu de ${value}.`);
   }
+  const studioKey = file === 'studio-parc-des-docks.html' ? 'parcDesDocks' : 'coursDesLavandieres';
+  const expectedCourses = commercialTruth.studios[studioKey].courses;
+  const declaredCourses = asArray(schema.knowsAbout);
+  if (JSON.stringify([...declaredCourses].sort()) !== JSON.stringify([...expectedCourses].sort())) {
+    fail(`${file} : les disciplines declarees doivent correspondre au catalogue officiel du studio.`);
+  }
+}
+
+// Le recapitulatif public doit suivre les memes routes que le site.
+for (const match of read('llms.txt').matchAll(/https:\/\/studiosvb\.com(?:\/[^\s)]*)?/g)) {
+  const pathname = new URL(match[0]).pathname;
+  if (permanentRedirects.has(pathname)) fail(`llms.txt pointe vers une ancienne URL : ${pathname}.`);
+  else if (!publicPathExists(pathname)) fail(`llms.txt pointe vers une page inexistante : ${pathname}.`);
 }
 
 const allowedLocationIds = new Set([...expectedBusinesses.values()].map((business) => business.id));
