@@ -1678,6 +1678,28 @@
       text-shadow:0 2px 14px rgba(0,0,0,.4);transition:opacity .45s ease,transform .45s ease;
     }
     .svb-offer-popup__tag.is-swap{opacity:0;transform:translateY(8px);}
+    /* Mobile et petits ecrans : les deux videos en vignettes au-dessus de la carte */
+    @media (max-width:959px),(max-height:639px){
+      .svb-offer-popup__stage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto minmax(0,1fr);gap:8px;width:min(420px,100%);max-height:calc(100dvh - 20px);}
+      .svb-offer-popup__side{
+        display:block;position:relative;height:clamp(96px,17vh,140px);border-radius:14px;overflow:hidden;background:#1d3838;
+        opacity:0;animation:svbOfferSideDown .7s var(--ease-out,cubic-bezier(.16,1,.3,1)) .4s forwards;
+      }
+      .svb-offer-popup__side--l{grid-column:1;grid-row:1;}
+      .svb-offer-popup__side--r{grid-column:2;grid-row:1;animation-delay:.55s;}
+      .svb-offer-popup__side video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;}
+      .svb-offer-popup__side::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,56,56,0) 45%,rgba(29,56,56,.85) 100%);pointer-events:none;}
+      .svb-offer-popup__side .svb-offer-popup__tag{bottom:6px;font-size:1.2rem;}
+      /* Bouton toujours visible : colle au bas de la carte quand elle defile */
+      .svb-offer-popup__cta-dock{position:sticky;bottom:0;z-index:4;margin:0 -20px;padding:22px 20px 10px;background:linear-gradient(180deg,rgba(29,56,56,0) 0%,var(--svb-ink-deep,#1d3838) 38%);}
+      .svb-offer-popup__body{padding-top:30px;}
+      .svb-offer-popup__kicker{margin-bottom:8px;}
+      .svb-offer-popup__terms{margin-bottom:12px;}
+      .svb-offer-popup__countdown,.svb-offer-popup__scarcity,.svb-offer-popup__live,.svb-offer-popup__benefits{margin-bottom:12px;}
+      .svb-offer-popup__live{padding:10px 0;}
+      .svb-offer-popup__stage > .svb-offer-popup__card{grid-column:1 / 3;grid-row:2;width:100%;min-height:0;max-height:calc(100dvh - 28px - clamp(96px,17vh,140px));}
+    }
+    @keyframes svbOfferSideDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:none;}}
     @media (max-width:480px){
       .svb-offer-popup{padding:10px;}
       .svb-offer-popup__body{padding:40px 20px 20px;}
@@ -1744,7 +1766,7 @@
           <li><strong>Deux</strong>studios à<br>Saint&#8209;Ouen</li>
         </ul>
 
-        <button type="button" class="svb-offer-popup__cta svb-magnetic js-buy" data-booking-path="/place/place_svb-lavandieres/packs" data-label="Premier mois illimité · 99 €" data-amount="99 €" data-track="home_offer_popup_cta">Je profite des 99 € <span class="svb-offer-popup__cta-arrow" aria-hidden="true">→</span></button>
+        <div class="svb-offer-popup__cta-dock"><button type="button" class="svb-offer-popup__cta svb-magnetic js-buy" data-booking-path="/place/place_svb-lavandieres/packs" data-label="Premier mois illimité · 99 €" data-amount="99 €" data-track="home_offer_popup_cta">Je profite des 99 € <span class="svb-offer-popup__cta-arrow" aria-hidden="true">→</span></button></div>
         <p class="svb-offer-popup__cta-note">Une seule offre découverte par personne</p>
 
         <p class="svb-offer-popup__fine">Premier mois à 99 € pour les nouveaux membres, une seule fois par personne. Sans engagement.</p>
@@ -1760,7 +1782,7 @@
     (function(){
       var pop = document.getElementById('svb-offer-popup');
       if (!pop) return;
-      var KEY = 'svb-offer-popup-v16-mix';
+      var KEY = 'svb-offer-popup-v17-mobile-videos';
       var seen = false;
       try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
       if (seen) return;
@@ -1817,6 +1839,11 @@
         left:  [clip('cross-rox-collectif', 'Cross Training'), clip('cross-yoga-card', 'Yoga'), clip('boxe-card', 'Boxe')],
         right: [clip('reformer-card-v2', 'Reformer'), clip('crossformer-immersion', 'Crossformer'), clip('flow-reformer-hotel-lobby-v2', 'Flow Reformer')],
       };
+      // Sur mobile : videos plus legeres (donnees mobiles)
+      var REELS_MOBILE = {
+        left:  [clip('cross-yoga-card', 'Yoga'), clip('boxe-card', 'Boxe')],
+        right: [clip('reformer-card-v2', 'Reformer'), clip('pilates-reformer-immersion', 'Pilates Reformer')]
+      };
       var CLIP_MS = 4800;
       function runReel(box, list, offset){
         var vids = box.querySelectorAll('video'), tag = box.querySelector('.svb-offer-popup__tag');
@@ -1851,10 +1878,9 @@
       }
       function startReels(){
         var desktop = window.matchMedia('(min-width: 960px) and (min-height: 640px)').matches;
-        if (desktop) {
-          runReel(pop.querySelector('[data-reel="left"]'), REELS.left, 0);
-          runReel(pop.querySelector('[data-reel="right"]'), REELS.right, CLIP_MS / 2);
-        }
+        var set = desktop ? REELS : REELS_MOBILE;
+        runReel(pop.querySelector('[data-reel="left"]'), set.left, 0);
+        runReel(pop.querySelector('[data-reel="right"]'), set.right, CLIP_MS / 2);
       }
 
       // --- Prix : 300 -> 99 ---
