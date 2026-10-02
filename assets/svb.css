@@ -273,6 +273,16 @@ img[loading="lazy"]{
   0%{transform:translate(0,0) scale(1)}
   100%{transform:translate(30px,-50px) scale(1.1)}
 }
+/* Fond du site : les taches voyagent largement (nom propre pour ne pas
+   etre ecrase par les moveBlob redefinis dans index.css et les pages) */
+.ambient-bg .blob{animation:svbAmbientDrift 26s ease-in-out infinite alternate;will-change:transform}
+.ambient-bg .blob-2{animation-duration:34s;animation-direction:alternate-reverse}
+@keyframes svbAmbientDrift{
+  0%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(14vw,10vh) scale(1.15)}
+  66%{transform:translate(-6vw,18vh) scale(.92)}
+  100%{transform:translate(10vw,-8vh) scale(1.08)}
+}
 
 /* --- Floating WhatsApp ----------------------------------------- */
 .whatsapp-btn{
@@ -314,6 +324,26 @@ nav.reveal-load,header.reveal-load{opacity:1!important;transform:translateY(0)!i
 .ambient-bg{
   position:fixed;inset:0;z-index:-2;overflow:hidden;
   background:linear-gradient(180deg,#98D0B3 0%,#F2E6CF 100%);
+}
+/* Fond creme et sable (prend le pas sur les degrades menthe definis dans
+   index.css et les pages) */
+html .ambient-bg{background:linear-gradient(180deg,#FBF6EC 0%,#F2E6CF 100%)}
+body:has(> .ambient-bg){background-color:#F6EEDD}
+html .ambient-bg .blob-1{background:#E4CFA8}
+html .ambient-bg .blob-2{background:#E1C590}
+/* Textes poses directement sur le fond creme : passent en vert fonce */
+.svb-on-cream,.svb-on-cream *{color:var(--svb-ink,#2F4F4F)!important;text-shadow:none!important;filter:none!important;border-color:rgba(47,79,79,.35)!important}
+/* Reflet creme qui traverse lentement le fond */
+.ambient-bg::after{
+  content:"";position:absolute;width:48vw;height:48vw;left:30%;top:25%;border-radius:50%;
+  background:radial-gradient(circle,rgba(251,246,236,.85),rgba(251,246,236,0) 68%);
+  filter:blur(40px);pointer-events:none;will-change:transform;
+  animation:svbAmbientSheen 30s ease-in-out infinite alternate;
+}
+@keyframes svbAmbientSheen{
+  0%{transform:translate(-30vw,-20vh) scale(.9)}
+  50%{transform:translate(20vw,10vh) scale(1.2)}
+  100%{transform:translate(-10vw,30vh) scale(1)}
 }
 
 /* --- Noise overlay (alias de .svb-noise) ----------------------- */
