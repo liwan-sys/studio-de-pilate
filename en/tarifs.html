@@ -58,7 +58,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/tailwind.css?v=20260823b">
-  <link rel="stylesheet" href="/assets/svb.css?v=20260927-marquee">
+  <link rel="stylesheet" href="/assets/svb.css?v=20261002-offer99">
   <link rel="stylesheet" href="/assets/tarifs.css?v=20260824u">
 
   <script type="application/ld+json">
@@ -67,11 +67,31 @@
     "@type": "ItemList",
     "name": "SVB memberships",
     "description": "SVB memberships, discovery passes, coaching plans, Kids options and add-ons available in Saint-Ouen-sur-Seine.",
-    "numberOfItems": 10,
+    "numberOfItems": 11,
     "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
+        "item": {
+          "@type": "Service",
+          "name": "Unlimited trial · 1 month",
+          "description": "30 days, up to one class per day. New members only, once per person, no commitment.",
+          "provider": {
+            "@id": "https://studiosvb.com/#organization"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "99.00",
+            "priceCurrency": "EUR",
+            "priceValidUntil": "2026-10-31",
+            "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs"
+          },
+          "url": "https://studiosvb.com/en/tarifs#essai-illimite"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
         "item": {
           "@type": "Service",
           "name": "Pass Try",
@@ -93,7 +113,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 2,
+        "position": 3,
         "item": {
           "@type": "Service",
           "name": "SVB Move",
@@ -110,7 +130,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 3,
+        "position": 4,
         "item": {
           "@type": "Service",
           "name": "SVB Form",
@@ -127,31 +147,22 @@
       },
       {
         "@type": "ListItem",
-        "position": 4,
+        "position": 5,
         "item": {
           "@type": "Service",
           "name": "SVB Limitless",
-          "description": "Unlimited access to classes at both SVB studios with a one-year commitment. Launch offer available until 30 September 2026 at 11:59 pm, with the rate retained while the membership remains active without cancellation.",
+          "description": "Unlimited access to both SVB studios, with a one-year commitment. Current pricing in the booking catalogue.",
           "provider": { "@id": "https://studiosvb.com/#organization" },
           "availableAtOrFrom": [
             { "@id": "https://studiosvb.com/studio-parc-des-docks#location" },
             { "@id": "https://studiosvb.com/studio-cours-des-lavandieres#location" }
           ],
-          "offers": {
-            "@type": "Offer",
-            "name": "SVB Limitless launch rate",
-            "price": "300.00",
-            "priceCurrency": "EUR",
-            "priceValidUntil": "2026-09-30",
-            "availability": "https://schema.org/InStock",
-            "url": "https://web-customer.studiosvb.com/place/place_svb-lavandieres/subscription-plans"
-          },
           "url": "https://studiosvb.com/en/tarifs#svb-limitless"
         }
       },
       {
         "@type": "ListItem",
-        "position": 5,
+        "position": 6,
         "item": {
           "@type": "Service",
           "name": "Pass Starter",
@@ -173,7 +184,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 6,
+        "position": 7,
         "item": {
           "@type": "Service",
           "name": "Good Vibes Coaching Pass",
@@ -189,7 +200,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 7,
+        "position": 8,
         "item": {
           "@type": "Service",
           "name": "Duo Coaching Pass",
@@ -205,7 +216,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 8,
+        "position": 9,
         "item": {
           "@type": "Service",
           "name": "Kids Pass",
@@ -222,7 +233,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 9,
+        "position": 10,
         "item": {
           "@type": "Service",
           "name": "SVB Boost",
@@ -238,7 +249,7 @@
       },
       {
         "@type": "ListItem",
-        "position": 10,
+        "position": 11,
         "item": {
           "@type": "Service",
           "name": "SVB Running Club",
@@ -257,7 +268,7 @@
   <script src="/assets/analytics.js?v=20260902a" defer></script>
   <script src="/assets/js/meta-pixel.js" defer></script>
   <script src="/assets/js/svb-booking.js?v=20260902a" defer></script>
-  <script src="/assets/tarifs-launch.js?v=20260822a" defer></script>
+  <script src="/assets/tarifs-launch.js?v=20261002-offer99" defer></script>
 </head>
 <body class="content-visible pricing-body">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2">Skip to main content</a>
@@ -295,7 +306,7 @@
         <header class="pricing-showcase-header">
           <p class="pricing-showcase-kicker">Our monthly memberships</p>
           <h1 id="pricing-title">Small group</h1>
-          <p class="pricing-showcase-intro">Three memberships to build your routine, plus two passes to discover SVB before choosing.</p>
+          <p class="pricing-showcase-intro">Start with the €99 unlimited trial, or compare passes and memberships to find your rhythm.</p>
         </header>
 
         <section class="pricing-group" aria-labelledby="memberships-title">
@@ -400,6 +411,18 @@
             <h2 id="discovery-title">Discover before choosing</h2>
           </header>
 
+          <article id="essai-illimite" class="pricing-offer-card pricing-offer-card--try" style="margin-bottom:24px">
+            <p class="pricing-offer-badge">Discovery offer · Both studios</p>
+            <h3 class="pricing-offer-title">Unlimited trial · 1 month</h3>
+            <p class="pricing-offer-price" aria-label="99 euros for 30 days"><span class="pricing-offer-price-value">99</span><span class="pricing-offer-price-currency">€</span></p>
+            <p class="pricing-offer-summary">30 days to discover SVB, with no commitment.</p>
+            <ul class="pricing-offer-benefits">
+              <li>Up to one class per day across both studios</li>
+              <li>New members only, once per person</li>
+              <li>In the Lavandières Packs catalogue: “Pass Starter ILLIMITÉ 1 mois” at €99</li>
+            </ul>
+            <a href="https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs" data-label="Unlimited trial · 1 month" data-amount="99 €" data-booking-path="/place/place_svb-lavandieres/packs" class="js-buy pricing-offer-cta"><span>Start my month · €99</span><span aria-hidden="true">→</span></a>
+          </article>
           <div class="pricing-discovery-grid">
             <article id="pass-try" class="pricing-offer-card pricing-offer-card--try">
               <p class="pricing-offer-badge">2 trials · 2 disciplines</p>
@@ -418,7 +441,7 @@
 
             <article id="pass-starter" class="pricing-offer-card pricing-offer-card--starter">
               <p class="pricing-offer-badge">No commitment · Valid for 1 month</p>
-              <h3 class="pricing-offer-title">Pass Starter</h3>
+              <h3 class="pricing-offer-title">Pass Starter · 5 sessions</h3>
               <span class="pricing-offer-flourish" aria-hidden="true"></span>
               <p class="pricing-offer-price" aria-label="99 euros and 90 cents"><span class="pricing-offer-price-value">99.90</span><span class="pricing-offer-price-currency">€</span></p>
               <p class="pricing-offer-summary">5 different sessions of your choice to find your routine.</p>
@@ -586,6 +609,6 @@
     </div>
   </footer>
 
-  <script src="/assets/svb.js?v=20261001-essai99" defer></script>
+  <script src="/assets/svb.js?v=20261002-offer99" defer></script>
 </body>
 </html>

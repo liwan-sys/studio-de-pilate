@@ -117,15 +117,16 @@ for (const [pattern, label] of globalForbidden) {
 
 requireText('index.html', 'Pour 30 €, tu réserves 2 séances dans 2 disciplines différentes.');
 requireText('index.html', 'Pour Limitless, 1 no-show bloque l\'abonnement pendant 1 semaine.');
-// La carte signature de l'accueil présente désormais le Pass Try (l'offre de lancement Limitless reste sur /tarifs).
-requireText('index.html', 'Réserver mes 2 séances · 30 €');
-requireText('index.html', 'Un essai acheté, un essai offert dans une autre discipline.');
+// Offre principale validee : essai illimite ; Pass Try conserve en secondaire.
+requireText('index.html', 'Commencer mon mois · 99 €');
+requireText('index.html', 'Tu préfères deux séances ? Pass Try · 30 €');
+requireText('en/index.html', 'Start my month · €99');
 forbidText('index.html', /data-launch-deadline=/i, 'compte à rebours de lancement Limitless sur l\'accueil');
 requireText('tarifs.html', 'Une séance d\'essai achetée et une séance offerte dans une autre discipline.');
 requireText('tarifs.html', 'data-launch-deadline="2026-09-30T23:59:00+02:00"');
-requireText('tarifs.html', '"priceValidUntil": "2026-09-30"');
+requireText('tarifs.html', '"priceValidUntil": "2026-10-31"');
 requireText('en/tarifs.html', 'data-launch-deadline="2026-09-30T23:59:00+02:00"');
-requireText('en/tarifs.html', '"priceValidUntil": "2026-09-30"');
+requireText('en/tarifs.html', '"priceValidUntil": "2026-10-31"');
 forbidText('index.html', /21 septembre 2026|21\/09\/2026|2026-09-21/i, 'ancienne date de fin Limitless');
 forbidText('tarifs.html', /21 septembre 2026|21\/09\/2026|2026-09-21/i, 'ancienne date de fin Limitless');
 forbidText('en/tarifs.html', /21 September 2026|2026-09-21/i, 'ancienne date de fin Limitless en anglais');
