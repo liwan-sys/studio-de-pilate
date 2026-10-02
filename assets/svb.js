@@ -226,6 +226,7 @@
       if (/\/(pilates-reformer-saint-ouen|crossformer-saint-ouen|cross-training-saint-ouen|bootcamp-saint-ouen|pilates-saint-ouen|yoga-saint-ouen|boxe-anglaise-saint-ouen|sport-enfant-saint-ouen)(\.html)?$/i.test(path)) return;
 
       var isEssai = path === '/essai' || path === '/essai.html';
+      var english = document.documentElement.lang.toLowerCase().startsWith('en');
       var cta = document.createElement('a');
       // .js-buy -> ouverture directe de la modale iframe (page Packs).
       // Sur /essai on garde le scroll interne vers les offres du produit.
@@ -233,17 +234,18 @@
       cta.href = isEssai ? '#essai-offres' : 'https://web-customer.studiosvb.com/place/place_svb-lavandieres/packs';
       if (!isEssai) {
         cta.dataset.discipline = 'reformer';
-        cta.dataset.label = "Pass Try · 2 séances";
-        cta.dataset.amount = '30 €';
+        cta.dataset.label = english ? 'Unlimited trial · 1 month' : 'Essai illimité · 1 mois';
+        cta.dataset.amount = '99 €';
+        cta.dataset.bookingPath = '/place/place_svb-lavandieres/packs';
       }
       cta.setAttribute('data-track', 'mobile_sticky_cta');
-      cta.setAttribute('aria-label', isEssai ? "Choisir le Pass Try" : "Réserver le Pass Try, deux séances à 30 euros");
+      cta.setAttribute('aria-label', isEssai ? "Choisir le Pass Try" : (english ? 'Choose the one-month unlimited trial for 99 euros' : "Choisir l'essai illimité d'un mois à 99 euros"));
       cta.innerHTML = '\
         <span class="svb-mobile-sticky-cta__text">\
-          <span class="svb-mobile-sticky-cta__label">' + (isEssai ? "Choisir mon Pass Try" : "Réserver mes 2 séances") + '</span>\
-          <span class="svb-mobile-sticky-cta__sub">' + (isEssai ? "Paiement sécurisé · confirmation immédiate" : "2 disciplines · sans engagement") + '</span>\
+          <span class="svb-mobile-sticky-cta__label">' + (isEssai ? "Choisir mon Pass Try" : (english ? 'Unlimited trial · 1 month' : 'Essai illimité · 1 mois')) + '</span>\
+          <span class="svb-mobile-sticky-cta__sub">' + (isEssai ? "Paiement sécurisé · confirmation immédiate" : (english ? 'Up to 1 class/day · no commitment' : "Jusqu’à 1 cours/jour · sans engagement")) + '</span>\
         </span>\
-        <span class="svb-mobile-sticky-cta__pill">30 €</span>';
+        <span class="svb-mobile-sticky-cta__pill">' + (isEssai ? '30 €' : '99 €') + '</span>';
       document.body.appendChild(cta);
 
       // Ancre interne : scroll smooth. Sinon svb-booking.js prend la main via .js-buy.

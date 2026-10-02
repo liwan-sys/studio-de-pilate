@@ -17,10 +17,14 @@
 
     const expireOffer = () => {
       offer.classList.add('pricing-launch-expired');
-      offer.querySelectorAll('[data-launch-only]').forEach((node) => { node.hidden = true; });
+      offer.querySelectorAll('[data-launch-only]').forEach((node) => {
+        node.hidden = true;
+        node.style.setProperty('display', 'none', 'important');
+      });
       offer.querySelectorAll('[data-launch-ended]').forEach((node) => { node.hidden = false; });
 
       if (cta && ctaLabel) {
+        cta.removeAttribute('data-amount');
         ctaLabel.textContent = cta.dataset.defaultLabel || ctaLabel.textContent;
         cta.setAttribute('aria-label', cta.dataset.defaultAriaLabel || cta.getAttribute('aria-label'));
       }
