@@ -115,7 +115,7 @@ for (const [pattern, label] of globalForbidden) {
   if (pattern.test(publicCopy)) fail(`Ancienne information trouvée : ${label}`);
 }
 
-requireText('index.html', 'Le Pass Try coûte 30 € et comprend deux séances dans deux disciplines différentes');
+requireText('index.html', 'Pour 30 €, tu réserves 2 séances dans 2 disciplines différentes.');
 requireText('index.html', 'Pour Limitless, 1 no-show bloque l\'abonnement pendant 1 semaine.');
 // La carte signature de l'accueil présente désormais le Pass Try (l'offre de lancement Limitless reste sur /tarifs).
 requireText('index.html', 'Réserver mes 2 séances · 30 €');
@@ -223,6 +223,16 @@ for (const course of ['Cross Training', 'Cross Yoga', 'Pilates Classique', 'Powe
 }
 forbidText('studio-cours-des-lavandieres.html', /Pilates au sol|Yoga Vinyasa|Hatha Flow|Yin Yoga|Core &(?:amp;|) Stretch/i, 'discipline attribuée au mauvais studio');
 forbidText('studio-parc-des-docks.html', /Coaching individuel|Coaching duo/i, 'coaching affiché dans la liste des cours du Parc des Docks');
+
+// Les pages d'acquisition doivent garder la meme repartition que le catalogue.
+for (const file of ['salle-de-sport-saint-ouen.html', 'coaching-sportif-saint-ouen.html']) {
+  requireText(file, 'Pilates Reformer, Flow Reformer, Crossformer et Crossformer Challenger');
+  forbidText(file, /(?:Reformer|Crossformer), Pilates au sol et Yoga/i, 'Pilates au sol et Yoga attribues aux Lavandieres');
+}
+requireText('salle-de-sport-saint-ouen.html', 'Cross Training, formats Cross, Pilates au sol, Yoga Vinyasa, Stretch Mobility, Boxe anglaise et Yoga Kids');
+if (!/<a\b[^>]*href="\/studio"[^>]*>\s*Voir le planning complet\s*<\/a>/.test(read('salle-de-sport-saint-ouen.html'))) {
+  fail('salle-de-sport-saint-ouen.html : le bouton planning doit ouvrir /studio.');
+}
 
 for (const course of ['Reformer', 'Crossformer', 'Cross Training', 'Pilates', 'Yoga', 'Stretch Mobility', 'Boxe', 'Yoga Kids']) {
   requireText('sessions.html', course);
