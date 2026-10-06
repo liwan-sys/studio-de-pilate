@@ -1496,11 +1496,13 @@
 
     /* Media : reveal en rideau + zoom lent */
     .svb-offer-popup__kicker{
-      display:block;margin:0 0 14px;
+      display:block;margin:0 0 14px;padding:0 34px;line-height:1.8;
       font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;
       color:var(--svb-accent,#E8B496);
       opacity:0;transform:translateY(-8px);transition:opacity .6s var(--ease-out) .5s,transform .6s var(--ease-out) .5s;
     }
+    .svb-offer-popup__kicker > span{display:block;}
+    .svb-offer-popup__kicker > .svb-offer-popup__kicker-sep{display:none;}
     .svb-offer-popup.is-in .svb-offer-popup__kicker{opacity:1;transform:none;}
     .svb-offer-popup__close{
       position:absolute;top:10px;right:10px;z-index:3;width:36px;height:36px;border-radius:50%;
@@ -1721,7 +1723,7 @@
       </button>
 
       <div class="svb-offer-popup__body">
-        <span class="svb-offer-popup__kicker">Offre exceptionnelle</span>
+        <span class="svb-offer-popup__kicker"><span>Offre exceptionnelle</span><span class="svb-offer-popup__kicker-sep"> · </span><span>Uniquement en ligne</span></span>
         <h2 id="svb-offer-popup-title" class="svb-offer-popup__title svb-split">Ton premier mois illimité</h2>
         <p class="svb-offer-popup__subtitle">Réservé aux 100 premiers inscrits</p>
 
@@ -1768,7 +1770,7 @@
         <div class="svb-offer-popup__cta-dock"><button type="button" class="svb-offer-popup__cta svb-magnetic js-buy" data-booking-path="/place/place_svb-lavandieres/packs" data-label="Premier mois illimité · 99 €" data-amount="99 €" data-track="home_offer_popup_cta">Je profite des 99 € <span class="svb-offer-popup__cta-arrow" aria-hidden="true">→</span></button></div>
         <p class="svb-offer-popup__cta-note">Une seule offre découverte par personne</p>
 
-        <p class="svb-offer-popup__fine">Premier mois à 99 € pour les nouveaux membres, une seule fois par personne. Sans engagement.</p>
+        <p class="svb-offer-popup__fine">Offre flash disponible uniquement sur internet, pas à l'accueil des studios. Premier mois à 99&nbsp;€ pour les nouveaux membres, une seule fois par personne. Sans engagement.</p>
       </div>
     </div>
     <div class="svb-offer-popup__side svb-offer-popup__side--r" data-reel="right" aria-hidden="true">
