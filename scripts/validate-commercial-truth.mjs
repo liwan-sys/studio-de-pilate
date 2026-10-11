@@ -120,7 +120,7 @@ for (const asset of ['svb-mobile-pratique.mp4', 'svb-salles-horizontal-sans-gros
   requireText('index.html', asset);
   if (!fs.existsSync(path.join(root, 'videos', asset))) fail(`Vidéo d’accueil absente : ${asset}`);
 }
-for (const href of ['/sessions', '/studio', '/contact']) requireText('index.html', `href="${href}"`);
+for (const href of ['/', '/sessions', '/studio', '/pourquoi-svb', '/tarifs', '/faq', '/contact', '/en/']) requireText('index.html', `href="${href}"`);
 requireText('index.html', 'https://web-customer.studiosvb.com');
 requireText('en/index.html', 'Start my month · €99');
 forbidText('index.html', /data-launch-deadline=/i, 'compte à rebours de lancement Limitless sur l\'accueil');
