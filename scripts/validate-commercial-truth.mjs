@@ -116,7 +116,7 @@ for (const [pattern, label] of globalForbidden) {
 }
 
 // L’accueil immersif présente le studio ; les offres restent sur les pages dédiées.
-for (const asset of ['svb-mobile-pratique.mp4', 'svb-salles-blanche-violette-horizontal.mp4']) {
+for (const asset of ['svb-mobile-pratique.mp4', 'svb-salles-horizontal-sans-gros-plan-logo.mp4']) {
   requireText('index.html', asset);
   if (!fs.existsSync(path.join(root, 'videos', asset))) fail(`Vidéo d’accueil absente : ${asset}`);
 }
