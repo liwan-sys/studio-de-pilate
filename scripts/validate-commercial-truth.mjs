@@ -115,11 +115,13 @@ for (const [pattern, label] of globalForbidden) {
   if (pattern.test(publicCopy)) fail(`Ancienne information trouvée : ${label}`);
 }
 
-requireText('index.html', 'Pour 30 €, tu réserves 2 séances dans 2 disciplines différentes.');
-requireText('index.html', 'Pour Limitless, 1 no-show bloque l\'abonnement pendant 1 semaine.');
-// Offre principale validee : essai illimite ; Pass Try conserve en secondaire.
-requireText('index.html', 'Commencer mon mois · 99 €');
-requireText('index.html', 'Tu préfères deux séances ? Pass Try · 30 €');
+// L’accueil immersif présente le studio ; les offres restent sur les pages dédiées.
+for (const asset of ['svb-mobile-pratique.mp4', 'svb-salles-blanche-violette-horizontal.mp4']) {
+  requireText('index.html', asset);
+  if (!fs.existsSync(path.join(root, 'videos', asset))) fail(`Vidéo d’accueil absente : ${asset}`);
+}
+for (const href of ['/sessions', '/studio', '/contact']) requireText('index.html', `href="${href}"`);
+requireText('index.html', 'https://web-customer.studiosvb.com');
 requireText('en/index.html', 'Start my month · €99');
 forbidText('index.html', /data-launch-deadline=/i, 'compte à rebours de lancement Limitless sur l\'accueil');
 requireText('tarifs.html', 'Une séance d\'essai achetée et une séance offerte dans une autre discipline.');
@@ -244,6 +246,10 @@ const sitemapUrls = [...sitemap.matchAll(/<loc>(https:\/\/studiosvb\.com\/[^<]*)
 for (const url of sitemapUrls) {
   const file = htmlFileForUrl(url);
   const html = read(file);
+  if (file === 'index.html') {
+    if (/<footer\b/i.test(html)) fail('L’accueil immersif ne doit pas avoir de pied de page.');
+    continue;
+  }
   const footerCount = (html.match(/<footer\b/gi) || []).length;
   if (footerCount !== 1) fail(`${file} doit avoir exactement un pied de page, pas ${footerCount}.`);
   if (!html.includes('Santez vous bien,<br>le bien-être au quotidien.')) {
@@ -252,7 +258,6 @@ for (const url of sitemapUrls) {
 }
 
 const standardNavPages = [
-  'index.html',
   'sessions.html',
   'tarifs.html',
   'sport-debutant-saint-ouen.html',
