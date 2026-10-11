@@ -197,12 +197,31 @@
   <link rel="stylesheet" href="/assets/sessions-cards.css?v=20260927-wide" />
 
 
-  <script src="/assets/nav-dropdown.js?v=20260824-unified-header1" defer></script>
+
     <link rel="stylesheet" href="/assets/discipline-brand.css?v=20260915a" />
     <script src="/assets/js/meta-pixel.js" defer></script>
   <script src="/assets/js/svb-booking.js?v=20260902a" defer></script>
+<link rel="stylesheet" href="/assets/svb-aligned-pages.css?v=20261011">
+<script src="/assets/svb-aligned-pages.js?v=20261011" defer></script>
 </head>
-<body class="content-visible">
+<body class="content-visible svb-aligned-page">
+<header class="svb-unified-header"><nav aria-label="Navigation principale" class="svb-unified-nav">
+
+<button id="svb-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="svb-menu-panel"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h18M3 16h18"/></svg><span>Menu</span></button>
+<div id="svb-menu-panel" class="hidden">
+<a href="/">Accueil</a>
+<a href="/sessions">Cours</a>
+<a href="/studio">Planning</a>
+<a href="/pourquoi-svb">Pourquoi SVB</a>
+<a href="/tarifs">Abonnements</a>
+<a href="/faq">FAQ</a>
+<a href="/contact">Contact</a>
+<a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener">Espace client</a>
+<a href="/en/sessions" aria-label="English version"><strong>FR</strong> | EN</a>
+</div>
+<a class="svb-page-brand" href="/" aria-label="Accueil SVB"><img src="/images/svb-home-logo.webp" alt="SVB" width="632" height="448"></a>
+<a class="svb-reserve" href="https://web-customer.studiosvb.com">Réserver</a>
+</nav></header>
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu principal</a>
 
     <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
@@ -210,28 +229,7 @@
     <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
     <div class="noise-overlay"></div>
 
-    <nav role="navigation" class="relative p-6 flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-white reveal-load z-10">
-        <div class="mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
-            <a href="/"><img src="images/logo.webp" alt="Studio SVB — Pilates Reformer, Cross Training et Yoga à Saint-Ouen" class="h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="60" fetchpriority="high" height="42"></a>
-        </div>
-        <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded focus:outline-none" aria-label="Menu" onclick="(function(){var m=document.getElementById('nav-menu');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='center';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}})()">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-      <div id="nav-menu" class="hidden md:flex flex-wrap justify-center space-x-4 md:space-x-6 text-[10px] md:text-xs font-semibold tracking-normal drop-shadow-sm">
-            <a href="/" class="hover:text-gray-100 transition hover:scale-105 inline-block">Accueil</a>
-        <a href="/sessions" class="hover:text-gray-100 transition hover:scale-105 inline-block">Cours</a>
-        <a href="/studio" class="hover:text-gray-100 transition hover:scale-105 inline-block">Planning</a>
-        <a href="/pourquoi-svb" class="hover:text-[#E8B496] transition hover:scale-105 inline-block" style="color:#E8B496;font-weight:800;">Pourquoi SVB</a>
-        <a href="/tarifs" class="hover:text-gray-100 transition hover:scale-105 inline-block">Abonnements</a>
-        <a href="/faq" class="hover:text-gray-100 transition hover:scale-105 inline-block">FAQ</a>
-        <a href="/contact" class="hover:text-gray-100 transition hover:scale-105 inline-block">Contact</a>
-        <a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener" aria-label="Espace client" style="background:#E8B496;color:#2F4F4F;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.12em;padding:6px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase;transition:transform .2s,background .2s;" onmouseover="this.style.background='#F5C76D';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#E8B496';this.style.transform=''">Espace client</a>
-        <a href="/en/" class="opacity-80 hover:opacity-100 transition inline-block"><strong>FR</strong>&nbsp;|&nbsp;EN</a>
-        </div>
-      </div>
-    </nav>
+
 
     <div id="main-content" class="relative text-center py-16 px-4 reveal-load d-1 z-10">
         <h1 class="text-7xl md:text-9xl text-[#2F4F4F] drop-shadow-xl mb-4 font-hand svb-split">Toutes nos disciplines.</h1>

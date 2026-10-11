@@ -1,0 +1,34 @@
+/* Inner pages share the immersive homepage's navigation and warm palette. */
+body.svb-aligned-page{padding-top:84px!important;background:#faf6ee!important;color:#29261f;--svb-ink:#29261f;--svb-text:#29261f;--svb-ink-soft:#635a49;--svb-green-dark:#635a49;--svb-cream:#faf6ee;--svb-sand:#eee6d7;--svb-mint:#f5efe3;--svb-accent:#dfc491}
+.svb-aligned-page>.ambient-bg,.svb-aligned-page>.noise-overlay{display:none!important}
+.svb-aligned-page :is(h1,h2,h3,h4,h5,h6),.svb-aligned-page :is(h1,h2,h3,h4,h5,h6) *{font-family:Montserrat,Arial,sans-serif!important;font-weight:500!important;letter-spacing:-.025em!important}
+.svb-aligned-page h1{font-size:clamp(32px,5vw,64px)!important;line-height:1.12!important;text-shadow:none!important}
+.svb-aligned-page h2{font-size:clamp(25px,3vw,38px);line-height:1.2}
+.svb-aligned-page #main-content>h1,.svb-aligned-page #main-content>p{color:#29261f!important;text-shadow:none!important}
+.svb-aligned-page .svb-unified-header,.svb-aligned-page .svb-unified-header *{box-sizing:border-box}
+.svb-aligned-page .svb-unified-header{position:fixed!important;inset:0 0 auto!important;width:100%;z-index:100010;background:transparent;color:#29261f;font-family:Montserrat,Arial,sans-serif;transition:background .2s}
+.svb-aligned-page.svb-page-scrolled .svb-unified-header{background:rgba(250,246,238,.96)}
+.svb-aligned-page .svb-unified-nav{position:relative!important;display:flex!important;align-items:center!important;justify-content:space-between!important;width:100%!important;max-width:none!important;min-height:84px!important;padding:12px 28px!important;margin:0!important;background:transparent!important;border:0!important;box-shadow:none!important;color:inherit!important;gap:28px!important}
+.svb-aligned-page .svb-unified-header a{color:inherit!important;text-decoration:none!important}
+.svb-aligned-page #svb-menu-toggle{display:flex!important;align-items:center;gap:9px;border:0;background:none;color:inherit;padding:8px 0;font:inherit;font-size:12px;cursor:pointer;min-height:44px}
+.svb-aligned-page #svb-menu-toggle svg{width:24px;height:24px;max-width:none}
+.svb-aligned-page .svb-reserve{margin-left:auto;padding:11px 20px;border:1px solid #29261f80;border-radius:2px;background:transparent!important;font-size:11px;letter-spacing:.04em;white-space:nowrap}
+.svb-aligned-page .svb-page-brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:37px;overflow:hidden}
+.svb-aligned-page .svb-page-brand img{display:block;width:76px!important;height:auto!important;max-width:none;filter:brightness(0)}
+.svb-aligned-page #svb-menu-panel.hidden{display:none!important}
+.svb-aligned-page #svb-menu-panel:not(.hidden){position:absolute;top:100%;left:0;right:0;display:flex!important;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:16px 28px 24px;background:rgba(250,246,238,.98);max-height:calc(100dvh - 84px);overflow-y:auto;box-shadow:0 14px 20px #29261f0a}
+.svb-aligned-page #svb-menu-panel a{display:block;padding:15px 0;border-bottom:1px solid #29261f25;font-size:15px;line-height:1.5}
+.svb-aligned-page #svb-menu-panel a:last-child{border:0}
+.svb-aligned-page #svb-menu-panel a[aria-current=page]{font-weight:700}
+.svb-aligned-page .svb-unified-header :is(a,button):focus-visible{outline:2px solid #806332;outline-offset:4px}
+.svb-aligned-page :is(.pq-cta-primary,.pq-cta-secondary,.pricing-btn){border-radius:2px!important}
+@media(max-width:700px){body.svb-aligned-page{padding-top:72px!important}.svb-aligned-page .svb-unified-nav{min-height:72px!important;padding:14px 20px!important;gap:16px!important}.svb-aligned-page #svb-menu-panel:not(.hidden){max-height:calc(100dvh - 72px);padding:10px 20px 20px}.svb-aligned-page .svb-page-brand{width:64px;height:31px}.svb-aligned-page .svb-page-brand img{width:64px!important}.svb-aligned-page h1{font-size:clamp(30px,8vw,42px)!important}}
+@media(prefers-reduced-motion:reduce){.svb-aligned-page .svb-unified-header{transition:none}}
+/* Retain contrast where the original page had a dark introductory background. */
+.svb-aligned-page .pricing-showcase-header,.svb-aligned-page .pricing-showcase-header *,.svb-aligned-page .schedule-kicker,.svb-aligned-page .schedule-address{color:#29261f!important;text-shadow:none!important}
+.svb-aligned-page .pricing-showcase-kicker,.svb-aligned-page .schedule-kicker{font-family:Montserrat,Arial,sans-serif!important;font-size:13px!important;line-height:1.5!important;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.svb-aligned-page .glass-box :is(h2,h3),.svb-aligned-page [class~="text-[#4A8D84]"]{color:#635a49!important}
+.svb-aligned-page h1{filter:none!important}
+
+.svb-aligned-page .section-title{color:#29261f!important;text-shadow:none!important}
+.svb-aligned-page .pq-hero h1 em{color:#78603b!important}

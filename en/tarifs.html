@@ -264,41 +264,37 @@
   }
   </script>
 
-  <script src="/assets/nav-dropdown.js?v=20260824-unified-header1" defer></script>
+
   <script src="/assets/analytics.js?v=20260902a" defer></script>
   <script src="/assets/js/meta-pixel.js" defer></script>
   <script src="/assets/js/svb-booking.js?v=20260902a" defer></script>
   <script src="/assets/tarifs-launch.js?v=20261002-offer99" defer></script>
+<link rel="stylesheet" href="/assets/svb-aligned-pages.css?v=20261011">
+<script src="/assets/svb-aligned-pages.js?v=20261011" defer></script>
 </head>
-<body class="content-visible pricing-body">
+<body class="content-visible pricing-body svb-aligned-page">
+<header class="svb-unified-header"><nav aria-label="Main navigation" class="svb-unified-nav">
+
+<button id="svb-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="svb-menu-panel"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h18M3 16h18"/></svg><span>Menu</span></button>
+<div id="svb-menu-panel" class="hidden">
+<a href="/en/">Home</a>
+<a href="/en/sessions">Classes</a>
+<a href="/en/studio">Schedule</a>
+<a href="/pourquoi-svb">Why SVB</a>
+<a href="/en/tarifs">Memberships</a>
+<a href="/en/faq">FAQ</a>
+<a href="/en/contact">Contact</a>
+<a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener">Client account</a>
+<a href="/tarifs" aria-label="Version française">FR | <strong>EN</strong></a>
+</div>
+<a class="svb-page-brand" href="/en/" aria-label="SVB home"><img src="/images/svb-home-logo.webp" alt="SVB" width="632" height="448"></a>
+<a class="svb-reserve" href="https://web-customer.studiosvb.com">Book</a>
+</nav></header>
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2">Skip to main content</a>
 
   <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <header class="pricing-site-header">
-    <nav role="navigation" class="pricing-standard-nav p-6 flex flex-row flex-wrap md:flex-row justify-between items-center max-w-7xl mx-auto text-white">
-      <div class="mb-3 md:mb-0 transform hover:scale-105 transition duration-300">
-        <a href="/en/" aria-label="Studio SVB home">
-          <img src="/images/logo.webp" alt="Studio SVB, Pilates Reformer, Cross Training and Yoga in Saint-Ouen" class="h-20 w-auto object-contain brightness-0 invert drop-shadow-md" width="200" height="142" fetchpriority="high">
-        </a>
-      </div>
-      <button id="nav-toggle" class="pricing-menu-toggle md:hidden ml-auto p-2 rounded focus:outline-none" aria-label="Open menu" aria-controls="nav-menu" aria-expanded="false" onclick="(function(button){var m=document.getElementById('nav-menu');var opening=m.classList.contains('hidden');if(opening){m.classList.remove('hidden');m.style.display='flex';m.style.flexDirection='column';m.style.alignItems='center';m.style.gap='10px';m.style.paddingTop='12px';}else{m.style.display='';m.style.flexDirection='';m.style.alignItems='';m.style.gap='';m.style.paddingTop='';m.classList.add('hidden');}button.setAttribute('aria-expanded',opening?'true':'false');})(this)">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-      <div id="nav-menu" class="hidden md:flex flex-wrap justify-center items-center gap-3 md:gap-5 text-[10px] md:text-xs font-semibold tracking-normal drop-shadow-sm">
-        <a href="/en/" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Home</a>
-        <a href="/en/sessions" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Sessions</a>
-        <a href="/en/studio" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Schedule</a>
-        <a href="/en/tarifs" class="pricing-nav-current hover:text-[#E8B496] transition hover:scale-105 inline-block" aria-current="page">Memberships</a>
-        <a href="/en/faq" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">FAQ</a>
-        <a href="/en/contact" class="hover:text-[#E8B496] transition hover:scale-105 inline-block">Contact</a>
-        <a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener" aria-label="Member area" class="pricing-client-link">Member area</a>
-        <a href="/tarifs" aria-label="Version française" class="pricing-language-link"><span>FR</span>&nbsp;|&nbsp;<span>EN</span></a>
-      </div>
-    </nav>
-  </header>
+
 
   <main id="main-content" class="pricing-page">
     <section class="pricing-showcase" aria-labelledby="pricing-title">
