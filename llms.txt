@@ -89,9 +89,7 @@
 - Toutes les disciplines : https://studiosvb.com/sessions
 - Planning des cours : https://studiosvb.com/studio
 - Toutes les offres : https://studiosvb.com/tarifs
-- FAQ : https://studiosvb.com/faq
 - Contact : https://studiosvb.com/contact
-- Avis clients : https://studiosvb.com/temoignages
 ## Pages disciplines
 
 - https://studiosvb.com/pilates-reformer-saint-ouen

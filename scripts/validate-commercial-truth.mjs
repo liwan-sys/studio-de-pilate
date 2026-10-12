@@ -120,7 +120,7 @@ for (const asset of ['svb-mobile-pratique.mp4', 'svb-salles-horizontal-sans-gros
   requireText('index.html', asset);
   if (!fs.existsSync(path.join(root, 'videos', asset))) fail(`Vidéo d’accueil absente : ${asset}`);
 }
-for (const href of ['/', '/sessions', '/studio', '/pourquoi-svb', '/tarifs', '/faq', '/contact', '/en/']) requireText('index.html', `href="${href}"`);
+for (const href of ['/', '/sessions', '/studio', '/pourquoi-svb', '/tarifs', '/contact', '/en/']) requireText('index.html', `href="${href}"`);
 requireText('index.html', 'https://web-customer.studiosvb.com');
 requireText('en/index.html', 'Start my month · €99');
 forbidText('index.html', /data-launch-deadline=/i, 'compte à rebours de lancement Limitless sur l\'accueil');
@@ -141,12 +141,6 @@ requireText('tarifs.html', "dans les 3 jours suivant l'expiration du pass");
 requireText('en/tarifs.html', 'Five different sessions of your choice');
 requireText('en/tarifs.html', 'within 3 days after the final trial');
 requireText('en/tarifs.html', 'within 3 days after the pass expires');
-requireText('faq.html', 'jusqu\'à 1 h avant');
-requireText('faq.html', 'jusqu\'à 24 h avant');
-requireText('faq.html', '1 no-show bloque l\'abonnement pendant 1 semaine');
-requireText('faq.html', '<strong>Résiliation :</strong> par email avec 1 mois de préavis');
-requireText('faq.html', 'absence d\'au moins 10 jours');
-requireText('faq.html', 'sur justificatif médical');
 requireText('tarifs.html', 'Valable une seule fois par personne');
 requireText('tarifs.html', 'Non compatible avec SVB Limitless');
 requireText('en/tarifs.html', 'Available once per person');
@@ -265,7 +259,7 @@ const standardNavPages = [
 ];
 for (const file of standardNavPages) {
   const html = read(file);
-  for (const href of ['/sessions', '/studio', '/tarifs', '/faq', '/contact']) {
+  for (const href of ['/sessions', '/studio', '/tarifs', '/contact']) {
     if (!html.includes(`href="${href}"`)) fail(`${file} n'a pas le lien de navigation ${href}.`);
   }
 }

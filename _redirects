@@ -1,3 +1,10 @@
+# Retired pages: keep existing visitor links useful.
+/faq /contact 301!
+/faq.html /contact 301!
+/temoignages /contact 301!
+/temoignages.html /contact 301!
+/en/faq /en/contact 301!
+/en/faq.html /en/contact 301!
 # Studio SVB - routes Netlify
 # Les redirections permanentes sont placees avant les rewrites.
 
@@ -109,9 +116,7 @@
 /sessions.html                          /sessions 301!
 /tarifs.html                            /tarifs 301!
 /studio.html                            /studio 301!
-/temoignages.html                       /temoignages 301!
 /equipe.html                            / 301!
-/faq.html                               /faq 301!
 /contact.html                           /contact 301!
 /pourquoi-svb.html                      /pourquoi-svb 301!
 /essai.html                             /essai 301!
@@ -144,17 +149,14 @@
 /en/studio.html                         /en/studio 301!
 /en/tarifs.html                         /en/tarifs 301!
 /en/equipe.html                         /en/ 301!
-/en/faq.html                            /en/faq 301!
 /en/contact.html                        /en/contact 301!
 
 # Pages principales - rewrites internes
 /sessions                         /sessions.html 200
 /tarifs                           /tarifs.html 200
 /studio                           /studio.html 200
-/temoignages                      /temoignages.html 200
 /equipe                           / 301!
 /equipe/                          / 301!
-/faq                              /faq.html 200
 /contact                          /contact.html 200
 /pourquoi-svb                     /pourquoi-svb.html 200
 /essai                            /essai.html 200
@@ -183,7 +185,6 @@
 /en/tarifs                        /en/tarifs.html 200
 /en/equipe                        /en/ 301!
 /en/equipe/                       /en/ 301!
-/en/faq                           /en/faq.html 200
 /en/contact                       /en/contact.html 200
 
 # Pages techniques et formulaires
