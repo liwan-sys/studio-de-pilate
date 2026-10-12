@@ -92,3 +92,12 @@ body.svb-coaching-page .pricing-tier-list dt{font-size:14px}.svb-coaching-page .
 body.svb-coaching-page .coaching-editorial :is(img,video){filter:none!important}
 @media(max-width:700px){body.svb-coaching-page .coaching-hero__content{padding:145px 24px 55px}body.svb-coaching-page .coaching-hero__lead{font-size:16px}body.svb-coaching-page .coaching-intro{gap:25px}}
 body.svb-coaching-page .svb-fullpage-backdrop>.coaching-hero__image{visibility:visible;z-index:0}
+/* Explicit contrast: legacy card headers must not pass dark ink to titles. */
+body.svb-site .offers-extras .pricing-special-card{background:rgba(20,18,15,.94)!important;color:#fff!important}
+body.svb-site :is(.offers-extras,.coaching-subscriptions) .pricing-special-card :is(header,.pricing-special-card-body,h3,p,span,strong,small,dt,dd,a){color:#fff!important}
+body.svb-site :is(.offers-extras,.coaching-subscriptions) .pricing-special-card .pricing-special-kicker,
+body.svb-site :is(.offers-extras,.coaching-subscriptions) .pricing-special-card .pricing-special-kicker *{background:#f1ebe1!important;color:#211e1a!important;text-shadow:none!important}
+body.svb-site .offers-extras .pricing-special-meta{opacity:1!important}
+body.svb-site .offers-extras .pricing-special-cta{background:#f1ebe1!important;color:#211e1a!important}
+body.svb-site .offers-extras .pricing-special-cta span{color:#211e1a!important}
+body.svb-site .offers-extras .pricing-special-card a.pricing-special-cta,body.svb-site .offers-extras .pricing-special-card a.pricing-special-cta span{color:#211e1a!important;text-shadow:none!important}
