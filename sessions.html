@@ -65,152 +65,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="/assets/tailwind.css?v=20260823b" />
 
-    <style>
-        :root {
-            --col-peach: #EBC6A6;
-            --col-sand: #D4C3A3;
-            --col-green: #88C0A6;
-            --col-cream: #F3EBD4;
-            --col-dark: #3A6B63;
-            --svb-text: #2F4F4F;
-        }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #B8D8C0;
-            color: var(--svb-text);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-            scroll-behavior: smooth;
-        }
-
-        /* FOND IMMERSIF */
-        .ambient-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
-            background: linear-gradient(180deg, #CDE4D3 0%, #F5F0E1 100%);
-            overflow: hidden;
-        }
-        .blob {
-            position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.6;
-            animation: moveBlob 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .blob-1 { top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--col-green); }
-        .blob-2 { bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--col-peach); animation-delay: -5s; }
-        @keyframes moveBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(40px, -40px) scale(1.1); } }
-        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); pointer-events: none; }
-
-        h1, h2, h3, .font-hand { font-family: 'Dancing Script', cursive; }
-
-        .reveal-load { animation: softSlideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; opacity: 0; }
-    nav.reveal-load, header.reveal-load, section:first-of-type.reveal-load { opacity: 1 !important; animation: none !important; transform: none !important; }
-        @keyframes softSlideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
-        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
-
-        /* === SUB-NAV STICKY === */
-        .sub-nav-wrapper {
-            position: sticky; top: 20px; z-index: 40;
-            display: flex; justify-content: center; margin-bottom: 40px; pointer-events: none;
-        }
-        .sub-nav {
-            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px);
-            border-radius: 50px; padding: 8px 10px;
-            border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            display: flex; gap: 5px; pointer-events: auto; flex-wrap: wrap; justify-content: center;
-        }
-        .nav-pill {
-            padding: 8px 20px; border-radius: 25px; font-size: 0.75rem; font-weight: 700;
-            text-transform: uppercase; color: var(--svb-text); transition: all 0.3s; cursor: pointer;
-        }
-        .nav-pill:hover { background: white; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-
-        /* === CARTE SESSION (DESIGN ÉPURÉ) === */
-        .session-card {
-            background: rgba(255, 255, 255, 0.5); /* Transparence légère */
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 35px;
-            height: 100%;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            display: flex; flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Indicateur couleur en haut */
-        .session-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
-            background: currentColor; /* Prend la couleur du texte/theme */
-        }
-
-        /* Effet au survol */
-        .session-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.9); /* Devient plus blanc */
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-        }
-
-        .activity-name {
-            font-size: 1.6rem; font-weight: 800; text-transform: uppercase;
-            margin-bottom: 15px; color: var(--svb-text); letter-spacing: -0.02em;
-        }
-        .activity-desc {
-            font-size: 0.95rem; line-height: 1.7; color: #555; font-weight: 500;
-        }
-
-        /* Section Headers */
-        .section-header { display: flex; align-items: center; margin-bottom: 30px; margin-top: 20px; }
-        .section-icon {
-            width: 60px; height: 60px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; color: white; margin-right: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .section-title { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: var(--svb-text); line-height: 1; }
-
-        /* THÈMES COULEURS */
-        .theme-crossformer { color: var(--col-peach); }
-        .theme-crossformer .section-icon { background: var(--col-peach); }
-        .theme-reformer { color: var(--col-sand); }
-        .theme-reformer .section-icon { background: var(--col-sand); }
-        .theme-cross { color: var(--col-green); }
-        .theme-cross .section-icon { background: var(--col-green); }
-        .theme-focus { color: #DBCBA8; }
-        .theme-focus .section-icon { background: #DBCBA8; }
-        .theme-kids { color: var(--col-peach); }
-        .theme-kids .section-icon { background: linear-gradient(135deg, var(--col-peach), var(--col-green)); }
-
-        /* BOUTON FLOTTANT */
-        .wa-container { position: fixed; bottom: 30px; right: 30px; z-index: 50; }
-        .whatsapp-btn { background-color: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); transition: transform 0.3s; }
-        .whatsapp-btn:hover { transform: scale(1.1); }
-
-    </style>
 
   <!-- Schema.org LocalBusiness -->
 
 
   <link rel="stylesheet" href="/assets/svb.css?v=20261002-offer99" />
-  <link rel="stylesheet" href="/assets/sessions-cards.css?v=20260927-wide" />
 
 
 
-    <link rel="stylesheet" href="/assets/discipline-brand.css?v=20260915a" />
+
+
     <script src="/assets/js/meta-pixel.js" defer></script>
   <script src="/assets/js/svb-booking.js?v=20260902a" defer></script>
-<link rel="stylesheet" href="/assets/svb-aligned-pages.css?v=20261012-liquid">
-<script src="/assets/svb-aligned-pages.js?v=20261012-liquid" defer></script>
-</head>
-<body class="content-visible svb-aligned-page">
-<header class="svb-unified-header"><nav aria-label="Navigation principale" class="svb-unified-nav">
 
+
+<link rel="stylesheet" href="/assets/svb-navigation-home.css?v=20261012-original-colors">
+<link rel="stylesheet" href="/assets/svb-courses-editorial.css?v=20261012c">
+<script src="/assets/svb-navigation-home.js?v=20261012-editorial" defer></script>
+<script src="/assets/svb-courses-editorial.js?v=20261012a" defer></script>
+</head>
+<body class="svb-courses-page">
+<header class="svb-unified-header"><nav aria-label="Navigation principale" class="svb-unified-nav">
+<div class="svb-unified-brand"><a href="/" aria-label="Accueil SVB"><img src="https://studiosvb.com/images/svb-home-logo.webp" alt="SVB" width="200" height="142"></a></div>
+<div class="svb-home-direct-links" aria-label="Accès rapides">
+<a href="/studio-parc-des-docks">Studios</a>
+<a href="/sessions" aria-current="page">Cours</a>
+<a href="/studio">Planning</a>
+<a href="/pourquoi-svb">À propos</a>
+</div>
+<a class="svb-reserve" href="https://web-customer.studiosvb.com">Réserver</a>
 <button id="svb-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="svb-menu-panel"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h18M3 16h18"/></svg><span>Menu</span></button>
 <div id="svb-menu-panel" class="hidden">
 <a href="/">Accueil</a>
-<a href="/sessions">Cours</a>
+<a href="/sessions" aria-current="page">Cours</a>
 <a href="/studio">Planning</a>
 <a href="/pourquoi-svb">Pourquoi SVB</a>
 <a href="/tarifs">Abonnements</a>
@@ -219,79 +107,33 @@
 <a href="https://web-customer.studiosvb.com" target="_blank" rel="noopener">Espace client</a>
 <a href="/en/sessions" aria-label="English version"><strong>FR</strong> | EN</a>
 </div>
-<a class="svb-page-brand" href="/" aria-label="Accueil SVB"><img src="/images/svb-home-logo.webp" alt="SVB" width="632" height="448"></a>
-<a class="svb-reserve" href="https://web-customer.studiosvb.com">Réserver</a>
 </nav></header>
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Aller au contenu principal</a>
+<a class="courses-skip" href="#main-content">Aller au contenu</a>
+<main id="main-content">
+<section class="courses-layout" aria-label="Nos disciplines">
+<div class="courses-index">
+<p class="courses-eyebrow">02 <span aria-hidden="true">—</span></p>
+<h1>Nos cours</h1><p class="courses-intro">Des disciplines pour un<br>équilibre durable.</p>
+<ol class="course-list"><li><button type="button" class="course-choice" data-course="0" aria-pressed="true" aria-controls="course-feature"><span>01</span><span>Pilates Reformer</span><span aria-hidden="true">→</span></button></li><li><button type="button" class="course-choice" data-course="1" aria-pressed="false" aria-controls="course-feature"><span>02</span><span>Crossformer</span><span aria-hidden="true">→</span></button></li><li><button type="button" class="course-choice" data-course="2" aria-pressed="false" aria-controls="course-feature"><span>03</span><span>Pilates Sol</span><span aria-hidden="true">→</span></button></li><li><button type="button" class="course-choice" data-course="3" aria-pressed="false" aria-controls="course-feature"><span>04</span><span>Yoga</span><span aria-hidden="true">→</span></button></li><li><button type="button" class="course-choice" data-course="4" aria-pressed="false" aria-controls="course-feature"><span>05</span><span>Boxe</span><span aria-hidden="true">→</span></button></li><li><button type="button" class="course-choice" data-course="5" aria-pressed="false" aria-controls="course-feature"><span>06</span><span>Stretching</span><span aria-hidden="true">→</span></button></li><li><button type="button" class="course-choice" data-course="6" aria-pressed="false" aria-controls="course-feature"><span>07</span><span>Barre</span><span aria-hidden="true">→</span></button></li><li><button type="button" class="course-choice" data-course="7" aria-pressed="false" aria-controls="course-feature"><span>08</span><span>Kids</span><span aria-hidden="true">→</span></button></li><li><button type="button" class="course-choice" data-course="8" aria-pressed="false" aria-controls="course-feature"><span>09</span><span>Cross Training</span><span aria-hidden="true">→</span></button></li></ol>
+<div class="courses-values"><span>Mouvement</span><span>Discipline</span><span>Équilibre</span><span>Durable</span></div>
+</div>
+<div id="course-feature" class="course-feature" aria-label="Cours sélectionné">
+<img id="course-image" src="/images/reformer/reformer-leaning-footbar.webp" alt="Pilates Reformer chez SVB" fetchpriority="high" width="1000" height="1400">
+<div class="course-description" aria-live="polite" aria-atomic="true"><p id="course-number">01 —</p><h2 id="course-title">Pilates Reformer</h2><p id="course-description">Un entraînement complet, alliant force, souplesse et contrôle, pour un corps plus aligné et plus fort.</p><a id="course-discover" href="/pilates-reformer-saint-ouen">Découvrir <span aria-hidden="true">→</span></a></div>
+<div class="course-controls"><button type="button" id="course-previous" aria-label="Cours précédent">‹</button><span id="course-counter" aria-live="polite">01 — 09</span><button type="button" id="course-next" aria-label="Cours suivant">›</button></div>
+</div>
+</section>
+<section class="courses-gallery" aria-label="Découvrir toutes les disciplines"><a class="course-tile" href="/pilates-reformer-saint-ouen"><img src="/images/reformer/reformer-leaning-footbar.webp" alt="" loading="lazy" width="500" height="800"><div><span class="tile-number">01 —</span><h2>Pilates Reformer</h2><p>Force & précision</p></div></a><a class="course-tile" href="/crossformer-saint-ouen"><img src="/images/svb-photos/crossformer-lunge.jpg" alt="" loading="lazy" width="500" height="800"><div><span class="tile-number">02 —</span><h2>Crossformer</h2><p>Cardio & puissance</p></div></a><a class="course-tile" href="/pilates-saint-ouen"><img src="/images/svb-photos/classic-pilates.jpg" alt="" loading="lazy" width="500" height="800"><div><span class="tile-number">03 —</span><h2>Pilates Sol</h2><p>Tonus & posture</p></div></a><a class="course-tile" href="/yoga-saint-ouen"><img src="/images/svb-photos/yoga-vinyasa.jpg" alt="" loading="lazy" width="500" height="800"><div><span class="tile-number">04 —</span><h2>Yoga</h2><p>Respiration & équilibre</p></div></a><a class="course-tile" href="/boxe-anglaise-saint-ouen"><img src="/videos/boxe-card-poster.jpg" alt="" loading="lazy" width="500" height="800"><div><span class="tile-number">05 —</span><h2>Boxe</h2><p>Technique & cardio</p></div></a><a class="course-tile" href="/pilates-saint-ouen"><img src="/images/svb-photos/core-stretch.jpg" alt="" loading="lazy" width="500" height="800"><div><span class="tile-number">06 —</span><h2>Stretching</h2><p>Mobilité & récupération</p></div></a><a class="course-tile" href="/pilates-saint-ouen"><img src="/images/svb-photos/pilates-lunge.jpg" alt="" loading="lazy" width="500" height="800"><div><span class="tile-number">07 —</span><h2>Barre</h2><p>Grâce & renforcement</p></div></a><a class="course-tile" href="/sport-enfant-saint-ouen"><img src="/images/svb-photos/yoga-hero.jpg" alt="" loading="lazy" width="500" height="800"><div><span class="tile-number">08 —</span><h2>Kids</h2><p>Apprendre en s’amusant</p></div></a><a class="course-tile" href="/cross-training-saint-ouen"><img src="/videos/cross-training-immersion-poster.jpg" alt="" loading="lazy" width="500" height="800"><div><span class="tile-number">09 —</span><h2>Cross Training</h2><p>Énergie & collectif</p></div></a></section>
+<details class="courses-details"><summary>Tous les cours en détail <span aria-hidden="true">＋</span></summary><p class="courses-location-links"><a href="/studio-cours-des-lavandieres">Studio Cours des Lavandières</a> · <a href="/studio-parc-des-docks">Studio Parc des Docks</a></p>    <div class="session-catalogue relative max-w-6xl mx-auto px-4 pb-20 z-10">
 
-    <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-5RW8LB7B"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <div class="ambient-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
-    <div class="noise-overlay"></div>
-
-
-
-    <div id="main-content" class="relative text-center py-16 px-4 reveal-load d-1 z-10">
-        <h1 class="text-7xl md:text-9xl text-[#2F4F4F] drop-shadow-xl mb-4 font-hand svb-split">Toutes nos disciplines.</h1>
-        <p class="text-[#2F4F4F] uppercase tracking-widest text-sm font-bold bg-white/40 inline-block px-6 py-2 rounded-full backdrop-blur-md shadow-sm border border-white/20">
-            2 studios · disciplines complémentaires · coachs spécialisés
-        </p>
-        <p class="text-[#2F4F4F] text-base md:text-lg max-w-2xl mx-auto mt-6 font-medium leading-relaxed">
-            Découvre le contenu, le rythme et la capacité de chaque cours. Cette page t'aide à comprendre les disciplines ; le planning en ligne indique les créneaux disponibles.
-        </p>
-    </div>
-
-    <!-- ============================================
-         NOS 2 STUDIOS — adresses + offre essai
-         ============================================ -->
-    <section class="relative max-w-6xl mx-auto px-4 mb-16 reveal-load d-2 z-10" aria-label="Nos 2 studios à Saint-Ouen">
-      <div class="grid md:grid-cols-2 gap-6">
-        <article class="studio-card" style="background:rgba(255,255,255,0.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:24px;padding:32px 28px;border:1px solid rgba(255,255,255,0.6);box-shadow:0 10px 30px rgba(0,0,0,0.05);position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;width:100%;height:6px;background:var(--col-sand);"></div>
-          <div style="font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#4A8D84;margin:0 0 8px;">Studio Cours des Lavandières</div>
-          <h3 class="font-hand" style="font-size:2.2rem;color:var(--svb-text);line-height:1.05;margin:0 0 6px;">SVB Reformer &amp; Crossformer</h3>
-          <p style="font-size:.9rem;color:#555;margin:0 0 16px;font-weight:600;">40 Cours des Lavandières · 93400 Saint-Ouen</p>
-          <p style="font-size:.92rem;color:#444;line-height:1.6;margin:0 0 18px;">Pilates Reformer · Flow Reformer · Crossformer · Crossformer Challenger</p>
-          <div style="background:rgba(232,180,150,0.18);border-left:3px solid #E8B496;padding:14px 18px;border-radius:8px;font-size:.92rem;color:#2F4F4F;line-height:1.5;">
-            Pass Try · <strong style="color:#4A8D84;font-size:1.1rem;">2 séances pour 30 €</strong><br>
-            <span style="font-size:.82rem;color:#666;">1 essai acheté = 1 essai offert dans une autre discipline.</span>
-          </div>
-        </article>
-
-        <article class="studio-card" style="background:rgba(255,255,255,0.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:24px;padding:32px 28px;border:1px solid rgba(255,255,255,0.6);box-shadow:0 10px 30px rgba(0,0,0,0.05);position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;width:100%;height:6px;background:var(--col-green);"></div>
-          <div style="font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#4A8D84;margin:0 0 8px;">Studio Parc des Docks</div>
-          <h3 class="font-hand" style="font-size:2.2rem;color:var(--svb-text);line-height:1.05;margin:0 0 6px;">SVB Small Group</h3>
-          <p style="font-size:.9rem;color:#555;margin:0 0 16px;font-weight:600;">6 Mail André Breton · 93400 Saint-Ouen</p>
-          <p style="font-size:.92rem;color:#444;line-height:1.6;margin:0 0 18px;">Cross Training · Cross Rox · Cross Body · Cross Core · Cross Yoga · Pilates · Yoga Vinyasa · Stretch Mobility · Boxe · Yoga Kids</p>
-          <div style="background:rgba(74,141,132,0.12);border-left:3px solid #4A8D84;padding:14px 18px;border-radius:8px;font-size:.92rem;color:#2F4F4F;line-height:1.5;">
-            Pass Try · <strong style="color:#4A8D84;font-size:1.1rem;">2 séances pour 30 €</strong><br>
-            <span style="font-size:.82rem;color:#666;">1 essai acheté = 1 essai offert dans une autre discipline.</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <div class="sub-nav-wrapper reveal-load d-2">
-        <div class="sub-nav">
-            <a href="#reformer" class="nav-pill">Reformer</a>
-            <a href="#crossformer" class="nav-pill">Crossformer</a>
-            <a href="#cross" class="nav-pill">Formats Cross</a>
-            <a href="#pilates-yoga" class="nav-pill">Pilates, Yoga &amp; mobilité</a>
-            <a href="#boxe-kids" class="nav-pill">Boxe &amp; Yoga Kids</a>
-        </div>
-    </div>
-
-    <div class="session-catalogue relative max-w-6xl mx-auto px-4 pb-20 z-10">
-
-        <div id="crossformer" class="mb-20 theme-crossformer reveal-load d-1 scroll-mt-32">
+        <div id="crossformer" class="mb-20 theme-crossformer  d-1 scroll-mt-32">
             <div class="section-header">
                 <h2 class="section-title">Crossformer</h2>
             </div>
             <div class="session-grid grid md:grid-cols-2 gap-6">
                 <article class="session-card">
                     <div class="session-card__media">
-                        <video autoplay muted loop playsinline preload="metadata" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true" data-svb-lazy-video>
+                        <video muted loop playsinline preload="none" poster="/videos/crossformer-immersion-poster.jpg" aria-hidden="true" data-svb-lazy-video>
                             <source src="/videos/crossformer-immersion.mp4?v=20260816" type="video/mp4">
                         </video>
                     </div>
@@ -323,14 +165,14 @@
             </div>
         </div>
 
-        <div id="reformer" class="mb-20 theme-reformer reveal-load d-2 scroll-mt-32">
+        <div id="reformer" class="mb-20 theme-reformer  d-2 scroll-mt-32">
             <div class="section-header">
                 <h2 class="section-title">Reformer</h2>
             </div>
             <div class="session-grid grid md:grid-cols-2 gap-6">
                 <article class="session-card">
                     <div class="session-card__media">
-                        <video autoplay muted loop playsinline preload="metadata" poster="/videos/reformer-card-v2-poster.jpg" aria-hidden="true" data-svb-lazy-video>
+                        <video muted loop playsinline preload="none" poster="/videos/reformer-card-v2-poster.jpg" aria-hidden="true" data-svb-lazy-video>
                             <source src="/videos/reformer-card-v2.mp4?v=20260816" type="video/mp4">
                         </video>
                     </div>
@@ -347,7 +189,7 @@
 
                 <article class="session-card">
                     <div class="session-card__media">
-                        <video autoplay muted loop playsinline controls preload="metadata" poster="/videos/flow-reformer-hotel-lobby-v2-poster.jpg" aria-label="Flow Reformer au Studio SVB Cours des Lavandières" data-svb-lazy-video data-no-unmute>
+                        <video muted loop playsinline controls preload="none" poster="/videos/flow-reformer-hotel-lobby-v2-poster.jpg" aria-label="Flow Reformer au Studio SVB Cours des Lavandières" data-svb-lazy-video data-no-unmute>
                             <source src="/videos/flow-reformer-hotel-lobby-v2.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -364,14 +206,14 @@
             </div>
         </div>
 
-        <div id="cross" class="mb-20 theme-cross reveal-load d-3 scroll-mt-32">
+        <div id="cross" class="mb-20 theme-cross  d-3 scroll-mt-32">
             <div class="section-header">
                 <h2 class="section-title">Cross &amp; renforcement</h2>
             </div>
             <div class="session-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <article class="session-card">
                     <div class="session-card__media">
-                        <video autoplay muted loop playsinline preload="metadata" poster="/videos/cross-training-immersion-poster.jpg?v=20260918a" aria-hidden="true" data-svb-lazy-video>
+                        <video muted loop playsinline preload="none" poster="/videos/cross-training-immersion-poster.jpg?v=20260918a" aria-hidden="true" data-svb-lazy-video>
                             <source src="/videos/cross-training-immersion.mp4?v=20260918a" type="video/mp4">
                         </video>
                     </div>
@@ -388,7 +230,7 @@
 
                 <article class="session-card">
                     <div class="session-card__media">
-                        <video autoplay muted loop playsinline controls preload="metadata" poster="/videos/cross-rox-collectif-poster.jpg" aria-label="Cross Rox au Studio SVB Parc des Docks" data-svb-lazy-video data-no-unmute>
+                        <video muted loop playsinline controls preload="none" poster="/videos/cross-rox-collectif-poster.jpg" aria-label="Cross Rox au Studio SVB Parc des Docks" data-svb-lazy-video data-no-unmute>
                             <source src="/videos/cross-rox-collectif.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -435,7 +277,7 @@
 
                 <article class="session-card">
                     <div class="session-card__media">
-                        <video autoplay muted loop playsinline preload="metadata" poster="/videos/cross-yoga-card-poster.jpg" aria-hidden="true" data-svb-lazy-video>
+                        <video muted loop playsinline preload="none" poster="/videos/cross-yoga-card-poster.jpg" aria-hidden="true" data-svb-lazy-video>
                             <source src="/videos/cross-yoga-card.mp4?v=20260816" type="video/mp4">
                         </video>
                     </div>
@@ -452,7 +294,7 @@
             </div>
         </div>
 
-        <div id="pilates-yoga" class="mb-20 theme-focus reveal-load d-4 scroll-mt-32">
+        <div id="pilates-yoga" class="mb-20 theme-focus  d-4 scroll-mt-32">
             <div class="section-header">
                 <h2 class="section-title">Pilates, Yoga &amp; mobilité</h2>
             </div>
@@ -519,14 +361,14 @@
             </div>
         </div>
 
-        <div id="boxe-kids" class="mb-20 theme-kids reveal-load d-4 scroll-mt-32">
+        <div id="boxe-kids" class="mb-20 theme-kids  d-4 scroll-mt-32">
             <div class="section-header">
                 <h2 class="section-title">Boxe &amp; Yoga Kids</h2>
             </div>
             <div class="session-grid grid md:grid-cols-2 gap-6">
                 <article class="session-card">
                     <div class="session-card__media">
-                        <video autoplay muted loop playsinline preload="metadata" poster="/videos/boxe-card-poster.jpg" aria-hidden="true" data-svb-lazy-video>
+                        <video muted loop playsinline preload="none" poster="/videos/boxe-card-poster.jpg" aria-hidden="true" data-svb-lazy-video>
                             <source src="/videos/boxe-card.mp4?v=20260816" type="video/mp4">
                         </video>
                     </div>
@@ -560,62 +402,8 @@
 
     </div>
 
-    <footer class="svb-footer" role="contentinfo">
-      <div class="svb-footer-accent" aria-hidden="true"></div>
-      <div class="svb-footer-inner" data-nosnippet>
-        <div class="svb-footer-grid">
-          <div class="svb-footer-brand">
-            <img style="height:56px;width:auto;margin:0 0 18px;filter:none;background:transparent;box-shadow:none;display:block;" src="/images/logo-footer.png" alt="Studio SVB — Pilates, Yoga et Fitness à Saint-Ouen" class="svb-footer-logo" width="593" height="420" decoding="async" loading="lazy">
-            <p class="svb-footer-sig">Santez vous bien,<br>le bien-être au quotidien.</p>
-            <p class="svb-footer-tagline">Studio de Pilates, Yoga &amp; Fitness à Saint-Ouen-sur-Seine.</p>
-          </div>
-          <div class="svb-footer-col">
-            <h3 class="svb-footer-head">Studios</h3>
-            <ul>
-              <li><a href="/studio-parc-des-docks"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8c0-2.5-2-4.5-4.5-4.5zm0 6.3a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6z" fill="currentColor"/></svg>Parc des Docks</a></li>
-              <li><a href="/studio-cours-des-lavandieres"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8c0-2.5-2-4.5-4.5-4.5zm0 6.3a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6z" fill="currentColor"/></svg>Cours des Lavandières</a></li>
-            </ul>
-          </div>
-          <div class="svb-footer-col">
-            <h3 class="svb-footer-head">Contacts</h3>
-            <ul>
-              <li><a href="tel:+33744919155"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.6 1.8a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7L6 6.7c1 2 2.3 3.3 4.3 4.3l1.3-1.3a1.2 1.2 0 011.7 0l1.9 1.9a1.2 1.2 0 010 1.7l-.9.9c-1 1-2.6 1-4.3.4-3.2-1-6-3.8-7-7-.6-1.7-.6-3.3.4-4.3l.2-.5z" fill="currentColor"/></svg>07 44 91 91 55</a></li>
-              <li><a href="mailto:hello@studiosvb.fr"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5A1.5 1.5 0 013.5 2h9A1.5 1.5 0 0114 3.5v9A1.5 1.5 0 0112.5 14h-9A1.5 1.5 0 012 12.5v-9zm1.7.5l4.3 3.3L12.3 4H3.7zM13 5.1L8.5 8.5a.8.8 0 01-1 0L3 5.1V12.5c0 .3.2.5.5.5h9c.3 0 .5-.2.5-.5V5.1z" fill="currentColor"/></svg>hello@studiosvb.fr</a></li>
-            </ul>
-          </div>
-          <div class="svb-footer-col">
-            <h3 class="svb-footer-head">Réseaux</h3>
-            <ul>
-              <li><a href="https://www.instagram.com/svb.officiel/" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5H5.2a3.7 3.7 0 00-3.7 3.7v5.6a3.7 3.7 0 003.7 3.7h5.6a3.7 3.7 0 003.7-3.7V5.2a3.7 3.7 0 00-3.7-3.7H8zm4.7 1.8c.2 0 .4.2.4.4v.5c0 .2-.2.4-.4.4h-.5a.4.4 0 01-.4-.4v-.5c0-.2.2-.4.4-.4h.5zM8 4.8a3.2 3.2 0 110 6.4 3.2 3.2 0 010-6.4zm0 1.3a1.9 1.9 0 100 3.8 1.9 1.9 0 000-3.8z" fill="currentColor"/></svg>Instagram</a></li>
-              <li><a href="https://www.facebook.com/profile.php?id=61569485866457" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.2 14v-5.3h1.8l.3-2h-2V5.4c0-.6.1-1 1-1h1.1V2.5a16 16 0 00-1.7-.1c-1.7 0-2.8 1-2.8 2.9v1.4H5v2h1.8V14h2.4z" fill="currentColor"/></svg>Facebook</a></li>
-              <li><a href="https://wa.me/33744919155" target="_blank" rel="noopener noreferrer"><svg class="svb-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 00-5.6 9.8L1.5 14.5l3.3-.8A6.5 6.5 0 108 1.5zm0 1.3a5.2 5.2 0 014.3 8.1l.5 1.5-1.6-.4A5.2 5.2 0 118 2.8zm-2.6 2.5c-.2 0-.4 0-.6.2-.2.2-.8.7-.8 1.8s.8 2.1 1 2.2c.1.2 1.6 2.4 3.8 3.2 1.8.7 2.2.5 2.6.5.4 0 1.3-.5 1.5-1 .2-.6.2-1 .1-1.2l-.8-.4c-.2-.1-.5-.3-.7 0s-.8 1-1 1.1c-.2.2-.4.2-.7 0-.3-.1-1.2-.4-2.3-1.4a8 8 0 01-1.5-2c-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5L6 5.4c-.1-.2-.2-.2-.3-.2z" fill="currentColor"/></svg>WhatsApp</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="svb-footer-sep" aria-hidden="true"></div>
-        <div class="svb-footer-bottom">
-          <div class="svb-footer-adresses">
-            <p class="svb-footer-eyebrow">Adresses</p>
-            <p>Parc des Docks — 6 Mail André Breton, 93400 Saint-Ouen-sur-Seine</p>
-            <p>Cours des Lavandières — 40 Cours des Lavandières, 93400 Saint-Ouen-sur-Seine</p>
-          </div>
-          <div class="svb-footer-legal">
-            <a href="/mentions-legales">Mentions légales</a> <a href="/cgv">CGV</a> <a href="/sessions">Disciplines</a> <a href="/faq">FAQ</a> <a href="/temoignages">Avis</a>
-          </div>
-        </div>
-        <p class="svb-footer-signoff"><span>Santez Vous Bien</span> · <span id="svb-year">2026</span></p>
-      </div>
-    </footer>
-
-    <div class="wa-container">
-        <a href="https://wa.me/33744919155" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-            <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.096 0-4.141-.547-5.946-1.588L0 .057zm6.549-2.938c1.614.96 3.434 1.468 5.282 1.468 5.497 0 9.97-4.473 9.97-9.97s-4.473-9.97-9.97-9.97c-5.497 0-9.97 4.473-9.97 9.97 0 1.848.508 3.668 1.468 5.282L2.324 21.676l4.282-1.564zm11.334-7.129c-.314-.157-1.859-.917-2.148-1.021-.288-.105-.499-.157-.709.157-.21.314-.813 1.021-.996 1.231-.183.21-.367.236-.681.079-.314-.157-1.325-.489-2.524-1.559-.933-.833-1.563-1.861-1.747-2.175-.183-.314-.02-.484.137-.64.141-.141.314-.367.472-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.709-1.703-.971-2.332-.255-.612-.513-.529-.709-.539-.183-.01-.393-.012-.603-.012s-.551.079-.84.393c-.288.314-1.102 1.074-1.102 2.62s1.128 3.039 1.285 3.25c.157.21 2.221 3.391 5.38 4.755.751.325 1.337.519 1.794.664.754.24 1.441.206 1.983.125.603-.09 1.859-.759 2.121-1.467.262-.708.262-1.312.183-1.467-.079-.157-.288-.263-.603-.42z"/></svg>
-        </a>
-    </div>
-
-  <script src="/assets/svb.js?v=20261002-offer99" defer></script>
-  <script src="/assets/vendor/lenis.min.js?v=1.1.20" defer></script>
-  <script src="/assets/svb-motion.js?v=20260424a" defer></script>
-  <script src="/assets/video-unmute.js?v=20260428d" defer></script>
-  </body>
-</html>
+</details></main>
+<footer class="courses-footer"><a href="/" class="courses-footer-logo" aria-label="Accueil SVB"><img src="/images/svb-home-logo.webp" alt="SVB" width="78" height="55"></a><p>Studios sportifs — Saint-Ouen</p><p>Santez vous bien,<br>le bien-être au quotidien.</p><nav aria-label="Liens utiles"><a href="/contact">Contact</a><a href="https://www.instagram.com/svb.officiel/" target="_blank" rel="noopener">Instagram</a><a href="/mentions-legales">Mentions légales</a></nav></footer>
+<script type="application/json" id="courses-data">[["Pilates Reformer", "Force & précision", "Un entraînement complet, alliant force, souplesse et contrôle, pour un corps plus aligné et plus fort.", "/images/reformer/reformer-leaning-footbar.webp", "/pilates-reformer-saint-ouen"], ["Crossformer", "Cardio & puissance", "Une séance dynamique sur machine, pour travailler le cardio et le renforcement dans l’énergie du groupe.", "/images/svb-photos/crossformer-lunge.jpg", "/crossformer-saint-ouen"], ["Pilates Sol", "Tonus & posture", "Des mouvements précis pour renforcer les muscles profonds, améliorer la posture et retrouver de la mobilité.", "/images/svb-photos/classic-pilates.jpg", "/pilates-saint-ouen"], ["Yoga", "Respiration & équilibre", "Relier le souffle au mouvement, développer sa souplesse et prendre un moment pour soi.", "/images/svb-photos/yoga-vinyasa.jpg", "/yoga-saint-ouen"], ["Boxe", "Technique & cardio", "Apprendre les gestes de la boxe anglaise, se dépenser et progresser avec un accompagnement en petit groupe.", "/videos/boxe-card-poster.jpg", "/boxe-anglaise-saint-ouen"], ["Stretching", "Mobilité & récupération", "Relâcher les tensions et explorer des mouvements doux pour gagner en amplitude et en confort.", "/images/svb-photos/core-stretch.jpg", "/pilates-saint-ouen"], ["Barre", "Grâce & renforcement", "Un travail de posture, de coordination et de renforcement avec la barre comme point d’appui.", "/images/svb-photos/pilates-lunge.jpg", "/pilates-saint-ouen"], ["Kids", "Apprendre en s’amusant", "Découvrir le yoga à travers le jeu, les histoires et les postures, pour développer l’équilibre et la concentration.", "/images/svb-photos/yoga-hero.jpg", "/sport-enfant-saint-ouen"], ["Cross Training", "Énergie & collectif", "Un entraînement varié en petit groupe pour développer sa force, son endurance et partager l’effort.", "/videos/cross-training-immersion-poster.jpg", "/cross-training-saint-ouen"]]</script>
+<script src="/assets/svb.js?v=20261002-offer99" defer></script>
+</body></html>
