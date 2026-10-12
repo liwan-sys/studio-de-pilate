@@ -23,3 +23,10 @@ body.svb-immersive-home #svb-menu-panel.hidden{display:none!important}
 body.svb-immersive-home #svb-menu-panel:not(.hidden){position:absolute;left:0;right:0;top:100%;margin:0;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:20px 28px;background:transparent!important;color:#fff;box-shadow:none;text-shadow:0 1px 8px #000b;max-height:calc(100dvh - 84px);overflow:auto}
 body.svb-immersive-home #svb-menu-panel a{padding:17px 0;border-bottom:1px solid #ffffff40;font-size:15px;color:#fff!important}
 body.svb-immersive-home #svb-menu-panel a:last-child{border:0}
+
+/* Verre liquide — l'accueil et les pages intérieures partagent la même barre. */
+body.svb-immersive-home .svb-unified-header{inset:18px 22px auto!important;width:auto!important}
+body.svb-immersive-home .svb-unified-nav{height:62px!important;min-height:62px!important;padding:8px 11px 8px 18px!important;border:1px solid rgba(255,255,255,.28)!important;border-radius:21px!important;background:linear-gradient(125deg,rgba(255,255,255,.18),rgba(255,255,255,.055))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -1px 0 rgba(255,255,255,.08),0 14px 45px rgba(0,0,0,.2)!important;backdrop-filter:blur(24px) saturate(150%)!important;-webkit-backdrop-filter:blur(24px) saturate(150%)!important}
+body.svb-immersive-home .svb-reserve{padding:11px 20px!important;border-radius:999px!important;background:rgba(248,245,238,.94)!important;color:#211d19!important;text-shadow:none!important;text-transform:uppercase;letter-spacing:.1em}
+body.svb-immersive-home #svb-menu-panel:not(.hidden){top:72px!important;border:1px solid rgba(255,255,255,.22);border-radius:21px;background:rgba(20,17,15,.7)!important;backdrop-filter:blur(28px) saturate(145%);-webkit-backdrop-filter:blur(28px) saturate(145%)}
+@media(max-width:700px){body.svb-immersive-home .svb-unified-header{inset:12px 12px auto!important}body.svb-immersive-home .svb-unified-nav{height:58px!important;min-height:58px!important;padding:7px 9px 7px 14px!important;border-radius:18px!important}body.svb-immersive-home #svb-menu-panel:not(.hidden){top:68px!important;border-radius:18px}}

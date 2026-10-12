@@ -1,34 +1,74 @@
-/* Inner pages share the immersive homepage's navigation and warm palette. */
-body.svb-aligned-page{padding-top:84px!important;background:#faf6ee!important;color:#29261f;--svb-ink:#29261f;--svb-text:#29261f;--svb-ink-soft:#635a49;--svb-green-dark:#635a49;--svb-cream:#faf6ee;--svb-sand:#eee6d7;--svb-mint:#f5efe3;--svb-accent:#dfc491}
+/* SVB — direction éditoriale immersive et verre liquide */
+:root{--svb-night:#14110f;--svb-ivory:#f5f0e8;--svb-line:rgba(255,255,255,.28);--svb-glass:rgba(24,20,17,.34);--svb-glass-strong:rgba(20,17,15,.58)}
+html{background:var(--svb-night)}
+body.svb-aligned-page{padding-top:0!important;background:var(--svb-night)!important;color:var(--svb-ivory)!important;font-family:Montserrat,Arial,sans-serif;min-height:100vh;isolation:isolate}
 .svb-aligned-page>.ambient-bg,.svb-aligned-page>.noise-overlay{display:none!important}
-.svb-aligned-page :is(h1,h2,h3,h4,h5,h6),.svb-aligned-page :is(h1,h2,h3,h4,h5,h6) *{font-family:Montserrat,Arial,sans-serif!important;font-weight:500!important;letter-spacing:-.025em!important}
-.svb-aligned-page h1{font-size:clamp(32px,5vw,64px)!important;line-height:1.12!important;text-shadow:none!important}
-.svb-aligned-page h2{font-size:clamp(25px,3vw,38px);line-height:1.2}
-.svb-aligned-page #main-content>h1,.svb-aligned-page #main-content>p{color:#29261f!important;text-shadow:none!important}
-.svb-aligned-page .svb-unified-header,.svb-aligned-page .svb-unified-header *{box-sizing:border-box}
-.svb-aligned-page .svb-unified-header{position:fixed!important;inset:0 0 auto!important;width:100%;z-index:100010;background:transparent;color:#29261f;font-family:Montserrat,Arial,sans-serif;transition:background .2s}
-.svb-aligned-page.svb-page-scrolled .svb-unified-header{background:rgba(250,246,238,.96)}
-.svb-aligned-page .svb-unified-nav{position:relative!important;display:flex!important;align-items:center!important;justify-content:space-between!important;width:100%!important;max-width:none!important;min-height:84px!important;padding:12px 28px!important;margin:0!important;background:transparent!important;border:0!important;box-shadow:none!important;color:inherit!important;gap:28px!important}
-.svb-aligned-page .svb-unified-header a{color:inherit!important;text-decoration:none!important}
-.svb-aligned-page #svb-menu-toggle{display:flex!important;align-items:center;gap:9px;border:0;background:none;color:inherit;padding:8px 0;font:inherit;font-size:12px;cursor:pointer;min-height:44px}
-.svb-aligned-page #svb-menu-toggle svg{width:24px;height:24px;max-width:none}
-.svb-aligned-page .svb-reserve{margin-left:auto;padding:11px 20px;border:1px solid #29261f80;border-radius:2px;background:transparent!important;font-size:11px;letter-spacing:.04em;white-space:nowrap}
-.svb-aligned-page .svb-page-brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:37px;overflow:hidden}
-.svb-aligned-page .svb-page-brand img{display:block;width:76px!important;height:auto!important;max-width:none;filter:brightness(0)}
-.svb-aligned-page #svb-menu-panel.hidden{display:none!important}
-.svb-aligned-page #svb-menu-panel:not(.hidden){position:absolute;top:100%;left:0;right:0;display:flex!important;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:16px 28px 24px;background:rgba(250,246,238,.98);max-height:calc(100dvh - 84px);overflow-y:auto;box-shadow:0 14px 20px #29261f0a}
-.svb-aligned-page #svb-menu-panel a{display:block;padding:15px 0;border-bottom:1px solid #29261f25;font-size:15px;line-height:1.5}
-.svb-aligned-page #svb-menu-panel a:last-child{border:0}
-.svb-aligned-page #svb-menu-panel a[aria-current=page]{font-weight:700}
-.svb-aligned-page .svb-unified-header :is(a,button):focus-visible{outline:2px solid #806332;outline-offset:4px}
-.svb-aligned-page :is(.pq-cta-primary,.pq-cta-secondary,.pricing-btn){border-radius:2px!important}
-@media(max-width:700px){body.svb-aligned-page{padding-top:72px!important}.svb-aligned-page .svb-unified-nav{min-height:72px!important;padding:14px 20px!important;gap:16px!important}.svb-aligned-page #svb-menu-panel:not(.hidden){max-height:calc(100dvh - 72px);padding:10px 20px 20px}.svb-aligned-page .svb-page-brand{width:64px;height:31px}.svb-aligned-page .svb-page-brand img{width:64px!important}.svb-aligned-page h1{font-size:clamp(30px,8vw,42px)!important}}
-@media(prefers-reduced-motion:reduce){.svb-aligned-page .svb-unified-header{transition:none}}
-/* Retain contrast where the original page had a dark introductory background. */
-.svb-aligned-page .pricing-showcase-header,.svb-aligned-page .pricing-showcase-header *,.svb-aligned-page .schedule-kicker,.svb-aligned-page .schedule-address{color:#29261f!important;text-shadow:none!important}
-.svb-aligned-page .pricing-showcase-kicker,.svb-aligned-page .schedule-kicker{font-family:Montserrat,Arial,sans-serif!important;font-size:13px!important;line-height:1.5!important;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
-.svb-aligned-page .glass-box :is(h2,h3),.svb-aligned-page [class~="text-[#4A8D84]"]{color:#635a49!important}
-.svb-aligned-page h1{filter:none!important}
+.svb-atmosphere{position:fixed;inset:0;z-index:0;overflow:hidden;background:#171310;pointer-events:none}
+.svb-aligned-page> :not(.svb-atmosphere){position:relative;z-index:1}
+.svb-atmosphere video{width:100%;height:100%;object-fit:cover;filter:brightness(.64) saturate(.68) sepia(.28)}
+.svb-atmosphere::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,8,7,.54),rgba(10,8,7,.04) 58%,rgba(10,8,7,.22)),linear-gradient(180deg,rgba(12,9,7,.2),transparent 42%,rgba(12,9,7,.33));pointer-events:none}
+.svb-aligned-page :is(h1,h2,h3,h4,h5,h6),.svb-aligned-page :is(h1,h2,h3,h4,h5,h6) *{font-family:Georgia,"Times New Roman",serif!important;font-weight:400!important;letter-spacing:-.035em!important}
+.svb-aligned-page h1{font-size:clamp(44px,7vw,94px)!important;line-height:.96!important;color:var(--svb-ivory)!important;text-shadow:0 2px 22px rgba(0,0,0,.32)!important;filter:none!important}
+.svb-aligned-page h2{font-size:clamp(34px,4.5vw,62px)!important;line-height:1.02!important}
+.svb-aligned-page h3{font-size:clamp(23px,2.5vw,36px)!important;line-height:1.1!important}
+.svb-aligned-page p,.svb-aligned-page li,.svb-aligned-page dd,.svb-aligned-page dt{color:inherit}
 
-.svb-aligned-page .section-title{color:#29261f!important;text-shadow:none!important}
-.svb-aligned-page .pq-hero h1 em{color:#78603b!important}
+.svb-aligned-page .svb-unified-header,.svb-aligned-page .svb-unified-header *{box-sizing:border-box}
+.svb-aligned-page .svb-unified-header{position:fixed!important;inset:18px 22px auto!important;width:auto!important;z-index:100010;color:#fff;font-family:Montserrat,Arial,sans-serif;transition:transform .25s ease}
+.svb-aligned-page .svb-unified-nav{position:relative!important;display:flex!important;align-items:center!important;justify-content:space-between!important;width:100%!important;max-width:none!important;height:62px!important;min-height:62px!important;padding:8px 11px 8px 18px!important;margin:0!important;gap:24px!important;border:1px solid rgba(255,255,255,.26)!important;border-radius:21px!important;background:linear-gradient(125deg,rgba(255,255,255,.18),rgba(255,255,255,.055))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -1px 0 rgba(255,255,255,.08),0 14px 45px rgba(0,0,0,.18)!important;backdrop-filter:blur(24px) saturate(150%)!important;-webkit-backdrop-filter:blur(24px) saturate(150%)!important}
+.svb-aligned-page .svb-unified-header a{color:#fff!important;text-decoration:none!important}
+.svb-aligned-page #svb-menu-toggle{display:flex!important;align-items:center;gap:9px;border:0;background:none;color:#fff;padding:8px 0;font:inherit;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;min-height:42px}
+.svb-aligned-page #svb-menu-toggle svg{width:22px;height:22px;max-width:none}
+.svb-aligned-page .svb-unified-header .svb-reserve{margin-left:auto;padding:11px 20px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(248,245,238,.94)!important;color:#211d19!important;font-size:10px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;box-shadow:inset 0 1px 0 white}
+.svb-aligned-page .svb-page-brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:38px;overflow:hidden}
+.svb-aligned-page .svb-page-brand img{display:block;width:72px!important;height:auto!important;max-width:none;filter:brightness(0) invert(1)}
+.svb-aligned-page #svb-menu-panel.hidden{display:none!important}
+.svb-aligned-page #svb-menu-panel:not(.hidden){position:absolute;top:72px;left:0;right:0;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0;padding:18px 22px;background:linear-gradient(130deg,rgba(26,22,19,.82),rgba(23,19,17,.64));border:1px solid rgba(255,255,255,.22);border-radius:21px;max-height:calc(100dvh - 105px);overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.3);backdrop-filter:blur(28px) saturate(145%);-webkit-backdrop-filter:blur(28px) saturate(145%)}
+.svb-aligned-page #svb-menu-panel a{display:block;padding:15px 12px;border-bottom:1px solid rgba(255,255,255,.14);font-size:12px;letter-spacing:.04em;line-height:1.4}
+.svb-aligned-page #svb-menu-panel a[aria-current=page]{background:rgba(255,255,255,.1);border-radius:12px}
+.svb-aligned-page .svb-unified-header :is(a,button):focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+.svb-aligned-page #main-content{padding:clamp(150px,18vh,210px) 6vw 64px!important;min-height:58vh;text-align:left!important}
+.svb-aligned-page #main-content>h1{max-width:900px;margin-left:0!important;margin-right:0!important}
+.svb-aligned-page #main-content>p{max-width:760px!important;color:rgba(255,255,255,.82)!important;text-shadow:0 2px 18px rgba(0,0,0,.4)!important}
+.svb-aligned-page #main-content>p:first-of-type{background:rgba(25,21,18,.18)!important;border:1px solid rgba(255,255,255,.25)!important;color:#fff!important;border-radius:999px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important}
+.svb-aligned-page main:not(#main-content),.svb-aligned-page section,.svb-aligned-page .session-catalogue,.svb-aligned-page .schedule-shell,.svb-aligned-page .pricing-page{position:relative}
+.svb-aligned-page .studio-card,.svb-aligned-page .session-card,.svb-aligned-page .glass-box,.svb-aligned-page .pricing-offer-card,.svb-aligned-page .schedule-section,.svb-aligned-page .pq-card,.svb-aligned-page .faq-item{color:#fff!important;background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.055))!important;border:1px solid rgba(255,255,255,.25)!important;border-radius:24px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 24px 70px rgba(0,0,0,.18)!important;backdrop-filter:blur(22px) saturate(130%)!important;-webkit-backdrop-filter:blur(22px) saturate(130%)!important}
+.svb-aligned-page .studio-card{padding:28px!important}
+.svb-aligned-page .session-card{overflow:hidden!important}
+.svb-aligned-page .session-card::before,.svb-aligned-page .studio-card>div[style*="height:6px"]{display:none!important}
+.svb-aligned-page .session-card__body{background:transparent!important;color:#fff!important}
+.svb-aligned-page .session-card__body *,.svb-aligned-page .studio-card *,.svb-aligned-page .glass-box *{color:inherit!important}
+.svb-aligned-page .session-card__media img,.svb-aligned-page .session-card__media video{filter:saturate(.75) contrast(1.02)}
+.svb-aligned-page .sub-nav{background:rgba(22,18,16,.38)!important;border:1px solid rgba(255,255,255,.25)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 12px 35px rgba(0,0,0,.18)!important;backdrop-filter:blur(22px) saturate(140%)!important;-webkit-backdrop-filter:blur(22px) saturate(140%)!important}
+.svb-aligned-page .nav-pill{color:#fff!important}
+.svb-aligned-page .nav-pill:hover{background:rgba(255,255,255,.14)!important}
+.svb-aligned-page .section-title,.svb-aligned-page .pricing-showcase-header,.svb-aligned-page .pricing-showcase-header *,.svb-aligned-page .schedule-kicker,.svb-aligned-page .schedule-address{color:#fff!important;text-shadow:0 2px 18px rgba(0,0,0,.32)!important}
+.svb-aligned-page .pricing-shell,.svb-aligned-page .schedule-shell{max-width:1180px!important}
+.svb-aligned-page .pricing-showcase{background:transparent!important;padding-top:140px!important}
+.svb-aligned-page .pricing-showcase-kicker,.svb-aligned-page .pricing-group-eyebrow{font-family:Montserrat,Arial,sans-serif!important;font-size:11px!important;font-weight:600!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:rgba(255,255,255,.78)!important}
+.svb-aligned-page .pricing-group-header,.svb-aligned-page .pricing-group-header *{color:#fff!important}
+.svb-aligned-page .pricing-offer-card :is(p,li,span,strong,small,dt,dd),.svb-aligned-page .schedule-section :is(p,span,strong,h2,h3){color:inherit!important}
+.svb-aligned-page .pricing-offer-cta,.svb-aligned-page .schedule-live-link,.svb-aligned-page :is(.pq-cta-primary,.pq-cta-secondary,.pricing-btn){border-radius:999px!important;background:rgba(248,245,238,.94)!important;color:#211d19!important;border:1px solid rgba(255,255,255,.6)!important;box-shadow:inset 0 1px 0 #fff!important}
+.svb-aligned-page .planning-controls,.svb-aligned-page .planning-intro{background:rgba(22,18,16,.34)!important;color:#fff!important;border:1px solid rgba(255,255,255,.22)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important}
+.svb-aligned-page .planning-controls *,.svb-aligned-page .planning-intro *{color:inherit!important}
+.svb-aligned-page .planning-studio-tab.is-active,.svb-aligned-page .planning-day-tab.is-active{background:rgba(255,255,255,.16)!important;color:#fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.28)!important}
+.svb-aligned-page>a.sr-only:not(:focus){position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.svb-aligned-page footer{background:rgba(12,10,9,.74)!important;color:#fff!important;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.svb-aligned-page footer *{color:inherit!important}
+.svb-aligned-page .whatsapp-float{filter:saturate(0) brightness(1.35);opacity:.82}
+.svb-aligned-page .svb-site-offer,.svb-aligned-page [class*="offer-banner"],.svb-aligned-page [class*="promo-banner"],.svb-aligned-page [class*="offer-strip"],.svb-aligned-page [class*="promo-strip"]{display:none!important}
+
+@media(max-width:700px){
+  .svb-aligned-page .svb-unified-header{inset:12px 12px auto!important}
+  .svb-aligned-page .svb-unified-nav{height:58px!important;min-height:58px!important;padding:7px 9px 7px 14px!important;border-radius:18px!important}
+  .svb-aligned-page .svb-page-brand{width:58px;height:30px}.svb-aligned-page .svb-page-brand img{width:58px!important}
+  .svb-aligned-page .svb-reserve{padding:10px 13px;font-size:9px}
+  .svb-aligned-page #svb-menu-toggle span{display:none}
+  .svb-aligned-page #svb-menu-panel:not(.hidden){top:68px;grid-template-columns:1fr;padding:10px 16px;border-radius:18px;max-height:calc(100dvh - 92px)}
+  .svb-aligned-page #svb-menu-panel a{padding:12px 4px}
+  .svb-aligned-page #main-content{padding:142px 22px 54px!important;min-height:62vh}
+  .svb-aligned-page h1{font-size:clamp(43px,14vw,65px)!important}
+  .svb-aligned-page .studio-card,.svb-aligned-page .glass-box,.svb-aligned-page .pricing-offer-card{border-radius:20px!important}
+}
+@media(prefers-reduced-motion:reduce){.svb-aligned-page .svb-unified-header{transition:none}.svb-atmosphere video{display:none}}
