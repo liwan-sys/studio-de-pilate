@@ -1,7 +1,6 @@
 .svb-unified-header,.svb-unified-header *,.svb-home-story,.svb-home-story *{box-sizing:border-box}
 body.svb-immersive-home{margin:0;background:#17120f;color:#fff;font-family:Montserrat,Arial,sans-serif}
-body.svb-immersive-home :is(.home-films,.mobile-film)::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(12,8,5,.62) 0%,rgba(12,8,5,.16) 46%,rgba(12,8,5,.3) 100%),linear-gradient(180deg,rgba(12,8,5,.28),transparent 42%,rgba(12,8,5,.42));pointer-events:none}
-body.svb-immersive-home :is(.home-films,.mobile-film)>video{filter:grayscale(.32) sepia(.58) saturate(.72) brightness(.78) contrast(1.05)}
+body.svb-immersive-home :is(.home-films,.mobile-film)::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.56) 0%,rgba(0,0,0,.08) 46%,rgba(0,0,0,.22) 100%),linear-gradient(180deg,rgba(0,0,0,.2),transparent 42%,rgba(0,0,0,.34));pointer-events:none}
 
 .svb-unified-header{position:fixed;inset:0 0 auto;z-index:100;width:100%;color:#fff;font-family:Montserrat,Arial,sans-serif}
 .svb-unified-nav{position:relative;display:flex;align-items:center;width:100%;height:104px;padding:20px 3.5vw;gap:30px;background:linear-gradient(180deg,rgba(8,6,5,.27),transparent)}
@@ -55,6 +54,6 @@ body.svb-immersive-home :is(.home-films,.mobile-film)>video{filter:grayscale(.32
   .svb-home-scroll{display:none}
   .svb-home-studios{gap:9px}.svb-home-studios a{font-size:7px;letter-spacing:.14em}.svb-home-studios i{width:14px}
   .svb-home-video-toggle{font-size:0;gap:0}.svb-home-video-toggle span{width:38px;height:38px;font-size:11px}
-  body.svb-immersive-home :is(.home-films,.mobile-film)::after{background:linear-gradient(90deg,rgba(10,7,5,.58),rgba(10,7,5,.07)),linear-gradient(180deg,rgba(10,7,5,.25),transparent 42%,rgba(10,7,5,.52))}
+  body.svb-immersive-home :is(.home-films,.mobile-film)::after{background:linear-gradient(90deg,rgba(0,0,0,.52),rgba(0,0,0,.04)),linear-gradient(180deg,rgba(0,0,0,.18),transparent 42%,rgba(0,0,0,.44))}
 }
 @media(prefers-reduced-motion:reduce){body.svb-immersive-home :is(.home-films,.mobile-film)>video{display:none}}
