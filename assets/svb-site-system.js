@@ -5,7 +5,7 @@ const toggle=document.querySelector('.svb-home-video-toggle');if(toggle)toggle.a
 });
 
 document.addEventListener('DOMContentLoaded',()=>{
- const source=document.querySelector('.studios-visual>img,.course-feature>img,.offers-background,.planning-media video');
+ const source=document.querySelector('.studios-visual>img,.course-feature>img,.offers-background,.planning-media video,.coaching-hero__image');
  if(!source)return;
  const backdrop=document.createElement('div');backdrop.className='svb-fullpage-backdrop';backdrop.setAttribute('aria-hidden','true');
  const media=source.cloneNode(true);media.removeAttribute('id');media.removeAttribute('hidden');media.removeAttribute('controls');media.removeAttribute('fetchpriority');
