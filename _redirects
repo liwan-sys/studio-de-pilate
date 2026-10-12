@@ -204,3 +204,5 @@
 /api/newsletter/confirm           /.netlify/functions/newsletter 200!
 /api/notify                       /.netlify/functions/notify 200!
 /api/places                       /.netlify/functions/places 200!
+/studios /studios.html 200
+/studios/ /studios.html 200
