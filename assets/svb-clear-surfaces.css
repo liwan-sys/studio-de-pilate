@@ -1,0 +1,17 @@
+/* Shared flat surfaces: no frosted glass or backdrop distortion. */
+:is(#svb-clear-surfaces#svb-flat#svb-no-blur,html) body *,:is(#svb-clear-surfaces#svb-flat#svb-no-blur,html) body *::before,:is(#svb-clear-surfaces#svb-flat#svb-no-blur,html) body *::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+html body :is(.svb-unified-nav,.svb-reserve,#svb-menu-panel,.glass-card,.glass-box,.studio-card,.session-card,.pricing-offer-card,.schedule-section,.pq-card,.faq-item,.sub-nav,.planning-controls,.planning-intro,.svb-consent,.svb-mobile-sticky-cta){box-shadow:none!important}
+html body #svb-menu-panel:not(.hidden){background:#211e1a!important;border-radius:0!important;border:0!important;color:#fff!important}
+html body #svb-menu-panel a{color:#fff!important}
+html body :is(.svb-reserve,.course-controls button){background:transparent!important;box-shadow:none!important}
+html body.svb-aligned-page .svb-unified-nav{background:#211e1a!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+html body.svb-aligned-page :is(.studio-card,.session-card,.glass-box,.pricing-offer-card,.schedule-section,.pq-card,.faq-item,.sub-nav,.planning-controls,.planning-intro){background:#211e1a!important;border:1px solid #49443d!important;border-radius:0!important;box-shadow:none!important;color:#fff!important}
+html body.svb-aligned-page #main-content>p:first-of-type{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+html body.svb-aligned-page :is(.pricing-offer-cta,.schedule-live-link,.pq-cta-primary,.pq-cta-secondary,.pricing-btn,.svb-reserve){background:#f5f0e8!important;color:#211d19!important;box-shadow:none!important}
+html body.svb-aligned-page footer{background:#14110f!important}
+html body.svb-aligned-page #svb-menu-panel a[aria-current=page],html body.svb-aligned-page :is(.planning-studio-tab.is-active,.planning-day-tab.is-active){background:#484139!important;box-shadow:none!important;border-radius:0!important}
+html body :is(.svb-consent,.svb-mobile-sticky-cta){background:#2f4f4f!important;color:#fff!important;box-shadow:none!important}
+html body:not(.svb-aligned-page) :is(.glass-card,.glass-box){background:#f5f0e8!important;box-shadow:none!important}
+html body .svb-atmosphere video,html body.svb-aligned-page .session-card__media :is(img,video){filter:none!important}
+
+html body.svb-aligned-page .faq-item :is(button,h2,h3,p,span,div){color:#fff!important}
