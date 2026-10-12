@@ -101,3 +101,32 @@ body.svb-site .offers-extras .pricing-special-meta{opacity:1!important}
 body.svb-site .offers-extras .pricing-special-cta{background:#f1ebe1!important;color:#211e1a!important}
 body.svb-site .offers-extras .pricing-special-cta span{color:#211e1a!important}
 body.svb-site .offers-extras .pricing-special-card a.pricing-special-cta,body.svb-site .offers-extras .pricing-special-card a.pricing-special-cta span{color:#211e1a!important;text-shadow:none!important}
+
+/* Coaching: a focused price page, matched to the SVB immersive pages. */
+body.svb-coaching-page{background:#171410!important;color:#fff!important;min-height:100svh}
+body.svb-coaching-page .svb-fullpage-backdrop:after{background:linear-gradient(90deg,#0009,#0005 62%,#0006)!important}
+body.svb-coaching-page #main-content{min-height:100svh!important;padding:0!important;width:100%!important;max-width:none!important;display:flex;flex-direction:column;justify-content:center}
+body.svb-coaching-page .coaching-hero,body.svb-coaching-page :is(.coaching-intro,.coaching-subnav,.coaching-formats,.coaching-section){display:none!important}
+body.svb-coaching-page .coaching-subscriptions{width:100%;min-height:100svh;padding:140px 5vw 70px!important;margin:0!important;background:transparent!important;color:#fff!important;display:flex;flex-direction:column;justify-content:center}
+body.svb-coaching-page .coaching-subscriptions>h1{font-size:clamp(52px,7vw,96px)!important;margin:0 0 8px!important;color:#fff!important}
+body.svb-coaching-page .coaching-price-intro{font-size:14px!important;letter-spacing:.14em;text-transform:uppercase;margin:0 0 35px!important;color:#fffc!important}
+body.svb-coaching-page .coaching-subscription-grid{width:100%;max-width:1280px;margin:0 auto;gap:24px}
+body.svb-coaching-page .coaching-subscription-grid .pricing-special-card{background:rgba(20,18,15,.9)!important;color:#fff!important;border:1px solid #ffffff70!important;padding:32px!important}
+body.svb-coaching-page .coaching-subscription-grid .pricing-special-card :is(h3,p,dt,dd,span,strong,a){color:#fff!important}
+body.svb-coaching-page .coaching-subscription-grid .pricing-special-card h3{font-size:clamp(28px,3.2vw,42px)!important;margin:8px 0 15px!important}
+body.svb-coaching-page .coaching-subscription-grid .pricing-special-summary{display:none!important}
+body.svb-coaching-page .coaching-subscription-grid .pricing-tier-list{margin:28px 0!important}
+body.svb-coaching-page .coaching-subscription-grid .pricing-tier-list>div{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid #ffffff45}
+body.svb-coaching-page .coaching-subscription-grid .pricing-tier-list dt{font-size:14px!important}
+body.svb-coaching-page .coaching-subscription-grid .pricing-tier-list dd{margin:0!important;text-align:right;font-size:clamp(24px,3vw,36px)!important;white-space:nowrap}
+body.svb-coaching-page .coaching-subscription-grid .pricing-tier-list dd span{display:block;font-size:12px!important;margin-top:4px}
+body.svb-coaching-page .coaching-subscription-grid .pricing-special-meta{margin:10px 0!important;color:#fff!important;font-size:12px!important}
+body.svb-coaching-page .coaching-subscription-grid .pricing-special-cta{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:16px 20px;background:#f1ebe1!important;color:#211e1a!important;border:0!important;border-radius:999px!important;text-decoration:none}
+body.svb-coaching-page .coaching-subscription-grid .pricing-special-cta span{color:#211e1a!important}
+body.svb-coaching-page #svb-site-footer{background:transparent!important;color:white!important}
+body.svb-coaching-page #svb-site-footer .svb-site-logo img{filter:brightness(0) invert(1)}
+@media(max-width:700px){body.svb-coaching-page .coaching-subscriptions{padding:130px 22px 45px!important}.svb-coaching-page .coaching-subscription-grid{grid-template-columns:1fr}.svb-coaching-page .coaching-subscription-grid .pricing-special-card{padding:24px!important}.svb-coaching-page .coaching-subscription-grid .pricing-tier-list>div{padding:14px 0}}
+body.svb-coaching-page #main-content .coaching-subscriptions .pricing-special-kicker{display:inline-block!important;width:max-content!important;background:#f1ebe1!important;color:#211e1a!important;padding:8px 13px!important}
+body.svb-coaching-page #main-content .coaching-subscriptions a.pricing-special-cta,body.svb-coaching-page #main-content .coaching-subscriptions a.pricing-special-cta span{color:#211e1a!important;text-shadow:none!important}
+body.svb-coaching-page #main-content .coaching-subscriptions a.pricing-special-cta{background:#f1ebe1!important}
+body.svb-coaching-page #main-content .coaching-subscriptions .pricing-special-card-header{color:#fff!important}
