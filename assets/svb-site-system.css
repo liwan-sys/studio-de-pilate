@@ -45,3 +45,20 @@ body.svb-site:is(.svb-studios-page,.svb-courses-page) #svb-site-header .svb-home
 #svb-site-header .svb-home-direct-links::-webkit-scrollbar{display:none}
 #svb-site-header .svb-home-direct-links a{font-size:9px!important;flex-shrink:0}
 }
+
+/* Keep the studio visible below the first screen, through the entire page. */
+body.svb-fullpage-media{isolation:isolate;background:#171713!important}
+.svb-fullpage-backdrop{position:fixed;inset:0;z-index:-1;pointer-events:none;background:#171713}
+.svb-fullpage-backdrop>img,.svb-fullpage-backdrop>video{width:100%;height:100%;object-fit:cover;filter:none!important}
+.svb-fullpage-backdrop:after{content:'';position:absolute;inset:0;background:#0008}
+body.svb-fullpage-media #svb-site-footer,body.svb-aligned-page:not(.svb-readable-page) #svb-site-footer{background:transparent!important;color:#fff!important;border-color:#ffffff55}
+body.svb-fullpage-media #svb-site-footer .svb-site-logo img,body.svb-aligned-page:not(.svb-readable-page) #svb-site-footer .svb-site-logo img{filter:brightness(0) invert(1)}
+body.svb-fullpage-media #svb-site-footer :is(.svb-footer-links,.svb-footer-bottom){border-color:#ffffff44}
+body.svb-offers-page :is(.offers-details,.offers-details .pricing-showcase){background:transparent!important;color:#fff!important}
+body.svb-offers-page .offers-details :is(.pricing-offer-card,.pricing-special-card){background:#161410b3!important;border-color:#ffffff55!important;color:#fff!important}
+body.svb-offers-page .offers-details :is(h2,h3,p,li,dt,dd,span,strong,small){color:inherit!important}
+body.svb-offers-page .offers-overview{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:1000px){body.svb-offers-page .offers-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){body.svb-offers-page .offers-overview{grid-template-columns:1fr}}
+body.svb-fullpage-media .offers-hero{background:transparent}
+body.svb-fullpage-media .offers-hero>.offers-background{visibility:hidden}
