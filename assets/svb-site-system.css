@@ -35,3 +35,13 @@ body.discipline-page #main-content{padding:0!important}.discipline-page .discipl
 @media(max-width:900px){.studios-copy,.courses-index{width:100%;padding:120px 24px 160px!important;min-height:100svh}.studios-copy h1{font-size:52px}.studios-intro{max-width:340px}.studios-visual:after,.course-feature:after{background:linear-gradient(90deg,#000a,#0004),linear-gradient(0deg,#0008,transparent 50%)!important}.course-description{position:relative!important;top:auto!important;right:auto!important;width:auto!important;margin:0 24px;padding:0 0 95px;max-width:340px}.course-feature{display:flex;flex-direction:column;justify-content:end}.courses-index{padding-bottom:350px!important}.course-description{z-index:3}.studios-caption{left:24px;right:24px;bottom:100px;text-align:left;font-size:9px}.studios-play{right:24px;bottom:30px}.course-controls{bottom:25px}.course-choice{font-size:11px;padding:10px 0}.courses-index h1{font-size:58px}.studios-copy .studio-summary p{font-size:11px}}
 body.svb-site:is(.svb-studios-page,.svb-courses-page) #svb-site-header .svb-home-direct-links a:nth-child(n){color:#fff!important}
 .studios-layout:has(.is-playing) .studios-copy{visibility:hidden}
+
+/* Direct navigation: no dropdown panel covering the studio. */
+#svb-site-header .svb-home-direct-links{gap:clamp(12px,2vw,28px)!important}
+#svb-site-header .svb-home-direct-links a{white-space:nowrap}
+@media(max-width:1000px){
+#svb-site-header .svb-unified-nav{height:auto!important;min-height:110px!important;flex-wrap:wrap!important;gap:10px!important;padding-bottom:8px!important}
+#svb-site-header .svb-home-direct-links{order:3;display:flex!important;justify-content:flex-start!important;flex:0 0 100%;width:100%;overflow-x:auto;gap:23px!important;scrollbar-width:none;padding:2px 0 5px!important}
+#svb-site-header .svb-home-direct-links::-webkit-scrollbar{display:none}
+#svb-site-header .svb-home-direct-links a{font-size:9px!important;flex-shrink:0}
+}
